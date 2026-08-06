@@ -117,6 +117,43 @@ carries a human-readable `nm` field** (e.g. `xtkehzkm` → `106-map-outline`,
 
 Full resolved code→name mapping for all 51 is available (I already fetched them).
 
+### Animation: kill looping, hover only
+
+The archive is **100% `trigger=loop`** (70/70, with `delay=5000` on 67 and `delay=3000` on 3).
+Both modern repos converged on `trigger=hover` with no delay — psyc894 is 33/33 converted,
+data2 is 95/97. Applying that here to minimize student distraction:
+
+```
+{{< li CODE trigger=loop delay=5000 colors=secondary:#2a76dd class=rc >}}
+    ->
+{{< lif "../../icons/<slug>.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
+```
+
+Rule: `trigger=loop` → `trigger=hover`, drop `delay=*` entirely, **preserve `colors` and
+`class` verbatim**.
+
+⚠️ **Do not normalize `class` to `rc`.** Both modern repos are 100% `class=rc`, which makes it
+look like the house standard — but psyc790 uses two distinct patterns and they are not
+interchangeable:
+
+| Class | Count | Context | Size |
+|---|---|---|---|
+| `rc` | 25 | Big decorative icon in a 40% column (`::: {.column .tc .pv4}`) | 300×300 via `lord-icon.rc` |
+| `tr` | 45 | Small corner accent in `::: {.absolute top=-33 right=0 width=100 height=100}` | 100×100 from the container; `.tr` is only `text-align: right` |
+
+data2 and psyc894 are all-`rc` because they never used the corner-accent pattern, not because
+`tr` was retired. Converting those 45 to `rc` would force 300×300 icons into 100×100 absolute
+boxes and break the layout on more than half the decks.
+
+`colors` also varies (`secondary:` on 65 call sites, `primary:` on 5) — those target different
+Lottie layers, so preserve them verbatim as well.
+
+### Also worth fixing in data2
+
+`data2/A/04/a_Slides.qmd` lines 68 and 97 still have `trigger=loop delay=5000`
+(`spreadsheet.json`, `light_bulb.json`) — the only two that escaped the hover conversion.
+One-line fix each, unrelated to psyc790.
+
 ---
 
 ## 3b. Answer keys — keep them off GitHub
