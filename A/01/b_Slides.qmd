@@ -61,7 +61,7 @@ RStudio / Console / Scripts
 :::
 
 ::: {.column .tc .pv4 width="40%"}
-{{< lif "../../icons/jump.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/muscle.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
 :::
 
 :::

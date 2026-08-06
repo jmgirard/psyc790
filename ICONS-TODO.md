@@ -1,32 +1,64 @@
-# Icons to re-download from Lordicon
+# Icons — remaining work
 
-The bulk download pulled these from `cdn.lordicon.com`, which serves older revisions.
-Two problems, overlapping:
+## Status
 
-- **watermark** — the JSON contains a `watermark` layer (free-preview version).
-- **colour** — uses the old colour convention, so `colors=secondary:#2a76dd` leaves the
-  green `#08a88a` in place and recolours the wrong layer. Renders blue+green, not blue+black.
+- ✅ **Watermarks gone.** All 51 files are clean (the CDN bulk download had served 10
+  free-preview versions carrying a `watermark` layer).
+- ✅ **No stale colour convention.** Nothing renders Lordicon's green `#08a88a` because the
+  remap hit the wrong layer.
+- ⚠️ **12 icons ignore the `colors=` shortcode** — see below.
 
-Fix: download each from your Lordicon PRO account (Lottie JSON) and overwrite the file
-in `icons/`. Keep the filename exactly as listed. Then re-open `icon-contact-sheet.html`
-and I can re-verify all 51 in one pass.
+## The remaining issue
 
-| file | problem | lordicon page | used in |
+Lordicon's export UI changed. It used to offer a **raw** Lottie (colours wired to a `control`
+layer through expressions, so `colors=secondary:#2a76dd` works at runtime) and a
+**customized** Lottie (colours flattened to static values at export time). Now it appears to
+export only the customized form.
+
+Measured across the 51 files:
+
+| group | control layer | colour expressions | `colors=` works? |
 |---|---|---|---|
-| `avatar_search.json` | watermark | https://lordicon.com/icons/wired/outline/288-avatar-man-search | A/03/b |
-| `caliper.json` | watermark, colour | https://lordicon.com/icons/wired/outline/1749-vernier-caliper | B/05/b |
-| `edit_doc.json` | watermark | https://lordicon.com/icons/wired/outline/245-edit-document | B/05/b |
-| `equalizer.json` | watermark | https://lordicon.com/icons/wired/outline/1080-rhythm-audio-equalizer | B/05/a, B/05/b |
-| `funnel.json` | colour | https://lordicon.com/icons/wired/outline/736-funnel-tools-utensils | B/05/a |
-| `jump.json` | colour | https://lordicon.com/icons/wired/outline/649-jump | A/01/b |
-| `magic_ball.json` | watermark, colour | https://lordicon.com/icons/wired/outline/1114-magic-ball | B/05/b |
-| `newspaper.json` | colour | https://lordicon.com/icons/wired/outline/411-news-newspaper | B/05/b |
-| `people.json` | watermark, colour | https://lordicon.com/icons/wired/outline/275-female-and-two-males | B/05/a |
-| `privacy_policy.json` | watermark | https://lordicon.com/icons/wired/outline/966-privacy-policy | B/05/a |
-| `target.json` | colour | https://lordicon.com/icons/wired/outline/458-goal-target | B/05/b |
-| `test_tubes.json` | watermark | https://lordicon.com/icons/wired/outline/1221-test-tubes | B/05/a |
+| `rulers`, `theater`, `caution`, `poetry` (older exports, from data2/psyc894) | yes | 6–8 | **yes** |
+| the 12 re-exported under the new UI | yes | **0** | no — inert |
+| the other 35 (legacy CDN files) | no | n/a | yes, via direct colour match |
 
-## Already fixed
+The 12 have a `control` layer that nothing listens to, so the shortcode updates it and nothing
+downstream changes. Removing the orphaned control layer does **not** restore runtime control
+(tested).
 
-Copied from your existing repos (all v5.12.1, clean, modern structure):
-`rulers.json`, `theater.json` (psyc894) and `caution.json`, `poetry.json` (data2).
+## Fix: set the colour before exporting
+
+For each icon below, open it in Lordicon, set **secondary → `#2a76dd`** in the customizer,
+then export the Lottie JSON and overwrite the file in `icons/` keeping the filename.
+
+Verification: the exported JSON should contain `#2a76dd` where it currently contains
+`#08a88a`. Reload `icon-contact-sheet.html` and every icon should render blue + near-black.
+
+| file | lordicon page |
+|---|---|
+| `avatar_search.json` | https://lordicon.com/icons/wired/outline/288-avatar-man-search |
+| `caliper.json` | https://lordicon.com/icons/wired/outline/1749-vernier-caliper |
+| `edit_doc.json` | https://lordicon.com/icons/wired/outline/245-edit-document |
+| `equalizer.json` | https://lordicon.com/icons/wired/outline/1080-rhythm-audio-equalizer |
+| `funnel.json` | https://lordicon.com/icons/wired/outline/736-funnel-tools-utensils |
+| `magic_ball.json` | https://lordicon.com/icons/wired/outline/1114-magic-ball |
+| `muscle.json` | (replaces the retired `649-jump`) |
+| `newspaper.json` | https://lordicon.com/icons/wired/outline/411-news-newspaper |
+| `people.json` | https://lordicon.com/icons/wired/outline/275-female-and-two-males |
+| `privacy_policy.json` | https://lordicon.com/icons/wired/outline/966-privacy-policy |
+| `target.json` | https://lordicon.com/icons/wired/outline/458-goal-target |
+| `test_tubes.json` | https://lordicon.com/icons/wired/outline/1221-test-tubes |
+
+## Leave the shortcodes alone
+
+Keep `colors=secondary:#2a76dd` on all 70 call sites even though it is inert for these 12.
+The source stays uniform, the rendered result is identical either way, and if Lordicon ever
+restores raw export the shortcode simply starts working again.
+
+## Consequence worth knowing
+
+For export-customized icons the accent colour is **fixed at export time**. If the course ever
+changes its accent colour, those icons must be re-exported — the shortcode won't move them.
+Worth a line in Katie's README, since over time more icons will end up in this category as
+they get replaced.
