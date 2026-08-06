@@ -14,6 +14,70 @@ In-class project work
 
 In-class project work
 
+<!-- Project -->
+
+<!-- ==========================================================================
+     REVISED per teaching notes: instructions clarified, and the zero-order
+     effects requirement replaced with an interaction (rubric updated to
+     match). Compare against the Fall 2025 Canvas version before posting.
+     ========================================================================== -->
+
+## Project Description
+
+For this project, you will put the Unit C skills to use. Whereas the assignments in this
+course use curated datasets that are pre-cleaned and ready-to-analyze, data in the real world
+is often a bit messy and needs to be tidied. Projects are opportunities to work with real-world
+data that you care about (e.g., data from your own research lab or domains you care about).
+
+The goal of the Unit C Project is to **use a linear model to analyze data you care about and
+interpret the results**. This data could be the same as or different from the data you prepared
+in the Unit A Project. You should create a Quarto document that conducts these steps, prints
+the output, and describes your findings in text.
+
+### Your dataset
+
+- At least **20 rows** and at least **4 columns**
+- Some datasets include hundreds of columns and that can be overwhelming, so I recommend
+  selecting a subset of the most important/interesting columns to focus on for this project
+- Ideally there would be a mix of categorical and continuous variables (but this is not
+  required)
+
+### Your focal model
+
+Fit **one focal multiple regression model** that includes:
+
+- An outcome variable and **at least two predictors**
+- **At least one interaction** between two of your predictors
+
+Before you fit it, state in text what you expect and why — name the hypotheses your model is
+testing, in your own words, rather than only reporting what came out.
+
+### What to report
+
+1. **State your hypotheses** before fitting the model.
+2. **Estimate the focal model** and present the coefficient table.
+3. **Interpret every coefficient in text**, including the intercept. For the interaction, say
+   what it means in terms of your variables — not just whether it was significant.
+4. **Probe the interaction.** Report simple slopes (for a continuous moderator) or marginal
+   contrasts (for a categorical one), and explain what they show.
+5. **Report effect sizes**: standardized slopes and $R^2$.
+6. **Include a marginal effects plot** of the interaction, and use it to support your
+   interpretation in text.
+7. **Check the assumptions** of your focal model — correct functional form, no perfect
+   collinearity, constant error variance, normal residuals, independent residuals, and
+   influential cases/outliers. Say what you checked, what you found, and whether it changes
+   your confidence in the results.
+
+### Grading
+
+| | |
+|---|---|
+| 1 point | Was the focal model specified and estimated properly, including the interaction? |
+| 1 point | Were the coefficients interpreted properly, including the interaction? |
+| 1 point | Was the interaction probed properly (simple slopes or marginal contrasts)? |
+| 1 point | Were the effect sizes and marginal effects plots generated properly? |
+| 1 point | Were the assumptions tested and interpreted properly? |
+
 <!-- Bottom Nav -->
 
 ```{=html}

@@ -33,7 +33,7 @@ title: "Week 13: Polynomial Regression"
 
 ## [13b] Unit C Project
 
-In-class project work
+In-class project work — see the [project description](../14/index.html#project-description).
 
 <!-- Bottom Nav -->
 
