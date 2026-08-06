@@ -469,6 +469,44 @@ Slots in as a new phase after Phase 6:
 
 ---
 
+## 6b. Package drift
+
+Checked against the versions installed 2026-08-06 (easystats 0.7.6, ggplot2 4.0.3,
+tidyverse 2.0.0, marginaleffects 0.32.0, emmeans 2.0.4, dplyr 1.2.1). The full site
+re-executed every chunk with **zero errors**, so nothing in the Fall 2025 code is broken by
+current packages.
+
+One genuine deprecation:
+
+- **`qplot()`** — deprecated in ggplot2 3.4.0, still functional in 4.0.3 but it warns. Used
+  ~8 times as a teaching section in `A/03/b_Slides.qmd`, and `A/03/assignment.qmd`
+  **instructs students to use it** (Q4a/b). Students on current ggplot2 will see a
+  deprecation warning that the Fall 2025 cohort did not. Replacing it with `ggplot()` calls
+  is a teaching-content decision, not a mechanical fix.
+
+Three decks suppress warnings (`B/05/b`, `B/07/a`, `B/08/a`, mostly around
+`model_parameters()` / `estimate_means()` / `visualisation_recipe()`). These were re-rendered
+with `warning: true` to check for drift hiding behind the suppression — **zero deprecations
+found** — then restored.
+
+### ⚠️ Freeze hides future drift, by design
+
+`freeze: auto` re-executes only when the **source** changes, never when packages update. That
+is exactly what keeps the published site stable — but it also means package drift stays
+invisible until execution is forced. There is no `--no-freeze` flag; force it by clearing the
+cache:
+
+```bash
+rm -rf _freeze && quarto render
+```
+
+Worth doing once before each offering. That is the moment drift surfaces, and it is much
+better to meet it deliberately than to have a student hit it mid-semester. Note this also
+applies to Katie's CI setup: because her GitHub Action reuses committed freeze output and
+never runs R, it can never surface drift — someone has to run a full local re-render.
+
+---
+
 ## 7. Copyright audit
 
 Since the repo and the Pages site are both public, here's what's actually in scope. Not legal
