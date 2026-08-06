@@ -1,0 +1,54 @@
+---
+title: "Statistical Methods in Psychology"
+toc: false
+email-obfuscation: javascript
+---
+
+```{=html}
+<style>
+/* Center the main page title */
+.title {
+  text-align: center;
+}
+
+/* Center all images on the page */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+```
+
+![](./img/statistics_2780E3.svg){width="400"}
+
+### Course Description
+
+<!-- TODO: course description. Not recoverable from the archive -- copy from the
+     Fall 2025 syllabus or Canvas. -->
+
+### Learning Outcomes
+
+At the conclusion of this course, students will be able to:
+
+<!-- TODO: learning outcomes, copied from the syllabus. Deliberately not
+     invented from the lecture topics. -->
+
+### Course Textbooks
+
+<!-- TODO: textbook list. Readings are PDFs in Canvas Files (see ICONS.md /
+     MODERNIZATION-PLAN.md section 4 for how reading links are wired). -->
+
+## Fall 2025 Semester
+
+### Instructor
+
+- [Dr. Jeffrey Girard](mailto:jmgirard@ku.edu), Instructor
+
+### Class Time and Location
+
+<!-- TODO: meeting days, times, and room. -->
+
+### Office Hours
+
+<!-- TODO: office hours. -->

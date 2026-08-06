@@ -1,0 +1,70 @@
+---
+title: "Course Schedule"
+toc: false
+---
+
+## Unit A
+- Week 01: [Getting Started](A/01/index.qmd)
+    b. RStudio / Console / Scripts
+
+- Week 02: [Projects and Programming](A/02/index.qmd)
+    a. Projects / Quarto / Markdown
+    b. Assignment / Functions / Vectors
+
+- Week 03: [Data and Exploration](A/03/index.qmd)
+    a. Strings / Factors / Packages
+    b. Data Frames / Files / Exploration
+
+- Week 04: [Unit A Project](A/04/index.qmd)
+    a. Unit A Project
+    b. Unit A Project
+
+## Unit B
+- Week 05: [Sampling and Estimation](B/05/index.qmd)
+    a. Populations / Samples / Uncertainty
+    b. Estimates / Normality / Confidence
+
+- Week 06: [Hypothesis Testing](B/06/index.qmd)
+    a. Hypotheses / NHST / p-values
+    b. Covariances / Correlations / Inference
+
+- Week 07: [Group Comparisons](B/07/index.qmd)
+    a. t-tests / Effect Sizes / Paired Groups
+    b. One-way ANOVA / Effect Sizes / Contrasts
+
+- Week 08: [Extensions and Review](B/08/index.qmd)
+    a. Extensions / Translation / Review
+
+## Unit C
+- Week 09: [Regression](C/09/index.qmd)
+    a. Fall Break
+    b. Regression / Inference / Centering
+
+- Week 10: [Categorical and Multiple Regression](C/10/index.qmd)
+    a. Dummy Codes / Means / Contrasts
+    b. Multiple Regression / Partial Effects
+
+- Week 11: [Moderation](C/11/index.qmd)
+    a. Continuous Moderation
+    b. Categorical Moderation
+
+- Week 12: [Assumptions and Diagnostics](C/12/index.qmd)
+    a. Assumptions and Diagnostics I
+    b. Assumptions and Diagnostics II
+
+- Week 13: [Polynomial Regression](C/13/index.qmd)
+    a. Polynomial Regression
+    b. Unit C Project
+
+- Week 14: [Unit C Project](C/14/index.qmd)
+    a. Unit C Project
+    b. Unit C Project
+
+## Unit D
+- Week 15: [Best Practices](D/15/index.qmd)
+    a. Best & Questionable Practices
+    b. Thanksgiving Break
+
+- Week 16: [Reporting and Reviewing](D/16/index.qmd)
+    a. Reporting & Reviewing
+    b. Translation Activity
