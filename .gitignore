@@ -41,6 +41,3 @@ _freeze/archive/
 *.docx
 *.pptx
 readings/
-
-# Written by A/03/b_Slides.qmd as a live demo of write_csv()
-A/03/gradebook.csv

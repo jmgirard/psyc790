@@ -492,12 +492,6 @@ tibble(y, x) #error
 
 # ==============================================================================
 
-# LESSON: However, the exception is R will "recycle" a single value
-
-tibble(y, x = "a")
-
-# ==============================================================================
-
 # LESSON: You can "extract" a vector from a tibble using $
 
 mytibble <- tibble(x = c(1, 2, 3, 4, 5), y = "test")
@@ -562,25 +556,10 @@ library(tidyverse)
 
 # ==============================================================================
 
-# USECASE: Create a tibble and write it to a file in your project folder
+# SETUP: Download gradebook.csv from the course website into your project folder
 
-gradebook <- tibble(
-  id = c(123, 456, 789),
-  grade = c("A", "B", "?")
-)
-gradebook
-
-write_csv(gradebook, file = "gradebook.csv")
-
-# NOTE: You can see the new file in Extras pane > Files tab.
-# You can open the file in another program (e.g., Microsoft Excel).
-# You can also email this file to someone else to share it.
-
-# ==============================================================================
-
-# PITFALL: Don't swap the order of the tibble and the file
-
-write_csv("gradebook.csv", gradebook) # error
+# NOTE: You can see the file in Extras pane > Files tab.
+# You can open it in another program (e.g., Microsoft Excel).
 
 # ==============================================================================
 
