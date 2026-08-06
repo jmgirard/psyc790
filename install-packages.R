@@ -24,6 +24,9 @@ cran_packages <- c(
 
   # Stats / teaching helpers
   "afex",
+  "marginaleffects",  # required at runtime by modelbased::estimate_means()
+  "effects",
+  "emmeans",
   "distributional",
   "faux",
   "irr",

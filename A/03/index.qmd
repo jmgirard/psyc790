@@ -224,10 +224,11 @@ c) Run your command again but with the `show_col_types = FALSE` argument to supp
 **Part (b)**
 
 ```{r}
-cereal <- read_csv("kaggle_cereal.csv", na = "missing")
+#| replace_path: ["../../data/", ""]
+cereal <- read_csv("../../data/kaggle_cereal.csv", na = "missing")
 cereal
 
-cereal <- read_csv("kaggle_cereal.csv", na = "missing", show_col_types = FALSE)
+cereal <- read_csv("../../data/kaggle_cereal.csv", na = "missing", show_col_types = FALSE)
 ```
 
 {{< dstop >}}
