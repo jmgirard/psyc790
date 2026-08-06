@@ -202,8 +202,41 @@ Recommended handling:
    backed up, which a gitignored local folder does not. If you'd rather have one place for
    all three courses, a single private `jmgirard/teaching-keys` with `psyc790/`, `data2/`,
    `psyc894/` subfolders works equally well and is probably tidier long-term.
-2. Add a belt-and-braces `.gitignore` rule in the public repo — `*_key.qmd` and `**/keys/` —
-   so a stray key can't be committed by accident.
+2. Add `.gitignore` rules in the public repo so a stray key can't be committed by accident.
+
+   ⚠️ **`*_key.qmd` alone is not enough — this actually bit us.** Quarto rendered the whole
+   `archive/` tree (see below), which wrote the fully rendered answer keys — honeypot markers
+   and all — into `_freeze/archive/**/execute-results/html.json`, plus figure PNGs and a stray
+   `.html`. Those matched no `.qmd` rule and were committed across 16 commits before being
+   caught. Nothing had been pushed (psyc790 had no remote yet), so history was rewritten with
+   `git filter-branch` and the artifacts purged.
+
+   The rules now cover derived artifacts, not just sources:
+   ```gitignore
+   *_key.qmd
+   *_Key.qmd
+   **/keys/
+   *_key.*        # rendered html/json/png derived from a key
+   *_Key.*
+   *_key/
+   *_Key/
+   _freeze/archive/
+   ```
+
+   **Root cause:** a Quarto website project renders *every* `.qmd` it finds, including
+   `archive/`. Fixed in `_quarto.yml`:
+   ```yaml
+   project:
+     render:
+       - "**/*.qmd"
+       - "!archive/**"
+   ```
+   Note the glob-list form (`"A/**/*.qmd"`, …) did **not** exclude archive — only the `!`
+   negation did. Verify with `quarto inspect`, which should report 51 input files and zero
+   under `archive/`.
+
+   Lesson for the keys repo: if graded keys are ever rendered, their `_freeze` output is just
+   as sensitive as the source.
 3. Because keys reference the same datasets, the private repo either duplicates the handful
    of CSVs it needs or points at the public site's `data/` URLs.
 
