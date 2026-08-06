@@ -1,0 +1,114 @@
+---
+title: "Week 02 Assignment"
+format: 
+  html:
+    css: styles.css
+    embed-resources: true
+---
+
+![](../img/exams_2780E3.svg){width=300 height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Week 02 Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+
+## Question 1 (Projects)
+
+a) What is the purpose of a Project in RStudio? {{< hp glyph="." >}}Why do I recommend creating a project rather than simply saving all your course stuff in a normal computer folder?
+
+b) What are some benefits of having a consistent naming convention for the files in your project? {{< hp glyph="." >}}What kinds of tasks might be easier if you stick with a convention?
+
+## Question 2 (Quarto and Markdown)
+
+a) What is the difference between a .qmd file and a .html file created by Quarto? {{< hp glyph="." >}}When would you send the .qmd file to a collaborator and when would you send the .html file?
+
+b) Quarto lets you include many code chunks in the same document. {{< hp glyph="." >}}When would you want to put all your code in a single chunk and when would you want to break it up across multiple chunks?
+
+c) Use markdown headings to break your document into sections: one per question. Because Header level 1 is usually used for a document title, I recommend using Header level 2. (Please continue using markdown headings in your future assignments.)
+
+## Question 3 (Assignment and Naming)
+
+a) Why is it important to give your objects in R good names? {{< hp glyph="." >}}When might poorly thought-out names cause problems for a programmer?
+
+b) Sam is designing a treehouse. The plan is basically a big rectangular box with a wall that is 5.32 ft wide and 4.74 ft long (Sam is very precise). Using R, calculate the area of the treehouse and save that value to an object named `area`. Then use that object to calculate the `volume` of the treehouse, assuming the walls are 5.61 ft tall. Print the `volume` object.
+
+$$Area = Length \times Width$$
+
+$$Volume = Area \times Height$$
+
+c) Help me fix my code! "I want to assign a name to my extraversion score on the Five Factor Model personality test."
+
+```{r, renv.ignore=TRUE}
+#| error: true
+#| collapse: true
+
+5FM_extraversion <- 23
+```
+
+d) Help me fix my code! "I want to calculate the average of three objects corresponding to negative emotion self-reports."
+
+```{r}
+#| error: true
+#| collapse: true
+
+anger <- 3
+sadness <- 4
+fear <- 3
+negative_emotion <- (anger + sadness + faer) / 3
+```
+
+## Question 4 (Functions)
+
+a) What are functions and arguments (in the context of programming) and {{< hp glyph="." >}}why are they useful?
+
+b) Help me fix my code! "I want to round 1/16 to three decimal places."
+
+```{r, renv.ignore=TRUE}
+#| error: true
+#| collapse: true
+
+round(1 / 16; places = 3)
+```
+
+## Question 5 (Vectors)
+
+a) What did I mean when I said that "functions typically either transform each element in a vector or summarize all elements in a vector"? {{< hp glyph="." >}}In your answer, provide an example (in text) of when each of these behaviors might be useful.
+
+b) Below is a table of the top 5 countries' production (i.e., [GDP Per Capita at PPP](https://www.worldometers.info/gdp/gdp-by-country/)) in 2017. {{< hp glyph="." >}}Save the numbers only to a vector and then use R to create a new vector that contains the log-transformed versions of each number. Print that new vector.
+
+{{< dstart summary="Hint" >}}
+Your output should look like this:
+
+```{r}
+#| echo: false
+
+gdp <- c(19.485, 12.238, 4.872, 3.693, 2.651)
+log(gdp)
+```
+
+{{< dstop >}}
+
+|Country|Trillions |
+|-------|----------|
+|USA    |19.485    |
+|China  |12.238    |
+|Japan  |4.872     |
+|Germany|3.693     |
+|India  |2.651     |
+
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

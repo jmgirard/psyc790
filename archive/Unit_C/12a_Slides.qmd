@@ -1,0 +1,496 @@
+---
+format: 
+  revealjs:
+    css: styles.css
+    slide-number: true
+    show-slide-number: all
+    preview-links: false
+    self-contained: true
+    embed-resources: true
+    progress: true
+    history: true
+    hash-type: number
+    theme: default
+    code-block-background: true
+    highlight-style: zenburn
+    code-link: false
+    code-copy: true
+    pagetitle: "Statistical Methods in Psychology"
+    author-meta: "Jeffrey Girard"
+    semester: "Fall 2025"
+    course: "PSYC 790"
+    lecture: "12a"
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Assumptions and Diagnostics I
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[Jeffrey M. Girard | Lecture {{< meta lecture >}}]{}
+:::
+
+![](../img/growth_curve_357EDD.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r setup}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(easystats)
+library(patchwork)
+mytheme <- function(sz = 30) {
+  theme_gray(base_size = sz) + 
+  theme(panel.grid.minor = element_blank())
+}
+```
+
+# Overview
+
+## Motivation {.f6}
+
+- The linear model makes certain assumptions about the data
+
+- When these assumptions are **violated**, two main problems occur
+
+1. Estimated **coefficients** (i.e., relationships) may be biased
+    + Intercepts and slopes directly affected
+    + Tests and confidence intervals indirectly affected
+    
+2. Estimated **standard errors** (i.e., uncertainty) may be biased
+    + Tests and confidence intervals directly affected
+    
+- Thus, our conclusions and inferences may be incorrect!
+
+
+## Assumptions Overview {.f6}
+
+- **Assumptions about the Formula**
+    + Correct Functional Form
+    + Perfectly Measured Predictors
+    + No Collinearity/Multicollinearity
+
+::: {.fragment}
+- **Assumptions about the Residuals**
+    + Constant Error Variance
+    + Independence of Residuals
+    + Normality of Residuals
+    
+:::
+
+
+# Correct Form
+
+## Assumption
+
+- The "form" of the $x$-$y$ relationship(s) must be correct
+    + The methods we learned so far assume **straight** lines
+    + We will also learn about polynomials for **curved** lines
+    + Advanced methods can take on other complex shapes
+    + This assumption is that we set up the model correctly
+
+::: {.callout-important title="Consequences of Violating"}
+Bias in both coefficients and standard errors!
+:::
+
+## Assumption Examples
+
+::: {.columns}
+::: {.column}
+```{r, echo=FALSE, fig.width=5, fig.height=5}
+set.seed(2021)
+d1 <- tibble(
+  x = rnorm(100, 0, 2),
+  y_met = 10 + 0.6*x + rnorm(100, 0, 1),
+  y_violated = 2 + 0.6*x + 0.5*x^2 - 0.1*x^3 + rnorm(100, 0, 1)
+)
+ggplot(d1, aes(x = x, y = y_met)) + 
+  geom_point(size = 2.5) + 
+  geom_smooth(method = "lm", linewidth = 2, color = "darkgreen") + 
+  mytheme()
+```
+
+:::
+::: {.column}
+```{r, echo=FALSE, fig.width=5, fig.height=5}
+ggplot(d1, aes(x =x , y = y_violated)) + 
+  geom_point(size = 2.5) + 
+  geom_smooth(method = "lm", linewidth = 2, color = "darkred") + 
+  mytheme()
+```
+
+:::
+:::
+
+
+## Diagnostics {.f6}
+
+- We can use scatterplots as a visual diagnostic
+    + A simple approach would plot $y$ against each $x$
+    + But we can combine this into a single plot by...
+- Plot the residuals $(y-\hat{y})$ against the fitted values $\hat{y}$
+    + We can also add a reference (LOESS) line to these plots
+    + We want to see a *flat* and *horizontal* reference line
+
+::: {.tc}
+`check_model(fit, check = "linearity")`
+:::
+
+
+## Example: Assumption Met
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(easystats)
+check_model(fit_met, check = "linearity")
+```
+
+```{r}
+#| message: false
+
+library(easystats)
+fit_met <- lm(y_met ~ x, data = d1)
+see:::plot.see_check_model(check_model(fit_met, check = "linearity", panel = FALSE))$NCV + 
+  mytheme() + 
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(hjust = 0, size = 22),
+    plot.subtitle = element_text(hjust = 0, size = 20)
+  )
+```
+
+## Example: Assumption Violated
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(easystats)
+check_model(fit_violated, check = "linearity")
+```
+
+```{r}
+#| message: false
+
+library(easystats)
+fit_violated <- lm(y_violated ~ x, data = d1)
+see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel = FALSE))$NCV + 
+  mytheme() + 
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(hjust = 0, size = 22),
+    plot.subtitle = element_text(hjust = 0, size = 20)
+  )
+```
+
+## Solutions {.f6}
+
+1. Specify a more complex functional form
+    + e.g., variable transformations
+    + e.g., polynomial regression
+    + e.g., segmented or piece-wise regression
+
+2. Use a nonlinear extension of regression
+    + e.g., generalized linear modeling (GLM)
+    + e.g., generalized additive modeling (GAM)
+    + e.g., supervised machine learning (ML)
+
+
+# Perfect Predictors
+
+## Assumption
+
+- All predictors $(x)$ must be measured without error
+    + With a single predictor, the slope will be underestimated
+    + With many predictors, slopes may be too low or high
+
+- When violated, called regression "dilution" or "attenuation"
+
+::: {.callout-important title="Consequences of Violating"}
+Bias in both coefficients and standard errors!
+:::
+
+::: {.footer}
+Error in $y$ will bias standardized (but not unstandardized) coefficients.
+:::
+
+
+## Diagnostics
+
+Calculate predictors' **reliability** (the opposite of error)
+
+1. Test-retest reliability across time
+    + Correlation from `correlation::correlation()`
+
+2. Internal reliability across items
+    + McDonald's Omega from `psych::omega()`
+    
+3. Inter-rater reliability across raters
+    + Intraclass Correlation from `irr::icc()`
+
+
+## Solutions
+
+1. Improve measurement reliability
+    + e.g., add items, raters, or training
+
+2. Adjust coefficients for reliability
+    + e.g., correlation disattenuation
+
+3. Model reliability/error explicitly
+    + e.g., total least squares estimation
+    + e.g., errors-in-variables models
+    + e.g., structural equation modeling
+
+
+# No Collinearity
+
+## Assumption
+
+- No set of predictors are redundant with one another
+    + Collinearity = 2 predictors, Multicollinearity = 3+
+    
+- If $x_1$ and $x_2$ fully overlap, there are no partial effects left
+    + The model won't fit (or drops one or more predictors)
+
+- If they *almost* fully overlap, the estimates become unstable
+
+::: {.callout-important title="Consequences of Violating"}
+Coefficients are biased and standard errors are upwardly biased (i.e., inflated).
+:::
+
+
+## Assumption
+
+::: {.columns}
+::: {.column}
+If $x_1$ and $x_2$ overlap to a<br>*very* large degree, then...
+
+- [c]{.b .green} and/or [d]{.b .purple} are large 
+- [b]{.b .green} and [f]{.b .green} are unstable
+
+$$\hat{y} = b_0 + b_1x_1 + b_2x_2$$
+
+- So $b_1$ and $b_2$ are unstable
+:::
+::: {.column}
+![](../img/venn/yx1x2.png)
+:::
+:::
+
+
+## Diagnostics
+
+1. Examine predictor correlations for collinearity
+    + $r(x_1, x_2)\ge0.9$ may be problematic
+    + But this captures [c]{.b .green} and [d]{.b .purple}, whereas only [c]{.b .green} is an issue
+    + It also doesn't detect multicollinearity
+    
+2. Calculate variance inflation factors (VIFs)
+    + Look for evidence of inflated standard errors
+    + Each predictor will get its own VIF value
+    + $\text{VIF}>5$ is "moderate", $\text{VIF}>10$ is "high"
+
+
+## Variance Inflation Factors
+
+- To calculate the $\text{VIF}$ for predictor $j$...
+    1. Regress $x_j$ on *all other* predictors
+    2. Calculate $R^2$ from that model
+    3. Calculate $\text{VIF}$ from that $R^2$
+    
+$$\text{VIF}_j = \frac{1}{1-R^2_j}$$
+
+::: {.tc}
+`check_collinearity(fit)`
+:::
+
+
+## Example Data {.f6}
+
+Let's simulate some data with various collinearity-related issues
+
+::: {.columns}
+::: {.column}
+
+#### Simulated Data
+
+- `y` (Continuous)
+
+- `height1`, `height2`, `weight`, `size` (Continuous)
+
+- `female`, `male` (Binary)
+
+```{r, echo=FALSE}
+set.seed(2021)
+simdat <- tibble(
+  height1 = rnorm(100, 0, 3),
+  height2 = height1 + rnorm(100, 0, 0.75),
+  weight = rnorm(100, 0, 3),
+  size = height1 + weight + rnorm(100, 0, 0.7),
+  female = sample(0:1, 100, TRUE), 
+  male = ifelse(female == 1, 0, 1),
+  y = 10 + 0.2*height1 - 0.4*weight + rnorm(100, 0, 1)
+)
+```
+:::
+
+::: {.column}
+#### Simulated Issues
+
+- `height2` is collinear with `height1`
+
+- `size` is multicollinear with `height1` and `weight`
+
+- `female` and `male` are fully redundant
+
+:::
+:::
+
+## Bivariate Correlations
+
+```{r}
+#| echo: true
+#| collapse: true
+
+round(cor(simdat), digits = 2)
+```
+
+::: {.f6}
+- `height1` and `height2` are highly correlated $(r=.97)$
+
+- `female` and `male` are perfectly correlated $(r=-1.00)$
+
+- However, `size` is not as correlated with `height1` $(r=.72)$<br>or `weight` $(r=.72)$ despite the three being multicollinear
+:::
+
+
+## Example with No Issues {.f6}
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit_none <- lm(y ~ height1 + weight, data = simdat)
+
+model_parameters(fit_none)
+
+r2(fit_none)
+```
+
+- Both slopes are significant
+- The SE of both slopes is 0.04
+- The $R^2$ is 0.567 (57%)
+
+
+## Example with No Issues
+
+Let's calculate the VIFs for this model
+
+```{r}
+#| echo: true
+#| collapse: true
+
+check_collinearity(fit_none)
+```
+
+- The VIFs for both predictors are low (<5)
+
+
+## Example with Collinearity {.f6}
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit_co <- lm(y ~ height1 + weight + height2, data = simdat)
+
+model_parameters(fit_co)
+
+r2(fit_co)
+```
+
+- The `height1` slope is no longer significant
+- The SE of the height slopes are both 0.15 (up from 0.04)
+- Note that the $R^2$ is basically the same (57%)
+
+
+## Example with Collinearity
+
+Let's calculate the VIFs for this model
+
+```{r}
+#| echo: true
+#| collapse: true
+
+check_collinearity(fit_co)
+```
+
+- The VIFS for both height variables are very high (>10)
+
+
+## Example with Multicollinearity {.f6}
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit_mc <- lm(y ~ height1 + weight + size, data = simdat)
+
+model_parameters(fit_mc)
+
+r2(fit_mc)
+```
+
+- None of the slopes are significant
+- The SE of all slopes is now 0.18 (up from 0.04)
+- Note that the $R^2$ is basically the same (57%)
+
+
+## Example with Multicollinearity
+
+Let's calculate the VIFs for this model
+
+```{r}
+#| echo: true
+#| collapse: true
+
+check_collinearity(fit_mc)
+```
+
+- The VIFs for all predictors are very high (>10)
+
+
+## Example with Exact Collinearity
+
+```{r}
+#| echo: true
+#| warning: true
+#| collapse: true
+
+fit_xc <- lm(y ~ female + male, data = simdat)
+
+model_parameters(fit_xc)
+```
+
+- Note the warning about the `male` parameter
+- Note the absence of a `male` slope (it was dropped)
+- This is why we use $(g-1)$ dummy codes and not $g$
+
+
+## Solutions {.f6}
+
+1. Break the predictors' redundancy
+    + e.g., drop one or more predictors
+    + e.g., combine two or more predictors
+    + e.g., reduce predictor dimensionality (PCA)
+    + e.g., penalized (lasso or ridge) regression
+
+2. Model the predictors' shared variance
+    + e.g., partial least squares estimation
+    + e.g., structural equation modeling
+

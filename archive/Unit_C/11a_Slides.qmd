@@ -1,0 +1,537 @@
+---
+format: 
+  revealjs:
+    css: styles.css
+    slide-number: true
+    show-slide-number: all
+    preview-links: false
+    self-contained: true
+    embed-resources: true
+    progress: true
+    history: true
+    hash-type: number
+    theme: default
+    code-block-background: true
+    highlight-style: zenburn
+    code-link: false
+    code-copy: true
+    pagetitle: "Statistical Methods in Psychology"
+    author-meta: "Jeffrey Girard"
+    semester: "Fall 2025"
+    course: "PSYC 790"
+    lecture: "11a"
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Continuous Moderation
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[Jeffrey M. Girard | Lecture {{< meta lecture >}}]{}
+:::
+
+![](../img/growth_curve_357EDD.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r setup}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(easystats)
+library(patchwork)
+mytheme <- function(sz = 30) {
+  theme_gray(base_size = sz) + 
+  theme(panel.grid.minor = element_blank())
+}
+```
+
+
+# Overview
+
+## Motivation
+
+- Last week, we learned about multiple regression
+
+- We used this to predict $y$ from multiple $x$ variables
+
+- We accounted for the shared variance among $x$ variables
+
+::: {.fragment}
+- We will now learn [moderation]{.b .blue} (i.e., interaction effects)
+
+- The effect of one $x$ ***depends on*** the value of another $x$
+
+- This adds complexity and "contextualization" to models
+
+:::
+
+## Example dataset
+
+Imagine we are doing a study on exercise and energy use
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+#install.packages("marginaleffects")
+library(tidyverse)
+exercise <- read_csv("exercise.csv")
+exercise
+```
+
+
+## Exploratory analysis
+
+```{r, echo=FALSE}
+p1 <- qplot(expenditure, data = exercise, geom = "histogram", bins = 30) + mytheme(24)
+p2 <- qplot(duration, data = exercise, geom = "histogram", bins = 30) + mytheme(24)
+p3 <- qplot(intensity, data = exercise,geom = "histogram", bins = 30) + mytheme(24)
+p4 <- qplot(sex, data = exercise, geom = "bar") + mytheme(24)
+p5 <- qplot(program, data = exercise, geom = "bar") + mytheme(24)
+
+(p1 | (p2 / p3) | (p4 / p5))
+```
+
+::: {.footer}
+Note that this is simulated (i.e., fake) data.
+:::
+
+## Moderation questions {.f5}
+
+**Continuous-by-Continuous Interaction**
+
+- Does the effect of `duration` on `expenditure` depend on `intensity`?
+
+::: {.fragment}
+**Continuous-by-Categorical Interaction**
+
+- Does the effect of `duration` on `expenditure` depend on `sex`?
+:::
+
+::: {.fragment}
+**Categorical-by-Categorical Interaction**
+
+- Does the effect of `program` on `expenditure` depend on `sex`?
+:::
+
+::: {.fragment}
+*Note that each question is statistically identical to its reverse (i.e., vice versa).*
+:::
+
+# Continuous-by-Continuous
+
+## Multiple regression recap
+
+Let's regress a continuous $y$ on two continuous $x$ variables
+
+$$\hat{y} = b_0 + b_1 x_1 + b_2 x_2$$
+
+- $b_0$ (intercept): the predicted $y$ when $x_1=0$ and $x_2=0$
+
+- $b_1$ (partial): the change in $y$ for a change of +1 in $x_1$
+
+- $b_2$ (partial): the change in $y$ for a change of +1 in $x_2$
+
+- $b_1$ controls for $x_2$ but is the same across all values of $x_2$ and thus does not depend on it (and the same for $b_2$ and $x_1$)
+
+## Adding an interaction {.f5}
+
+Interactions are formed by multiplying predictor variables
+
+The product becomes another predictor with its own slope
+
+$$\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + b_3 \color{red}{x_1 x_2}$$
+
+- $b_0$ (intercept): the predicted $y$ when $x_1=0$ and $x_2=0$
+
+- $b_1$ (simple): the change in $y$ for a change of +1 in $x_1$ (specifically at $x_2=0$)
+
+- $b_2$ (simple): the change in $y$ for a change of +1 in $x_2$ (specifically at $x_1=0$)
+
+- $b_3$ (interaction): two equivalent definitions
+    + the change in $b_1$ (i.e., the slope of $x_1$) for a change of +1 in $x_2$
+    + the change in $b_2$ (i.e., the slope of $x_2$) for a change of +1 in $x_1$
+
+## Rearranging the formula
+
+$$\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + b_3 x_1 x_2$$
+
+::: {.fragment}
+$$\hat{y} = b_0 + (b_1 + b_3 x_2) x_1 + b_2 x_2$$
+
+:::
+
+::: {.fragment}
+Thus, the slope of $x_1$ (its multiplier) *depends on* the value of $x_2$
+
+Also, if there is no interaction ($b_3=0$), then $b_1$ is unchanged
+
+:::
+
+::: {.fragment .pv2}
+The same is true for the slope of $x_2$ if we rearrange again
+
+$$\hat{y} = b_0 + b_1 x_1 + (b_2 + b_3 x_1) x_2$$
+
+:::
+
+
+## Interaction and simple effects
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit <- lm(expenditure ~ duration + intensity + duration:intensity, data = exercise)
+model_parameters(fit)
+```
+
+- The interaction effect (duration $\times$ intensity) is significant
+
+- Thus, the effect of `duration` does depend on `intensity`
+
+::: {.footer}
+We can also use the shortcut `duration * intensity`
+:::
+
+## Predicting energy expenditure {.f5}
+
+$$\hat{y} = 7.80 - 9.38 x_1 - 0.08 x_2 + 0.39 x_1 x_2$$
+
+- **Intercept:** A participant exercising at 0 duration and 0 intensity expends 7.8 units
+
+- **Duration Simple Effect:** Each unit of duration will expend an additional -9.38 units of energy (at 0 intensity)
+
+- **Intensity Simple Effect:** Each unit of intensity will expend an additional  -0.08 units of energy (at 0 duration)
+
+- **Interaction Effect:** The slope of duration will increase by 0.39 for each unit of intensity, and the slope of intensity will increase by 0.39 for each unit of duration
+
+::: {.fragment}
+The average participant (2 duration, 30 intensity) expends 10.04 units of energy
+
+$$\hat{y} = 7.80 - 9.38(2) - 0.08(30) + 0.39(2)(30) = 10.04$$
+:::
+
+## Spotlight analysis {.f5}
+
+- In order to plot the predictions, we can map one predictor to the $x$-axis
+
+- But representing the other predictor continuously is challenging in 2D
+
+::: {.fragment}
+- Instead of trying to use a 3D plot, we usually "spotlight" a few values, e.g.,
+    + One SD below the mean $(\bar{x} - s_x)$
+    + The mean value $(\bar{x})$
+    + One SD above the mean $(\bar{x} + s_x)$
+
+:::
+::: {.fragment}
+- We plot the effect of one $x$ on $y$ conditional on these values of the other $x$
+    + Thus, these are often called "conditional effects plots"
+    + You can think of "conditional on" as "depending on"
+
+:::
+
+## Plotting interaction effects
+
+```{r}
+#| echo: true
+#| eval: false
+#| collapse: true
+
+library(ggeffects)
+plot(predict_response(fit, terms = c("duration", "intensity")))
+```
+
+```{r}
+#| echo: false
+
+library(ggeffects)
+plot(predict_response(fit, terms = c("duration", "intensity"))) + mytheme(24)
+```
+
+::: {.footer}
+You can tell there is a non-zero interaction because the lines aren't parallel.
+:::
+
+## Plotting interaction effects
+
+```{r}
+#| echo: true
+#| eval: false
+#| collapse: true
+
+plot(predict_response(fit, terms = c("intensity", "duration")))
+```
+
+```{r}
+#| echo: false
+
+plot(predict_response(fit, terms = c("intensity", "duration"))) + mytheme(24)
+```
+
+::: {.footer}
+You can tell there is a non-zero interaction because the lines aren't parallel.
+:::
+
+## Simple slopes
+
+::: {.f5}
+- What is the slope of `duration` at different values of `intensity`?
+    + With a non-zero interaction, the simple slopes will differ
+    
+:::
+
+```{r}
+#| echo: true
+#| collapse: true
+
+estimate_slopes(fit, trend = "duration", by = "intensity=c(0,15,30,45,60)")
+```
+
+::: {.footer}
+We could also use the shortcut `"intensity=[sd]"` to specify Mean $\pm$ SD
+:::
+
+## Contrast with No Interaction
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit2 <- lm(expenditure ~ duration + intensity, data = exercise)
+model_parameters(fit2)
+```
+
+::: {.f5}
+- A participant exercising at 0 duration and 0 intensity expends -15.6 units
+- Each additional unit of duration will expend 2.35 units (controlling `intensity`)
+- Each additional unit of intensity will expend 0.71 units (controlling `duration`)
+- The model predicts the same effect of duration at all values of intensity
+- The model predicts the same effect of intensity at all values of duration
+:::
+
+## Plotting partial effects
+
+```{r}
+#| echo: true
+#| eval: false
+#| collapse: true
+
+plot(predict_response(fit2, terms = c("duration", "intensity")))
+```
+
+```{r}
+#| echo: false
+
+plot(predict_response(fit2, terms = c("duration", "intensity"))) + mytheme(24)
+```
+
+::: {.footer}
+You can tell there is no interaction because the lines are parallel.
+:::
+
+## Plotting partial effects
+
+```{r}
+#| echo: true
+#| eval: false
+#| collapse: true
+
+plot(predict_response(fit2, terms = c("intensity", "duration")))
+```
+
+```{r}
+#| echo: false
+
+plot(predict_response(fit2, terms = c("intensity", "duration"))) + mytheme(24)
+```
+
+::: {.footer}
+You can tell there is no interaction because the lines are parallel.
+:::
+
+## Simple slopes
+
+- In a model with no interaction, all simple slopes are equal
+
+```{r}
+#| echo: true
+#| collapse: true
+
+estimate_slopes(fit2, trend = "duration", by = "intensity=[sd]")
+```
+
+# Interaction Patterns
+
+## CxC Patterns
+
+::: {.columns}
+::: {.column width="33%" .tc .f5}
+**Potentiation**
+
+As one $x$ increases, the slope of the other increases
+
+```{r, echo=FALSE, fig.width=3, fig.height=4}
+set.seed(2021)
+n <- 100
+d <- tibble(
+  x1 = rnorm(n, 10, 5),
+  x2 = rnorm(n, 0, 1),
+  y = 10 + 1.1 * x1 + 0.8 * x2 + 0.6*x1*x2 + rnorm(n,0,6) 
+)
+fit0 <- lm(y ~ x1 * x2, d)
+plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) + 
+  mytheme(20) + 
+  theme(legend.position = "top") +
+  labs(title = NULL)
+```
+
+:::
+::: {.column width="33%" .tc .f5}
+**Attenuation**
+
+As one $x$ increases, the slope of the other decreases
+
+```{r, echo=FALSE, fig.width=3, fig.height=4}
+set.seed(2021)
+n <- 100
+d <- tibble(
+  x1 = rnorm(n, 10, 5),
+  x2 = rnorm(n, 0, 1),
+  y = 0 + 0.1*x1 - 5*x2 + .2*x1*x2 + rnorm(n,0,2) 
+)
+fit0 <- lm(y ~ x1 * x2, d)
+plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) + 
+  mytheme(20) + 
+  theme(legend.position = "top") +
+  labs(title = NULL)
+```
+:::
+::: {.column width="33%" .tc .f5}
+**Crossover**
+
+As one $x$ increases, the ranking of the other reverses
+
+```{r, echo=FALSE, fig.width=3, fig.height=4}
+set.seed(2021)
+n <- 100
+d <- tibble(
+  x1 = rnorm(n, 10, 5),
+  x2 = rnorm(n, 0, 1),
+  y = 0 + .1*x1 - .01*x2 - .025*x1*x2 + rnorm(n,0,2) 
+)
+fit0 <- lm(y ~ x1 * x2, d)
+plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) + 
+  mytheme(20) + 
+  theme(legend.position = "top") +
+  labs(title = NULL)
+```
+:::
+:::
+
+# Centering with Interactions
+
+## Centering interactions
+
+- Recall that the simple effects are when the other $x=0$
+    + This means that their $p$ values only apply in that region
+    
+- So, if $x=0$ isn't meaningful, we can use centering
+    + Now they are the slopes when the other $x=\bar{x}$
+    
+```{r}
+#| echo: true
+#| collapse: true
+
+exercise$duration_c <- center(exercise$duration)
+exercise$intensity_c <- center(exercise$intensity)
+```
+
+## Centering interactions
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit3 <- lm(expenditure ~ duration_c * intensity_c, data = exercise)
+model_parameters(fit3)
+```
+
+::: {.f5}
+- A participant with average duration and intensity expends 10.00 units
+
+- Each added unit of duration expends 2.29 units of energy (at average intensity)
+
+- Each added unit of intensity expends 0.71 units of energy (at average duration)
+
+- The slope of duration will increase by 0.39 for each unit of intensity, and the slope of intensity will increase by 0.39 for each unit of duration
+:::
+
+## Plotting centered interactions
+
+```{r}
+#| echo: true
+#| eval: false
+#| collapse: true
+
+plot(predict_response(fit3, terms = c("duration_c", "intensity_c")))
+```
+
+```{r}
+#| echo: false
+
+plot(predict_response(fit3, terms = c("duration_c", "intensity_c"))) + mytheme(24)
+```
+
+
+## Plotting centered interactions
+
+```{r}
+#| echo: true
+#| eval: false
+#| collapse: true
+
+plot(predict_response(fit3, terms = c("intensity_c", "duration_c")))
+```
+
+```{r}
+#| echo: false
+
+plot(predict_response(fit3, terms = c("intensity_c", "duration_c"))) + mytheme(24)
+```
+
+## Standardizing coefficients
+
+- Don't forget that standardizing includes centering!
+
+```{r}
+#| echo: true
+#| collapse: true
+
+model_parameters(fit, standardize = "refit")
+```
+
+::: {.f5}
+- Increasing duration by 1 SD expends another 0.08 SD (at *average* intensity)
+
+- Increasing intensity by 1 SD expends another 0.26 SD (at *average* duration)
+
+- Increasing duration by 1 SD increases the effect of intensity by 0.07 SDs and<br> increasing intensity by 1 SD increases the effect of duration by 0.07 SDs
+
+:::
+
+## Recommendations
+
+- Center your interacting continuous predictors
+
+- Use domain knowledge to guide selection of interactions
+
+- Plot your interaction effects to aid in communication
+
+- Don't include an interaction without its simple effects
+
+- Don't confuse simple effects and partial effects

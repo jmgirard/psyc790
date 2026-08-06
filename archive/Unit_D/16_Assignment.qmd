@@ -1,0 +1,58 @@
+---
+title: "Week 16 Assignment"
+format: 
+  html:
+    css: styles.css
+    embed-resources: true
+---
+
+![](../img/exams_2780E3.svg){.hero}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Week 16 Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Research Practices)
+
+a) In your own words, describe selective reporting, HARKing, and *p*-hacking.{{< hp glyph="i" >}} When have you felt (or might you feel in the future) pressured to engage in such practices, and what steps might you take to avoid the temptations? <span class="tiny-text">Use the word "testy" in the answer.</span>
+
+b) In your own words, describe open sharing, preregistration, and power analysis.{{< hp glyph="i" >}} What are some of these practices you could apply in your own work, and what are some challenges that might make this difficult?
+
+
+## Question 2 (Power Analysis)
+
+Imagine I want to run a study comparing the spatial recognition memory of currently depressed patients and non-depressed controls in a new, never-before-used way. I found a meta-analysis ([Rock et al., 2014](https://doi.org/10/f58cfq)) that estimated this difference (using traditional methods) to be *d*=–0.41. Use {WebPower} to determine how many participants I should recruit in each group in order to have 80\% power to detect an effect of this size with α=.05.
+
+(*Hint:* What test did we learn to compare the means of two separate groups?)
+
+
+## Question 3 (Power Analysis)
+
+In a recent study, my colleagues and I were able to explain 14.3\% of the variance in participants’ work performance using 12 low-cost predictors. If we wanted to design a follow-up study to replicate this finding, how many participants would I need to recruit to have 80\% omnibus power to detect this same effect (with α=.05)?
+
+(*Hint:* Be careful not to confuse R² and f²; you will have to do some conversion.)
+
+
+## Question 4 (Intro/Methods)
+
+During the Lecture [15b] activity, you found a research paper in your area that used multiple regression and evaluated it from the perspective of a methodological reviewer. Write up a summary of what you found regarding the introduction and methods sections. (You are welcome to select a different paper if you missed the activity or if the paper you selected in class was not ideal.)
+
+
+## Question 5 (Results/Discussion)
+
+Continue the previous question by writing a summary of what you found regarding the results and discussion sections. Finally, also include a few sentences about what you learned from this activity.
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

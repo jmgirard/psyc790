@@ -1,0 +1,230 @@
+---
+format: 
+  revealjs:
+    css: styles.css
+    slide-number: true
+    show-slide-number: all
+    preview-links: false
+    self-contained: true
+    embed-resources: true
+    progress: true
+    history: true
+    hash-type: number
+    theme: default
+    code-block-background: true
+    highlight-style: zenburn
+    code-link: false
+    code-copy: true
+    pagetitle: "Statistical Methods in Psychology"
+    author-meta: "Jeffrey Girard"
+    semester: "Fall 2025"
+    course: "PSYC 790"
+    lecture: "02a"
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Projects / Quarto / Markdown 
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[Jeffrey M. Girard | Lecture {{< meta lecture >}}]{}
+:::
+
+![](../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+## Roadmap: Meeting R
+
+::: {.columns .pv4}
+
+::: {.column width="60%"}
+1. Projects
+
+2. Quarto
+
+3. Markdown
+
+4. Activity
+
+:::
+
+::: {.column .tc .pv4 width="40%"}
+{{< li xtkehzkm trigger=loop delay=5000 colors=secondary:#2a76dd class=rc >}}
+:::
+
+:::
+
+
+# Projects
+
+## File Management {.smaller}
+
+::: {.columns .pv4}
+::: {.column width="60%"}
+-   [Projects]{.b .blue} are [special folders]{.b .green} on your computer
+    -   They contain all files related to a task
+    -   They keep everything together and organized
+
+::: {.fragment .mt1}
+-   Projects make it easy to [find and use your files]{.b .green}
+    -   No need to specify long, annoying file paths
+    -   No need to worry about working directories
+:::
+
+::: {.fragment .mt1}
+-   Projects make it easy to [switch between tasks]{.b .green}
+    -   They will remember exactly where you left off
+    -   You can even open multiple projects at once
+:::
+:::
+
+::: {.column .tc .pv5 width="40%"}
+{{< li jzzxeaju trigger=loop delay=5000 colors=secondary:#2a76dd class=rc >}}
+:::
+:::
+
+::: {.aside}
+*Note.* Save your project in a cloud service folder (e.g., Box, Dropbox, Google Drive, OneDrive) to backup and sync it.
+:::
+
+
+## Projects Live Coding
+
+::: {.instructions}
+    # Create a new Project
+    - Open the "File" menu in RStudio
+    - Select the "New Project..." option
+    - Select the "New Directory" option
+    - Select the "New Project" option
+    - Name the directory "PSYC 399" or "PSYC 800" (or whatever)
+    - Browse to where to create your Project folder
+
+    # Create a new File
+    - Explore the Files tab in the Extras pane
+    - Create a New File (e.g., a script) as an example
+    - RStudio will automatically create it in your project folder
+    - Add some text to the example file (e.g., "# Hello World")
+    - Save the file and note that it defaults to your project folder
+    - Close the script with the "x" icon
+    - Reopen the script from the Files tab
+
+    # Close and Open Project
+    - Open the "File" menu in RStudio
+    - Select the "Close Project" option
+    - Notice that your work is now gone
+    - Open the "File" menu in RStudio
+    - Select the "Open Project" option
+    - Browse to your project folder
+    - Open the .Rproj file (e.g., PSYC 399.Rproj)
+    - Notice that your work is now back!
+:::
+
+
+# Quarto
+
+## Quarto {.smaller}
+
+::: {.columns .pv4}
+::: {.column width="60%"}
+-   [Quarto](https://www.quarto.org) is a scientific/technical publishing system
+
+::: {.fragment .mt1}
+-   Create dynamic content (e.g., code, output, and markdown) with R, Python, Julia, and Observable
+:::
+
+::: {.fragment .mt1}
+-   Articles, reports, slideshows, websites, blogs, and books in HTML, PDF, MS Word, and ePub formats
+:::
+
+::: {.fragment .mt1}
+-   Include equations, citations, crossrefs, figure panels, callouts, advanced layouts, etc.
+:::
+:::
+
+::: {.column .tc .pv5 width="40%"}
+{{< li cykiczdp trigger=loop delay=5000 colors=secondary:#2a76dd class=rc >}}
+:::
+:::
+
+
+## Quarto Live Coding
+
+::: {.instructions}
+    # Create an Quarto Document
+    - Open the "File" menu in RStudio
+    - Select the "New File" option
+    - Select the "Quarto Document..." option
+    - Keep the defaults (HTML) and hit "Create Empty Document"
+    - Open the "File" menu
+    - Select the "Save" option
+    - Note that it defaults to the project folder
+    - Give it a name like "Lecture 02b" (or whatever)
+    - Note that the file extension is .qmd
+    
+    # Add an R Chunk
+    - Option 1: Click the green box with C and a plus sign icon (top-right)
+    - Option 2: Ctrl+Alt+I (Win) or Cmd+Option+I (Mac)
+    - Option 3: Type out ```{r} then new line and ``` yourself
+    
+    # Adding code to the chunk
+    - Anything you put inside the "fences" (i.e., ```) will be treated as R code
+    - The chunk operates like a mini console
+    - Try doing some calculations in the chunk and hit the green arrow
+    - The answer appears right below the chunk!
+    - If we save and render the document, it appears in the output too
+    - We can add options to the chunk but we will return to this in [06a]
+:::
+
+
+# Markdown
+
+## Markdown
+
+::: {.columns .pv4}
+::: {.column width="60%"}
+-   [Markdown](https://quarto.org/docs/authoring/markdown-basics.html) is a simple text-to-HTML conversion language used by Quarto, GitHub, Obsidian, etc.
+
+::: {.fragment .mt1}
+-   It will allow us to add formatted text, images, links, lists, etc. to our Quarto documents
+:::
+
+::: {.fragment .mt1}
+-   Quarto will treat all text that is not in a code chunk as markdown
+:::
+
+:::
+
+::: {.column .tc .pv5 width="40%"}
+{{< li zcuiyuld trigger=loop delay=5000 colors=secondary:#2a76dd class=rc >}}
+:::
+:::
+
+## Markdown Live Coding
+
+::: {.instructions}
+    # Formatting
+    - *italics* and **bold** and ***italics and bold***
+    - superscript^2^ and subscript~2~
+    - ~~strikethrough~~
+    - `verbatim code`
+    
+    # Headings
+    - # Header 1
+    - ## Header 2
+    - ### Header 3
+    
+    # Links
+    - <https://quarto.org>
+    - [Quarto](https://quarto.org)
+    
+    # Images
+    - ![Caption](https://quarto.org/docs/authoring/elephant.png)
+    
+    # Lists
+    - * Unordered list
+    -   + sub-item
+    -   + sub-item
+    - 1. Ordered list
+    - 2. Item 2
+:::

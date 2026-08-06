@@ -1,0 +1,35 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+10.1177/0956797616678438
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+rd <- read_csv("raw.csv", show_col_types = FALSE)
+set.seed(2021)
+td <- rd %>% 
+  transmute(
+    gender = recode(male, `0` = "female", `1` = "male"),
+    minority = recode(minority, `0` = "no", `1` = "yes"),
+    deprived_area = recode(deprived, `0` = "no", `1` = "yes"),
+    mental_wellbeing = mwb,
+    watch_wd,
+    watch_we,
+    play_wd,
+    play_we,
+    compute_wd = comp_wd,
+    compute_we = comp_we,
+    phone_wd = sp_wd,
+    phone_we = sp_we
+  ) %>% 
+  drop_na() %>% 
+  sample_n(size = 3000, replace = FALSE) %>% 
+  print()
+write_csv(td, "../screentime.csv")
+```
+

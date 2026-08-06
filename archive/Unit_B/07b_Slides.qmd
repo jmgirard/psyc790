@@ -1,0 +1,530 @@
+---
+format: 
+  revealjs:
+    css: styles.css
+    slide-number: true
+    show-slide-number: all
+    preview-links: false
+    self-contained: true
+    embed-resources: true
+    progress: true
+    history: true
+    hash-type: number
+    theme: default
+    code-block-background: true
+    highlight-style: zenburn
+    code-link: false
+    code-copy: true
+    pagetitle: "Statistical Methods in Psychology"
+    author-meta: "Jeffrey Girard"
+    semester: "Fall 2025"
+    course: "PSYC 790"
+    lecture: "07b"
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+One-way ANOVA / Effect Sizes / Contrasts
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[Jeffrey M. Girard | Lecture {{< meta lecture >}}]{}
+:::
+
+![](../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(distributional)
+library(ggdist)
+library(lsr)
+mytheme <- theme_gray(base_size = 30) + 
+  theme(panel.grid.minor = element_blank())
+```
+
+
+# Introduction
+
+## Rationale
+
+- The $t$-test compares two groups' population means
+
+- But sometimes we want to compare **three or more** groups
+
+- This is what [one-way analysis of variance]{.b .blue} (ANOVA) does
+    + One-way focuses on *one* source of variance (i.e., groups)
+    + The one-way ANOVA is for **independent samples**/groups
+
+$$
+H_0: \text{it is true that } \mu_1=\mu_2=\mu_3 \cdots \\
+H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
+$$
+
+
+## Example dataset
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+library(tidyverse)
+salaries <- read_csv("salaries.csv")
+salaries
+```
+
+- Do the three professor **ranks** have the same mean salary?
+
+## Exploratory analysis
+
+```{r}
+#| fig-height: 5
+
+ggplot(salaries, aes(x = rank, y = salary)) +
+  ggbeeswarm::geom_quasirandom(
+    color = "cornflowerblue", 
+    size = 3,
+    width = 0.25,
+    alpha = 1/2
+  ) +
+  scale_y_continuous() +
+  mytheme
+```
+
+## Total variance
+
+*Across all observations (in all groups), what is the average squared difference between each observation and the global mean (calculated across all observations in all groups)?*
+
+$$
+\text{Var}(y)=\frac{1}{n}\sum_{i=1}^n(y_i - \bar{y})^2
+$$
+
+$n$ is the total sample size across all groups
+
+$\bar{y}$ is the global mean of $y$ across all groups
+
+## Sums of squares
+
+- ANOVA uses [sums of squares]{.b .blue} ($SS$) rather than variances
+    + $SS$ are the same as variances but don't divide by $n$
+    + They are the **sums** of squared differences (not the means)
+
+::: {.columns}
+::: {.column}
+$$\color{blue}{\text{SS}_{tot}=\sum_{i=1}^n(y_{i}-\bar{y})^2}$$
+:::
+::: {.column}
+$$\text{Var}(y)=\frac{1}{n}\sum_{i=1}^n(y_{i} - \bar{y})^2$$
+:::
+:::
+
+::: {.footer}
+Using $SS$ yields a nicer interpretation and enables the use of the $F$ distribution
+:::
+
+## Between and within groups
+
+- The total variation ($SS_{tot}$) contains two components
+
+![](../img/between_within.png)
+
+::: {.columns}
+::: {.column}
+*How different are the three groups/ranks (on average)?*
+:::
+::: {.column}
+*How different are professors <br>in the same group/rank?*
+:::
+:::
+
+## Decomposing the variation
+
+- We can decompose total variation into two components:
+
+::: {.columns}
+::: {.column}
+**Between-group variation**
+
+$$\text{SS}_b = \sum_{k=1}^gn_k(\bar{y}_k - \bar{y})^2$$
+
+*How far is each group mean $\bar{y}_k$ from the global mean $\bar{y}$?*
+:::
+::: {.column}
+**Within-group variation**
+
+$$\text{SS}_w = \sum_{k=1}^g\sum_{i=1}^{n_k}(y_{ik} - \bar{y}_k)^2$$
+
+*How far is each observation $y_{ik}$ from its group mean $\bar{y}_k$?*
+:::
+:::
+
+::: {.footer}
+Note that the decomposition ensures that $SS_{tot}=SS_b + SS_w$
+:::
+
+## Testing for mean differences
+
+- If $H_0$ is true, the groups' population means are the same
+    + Thus, between-group variation $(SS_b)$ should be small
+
+::: {.fragment}
+- But how small is small enough? We need to contextualize it
+    + ANOVA does so by comparing $SS_b$ to $SS_w$
+    + It focuses on the ratio of $SS_b$ to $SS_w$ (i.e., $SS_b/SS_w$)
+    + But we need to build in the group and sample sizes
+    + Doing so will allow us to calibrate our uncertainty
+:::
+
+
+## Incorporating uncertainty
+
+::: {.tc}
+::: {.columns}
+::: {.column}
+**Mean Squares Between**
+
+$$\textit{MS}_b = \frac{\textit{SS}_b}{g - 1}$$
+
+:::
+::: {.column}
+**Mean Squares Within**
+
+$$\textit{MS}_w = \frac{\textit{SS}_w}{n - g}$$
+:::
+:::
+
+[The One-way ANOVA Test Statistic]{.b}
+$$
+F_{obs} = \frac{\textit{MS}_b}{\textit{MS}_w}\\
+F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
+$$
+:::
+
+::: {.footer}
+$g$ is the number of groups, $n$ is the total sample size
+:::
+
+## The F distribution
+
+::: {.columns}
+
+::: {.column}
+
+- The sum of squared normally distributed values will have a $\chi^2$ distribution
+
+- The ratio of two $\chi^2$ distributed variables will have an $F$ distribution
+
+$$x \sim F(\textit{df}_1, \textit{df}_2)$$
+
+:::
+
+::: {.column}
+
+```{r}
+#| fig-width: 6
+#| fig-height: 6
+
+data.frame(df1 = 2, df2 = 394) |>
+  ggplot(aes(y = "", dist = dist_f(df1, df2))) + 
+  stat_dist_slab(fill = NA, color = "black") +
+  coord_cartesian(expand = FALSE) +
+  scale_color_viridis_c() + 
+  labs(
+    y = NULL,
+    x = "F(2, 394) distribution"
+  ) +
+  mytheme
+```
+
+:::
+:::
+
+## The df1 parameter
+
+```{r}
+#| fig-width: 12
+#| fig-height: 5
+
+data.frame(df1 = seq(2, 10, 2)) |>
+  ggplot(aes(y = "", dist = dist_f(df1, 30), color = df1)) + 
+  stat_dist_slab(fill = NA, linewidth = 1) +
+  coord_cartesian(expand = FALSE) +
+  scale_color_viridis_c(breaks = c(2, 6, 10)) + 
+  labs(
+    y = NULL,
+    x = "F(df1, 30) distribution",
+    color = "df1"
+  ) +
+  mytheme
+```
+
+- Higher $\textit{df}_1$ has thinner tails (i.e., lower critical values)
+
+## The df2 parameter
+
+```{r}
+#| fig-width: 12
+#| fig-height: 5
+
+data.frame(df2 = c(10, 20, 30, 40, 50)) |>
+  ggplot(aes(y = "", dist = dist_f(10, df2), color = df2)) + 
+  stat_dist_slab(fill = NA, linewidth = 1) +
+  coord_cartesian(expand = FALSE) +
+  scale_color_viridis_c(breaks = c(10, 30, 50)) + 
+  labs(
+    y = NULL,
+    x = "F(10, df2) distribution",
+    color = "df2"
+  ) +
+  mytheme
+```
+
+- Higher $\textit{df}_2$ has thinner tails (i.e., lower critical values)
+
+# One-way ANOVA in R
+
+## The aov function
+
+- The `aov()` function will do this math for us
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit <- aov(
+  formula = salary ~ rank,
+  data = salaries
+)
+```
+
+::: {.fragment .pv4}
+```{r}
+#| echo: true
+#| collapse: true
+
+summary(fit)
+```
+
+:::
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| collapse: true
+
+# Critical value (to compare to F_obs = 128.2)
+qf(.975, df1 = 2, df2 = 394)
+```
+
+:::
+
+## Prettier output
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+library(easystats)
+model_parameters(fit)
+```
+
+*We used a one-way ANOVA to compare the mean salaries of Assistant, Associate, and Full professors and rejected the null hypothesis that these three groups have the same mean, $F(2,394)=128.22$, $p<.001$.*
+
+
+## Estimating group means
+
+- We can also estimate the model-implied group means
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+gmeans <- estimate_means(fit, by = "rank")
+gmeans
+```
+
+::: {.footer}
+Note that this function requires the {emmeans} package to be installed
+:::
+
+## Plotting group means
+
+```{r}
+#| echo: true
+#| eval: false
+
+plot(gmeans)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+
+visualisation_recipe(
+  gmeans, 
+  jitter = list(size = 2, color = "red"), 
+  line = list(linewidth = 1),
+  pointrange = list(size = 0.8, linewidth = 1)
+) |> 
+  plot() +
+  theme_gray(base_size = 20)
+```
+
+## An effect size for One-way ANOVA
+
+- We conclude that $H_0$ is wrong, but *how wrong* was it?
+
+- **How much of the total variation was between groups?**
+
+$$\eta^2 = \frac{SS_b}{SS_{tot}}$$
+
+- If $\eta^2=0$, then none of the variation was between groups
+
+- If $\eta^2=1$, then all of the variation was between groups
+
+## Application and interpretation
+
+```{r}
+#| echo: true
+#| collapse: true
+
+ss_b <- 143232
+ss_w <- 220069
+ss_tot <- ss_b + ss_w
+
+ss_b / ss_tot
+```
+
+::: {.pv4}
+```{r}
+#| echo: true
+#| collapse: true
+
+eta_squared(fit)
+```
+:::
+
+- So 39% of the variation in salary was between groups/ranks
+
+# Post-hoc Tests
+
+## Many ways to reject the null
+
+- Recall that our null hypothesis is that $\mu_1=\mu_2=\mu_3$
+
+::: {.f4}
+| Possibility | $\mu_1=\mu_2$ | $\mu_1=\mu_3$ | $\mu_2=\mu_3$ | Hypothesis  |
+| ----------- | ------------- | ------------- | ------------- | ----------- |
+| 1           | TRUE          | TRUE          | TRUE          | null        |
+| 2           | -             | TRUE          | TRUE          | alternative |
+| 3           | TRUE          | -             | TRUE          | alternative |
+| 4           | TRUE          | TRUE          | -             | alternative |
+| 5           | TRUE          | -             | -             | alternative |
+| 6           | -             | TRUE          | -             | alternative |
+| 7           | -             | -             | TRUE          | alternative |
+| 8           | -             | -             | -             | alternative |
+:::
+
+- Thus, if we reject the null, we don't know exactly why...
+
+## Pairwise $t$-tests
+
+- To figure it out, we can run a $t$-test for each pair of groups
+    + These are called "post hoc" (Latin for "after that") tests
+
+$$\mu_1=\mu_2 \qquad \mu_1=\mu_3 \qquad \mu_2=\mu_3$$
+
+- There are two main challenges with this approach
+    + It will be a hassle to run all these tests as $g$ increases
+    + Running many tests will increase the Type I Error rate
+
+## Addressing the challenges
+
+- For the first challenge, we will use programming
+    + We will use R functions to do all the work for us
+
+- For the second challenge, we will use two approaches
+    + **Gating:** only run post-hoc tests if ANOVA is significant
+    + $p$-value adjustment: increase $p$ based on \# of tests run
+    
+- We want to keep the overall ("familywise") error rate at $\alpha$
+    + We will learn two common adjustment approaches
+
+## Bonferroni correction
+
+- Multiply each $p$ by the number of tests run ($m$)
+
+$$p' = p \times m$$
+
+::: {.f5}
+| raw $p$     | $m$ | Bonferroni $p'$ |
+| ----------- | --- | --------------- |
+| .001 \*\*\* | 5   | .005 \*\*       |
+| .005 \*\*   | 5   | .025 \*         |
+| .019 \*     | 5   | .095            |
+| .022 \*     | 5   | .110            |
+| .103        | 5   | .515            |
+:::
+
+::: {.footer}
+Bonferonni is simple but very conservative
+:::
+
+## Holm correction
+
+- Pretend you do the tests from smallest to largest $p$-value
+
+- Take the larger of $(p'_j=j\times p_j)$ and $(p'_{j+1})$
+
+:::{.f5}
+| raw $p$     | rank $j$ | $p\times j$ | Holm $p'$ |
+| ----------- | -------- | ----------- | --------  |
+| .001 \*\*\* | 5        | .005        | .005 \*\* |
+| .005 \*\*   | 4        | .020        | .020 \*   |
+| .019 \*     | 3        | .057        | .057      |
+| .022 \*     | 2        | .044        | .057      |
+| .103        | 1        | .103        | .103      |
+:::
+
+::: {.footer}
+Holm is complicated but more powerful
+:::
+
+## Post-hoc tests in R
+
+::: {.f90}
+```{r}
+#| echo: true
+#| collapse: true
+
+estimate_contrasts(
+  model = fit, 
+  contrast = "rank", 
+  method = "pairwise",
+  p_adjust = "bonferroni"
+)
+```
+:::
+
+
+## Adjustment in R
+
+::: {.f90}
+```{r}
+#| echo: true
+#| collapse: true
+
+estimate_contrasts(
+  model = fit, 
+  contrast = "rank", 
+  method = "pairwise",
+  p_adjust = "holm" # change the method here
+)
+```
+:::

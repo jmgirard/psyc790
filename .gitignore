@@ -1,0 +1,19 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+/.quarto/
+**/*.quarto_ipynb
+/_site/
+.positai
+
+# ---------------------------------------------------------------------------
+# Answer keys must NEVER be committed. See MODERNIZATION-PLAN.md section 3b.
+# These files contain graded assignment/quiz answers AND document the honeypot
+# design used across psyc790, data2, and psyc894 -- publishing them would
+# defeat that mechanism for all three courses.
+# ---------------------------------------------------------------------------
+*_key.qmd
+*_Key.qmd
+**/keys/

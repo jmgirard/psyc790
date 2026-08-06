@@ -1,0 +1,13 @@
+---
+format: 
+  revealjs:
+    embed-resources: true
+---
+
+## Quarto
+
+![](https://quarto.org/docs/presentations/revealjs/demo/mini/images/kitten-450-250.jpeg){.absolute top=50 right=50 width="450" height="250"}
+
+![](https://quarto.org/docs/presentations/revealjs/demo/mini/images/kitten-450-250.jpeg){.absolute top=100 right=100 width="450" height="250"}
+
+![](https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg){.absolute top=50 right=50 width="450" height="250"}

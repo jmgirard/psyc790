@@ -1,0 +1,105 @@
+---
+title: "Week 06 Assignment"
+format: 
+  html:
+    css: styles.css
+    embed-resources: true
+---
+
+![](../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Week 06 Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Test Outcomes)
+
+a) If my test has 70% power and an $\alpha$ of .01,{{< hp glyph="a" >}} what are my chances of making a Type I Error and a Type II Error?
+
+b) If I wanted to reduce my chances of making each type of error,{{< hp glyph="a" >}} what could I change about my study/analysis?
+
+## Question 2 (Single sample $t$-test)
+
+a) My friend is arguing that professors (across all ranks and disciplines) make, on average, $100,000 per year. This doesn’t sound right to me, so I want to approach this statistically.{{< hp glyph="a" >}} What should I use as my null hypothesis and what should I use as my alternative hypothesis?
+
+b) Conduct a one-sample $t$-test to test the null hypothesis from part (a). Download and use the `salaries` data file and provide both the $p$-value and your decision whether to retain or reject the null. (Note that the salaries are given in thousands of dollars per year such that 120 would actually mean $120,000 per year.)
+
+## Question 3 (Interpretation)
+
+a) What was the observed test statistic from Question 2b and what were its degrees of freedom? (*Optional Challenge:* What was the critical value for that test?)
+
+b) What does the $p$-value in this test mean? How can we interpret it statistically? Your answer should go beyond merely stating whether it was significant.
+
+## Question 4 (Correlation Theory)
+
+a) What does it mean for two variables to be positively or negatively correlated with one another?{{< hp glyph="a" >}} What does it mean for two variables to have a correlation close to zero?
+
+b) Look at the following scatterplots and indicate whether you think the Pearson correlation for each would be positive, negative, or close to zero. Also indicate whether you think each relationship depicted is linear, nonlinear, or none.
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-width: 7
+#| fig-height: 5
+
+library(tidyverse)
+library(faux)
+library(patchwork)
+
+rsim <- function(r) {
+  rnorm_multi(n = 200, vars = 2, mu = 0, sd = 1, r = r) %>% 
+    as_tibble() %>% 
+    rename(x = X1, y = X2)
+}
+
+set.seed(2021)
+d1 <- tibble(
+  x = rgamma(300, 1, 1),
+  y = rnorm(300, 0, 5)
+)
+
+d2 <- tibble(
+  x = runif(300, -3, 3),
+  y = 1 / (1 + exp(-x * 4)) + rnorm(300, 0, .03)
+)
+
+d3 <- tibble(
+  x = runif(300, -pi, 2*pi),
+  y = cos(x) + rnorm(300, 0, 0.3)
+)
+
+d4 <- rsim(-0.8)
+
+p1 <- ggplot(d1, aes(x, y)) +
+  geom_point()
+p2 <- ggplot(d2, aes(x, y)) +
+  geom_point()
+p3 <- ggplot(d3, aes(x, y)) +
+  geom_point()
+p4 <- ggplot(d4, aes(x, y)) +
+  geom_point()
+(p1 + p2 + p3 + p4) + plot_annotation(tag_levels = "i")
+```
+
+## Question 5 (Applied Correlations)
+
+Download and read in the `factbook1M` dataset that contains information from the CIA’s World Factbook about all countries with more than 1 million people.
+
+a) Calculate the covariance and correlation between the life expectancy (`life_exp`) and birth rate (`birth_rate`) variables.
+
+b) Test whether this correlation is significantly different from zero at $\alpha=.05$. Report your results (including the test statistic, $p$-value, and confidence interval) and give a verbal interpretation (i.e., explain what it says about the relationship).
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

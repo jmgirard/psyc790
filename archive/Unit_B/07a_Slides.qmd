@@ -1,0 +1,443 @@
+---
+format: 
+  revealjs:
+    css: styles.css
+    slide-number: true
+    show-slide-number: all
+    preview-links: false
+    self-contained: true
+    embed-resources: true
+    progress: true
+    history: true
+    hash-type: number
+    theme: default
+    code-block-background: true
+    highlight-style: zenburn
+    code-link: false
+    code-copy: true
+    pagetitle: "Statistical Methods in Psychology"
+    author-meta: "Jeffrey Girard"
+    semester: "Fall 2025"
+    course: "PSYC 790"
+    lecture: "07a"
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+t-tests / Effect Sizes / Paired Groups
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[Jeffrey M. Girard | Lecture {{< meta lecture >}}]{}
+:::
+
+![](../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(distributional)
+library(ggdist)
+library(lsr)
+mytheme <- theme_gray(base_size = 30) + theme(panel.grid.minor = element_blank())
+```
+
+
+# Introductions
+
+## Group Comparisons
+
+- Many research questions are about **comparing groups**
+
+- Do two (or more) groups have the same population mean?
+    + These groups may be naturally occurring<br />
+      (e.g., Do *adults* or *children* watch more TV?)
+    + Or they may correspond to experimental conditions<br />
+      (e.g., Do outcomes differ in *treatment* and *placebo*?)
+    + Two groups of measurements may be related/paired<br />
+      (e.g., Is a person's memory better *before* or *after* exercise?)
+
+## Types of Groups
+
+- We will collect a sample of data from each group
+
+- [Independent Samples:]{.b .blue} Observations are unrelated
+    + e.g., Each participant only occurs in a single group/sample
+    + e.g., Different people are assigned to condition A or B
+  
+- [Dependent/Paired Samples:]{.b .blue} Observations are linked
+    + e.g., Each participant occurs in multiple groups/samples
+    + e.g., Each person participates in both condition A and B
+
+## Types of Comparisons
+
+::: {.columns}
+::: {.column}
+[Significance Testing]{.b .blue}
+
+- Is the difference between the two group means zero?
+
+- The result is a test statistic, <br>$p$-value, and decision to retain or reject the null
+
+- *Adults watch significantly more TV than do children, $t(99)=20.14, p<.001$*
+:::
+::: {.column .fragment}
+[Estimation]{.b .blue}
+
+- What are reasonable values for the difference between the two group means?
+
+- The result is a point estimate and interval estimate (CI)
+
+- *Adults watch $3.2$ more hours of TV per day than do children, 95% CI: $[1.8, 4.6]$*
+:::
+:::
+
+# NHST Approaches
+
+## Recap of Steps in NHST
+
+1. Set **null and alternative hypotheses**, Type I Error Rate $(\alpha)$
+
+1. Choose an appropriate test and calculate its **test statistic**
+
+1. Estimate **null sampling distribution** for test statistic
+
+1. Calculate **critical values** from null sampling distribution
+
+1. Compare the observed test statistic to these critical values
+
+1. Calculate $\boldsymbol{p}$**-value** and decide to **retain or reject** the null
+
+## Independent Samples $t$-test
+
+- **Research Question:** Do tenure track (G1) or non-tenure track (G2) professors receive better teaching evals, on average?
+
+- Each professor is G1 or G2, so these are *independent* groups
+
+::: {.fragment}
+- Are the G1 and G2 samples drawn from populations with <br>the same mean (null) or different means (alternative)?
+
+$$
+H_0: \mu_1=\mu_2\\
+H_1: \mu_1\neq\mu_2
+$$
+:::
+
+## Example data
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+library(tidyverse)
+tratings <- read_csv("teaching_ratings.csv")
+tratings
+```
+
+## Data Exploration
+
+```{r}
+#| fig-height: 5
+
+ggplot(tratings, aes(x = factor(track), y = eval)) +
+  ggbeeswarm::geom_quasirandom(
+    color = "cornflowerblue", 
+    size = 3,
+    width = 0.25
+  ) +
+  scale_y_continuous(limits = c(1, 5)) +
+  scale_x_discrete(
+    breaks = 1:2,
+    labels = c("1 (Tenure)", "2 (Non-tenure)")
+  ) +
+  labs(
+    x = "Track",
+    y = "Eval"
+  ) +
+  mytheme
+```
+
+## Test Statistic
+- If the null is true and $\mu_1 = \mu_2$, then $\mu_1 - \mu_2 = 0$
+
+- We can use this as the basis of our test statistic
+
+- But again, the math is easier if we standardize it
+
+$$t_{diff}=\frac{\bar{x}_1 - \bar{x}_2}{SE_{diff}}$$
+
+- So now we just need to estimate the SE of the difference
+
+## Two approaches
+
+- There are two main approaches to estimating $SE_{diff}$
+
+- [Student's approach]{.b .blue} assumes "equal variance"
+    + It assumes that both populations have the same SD
+    + In parameter terms, it assumes that $\sigma_1 = \sigma_2$
+    + This approach simplifies the math, so we start here
+    
+- [Welch's approach]{.b .blue} does not make this assumption
+    + It has a more complicated equation
+    + But it is usually more realistic
+
+## Student's approach
+
+- We can estimate $\sigma$ by "pooling" $s_1$ and $s_2$
+
+$$
+s_p = \sqrt{\frac{s_1^2(n_1-1) + s_2^2(n_2-1)}{n_1+n_2-2}}
+$$
+
+::: {.fragment}
+- We can now use $s_p$ to estimate $SE_{diff}$
+
+$$SE_{diff} = s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$$
+:::
+
+::: {.footer}
+Pooling is taking a weighted average (weighted by sample size minus 1).
+:::
+
+## Student's approach
+
+- Our test statistic for Student's approach is:
+
+$$t_{diff} = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$
+
+- The null sampling distribution is assumed to be:
+
+$$t_{diff} \sim t(\textit{df}=n_1+n_2-2, \mu=0, \sigma=1)$$
+
+## Welch's approach
+
+$$SE_{diff} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$
+
+$$
+t_{diff} \sim t\left(
+\textit{df}=\frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}
+{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1} + \frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}, 
+\mu=0, 
+\sigma=1\right)
+$$
+
+
+## Both approaches in R
+
+- We can have R do all this math for us using `t.test()`
+    + `formula`: in the format *outcome ~ group*
+    + `data`: tibble containing *outcome* and *group*
+    + `var.equal`: TRUE (Student's) or FALSE (Welch's)
+
+## Student's test results {.smaller}
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+fit_s <- t.test(
+  formula = eval ~ track,
+  data = tratings,
+  var.equal = TRUE # <1>
+)
+
+library(easystats)
+model_parameters(fit_s)
+```
+1. Be sure to set `var.equal=TRUE` to use Student's approach
+
+::: {.fragment .pv2}
+"A Student's independent samples *t*-test found that tenure-track professors' average eval (M=3.87) was significantly lower than non-tenure-track professors' average eval (M=4.12), *t*(92)=–1.99, *p*=.049. The difference was estimated to be –0.25, 95% CI: [–0.51, 0.00]."
+:::
+
+::: {.footer}
+Note that this result is *barely* significant.
+:::
+
+## Welch's approach in R {.smaller}
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit_w <- t.test(
+  formula = eval ~ track,
+  data = tratings,
+  var.equal = FALSE # <1>
+)
+
+model_parameters(fit_w)
+```
+1. Be sure to set `var.equal=FALSE` to use Welch's approach
+
+::: {.fragment .pv2}
+"A Welch's independent samples *t*-test found that tenure-track professors' average eval (M=3.87) was significantly lower than non-tenure-track professors' average eval (M=4.12), *t*(21.62)=–2.19, *p*=.040. The difference was estimated to be –0.25, 95% CI: [–0.50, –0.01]."
+:::
+
+## Paired groups
+
+- Sometimes observations in our groups are related
+    + Obs. X in G1 is related somehow to obs. X in G2
+    + e.g., repeated measures of the same person or thing
+    
+- If we ignore these relationships in our modeling...
+    + Our SE estimates will tend to be too low
+    + Therefore, our $p$-values and CIs will be incorrect
+
+## Paired samples $t$-test
+
+- To fix this, we can calculate the paired differences
+
+$$\Delta_i = x_{1i} - x_{2i}$$
+
+- Then we do a one-sample $t$-test on the differences
+
+$$t_\Delta = \frac{\bar{\Delta}}{SE_{\bar{\Delta}}} = \frac{\bar{\Delta}}{s_{\Delta}/\sqrt{n}}$$
+
+$$t_\Delta \sim t(\textit{df}=n-1, \mu=0, \sigma=1)$$
+
+## Example data
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+social <- read_csv("socialproblems.csv")
+social
+```
+
+
+## Paired $t$-test in R
+
+- We can use `t.test()` again but our formula changes
+
+```{r}
+#| echo: true
+#| collapse: true
+fit_p <- t.test(
+  formula = Pair(endpoint, baseline) ~ 1,
+  data = social
+)
+
+model_parameters(fit_p)
+```
+
+::: {.footer}
+Note that $\textit{df}=33$ (not $67$) because we count each pair only once.
+:::
+
+## One-sample $t$-test equivalence
+
+```{r}
+#| echo: true
+#| collapse: true
+
+# Calculate paired differences
+social$change <- social$endpoint - social$baseline
+
+# One-sample t-test on paired differences
+fit_o <- t.test(social$change, mu = 0)
+
+model_parameters(fit_o)
+```
+
+Note that these results are identical
+
+# Effect Sizes
+
+## Effect sizes
+
+- The $p$ value combines the effect size and uncertainty
+
+- But sometimes we want to separate these quantities out
+
+- A *pure* measure of effect size would be nice sometimes
+
+- In the current case of group comparisons...
+    + **How large is the difference between group means?**
+    + Is this difference large enough to matter in practice?
+    + Can we make it easier to interpret and compare?
+
+## Group difference effect sizes
+
+- The difference in means $(\bar{x}_1 - \bar{x}_2)$ is a simple effect size
+    + This is an "unstandardized" effect size (in original units)
+    + If the original units are intuitive, this might work well
+    
+- It may help comparison to standardize this value
+    + The difference is now in *standard deviation* units
+    
+$$ES = \frac{\bar{x}_1 - \bar{x}_2}{SD}$$
+
+::: {.footer}
+The question now becomes... which SD to use for standardization?
+:::
+
+## Independent samples
+
+- When comparing the means of independent samples...
+    + We can use the pooled SD in the denominator
+    
+$$d = \frac{\bar{x}_1 - \bar{x}_2}{s_p} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{(n_1 - 1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}}$$
+
+- This effect size measure is often referred to as Cohen's $d$
+
+- Other options include Hedge's $g$ and Glass' $\Delta$
+
+::: {.footer}
+$g$ corrects for small sample sizes and $\Delta$ uses the SD from one group only
+:::
+
+## Unstandardized difference
+
+```{r}
+#| echo: true
+#| collapse: true
+#| warning: false
+model_parameters(fit_s)
+```
+
+::: {.pv2}
+Tenure track professors' average teaching evaluations were 0.25 units lower (on a scale from 1 to 5) than were non-tenure track professors', 95% CI: [–0.51, 0.00].
+:::
+
+## Cohen's $d$
+
+```{r}
+#| echo: true
+#| collapse: true
+
+cohens_d(eval ~ track, data = tratings)
+```
+
+::: {.pv2}
+Tenure track professors' average teaching evaluations were 0.56 standard deviations lower than were non-tenure track professors', 95% CI: [–1.12, 0.00].
+:::
+
+## Dependent samples
+
+- When comparing the means of dependent/paired samples...
+    + We use the SD of the paired differences in the denominator
+    
+$$ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}$$
+
+- This is often referred to as a paired Cohen's $d$
+
+## Example
+
+```{r}
+#| echo: true
+#| collapse: true
+
+model_parameters(fit_p)
+
+cohens_d(Pair(endpoint, baseline) ~ 1, data = social)
+```
+
+Patients' social problems were 0.42 units (or 0.66 standard deviations) lower at the endpoint compared to baseline.

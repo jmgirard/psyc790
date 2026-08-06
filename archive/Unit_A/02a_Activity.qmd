@@ -1,0 +1,62 @@
+---
+title: "Lecture [02a] Activity"
+format: 
+  html:
+    css: styles.css
+    embed-resources: true
+---
+
+![](../img/programmer_2780E3.svg){width=300, height=300}
+
+## Question 1 (Projects)
+
+If you haven't already, create an RStudio Project for this entire course. Name it whatever makes sense to you (e.g., `PSYC 790` or `Stats Class`) and save it somewhere convenient on your computer (e.g., in a OneDrive/Dropbox/Box folder or on your desktop). Think about how you will organize and name your files in this project folder. Will you save your notes in one Quarto document per day or per week or something else? Will you have a consistent naming system for the files based on lecture numbers (e.g., `02a Notes.qmd` and `02a Homework.qmd`) or dates (e.g., `09-03 Notes.qmd`) or something else?
+
+
+## Question 2 (Quarto)
+
+Create a new Quarto document for this activity and save it in your new project folder with the naming convention you decided on in Question 1. Clear out the boilerplate text and create a new R code chunk. Inside this code chunk, use R as a calculator to answer the following question: If it costs \$100 for each professor and \$25 for each student to register for a conference, how much would it cost in total for a department of 8 professors and 20 students to register? Check that the code is working by running the chunk. Once it is giving the correct answer, render the Quarto document to an HTML file and preview it in the Viewer.
+
+{{< dstart summary="Answer Key" >}}
+
+Your .qmd file should look something like this (the header is optional):
+
+```` markdown
+---
+title: "Conference Costs"
+format: html
+---
+
+```{{r}}
+100 * 8 + 25 * 20
+```
+
+````
+Your R output should tell you that the total cost would be $1300.
+{{< dstop >}}
+
+## Question 3 (Markdown)
+
+Use markdown to add some formatted text before and after the code chunk in your Quarto document. Before the chunk, describe in text what your code chunk is doing and why. Format some of the text using italics, bold, etc. Add an image below the chunk showing people at a conference (e.g., <https://i.imgur.com/houkSmT.jpeg>)
+
+{{< dstart summary="Answer Key" >}}
+
+Your .qmd file should look something like this (the header is optional):
+
+```` markdown
+---
+title: "Conference Costs"
+format: html
+---
+
+**How much will it cost** to register our *whole department* to attend the conference? With 8 professors and 20 students, at a price of \$100 per professor and \$25 per student, the total cost will be:
+
+```{{r}}
+100 * 8 + 25 * 20
+```
+
+![](https://i.imgur.com/houkSmT.jpeg)
+
+````
+
+{{< dstop >}}

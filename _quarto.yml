@@ -1,0 +1,92 @@
+project:
+  type: website
+  resources:
+    - "icons/"
+
+execute:
+  freeze: auto
+  echo: true
+  eval: true
+  collapse: false
+
+website:
+  title: "PSYC790"
+  navbar:
+    background: primary
+    search: true
+    right:
+      # TODO: replace CANVAS_ID with the Fall 2025 PSYC790 Canvas course id
+      - href: https://canvas.ku.edu/courses/CANVAS_ID
+        icon: mortarboard
+        text: "Canvas"
+      - href: https://canvas.ku.edu/courses/CANVAS_ID
+        icon: file-text
+        text: "Syllabus"
+      - href: schedule.qmd
+        icon: calendar
+        text: "Schedule"
+      - text: "Unit A"
+        menu:
+          - icon: rocket-takeoff
+            text: "Week 01: Getting Started"
+            href: A/01/index.html
+          - icon: code-square
+            text: "Week 02: Projects and Programming"
+            href: A/02/index.html
+          - icon: table
+            text: "Week 03: Data and Exploration"
+            href: A/03/index.html
+          - icon: briefcase
+            text: "Week 04: Unit A Project"
+            href: A/04/index.html
+      - text: "Unit B"
+        menu:
+          - icon: people
+            text: "Week 05: Sampling and Estimation"
+            href: B/05/index.html
+          - icon: question-circle
+            text: "Week 06: Hypothesis Testing"
+            href: B/06/index.html
+          - icon: bar-chart
+            text: "Week 07: Group Comparisons"
+            href: B/07/index.html
+          - icon: signpost
+            text: "Week 08: Extensions and Review"
+            href: B/08/index.html
+      - text: "Unit C"
+        menu:
+          - icon: graph-up
+            text: "Week 09: Regression"
+            href: C/09/index.html
+          - icon: diagram-3
+            text: "Week 10: Categorical and Multiple Regression"
+            href: C/10/index.html
+          - icon: intersect
+            text: "Week 11: Moderation"
+            href: C/11/index.html
+          - icon: activity
+            text: "Week 12: Assumptions and Diagnostics"
+            href: C/12/index.html
+          - icon: graph-up-arrow
+            text: "Week 13: Polynomial Regression"
+            href: C/13/index.html
+          - icon: briefcase
+            text: "Week 14: Unit C Project"
+            href: C/14/index.html
+      - text: "Unit D"
+        menu:
+          - icon: shield-check
+            text: "Week 15: Best Practices"
+            href: D/15/index.html
+          - icon: pen
+            text: "Week 16: Reporting and Reviewing"
+            href: D/16/index.html
+  page-footer: "Copyright 2025 &copy; Jeffrey Girard"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true

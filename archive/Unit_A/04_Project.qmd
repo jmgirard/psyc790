@@ -1,0 +1,9 @@
+---
+title: "Week 04 Project"
+format: 
+  html:
+    css: styles.css
+    embed-resources: true
+---
+
+
