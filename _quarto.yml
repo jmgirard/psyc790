@@ -2,8 +2,7 @@
 #   [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/pages/...)
 # This keeps the week index.qmd files identical between instructors -- only this
 # file changes. See MODERNIZATION-PLAN.md section 6.
-# TODO: replace with the Fall 2025 PSYC790 Canvas course id.
-canvas-id: "CANVAS_ID"
+canvas-id: "164756"
 
 project:
   type: website
@@ -22,11 +21,10 @@ website:
     background: primary
     search: true
     right:
-      # TODO: replace CANVAS_ID with the Fall 2025 PSYC790 Canvas course id
-      - href: https://canvas.ku.edu/courses/CANVAS_ID
+      - href: https://canvas.ku.edu/courses/164756
         icon: mortarboard
         text: "Canvas"
-      - href: https://canvas.ku.edu/courses/CANVAS_ID
+      - href: https://canvas.ku.edu/courses/164756
         icon: file-text
         text: "Syllabus"
       - href: schedule.qmd

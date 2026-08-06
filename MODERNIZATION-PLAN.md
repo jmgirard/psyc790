@@ -244,12 +244,31 @@ For each week `NN` in unit `X`:
   note, Practice, bottom prev/next nav buttons.
   - **Downloads:** plain links, data2-style —
     `- [foo.csv](../../data/foo.csv){download="foo.csv"}`. No `downloadthis` extension.
-  - **Readings:** Canvas links, psyc894-style, but with the course id **parameterized** so
-    these files stay identical between instructors:
-    `- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/pages/<slug>){target="_blank"}`.
-    Verified: `{{< meta >}}` expands inside link URLs, and a `canvas-id` key at the top of
-    `_quarto.yml` is inherited by every page. The page *slugs* still differ per course, so
-    if Katie's Canvas pages are named differently, that part won't carry over automatically.
+  - **Readings:** Canvas **file** links (not Canvas pages — psyc790's readings are PDFs in
+    Canvas Files), in this shape:
+    ```
+    - [BST (2E) Ch. 5](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B?preview={{< meta readings.bst-2e-ch5 >}}){target="_blank"}
+    ```
+    with the file ids collected in one block at the top of `_quarto.yml`:
+    ```yaml
+    canvas-id: "164756"
+    readings:
+      bst-2e-ch5: "14592426"
+    ```
+    Verified: `{{< meta >}}` expands inside link URLs, dotted paths resolve, hyphenated keys
+    work, and `_quarto.yml` metadata is inherited by every page.
+
+    **Why the map, rather than inlining the ids:** a Canvas file preview id (`14592426`) is
+    opaque and *per-file, per-course*. When Katie copies the course, every PDF gets a new id,
+    so `canvas-id` alone cannot carry reading links across. Without the map she'd be editing
+    ~20–30 links spread over 16 files; with it she edits one block and the week pages stay
+    identical. It should also degrade gracefully — a stale `?preview=` id is expected to fall
+    back to the folder listing, which is still the right place (worth confirming once in
+    Canvas).
+
+    ⚠️ **These PDFs are textbook chapters and must stay behind Canvas authentication.** Do
+    not commit them to this repo or copy them into `data/` — the site is public, and Canvas
+    is the access-controlled home for them. Link only.
 
 ### Phase 4 — Assets
 - Consolidate all CSVs into a single root `data/`. Currently duplicated across
@@ -286,7 +305,7 @@ Because §4 parameterizes the instructor and attribution, the derived copy diffe
 | File | Change |
 |---|---|
 | `_slide-settings.yml` | `semester: "Fall 2026"`, `instructor: "Katie Hoemann"`, `attribution: "Course originally developed by Jeffrey M. Girard"` |
-| `_quarto.yml` | `canvas-id: "198405"` (confirmed), navbar Canvas + syllabus hrefs, footer |
+| `_quarto.yml` | `canvas-id: "198405"` (confirmed), the `readings:` file-id map, navbar Canvas + syllabus hrefs, footer |
 | `index.qmd` | her name, class time/location, office hours, TA; attribution line under the course description |
 | `README.md` | written for her (below) |
 
@@ -376,13 +395,12 @@ Slots in as a new phase after Phase 6:
 
 ### Still open
 
-- **Your Canvas course id** for the Fall 2025 psyc790 section — still needed; `_quarto.yml`
-  currently carries `canvas-id: "CANVAS_ID"` as a placeholder, and the navbar has two more.
-  (Katie's is settled: **198405**.) If the Fall 2025 site is archived, those links may need to
-  point somewhere else.
-- **Canvas page slugs** — the parameterized links only carry the course id across. The
-  per-page slugs (`.../pages/14a-effect-sizes-and-reporting`) are course-specific, so Katie's
-  copy may need those adjusted once her Canvas pages exist. Worth noting in her README.
+- ~~Canvas course ids?~~ Settled: **164756** (yours, Fall 2025) and **198405** (Katie,
+  Fall 2026), both recorded.
+- **Canvas file ids** — the `readings:` map has to be populated during Phase 3 by collecting a
+  preview link per PDF from your Canvas Files. Katie will need to regenerate the whole map
+  against her own course once her files exist; flag it in her README as the one real setup
+  task she can't skip.
 - **Does Katie get the answer keys?** She'll need them to teach from, and that's a separate
   transfer from the public repo (private repo access, or sent directly). Note they document
   the honeypot design per §3b, so it's a deliberate decision rather than a copy-paste.
