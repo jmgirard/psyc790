@@ -406,9 +406,28 @@ data2**, so psyc790 adds no new exposure — but it does mean the question spans
 courses. BY-NC-ND permits educational redistribution *with attribution*, so the cheap fix is
 a credit line under each figure (or a central `CREDITS.md`) rather than removing anything.
 
-**2. Lordicon.** ✅ **Resolved — you hold a paid (PRO) license, so Phase 4 proceeds with the
-`li` → `lif` migration as planned.** Recorded in `CREDITS.md`; PRO doesn't require
-attribution, but crediting costs nothing and documents the basis for the committed files.
+**2. Lordicon.** ✅ **Proceed with the `li` → `lif` migration.** You hold a PRO license, and
+PRO *explicitly permits* the thing we're doing: it names as a supported integration the use of
+"icons in the static or Lottie JSON format that are hosted on the User's servers." Self-hosting
+the Lottie files is a sanctioned path, not a workaround.
+
+An earlier draft of this section overstated the risk by quoting only the prohibition. For
+accuracy, what PRO actually bars is:
+
+> "Resell, trade, rent, lend, assign, gift, sublicense, or otherwise distribute the icons in
+> their original or modified form as standalone files, whether for free or for profit"
+
+and using them "as the core feature of a product, such as an icon library or icon pack."
+A course site using icons decoratively is neither.
+
+**Remaining gray area (thin):** Lordicon's terms are silent on public source repositories.
+But since PRO permits serving the JSON from your own site — which inherently makes every file
+fetchable by any visitor — a public repo doesn't meaningfully expand what's obtainable.
+Gitignoring `icons/` would reduce apparent exposure without reducing actual exposure, and
+would break Katie's build. Not worth it.
+
+If you want certainty, one clarifying email to Lordicon support would settle the repo
+question. Recorded in `CREDITS.md` either way.
 
 ### Decisions taken
 
