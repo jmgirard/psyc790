@@ -27,17 +27,21 @@ The 12 have a `control` layer that nothing listens to, so the shortcode updates 
 downstream changes. Removing the orphaned control layer does **not** restore runtime control
 (tested).
 
-## Fix: set the colour before exporting
+## Fix: set the colour before exporting — ✅ VERIFIED
 
 For each icon below, open it in Lordicon, set **secondary → `#2a76dd`** in the customizer,
 then export the Lottie JSON and overwrite the file in `icons/` keeping the filename.
 
-Verification: the exported JSON should contain `#2a76dd` where it currently contains
-`#08a88a`. Reload `icon-contact-sheet.html` and every icon should render blue + near-black.
+**Confirmed working on `avatar_search.json`.** After re-export it contains `#2a76dd` (x3) and
+`#121331` (x3) with no `#08a88a`, comes back with modern `wired-outline-*` naming, and renders
+blue + dark navy — an identical colour profile to the known-good `rulers.json`.
+
+Verification for each: the exported JSON should contain `#2a76dd` where it previously had
+`#08a88a`. Reload `icon-contact-sheet.html`; every icon should render blue + near-black.
 
 | file | lordicon page |
 |---|---|
-| `avatar_search.json` | https://lordicon.com/icons/wired/outline/288-avatar-man-search |
+| ~~`avatar_search.json`~~ | ✅ done |
 | `caliper.json` | https://lordicon.com/icons/wired/outline/1749-vernier-caliper |
 | `edit_doc.json` | https://lordicon.com/icons/wired/outline/245-edit-document |
 | `equalizer.json` | https://lordicon.com/icons/wired/outline/1080-rhythm-audio-equalizer |
