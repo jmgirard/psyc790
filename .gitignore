@@ -17,3 +17,14 @@
 *_key.qmd
 *_Key.qmd
 **/keys/
+
+# ---------------------------------------------------------------------------
+# Course readings are copyrighted textbook chapters and live on Canvas, behind
+# authentication. They must never be committed here -- this repo is public and
+# is published to GitHub Pages. Link to Canvas instead. See section 7.
+# ---------------------------------------------------------------------------
+*.pdf
+*.epub
+*.docx
+*.pptx
+readings/

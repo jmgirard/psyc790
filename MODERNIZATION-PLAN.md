@@ -377,6 +377,52 @@ Slots in as a new phase after Phase 6:
 
 ---
 
+## 7. Copyright audit
+
+Since the repo and the Pages site are both public, here's what's actually in scope. Not legal
+advice — flagging what's worth a decision.
+
+### Clean
+
+- **No PDFs, docs, or slides decks anywhere** in the repo. The textbook chapters live only on
+  Canvas, which is the correct arrangement. `.gitignore` now blocks `*.pdf`/`*.epub`/`*.docx`/
+  `*.pptx` as a safety net so a stray copy can't be committed during Phase 3/4.
+- **Datasets** are the standard teaching corpus (`affairs`, `teaching_ratings`, `salaries`,
+  `cigarettes`, …) plus `Przybylski2017`, which is published open research data. Low concern.
+- **unDraw illustrations** (`*_2780E3.svg`, `*_357EDD.svg`, `proud_coder`, `programmer`,
+  `statistics`) — unDraw's license permits free use without attribution. Fine.
+
+### Worth attention
+
+**1. Textbook figures with no attribution.** `tidydata.png`, `vectors.png`, `traincar.png`,
+`tibble.png` are near-certainly R4DS figures (CC BY-NC-ND), and they're used bare in the
+slides with no credit line anywhere in the source. Also unattributed: `emprule.png`,
+`central_limit1/2.png`, `largenumbers.png`, `power.png`, `between_within.png`,
+`nocorr.gif`/`poscorr.gif`, and `breaking_bad_wikipedia.png` (a Wikipedia screenshot that may
+include cover art).
+
+Context that matters: all six I hashed are **byte-identical to files already published in
+data2**, so psyc790 adds no new exposure — but it does mean the question spans all three
+courses. BY-NC-ND permits educational redistribution *with attribution*, so the cheap fix is
+a credit line under each figure (or a central `CREDITS.md`) rather than removing anything.
+
+**2. Lordicon — the one that conflicts with the plan.** Section 3 migrates 51 icons from CDN
+(`li`) to committed local JSON (`lif`). Reading Lordicon's license terms, both tiers appear to
+restrict distributing icon files as standalone assets: the free tier is CC BY-ND-based and
+requires attribution, and the PRO terms explicitly bar distributing icons "in their original
+or modified form as standalone files."
+
+A public repo makes every `icons/*.json` directly downloadable, which is closer to
+redistribution than a site merely serving its own assets to browsers. data2 (~90 icons) and
+psyc894 (19) already do this, so this is a pre-existing question, not one psyc790 introduces —
+but Phase 4 would add 51 more.
+
+Worth verifying against your actual license tier before Phase 4. Options if it's a problem:
+stay on `li`/CDN (loses the offline-reliability benefit that motivated the move), or keep
+`lif` and confirm your tier permits it.
+
+---
+
 ## 5. Decisions I need from you
 
 1. ~~Which semester?~~ **Fall 2025** — not teaching this term, so the site reproduces the
