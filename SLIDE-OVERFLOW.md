@@ -53,23 +53,29 @@ The cell-output colour styling from data2 (warning/message/error blocks, paired 
 
 ## Where it stands
 
-Sampled decks after the fixes:
+Full sweep of all 24 decks after the fixes: **21 of 602 slides (3.5%)**, down from 55 (9.1%).
+14 of the 24 decks are now completely clean.
 
-| deck | before fixes | after |
-|---|---|---|
-| B/06/b | 6 | **0** |
-| B/05/a | 5 | 1 (+13px) |
-| C/10/b | 8 | 2 (worst +53) |
-| B/05/b | 8 | 3 (worst +133) |
-| B/07/b | 4 | 1 (+235) |
-| C/09/b | 6 | 3 (worst +423) |
-| C/13/a | 4 | 3 (worst +153) |
-| B/08/a | 2 | 2 (worst +346) |
+| deck | remaining |
+|---|---|
+| C/09/b | Defining a Line in General (+423), Standardized Slopes (+57), Centering a Predictor (+20) |
+| B/08/a | Further partitioning (+318), Post-hoc tests (+50) |
+| B/07/a | Welch's approach (+288), Student's approach (+64), Independent samples (+60) |
+| B/07/b | The F distribution (+235) |
+| B/06/a | Reporting a significance test (+186) |
+| C/12/b | Example: Assumption Met (+181), Example: Assumption Violated (+155) |
+| C/13/a | Motivation (+153), Number of bends (+92), Direction of curvature (+77) |
+| B/05/b | The normal distribution (+133), Comparing multipliers (+43), Reporting a CI (+16) |
+| C/10/b | Example zero-order effects (+53), Plotting marginal effects (+43) |
+| C/10/a | Relation to Student's t-test (+26) |
 
-A handful of genuinely dense slides remain — these are the ones that were *also* slightly over
-in the original (e.g. C/09/b "Defining a Line in General", B/08/a "Further partitioning").
-Those are content problems, best fixed by splitting the slide or stepping the font down with
-`{.f5}` / `{.f6}`.
+Note `B/07/a` went from 0 to 3 — its slides sit just under the limit, so it is sensitive to
+small spacing changes in either direction.
+
+These are content-density problems rather than CSS: most were slightly over in the original
+too. Fix by splitting the slide or stepping the font down with `{.f5}` / `{.f6}`. The six
+worst (>150px) are worth doing before the course is taught again; the rest lose only a line
+or two.
 
 ## How to measure
 
