@@ -1,0 +1,292 @@
+---
+lecture: "03a"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Strings / Factors / Packages
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[{{< meta instructor >}} | Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+## Roadmap: More Programming
+
+::: {.columns .pv4}
+
+::: {.column width="60%"}
+1. Strings
+  
+2. Factors
+
+3. Packages
+:::
+
+::: {.column .tc .pv4 width="40%"}
+{{< lif "../../icons/map.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
+:::
+
+:::
+
+# Strings
+
+## Strings {.smaller}
+
+::: {.columns .pv4}
+::: {.column width="60%"}
+-   When talking to R, we need a way to distinguish
+    -   Object/function names (e.g., the *mean* function)
+    -   Text/character data (e.g., the word *mean*)
+    
+::: {.fragment .mt1}
+-   [Strings]{.b .blue} are R's way of storing text data
+    -   Strings can store any characters (no rules!)
+    -   Strings are created and displayed with [quotes]{.b .green}
+:::
+::: {.fragment .mt1}
+-   R has great tools for working with strings
+    -   Strings can be collected into vectors
+    -   Special functions can transform strings
+:::
+:::
+
+::: {.column .tc .pv5 width="40%"}
+{{< lif "../../icons/quotation.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
+
+::: {.fragment}
+`name <- "John Doe"`
+:::
+
+:::
+:::
+
+## Strings Live Coding
+
+```{r}
+#| echo: true
+#| eval: false
+#| error: true
+#| code-line-numbers: false
+
+# USECASE: Strings are the main way to store character data in R
+ 
+my_color <- red # error
+
+my_color <- "red" # correct
+
+# ==============================================================================
+
+# USECASE: Strings can also store symbols not allowed in object names
+
+dye <- "red#40"
+dye
+
+dyes <- c("red#40", "blue#02")
+dyes
+
+# ==============================================================================
+
+# PITFALL: Many operations you can do to numbers won't work for strings
+
+dyes + 1 # error
+
+mean(dyes) # error
+
+# ==============================================================================
+
+# USECASE: But other operations work for both or even just for strings
+
+length(dyes)
+
+nchar(dyes)
+
+dyes2 <- toupper(dyes)
+dyes2
+```
+
+# Factors
+
+## Factors {.smaller}
+
+::: {.columns .pv4}
+::: {.column width="60%"}
+-   [Factors]{.b .blue} are used to represent categorical data
+    -   Factors have multiple possible [levels]{.b .blue}
+    -   Levels are [discrete]{.b .green} and mutually-exclusive
+
+::: {.fragment .mt1}
+-   Sometimes levels are numeric "codes"
+    -   e.g., 1=Drama, 2=Action, 3=Comedy
+    -   R needs to know these aren't numbers!
+    -   We can even give each level a descriptive [label]{.b .green}
+    -   Or we can just store the levels as strings
+:::
+:::
+
+::: {.column .tc .pv5 width="40%"}
+{{< lif "../../icons/theater.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
+:::
+:::
+
+## Factors Live Coding
+
+```{r}
+#| echo: true
+#| eval: false
+#| error: true
+#| code-line-numbers: false
+
+# USECASE: Ask 10 kids to order 1: nuggets, 2: pizza, or 3: salad
+
+food <- c(2, 2, 1, 2, 1, 2, 1, 1, 2, 2)
+food
+
+# ==============================================================================
+
+# LESSON: We can turn this into a factor with the factor() function
+
+food2 <- factor(food)
+food
+
+# ==============================================================================
+
+# USECASE: We can quickly and easily count each level with table()
+
+table(food2)
+
+# ==============================================================================
+
+# LESSON: We can let R know that level=3 is also possible by specifying levels
+
+food3 <- factor(food, levels = c(1, 2, 3))
+food3
+
+table(food3)
+
+# ==============================================================================
+
+# LESSON: We can also give a label to each level so it is more readable
+
+food4 <- factor(food, levels = c(1, 2, 3), 
+                labels = c("nuggets", "pizza", "salad"))
+food4
+
+table(food4)
+
+# ==============================================================================
+
+# PITFALL: Don't confuse levels and labels
+
+food5 <- factor(food, levels = c("nuggets", "pizza", "salad"),
+                labels = c(1, 2, 3))
+food5 # full of <NA> because it can't find these levels
+
+# ==============================================================================
+
+# USECASE: You can also just store the levels as strings (like self-labels)
+
+genre <- c("pop", "metal", "pop", "rock", "rap", "rap", "pop", "rock")
+genre
+
+genre2 <- factor(genre) # observed levels will be assigned alphabetically
+genre2
+
+table(genre2)
+```
+
+# Packages
+
+## Packages {.smaller}
+
+::: {.columns .pv4}
+::: {.column width="60%"}
+-   [Cookbooks]{.b .green} are a great way to learn to cook
+    -   *They contain lots of recipes and instructions*
+    -   Browse an online **bookstore** for a cookbook
+    -   **Order** it to add it to your personal **bookshelf**
+    -   To use, **pull** the cookbook off the shelf
+
+::: {.fragment .mt1}
+-   [Packages]{.b .blue} are like cookbooks for R
+    -   *They contain helpful functions and datasets*
+    -   Browse an online **repository** for a package
+    -   **Install** it to add it to your personal **library**
+    -   To use, **load** the package from the library
+:::
+:::
+
+::: {.column .tc .pv5 width="40%"}
+{{< lif "../../icons/books.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
+
+::: {.fragment}
+`library("pkg_name")`
+:::
+:::
+:::
+
+## Packages Live Coding
+
+```{r}
+#| echo: true
+#| eval: false
+#| error: true
+#| code-line-numbers: false
+
+# USECASE: The stringr package adds a function to fix capitalization
+
+students <- c("mary anne", "BENjamin", "Lee")
+
+# ==============================================================================
+
+# PITFALL: But we can't use that function without installing the package
+
+str_to_title(students) # error
+
+# ==============================================================================
+
+# LESSON: Installing a package using RStudio
+
+# - RStudio > Extras pane > Packages tab > Install button
+
+install.packages("stringr")
+
+# PITFALL: Use this command in the console, not in your Quarto document!
+
+# ==============================================================================
+
+# PITFALL: We also need to load the package before we can use it
+
+str_to_title(students) # error
+
+# ==============================================================================
+
+# LESSON: We load the package using library()
+
+library("stringr")
+str_to_title(students) # finally works!
+
+# ==============================================================================
+
+# LESSON: We can also keep our packages updated using RStudio
+
+# RStudio > Extras pane > Packages tab > Update button
+
+# ==============================================================================
+
+# USECASE: We can see if a package contains any vignettes (articles)
+
+browseVignettes("stringr")
+```

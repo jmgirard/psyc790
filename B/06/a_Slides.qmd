@@ -1,0 +1,675 @@
+---
+lecture: "06a"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Hypotheses / NHST / p-values
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[{{< meta instructor >}} | Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(distributional)
+library(ggdist)
+library(lsr)
+mytheme <- theme_gray(base_size = 30) + theme(panel.grid.minor = element_blank())
+```
+
+
+# Statistical Hypotheses
+
+## What is a hypothesis?
+
+- A hypothesis is a **testable** prediction
+    + It derives from a broader scientific theory
+    + It needs to be operationalized and falsifiable
+
+- A statistical hypothesis needs to be mathematically **precise**
+    + It is about characteristics of the population of interest
+    + It is a *comparison* involving population parameters
+        + The mean of the whole population is 100 $(\mu=100)$
+        + The mean is greater in group 1 than group 2 $(\mu_1>\mu_2)$
+
+::: {.footer}
+
+:::
+
+## Example research question
+
+- Imagine that we study *nutrition* and *obesity*
+
+- Participants really like a brand of "low sugar" cereal
+
+- The label claims that it only contains 3 g of sugar per serving
+
+- However, we think this may be **false advertising**!
+
+::: {.fragment}
+- We buy a *sample* of 20 cereal boxes from various stores
+
+- We measure the amount of sugar per serving in each box
+
+- **Is 3 g a reasonable estimate of the *population mean*?**
+:::
+
+::: {.footer}
+
+:::
+
+## Null and alternative hypotheses
+
+- Just like in a criminal trial, we need to represent *both* sides
+
+::: {.fragment}
+- The **null hypothesis** represents the company's "defense"
+    + Boxes *do* contain 3 g on average, or $H_0: \mu=3$
+:::
+
+::: {.fragment}
+- The **alternative hypothesis** represents the "prosecution"
+    + Boxes contain *more* than 3 g on average, or $H_1: \mu>3$
+    + Boxes *do not* contain 3 g on average, or $H_2: \mu\neq3$
+    
+:::
+
+::: {.footer}
+$H_1$ is a "one-sided" and $H_2$ is a "two-sided" hypothesis.
+:::
+
+# NHST Logic
+
+## What is NHST?
+
+- In null hypothesis significance testing (NHST), the null hyp. is the defense and the alternative hyp. is the prosecution
+
+- The statistical test is the *judge and jury* (makes the decision)
+
+::: {.fragment}
+- We begin with a "presumption of innocence"
+    + The null hypothesis is **assumed true** unless...
+    + ...there is good evidence that it is ***very unlikely***
+    + The burden of proof thus lies with the prosecution
+:::
+
+::: {.footer}
+NHST helps protect the null hypothesis from researchers who are incentivized to disprove it.
+:::
+
+## Potential test outcomes
+
+1. [Retain the null hypothesis]{.b .blue}
+    + There is not enough evidence to reject $\mu=3$
+    + We cannot be certain that $\mu$ does not equal $3$
+    + *It **does not** mean that we are certain that $\mu=3$*
+    
+2. [Reject the null hypothesis]{.b .blue}
+    + There is enough evidence to conclude $\mu\neq3$
+    + The cereal's nutrion label should be changed...
+    + *It **does not** prove that this was deliberate fraud*
+
+::: {.footer}
+
+:::
+
+## Potential errors
+
+- In reality, there is **only one correct decision**
+    + In the two-sided case, either $\mu=3$ or $\mu\neq3$
+
+- Due to *sampling error*, our sample may lead us astray
+    + We might make one two possible [wrong]{.red} decisions...
+
+::: {.fragment}
+|                    | Retain $H_0$   | Reject $H_0$   |
+| :----------------- | :------------- | :------------- |
+| $H_0$ **is True**  | Correct Retain | [Type I Error]{.red}   |
+| $H_0$ **is False** | [Type II Error]{.red} | Correct Reject |
+:::
+
+::: {.footer}
+
+:::
+
+## Example outcomes
+
+- In a world where the cereal *does* contain 3g on average
+    + The **null hypothesis is true** and should be *retained*
+    + If our test retains it, that is the correct decision
+    + If our test rejects it, that is a [Type I error]{.red}
+
+- In a world where the cereal *doesn't* contain 3g on average
+    + The **null hypothesis is false** and should be *rejected*
+    + If our test retains it, that is a [Type II error]{.red}
+    + If our test rejects it, that is the correct decision
+
+::: {.footer}
+
+:::
+
+## Controlling error rates
+
+- NHST is particularly interested in preventing Type I errors
+    + Researchers want to reject the null, so NHST protects it
+
+::: {.fragment}
+- We control the Type I error rate $(\alpha)$ by modifying the test
+    + e.g., we set $\alpha=.05$ to allow only 5% type I error
+:::
+
+::: {.fragment}
+- We control the Type II error rate $(\beta)$ via large samples
+    + We refer to a test's **statistical power** as $1-\beta$
+    + e.g., we decide $n$ to get 80% power (only 20% type II error)
+:::
+
+::: {.footer}
+:::
+
+## Outcome probabilities
+
+|                    | Retain $H_0$ | Reject $H_0$  |
+| :----------------- | :-------:    | :-----------: |
+| $H_0$ **is True**  | $1-\alpha$   | [$\text{[I] }\alpha$]{.red}      |
+| $H_0$ **is False** | [$\text{[II] }\beta$]{.red}      | $1-\beta$     |
+
+::: {.fragment}
+- If we set $\alpha$ to .05, we are accepting...
+    + Up to a 5% (1 in 20) chance of rejecting a true null hyp.
+:::
+
+::: {.fragment}
+- If we use a sample with 80% power, we are accepting...
+    + Up to a 20% (1 in 5) chance of retaining a false null hyp.
+:::
+
+::: {.footer}
+
+:::
+
+
+# NHST Nuts and Bolts
+
+## Test statistics
+
+- How do we decide to retain or reject the null hypothesis?
+
+::: {.fragment}
+- We compare our sample data to our "null expectations"
+    + *What would we expect to see if the null were true?*
+    + If they **match**, we we **retain** the null hypothesis
+    + If they **do not match**, we **reject** the null hypothesis
+:::
+
+::: {.fragment}
+- We need a way to quantify the extent of this matching
+    + The [test statistic]{.b .blue} quantifies the *mismatch*
+:::
+
+::: {.footer}
+
+:::
+
+## Test statistics
+
+- The population mean expected under the null $(\mu_0)$ is 3
+    + Our null expectation is a sample mean $(\bar{x})$ close to this
+
+- The extent of matching here is captured by the difference
+    + We can use the difference $(\Delta)$ as a simple test statistic
+    $$\Delta = \bar{x} - \mu_0 \qquad \Delta = \bar{x} - 3$$
+    + If the null is true, then $\Delta$ should be very close to zero
+    + We would reject the null if $\Delta$ is too far from zero
+
+::: {.footer}
+
+:::
+
+## Critical values
+
+- How far from zero is too far? When do we reject the null?
+
+- We look at the sampling distribution of $\Delta$ under the null
+    + If we assume that the null hypothesis is true...
+    + ...what values would we see with repeated samples?
+
+- We can use this to make our statistical decision
+    + We reject $H_0$ if the test statistic is unlikely under the null
+    + If greater than the [critical value]{.b .blue}, we reject the null
+    + The critical value controls the Type I error rate $(\alpha)$
+    
+::: {.footer}
+
+:::
+
+## Single sample $z$-test
+
+- To set $\alpha=.05$, we reject the null if the test statistic is outside the middle 95% of its null sampling distribution
+
+- The math becomes easier if we standardize the test statistic by dividing it by its standard error
+
+::: {.columns}
+::: {.column}
+
+$$
+z_{\bar{x}} = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \\
+z_{\bar{x}} \sim \mathcal{N}(0, 1)
+$$
+
+:::
+::: {.column}
+```{r}
+#| echo: false
+
+data.frame(mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_normal(mu, sigma), fill = after_stat(abs(x) < 1.96))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -1.96, size = 2, color = "salmon") +
+  geom_vline(xintercept = 1.96, size = 2, color = "salmon") +
+  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "z Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+:::
+:::
+
+::: {.footer}
+Critical values: $|z_{\bar{x}}| > 1.96$ (i.e., it falls in the red regions)
+:::
+
+
+## Single sample $t$-test
+
+- This $z$-test is rarely used because $\sigma$ is rarely known
+
+- Instead, we estimate $\sigma$ using $s$ and use the $t$-test
+
+- With a small sample, the critical values are now higher
+
+::: {.columns}
+::: {.column}
+
+$$
+t_{\bar{x}} = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \\
+t_{\bar{x}} \sim t(n-1, 0, 1)
+$$
+
+:::
+::: {.column}
+```{r}
+#| echo: false
+
+data.frame(df = 20 - 1, mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = after_stat(abs(x) < 2.093024))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -2.093024, size = 2, color = "salmon") +
+  geom_vline(xintercept = 2.093024, size = 2, color = "salmon") +
+  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "t Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+:::
+:::
+
+::: {.footer}
+Critical values: $|t_{\bar{x}}| > 2.09$ (i.e., it falls in the red regions)
+:::
+
+## Example where $H_0$ is true
+
+::: {.columns}
+::: {.column}
+
+```{r}
+#| echo: false
+ 
+set.seed(2021)
+
+# set simulation parameters
+n <- 20
+mu_0 <- 3 # the null mean is 3 g
+mu <- 3   # the true mean is 3 g
+sigma <- 0.25
+
+# simulate data
+sugar_null <- rnorm(n, mu, sigma) |> round(1)
+```
+
+Imagine $H_0$ is true $(\mu=3)$ and we collect the following sample of 20 cereal boxes
+
+```{r}
+#| echo: true
+
+sugar_null <- c(
+  3.0, 3.1, 3.1, 3.1, 3.2,
+  2.5, 3.1, 3.2, 3.0, 3.4, 
+  2.7, 2.9, 3.0, 3.4, 3.4, 
+  2.5, 3.4, 3.0, 3.4, 3.4
+)
+```
+
+:::
+::: {.column}
+```{r, echo=FALSE, fig.width=5, fig.height = 3.5}
+ggplot(tibble(sugar = sugar_null), aes(x = sugar)) + 
+  geom_density(fill = "blue", alpha = 1/3) + 
+  labs(x = "Sugar (Sample 1)") +
+  mytheme
+```
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Example where $H_0$ is true
+
+::: {.columns}
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+mu_0 <- 3
+s <- sd(sugar_null)
+se <- s / sqrt(n)
+xbar <- mean(sugar_null)
+xbar
+
+t_xbar <- (xbar - mu_0) / se
+t_xbar
+
+t_crit <- qt(0.975, df = n - 1)
+t_crit
+```
+:::
+
+::: {.column}
+```{r, echo=FALSE, fig.width = 5, fig.height=3.5}
+data.frame(df = 20-1, mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = stat(abs(x) < t_crit))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_xbar, linetype = "dashed", size = 2, color = "cornflowerblue") +
+  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "t Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+$|t_{\bar{x}}|<t_{crit}: \text{Retain }H_0$
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Example where $H_0$ is false
+
+::: {.columns}
+::: {.column}
+
+```{r}
+#| echo: false
+ 
+set.seed(2023)
+
+# set simulation parameters
+n <- 20
+mu_0 <- 3 # the null mean is 3 g
+mu <- 4   # the true mean is 3 g
+sigma <- 1
+
+# simulate data
+sugar_alt <- rnorm(n, mu, sigma) |> round(1)
+```
+
+Imagine $H_0$ is false $(\mu=4)$ and we collect the following sample of 20 cereal boxes
+
+```{r}
+#| echo: true
+
+sugar_alt <- c(
+  3.9, 3.0, 2.1, 3.8, 3.4, 
+  5.1, 3.1, 5.0, 3.6, 3.5, 
+  4.3, 3.6, 4.6, 4.7, 3.4, 
+  4.7, 4.6, 4.5, 4.9, 4.6
+)
+```
+
+:::
+::: {.column}
+```{r, echo=FALSE, fig.width=5, fig.height = 3.5}
+ggplot(tibble(sugar = sugar_alt), aes(x = sugar)) + 
+  geom_density(fill = "blue", alpha = 1/3) + 
+  labs(x = "Sugar (Sample 2)") +
+  mytheme
+```
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Example where $H_0$ is false
+
+::: {.columns}
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+mu_0 <- 3
+s <- sd(sugar_alt)
+se <- s / sqrt(n)
+xbar <- mean(sugar_alt)
+xbar
+
+t_xbar <- (xbar - mu_0) / se
+t_xbar
+
+t_crit <- qt(0.975, df = n - 1)
+t_crit
+```
+:::
+
+::: {.column}
+```{r, echo=FALSE, fig.width = 5, fig.height=3.5}
+data.frame(df = 20-1, mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = stat(abs(x) < t_crit))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_xbar, linetype = "dashed", size = 2, color = "cornflowerblue") +
+  coord_cartesian(xlim = c(-6, 6), expand = FALSE) +
+  scale_x_continuous(breaks = seq(-6, 6, by = 2)) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "t Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+$|t_{\bar{x}}|>t_{crit}: \text{Reject }H_0$
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Making decisions
+
+- Critical values let us decide and control $\alpha$
+    + $t_{obs} < t_{crit}$ = Retain the null
+    + $t_{obs} \ge t_{crit}$ = Reject the null
+
+- When we reject the null, the test was "significant"
+    + Remember that not all rejections are correct
+    + Even a correct rejection may not be important
+    + In a large sample, a small effect may be significant
+
+::: {.footer}
+
+:::
+
+# $p$-values and <br>Pragmatics
+
+## The $p$-value of a test
+
+- But what if we had selected a different $\alpha$ level?
+    + Some $\alpha$ values would yield a different decision
+
+- The $p$-value is a popular approach for dealing with this
+
+::: {.callout-note title="Correct p-value Definitions"}
+The $p$-value is the smallest $\alpha$ value that would reject the null hypothesis.<br />
+The $p$-value is the probability of observing a test statistic *at least* as extreme as ours.
+:::
+
+::: {.callout-important title="Wrong p-value Definition"}
+The $p$-value is the probability that the null hypothesis is true.
+:::
+
+::: {.footer}
+
+:::
+
+## Using the $p$-value
+
+- The $p$-value is a summary of all possible $\alpha$ values
+    + How would you feel about setting $\alpha$ to $p$?
+
+- It is best to set $\alpha$ for the study *before* seeing the data
+    + Then, you reject the null if and only if $p<\alpha$
+
+- Reporting $p$ directly softens your decision
+    + e.g., $p=.049$ (Reject) vs. $p=.051$ (Retain)
+    + e.g., $p=.002$ (Reject) vs. $p=.047$ (Reject)
+
+
+::: {.footer}
+
+:::
+
+
+## Reporting a significance test
+
+```{r}
+tribble(
+  ~Notation, ~Stars, ~Translation, ~Decision,
+  "p ≥ .05", "", "Test was NOT significant at α=.05", "Retain Null",
+  "p < .05", "*", "Test was significant at α=.05", "REJECT Null",
+  "p < .01", "**", "Test was significant at α=.01", "REJECT Null",
+  "p < .001", "***", "Test was significant at α=.001", "REJECT Null"
+) |>  
+  knitr::kable() |> 
+  kableExtra::kable_styling(font_size = 32)
+```
+
+- Report your exact $p$-value (unless less than .001)
+    + Saying $p<.05$ or $p\ge.05$ discards useful information
+
+- It can be helpful to report a CI and your test statistic too
+
+::: {.footer}
+
+:::
+
+## Putting it all together
+
+- We can do a one-sample $t$-test in R with `t.test()`
+- We can get a results table with `model_parameters()`
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+fit1 <- t.test(sugar_null, mu = 3)
+
+library(easystats)
+model_parameters(fit1)
+```
+
+
+::: {.footer}
+
+:::
+
+## Interpreting the results
+
+```{r}
+#| echo: false
+
+model_parameters(fit1)
+```
+
+
+> "The mean sugar content per serving in our sample was 3.09&nbsp;g, 95% CI: [2.96, 3.22], which was not significantly different from the 3 g stated on the label, $t(19)=1.42$, $p=.171$. Thus, we retain the null hypothesis that there are 3 g of sugar per serving."
+
+## Putting it all together... again
+
+- Let's repeat with the other sample
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+
+fit2 <- t.test(sugar_alt, mu = 3)
+
+model_parameters(fit2)
+```
+
+
+::: {.footer}
+
+:::
+
+## Interpreting the results
+
+```{r}
+#| echo: false
+
+model_parameters(fit2)
+```
+
+
+> "The mean sugar content per serving in our sample was 4.02&nbsp;g, 95% CI: [3.65, 4.39], which was significantly greater than the 3 g stated on the label, $t(19)=5.70$, $p<.001$. Thus, we reject the null hypothesis that there are 3 g of sugar per serving."

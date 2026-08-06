@@ -1,0 +1,693 @@
+---
+lecture: "05a"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Populations / Samples / Uncertainty
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[{{< meta instructor >}} | Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+# Research Methods
+
+## The scientific method
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- Uncertainty can be scary, uncomfortable, and dangerous
+
+- We strive to **understand** the world and make **predictions** 
+
+- We often use our **intuition** and **experiences** to do so
+    + Intuitions and experience are usually better than nothing
+    + However, they can often be *wrong* and *misleading!*
+
+- We can do much better using the [scientific method]{.b .blue}
+
+::: {.footer}
+See [*The Demon-Haunted World: Science as a Candle in the Dark*](https://en.wikipedia.org/wiki/The_Demon-Haunted_World) by Sagan & Druyan
+:::
+
+## What is the scientific method?
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/test_tubes.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- Start with a **research question** that is answerable with data
+
+- Generate a **hypothesis** (i.e., a testable prediction)
+    + Hypotheses usually derive from scientific *theories*
+    + Hypotheses need to be *operationalized* and *falsifiable*
+
+- Conduct a **replicable study** to collect relevant data
+
+- Analyze the data to **test the hypothesis**/predictions
+
+::: {.footer}
+The scientific method classically uses experimental studies, but it can also improve observational studies
+:::
+
+## Example
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/coffee.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- **Question:** Does caffeine make you smarter?
+
+- **Hypothesis:** Adult humans given caffeine will navigate a maze faster than adult humans not given caffeine.
+
+- **Experiment:** Recruit adult humans and give one group decaffeinated coffee and give another group normal coffee. Measure the time it takes each human to navigate a maze. 
+
+- **Analysis:** Compare the two groups' maze completion times.
+
+::: {.footer}
+
+:::
+
+## What role do statistics play?
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/calculator.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- **Descriptive Statistics** summarize and visualize the distributions and associations between variables
+
+- **Inferential Statistics** allow us to make inferences about our data and quantify the uncertainty in those inferences
+
+  - **Probability:** Model $\to$ Data <br />
+(e.g., given a fair coin, what is the chance of HHHHH...)
+
+  - **Statistics:** Data $\to$ Model <br />
+(e.g., given HHHHH, what is the chance the coin is fair...)
+
+::: {.footer}
+
+:::
+
+# Populations and Parameters
+
+## What is a population?
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/people.json" trigger=hover colors=primary:#2a76dd class=tr >}}
+:::
+
+- The **population** is **the set of all possible observations** that we want to draw conclusions and make predictions about
+
+- Imagine that we are interested in studying sleeping behavior
+
+- Are we interested in understanding the behavior of...
+    + All humans who ever lived and ever will live
+    + All adults (18 years and older) living in the USA
+    + All students at KU in Fall `r lubridate::year(lubridate::today())` enrolled in PSYC 790
+
+::: {.footer}
+Populations aren't always made up of people; you could have populations of groups, objects, events, etc.
+:::
+
+## How large is the population?
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/counter.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- The number of individuals in a population is denoted $N$
+    + The number of humans in past and future, $N\rightarrow\infty$
+    + The number of adults in the USA, $N\approx209$ million
+    + The number of students in this class, $N=24$
+
+- We need to be very careful about **generalizing**/extrapolating
+    + Conclusions may not apply to other populations
+    + Predictions may be less accurate in other populations
+
+::: {.footer}
+
+:::
+
+## What is a parameter?
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/rulers.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- [Parameters]{.b .blue} are things we want to learn about a population
+    + The *typical* sleep duration for students
+    + The *spread* in sleep duration across students
+
+- *And beyond (e.g., other summaries, differences, associations)*
+
+::: {.fragment}
+- A few years ago, I sent out a survey to every student in class
+
+- I was able to gather data for this entire population!
+:::
+
+::: {.footer}
+
+:::
+
+## Small population example
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+::: {.columns}
+
+::: {.column}
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| replace_path: ["../../data/", ""]
+
+# Read in data from file
+library(tidyverse)
+sleep <- read_csv("../../data/sleep.csv")
+
+# Calculate total sleep hours
+sleep$total <- 
+  sleep$night + sleep$day
+sleep$total
+```
+:::
+
+::: {.column}
+```{r}
+#| echo: true
+#| eval: false
+
+qplot(x = total, data = sleep, 
+      geom = "density")
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+
+ggplot(sleep, aes(x = total)) +
+  geom_density(fill = "gray", alpha = 1/2) +
+  scale_x_continuous(limits = c(4,10)) +
+  theme_bw(base_size = 30)
+```
+:::
+
+:::
+
+::: {.footer}
+
+:::
+
+## Small population example
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+::: {.columns}
+
+::: {.column}
+#### Population Mean
+
+The mean represents the "typical" sleep duration
+
+$$\mu=\frac{1}{N} \sum_{i=1}^N x_i$$
+
+```{r}
+#| echo: true
+#| collapse: true
+
+x <- sleep$total
+N <- length(x)
+mu <- (1 / N) * sum(x)
+mu
+```
+
+:::
+
+::: {.column .fragment}
+#### Population Std. Deviation
+
+The SD represents the "spread" across individuals
+
+$$\sigma=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2}$$
+
+```{r}
+#| echo: true
+#| collapse: true
+
+sqdiff <- (x - mu)^2
+sigma <- sqrt((1 / N) * sum(sqdiff))
+sigma
+```
+:::
+
+:::
+
+::: {.footer}
+We denote parameters using Greek letters $(\mu,\sigma)$ or uppercase English letters $(N)$
+:::
+
+# Samples and Statistics
+
+## Sampling
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/example.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- In practice, we are often interested in very large populations
+    + $N$ = 209M adults in USA, $N$ = 35T blood cells in body
+
+- It would be infeasible to measure such populations entirely
+
+- In these cases, we rely on [sampling]{.b .blue} and statistical [inference]{.b .blue}
+
+- A **sample** is a subset drawn from a population
+    + $n$ = 600 adults from USA, $n$ = 5M blood cells from body
+
+
+::: {.footer}
+Note we use lowercase $n$ to denote the sample size
+:::
+
+## Basics of statistical inference {.smaller}
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/light_bulb.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+:::{.columns}
+
+:::{.column}
+
+- **Sampling** is drawing a subset of observations to represent a population
+
+- **Inference** is learning about the population by studying a sample drawn from it
+
+- We first measure *in the sample* whatever we want to know about the population
+
+- We call this measure the sample [statistic]{.b .blue}
+
+- We use the sample statistic to **estimate** (i.e., guess) the population parameter
+
+:::
+
+::: {.column}
+![](../../img/inference.png)
+:::
+
+:::
+::: {.footer}
+
+:::
+
+## Sample example {.smaller}
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+::: {.columns}
+
+::: {.column}
+- Our population is all the students in the class $(N=16)$ and our parameters of interest are the mean and SD of their total sleep time $(\mu=7.63, \sigma=1.04)$
+
+- But imagine it is not feasible or possible to survey the entire population... so we randomly select six students to survey
+:::
+
+::: {.column .fragment}
+The `sample()` function will randomly draw a sample (of given size) from a vector
+
+*Note that, because sampling is random, we will each get a slightly different sample.*
+
+```{r}
+#| echo: false
+set.seed(2021)
+```
+
+```{r}
+#| echo: true
+#| collapse: true
+xs <- sample(sleep$total, size=6)
+xs
+```
+:::
+
+:::
+::: {.footer}
+In practice, we usually *only* have the sample's data and so using `sample()` isn't usually necessary
+:::
+
+## Sample example
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+::: {.columns}
+
+::: {.column}
+#### Sample Mean
+
+The mean formulas are basically identical for both samples and populations
+
+$$\bar{x}=\frac{1}{n} \sum_{i=1}^n x_i$$
+
+```{r}
+#| echo: true
+#| collapse: true
+
+xbar <- mean(xs)
+xbar
+```
+
+:::
+
+::: {.column .fragment}
+#### Sample Std. Deviation
+
+But the SD formulas are a bit different (we subtract 1 to correct for bias in small samples)
+
+$$s=\sqrt{\frac{1}{\color{red}{n-1}}\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+```{r}
+#| echo: true
+#| collapse: true
+
+s <- sd(xs)
+s
+```
+:::
+
+:::
+
+::: {.footer}
+We denote sample statistics using lowercase English letters $(n, \bar{x},s)$ or Greek letters with hats $(\hat{\mu},\hat{\sigma})$
+:::
+
+
+# Estimation and Uncertainty
+
+## Sampling error
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/caution.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- Uh-oh, our statistics $\neq$ their corresponding parameters!
+
+:::{.columns}
+:::{.column}
+```{r}
+#| echo: true
+#| collapse: true
+round(c(mu, xbar, xbar - mu), 2)
+```
+
+:::
+:::{.column}
+```{r}
+#| echo: true
+#| collapse: true
+round(c(sigma, s, s - sigma), 2)
+```
+:::
+:::
+
+- Such differences are called [sampling errors]{.b .blue}
+
+::: {.fragment}
+- Sampling errors come from two main sources
+    +   **Stochastic Error:** The sample was *too small* to be perfectly representative of the population
+    +   **Systematic Error:** The sample was *not random enough* to be perfectly representative of the population
+:::
+
+::: {.footer}
+
+:::
+
+## Why does sample size matter?
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/funnel.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+- Imagine we had drawn a sample of 2 instead of 6...
+
+- We might only sample part of the distribution
+    + The sample mean *would* depend on who was included
+    + We might end up with only extreme people
+    + Our estimate would thus be *more* influenced by chance
+
+- Now imagine we had drawn a sample of 14 instead of 6...
+    + The sample mean *wouldn't* depend on who was included
+    + Our estimate would thus be *less* influenced by chance
+
+::: {.footer}
+
+:::
+
+## The law of large numbers {.smaller}
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/privacy_policy.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+![](../../img/largenumbers.png) 
+
+- Larger (random) samples will tend to better approximate the population
+
+- Statistics from larger (random) samples will tend to better estimate the parameters
+
+::: {.footer}
+
+:::
+
+## Small population simulation {.smaller}
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+Let's take samples of different sizes from our population and calculate the sample mean
+
+To show the influence of chance, we can repeat this 50 times for each sample size
+
+Let's plot each repetition's sample mean as a point (and the population mean as a line)
+
+```{r}
+set.seed(2021)
+n <- 1:15
+
+many_sample <- function(n, population, iter) {
+  out <- vector("double", length = iter)
+  for (i in 1:iter) {
+    out[i] <- mean(sample(population, size = n))
+  }
+  tibble(n = n, i = 1:iter, mean = out)
+}
+
+res <- map_dfr(n, many_sample, population = sleep$total, iter = 50)
+
+ggplot(res, aes(x = factor(n), y = mean)) + 
+  geom_hline(yintercept = mean(sleep$total), color = "darkred", linewidth = 2) +
+  ggbeeswarm::geom_quasirandom() +
+  labs(x = "Sample Size (from population of N=16)", y = "Sample Mean") +
+  theme_gray(base_size = 20) +
+  theme(panel.grid.minor = element_blank())
+```
+
+::: {.footer}
+
+:::
+
+## Large population simulation {.smaller}
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+With larger populations, we need larger samples to get good estimates
+
+Here is a simulation of sampling from a population $N=1000000, \mu=100, \sigma=15$
+
+```{r}
+set.seed(2021)
+n2 <- c(10, 20, 40, 80, 160, 320, 640, 1280)
+pop2 <- rnorm(1e6, 100, 15)
+res2 <- map_dfr(n2, many_sample, population = pop2, iter = 50)
+
+ggplot(res2, aes(x = factor(n), y = mean)) + 
+  geom_hline(yintercept = mean(pop2), color = "darkred", linewidth = 2) +
+  ggbeeswarm::geom_quasirandom() +
+  labs(x = "Sample Size (from population of N=1,000,000)", y = "Sample Mean") +
+  theme_gray(base_size = 20) +
+  theme(panel.grid.minor = element_blank())
+```
+
+::: {.footer}
+
+:::
+
+## Insights from the simulations
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/insights.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+1. Repetitions of a study (with different samples) will result in different estimates due to sampling error
+
+1. There is thus some **uncertainty** in our estimates/inferences due to sampling error
+
+1. We can *quantify* the amount of sampling error in an estimate
+
+1. Larger samples tend to decrease this uncertainty and "stabilize" our estimates (reducing sampling error)
+
+1. However, larger populations require larger samples to achieve this benefit 
+
+::: {.footer}
+
+:::
+
+## Sampling distributions
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/equalizer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+:::{.columns}
+:::{.column}
+- The **sampling distribution** contains the statistic values from repeated samples
+
+- The wider the sampling distribution, the more uncertainty there is
+
+- The SD of the sampling distribution is called the **standard error**
+:::
+:::{.column}
+```{r}
+ggplot(filter(res, n == 3), aes(x = mean)) + 
+  geom_histogram(bins = 10) +
+  scale_y_continuous(breaks = c(0, 5, 10)) +
+  coord_cartesian(xlim = c(6.5, 9), ylim = c(0, 10)) +
+  labs(y = "count", x = "Sample Mean (n=3)") +
+  theme_gray(base_size = 30) +
+  theme(panel.grid.minor = element_blank())
+
+ggplot(filter(res, n == 12), aes(x = mean)) + 
+  geom_histogram(bins = 10) +
+  scale_y_continuous(breaks = c(0, 5, 10)) +
+  labs(y = "count", x = "Sample Mean (n=12)") +
+  coord_cartesian(xlim = c(6.5, 9), ylim = c(0, 10)) +
+  theme_gray(base_size = 30) +
+  theme(panel.grid.minor = element_blank())
+```
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Standard errors {.smaller}
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/question.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+:::{.columns}
+:::{.column}
+We can rarely take many repeated samples, construct the sampling distribution, and calculate the SE directly
+
+So, instead, we typically *estimate* the SE from the data (just like a parameter)
+
+The estimate for the SE of the mean depends on two main things:
+
+1. How large the sample is $(n)$
+
+1. How spread out the data is $(s)$
+
+:::
+
+:::{.column}
+#### Standard Error of the Mean
+$$s_{\bar{x}} = \frac{s}{\sqrt{n}} \sqrt{\frac{N-n}{N-1}}$$
+
+As $s$ increases, the SE increases
+
+As $n$ increases, the SE decreases
+
+As $n\to N$, the second part $\to$ zero
+
+As $N\to\infty$, the second part $\to$ one
+:::
+:::
+
+::: {.footer}
+Because we are often interested in infinite populations, the right side of this equation is often left off entirely.
+:::
+
+## Example
+
+::: {.absolute top=-33 right=0 width=100 height=100}
+{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+:::
+
+:::{.columns}
+:::{.column}
+#### Smaller Sample (n=3)
+```{r}
+#| echo: true
+#| collapse: true
+n <- 3
+xs <- sample(sleep$total, n)
+N <- length(sleep$total)
+s <- sd(xs)
+se_m <- (s / sqrt(n)) * 
+  sqrt((N - n)/(N - 1))
+se_m
+```
+:::
+
+:::{.column}
+#### Larger Sample (n=12)
+```{r}
+#| echo: true
+#| collapse: true
+n <- 12
+xs <- sample(sleep$total, n)
+N <- length(sleep$total)
+s <- sd(xs)
+se_m <- (s / sqrt(n)) * 
+  sqrt((N - n)/(N - 1))
+se_m
+```
+:::
+:::
+
+The larger sample thus has a smaller estimated SE
+
+::: {.footer}
+
+:::

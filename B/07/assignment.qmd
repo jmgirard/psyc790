@@ -1,0 +1,60 @@
+---
+title: "Week 07 Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Week 07 Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Theory)
+
+a) Provide an example of independent samples/groups{{< hp glyph="a" >}} that you might want to study and an example of dependent samples/groups that you might want to study.
+
+b) Why is it important for us to distinguish between{{< hp glyph="a" >}} independent and dependent samples when comparing group means?
+
+## Question 2 (Independent groups)
+
+Download the `political.csv` file from Canvas. It contains information about 59 students' political activity. **Be sure to set the `read_edit` and `year` variables to factors.**
+
+a) I want to use a $t$-test to test whether students who read editorials (`read_edit=1`) feel more politically informed (`informed`) than those who don't (`read_edit=0`). What type of $t$-test should I use (i.e., one-sample, independent samples, or paired samples), and what should my null and alternative hypotheses be?
+
+b) Test my hypothesis from part (a) in R using Welch's approach. Include your results table and write a sentence that reports the results verbally.
+
+## Question 3 (Effect Sizes)
+
+a) Calculate a standardized effect size for the test in Question 2 and write a sentence (or several) that interprets it.
+
+b) Why might it helpful to calculate and report an effect size{{< hp glyph="a" >}} in addition to calculating and reporting your test statistic and $p$-value?
+
+## Question 4 (One-way ANOVA)
+
+a) I want to use a one-way ANOVA to test whether students from different years (`year`, i.e., 1=freshman, 2=sophomore, 3=junior, 4=senior) watch different amounts of news on television (`tv_news`) on average.{{< hp glyph="a" >}} What should my null and alternative hypotheses be? What are the two components of variation in this data (give the technical names and describe what they are verbally)?
+
+b) Test my hypothesis from part (a) in R. Include your results table and write a sentence (or several) that reports the results verbally. What can we conclude from these results?
+
+## Question 5 (Post-hoc tests)
+
+a) Estimate the mean and 95% CI of each groups' TV news watching. *Optional challenge: create a plot showing these means.*
+
+b) Would it be appropriate to run a post-hoc test here?{{< hp glyph="a" >}} Why or why not? If appropriate, conduct pairwise $t$-tests and adjust the $p$-values using Holm's method. What can we conclude from these results?
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

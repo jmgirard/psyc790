@@ -115,7 +115,29 @@ carries a human-readable `nm` field** (e.g. `xtkehzkm` → `106-map-outline`,
 6. **Your manual step:** render a contact sheet of all 51 icons and eyeball the auto-derived
    names, renaming any that read badly in context. That's a review pass, not 51 downloads.
 
-Full resolved code→name mapping for all 51 is available (I already fetched them).
+Full resolved code→name mapping for all 51 is available (I already fetched them), recorded in
+`icon-map.json`.
+
+### ⚠️ The CDN serves stale, sometimes watermarked revisions
+
+Bulk-downloading from `cdn.lordicon.com/<code>.json` works, but returns **older revisions**
+than the Lordicon web app gives a PRO account. Verified by rendering all 51 in a browser and
+reading the resulting SVG fills:
+
+- **10 contained a `watermark` layer** — free-preview versions. These would have shipped
+  watermarked icons to a public course site.
+- **9 used the old colour convention**, where `colors=secondary:#2a76dd` recolours the wrong
+  layer and leaves Lordicon's green `#08a88a` behind — rendering blue+green instead of
+  blue+black. (This is what Jeff spotted by eye on `caliper`, `magic_ball`, `people`.)
+
+The two sets overlap; **12 icons** need replacing, tracked in `ICONS-TODO.md`. Four were
+fixable by copying existing clean copies from data2/psyc894 (`rulers`, `theater`, `caution`,
+`poetry` — all v5.12.1 with the modern `control`-layer structure).
+
+Detection that worked: load `icon-contact-sheet.html`, set every icon to
+`colors=secondary:#2a76dd`, and check whether `rgb(8,168,138)` survives in the shadow-DOM SVG.
+Static JSON inspection is *not* reliable here — legacy-structured files can render correctly,
+so the browser check is the source of truth. Re-run it after dropping in replacements.
 
 ### Animation: kill looping, hover only
 

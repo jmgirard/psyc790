@@ -1,0 +1,64 @@
+---
+title: "Week 05 Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Week 05 Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Populations and Parameters)
+
+a) Give a relatively simple example of a population you might want to study (in your own work) and a parameter of interest.{{< hp glyph="a" >}} Be sure to clearly define what the population is and what the parameter is in your answer.
+
+b) Identify the population and parameter of interest in the following example:{{< hp glyph="a" >}} *I am studying the side-effects of a new drug that will be prescribed to older adults (aged 70+) with high blood pressure. I want to know how safe it is for anyone who might be prescribed this drug in the future. I recruit 10 older adults with high blood pressure to take a 50mg dose of the new drug and report on how many headaches they experience.*
+
+## Question 2 (Statistical Inference)
+
+a) In your own words,{{< hp glyph="a" >}} describe what "statistical inference" is and why it is so important in the social and behavioral sciences.
+
+b) Why is the size of a sample important to statistical inference? {{< hp glyph="a" >}} Be specific in your answer.
+
+## Question 3 (Standard Error of the Mean)
+
+Use this information to answer the following questions.
+
+> I am studying the side-effects of a new drug that will be prescribed to older adults (aged 70+) with high blood pressure. I want to know how safe it is for anyone who might be prescribed this drug in the future.
+> 
+> I recruit 10 older adults with high blood pressure to take a 50mg dose of the new drug and report on how many headaches they experience that day. Here are their responses: `0, 4, 2, 1, 1, 0, 1, 3, 1, 0`.
+
+a) Use R to estimate the average number of headaches experienced in this population. Print it.
+
+b) Use R to estimate the standard error of your answer to Q3a (assume an infinite population). Print it.
+
+## Question 4 (Normal and $t$ Distributions)
+
+a) If I want to contain the middle 80% of the density of a normal distribution, how many SDs do I need to move above and below the mean? Include your R code and output.
+
+b) What are the main differences between the Normal distribution and the Student $t$ distribution?{{< hp glyph="a" >}} Why do we tend to use the latter when calculating confidence intervals?
+
+## Question 5 (Confidence Intervals)
+
+a) Use the data from Q3 to estimate a 95% confidence interval for the mean number of headaches.
+
+b) Write one or more sentences to report (i.e., describe in text) and correctly interpret these estimates. 
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

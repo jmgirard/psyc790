@@ -1,0 +1,71 @@
+---
+title: "Week 03 Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Week 03 Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Strings)
+
+|Country|Trillions|
+|-------|---------|
+|USA    |19.485   |
+|China  |12.238   |
+|Japan  |4.872    |
+|Germany|3.693    |
+|India  |2.651    |
+
+a) Save the country names from the table above to a character vector called `country`. Calculate the number of characters in each country name and print that.
+
+b) Use a function in R to calculate the average number of characters across the country names.
+
+
+## Question 2 (Factors)
+
+a) When would you want to convert a variable into a factor in R, and when would you not want to? {{< hp glyph="." >}}What problems could be avoided, and what problems could be caused, by using factors?
+
+b) Download the "water0.csv" file from Canvas and load it into R. Then convert the `region` variable to a factor such that 1=North and 2=South. Finally, tabulate the `region` variable to count how many towns are in each region in this dataset.
+
+
+## Question 3 (Packages)
+
+a) R packages can be found in a repository (e.g., CRAN), in a user library, or loaded into an R session. {{< hp glyph="." >}}When would you want an R package to be in each of these places?
+
+b) Install the `praise` package (don't put the `install.packages()` code in your Quarto document as that often causes problems, so either do that in your console or use the RStudio button). Then load the installed package in your Quarto document and experiment with the `praise()` function by running it several times with no arguments. What does the function seem to do?
+
+
+## Question 4 (Data Frames and Files)
+
+a) Download the "factbook.csv" file from Canvas and read it into R as a tibble. Tell R that any cell containing an asterisk (`*`) is actually missing.
+
+b) Use a function from the easystats package to describe the distribution of all continuous variables in this data frame. Which variables contain missing values? What is the mean of the `maternal_mortality` variable?
+
+
+## Question 5 (Data Exploration)
+
+a) Using the data from Question 4 and `qplot()`, plot the distribution/variation of the `birth_rate` variable. Which values are the most common for this variable?
+
+b) Use `qplot()` to visualize the covariation of the `life_exp` and `net_migration_rate` variables. Do any points seem unusual on one or both variables?
+
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

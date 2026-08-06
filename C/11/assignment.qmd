@@ -1,0 +1,62 @@
+---
+title: "Week 11 Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Week 11 Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1
+
+a) Come up with an example research question in your field of study that would be "answerable" using moderation in a linear model.{{< hp glyph="b" >}} Briefly describe what the outcome variable is, what the predictor variables are, and (very briefly and non-technically) why we might be scientifically interested in the interaction effect.
+
+b) In your own words, describe what the difference is between a predictor's partial effect in a multiple regression without moderation{{< hp glyph="b" >}} and that same predictor's simple effect in a multiple regression with moderation.
+
+
+## Question 2
+
+a) Read in the `affairs` dataset and use it to estimate a model that tests whether the relationship between the number of years a participant has been married ($x_1$, `yearsmarried`) and their martial satisfaction ($y$, `satisfaction`) is moderated by their years of education ($x_2$, `education`).
+
+b) Interpret each of the four parameters in terms of whether they are significant and also what the coefficient estimate implies about the relationship between the variables.{{< hp glyph="b" >}} (Note: For interaction effects, correctly stating one of the two equivalent interpretations is enough to earn full credit.)
+
+
+## Question 3
+
+a) Plot the predictions of this model and describe in your own words what the nature of the interaction is (i.e., how the relationship between `yearsmarried` and `satisfaction` differs based on `education`). (Note that when there are a small number of unique values in a continuous predictor, `predict_response()` will spotlight all of them by default. However, you can optionally tell it to spotlight the mean and one SD above and below it by using `"education[meansd]"` as the second term.)
+
+b) Estimate the slope of `yearsmarried` conditional on education being equal to 12 (high school), 16 (college), and 20 (graduate) years. Which slopes are significant and which aren't?
+
+
+## Question 4
+
+a) Estimate a model that tests whether the relationship between the number of years a participant has been married ($x_1$, `yearsmarried`) and their martial satisfaction ($y$, `satisfaction`) is moderated by whether they have children ($x_2$, `children`).
+
+b) Interpret each of the four parameters in terms of whether they are significant and also what the coefficient estimate implies about the relationship between the variables.{{< hp glyph="b" >}} *Hint: Although this is not a graded part of the question, it may help you to plot the interaction and/or run contrasts.*
+
+
+## Question 5
+
+a) Estimate a model that tests whether the difference between participants with and without children ($x_1$, `children`) in martial satisfaction ($y$, `satisfaction`) is moderated by their gender ($x_2$, `gender`).
+
+b) Interpret each of the four parameters in terms of whether they are significant and also what the coefficient estimate implies about the relationship between the variables.{{< hp glyph="b" >}} *Hint: Although this is not a graded part of the question, it may help you to plot the interaction and/or run contrasts.*
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

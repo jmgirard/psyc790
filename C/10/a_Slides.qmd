@@ -1,0 +1,603 @@
+---
+lecture: "10a"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Dummy Codes / Means / Contrasts
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[{{< meta instructor >}} | Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/growth_curve_357EDD.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r setup}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(easystats)
+library(patchwork)
+mytheme <- function(sz = 30) {
+  theme_gray(base_size = sz) + 
+  theme(panel.grid.minor = element_blank())
+}
+```
+
+
+# Introduction
+
+## Categorical variables
+
+- We learned regression with a single continuous predictor
+
+- Today we learn about regression with a categorical predictor
+
+::: {.fragment}
+- We use `factor()` to tell R that a variable is categorical
+
+- Our factor puts each observation into one of $g$ groups
+:::
+
+::: {.fragment}
+- Groups must be **mutually exclusive** and **exhaustive**
+    + No observation is in more than one group/category
+    + All observations are in a group/category
+:::
+
+## Terminology and examples
+
+- [Two groups]{.b .blue}: "binary" or "dichotomous"
+    + e.g., $\text{Condition}\in\{\text{Control}, \text{Treatment}\}$
+    + e.g., $\text{Gender}\in\{\text{Man}, \text{Woman}\}$
+
+- [Three or more groups]{.b .blue}: "nominal" or "polytomous"
+    + e.g., $\text{Nation}\in\{\text{UK}, \text{Germany}, \text{Spain}, \text{France}\}$
+    + e.g., $\text{Sect}\in\{\text{Catholic}, \text{Protestant}, \text{Orthodox}\}$
+    + e.g., $\text{Time}\in\{\text{Baseline}, \text{Midpoint}, \text{Endpoint}\}$*
+
+::: {.footer}
+*Ordered categories can be modeled as nominal or ordinal.
+:::
+
+## Code variables
+
+- To use factors as predictors, we need to *quantify* them
+    + We turn them into numerical **code variables**
+
+::: {.fragment}
+- There are several methods called [coding systems]{.b .blue}
+    + Coding systems may change the code and coefficients
+    + But they don't change the predictions or model fit
+::: 
+
+::: {.fragment}
+- All coding systems turn a factor into $g-1$ code variables
+    + So if we have 6 groups, we need 5 code variables
+:::
+
+# Dichotomous <br>Dummy Coding
+
+## Coding two categories
+
+- Dummy coding uses a value of $0$ or $1$ for each code variable
+    + With two categories, we only need one code variable: $C_1$
+    + One category gets $C_1=0$ and the other gets $C_1=1$
+    + The category assigned to $0$ is called the "reference group"
+
+::: {.columns .tc .f5}
+::: {.column .tc}
+*Female as Reference*
+<table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tr class="bb">
+<th>Sex</th>
+<th>C<sub>1</sub></th>
+</tr>
+<tr>
+<td>Female*</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Male</td>
+<td>1</td>
+</tr>
+</table>
+:::
+::: {.column .tc}
+*Male as Reference*
+<table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tr class="bb">
+<th>Sex</th>
+<th>C<sub>1</sub></th>
+</tr>
+<tr>
+<td>Female</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Male*</td>
+<td>0</td>
+</tr>
+</table>
+:::
+:::
+
+## Example dataset
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+#| replace_path: ["../../data/", ""]
+
+salaries <- read_csv("../../data/salaries.csv")
+salaries
+```
+
+## Dummy coding by hand
+
+- We can use the `recode()` function from {tidyverse}
+
+```{r}
+#| echo: true
+#| collapse: true
+
+salaries$sex_c1 <- recode(salaries$sex, Female = 1, Male = 0)
+salaries
+```
+
+## Regression with a dummy code
+
+- We can regress `salary` on the numeric dummy code $C_1$
+    
+$$\hat{y}_i = b_0 + b_1 C_{1i}$$
+
+- The intercept $b_0$ is the value of $\hat{y}$ when $C_1=0$
+    + i.e., the reference group's average outcome value
+
+- The slope $b_1$ is the change in $\hat{y}$ when $C_1+1$
+    + i.e., the group difference in average outcome values
+
+## Regression with a dummy code
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit <- lm(formula = salary ~ sex_c1, data = salaries)
+fit
+```
+
+- The average salary of *male* professors is $115,090
+
+- *Female* professors make $14,090 less on average
+
+## The factor shortcut (recommended)
+
+- R will automatically generate dummy codes *for factors*
+    + It will use the [first level]{.b .blue} as the reference group
+    + It will name the slope "factorNonref" (e.g., sexFemale)
+    
+```{r}
+#| echo: true
+#| collapse: true
+
+salaries$sex <- factor(salaries$sex, levels = c("Male", "Female"))
+fit2 <- lm(formula = salary ~ sex, data = salaries)
+fit2
+```
+
+## Swapping the reference group
+
+- To use female as the reference group, we just put it first
+
+```{r}
+#| echo: true
+#| collapse: true
+
+salaries$sex <- factor(salaries$sex, levels = c("Female", "Male"))
+fit3 <- lm(formula = salary ~ sex, data = salaries)
+fit3
+```
+
+- The average salary of *female* professors is $101,000
+
+- *Male* professors make $14,090 more on average
+
+## Parameter significance testing
+
+- Testing is the same as with a continuous predictor
+
+```{r}
+#| echo: true
+#| collapse: true
+
+model_parameters(fit2)
+```
+
+> "The average salary of female professors was estimated to be 14.09 thousand US dollars lower than that of male professors, 95% CI: [--24.04, --2.13], *t* = --2.78, *p* = .006."
+
+## Relation to Student's t-test
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit2b <- t.test(salary ~ sex, data = salaries, var.equal = TRUE)
+model_parameters(fit2b)
+```
+
+- The slope test and Student's *t*-test give the same results
+    + The linear model (lm) "subsumes" Student's *t*-test
+    + It also assumes equal variances in the two groups
+
+## Effect sizes
+
+- The standardized slope is similar to Cohen's $d$
+    
+```{r}
+#| echo: true
+#| collapse: true
+
+model_parameters(fit2, standardize = "refit")
+```
+::: {.f5}
+> "The average salary for female professors was 0.47 standard deviations lower than that of male professors, 95% CI: [--0.79, --0.14], p=.006."
+
+:::
+
+::: {.footer}
+Note that $y$ is standardized but the dummy code is left 0 or 1.
+:::
+
+## Effect sizes
+
+- We can also use $R^2$ or Adjusted $R^2$ as before
+
+```{r}
+#| echo: true
+#| collapse: true
+
+r2(fit2, ci = 0.95)
+```
+::: {.f5}
+> "Only around 2% of the variance in professors' salary was explained by sex,<br>R² = .019, 95% CI: [.002, .055], Adjusted R² = .017."
+
+:::
+
+## Estimating means by hand
+
+$$
+\begin{align}
+\text{Model Equation: }&\hat{y}=b_0 + b_1(C_1)\\
+&\hat{y} = 115.09 -14.09(C_1)\\ \\
+\text{Male professors: }&\hat{y} = 115.09 -14.09(0)=115.09 \\
+\text{Female professors: }&\hat{y} = 115.09 -14.09(1)=101.00
+\end{align}
+$$
+
+::: {.fragment}
+- Each professor $i$ will have a residual $e_i$ that pushes their salary above or below the mean for their group (i.e., sex)
+
+$$y_i=115.09-14.09(C_1)+e_i$$
+:::
+
+## Estimating means in R
+
+```{r}
+#| echo: true
+#| collapse: true
+
+gmeans <- estimate_means(fit2, by = "sex")
+gmeans
+```
+
+## Plotting means in R
+
+```{r}
+#| echo: true
+#| eval: false
+
+plot(gmeans)
+```
+
+```{r}
+#| echo: false
+
+plot(
+  gmeans, 
+  point = list(size = 3, color = "red"),
+  pointrange = list(size = 1, linewidth = 1)
+) + 
+  mytheme(24)
+```
+
+# Polytomous <br>Dummy Coding
+
+## Coding many categories
+
+- With three categories, we need two code variables: $[C_1, C_2]$
+
+- The reference group will get $0$ on **all** code variables
+
+- Each other group will get $1$ on a single code variable
+
+::: {.columns .f5 .tc}
+::: {.column width="33%"}
+*Alcohol as Reference*
+<table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tr class="bb">
+<th>Condition</th>
+<th>C<sub>1</sub></th>
+<th>C<sub>2</sub></th>
+</tr>
+<tr>
+<td>Alcohol*</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Placebo</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</table>
+:::
+::: {.column width="33%"}
+*Placebo as Reference*
+<table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tr class="bb">
+<th>Condition</th>
+<th>C<sub>1</sub></th>
+<th>C<sub>2</sub></th>
+</tr>
+<tr>
+<td>Alcohol</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Placebo*</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</table>
+:::
+::: {.column width="33%"}
+*Control as Reference*
+<table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
+<tr class="bb">
+<th>Condition</th>
+<th>C<sub>1</sub></th>
+<th>C<sub>2</sub></th>
+</tr>
+<tr>
+<td>Alcohol</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Placebo</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Control*</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+:::
+:::
+
+## Selecting the reference group
+
+The reference group has implications for interpretation
+
+1. **The reference group should be a useful comparison**
+    + e.g., a control group or standard treatment
+
+2. **The reference group should be well-defined**
+    + e.g., not an "other" or "wastebasket" category
+    
+3. **The reference group should not be relatively small**
+    + e.g., not a group of 10 when others have 100
+
+## Creating dummy codes by hand
+
+- To create the dummy codes, we can use `recode()` again
+
+```{r}
+#| echo: true
+#| collapse: true
+
+salaries$rank_c1 <- recode(salaries$rank, Assistant=0, Associate=1, Full=0)
+
+salaries$rank_c2 <- recode(salaries$rank, Assistant=0, Associate=0, Full=1)
+```
+
+::: {.fragment}
+- This can get tedious as the number of groups increases
+
+- It's easier and less error-prone to use the factor shortcut
+
+```{r}
+#| echo: true
+#| collapse: true
+
+salaries$rank <- factor(
+  salaries$rank, 
+  levels = c("Assistant", "Associate", "Full")
+)
+```
+:::
+
+## Regression with many dummy codes
+
+- To use many dummy codes, we need **multiple regression**
+    + Basically, we add another predictor and another slope
+    
+$$\hat{y} = b_0 + b_1C_1 + b_2C_2$$
+
+- The intercept $b_0$ is the mean of the reference group
+- The slope $b_1$ is the reference vs. $C_1=1$ group difference
+- The slope $b_2$ is the reference vs. $C_2=1$ group difference
+
+::: {.footer}
+We will elaborate on multiple regression during the next lecture
+:::
+
+## Regression with many dummy codes
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit4 <- lm(salary ~ rank_c1 + rank_c2, data = salaries)
+fit4
+```
+
+- *Assistant* rank averages $80,780 per year
+- *Associate* rank averages $13,100 more than *Assistant* rank
+- *Full* rank averages $46,000 more than *Assistant* rank
+
+## Parameter significance testing
+
+```{r}
+#| echo: true
+#| collapse: true
+
+model_parameters(fit4)
+```
+
+- Intercept: *Is the Assistant rank salary zero?*
+
+- $C_1$ Slope: *Is the Associate-Assistant group difference zero?*
+
+- $C_2$ Slope: *Is the Full-Assistant group difference zero?*
+
+
+
+## The factor shortcut
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit5 <- lm(salary ~ rank, data = salaries)
+model_parameters(fit5)
+```
+
+- Note that we already set the factor up on slide 25
+
+- The parameter table includes which level each code is for
+
+## Model significance testing
+
+- What is the overall effect of rank (à la ANOVA)?
+    + Do all categories have the same mean?
+    + We can actually give the `lm()` results to `aov()`
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit5b <- aov(fit5)
+model_parameters(fit5b)
+```
+
+::: {.footer}
+The linear model (lm) subsumes ANOVA as well!
+:::
+
+## Effect sizes
+
+```{r}
+#| echo: true
+#| collapse: true
+
+model_parameters(fit5, standardize = "refit")
+
+r2(fit5, ci = 0.95)
+```
+
+- *Associate* rank averages 0.43 SDs higher salary than *Assistant*
+
+- *Full* rank averages 1.52 SDs higher salary than *Assistant*
+
+- Rank explained 39% of the variance in salary
+
+## Estimating means by hand
+
+$$
+\begin{align}
+\text{Equation: }&\hat{y} = b_0 + b_1(C_1) + b_2(C_2) \\
+  &\hat{y} = 80.78 + 13.10(C_1) + 46.00(C_2) \\ \\
+\text{Assistant: }&\hat{y} = 80.78 + 13.10(0) + 46.00(0) = 80.78 \\
+\text{Associate: }&\hat{y} = 80.78 + 13.10(1) + 46.00(0) = 93.88 \\
+\text{Full: }     &\hat{y} = 80.78 + 13.10(0) + 46.00(1) = 126.78
+\end{align}
+$$
+
+## Estimating means in R
+
+```{r}
+#| echo: true
+#| collapse: true
+
+gmeans <- estimate_means(fit5, by = "rank")
+gmeans
+```
+
+## Plotting means in R
+
+```{r}
+#| echo: true
+#| eval: false
+
+plot(gmeans)
+```
+
+```{r}
+plot(
+  gmeans, 
+  point = list(size = 3, color = "red"), 
+  pointrange = list(size = 1, linewidth = 1)
+) + 
+  mytheme(24)
+```
+
+## Contrasts
+
+- What about the difference between Associate and Full?
+
+- How can we compare non-reference groups to each other?
+
+```{r}
+#| echo: true
+#| collapse: true
+
+estimate_contrasts(fit5, contrast = "rank")
+```

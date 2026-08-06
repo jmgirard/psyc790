@@ -1,0 +1,716 @@
+---
+lecture: "06b"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Covariances / Correlations / Inference
+
+::: {.my-grey}
+[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
+[{{< meta instructor >}} | Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(distributional)
+library(patchwork)
+library(faux)
+library(ggdist)
+library(lsr)
+mytheme <- theme_gray(base_size = 26) + theme(panel.grid.minor = element_blank())
+rsim <- function(r) {
+  rnorm_multi(n = 200, vars = 2, mu = 0, sd = 1, r = r)
+}
+```
+
+
+# Introductions
+
+## Variable relationships
+
+- So far, we have focused on the mean of one variable
+
+- But we are often interested in **variable relationships**
+    + As one variable changes, does the other tend to change?
+    + People with *more* anxiety tend to have *more* depression
+    + Nations with *more* museums tend to have *lower* mortality
+    
+- We can quantify such relationships using [correlations]{.b .blue}
+
+::: {.footer}
+We will expand the idea of correlation into regression during Unit C.
+:::
+
+## Correlations
+
+- A correlation $(\rho,r)$ quantifies the **direction** and **strength** of the *linear* relationships between two variables
+    
+- [Direction]{.b .blue}: do the variables change together or opposing?
+    + $\rho>0$: the variables change together
+    + $\rho<0$: the variables change in opposition
+
+- [Strength]{.b .blue}: how well does one variable predict the other?
+    + $\rho \to 0$: no linear (or nonlinear) relationship
+    + $\rho \to \pm1$: perfect (positive or negative) relationship
+
+::: {.footer}
+A *linear* relationship is one that can be represented by a *straight* line
+:::
+
+## Positive linear
+
+```{r}
+#| echo: false
+
+p1 <- 
+  ggplot(rsim(0.25), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.25", x = "x1", y = "y") + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p2 <-   
+  ggplot(rsim(0.50), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.50", x = "x2", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p3 <- 
+  ggplot(rsim(0.75), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.75", x = "x3", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+p1 | p2 | p3
+```
+
+## Positive linear
+
+```{r}
+#| echo: false
+
+p1b <- p1 + geom_smooth(method = "lm", se = FALSE, color = "cornflowerblue", size = 2)
+
+p2b <- p2 + geom_smooth(method = "lm", se = FALSE, color = "cornflowerblue", size = 2)
+
+p3b <- p3 + geom_smooth(method = "lm", se = FALSE, color = "cornflowerblue", size = 2)
+
+p1b | p2b | p3b
+```
+
+## Negative linear
+
+```{r}
+#| echo: false
+
+p4 <- 
+  ggplot(rsim(-0.25), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = −0.25", x = "x4", y = "y") + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p5 <-   
+  ggplot(rsim(-0.50), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = −0.50", x = "x5", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p6 <- 
+  ggplot(rsim(-0.75), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = −0.75", x = "x6", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+p4 | p5 | p6
+```
+
+## Negative linear
+
+```{r}
+#| echo: false
+
+p4b <- p4 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p5b <- p5 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p6b <- p6 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p4b | p5b | p6b
+```
+
+## No linear / Nonlinear
+
+```{r, echo=FALSE}
+set.seed(2021)
+p7 <- 
+  ggplot(rsim(0), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.00", x = "x7", y = "y") + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p8 <-   
+  ggplot(tibble(X1 = runif(200, -5, 5), 
+                X2 = -X1^2 + rnorm(200, 0, 3)), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.00", x = "x8", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p9 <-   
+  ggplot(tibble(X1 = runif(200, -5, 5), 
+                X2 = X1^2 + X1^3 + rnorm(200, 0, 10)), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.87", x = "x9", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+
+p7 | p8 | p9
+```
+
+::: {.footer}
+Two variables can also have no relationship (left) or a nonlinear relationship (middle, right)
+:::
+
+## No linear / Nonlinear
+
+```{r}
+#| echo: false
+
+p7b <- p7 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p8b <- p8 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p9b <- p9 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p7b | p8b | p9b
+```
+
+::: {.footer}
+If the line-of-best-fit is horizontal, there is no linear relationship
+:::
+
+## No linear / Nonlinear
+
+```{r}
+#| echo: false
+
+p7c <- p7b + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p8c <- p8b + geom_smooth(method = "lm", formula = y ~ poly(x, 2), se = FALSE, 
+              size = 2, color = "limegreen")
+
+p9c <- p9b + geom_smooth(method = "lm", formula = y ~ poly(x, 3), se = FALSE, 
+              size = 2, color = "limegreen")
+
+p7c | p8c | p9c
+```
+
+::: {.footer}
+Standard correlations do not count these kinds of nonlinear relationships
+:::
+
+# Calculating <br>Correlations
+
+## Variance and covariance
+
+- A single variable's **variance** measures its spread/changes
+
+$$\text{Var}(x) = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(x_i - \bar{x})$$
+
+::: {.fragment}
+- Two variables' [covariance]{.b .blue} measures their *linked* changes
+
+$$\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})$$
+:::
+
+::: {.footer}
+A variable's variance is equal to its covariance with itself
+:::
+
+## More on covariance
+
+$$\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})$$
+
+- $\text{Cov}$ is positive when $x$ and $y$ vary together
+
+- $\text{Cov}$ is negative when $x$ and $y$ vary in opposition
+
+- The $\text{Cov}$ thus quantifies linear relationships...
+    + But it has weird units and an unbounded range
+    + So we standardize it to create the correlation
+
+## Pearson's correlation
+
+- In general, we standardize something by dividing it by its SD
+
+- Here we need to divide by the product of the SDs of $x$ and $y$
+
+$$r_{xy} = \frac{\text{Cov}(x,y)}{s_x s_y}$$
+
+- This is called the Pearson Correlation Coefficient (or PCC)
+    + Also called the product-moment or inter-class correlation
+    + The population parameter is $\rho$, the sample statistic is $r$
+
+
+## Example dataset
+
+```{r}
+#| echo: true
+#| collapse: true
+#| message: false
+#| replace_path: ["../../data/", ""]
+
+library(tidyverse)
+cigarettes <- read_csv("../../data/cigarettes.csv")
+```
+
+```{r}
+#| echo: false
+
+knitr::kable(cigarettes) |> kableExtra::scroll_box(height = "500px")
+```
+
+
+## Scatterplots
+
+```{r}
+#| fig-width: 12
+#| fig-height: 6
+
+p1 <- 
+  ggplot(cigarettes, aes(x = log_price, y = log_packs)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(0, 0.4, 0.1)) +
+  mytheme
+p2 <-   
+ggplot(cigarettes, aes(x = log_income, y = log_packs)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(4.6, 5.2, 0.2)) +
+  mytheme
+p3 <-   
+ggplot(cigarettes, aes(x = log_income, y = log_price)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(4.6, 5.2, 0.2)) +
+  mytheme
+
+p1 | p2 | p3
+```
+
+## Estimation in R
+
+::: {.columns}
+::: {.column}
+Covariance
+
+```{r}
+#| echo: true
+#| collapse: true
+
+x <- cigarettes$log_packs
+y <- cigarettes$log_price
+n <- nrow(cigarettes)
+
+cov_xy <- 1 / (n - 1) * sum(
+  (x - mean(x)) * (y - mean(y)))
+cov_xy
+```
+
+:::
+::: {.column}
+Correlation
+
+```{r}
+#| echo: true
+#| collapse: true
+
+s_x <- sd(x)
+s_y <- sd(y)
+
+r_xy <- cov_xy / (s_x * s_y)
+r_xy
+```
+:::
+:::
+
+::: {.fragment}
+Shortcut Functions:
+
+::: {.columns}
+
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+cov_xy <- cov(x, y)
+cov_xy
+```
+
+:::
+
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+r_xy <- cor(x, y)
+r_xy
+```
+:::
+
+:::
+
+:::
+
+## Interpretation
+
+- $r=0$ is no relationship, $r=\pm1$ is a perfect relationship
+
+- How should we interpret correlations between $0$ and $\pm1$?
+
+- It depends on the context (what is common in your field?)
+
+- But here are some heuristics to use as a starting place
+
+| $(0.0,0.1)$ | $[0.1,0.3)$ | $[0.3,0.5)$ | $[0.5,1.0)$ |
+| :-: | :-: | :-: | :-: |
+| Negligible | Small | Medium | Large |
+
+::: {.footer}
+This heuristic comes from Cohen (1988, 1992)
+:::
+
+## Ansombe's quartet
+
+- All four data sets have the same correlation $(r=.816)$
+
+- But they show very different relationships qualitatively!
+
+```{r}
+#| echo: false
+#| fig-width: 15
+#| fig-height: 5
+
+data("anscombe")
+p1 <- ggplot(anscombe, aes(x = x1, y = y1)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = "y") +
+  mytheme
+p2 <- ggplot(anscombe, aes(x = x2, y = y2)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = NULL) +
+  mytheme
+p3 <- ggplot(anscombe, aes(x = x3, y = y3)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = NULL) +
+  mytheme
+p4 <- ggplot(anscombe, aes(x = x4, y = y4)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = NULL) +
+  mytheme
+
+p1 | p2 | p3 | p4
+```
+
+
+## Another effect size
+
+- We can square $r$ to get the [coefficient of determination]{.b .blue} $(r^2)$
+
+- How much variability is explained by the linear relationship?
+
+::: {.columns}
+::: {.column}
+| $r$  | $r^2$ | Explained |
+| :--: | :---: | :-------: |
+| 0.1  | 0.01  | 1%        |
+| 0.3  | 0.09  | 9%        |
+| 0.5  | 0.25  | 25%       |
+| 0.7  | 0.49  | 49%       |
+| 0.9  | 0.81  | 81%       |
+:::
+::: {.column}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+ggplot(tibble(r = seq(-1, 1, 0.001), rsq = r^2), aes(x = r, y = rsq)) + 
+  geom_line(size = 2) + 
+  scale_x_continuous(breaks = seq(-1, 1, 0.5)) +
+  mytheme
+```
+:::
+:::
+
+## Obligatory PSA
+
+- Finding a correlation **does not** prove any causal story
+
+- There are many ways for $x$ and $y$ to become correlated
+    + Maybe $x$ causes $y$ (theorized model)
+    + Maybe $y$ causes $x$ (reverse causation)
+    + Maybe $x$ and $y$ cause each other (bidirectional)
+    + Maybe $z$ causes both $x$ and $y$ (third variable)
+    + Maybe it is just sampling error (spurious)
+
+
+# Statistical Inference
+
+## Sampling error simulation
+
+::: {.columns}
+::: {.column}
+Samples from $\rho=0.0$
+![](../../img/nocorr.gif)
+:::
+::: {.column .fragment}
+Samples from $\rho=0.7$
+![](../../img/poscorr.gif)
+:::
+:::
+
+## Statistical inference
+
+- I tend to treat $r$ as a descriptive summary statistic
+    + I estimate it and maybe its CI but don't use NHST
+    + I use more sophisticated methods to test relationships
+
+- But we *can* test the significance of a correlation
+    + Usually the null hypothesis is that it equals zero
+
+$$
+H_0: \rho=0\\
+H_1: \rho\neq0
+$$
+
+## Test statistic
+
+- Test statistics incorporate the effect size and sample size
+
+$$t_{obs}=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}$$
+
+- What is its sampling distribution under the null?
+    + The frequentist parameteric approach assumes:
+
+$$t_{obs} \sim t(\textit{df}=n-2, \mu=0, \sigma=1)$$
+
+## Significance testing
+
+```{r}
+#| echo: true
+#| collapse: true
+
+r_xy
+
+t_obs <- (r_xy * sqrt(n - 2)) / sqrt(1 - r_xy^2)
+t_obs
+
+t_crit <- qt(c(0.025, 0.975), df = n - 2)
+t_crit
+```
+
+- Because $t_{obs}$ is more extreme than $t_{crit}$, we reject $H_0$
+
+- Thus, we conclude that $r\neq0$ and specifically that $r<0$
+
+## Confidence intervals
+
+- Because $r$ is bounded $[0,1]$, its CI is often asymmetrical
+
+- So we need a more complicated procedure to estimate its CI
+
+::: {.columns}
+::: {.column}
+1. Transform $r$ to $z$,<br>which is unbounded
+
+2. Calculate a CI around $z$,<br>which is symmetrical
+
+3. Transform the bounds<br>of the $z$ CI back to $r$
+
+:::
+::: {.column}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+
+rtoz <- function(r) {
+  (1 / 2) * log((1 + r)/(1 - r))
+}
+ggplot(tibble(r = seq(-1, 1, 0.0001), z = rtoz(r)), aes(x = r, y = z)) + 
+  geom_line(size = 2) +
+  mytheme
+```
+
+:::
+:::
+
+## Confidence intervals {.smaller}
+
+::: {.columns}
+::: {.column width="33%"}
+#### Step 1
+Transform $r$ to $z$
+
+$z = \frac{1}{2}\ln\left(\frac{1+r}{1-r}\right)$
+
+:::
+::: {.column width="33%"}
+#### Step 2
+Estimate $z$ CI
+
+$z \pm \sqrt{\frac{1}{n-3}} \times 1.96$
+
+:::
+::: {.column width="33%"}
+#### Step 3
+Transform CI to $r$
+
+$r=\frac{e^{2z}-1}{e^{2z}+1}$
+:::
+:::
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| collapse: true
+
+r_xy
+
+z <-  (1 / 2) * log((1 + r_xy) / (1 - r_xy), base = exp(1))
+z
+
+zmult <- qnorm(0.975)
+ci_z <- c(lo = z - sqrt(1 / (n - 3)) * zmult, hi = z + sqrt(1 / (n - 3)) * zmult)
+ci_z
+
+ci_r <- (exp(2 * ci_z) - 1) / (exp(2 * ci_z) + 1)
+ci_r
+```
+:::
+
+## A simple function
+
+- The `cor.test()` function will do all this work for you
+    + Note that our results are identical to before
+
+```{r}
+#| echo: true
+#| collapse: true
+
+cor.test(x, y)
+```
+
+## Prettier output
+
+- The `correlation()` function is more convenient
+
+```{r}
+#| echo: true
+#| collapse: true
+
+library(easystats)
+correlation(cigarettes, select = "log_packs", select2 = "log_price")
+```
+
+## Many correlations
+
+```{r}
+#| echo: true
+#| collapse: true
+
+r_all <- correlation(cigarettes)
+r_all
+```
+
+- This also applies the Holm method to adjust the $p$-values
+    + We will talk more about this in a future lecture
+
+## Correlation matrix
+
+```{r}
+#| echo: true
+#| collapse: true
+
+r_mat <- summary(r_all)
+r_mat
+```
+
+## Plotting a matrix
+
+```{r}
+#| echo: true
+#| collapse: true
+
+plot(r_mat)
+```
