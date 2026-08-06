@@ -406,20 +406,24 @@ data2**, so psyc790 adds no new exposure — but it does mean the question spans
 courses. BY-NC-ND permits educational redistribution *with attribution*, so the cheap fix is
 a credit line under each figure (or a central `CREDITS.md`) rather than removing anything.
 
-**2. Lordicon — the one that conflicts with the plan.** Section 3 migrates 51 icons from CDN
-(`li`) to committed local JSON (`lif`). Reading Lordicon's license terms, both tiers appear to
-restrict distributing icon files as standalone assets: the free tier is CC BY-ND-based and
-requires attribution, and the PRO terms explicitly bar distributing icons "in their original
-or modified form as standalone files."
+**2. Lordicon.** ✅ **Resolved — you hold a paid (PRO) license, so Phase 4 proceeds with the
+`li` → `lif` migration as planned.** Recorded in `CREDITS.md`; PRO doesn't require
+attribution, but crediting costs nothing and documents the basis for the committed files.
 
-A public repo makes every `icons/*.json` directly downloadable, which is closer to
-redistribution than a site merely serving its own assets to browsers. data2 (~90 icons) and
-psyc894 (19) already do this, so this is a pre-existing question, not one psyc790 introduces —
-but Phase 4 would add 51 more.
+### Decisions taken
 
-Worth verifying against your actual license tier before Phase 4. Options if it's a problem:
-stay on `li`/CDN (loses the offline-reliability benefit that motivated the move), or keep
-`lif` and confirm your tier permits it.
+- **Figure credits:** add a source caption under each third-party figure, plus `CREDITS.md`.
+  On slides, the pattern is a muted line directly beneath the image:
+  ```
+  ![](../../img/tidydata.png)
+
+  ::: {.fsmaller .gray}
+  Source: Wickham et al., *R for Data Science* (CC BY-NC-ND)
+  :::
+  ```
+  `CREDITS.md` is scaffolded but **most sources are still marked `confirm`/`UNKNOWN`** — I
+  did not invent citations. Those need filling in before the site goes public, and the fix
+  should be carried back to data2 and psyc894, where six of the same files are already live.
 
 ---
 
