@@ -507,6 +507,46 @@ never runs R, it can never surface drift — someone has to run a full local re-
 
 ---
 
+## 6c. Audit of everything imported from data2
+
+Phase 1 copied data2's config wholesale. That caused two real defects (see
+`SLIDE-OVERFLOW.md`), so everything else copied has now been checked against the archive
+originals. **Result: the two known defects were the only ones.**
+
+| imported | verdict |
+|---|---|
+| `styles.css` | **2 defects, fixed.** See below. |
+| `_quarto.yml` `echo: true` | **1 defect, fixed.** Overrode revealjs's `echo: false`. |
+| `_slide-settings.yml` | clean — 4 added options, all verified benign |
+| chunk options | identical to archive, apart from the intentional `replace_path` |
+| `_extensions/` | correct — the archive has no `_extensions`, so the decks always relied on repo-root copies |
+| `_common.R` | additive only; the `replace_path` hook is inert unless a chunk sets it |
+| `format-outputs.html` | inert — **0** real `cell-output-stderr` blocks across all 24 decks |
+
+### styles.css, checked three ways
+
+1. **Do the four archive unit stylesheets conflict with each other?** No — they are supersets
+   of one another, identical values for every shared selector. Merging was safe.
+2. **Do any selectors present in both archive and data2 carry different values?** None
+   remaining (this is the check that should have been run in Phase 1 — the original comparison
+   only looked at selector *names*, which is how the `.f4`/`.f5`/`.f6`/`.f90` loss slipped
+   through).
+3. **Did any shared selector lose a property?** None.
+
+### `_slide-settings.yml` additions, each verified
+
+- `code-line-numbers: false` — **no-op here**; rendered markup is byte-identical to the
+  original (`<span id="cbN-M">` anchors either way).
+- `controls: true` — already the reveal default.
+- `code-annotations: hover` — psyc790 uses no code annotations.
+- `include-after-body: format-outputs.html` — inert, per the table above.
+
+Options *dropped* from the archive headers (`author-meta`, `course`, `lecture`, `pagetitle`,
+`semester`) all moved to the top level of `_slide-settings.yml` and are still applied;
+`embed-resources`/`self-contained` were correctly dropped for a website build.
+
+---
+
 ## 7. Copyright audit
 
 Since the repo and the Pages site are both public, here's what's actually in scope. Not legal
