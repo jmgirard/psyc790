@@ -14,9 +14,22 @@
 # design used across psyc790, data2, and psyc894 -- publishing them would
 # defeat that mechanism for all three courses.
 # ---------------------------------------------------------------------------
+# Source files...
 *_key.qmd
 *_Key.qmd
 **/keys/
+
+# ...and every rendered artifact derived from them. The .qmd rule alone is NOT
+# enough: quarto writes the fully rendered answers (and the honeypot markers)
+# into _freeze/ and _site/, which would otherwise be committed.
+*_key.*
+*_Key.*
+*_key/
+*_Key/
+
+# archive/ is legacy source excluded from the render (see _quarto.yml). Nothing
+# under it should ever be frozen or published.
+_freeze/archive/
 
 # ---------------------------------------------------------------------------
 # Course readings are copyrighted textbook chapters and live on Canvas, behind

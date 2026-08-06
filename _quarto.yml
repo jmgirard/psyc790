@@ -6,6 +6,12 @@ canvas-id: "164756"
 
 project:
   type: website
+  # archive/ holds the pre-modernization Fall 2025 source. It is kept for
+  # reference but must not be rendered -- without this, quarto picks up every
+  # .qmd in it and roughly doubles the build.
+  render:
+    - "**/*.qmd"
+    - "!archive/**"
   resources:
     - "icons/"
 
