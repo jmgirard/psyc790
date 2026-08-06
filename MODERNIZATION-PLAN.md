@@ -161,8 +161,17 @@ package versions shift, which is the same benefit `_freeze` gives the public sit
 - `styles.css`: use data2's (it's the newest — has the output-block styling,
   `.slide-deck` iframe, `.my-title`/`.my-subtitle`, tachyons subset). Delete the four
   per-unit copies in `archive/`.
-- `renv::init()` → `renv.lock`. Package set for this course is different from psyc894
-  (easystats, no lme4-heavy stack).
+- **No renv** (decided; data2 and psyc894 keep theirs, but those are finished courses and
+  there's no cost to the inconsistency). `_freeze/` is the actual reproducibility mechanism
+  here: frozen chunk results are committed, so package updates cannot change the live site
+  until a page is deliberately re-rendered, and CI needs no R at all. renv would contribute
+  nothing to the publish path while adding a `renv::restore()` step that is the single most
+  likely thing to break Katie's handoff.
+  - Replaced by `install-packages.R` — an unpinned list of the 18 CRAN packages the archive
+    uses, plus `standist` from GitHub (`jmgirard/standist`, your own package, not on CRAN).
+  - Tradeoff accepted: no protection against a package update changing output on re-render.
+    `freeze: auto` bounds this — only edited files re-execute, so drift is incremental and
+    visible. Re-render everything before a semester to surface it deliberately.
 - `psyc790.Rproj`.
 
 ### Phase 2 — Config
@@ -235,8 +244,12 @@ For each week `NN` in unit `X`:
   note, Practice, bottom prev/next nav buttons.
   - **Downloads:** plain links, data2-style —
     `- [foo.csv](../../data/foo.csv){download="foo.csv"}`. No `downloadthis` extension.
-  - **Readings:** Canvas links, psyc894-style —
-    `- [View on Canvas](https://canvas.ku.edu/courses/<id>/pages/<slug>){target="_blank"}`.
+  - **Readings:** Canvas links, psyc894-style, but with the course id **parameterized** so
+    these files stay identical between instructors:
+    `- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/pages/<slug>){target="_blank"}`.
+    Verified: `{{< meta >}}` expands inside link URLs, and a `canvas-id` key at the top of
+    `_quarto.yml` is inherited by every page. The page *slugs* still differ per course, so
+    if Katie's Canvas pages are named differently, that part won't carry over automatically.
 
 ### Phase 4 — Assets
 - Consolidate all CSVs into a single root `data/`. Currently duplicated across
@@ -273,9 +286,14 @@ Because §4 parameterizes the instructor and attribution, the derived copy diffe
 | File | Change |
 |---|---|
 | `_slide-settings.yml` | `semester: "Fall 2026"`, `instructor: "Katie Hoemann"`, `attribution: "Course originally developed by Jeffrey M. Girard"` |
-| `_quarto.yml` | site title, her Canvas course ID + syllabus URL, footer |
+| `_quarto.yml` | `canvas-id: "198405"` (confirmed), navbar Canvas + syllabus hrefs, footer |
 | `index.qmd` | her name, class time/location, office hours, TA; attribution line under the course description |
 | `README.md` | written for her (below) |
+
+Because `canvas-id` lives in `_quarto.yml` and the week pages reference it as
+`{{< meta canvas-id >}}`, all 16 week `index.qmd` files carry over untouched. The navbar
+hrefs in `_quarto.yml` use the literal id — shortcodes aren't processed in project YAML, but
+that file is already part of the per-instructor diff so it costs nothing.
 
 Footer becomes something like
 `"Copyright 2026 &copy; Katie Hoemann &middot; Originally developed by Jeffrey Girard"`.
@@ -358,12 +376,13 @@ Slots in as a new phase after Phase 6:
 
 ### Still open
 
-- **Canvas course IDs** — needed for the reading links and the navbar Canvas / Syllabus
-  entries, and now needed **twice**: yours for Fall 2025, and Katie's for her Fall 2026
-  section. data2 uses `185369`, psyc894 uses `182539`. If the Fall 2025 psyc790 Canvas site is
-  archived, those links may need to point somewhere else — and Katie's course won't exist in
-  Canvas until closer to Fall 2026, so her copy likely ships with placeholder links she fills
-  in later. Flag that in her README. This is the most likely thing to hold up her handoff.
+- **Your Canvas course id** for the Fall 2025 psyc790 section — still needed; `_quarto.yml`
+  currently carries `canvas-id: "CANVAS_ID"` as a placeholder, and the navbar has two more.
+  (Katie's is settled: **198405**.) If the Fall 2025 site is archived, those links may need to
+  point somewhere else.
+- **Canvas page slugs** — the parameterized links only carry the course id across. The
+  per-page slugs (`.../pages/14a-effect-sizes-and-reporting`) are course-specific, so Katie's
+  copy may need those adjusted once her Canvas pages exist. Worth noting in her README.
 - **Does Katie get the answer keys?** She'll need them to teach from, and that's a separate
   transfer from the public repo (private repo access, or sent directly). Note they document
   the honeypot design per §3b, so it's a deliberate decision rather than a copy-paste.

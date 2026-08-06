@@ -1,3 +1,10 @@
+# Canvas course id, inherited by every page so reading links can be written as
+#   [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/pages/...)
+# This keeps the week index.qmd files identical between instructors -- only this
+# file changes. See MODERNIZATION-PLAN.md section 6.
+# TODO: replace with the Fall 2025 PSYC790 Canvas course id.
+canvas-id: "CANVAS_ID"
+
 project:
   type: website
   resources:
