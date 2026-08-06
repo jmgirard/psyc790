@@ -208,6 +208,28 @@ iframe.slide-deck {
 .f3 { font-size: 20px !important; }
 .fsmaller { font-size: 80%; }
 
+/* Font-size utilities carried over from the psyc790 archive stylesheets.
+   The slides use .f6 (67x), .f5 (50x), .f90 (12x) and .f4 (3x) to fit dense
+   content; data2's stylesheet only defined .f3, so without these every one of
+   those directives is a silent no-op and the slides overflow. All four unit
+   stylesheets agreed on these values. */
+.f4 { font-size: 24px !important; }
+.f5 { font-size: 30px !important; }
+.f6 { font-size: 36px !important; }
+.f90 { font-size: 90% !important; }
+
+.pb4 { padding-bottom: 2rem; }
+
+.full-width {
+  width: 100%;
+}
+
+/* Used by the honeypot pattern to hide text from readers but not from an LLM */
+.tiny-text {
+  font-size: 0.1px;
+  color: transparent;
+}
+
 .reveal .slide-number {
   position: absolute;
   top: 15px !important;
