@@ -17,9 +17,16 @@ project:
 
 execute:
   freeze: auto
-  echo: true
   eval: true
   collapse: false
+
+# NOTE: `echo` is deliberately NOT set here. data2's _quarto.yml sets
+# `echo: true`, which is right for a coding course but wrong here: it overrides
+# revealjs's default of `echo: false` and exposes plumbing code the slides were
+# written to hide (C/09/b went from 33 visible code blocks to 57; B/05/b
+# doubled, 24 -> 48). Leaving it unset gives each format its own default --
+# revealjs hides code unless a chunk opts in with `#| echo: true`, while the
+# HTML week pages and assignments still show it. See SLIDE-OVERFLOW.md.
 
 website:
   title: "PSYC790"
