@@ -1,0 +1,25 @@
+---
+title: "Week 04: Unit A Project"
+---
+
+<!-- Lecture a -->
+
+## [04a] Unit A Project
+
+In-class project work
+
+<!-- Lecture b -->
+
+## [04b] Unit A Project
+
+In-class project work
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../03/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 03</a>
+
+  <a href="../../B/05/index.html" class="btn btn-primary" role="button">Week 05&nbsp;&nbsp;&raquo;</a>
+</div>
+```

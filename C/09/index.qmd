@@ -1,0 +1,46 @@
+---
+title: "Week 09: Regression"
+---
+
+<!-- Lecture a -->
+
+## [09a] Fall Break
+
+No course meeting
+
+<!-- Lecture b -->
+
+## [09b] Regression / Inference / Centering
+
+### Topics
+- Regression Inference
+- Centering
+- Regression Effect Sizes
+
+### Files
+- [parenthood.csv](../../data/parenthood.csv){download="parenthood.csv"}
+- [water.csv](../../data/water.csv){download="water.csv"}
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="b_Slides.html" title="[09b] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../B/08/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 08</a>
+
+  <a href="../10/index.html" class="btn btn-primary" role="button">Week 10&nbsp;&nbsp;&raquo;</a>
+</div>
+```

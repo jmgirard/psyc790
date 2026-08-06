@@ -1,0 +1,42 @@
+---
+title: "Week 15: Best Practices"
+---
+
+<!-- Lecture a -->
+
+## [15a] Best & Questionable Practices
+
+### Topics
+- Bad Practices
+- Best Practices
+- Power Analysis
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20D){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[15a] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Lecture b -->
+
+## [15b] Thanksgiving Break
+
+No course meeting
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../C/14/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 14</a>
+
+  <a href="../16/index.html" class="btn btn-primary" role="button">Week 16&nbsp;&nbsp;&raquo;</a>
+</div>
+```

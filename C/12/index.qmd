@@ -1,0 +1,70 @@
+---
+title: "Week 12: Assumptions and Diagnostics"
+---
+
+<!-- Lecture a -->
+
+## [12a] Assumptions and Diagnostics I
+
+### Topics
+- Correct Form
+- Perfect Predictors
+- No Collinearity
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[12a] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Lecture b -->
+
+## [12b] Assumptions and Diagnostics II
+
+### Topics
+- Constant Error Variance
+- Normal Residuals
+- Independent Residuals
+- Outliers
+
+### Files
+- [auto.csv](../../data/auto.csv){download="auto.csv"}
+- [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="b_Slides.html" title="[12b] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Assignment -->
+
+## Assignment
+
+- [Week 12 Assignment](assignment.qmd)
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../11/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 11</a>
+
+  <a href="../13/index.html" class="btn btn-primary" role="button">Week 13&nbsp;&nbsp;&raquo;</a>
+</div>
+```

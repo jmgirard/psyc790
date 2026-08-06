@@ -1,0 +1,71 @@
+---
+title: "Week 11: Moderation"
+---
+
+<!-- Lecture a -->
+
+## [11a] Continuous Moderation
+
+### Topics
+- Continuous-by-Continuous
+- Interaction Patterns
+- Centering with Interactions
+
+### Files
+- [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[11a] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Lecture b -->
+
+## [11b] Categorical Moderation
+
+### Topics
+- Binary-by-Continuous
+- Nominal-by-Continuous
+- Categorical-by-Categorical
+
+### Files
+- [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="b_Slides.html" title="[11b] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Assignment -->
+
+## Assignment
+
+- [Week 11 Assignment](assignment.qmd)
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../10/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 10</a>
+
+  <a href="../12/index.html" class="btn btn-primary" role="button">Week 12&nbsp;&nbsp;&raquo;</a>
+</div>
+```

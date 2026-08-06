@@ -1,0 +1,75 @@
+---
+title: "Week 05: Sampling and Estimation"
+---
+
+<!-- Lecture a -->
+
+## [05a] Populations / Samples / Uncertainty
+
+### Topics
+- Research Methods
+- Populations and Parameters
+- Samples and Statistics
+- Estimation and Uncertainty
+
+### Files
+- [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[05a] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Lecture b -->
+
+## [05b] Estimates / Normality / Confidence
+
+### Topics
+- Types of Estimates
+- The Normal Distribution
+- Central Limit Theorem
+- Confidence Intervals
+- Practical Matters
+
+### Files
+- [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
+- [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="b_Slides.html" title="[05b] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Assignment -->
+
+## Assignment
+
+- [Week 05 Assignment](assignment.qmd)
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../A/04/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 04</a>
+
+  <a href="../06/index.html" class="btn btn-primary" role="button">Week 06&nbsp;&nbsp;&raquo;</a>
+</div>
+```

@@ -1,0 +1,46 @@
+---
+title: "Week 13: Polynomial Regression"
+---
+
+<!-- Lecture a -->
+
+## [13a] Polynomial Regression
+
+### Topics
+- Polynomial Regression
+- Quadratic Regression
+- Adding Predictors
+- Closing Thoughts
+
+### Files
+- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+
+### Readings
+- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[13a] Slideshow">
+</iframe>
+```
+
+::: {.fsmaller}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+<!-- Lecture b -->
+
+## [13b] Unit C Project
+
+In-class project work
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../12/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 12</a>
+
+  <a href="../14/index.html" class="btn btn-primary" role="button">Week 14&nbsp;&nbsp;&raquo;</a>
+</div>
+```
