@@ -9,7 +9,6 @@ title: "Week 15: Best Practices"
 ### Topics
 - Bad Practices
 - Best Practices
-- Power Analysis
 
 ### Readings
 - [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20D){target="_blank"}
@@ -30,6 +29,28 @@ title: "Week 15: Best Practices"
 ## [15b] Thanksgiving Break
 
 No course meeting
+
+<!-- Unscheduled -->
+
+## Power Analysis {.unscheduled}
+
+::: {.callout-note}
+This deck was split out of [15a] because that lecture ran long. It is **not scheduled**
+in the Fall 2025 calendar, which has no free slot in Week 15 — Thanksgiving falls on 15b.
+Whoever teaches next should place it wherever the semester calendar allows.
+:::
+
+### Topics
+- Power analysis and its relationship to effect size, *n*, and alpha
+- Types of power analysis
+- Power for *t*-tests, one-way ANOVA, and the linear model
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="power_Slides.html" title="Power Analysis Slideshow">
+</iframe>
+```
 
 <!-- Bottom Nav -->
 
