@@ -1,18 +1,83 @@
-# Slides that overflow
+# Slide overflow — a regression from the modernization
 
-Measured at the reveal.js logical slide size (**1050 × 700**), every slide visited in real
-reveal state with `fragments: false` so all content is shown at once — i.e. worst case.
+**Jeff's instinct was right: the original Fall 2025 decks did not have this problem.** The
+overflow was introduced by adopting data2's `styles.css` wholesale in Phase 1, not by
+pre-existing content density.
 
-**55 of 602 slides overflow (9.1%).** Nine are severe (>200px, roughly a third of a slide
-lost); most of the rest are minor.
+## The evidence
 
-## How this was measured
+Original archive decks were re-rendered against their own per-unit stylesheets and measured
+identically (reveal logical size 1050 × 700, every slide visited, `fragments: false`):
+
+| deck | ORIGINAL | after modernization | after fixes |
+|---|---|---|---|
+| B/05/b | **0 slides, 0px** | 7 slides, 546px | 3 slides, 192px |
+| B/07/b | **0 slides, 0px** | 4 slides, 454px | 1 slide, 235px |
+| C/09/b | 1 slide, 57px | 6 slides, 756px | 3 slides, 500px |
+| B/08/a | 2 slides, 97px | 2 slides, 501px | 2 slides, 396px |
+
+## What caused it
+
+data2's stylesheet was written for data2's slides, which are far less dense. Three separate
+problems came across with it:
+
+1. **Missing font utilities.** psyc790's per-unit stylesheets define `.f4`, `.f5`, `.f6`,
+   `.f90`; data2's defines only `.f3`. The slides use those **132 times**, so every one was a
+   silent no-op and text rendered at full size. *(Also lost: `.pb4`, `.full-width`,
+   `.tiny-text`.)*
+2. **`.reveal h2 { margin-bottom: 0.75em }`** — applies to every slide heading. Accounted for
+   **~50%** of the remaining overflow on B/05/b.
+3. **`.reveal div.sourceCode` padding (10px) and margin-bottom (1rem)** — psyc790 carries far
+   more code per slide than data2. Accounted for **~39%**.
+
+Isolated by A/B on B/05/b (baseline 7 slides / 546px):
+
+| disabled | overflowing | total px |
+|---|---|---|
+| baseline | 7 | 546 |
+| `.reveal h2` margin | 4 | 273 |
+| sourceCode padding | 6 | 334 |
+| cell-output padding | 7 | 546 *(no effect)* |
+| all three | 2 | 135 |
+
+## Fixes applied
+
+- Restored `.f4` / `.f5` / `.f6` / `.f90` (and `.pb4`, `.full-width`, `.tiny-text`) with the
+  values all four archive stylesheets agreed on.
+- Dropped `.reveal h2 { margin-bottom }` and `.reveal h4 { margin-top }` — back to reveal
+  defaults, as the originals had.
+- Reduced sourceCode padding `10px` → `4px 10px` and margin-bottom `1rem` → `0.4rem`.
+
+The cell-output colour styling from data2 (warning/message/error blocks, paired with
+`format-outputs.html`) is **kept** — it costs no vertical space and is a genuine improvement.
+
+## Where it stands
+
+Sampled decks after the fixes:
+
+| deck | before fixes | after |
+|---|---|---|
+| B/06/b | 6 | **0** |
+| B/05/a | 5 | 1 (+13px) |
+| C/10/b | 8 | 2 (worst +53) |
+| B/05/b | 8 | 3 (worst +133) |
+| B/07/b | 4 | 1 (+235) |
+| C/09/b | 6 | 3 (worst +423) |
+| C/13/a | 4 | 3 (worst +153) |
+| B/08/a | 2 | 2 (worst +346) |
+
+A handful of genuinely dense slides remain — these are the ones that were *also* slightly over
+in the original (e.g. C/09/b "Defining a Line in General", B/08/a "Further partitioning").
+Those are content problems, best fixed by splitting the slide or stepping the font down with
+`{.f5}` / `{.f6}`.
+
+## How to measure
 
 Do **not** measure by forcing `height: auto` on hidden sections — reveal resizes `.r-stretch`
-images to fit, and overriding the layout defeats that, producing large false positives
-(B/06/b "Scatterplots" measured +547px that way but is actually +1px).
+images to fit, and overriding the layout defeats that, giving large false positives (B/06/b
+"Scatterplots" measured +547px that way; it was actually +1px).
 
-The reliable method, in the browser console of a served deck:
+In the browser console of a served deck:
 
 ```js
 Reveal.configure({transition:'none', fragments:false});
@@ -25,59 +90,7 @@ for (const s of [...document.querySelectorAll('.reveal .slides section')]
 }
 ```
 
-## Note on one contributing cause (fixed)
+## Lesson for Katie's copy
 
-Phase 1 replaced psyc790's per-unit `styles.css` with data2's, which defines only `.f3`. The
-slides use `.f6` ×67, `.f5` ×50, `.f90` ×12 and `.f4` ×3, so 132 font-shrinking directives
-were silently no-ops. Restored in `styles.css`. On `C/09/b` this alone took overflow from
-16 slides / 2133px down to 13 / 1794px by the rough metric. **The remainder is pre-existing
-content density**, not something the modernization introduced.
-
-## Severe (>200px)
-
-| deck | slide | overflow |
-|---|---|---|
-| C/09/b | Defining a Line in General | +481 |
-| B/08/a | Further partitioning | +403 |
-| B/07/b | The F distribution | +293 |
-| C/12/b | Example: Assumption Met | +277 |
-| C/12/b | Example: Assumption Violated | +251 |
-| B/06/a | Reporting a significance test | +244 |
-| B/05/b | Another example | +232 |
-| C/13/a | Motivation | +206 |
-| B/05/b | An example in R | +206 |
-
-## Everything else, by deck
-
-| deck | count | slides |
-|---|---|---|
-| B/05/a | 5 | Sample example (+90), Sampling error (+50), Sampling distributions (+35), Small population simulation (+28), Small population example (+19) |
-| B/05/b | 8 | *(2 severe above)* + The normal distribution (+191), Comparing multipliers (+100), Reporting a CI (+95), Comparing CIs (+67), Sampling distribution (+35), A complication (+26) |
-| B/06/a | 1 | *(severe above)* |
-| B/06/b | 6 | Variance and covariance (+35), Test statistic (+31), Example dataset (+22), Pearson's correlation (+20), Another effect size (+19), Confidence intervals (+11) |
-| B/07/b | 4 | *(1 severe)* + Application and interpretation (+61), The aov function (+55), Example dataset (+45) |
-| B/08/a | 2 | *(1 severe)* + Post-hoc tests (+98) |
-| C/09/b | 6 | *(1 severe)* + Standardized Slopes (+93), Centering a Predictor (+77), Adjusted R-Squared (+43), Example Dataset (+38), Defining Regression Residuals (+24) |
-| C/10/a | 2 | Relation to Student's t-test (+84), Swapping the reference group (+11) |
-| C/10/b | 8 | Plotting marginal effects (+144), Example zero-order effects (+111), Venn diagram for two predictors (+94), Two Types of Effects (+87), Plotting marginal effects (+71), Two Types of Effects (+35), Controlling predictors (+31), Multiple regression (+23) |
-| C/11/a | 1 | Example dataset (+11) |
-| C/11/b | 1 | Proceed with caution (+19) |
-| C/12/a | 3 | Example with Collinearity (+27), Example with Multicollinearity (+27), Variance Inflation Factors (+16) |
-| C/12/b | 2 | *(both severe above)* |
-| C/13/a | 4 | *(1 severe)* + Number of bends (+145), Direction of curvature (+130), Visualizing the tangent line (+15) |
-| D/15/power | 2 | Power analysis (+45), Linear model power (+14) |
-
-Clean decks: **A/01/b, A/02/a, A/02/b, A/03/a, A/03/b, B/07/a, D/15/a, D/16/a, D/16/b.**
-
-## Fixing them
-
-Cheapest first:
-
-1. **Drop the font size one step** — add or tighten `{.f5}` / `{.f6}` on the slide. Handles
-   most of the 41 slides under +100px.
-2. **Split the slide** — the honest fix for the severe ones, which are typically a formula
-   plus a full bullet list plus a figure.
-3. **Move content into a fragment-revealed second column** where the slide is already using
-   `.columns`.
-
-Unit A is entirely clean, so the pattern to imitate is already in the repo.
+Do not sync `styles.css` from data2 or psyc894. Each course's slides are authored against
+their own spacing, and these stylesheets are not interchangeable.

@@ -27,13 +27,11 @@
   border-right:2px solid black;
 }
 
-.reveal h2 {
-  margin-bottom: 0.75em !important;
-}
-
-.reveal h4 {
-  margin-top: 0.5em !important;
-}
+/* NOTE: data2 sets `.reveal h2 { margin-bottom: 0.75em }` and
+   `.reveal h4 { margin-top: 0.5em }`. psyc790's slides were authored without
+   them and are much denser, so adopting them pushed content off the bottom of
+   ~50% of the affected slides. Left at the reveal default here.
+   See SLIDE-OVERFLOW.md. */
 
 .reveal .footer {
   font-size: 0.5em !important;
@@ -243,8 +241,10 @@ iframe.slide-deck {
 
 /* Format code output */
 
+/* Padding reduced from data2's 10px: psyc790's decks carry more code per
+   slide, and the extra padding accounted for ~39% of the slide overflow. */
 .reveal div.sourceCode pre code {
-  padding: 10px !important;
+  padding: 4px 10px !important;
   display: block;
 }
 
@@ -258,7 +258,7 @@ iframe.slide-deck {
 }
 
 .reveal div.sourceCode {
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.4rem !important;
   border-radius: 8px !important;
 }
 
