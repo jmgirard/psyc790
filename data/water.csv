@@ -1,0 +1,62 @@
+town,location,mortality,hardness
+Bath,South,1247,105
+Birkenhead,North,1668,17
+Birmingham,South,1466,5
+Blackburn,North,1800,14
+Blackpool,North,1609,18
+Bolton,North,1558,10
+Bootle,North,1807,15
+Bournemouth,South,1299,78
+Bradford,North,1637,10
+Brighton,South,1359,84
+Bristol,South,1392,73
+Burnley,North,1755,12
+Cardiff,South,1519,21
+Coventry,South,1307,78
+Croydon,South,1254,96
+Darlington,North,1491,20
+Derby,North,1555,39
+Doncaster,North,1428,39
+East Ham,South,1318,122
+Exeter,South,1260,21
+Gateshead,North,1723,44
+Grimsby,North,1379,94
+Halifax,North,1742,8
+Huddersfield,North,1574,9
+Hull,North,1569,91
+Ipswich,South,1096,138
+Leeds,North,1591,16
+Leicester,South,1402,37
+Liverpool,North,1772,15
+Manchester,North,1828,8
+Middlesbrough,North,1704,26
+Newcastle,North,1702,44
+Newport,South,1581,14
+Northampton,South,1309,59
+Norwich,South,1259,133
+Nottingham,North,1427,27
+Oldham,North,1724,6
+Oxford,South,1175,107
+Plymouth,South,1486,5
+Portsmouth,South,1456,90
+Preston,North,1696,6
+Reading,South,1236,101
+Rochdale,North,1711,13
+Rotherham,North,1444,14
+St Helens,North,1591,49
+Salford,North,1987,8
+Sheffield,North,1495,14
+Southampton,South,1369,68
+Southend,South,1257,50
+Southport,North,1587,75
+South Shields,North,1713,71
+Stockport,North,1557,13
+Stoke,North,1640,57
+Sunderland,North,1709,71
+Swansea,South,1625,13
+Wallasey,North,1625,20
+Walsall,South,1527,60
+West Bromwich,South,1627,53
+West Ham,South,1486,122
+Wolverhampton,South,1485,81
+York,North,1378,71

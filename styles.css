@@ -1,0 +1,604 @@
+/* custom styles */
+
+.hero {
+  width: 67%;
+  max-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#roadmap {
+  border:2px solid black;
+  table-layout:fixed;
+}
+
+#roadmap td {
+  border-top:0;
+  border-bottom:0;
+  border-left:2px solid black;
+  border-right:2px solid black;
+}
+
+#roadmap th {
+  border-top:0;
+  border-bottom:0;
+  border-left:2px solid black;
+  border-right:2px solid black;
+}
+
+/* NOTE: data2 sets `.reveal h2 { margin-bottom: 0.75em }` and
+   `.reveal h4 { margin-top: 0.5em }`. psyc790's slides were authored without
+   them and are much denser, so adopting them pushed content off the bottom of
+   ~50% of the affected slides. Left at the reveal default here.
+   See SLIDE-OVERFLOW.md. */
+
+.reveal .footer {
+  font-size: 0.5em !important;
+}
+
+.canvas_ss img {
+  width: 90%;
+  border: 1px solid grey;
+}
+
+/* Style for inline code */
+.reveal p code, .reveal li code, .reveal td code {
+  padding: 2px 9px;
+  background-color: #333333;
+  border-radius: 4px;
+}
+
+.vcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+
+lord-icon.rc {
+  width: 300px;
+  height: 300px;
+}
+
+.mytable td {
+  border: none !important;
+}
+
+iframe.slide-deck {
+  border: 3px solid #dee2e6;
+  width: 100%;
+  height: 475px;
+}
+
+.my-title h1 {
+  font-size: 1.8em !important;
+  line-height: 1.1em;
+}
+
+.my-subtitle {
+  font-size: 0.8em !important;
+}
+
+.my-grey {
+  padding-top: 0.5em !important;
+  color: #CCCCCC;
+  font-size: 1.0em !important;
+  line-height: 0.5em !important;
+}
+
+/* Title-slide attribution line. Driven by the `attribution` metadata key in
+   _slide-settings.yml; collapses when that key is empty. */
+.my-attrib {
+  padding-top: 1.5em !important;
+  color: #AAAAAA;
+  font-size: 0.55em !important;
+  font-style: italic;
+  line-height: 1.2em !important;
+}
+
+/* Quarto emits <div class="my-attrib"><p></p></div> when `attribution` is
+   empty, so the div itself is never :empty -- match the empty child too, or
+   the padding above would leave a phantom gap. */
+.my-attrib:empty,
+.my-attrib:has(p:empty:only-child) {
+  display: none;
+}
+
+.table-bad td {
+  border: 2px solid #F92F60 !important;
+  background-color: #F4F4F4;
+}
+
+.table-good td {
+  border: 2px solid #635994 !important;
+  background-color: #F4F4F4;
+}
+
+.table-small td {
+  font-size: 80%;
+}
+
+.bg-yellow {
+  background-color: #FFFF00;
+}
+
+.bg-teal {
+  background-color: #33FCFF;
+}
+
+.tibbledisp pre code {
+  color: black;
+  font-size: 1.4em !important;
+  line-height: 1.2em !important;
+}
+
+/* From Tachyons */
+
+.br-100 {     border-radius: 100%; }
+.ba { border-style: solid; border-width: 1px; }
+.b      { font-weight: bold; }
+.tc  { text-align: center; }
+.tr  { text-align: right; }
+
+.pv4 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pv5 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.danger code {
+  color: #FF725C !important;
+}
+
+.mt1 {  margin-top: .25rem; }
+.mt4 {  margin-top: 1rem; }
+
+.gray { color: #777777; }
+.silver { color: #999999; }
+.light-silver { color: #AAAAAA; }
+.moon-gray { color: #CCCCCC; }
+.light-gray { color: #EEEEEE; }
+.near-white { color: #F4F4F4; }
+.white { color: #FFFFFF; }
+.dark-red { color: #E7040F; }
+.red { color: #FF4136; }
+.light-red { color: #FF725C; }
+.orange { color: #FF6300; }
+.gold { color: #FFB700; }
+.yellow { color: #FFD700; }
+.light-yellow { color: #FBF1A9; }
+.light-purple { color: #A463F2; }
+.dark-pink { color: #D5008F; }
+.hot-pink { color: #FF41B4; }
+.pink { color: #FF80CC; }
+.light-pink { color: #FFA3D7; }
+.dark-green { color: #137752; }
+.green { color: #19A974; }
+.light-green { color: #9EEBCF; }
+.blue { color: #357EDD; }
+.light-blue { color: #96CCFF; }
+.lightest-blue { color: #CDECFF; }
+.washed-blue { color: #F6FFFE; }
+.washed-green { color: #E8FDF5; }
+.washed-yellow { color: #FFFCEB; }
+.washed-red { color: #FFDFDF; }
+.black { color: #000000; }
+.near-black { color: #111111; }
+.dark-gray { color: #333333; }
+.mid-gray { color: #555555; }
+.gray { color: #777777; }
+.dark-red { color: #E7040F; }
+.red { color: #FF4136; }
+.purple { color: #5E2CA5; }
+.light-purple { color: #A463F2; }
+.dark-pink { color: #D5008F; }
+.dark-green { color: #137752; }
+.navy { color: #001B44; }
+.dark-blue { color: #00449E; }
+.blue { color: #357EDD; }
+
+/* ==========================================================================
+   FONT-SIZE SCALE
+   --------------------------------------------------------------------------
+   One system, replacing the four that used to coexist here (Quarto's built-in
+   `.smaller`, a percentage `.fsmaller`/`.f90` pair, and an absolute-pixel
+   `.f3`-`.f6` set carried over from the archive stylesheets).
+
+   Each stop is a fraction of the 40px revealjs root, written in `em`:
+
+     .fs90   0.9em   36px
+     .fs80   0.8em   32px
+     .fs70   0.7em   28px    <- same ratio as Quarto's built-in `.smaller`
+     .fs60   0.6em   24px
+     .fs50   0.5em   20px
+
+   Two things the old `.f3`-`.f6` set got wrong, both fixed by using `em`:
+
+   1. They were absolute px, so they did not compose. A `.f5` inside a
+      `.smaller` slide rendered at a flat 30px, ignoring the 0.7 reduction it
+      was nested in.
+   2. They carried `!important`, so they beat anything they were nested in
+      even when that was not the intent. Nothing here needs `!important`;
+      the `.reveal .slides section.*` selectors below are already more
+      specific than the theme rules they override.
+
+   HEADINGS. When a stop is applied to a slide (`## Title {.fs70}`) the body
+   text shrinks but the heading does not: the calc() rules cancel the
+   reduction exactly, which is the trick Quarto's `.smaller` uses. That keeps
+   every normal slide's title the same size regardless of how much its body
+   had to be squeezed -- before this, titles rendered at 48px, 57.6px or 64px
+   depending on which class the slide happened to carry.
+
+   The heading ems (h1 2.5, h2 1.6, h3 1.3) come from --r-heading{1,2,3}-size
+   in the compiled reveal theme. h4 is 1em -- the same as body text -- and
+   Quarto deliberately leaves it scaled, so it is left scaled here too.
+
+   Applied to anything that is not a slide (a div, a span, a table cell) a
+   stop is just a plain relative shrink with no heading to cancel.
+   ========================================================================== */
+
+/* 0.9 = 36px  (legacy: .f6, .f90, .f36) */
+.fs90, .f6, .f90, .f36 {
+  font-size: 0.9em;
+}
+.reveal .slides section.fs90, .reveal .slides section.f6, .reveal .slides section.f90, .reveal .slides section.f36 {
+  font-size: 0.9em;
+}
+.reveal .slides section.fs90 section, .reveal .slides section.f6 section, .reveal .slides section.f90 section, .reveal .slides section.f36 section {
+  font-size: inherit;
+}
+.reveal .slides section.fs90 h1, .reveal .slides section.f6 h1, .reveal .slides section.f90 h1, .reveal .slides section.f36 h1 {
+  font-size: calc(2.5em / 0.9);
+}
+.reveal .slides section.fs90 h2, .reveal .slides section.f6 h2, .reveal .slides section.f90 h2, .reveal .slides section.f36 h2 {
+  font-size: calc(1.6em / 0.9);
+}
+.reveal .slides section.fs90 h3, .reveal .slides section.f6 h3, .reveal .slides section.f90 h3, .reveal .slides section.f36 h3 {
+  font-size: calc(1.3em / 0.9);
+}
+
+/* 0.8 = 32px  (legacy: .fsmaller) */
+.fs80, .fsmaller {
+  font-size: 0.8em;
+}
+.reveal .slides section.fs80, .reveal .slides section.fsmaller {
+  font-size: 0.8em;
+}
+.reveal .slides section.fs80 section, .reveal .slides section.fsmaller section {
+  font-size: inherit;
+}
+.reveal .slides section.fs80 h1, .reveal .slides section.fsmaller h1 {
+  font-size: calc(2.5em / 0.8);
+}
+.reveal .slides section.fs80 h2, .reveal .slides section.fsmaller h2 {
+  font-size: calc(1.6em / 0.8);
+}
+.reveal .slides section.fs80 h3, .reveal .slides section.fsmaller h3 {
+  font-size: calc(1.3em / 0.8);
+}
+
+/* 0.7 = 28px  (legacy: .f5) */
+.fs70, .f5 {
+  font-size: 0.7em;
+}
+.reveal .slides section.fs70, .reveal .slides section.f5 {
+  font-size: 0.7em;
+}
+.reveal .slides section.fs70 section, .reveal .slides section.f5 section {
+  font-size: inherit;
+}
+.reveal .slides section.fs70 h1, .reveal .slides section.f5 h1 {
+  font-size: calc(2.5em / 0.7);
+}
+.reveal .slides section.fs70 h2, .reveal .slides section.f5 h2 {
+  font-size: calc(1.6em / 0.7);
+}
+.reveal .slides section.fs70 h3, .reveal .slides section.f5 h3 {
+  font-size: calc(1.3em / 0.7);
+}
+
+/* 0.6 = 24px  (legacy: .f4) */
+.fs60, .f4 {
+  font-size: 0.6em;
+}
+.reveal .slides section.fs60, .reveal .slides section.f4 {
+  font-size: 0.6em;
+}
+.reveal .slides section.fs60 section, .reveal .slides section.f4 section {
+  font-size: inherit;
+}
+.reveal .slides section.fs60 h1, .reveal .slides section.f4 h1 {
+  font-size: calc(2.5em / 0.6);
+}
+.reveal .slides section.fs60 h2, .reveal .slides section.f4 h2 {
+  font-size: calc(1.6em / 0.6);
+}
+.reveal .slides section.fs60 h3, .reveal .slides section.f4 h3 {
+  font-size: calc(1.3em / 0.6);
+}
+
+/* 0.5 = 20px  (legacy: .f3) */
+.fs50, .f3 {
+  font-size: 0.5em;
+}
+.reveal .slides section.fs50, .reveal .slides section.f3 {
+  font-size: 0.5em;
+}
+.reveal .slides section.fs50 section, .reveal .slides section.f3 section {
+  font-size: inherit;
+}
+.reveal .slides section.fs50 h1, .reveal .slides section.f3 h1 {
+  font-size: calc(2.5em / 0.5);
+}
+.reveal .slides section.fs50 h2, .reveal .slides section.f3 h2 {
+  font-size: calc(1.6em / 0.5);
+}
+.reveal .slides section.fs50 h3, .reveal .slides section.f3 h3 {
+  font-size: calc(1.3em / 0.5);
+}
+
+/* The legacy names above (.f3-.f6, .f90, .f36, .fsmaller) are aliases, not
+   separate stops -- every call site in psyc790, psyc894 and data2 now uses
+   .fs*. They are kept deliberately so that an un-migrated directive renders at
+   the right size instead of becoming a silent no-op. That failure mode is not
+   hypothetical: 132 dead .f4/.f5/.f6/.f90 directives went unnoticed in psyc790
+   and caused a 55-slide overflow regression (psyc790/SLIDE-OVERFLOW.md).
+
+   This block is the one part of styles.css that is intentionally byte-identical
+   across all three course repos. The rest is NOT interchangeable -- the h2/h4
+   margins and sourceCode padding differ on purpose, because psyc790's decks are
+   much denser than data2's. Do not sync the whole file between repos. */
+
+/* ==========================================================================
+   FIGURE FIT
+   --------------------------------------------------------------------------
+   `.figfit` caps how tall a slide's figures may be. It is the companion lever
+   to the font-size scale above, for slides whose height is dominated by an
+   image rather than by text.
+
+   Font stops do not help those slides. Measured examples: data2's "Aesthetic
+   Mappings" is a 439px-tall PNG on a 700px canvas, and dropping it two whole
+   stops (.fs80 -> .fs60) recovered only 7px, because almost nothing on the
+   slide is text. Capping the figure recovers 59px in one move.
+
+   Reveal lays every slide out on a fixed 960x700 canvas and then scales the
+   whole deck to the window, so a px cap here is deterministic -- 380px always
+   means the same fraction of the slide, on any screen.
+
+   Width follows from `width: auto`, so aspect ratio is preserved and the
+   figure simply gets smaller rather than squashed. Applies to both static
+   images and figures generated by R chunks, which is why it is a slide-level
+   class rather than a per-image attribute -- a chunk figure has no markdown
+   image to annotate.
+   ========================================================================== */
+.reveal .slides section.figfit img {
+  max-height: 380px;
+  width: auto;
+  height: auto;
+}
+
+
+.pb4 { padding-bottom: 2rem; }
+
+.full-width {
+  width: 100%;
+}
+
+/* Used by the honeypot pattern to hide text from readers but not from an LLM */
+.tiny-text {
+  font-size: 0.1px;
+  color: transparent;
+}
+
+.reveal .slide-number {
+  position: absolute;
+  top: 15px !important;
+  right: 15px !important;
+  bottom: auto !important;
+  left: auto !important;
+  background: transparent;
+  color: inherit !important;
+  pointer-events: none !important;
+}
+
+/* Format code output */
+
+/* Padding reduced from data2's 10px: psyc790's decks carry more code per
+   slide, and the extra padding accounted for ~39% of the slide overflow. */
+.reveal div.sourceCode pre code {
+  padding: 4px 10px !important;
+  display: block;
+}
+
+.reveal div.sourceCode pre {
+  padding: 0 !important;
+}
+
+.reveal div.sourceCode pre,
+.reveal div.sourceCode code {
+  margin-bottom: 0 !important;
+}
+
+.reveal div.sourceCode {
+  margin-bottom: 0.4rem !important;
+  border-radius: 8px !important;
+}
+
+.reveal div.sourceCode pre,
+.reveal div.sourceCode code {
+  border-radius: 8px !important;
+}
+
+.reveal .cell:has(.cell-output) div.sourceCode {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.reveal .cell:has(.cell-output) div.sourceCode pre,
+.reveal .cell:has(.cell-output) div.sourceCode code {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.cell-output-stdout pre {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.cell-output-stdout pre code {
+  color: #3f3f3f !important;
+  background-color: #dcdccc;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  padding: 10px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cell-output-error pre {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.cell-output-error pre code {
+  color: #5c0000 !important;
+  background-color: #eec5c5;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  padding: 10px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Warning styles */
+.cell-output-warning pre {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.cell-output-warning pre code {
+  color: #5c4700 !important;
+  background-color: #dcdccc !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  padding: 10px !important;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cell-output-warning pre code::before {
+  content: "\26A0\FE0E";
+  color: #5c4700 !important;
+  font-size: 1.2em;
+  margin-right: 8px;
+  vertical-align: middle;
+  margin-bottom: 0 !important;
+}
+
+/* Message styles */
+.cell-output-message pre {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.cell-output-message pre code {
+  color: #00449E !important;
+  background-color: #dcdccc !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  padding: 10px !important;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cell-output-message pre code::before {
+  content: "\2139\FE0E";
+  color: #00449E !important;
+  font-size: 1.2em;
+  margin-right: 8px;
+  vertical-align: middle;
+  margin-bottom: 0 !important;
+}
+
+.reveal .cell-output:has(+ .cell-output) pre code {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.reveal .cell-output:has(+ .cell-output) {
+  margin-bottom: 0 !important;
+}
+
+kbd {
+  font-size: 0.8em;
+}
+
+.reveal pre.cell-code {
+  margin-bottom: 1rem !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  background-color: #f4f4f4;
+}
+
+.reveal pre.cell-code code {
+  padding: 10px !important;
+  display: block;
+  margin-bottom: 0 !important;
+  border-radius: 8px !important;
+  color: #3f3f3f;
+  background-color: transparent !important;
+}
+
+.reveal pre.qmd {
+  background-color: #f4f4f4 !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+.reveal pre.qmd code {
+  color: #3f3f3f !important;
+  background-color: transparent !important;
+  padding: 10px !important;
+  display: block;
+  border-radius: 8px !important;
+}
+
+/* Remove gap and border-radius when code-fold is true */
+.reveal .cell:has(.cell-output) details {
+  margin-bottom: 0 !important;
+}
+
+.reveal .cell:has(.cell-output) details pre.cell-code,
+.reveal .cell:has(.cell-output) details div.sourceCode {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.reveal .cell:has(.cell-output) details pre.cell-code code,
+.reveal .cell:has(.cell-output) details div.sourceCode pre,
+.reveal .cell:has(.cell-output) details div.sourceCode code {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.reveal .gt_table {
+  font-size: 24px !important;
+}
