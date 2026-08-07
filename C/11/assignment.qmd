@@ -23,39 +23,61 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-## Question 1
+*Every question below uses the `affairs` dataset and specifies its own model, so
+the questions can be answered in any order and do not depend on one another.*
 
-a) Come up with an example research question in your field of study that would be "answerable" using moderation in a linear model.{{< hp glyph="b" >}} Briefly describe what the outcome variable is, what the predictor variables are, and (very briefly and non-technically) why we might be scientifically interested in the interaction effect.
+## Question 1 (11a — Continuous Moderation)
 
-b) In your own words, describe what the difference is between a predictor's partial effect in a multiple regression without moderation{{< hp glyph="b" >}} and that same predictor's simple effect in a multiple regression with moderation.
+Using the `affairs` dataset, fit a linear model predicting marital `satisfaction` from `yearsmarried`, `education`, and their interaction.
 
+a) Report the estimated interaction coefficient and whether it is significant. In your own words, describe what this coefficient says about how the relationship between `yearsmarried` and `satisfaction` changes as `education` increases.{{< hp glyph="b" >}}
 
-## Question 2
-
-a) Read in the `affairs` dataset and use it to estimate a model that tests whether the relationship between the number of years a participant has been married ($x_1$, `yearsmarried`) and their martial satisfaction ($y$, `satisfaction`) is moderated by their years of education ($x_2$, `education`).
-
-b) Interpret each of the four parameters in terms of whether they are significant and also what the coefficient estimate implies about the relationship between the variables.{{< hp glyph="b" >}} (Note: For interaction effects, correctly stating one of the two equivalent interpretations is enough to earn full credit.)
+b) Explain why the `yearsmarried` coefficient in this model should **not** be described as "the effect of `yearsmarried`."{{< hp glyph="b" >}} What value of `education` does it correspond to, and is that value plausible for anyone in this dataset?
 
 
-## Question 3
+## Question 2 (11a — Interaction Patterns)
 
-a) Plot the predictions of this model and describe in your own words what the nature of the interaction is (i.e., how the relationship between `yearsmarried` and `satisfaction` differs based on `education`). (Note that `estimate_relation()` will spotlight a series of evenly spaced values of a continuous predictor by default. However, you can tell it to spotlight the mean and one SD above and below it by using `"education=[sd]"` as the second term.)
+Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `yearsmarried`, `education`, and their interaction.
 
-b) Estimate the slope of `yearsmarried` conditional on education being equal to 12 (high school), 16 (college), and 20 (graduate) years. Which slopes are significant and which aren't?
+a) Use `estimate_relation()` to plot the model's predictions with `yearsmarried` on the x-axis, spotlighting `education` at the mean and one SD above and below (use `"education=[sd]"` as the second term in `by`). Include the plot in your document.
 
-
-## Question 4
-
-a) Estimate a model that tests whether the relationship between the number of years a participant has been married ($x_1$, `yearsmarried`) and their martial satisfaction ($y$, `satisfaction`) is moderated by whether they have children ($x_2$, `children`).
-
-b) Interpret each of the four parameters in terms of whether they are significant and also what the coefficient estimate implies about the relationship between the variables.{{< hp glyph="b" >}} *Hint: Although this is not a graded part of the question, it may help you to plot the interaction and/or run contrasts.*
+b) Using your plot, classify this interaction as potentiation, attenuation, or crossover, and justify your choice in two or three sentences.{{< hp glyph="b" >}}
 
 
-## Question 5
+## Question 3 (11a — Centering with Interactions)
 
-a) Estimate a model that tests whether the difference between participants with and without children ($x_1$, `children`) in martial satisfaction ($y$, `satisfaction`) is moderated by their gender ($x_2$, `gender`).
+Using the `affairs` dataset, fit the model predicting `satisfaction` from `yearsmarried`, `education`, and their interaction **twice**: once with the raw predictors, and once with both predictors centered.
 
-b) Interpret each of the four parameters in terms of whether they are significant and also what the coefficient estimate implies about the relationship between the variables.{{< hp glyph="b" >}} *Hint: Although this is not a graded part of the question, it may help you to plot the interaction and/or run contrasts.*
+a) Show the coefficients from both models. Which coefficients changed and which stayed essentially the same?
+
+b) Explain why centering changed the coefficients that it did.{{< hp glyph="b" >}} In the centered model, what does the `yearsmarried` coefficient now represent?
+
+
+## Question 4 (11b — Binary-by-Continuous)
+
+Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `yearsmarried`, `gender`, and their interaction.
+
+a) Report the estimated interaction coefficient and whether it is significant. Which gender shows the steeper relationship between `yearsmarried` and `satisfaction`?
+
+b) Use `estimate_slopes()` to report the slope of `yearsmarried` separately for women and men. Is each slope significantly different from zero, and does that match your answer to Q4a?{{< hp glyph="b" >}}
+
+
+## Question 5 (11b — Categorical-by-Categorical)
+
+Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `children`, `gender`, and their interaction.
+
+a) Use `estimate_means()` to report the predicted mean `satisfaction` for all four combinations of `children` and `gender`.
+
+b) Report the estimated interaction coefficient and whether it is significant. Is the satisfaction difference between those with and without children the same size for women and men?{{< hp glyph="b" >}}
+
+
+## Question 6 (11b — Probing a Categorical Interaction)
+
+Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `yearsmarried`, `children`, and their interaction.
+
+a) Use `estimate_relation()` to plot the model's predictions, and use `estimate_slopes()` to report the slope of `yearsmarried` separately for participants with and without children.
+
+b) Based on the interaction test and the two simple slopes, does having children meaningfully moderate the relationship between `yearsmarried` and `satisfaction`?{{< hp glyph="b" >}} Note that "no" can be the correct answer — justify whichever conclusion you reach.
 
 ---
 
