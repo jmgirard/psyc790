@@ -26,6 +26,9 @@ title: "Chapter 06: Hypothesis Testing"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Assignment
+- [Lecture 06a Assignment](a_assignment.qmd)
+
 <!-- Lecture b -->
 
 ## [06b] Covariances / Correlations / Inference
@@ -51,11 +54,8 @@ title: "Chapter 06: Hypothesis Testing"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-<!-- Assignment -->
-
-## Assignment
-
-- [Chapter 06 Assignment](assignment.qmd)
+### Assignment
+- [Lecture 06b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->
 

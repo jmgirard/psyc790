@@ -28,6 +28,9 @@ title: "Chapter 07: Group Comparisons"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Assignment
+- [Lecture 07a Assignment](a_assignment.qmd)
+
 <!-- Lecture b -->
 
 ## [07b] One-way ANOVA / Effect Sizes / Contrasts
@@ -53,11 +56,8 @@ title: "Chapter 07: Group Comparisons"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-<!-- Assignment -->
-
-## Assignment
-
-- [Chapter 07 Assignment](assignment.qmd)
+### Assignment
+- [Lecture 07b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->
 

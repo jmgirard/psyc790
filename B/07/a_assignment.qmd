@@ -1,0 +1,50 @@
+---
+title: "Lecture 07a Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 07a Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (NHST Approaches)
+
+a) Provide an example of independent samples/groups{{< hp glyph="a" >}} that you might want to study and an example of dependent samples/groups that you might want to study.
+
+b) Why is it important for us to distinguish between{{< hp glyph="a" >}} independent and dependent samples when comparing group means?
+
+## Question 2 (Independent Samples)
+
+Download the `political.csv` file from Canvas. It contains information about 59 students' political activity. **Be sure to set the `read_edit` and `year` variables to factors.**
+
+a) I want to test whether students who read editorials (`read_edit=1`) feel more politically informed (`informed`) than those who don't (`read_edit=0`). What type of $t$-test is appropriate here (one-sample, independent samples, or paired samples), and what should my null and alternative hypotheses be?
+
+b) Test my hypothesis from part (a) in R using Welch's approach. Include your results table, calculate a standardized effect size, and write a sentence that reports both verbally.
+
+## Question 3 (Paired Samples)
+
+Download the `sleep.csv` file from Canvas. It contains ratings from 16 people: how important they consider sleep to be (`importance`) and how satisfied they are with their own sleep (`satisfaction`), both measured on a 0--100 scale.
+
+a) Because both ratings come from the same 16 people, these are dependent samples. Conduct the appropriate $t$-test of whether people rate the importance of sleep differently from their satisfaction with it, and calculate a standardized effect size.
+
+b) Report the results verbally, and explain why treating these two ratings as *independent* samples would be a mistake.{{< hp glyph="a" >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

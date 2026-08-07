@@ -1,0 +1,50 @@
+---
+title: "Lecture 06a Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 06a Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (NHST Logic)
+
+a) If my test has 70% power and an $\alpha$ of .01,{{< hp glyph="a" >}} what are my chances of making a Type I Error and a Type II Error?
+
+b) If I wanted to reduce my chances of making each type of error,{{< hp glyph="a" >}} what could I change about my study/analysis?
+
+## Question 2 (Statistical Hypotheses)
+
+Download and use the `salaries` data file for this question. (Note that the salaries are given in thousands of dollars per year, such that 120 would actually mean $120,000 per year.)
+
+a) My friend is arguing that professors (across all ranks and disciplines) make, on average, $100,000 per year. This doesn't sound right to me, so I want to approach this statistically.{{< hp glyph="a" >}} What should I use as my null hypothesis and what should I use as my alternative hypothesis?
+
+b) Conduct a one-sample $t$-test of the null hypothesis from part (a). Report the $p$-value and your decision whether to retain or reject the null.
+
+## Question 3 (p-values and Pragmatics)
+
+Download and use the `salaries` data file for this question as well. This time, test the null hypothesis that professors make, on average, $110,000 per year.
+
+a) Conduct a one-sample $t$-test of this null hypothesis. Report the observed test statistic and its degrees of freedom.
+
+b) This test gives a much larger $p$-value than a test against $100,000 would. Explain what the $p$-value in *this* test means and how it should be interpreted statistically.{{< hp glyph="a" >}} Your answer should go beyond merely stating whether it was significant, and should address why testing a different null value changes the $p$-value even though the data never changed.
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
