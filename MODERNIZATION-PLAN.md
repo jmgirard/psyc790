@@ -20,7 +20,7 @@ psyc790/
 ├── _extensions/jmgirard/    # details, honeypot, lordicon (+ shafayetshafee/downloadthis?)
 ├── _freeze/                 # COMMITTED (freeze: auto)
 ├── .nojekyll                # committed
-├── .Rprofile → renv         # renv.lock committed
+├── install-packages.R       # unpinned package list; no renv, no .Rprofile
 ├── index.qmd                # course description, outcomes, instructor, times, office hours
 ├── schedule.qmd             # week-by-week list, links to each week index
 ├── 404.qmd                  # "still being developed" + progress checklist
@@ -248,19 +248,30 @@ package versions shift, which is the same benefit `_freeze` gives the public sit
 
 ### Phase 1 — Repo scaffolding
 - `git init`; create `jmgirard/psyc790` on GitHub (does not exist yet); `main` default.
-- Copy from data2/psyc894: `.gitignore`, `.nojekyll`, `.Rprofile`, `_common.R`,
+- Copy from data2/psyc894: `.gitignore`, `.nojekyll`, `_common.R`,
   `format-outputs.html`, `_extensions/jmgirard/{details,honeypot,lordicon}`.
+  (Not `.Rprofile` — it only sourced `renv/activate.R`, and all three repos have
+  since dropped renv. See below.)
 - `styles.css`: use data2's (it's the newest — has the output-block styling,
   `.slide-deck` iframe, `.my-title`/`.my-subtitle`, tachyons subset). Delete the four
   per-unit copies in `archive/`.
-- **No renv** (decided; data2 and psyc894 keep theirs, but those are finished courses and
-  there's no cost to the inconsistency). `_freeze/` is the actual reproducibility mechanism
+- **No renv** (decided). `_freeze/` is the actual reproducibility mechanism
   here: frozen chunk results are committed, so package updates cannot change the live site
   until a page is deliberately re-rendered, and CI needs no R at all. renv would contribute
   nothing to the publish path while adding a `renv::restore()` step that is the single most
   likely thing to break Katie's handoff.
   - Replaced by `install-packages.R` — an unpinned list of the 18 CRAN packages the archive
     uses, plus `standist` from GitHub (`jmgirard/standist`, your own package, not on CRAN).
+  - **Extended to all three courses (2026-08-07.)** This section originally said data2 and
+    psyc894 would keep renv, on the grounds that they were finished courses and the
+    inconsistency cost nothing. Both halves of that turned out to be wrong. psyc894 is being
+    revised for a future offering, not finished; and the inconsistency did cost something —
+    an upgrade to R 4.6.1 left psyc894's renv library stranded at R-4.5 (225 packages there,
+    1 under R-4.6), so activation silently put an empty library on the path and every render
+    failed at `library(here)`. A pinned environment that no longer resolves is worse than no
+    pinning at all, because it fails at render time rather than at install time. Both repos
+    now carry their own `install-packages.R` with lists derived from the `library()` and
+    `::` calls in their course files.
   - Tradeoff accepted: no protection against a package update changing output on re-render.
     `freeze: auto` bounds this — only edited files re-execute, so drift is incremental and
     visible. Re-render everything before a semester to surface it deliberately.
@@ -455,9 +466,13 @@ run `quarto publish` or manage renv**. Two things make that work:
    (→ `X/NN/index.qmd`), "Where the answer keys are" (→ not here; see §3b), and "What to do
    if the site doesn't update" (→ check the Actions tab).
 
-Also worth doing before handoff: `renv.lock` committed and a one-liner on `renv::restore()`
-for the day she does need to render locally, plus confirming the lordicon `icons/` are
-committed — since §3 moves them local, her site won't silently break if the CDN changes.
+Also worth doing before handoff: a one-liner on `source("install-packages.R")` for the day
+she does need to render locally, plus confirming the lordicon `icons/` are committed —
+since §3 moves them local, her site won't silently break if the CDN changes.
+
+(This previously suggested committing `renv.lock` and pointing her at `renv::restore()`.
+That contradicted the "No renv" decision in Phase 1, and renv has since been dropped from
+all three courses — `install-packages.R` is the one command she needs.)
 
 ### Sequencing
 
