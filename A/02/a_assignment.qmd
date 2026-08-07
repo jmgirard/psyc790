@@ -1,0 +1,48 @@
+---
+title: "Lecture 02a Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Lecture 02a Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Projects)
+
+a) What is the purpose of a Project in RStudio? {{< hp glyph="." >}}Why do I recommend creating a project rather than simply saving all your course stuff in a normal computer folder?
+
+b) What are some benefits of having a consistent naming convention for the files in your project? {{< hp glyph="." >}}What kinds of tasks might be easier if you stick with a convention?
+
+## Question 2 (Quarto)
+
+a) What is the difference between a .qmd file and a .html file created by Quarto? {{< hp glyph="." >}}When would you send the .qmd file to a collaborator and when would you send the .html file?
+
+b) Quarto lets you include many code chunks in the same document. {{< hp glyph="." >}}When would you want to put all your code in a single chunk and when would you want to break it up across multiple chunks?
+
+## Question 3 (Markdown)
+
+a) Use markdown headings to break this document into sections: one per question. Because Header level 1 is usually used for a document title, I recommend using Header level 2. (Please continue using markdown headings in your future assignments.)
+
+b) Write a short paragraph (2--4 sentences) about anything you like that demonstrates each of the following markdown features: **bold** text, *italic* text, a bulleted list of at least three items, and a hyperlink to a website.
+
+c) Explain why using a markdown heading is more useful than simply bolding a line of text to mark a new section. {{< hp glyph="." >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

@@ -1,5 +1,5 @@
 ---
-title: "Chapter 03 Assignment"
+title: "Lecture 03a Assignment"
 format:
   html:
     css: ../../styles.css
@@ -10,11 +10,11 @@ format:
 
 ## Instructions
 
-*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the six questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
 
 ```markdown
 ---
-title: "Chapter 03 Assignment"
+title: "Lecture 03a Assignment"
 name: "Your Name"
 format: html
 embed-resources: true
@@ -50,21 +50,6 @@ b) Download the "water0.csv" file from Canvas and load it into R. Then convert t
 a) R packages can be found in a repository (e.g., CRAN), in a user library, or loaded into an R session. {{< hp glyph="." >}}When would you want an R package to be in each of these places?
 
 b) Install the `praise` package (don't put the `install.packages()` code in your Quarto document as that often causes problems, so either do that in your console or use the RStudio button). Then load the installed package in your Quarto document and experiment with the `praise()` function by running it several times with no arguments. What does the function seem to do?
-
-
-## Question 4 (Data Frames and Files)
-
-a) Download the "factbook.csv" file from Canvas and read it into R as a tibble. Tell R that any cell containing an asterisk (`*`) is actually missing.
-
-b) Use a function from the easystats package to describe the distribution of all continuous variables in this data frame. Which variables contain missing values? What is the mean of the `maternal_mortality` variable?
-
-
-## Question 5 (Data Exploration)
-
-a) Using the data from Question 4 and `qplot()`, plot the distribution/variation of the `birth_rate` variable. Which values are the most common for this variable?
-
-b) Use `qplot()` to visualize the covariation of the `life_exp` and `net_migration_rate` variables. Do any points seem unusual on one or both variables?
-
 
 ---
 

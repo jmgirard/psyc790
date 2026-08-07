@@ -1,0 +1,57 @@
+---
+title: "Lecture 03b Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Lecture 03b Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Data Frames)
+
+|planet |moons|has_rings|
+|-------|-----|---------|
+|Earth  |1    |FALSE    |
+|Mars   |2    |FALSE    |
+|Jupiter|95   |TRUE     |
+|Saturn |274  |TRUE     |
+
+a) Create three vectors from the columns of the table above and combine them into a tibble named `planets`. Print the tibble.
+
+b) Look at the short type abbreviation printed under each column name. Report what type R gave each of the three columns, and explain in a sentence or two why it is useful that a tibble keeps track of the type of each column. {{< hp glyph="." >}}
+
+
+## Question 2 (Data Files)
+
+a) Download the "factbook.csv" file from Canvas and read it into R as a tibble. Tell R that any cell containing an asterisk (`*`) is actually missing.
+
+b) Use a function from the easystats package to describe the distribution of all continuous variables in this tibble. Which variables contain missing values, and what is the mean of the `maternal_mortality` variable?
+
+
+## Question 3 (Data Exploration)
+
+Read the "factbook.csv" file into R again for this question (remembering to treat asterisks as missing) so that it can be answered on its own.
+
+a) Use `qplot()` to plot the distribution/variation of the `birth_rate` variable. Which values are the most common for this variable?
+
+b) Use `qplot()` to visualize the covariation of the `life_exp` and `net_migration_rate` variables. Do any points seem unusual on one or both variables? {{< hp glyph="." >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

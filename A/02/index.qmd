@@ -80,6 +80,9 @@ format: html
 
 {{< dstop >}}
 
+### Assignment
+- [Lecture 02a Assignment](a_assignment.qmd)
+
 <!-- Lecture b -->
 
 ## [02b] Assignment / Functions / Vectors
@@ -210,11 +213,8 @@ sum(profits)
 
 *Note that there is no need to turn in Activities. These are just for practice!*
 
-<!-- Assignment -->
-
-## Assignment
-
-- [Chapter 02 Assignment](assignment.qmd)
+### Assignment
+- [Lecture 02b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->
 
