@@ -573,15 +573,14 @@
 <section class="slide level2">
 <h2>Plotting marginal effects</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("ggeffects", "effects"))</span></span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeffects)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelbased)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="columns">
 <div class="column pv4">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(</span>
 <span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit3,</span>
-<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">terms =</span> <span class="st">"n_pubs"</span></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"n_pubs"</span></span>
 <span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
@@ -595,9 +594,9 @@
 </div>
 </div><div class="column pv4">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(</span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit3, </span>
-<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">terms =</span> <span class="st">"yrs_since"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(</span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit3,</span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"yrs_since"</span></span>
 <span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
@@ -619,11 +618,11 @@
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit3, </span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">terms =</span> <span class="fu">c</span>(</span>
-<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"n_pubs"</span>, </span>
-<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"yrs_since"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit3,</span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(</span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"n_pubs"</span>,</span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"yrs_since=[sd]"</span></span>
 <span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -638,11 +637,11 @@
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(</span>
-<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit3, </span>
-<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">terms =</span> <span class="fu">c</span>(</span>
-<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"yrs_since"</span>, </span>
-<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"n_pubs"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit3,</span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(</span>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"yrs_since"</span>,</span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"n_pubs=[sd]"</span></span>
 <span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1229,7 +1228,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/jmgirard\.github\.io\/psyc790\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

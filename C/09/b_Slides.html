@@ -869,10 +869,9 @@ b_0 \pm \text{SE}(b_0)\times t_{crit}
 <section class="slide level2">
 <h2>Plotting Regression Results</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("ggeffects", "effects"))</span></span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeffects)</span>
-<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a>est <span class="ot">&lt;-</span> <span class="fu">predict_response</span>(fit, <span class="st">"hardness"</span>)</span>
-<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(est, <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelbased)</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>est <span class="ot">&lt;-</span> <span class="fu">estimate_relation</span>(fit, <span class="at">by =</span> <span class="st">"hardness"</span>)</span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(est, <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="1152" class="r-stretch"></section>
@@ -1531,7 +1530,7 @@ R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/jmgirard\.github\.io\/psyc790\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

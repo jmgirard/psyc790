@@ -393,18 +393,18 @@
 <section class="slide level2">
 <h2>Plotting interaction effects</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeffects)</span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(fit, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"duration"</span>, <span class="st">"intensity"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelbased)</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"duration"</span>, <span class="st">"intensity=[sd]"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><div class="footer">
-<p>You can tell there is a non-zero interaction because the lines aren’t parallel.</p>
+<p>The <code>=[sd]</code> shortcut spotlights intensity at Mean <span class="math inline">\(\pm\)</span> SD. The lines aren’t parallel, so the interaction is non-zero.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Plotting interaction effects</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(fit, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"intensity"</span>, <span class="st">"duration"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"intensity"</span>, <span class="st">"duration=[sd]"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="footer">
@@ -464,7 +464,7 @@
 <section class="slide level2">
 <h2>Plotting partial effects</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(fit2, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"duration"</span>, <span class="st">"intensity"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"duration"</span>, <span class="st">"intensity=[sd]"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"><div class="footer">
@@ -474,7 +474,7 @@
 <section class="slide level2">
 <h2>Plotting partial effects</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(fit2, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"intensity"</span>, <span class="st">"duration"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"intensity"</span>, <span class="st">"duration=[sd]"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"><div class="footer">
@@ -592,14 +592,14 @@
 <section class="slide level2">
 <h2>Plotting centered interactions</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(fit3, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"duration_c"</span>, <span class="st">"intensity_c"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"duration_c"</span>, <span class="st">"intensity_c=[sd]"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Plotting centered interactions</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">predict_response</span>(fit3, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"intensity_c"</span>, <span class="st">"duration_c"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"intensity_c"</span>, <span class="st">"duration_c=[sd]"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
@@ -1092,7 +1092,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/jmgirard\.github\.io\/psyc790\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
