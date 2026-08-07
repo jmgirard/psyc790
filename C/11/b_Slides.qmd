@@ -284,7 +284,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2$$
 (`program` $\in\{\text{jog, swim, read}\}$ needs 2 dummy codes)
 :::
 
-## Interpreting coefficients {.fs70}
+## Interpreting coefficients {.fs60}
 
 $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2$$
 

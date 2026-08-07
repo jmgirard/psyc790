@@ -54,9 +54,49 @@ theme_set(mytheme())
     
 :::
 ::: {.column .tc}
-```{r, out.width="80%"}
-knitr::include_graphics("../../img/power.png")
+```{r}
+#| echo: false
+#| fig-width: 5.6
+#| fig-height: 5.6
+
+# Panel A is the reference; B-D each change one thing relative to it.
+pwr_cfg <- tibble(
+  panel = c("A", "B", "C", "D"),
+  note  = c("reference", "smaller α", "larger ES", "larger N"),
+  d     = c(2.6, 2.6, 3.8, 2.6),
+  alpha = c(0.05, 0.005, 0.05, 0.05),
+  se    = c(1, 1, 1, 0.65)
+) |>
+  mutate(cv = qnorm(1 - alpha), panel = factor(panel, levels = c("A", "B", "C", "D")))
+
+pwr_grid <- expand_grid(pwr_cfg, x = seq(-4, 8, length.out = 800)) |>
+  mutate(h0 = dnorm(x, 0, 1), h1 = dnorm(x, d, se))
+
+# This figure sits in a narrow column, so it needs a smaller base size than the
+# deck default: on-screen text is base_size/72 * displayed_px / fig_width_in.
+ggplot(pwr_grid, aes(x)) +
+  # power: the part of H1 beyond the critical value
+  geom_area(data = filter(pwr_grid, x >= cv), aes(y = h1),
+            fill = "#7FBFEA", alpha = 0.9) +
+  # type I error: the part of H0 beyond the same point, drawn last and solid so
+  # it reads as its own colour instead of blending to purple through the blue
+  geom_area(data = filter(pwr_grid, x >= cv), aes(y = h0), fill = "#F92F60") +
+  geom_line(aes(y = h0), linewidth = 0.7) +
+  geom_line(aes(y = h1), linewidth = 0.7) +
+  geom_vline(aes(xintercept = cv), linewidth = 0.4) +
+  geom_text(data = pwr_cfg, aes(x = -3.9, y = 0.47, label = note),
+            hjust = 0, vjust = 1, fontface = "italic", size = 5.5) +
+  facet_wrap(~panel, ncol = 1, strip.position = "right") +
+  scale_y_continuous(breaks = NULL, expand = expansion(c(0, 0.12))) +
+  labs(x = NULL, y = NULL) +
+  theme_gray(base_size = 17) +
+  theme(panel.grid.minor = element_blank(),
+        axis.text = element_blank(), axis.ticks = element_blank())
 ```
+
+::: {.fs50 .gray}
+Blue = power, red = Type I error rate (α), line = decision criterion
+:::
 
 :::
 :::

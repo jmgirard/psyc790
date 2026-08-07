@@ -221,7 +221,27 @@ data.frame(sigma = seq(1, 5, 1)) %>%
 {{< lif "../../icons/beach.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
 :::
 
-![](../../img/emprule.png)
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 3.4
+
+sd_labels <- c(
+  "1" = "68.3% within 1 SD",
+  "2" = "95.4% within 2 SD",
+  "3" = "99.7% within 3 SD"
+)
+emp_curve <- expand_grid(k = 1:3, x = seq(-4, 4, length.out = 600)) |>
+  mutate(y = dnorm(x))
+
+ggplot(emp_curve, aes(x, y)) +
+  geom_area(data = filter(emp_curve, abs(x) <= k), fill = "#357EDD", alpha = 0.45) +
+  geom_line(linewidth = 1) +
+  facet_wrap(~k, labeller = labeller(k = sd_labels)) +
+  scale_x_continuous(breaks = seq(-4, 4, 2)) +
+  scale_y_continuous(breaks = NULL, expand = expansion(c(0, 0.05))) +
+  labs(x = NULL, y = NULL)
+```
 
 ~68.3\% of the Normal distribution falls within 1 SD of the mean<br>
 ~95.4\% of the Normal distribution falls within 2 SD of the mean<br>
@@ -294,7 +314,37 @@ But this parametric approach all hinges on the assumption of normality (#4)...
 
 What happens to the sampling distribution of $\bar{x}$ <br>when $x$ itself is not normally distributed?
 
-![](../../img/central_limit1.png)
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 4.0
+
+# Population is Beta(2, 1): a ramp on [0, 1], clearly non-normal, mean 2/3.
+set.seed(2025)
+clt_mean <- 2 / 3
+clt_sd <- sqrt(2 / 36)
+
+clt_plot <- function(sizes, reps = 20000) {
+  draws <- map_dfr(sizes, \(n) tibble(
+    n = n,
+    xbar = replicate(reps, mean(rbeta(n, 2, 1)))
+  ))
+  normal <- map_dfr(sizes, \(n) tibble(
+    n = n,
+    x = seq(0, 1.2, length.out = 400),
+    y = dnorm(x, clt_mean, clt_sd / sqrt(n))
+  ))
+  ggplot(draws, aes(xbar)) +
+    geom_histogram(aes(y = after_stat(density)), bins = 40,
+                   fill = "#357EDD", alpha = 0.55) +
+    geom_line(data = normal, aes(x, y), linewidth = 1) +
+    facet_wrap(~n, labeller = labeller(n = \(v) paste("Sample Size =", v))) +
+    scale_y_continuous(breaks = NULL, expand = expansion(c(0, 0.05))) +
+    labs(x = "Sample Mean", y = NULL)
+}
+
+clt_plot(c(1, 2))
+```
 
 ::: {.footer}
 
@@ -308,7 +358,13 @@ What happens to the sampling distribution of $\bar{x}$ <br>when $x$ itself is no
 
 The sampling distribution of $x$ will become more normal <br>as $n$ increases (even if $x$ itself is not normally distributed)
 
-![](../../img/central_limit2.png)
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 4.0
+
+clt_plot(c(4, 8))
+```
 
 ::: {.footer}
 

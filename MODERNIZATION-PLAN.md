@@ -564,12 +564,14 @@ advice — flagging what's worth a decision.
 
 ### Worth attention
 
-**1. Textbook figures with no attribution.** `tidydata.png`, `vectors.png`, `traincar.png`,
-`tibble.png` are near-certainly R4DS figures (CC BY-NC-ND), and they're used bare in the
-slides with no credit line anywhere in the source. Also unattributed: `emprule.png`,
-`central_limit1/2.png`, `largenumbers.png`, `power.png`, `between_within.png`,
-`nocorr.gif`/`poscorr.gif`, and `breaking_bad_wikipedia.png` (a Wikipedia screenshot that may
-include cover art).
+**1. Textbook figures with no attribution.** ✅ **Resolved — see `CREDITS.md` and the
+decision below.** The guesses recorded here were only partly right, which is why they were
+checked rather than acted on: `vectors.png`, `traincar.png` and `tibble.png` are **not** R4DS
+figures at all but Jeff's own composites from stock imagery, while `emprule.png`,
+`central_limit1/2.png`, `largenumbers.png` and `between_within.png` came from Navarro's
+*Learning Statistics with R* v0.6 (CC BY-SA 4.0), not R4DS. Only `tidydata.png` is R4DS
+(Figure 5.1, CC BY-NC-ND 3.0 US — note 3.0 US, not 4.0). `breaking_bad_wikipedia.png` is a
+table screenshot with no cover art.
 
 Context that matters: all six I hashed are **byte-identical to files already published in
 data2**, so psyc790 adds no new exposure — but it does mean the question spans all three
@@ -601,18 +603,18 @@ question. Recorded in `CREDITS.md` either way.
 
 ### Decisions taken
 
-- **Figure credits:** add a source caption under each third-party figure, plus `CREDITS.md`.
-  On slides, the pattern is a muted line directly beneath the image:
-  ```
-  ![](../../img/tidydata.png)
-
-  ::: {.fsmaller .gray}
-  Source: Wickham et al., *R for Data Science* (CC BY-NC-ND)
-  :::
-  ```
-  `CREDITS.md` is scaffolded but **most sources are still marked `confirm`/`UNKNOWN`** — I
-  did not invent citations. Those need filling in before the site goes public, and the fix
-  should be carried back to data2 and psyc894, where six of the same files are already live.
+- ~~**Figure credits:** add a source caption under each third-party figure, plus
+  `CREDITS.md`.~~ **Resolved 2026-08-07.** Provenance was confirmed for all 15 figures and
+  `CREDITS.md` now records verified sources and licences rather than guesses. Six borrowed
+  figures (`emprule`, `central_limit1/2`, `largenumbers`, `between_within`, `power`) were
+  **redrawn from scratch as ggplot code** in the decks that use them and the image files
+  deleted, so no attribution is owed for those at all. Four third-party items remain and are
+  attributed in `CREDITS.md`: `tidydata.png` (R4DS 2e, CC BY-NC-ND 3.0 US), `nocorr.gif` and
+  `poscorr.gif` (Crump, Navarro & Suzuki, CC BY-SA 4.0), and `breaking_bad_wikipedia.png`
+  (Wikipedia, CC BY-SA 4.0). Per-slide source captions were **not** added; the central
+  `CREDITS.md` is the record.
+  - Still to carry back: `data2` publishes `tidydata.png` and `breaking_bad_wikipedia.png`
+    and has no `CREDITS.md` of its own.
 
 ---
 

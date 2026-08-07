@@ -125,7 +125,44 @@ Using $SS$ yields a nicer interpretation and enables the use of the $F$ distribu
 
 - The total variation ($SS_{tot}$) contains two components
 
-![](../../img/between_within.png)
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 3.2
+
+bw_groups <- tibble(group = factor(1:3), mu = c(-2.4, 0, 2.4))
+bw_curves <- expand_grid(bw_groups, x = seq(-6, 6, length.out = 500)) |>
+  mutate(y = dnorm(x, mu, 1)) |>
+  expand_grid(panel = c("between", "within"))
+
+# Between: arrows span the gaps between group means.
+# Within: arrows span one SD either side of each group mean.
+bw_arrows <- bind_rows(
+  tibble(panel = "between",
+         x = c(-2.4, 0, -2.4), xend = c(0, 2.4, 2.4),
+         y = c(0.34, 0.30, 0.26)),
+  tibble(panel = "within",
+         x = bw_groups$mu - 1, xend = bw_groups$mu + 1, y = 0.30)
+)
+
+bw_labels <- c(
+  between = "Between-group variation\n(differences among group means)",
+  within  = "Within-group variation\n(deviations from group means)"
+)
+
+ggplot(bw_curves, aes(x, y)) +
+  geom_line(aes(group = group), linewidth = 0.7, colour = "grey35") +
+  geom_segment(data = bw_arrows, aes(x = x, xend = xend, y = y, yend = y),
+               inherit.aes = FALSE, linewidth = 0.8,
+               arrow = arrow(ends = "both", type = "closed",
+                             length = unit(0.18, "cm"))) +
+  facet_wrap(~panel, labeller = labeller(panel = bw_labels)) +
+  # "group 1/2/3" as tick labels overlap at this base size; the axis title
+  # carries the word instead.
+  scale_x_continuous(breaks = bw_groups$mu, labels = 1:3) +
+  scale_y_continuous(breaks = NULL, expand = expansion(c(0, 0.08))) +
+  labs(x = "Group", y = NULL)
+```
 
 ::: {.columns}
 ::: {.column}

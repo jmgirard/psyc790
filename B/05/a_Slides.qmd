@@ -475,7 +475,36 @@ round(c(sigma, s, s - sigma), 2)
 {{< lif "../../icons/privacy_policy.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
 :::
 
-![](../../img/largenumbers.png) 
+```{r}
+#| echo: false
+#| message: false
+#| fig-width: 12
+#| fig-height: 3.3
+
+# This deck sets themes per plot rather than globally, so state it here.
+library(patchwork)
+set.seed(2025)
+# Three panels share the slide width, so the base size has to come down or the
+# titles collide with the panel edges.
+lln_theme <- theme_gray(base_size = 20) + theme(panel.grid.minor = element_blank())
+
+lln_pop <- tibble(x = seq(55, 145, length.out = 500), y = dnorm(x, 100, 15))
+lln_sample <- function(n, title) {
+  ggplot(tibble(iq = rnorm(n, 100, 15)), aes(iq)) +
+    geom_histogram(bins = 24, fill = "#357EDD", alpha = 0.6) +
+    coord_cartesian(xlim = c(55, 145)) +
+    labs(title = title, x = "IQ Score", y = "Frequency") +
+    lln_theme
+}
+
+(ggplot(lln_pop, aes(x, y)) +
+   geom_line(linewidth = 1.1, colour = "#357EDD") +
+   scale_y_continuous(breaks = NULL) +
+   labs(title = "Population", x = "IQ Score", y = "Density") +
+   lln_theme) +
+  lln_sample(100, "n = 100") +
+  lln_sample(10000, "n = 10,000")
+```
 
 - Larger (random) samples will tend to better approximate the population
 
