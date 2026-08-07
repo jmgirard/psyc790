@@ -34,11 +34,16 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 # Power Analysis
 
-## Power analysis {.f6}
+## Power analysis {.fs90}
 
 ::: {.columns}
 ::: {.column}
@@ -56,7 +61,7 @@ knitr::include_graphics("../../img/power.png")
 :::
 :::
 
-## Types of power analysis {.f6}
+## Types of power analysis {.fs90}
 
 - [A priori]{.b .red}: determine $n$ given others
     + Useful for planning before a new data collection (primary use)
@@ -80,7 +85,7 @@ knitr::include_graphics("../../img/power.png")
 
 :::
 
-## *t*-test power {.f6}
+## *t*-test power {.fs90}
 
 - A $t$-test compares the means of two groups (independent or paired)
 - To do a priori power analysis, we need an expected effect size
@@ -91,7 +96,7 @@ $$d=\frac{\bar{x}_2 - \bar{x}_1}{s}$$
 - **Best Approach:** estimate $d$ from previous studies
 - **Last Resort:** plan to detect a "small" effect $(d=0.2)$
 
-## Example 1 {.f6}
+## Example 1 {.fs90}
 
 What sample size would provide 80% power to detect an effect of size *d*=0.3 when comparing two independent groups?
 
@@ -112,7 +117,7 @@ wp.t(
 We would thus need 175 participants in each group (for 350 total)
 
 
-## Example 2 {.f6}
+## Example 2 {.fs90}
 
 Now, what sample size would provide 80% power to detect an effect of size *d*=0.5 when comparing two independent groups?
 
@@ -133,7 +138,7 @@ wp.t(
 We need *fewer* participants to detect a larger (more obvious) effect
 
 
-## Example 3 {.f6}
+## Example 3 {.fs90}
 
 Now, what sample size would provide 80% power to detect an effect of size *d*=0.5 when comparing two *dependent* groups?
 
@@ -153,7 +158,7 @@ wp.t(
 
 We need *fewer* participants when each provides repeated measures
 
-## One-way ANOVA power {.f6}
+## One-way ANOVA power {.fs90}
 
 - One-way ANOVA compares the means of multiple groups
 - WebPower wants the $f$ effect size and $k$ (the number of groups)
@@ -186,7 +191,7 @@ wp.anova(
 
 We need 178 participants total (45 per group)
 
-## Example 2 {.f6}
+## Example 2 {.fs90}
 
 What sample size would provide 80% power to detect an effect of size *f*=0.25 when comparing 5 independent groups?
 
@@ -206,7 +211,7 @@ wp.anova(
 With more groups, we need fewer participants per group (39)
 
 
-## Linear model power {.f6}
+## Linear model power {.fs90}
 
 - We technically have two types of power for LM
     + Both will compare the $R^2$ values of "full" and "reduced" models
@@ -219,7 +224,7 @@ With more groups, we need fewer participants per group (39)
     + Full model: Includes all predictors
     + Reduced model: Excludes the targeted predictor(s)
 
-## Linear model power {.f6}
+## Linear model power {.fs90}
 
 - We will use the $R^2$ values to calculate the $f^2$ effect size
 
@@ -231,7 +236,7 @@ $$f^2=\frac{R_{\text{full}}^2 - R_{\text{reduced}}^2}{1-R_{\text{full}}^2}$$
     + $p_1$ is the number of predictors in the full model
     + $p_2$ is the number of predictors in the reduced model
 
-## Omnibus example 1 {.f6}
+## Omnibus example 1 {.fs90}
 
 What sample size would provide 80% power to explain 10% of the variance in the outcome variable using 5 predictor variables?
 
@@ -249,7 +254,7 @@ f2 <- (r2_full - r2_red) / (1 - r2_full)
 f2
 ```
 
-## Omnibus example 1 {.f6}
+## Omnibus example 1 {.fs90}
 
 Now we can calculate the sample size needed in our example
 
@@ -269,7 +274,7 @@ wp.regression(
 
 We would need around 121 total participants
 
-## Omnibus example 2 {.f6}
+## Omnibus example 2 {.fs90}
 
 Now, what sample size would provide 80% power to explain 10% of the variance in the outcome variable using 7 predictor variables?
 
@@ -287,7 +292,7 @@ f2 <- (r2_full - r2_red) / (1 - r2_full)
 f2
 ```
 
-## Omnibus example 2 {.f6}
+## Omnibus example 2 {.fs90}
 
 Now we can calculate the sample size needed in our example
 
@@ -307,7 +312,7 @@ wp.regression(
 
 We need a larger sample with more predictors (but the same $f^2$)
 
-## Targeted example 1 {.f6}
+## Targeted example 1 {.fs90}
 
 If sex and age explain 20% of the variance in our outcome variable, what sample size would provide 80% power to detect the effect of a third predictor that explains an additional 5%?
 
@@ -324,7 +329,7 @@ f2 <- (r2_full - r2_red) / (1 - r2_full)
 f2
 ```
 
-## Targeted example 1 {.f6}
+## Targeted example 1 {.fs90}
 
 Now we can calculate the sample size needed in our example
 
@@ -345,7 +350,7 @@ wp.regression(
 We need around 119 total participants
 
 
-## Targeted example 2 {.f6}
+## Targeted example 2 {.fs90}
 
 In the same example as the last one, what would change if sex and age had explained 40% of the variance instead of only 20%?
 
@@ -362,7 +367,7 @@ f2 <- (r2_full - r2_red) / (1 - r2_full)
 f2
 ```
 
-## Targeted example 2 {.f6}
+## Targeted example 2 {.fs90}
 
 Now we can calculate the sample size needed in our example
 

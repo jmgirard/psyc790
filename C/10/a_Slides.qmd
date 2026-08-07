@@ -34,6 +34,11 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 
@@ -97,7 +102,7 @@ mytheme <- function(sz = 30) {
     + One category gets $C_1=0$ and the other gets $C_1=1$
     + The category assigned to $0$ is called the "reference group"
 
-::: {.columns .tc .f5}
+::: {.columns .tc .fs70}
 ::: {.column .tc}
 *Female as Reference*
 <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">
@@ -229,7 +234,7 @@ model_parameters(fit2)
 
 > "The average salary of female professors was estimated to be 14.09 thousand US dollars lower than that of male professors, 95% CI: [--24.04, --2.13], *t* = --2.78, *p* = .006."
 
-## Relation to Student's t-test
+## Relation to Student's t-test {.fs90}
 
 ```{r}
 #| echo: true
@@ -253,7 +258,7 @@ model_parameters(fit2b)
 
 model_parameters(fit2, standardize = "refit")
 ```
-::: {.f5}
+::: {.fs70}
 > "The average salary for female professors was 0.47 standard deviations lower than that of male professors, 95% CI: [--0.79, --0.14], p=.006."
 
 :::
@@ -272,7 +277,7 @@ Note that $y$ is standardized but the dummy code is left 0 or 1.
 
 r2(fit2, ci = 0.95)
 ```
-::: {.f5}
+::: {.fs70}
 > "Only around 2% of the variance in professors' salary was explained by sex,<br>R² = .019, 95% CI: [.002, .055], Adjusted R² = .017."
 
 :::
@@ -334,7 +339,7 @@ plot(
 
 - Each other group will get $1$ on a single code variable
 
-::: {.columns .f5 .tc}
+::: {.columns .fs70 .tc}
 ::: {.column width="33%"}
 *Alcohol as Reference*
 <table style="border-collapse: collapse; margin-left: auto; margin-right: auto;">

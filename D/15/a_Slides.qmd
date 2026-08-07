@@ -34,6 +34,11 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 # Overview
@@ -52,11 +57,11 @@ Selective Reporting, *p*-hacking, HARKing, Data Peeking
 Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 :::
 
-[Ordered from least to most likely to produce true, replicable findings]{.f6}
+[Ordered from least to most likely to produce true, replicable findings]{.fs90}
 
 # Bad Practices
 
-## Scientific misconduct {.f6}
+## Scientific misconduct {.fs90}
 
 1. Must represent a "significant departure from accepted practices"
 2. Must be "committed intentionally, knowingly, or recklessly"
@@ -73,7 +78,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 - **Unapproved research** is activity not approved by an ethics board
 :::
 
-## Selective reporting {.f6}
+## Selective reporting {.fs90}
 
 - **Cherry picking** is only including or reporting a desired subset of information (intentionally or accidentally)
     + e.g., cases, variables, studies, analyses, results, references
@@ -87,7 +92,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 :::
 
 
-## HARKing {.f6}
+## HARKing {.fs90}
 
 - "Hypothesizing after the results are known"
     + It is claiming to have predicted an unexpected result
@@ -100,7 +105,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
     + It is more likely to capitalize on sampling error
     + "The easiest person to fool is yourself"
     
-## *p*-hacking {.f6}
+## *p*-hacking {.fs90}
 
 - Making analysis decisions to optimize **significance** instead of rigor
     + How to measure and represent variables
@@ -114,7 +119,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 
 - If you don't disclose all this trial-and-error, it is very misleading
 
-## Data peeking {.f6}
+## Data peeking {.fs90}
 
 - **Data peeking** is a form of *p*-hacking related to data collection
     + You collect some data, run analyses, and look at the *p*-value
@@ -128,7 +133,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 - A better approach is to choose $n$ using power analysis
 
 
-## Reasons for bad practices {.f6}
+## Reasons for bad practices {.fs90}
 
 ::: {.columns}
 ::: {.column}
@@ -156,7 +161,7 @@ To learn more about these ideas, see [Bishop (2020)](https://doi.org/10/gg7mkb) 
 
 # Best Practices
 
-## Open sharing {.f6}
+## Open sharing {.fs90}
 
 - **Deidentified Data** (CSV) with data dictionary files
     + Many analyses can be reproduced from a covariance matrix
@@ -168,7 +173,7 @@ To learn more about these ideas, see [Bishop (2020)](https://doi.org/10/gg7mkb) 
     + Pre-review versions can usually be shared
 
 
-## Resources for sharing {.f6}
+## Resources for sharing {.fs90}
 
 - [Open Science Framework (OSF)](https://osf.io) is a free website for open sharing
     + You can have public or private projects with controlled access
@@ -181,7 +186,7 @@ To learn more about these ideas, see [Bishop (2020)](https://doi.org/10/gg7mkb) 
     + Most journals allow preprint sharing ([check here](http://www.sherpa.ac.uk/romeo/journalbrowse.php))
     + Many journals allow postprint sharing (post-review version)
 
-## Preregistration {.f6}
+## Preregistration {.fs90}
 
 - Presenting exploratory work as confirmatory is misleading
 

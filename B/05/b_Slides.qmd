@@ -33,12 +33,17 @@ library(patchwork)
 library(distributional)
 library(ggdist)
 mytheme <- theme_gray(base_size = 30) + theme(panel.grid.minor = element_blank())
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme)
 ```
 
 
 # Types of Estimates
 
-## Point and Interval Estimates {.smaller}
+## Point and Interval Estimates {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/target.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -112,7 +117,7 @@ In statistical inference, we will often want **two** types of estimates...
 
 # The Normal Distribution
 
-## The normal distribution {.smaller}
+## The normal distribution {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/bell.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -253,7 +258,7 @@ qnorm(0.975)
 
 :::
 
-## Putting it all together {.smaller}
+## Putting it all together {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/bricks.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -536,7 +541,7 @@ I will teach you easier ways to calculate CIs in R soon.
 
 # Practical Matters
 
-## Reporting a CI {.smaller}
+## Reporting a CI {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}

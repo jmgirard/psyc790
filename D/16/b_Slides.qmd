@@ -34,6 +34,11 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 # Review
@@ -58,7 +63,7 @@ mytheme <- function(sz = 30) {
 
 ## Example 1 (Clinical/Health Psych)
 
-::: {.f5}
+::: {.fs70}
 > I read that doctors sometimes use the amount of beta-amyloid proteins in patient's cerebrospinal fluid (CSF) to help detect Alzheimer's disease. I am interested to know if this amount is also related to patients' cognitive functioning. To investigate this, I collect CSF from and measure beta-amyloid and working memory in 120 patients with different types of dementia. Assume that both measures are continuous.
 
 :::
@@ -72,7 +77,7 @@ mytheme <- function(sz = 30) {
 
 ## Example 2 (Sports Science)
 
-::: {.f5}
+::: {.fs70}
 > I want to help the tennis player I coach to improve her service return game. I suspect she struggles with faster serves and serves she tried to return backhand. To test this, I watch 70 of her recent matches and mark down the average speed of all the serves she received in that match, the percentage that she attempted to return backhand (as opposed to forehand), and the percentage that she successfully returned (as opposed to did not return).
 
 :::
@@ -86,7 +91,7 @@ mytheme <- function(sz = 30) {
 
 ## Example 3 (Social Psych)
 
-::: {.f5}
+::: {.fs70}
 > I think that people at a bar will enjoy being approached by and talking with a stranger only if they find that stranger attractive, but my friend thinks that attractiveness has nothing to do with it. To test this, we observe people at a local bar and, after someone is approached by someone else, ask them if they knew that person (yes or no), how attractive they found that person (1 to 10), and how much they liked talking with that person (1 to 10). We end up with ratings from 20 participants being approached by 55 strangers and 30 friends.
 
 :::

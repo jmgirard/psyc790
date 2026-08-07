@@ -43,7 +43,7 @@ Data Frames / Files / Exploration
 
 # Data Frames
 
-## Tidy Data {.smaller}
+## Tidy Data {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -68,7 +68,7 @@ Data Frames / Files / Exploration
 :::
 :::
 
-## Other Data Advice {.smaller}
+## Other Data Advice {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -96,7 +96,7 @@ Data Frames / Files / Exploration
 :::
 :::
 
-## Tidying Example 1 {.smaller}
+## Tidying Example 1 {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="45%"}
@@ -175,7 +175,7 @@ Data Frames / Files / Exploration
 :::
 
 
-## Tidying Example 2 {.smaller}
+## Tidying Example 2 {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="45%"}
@@ -276,7 +276,7 @@ Data Frames / Files / Exploration
 :::
 
 
-## Tidying Example 3 {.smaller}
+## Tidying Example 3 {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="45%"}
@@ -382,7 +382,7 @@ Data Frames / Files / Exploration
 :::
 :::
 
-## Tibbles {.smaller}
+## Tibbles {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -411,7 +411,7 @@ Data Frames / Files / Exploration
 :::
 
 
-## Parallel Vectors {.smaller}
+## Parallel Vectors {.fs70}
 
 ![](../../img/vectors.png)
 
@@ -422,7 +422,7 @@ We set it up so that the $n$-th car in each train corresponds to the same observ
 :::
 
 
-## Tibble {.smaller}
+## Tibble {.fs70}
 
 ![](../../img/tibble.png)
 
@@ -515,7 +515,7 @@ dim(gradebook)
 colnames(gradebook)
 ```
 
-## Data Files {.smaller}
+## Data Files {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -590,7 +590,7 @@ old_gradebook
 
 # Data Exploration
 
-## Data Verification {.smaller}
+## Data Verification {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -670,7 +670,7 @@ data_tabulate(salaries, rank)
 data_tabulate(salaries, is.factor)
 ```
 
-## Data Visualization {.smaller}
+## Data Visualization {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}

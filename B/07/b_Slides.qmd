@@ -33,6 +33,11 @@ library(ggdist)
 library(lsr)
 mytheme <- theme_gray(base_size = 30) + 
   theme(panel.grid.minor = element_blank())
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme)
 ```
 
 
@@ -408,7 +413,7 @@ eta_squared(fit)
 
 - Recall that our null hypothesis is that $\mu_1=\mu_2=\mu_3$
 
-::: {.f4}
+::: {.fs60}
 | Possibility | $\mu_1=\mu_2$ | $\mu_1=\mu_3$ | $\mu_2=\mu_3$ | Hypothesis  |
 | ----------- | ------------- | ------------- | ------------- | ----------- |
 | 1           | TRUE          | TRUE          | TRUE          | null        |
@@ -452,7 +457,7 @@ $$\mu_1=\mu_2 \qquad \mu_1=\mu_3 \qquad \mu_2=\mu_3$$
 
 $$p' = p \times m$$
 
-::: {.f5}
+::: {.fs70}
 | raw $p$     | $m$ | Bonferroni $p'$ |
 | ----------- | --- | --------------- |
 | .001 \*\*\* | 5   | .005 \*\*       |
@@ -472,7 +477,7 @@ Bonferonni is simple but very conservative
 
 - Take the larger of $(p'_j=j\times p_j)$ and $(p'_{j+1})$
 
-:::{.f5}
+:::{.fs70}
 | raw $p$     | rank $j$ | $p\times j$ | Holm $p'$ |
 | ----------- | -------- | ----------- | --------  |
 | .001 \*\*\* | 5        | .005        | .005 \*\* |
@@ -488,7 +493,7 @@ Holm is complicated but more powerful
 
 ## Post-hoc tests in R
 
-::: {.f90}
+::: {.fs90}
 ```{r}
 #| echo: true
 #| collapse: true
@@ -505,7 +510,7 @@ estimate_contrasts(
 
 ## Adjustment in R
 
-::: {.f90}
+::: {.fs90}
 ```{r}
 #| echo: true
 #| collapse: true

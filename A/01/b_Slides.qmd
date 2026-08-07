@@ -67,7 +67,7 @@ RStudio / Console / Scripts
 :::
 
 
-## Common Data Science Languages {.smaller}
+## Common Data Science Languages {.fs70}
 
 #### General Purpose
 
@@ -92,7 +92,7 @@ RStudio / Console / Scripts
 :::
 
 
-## The R Ecosystem {.smaller}
+## The R Ecosystem {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -121,7 +121,7 @@ RStudio / Console / Scripts
 :::
 
 
-## Installing R {.smaller}
+## Installing R {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column .pr4 width="50%"}
@@ -155,7 +155,7 @@ RStudio / Console / Scripts
 :::
 
 
-## Installing RStudio {.smaller}
+## Installing RStudio {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column .pr4 width="50%"}
@@ -189,7 +189,7 @@ RStudio / Console / Scripts
 :::
 
 
-## RStudio Window {.smaller}
+## RStudio Window {.fs70}
 
 ![](../../img/rstudio_labels.jpg)
 
@@ -201,7 +201,7 @@ RStudio / Console / Scripts
 
 # Console
 
-## R will Grant your Wishes {.smaller}
+## R will Grant your Wishes {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -228,7 +228,7 @@ RStudio / Console / Scripts
 :::
 
 
-## Communicating with R {.smaller}
+## Communicating with R {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}

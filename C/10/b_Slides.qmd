@@ -34,6 +34,11 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 
@@ -114,7 +119,7 @@ the *unique* relationship between $x_2$ and $y$ (controlling $x_1$)
 
 :::
 
-## Venn diagram for simple regression {.f5}
+## Venn diagram for simple regression {.fs70}
 
 ::: {.columns}
 ::: {.column}
@@ -146,7 +151,7 @@ $R^2$ represents <span style="color:#1b9e77;font-weight:bold;">b</span> / (<span
 :::
 :::
 
-## Venn diagram for two predictors {.f5}
+## Venn diagram for two predictors {.fs70}
 
 ::: {.columns}
 ::: {.column}
@@ -178,7 +183,7 @@ $$y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i$$
 
 
 
-## Zero-order effect of $x_1$ {.f5}
+## Zero-order effect of $x_1$ {.fs70}
 
 ::: {.columns}
 ::: {.column}
@@ -202,7 +207,7 @@ $R^2$ represents (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span
 :::
 
 
-## Zero-order effect of $x_2$ {.f5}
+## Zero-order effect of $x_2$ {.fs70}
 
 ::: {.columns}
 ::: {.column}
@@ -225,7 +230,7 @@ $R^2$ represents (<span style="color:#1b9e77;font-weight:bold;">c</span> + <span
 :::
 :::
 
-## Partial effects of $x_1$ and $x_2$ {.f5}
+## Partial effects of $x_1$ and $x_2$ {.fs70}
 
 ::: {.columns}
 ::: {.column}
@@ -252,7 +257,7 @@ $R^2$ represents (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span
 :::
 :::
 
-## Collinearity {.f5}
+## Collinearity {.fs70}
 
 ::: {.columns}
 ::: {.column}
@@ -281,7 +286,7 @@ We will return to talk about collinearity more in a future lecture.
 
 # Multiple Regression
 
-## Standardized partial effects {.f5}
+## Standardized partial effects {.fs70}
 
 - The relationships are clearer if we start with *standardized* slopes first
 
@@ -382,7 +387,7 @@ model_parameters(fit3)
 model_parameters(fit3, standardize = "refit")
 ```
 
-## Coefficient interpretation {.f5}
+## Coefficient interpretation {.fs70}
 
 > The intercept is the estimated salary for a professor with zero years since PhD and zero publications: &dollar;45113.71, 95% CI: [40114.89, 50112.53]. 
 
@@ -390,7 +395,7 @@ model_parameters(fit3, standardize = "refit")
 
 > The partial effect of *years since PhD* was significantly different from zero at &dollar;1075.21. Thus, when controlling for number of publications, each additional year since PhD was associated with an additional &dollar;261.30 to &dollar;1889.11.
 
-## Coefficient comparison {.f5}
+## Coefficient comparison {.fs70}
 
 Note that the partial effects were *smaller* than the zero-order effects
 
@@ -533,7 +538,7 @@ $$\hat{y} = b_0 + b_1x_1 + b_2x_2 + \cdots + b_kx_k$$
 
 :::
 
-## Example zero-order effects
+## Example zero-order effects {.fs60}
 
 ```{r}
 #| echo: true
@@ -558,7 +563,7 @@ compare_parameters(m_pub, m_yrs, m_sex, m_cit, standardize = "refit")
 m_all <- lm(salary ~ n_pubs + yrs_since + sex + n_cites, data = yearspubs)
 model_parameters(m_all, standardize = "refit")
 ```
-::: {.f5}
+::: {.fs70}
 - "The partial effect of *years since PhD* was significant (*p*=.040). Thus, while controlling for sex and the number of publications and citations, each SD increase in years since PhD was associated with a 0.31 SD increase in salary."
 :::
 
@@ -571,7 +576,7 @@ model_parameters(m_all, standardize = "refit")
 compare_performance(m_pub, m_yrs, m_sex, m_cit, m_all, 
                     metrics = c("R2", "R2_adj"))
 ```
-::: {.f5}
+::: {.fs70}
 - "The linear model predicting salary from years since PhD, number of publications, sex, and number of citations explained one-third of the variance in salary (R²=.333, Adjusted R²=.286)."
 :::
 

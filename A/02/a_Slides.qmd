@@ -47,7 +47,7 @@ Projects / Quarto / Markdown
 
 # Projects
 
-## File Management {.smaller}
+## File Management {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -112,7 +112,7 @@ Projects / Quarto / Markdown
 
 # Quarto
 
-## Quarto {.smaller}
+## Quarto {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}

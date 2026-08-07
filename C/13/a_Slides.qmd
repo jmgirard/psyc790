@@ -34,12 +34,17 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 
 # Overview
 
-## Motivation {.f6}
+## Motivation {.fs90}
 
 - So far, we have always fit [straight lines]{.b} between $y$ and $x$ variables
 
@@ -125,7 +130,7 @@ see:::plot.see_check_model(check_model(fit, check = "linearity", panel = FALSE))
   )
 ```
 
-## Conclusions {.f6}
+## Conclusions {.fs90}
 
 - Linear regression did not work well for predicting $y_2$
 
@@ -143,7 +148,7 @@ see:::plot.see_check_model(check_model(fit, check = "linearity", panel = FALSE))
 
 # Polynomial Regression
 
-## Power polynomials {.f5}
+## Power polynomials {.fs70}
 
 - LM can handle simple curves through **power polynomial** transformations!
 
@@ -158,7 +163,7 @@ $$\hat{y} = b_0 + b_1 \color{red}{x^1} + b_2 \color{red}{x^2} + \cdots + b_d \co
     + All other terms are referred to as the **lower degree terms**
 
 
-## Number of bends {.f6}
+## Number of bends {.fs90}
 
 - The highest degree term determines the curve's overall shape
     + The number of bends is equal to $(d-1)$
@@ -187,7 +192,7 @@ d3 <- tibble(x = seq(-3, 3, .1), y = -5*x + x^3) |>
 ```
     
 
-## Direction of curvature {.f6}
+## Direction of curvature {.fs90}
 
 - The sign $(\pm)$ of the curve's highest degree term's slope<br>determines its **direction of curvature** (i.e., up or down)
 
@@ -222,7 +227,7 @@ cn <- tibble(x = seq(-10, 10, 1), y = -x^3) |>
 
 # Quadratic Regression
 
-## Expanding the equation {.f6}
+## Expanding the equation {.fs90}
 
 - A quadratic relationship requires two predictors to represent $x$
 
@@ -253,7 +258,7 @@ model_parameters(fit1b)
 r2(fit1b)
 ```
 
-::: {.f6}
+::: {.fs90}
 The $x^2$ slope is NOT significant, so the curve is NOT needed
 :::
 
@@ -397,7 +402,7 @@ $$\hat{y}_m = \frac{4 b_2 b_0 - b_1^2}{4 b_2}$$
 :::
 :::
 
-## Calculating extrema {.f90}
+## Calculating extrema {.fs90}
 
 ```{r}
 #| echo: true
@@ -433,7 +438,7 @@ ggplot(df2, aes(x = x, y = y2)) +
 
 # Adding Predictors
 
-## Adding another predictor {.f6}
+## Adding another predictor {.fs90}
 
 ```{r}
 #| echo: true
@@ -454,7 +459,7 @@ model_parameters(fit3)
 - The effect of `sex` is significant controlling for `yrs.since.phd` and its square
 
 
-## Visualizing the model {.f90}
+## Visualizing the model {.fs90}
 
 ```{r}
 #| echo: true
@@ -467,7 +472,7 @@ plot(predict_response(fit3, terms = c("yrs.since.phd", "sex")), show_data = TRUE
 plot(predict_response(fit3, terms = c("yrs.since.phd", "sex")), show_data = TRUE) + mytheme()
 ```
 
-## Adding moderation {.f6}
+## Adding moderation {.fs90}
 
 ```{r}
 #| echo: true
@@ -552,7 +557,7 @@ p6 <- tibble(x = seq(0, 10, 1), y = x^2) |>
 ((p1 | p2 | p3) / (p4 | p5 | p6)) + plot_annotation(theme = mytheme())
 ```
 
-## Advice {.f6}
+## Advice {.fs90}
 
 - Models with higher degrees are more flexible
     + But they may overfit (fail to generalize)

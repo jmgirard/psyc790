@@ -33,6 +33,11 @@ library(ggdist)
 library(lsr)
 mytheme <- theme_gray(base_size = 30) + 
   theme(panel.grid.minor = element_blank())
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme)
 ```
 
 
@@ -141,7 +146,7 @@ $$F_{obs} = \frac{MS_b}{MS_e}$$
 
 $$\text{SS}_b = \sum_{k=1}^g n_k(\bar{y}_k - \bar{y})^2 \qquad \text{SS}_w = \sum_{k=1}^g\sum_{i=1}^{n_k}(y_{ik} - \bar{y}_k)^2$$
 
-::: {.columns .f4}
+::: {.columns .fs60}
 ::: {.column}
 *How far are group means from the grand mean?*
 :::
@@ -153,7 +158,7 @@ $$\text{SS}_b = \sum_{k=1}^g n_k(\bar{y}_k - \bar{y})^2 \qquad \text{SS}_w = \su
 
 $$\quad \color{red}{\text{SS}_s = g \sum_{i=1}^{n} (\bar{y}_i - \bar{y})^2 \qquad \quad \text{SS}_e = \text{SS}_w - \text{SS}_s} \qquad \qquad$$
 
-::: {.columns .f4}
+::: {.columns .fs60}
 ::: {.column}
 *How far are subject means from the grand mean?*
 :::
@@ -208,7 +213,7 @@ ggplot(depression, aes(x = time, y = hrsd)) +
 
 ## Fitting the model in R
 
-::: {.f90}
+::: {.fs90}
 ```{r}
 #| echo: true
 #| collapse: true
@@ -276,7 +281,7 @@ eta_squared(fit)
 ```
 :::
 
-## Post-hoc tests
+## Post-hoc tests {.fs90}
 
 - We can average pairwise time-contrasts over patients
 - e.g., what is the T1--T0 difference *for the average patient?*
@@ -298,7 +303,7 @@ estimate_contrasts(
 
 ## Example 1 (Social Psych)
 
-::: {.f5}
+::: {.fs70}
 > I read about a theory that says that a common enemy can unite political rivals. To test this, I have 200 American participants first complete a measure of hostility toward members of the opposing political party. They then read a news article that describes a foreign government threatening the USA. After answering some basic questions about the article, the participants complete another measure of hostility toward members of the opposing political party. Both measures of hostility are continuous and range from $-5$ to $5$.
 :::
 
@@ -311,7 +316,7 @@ estimate_contrasts(
 
 ## Example 2 (Clinical Psych)
 
-::: {.f5}
+::: {.fs70}
 > I read about a theory that says that the personality trait of "Openness to Experience" (from the Big 5) is related to psychosis such that people with higher levels of this personality trait experience more symptoms of psychosis (e.g., hallucinations, delusions, and disorganized thinking) on average. To explore this idea, I collect data from 150 members of my local community, including self-report measures of the Big 5 personality traits and psychotic symptoms. All these measures are continuous and range from $0$ to $100$.
 :::
 
@@ -323,7 +328,7 @@ estimate_contrasts(
 
 ## Example 3 (Sports Science)
 
-::: {.f5}
+::: {.fs70}
 > I read about a new pre-workout stretching technique that is supposed to dramatically reduce cramping. To see if it really works, I instruct one-third of the players on the soccer team I coach to use the new technique at the start of practice, another third to use a traditional stretching technique, and the final third to not stretch at all. After practice, I collect reports from each player on how much cramping they experienced during practice (on a scale from $1$ to $10$).
 :::
 
@@ -349,7 +354,7 @@ estimate_contrasts(
 
 ## Midterm Question & Answer
 
-::: {.f90}
+::: {.fs90}
 1. Can you walk through a worked example of [method] again?
 
 2. What's the difference between [concept A] and [concept B]?

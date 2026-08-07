@@ -34,6 +34,11 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 
@@ -51,7 +56,7 @@ mytheme <- function(sz = 30) {
     + There were infinite slopes (one for each value of $x_2$)
     + So we chose to "spotlight" just a few possible slopes
 
-## Example moderation questions {.f5}
+## Example moderation questions {.fs70}
 
 **Continuous-by-Continuous Interaction**
 
@@ -104,7 +109,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1$$
 `formula = expenditure ~ duration * sex`
 :::
 
-## Interpreting the Coefficients {.f5}
+## Interpreting the Coefficients {.fs70}
 
 $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1$$
 
@@ -160,7 +165,7 @@ model_parameters(fit)
 
 - Thus, the effect of `duration` does NOT depend on `sex`
 
-## Predicting energy expenditure {.f5}
+## Predicting energy expenditure {.fs70}
 
 $$\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 x_2$$
 
@@ -202,7 +207,7 @@ plot(predict_response(fit, terms = c("duration", "sex"))) + mytheme(24)
 You can tell there is not a significant interaction because the lines could be parallel.
 :::
 
-## Plotting interaction effects {.f90}
+## Plotting interaction effects {.fs90}
 
 ```{r}
 #| echo: true
@@ -279,7 +284,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2$$
 (`program` $\in\{\text{jog, swim, read}\}$ needs 2 dummy codes)
 :::
 
-## Interpreting coefficients {.f5}
+## Interpreting coefficients {.fs70}
 
 $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2$$
 
@@ -299,7 +304,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2$$
     + difference in $b_1$ (effect of $x_1$) between reference and $c_2=1$ group
     + change in $b_3$ (effect of $c_2$) expected with change of +1 in $x_1$
 
-## Running the model {.f6}
+## Running the model {.fs90}
 
 - Let's first pick a reference group for `program`
     + `"read"` may be a good choice as it is a "control" group
@@ -333,7 +338,7 @@ plot(predict_response(fit3, terms = c("duration", "program")))
 plot(predict_response(fit3, terms = c("duration", "program"))) + mytheme(24)
 ```
 
-## Plotting the interaction {.f90}
+## Plotting the interaction {.fs90}
 
 ```{r}
 #| echo: true
@@ -349,7 +354,7 @@ plot(predict_response(fit3, terms = c("program", "duration")), connect_lines = T
 plot(predict_response(fit3, terms = c("program", "duration")), connect_lines = TRUE) + mytheme(24)
 ```
 
-## Centering {.f90}
+## Centering {.fs90}
 
 - Do we really care about effects at zero duration?
     + If not, the simple effects' tests are not interesting
@@ -357,7 +362,7 @@ plot(predict_response(fit3, terms = c("program", "duration")), connect_lines = T
 - We may prefer to center `duration` instead
     + Now the simple effects' tests are at the *average* duration
 
-::: {.f5}
+::: {.fs70}
 ```{r}
 options(width = 300)
 ```
@@ -408,7 +413,7 @@ $$\hat{y} = b_0 + b_1 c_1 + b_2 d_1 + b_3 d_2 + b_4 c_1 d_1 + b_5 c_1 d_2$$
 `expenditure ~ sex + program + sex:program`
 :::
 
-## Simple and interaction effects {.f5}
+## Simple and interaction effects {.fs70}
 
 ```{r}
 #| echo: true
@@ -434,7 +439,7 @@ model_parameters(fit5)
 estimate_means(fit5, by = c("sex", "program"))
 ```
 
-## Estimating contrasts {.f6}
+## Estimating contrasts {.fs90}
 
 ```{r}
 #| echo: true
@@ -443,7 +448,7 @@ estimate_means(fit5, by = c("sex", "program"))
 estimate_contrasts(fit5, contrast = "sex", by = "program")
 ```
 
-## Estimating contrasts {.f6}
+## Estimating contrasts {.fs90}
 
 ```{r}
 #| echo: true
@@ -452,7 +457,7 @@ estimate_contrasts(fit5, contrast = "sex", by = "program")
 estimate_contrasts(fit5, contrast = "program", by = "sex")
 ```
 
-## Plotting the interaction  {.f90}
+## Plotting the interaction  {.fs90}
 
 ```{r}
 #| echo: true
@@ -468,7 +473,7 @@ plot(predict_response(fit5, terms = c("sex", "program")), connect_lines = TRUE)
 plot(predict_response(fit5, terms = c("sex", "program")), connect_lines = TRUE) + mytheme()
 ```
 
-## Plotting the interaction {.f90}
+## Plotting the interaction {.fs90}
 
 ```{r}
 #| echo: true
@@ -494,7 +499,7 @@ plot(predict_response(fit5, terms = c("program", "sex")), connect_lines = TRUE) 
 
 # Three-Way Interactions
 
-## When two-way isn't enough {.f5}
+## When two-way isn't enough {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -516,7 +521,7 @@ plot(predict_response(fit5, terms = c("program", "sex")), connect_lines = TRUE) 
 :::
 :::
 
-## Expanding the equation {.f5}
+## Expanding the equation {.fs70}
 
 - With three predictors, every combination gets a term
 
@@ -530,7 +535,7 @@ $$\hat{y} = b_0 + b_1 x + b_2 c_1 + b_3 d_1 + b_4 x c_1 + b_5 x d_1 + b_6 c_1 d_
 `expenditure ~ duration * sex * program`
 :::
 
-## Fitting the model {.f6}
+## Fitting the model {.fs90}
 
 ```{r}
 #| echo: true
@@ -540,7 +545,7 @@ fit6 <- lm(expenditure ~ duration * sex * program, data = exercise)
 model_parameters(fit6)
 ```
 
-## Reading the output {.f5}
+## Reading the output {.fs70}
 
 - The coefficient table gets long fast (3 predictors gives 12 terms here)
 
@@ -556,7 +561,7 @@ model_parameters(fit6)
     + Probe it with estimated slopes and contrasts instead
 :::
 
-## Probing: slopes by both moderators {.f6}
+## Probing: slopes by both moderators {.fs90}
 
 ```{r}
 #| echo: true
@@ -568,7 +573,7 @@ estimate_slopes(fit6, trend = "duration", by = c("sex", "program"))
 
 - One duration slope per sex-by-program cell
 
-## Probing: does the sex gap shift with duration? {.f6}
+## Does the sex gap shift with duration? {.fs90}
 
 ```{r}
 #| echo: true
@@ -579,7 +584,7 @@ estimate_contrasts(fit6, contrast = "sex", by = c("program", "duration = [sd]"),
                    p_adjust = "holm")
 ```
 
-## Plotting the interaction {.f90}
+## Plotting the interaction {.fs90}
 
 ```{r}
 #| echo: true
@@ -595,7 +600,7 @@ plot(predict_response(fit6, terms = c("duration", "sex", "program")))
 plot(predict_response(fit6, terms = c("duration", "sex", "program"))) + mytheme(20)
 ```
 
-## Proceed with caution {.f5}
+## Proceed with caution {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}

@@ -34,6 +34,11 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 
@@ -291,7 +296,7 @@ $$
 $$
 
 
-::: {.fragment .f5}
+::: {.fragment .fs70}
 "We estimate that a town with a water hardness of zero would have a mortality of 1676.356. For every one-unit increase in a town's water hardness, we estimate that its mortality would *decrease* by 3.226."
 :::
 
@@ -488,7 +493,7 @@ ggplot(water, aes(x = hardness, y = mortality)) +
 
 $$b_0 = 1676.356$$
 
-["A town with *zero* water hardness<br>would have 1676.356 mortality."]{.f5}
+["A town with *zero* water hardness<br>would have 1676.356 mortality."]{.fs70}
 :::
 ::: {.column .tc}
 ```{r, fig.width=5, fig.height=3}
@@ -503,7 +508,7 @@ ggplot(water, aes(x = hardness - mean(hardness), y = mortality)) +
 
 $$b_0 = 1524.148$$
 
-["A town with *average* water hardness<br>would have 1524.148 mortality."]{.f5}
+["A town with *average* water hardness<br>would have 1524.148 mortality."]{.fs70}
 :::
 :::
 
@@ -560,7 +565,7 @@ fit2 <- lm(mortality ~ hardness, data = standardize(water))
 model_parameters(fit2)
 ```
 
-::: {.fragment .f5 .tc}
+::: {.fragment .fs70 .tc}
 "For each one SD increase in water hardness, we would expect a 0.65 SD<br>*decrease* in mortality, $\beta=-0.65$, 95% CI: $[-0.85, -0.46]$, $p<.001$."
 :::
 

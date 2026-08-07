@@ -43,7 +43,7 @@ Strings / Factors / Packages
 
 # Strings
 
-## Strings {.smaller}
+## Strings {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -119,7 +119,7 @@ dyes2
 
 # Factors
 
-## Factors {.smaller}
+## Factors {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -209,7 +209,7 @@ table(genre2)
 
 # Packages
 
-## Packages {.smaller}
+## Packages {.fs70}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}

@@ -34,11 +34,16 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 # Overview
 
-## Goals for each section {.f5}
+## Goals for each section {.fs70}
 
 <table class="table-top">
   <tr>
@@ -158,7 +163,7 @@ mytheme <- function(sz = 30) {
 4. Did it avoid overreaching (e.g., implying causation)?
 
 
-## Methodological review activity {.f6}
+## Methodological review activity {.fs90}
 
 - Find a paper in your field that used multiple regression
     + I went to KU Library System: <https://lib.ku.edu>

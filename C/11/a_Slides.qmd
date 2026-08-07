@@ -34,6 +34,11 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 
@@ -89,7 +94,7 @@ p5 <- qplot(program, data = exercise, geom = "bar") + mytheme(24)
 Note that this is simulated (i.e., fake) data.
 :::
 
-## Moderation questions {.f5}
+## Moderation questions {.fs70}
 
 **Continuous-by-Continuous Interaction**
 
@@ -127,7 +132,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 x_2$$
 
 - $b_1$ controls for $x_2$ but is the same across all values of $x_2$ and thus does not depend on it (and the same for $b_2$ and $x_1$)
 
-## Adding an interaction {.f5}
+## Adding an interaction {.fs70}
 
 Interactions are formed by multiplying predictor variables
 
@@ -187,7 +192,7 @@ model_parameters(fit)
 We can also use the shortcut `duration * intensity`
 :::
 
-## Predicting energy expenditure {.f5}
+## Predicting energy expenditure {.fs70}
 
 $$\hat{y} = 7.80 - 9.38 x_1 - 0.08 x_2 + 0.39 x_1 x_2$$
 
@@ -205,7 +210,7 @@ The average participant (2 duration, 30 intensity) expends 10.04 units of energy
 $$\hat{y} = 7.80 - 9.38(2) - 0.08(30) + 0.39(2)(30) = 10.04$$
 :::
 
-## Spotlight analysis {.f5}
+## Spotlight analysis {.fs70}
 
 - In order to plot the predictions, we can map one predictor to the $x$-axis
 
@@ -269,7 +274,7 @@ You can tell there is a non-zero interaction because the lines aren't parallel.
 
 ## Simple slopes
 
-::: {.f5}
+::: {.fs70}
 - What is the slope of `duration` at different values of `intensity`?
     + With a non-zero interaction, the simple slopes will differ
     
@@ -296,7 +301,7 @@ fit2 <- lm(expenditure ~ duration + intensity, data = exercise)
 model_parameters(fit2)
 ```
 
-::: {.f5}
+::: {.fs70}
 - A participant exercising at 0 duration and 0 intensity expends -15.6 units
 - Each additional unit of duration will expend 2.35 units (controlling `intensity`)
 - Each additional unit of intensity will expend 0.71 units (controlling `duration`)
@@ -360,7 +365,7 @@ estimate_slopes(fit2, trend = "duration", by = "intensity=[sd]")
 ## CxC Patterns
 
 ::: {.columns}
-::: {.column width="33%" .tc .f5}
+::: {.column width="33%" .tc .fs70}
 **Potentiation**
 
 As one $x$ increases, the slope of the other increases
@@ -381,7 +386,7 @@ plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) +
 ```
 
 :::
-::: {.column width="33%" .tc .f5}
+::: {.column width="33%" .tc .fs70}
 **Attenuation**
 
 As one $x$ increases, the slope of the other decreases
@@ -401,7 +406,7 @@ plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) +
   labs(title = NULL)
 ```
 :::
-::: {.column width="33%" .tc .f5}
+::: {.column width="33%" .tc .fs70}
 **Crossover**
 
 As one $x$ increases, the ranking of the other reverses
@@ -451,7 +456,7 @@ fit3 <- lm(expenditure ~ duration_c * intensity_c, data = exercise)
 model_parameters(fit3)
 ```
 
-::: {.f5}
+::: {.fs70}
 - A participant with average duration and intensity expends 10.00 units
 
 - Each added unit of duration expends 2.29 units of energy (at average intensity)
@@ -505,7 +510,7 @@ plot(predict_response(fit3, terms = c("intensity_c", "duration_c"))) + mytheme(2
 model_parameters(fit, standardize = "refit")
 ```
 
-::: {.f5}
+::: {.fs70}
 - Increasing duration by 1 SD expends another 0.08 SD (at *average* intensity)
 
 - Increasing intensity by 1 SD expends another 0.26 SD (at *average* duration)

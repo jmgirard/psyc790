@@ -34,6 +34,11 @@ library(faux)
 library(ggdist)
 library(lsr)
 mytheme <- theme_gray(base_size = 26) + theme(panel.grid.minor = element_blank())
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(r_mat), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at ggplot's
+# 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme)
 rsim <- function(r) {
   rnorm_multi(n = 200, vars = 2, mu = 0, sd = 1, r = r)
 }
@@ -615,7 +620,7 @@ ggplot(tibble(r = seq(-1, 1, 0.0001), z = rtoz(r)), aes(x = r, y = z)) +
 :::
 :::
 
-## Confidence intervals {.smaller}
+## Confidence intervals {.fs70}
 
 ::: {.columns}
 ::: {.column width="33%"}

@@ -34,12 +34,17 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 
 # Overview
 
-## Assumptions Overview {.f6}
+## Assumptions Overview {.fs90}
 
 - **Assumptions about the Formula**
     + Correct Functional Form
@@ -57,7 +62,7 @@ mytheme <- function(sz = 30) {
 
 # Constant Error Variance
 
-## Assumption {.f6}
+## Assumption {.fs90}
 
 - For any value of $x$, the residual variance are constant
     + The spread of points around the line must be consistent
@@ -118,7 +123,7 @@ ggplot(d1, aes(x = x, y = y_violated)) +
 :::
 
 
-## Example: Assumption Met {.f6}
+## Example: Assumption Met {.fs90}
 
 ```{r}
 #| echo: false
@@ -158,7 +163,7 @@ see:::plot.see_check_model(check_model(fit_met, check = "homogeneity", panel = F
 :::
 
 
-## Example: Assumption Violated {.f6}
+## Example: Assumption Violated {.fs90}
 
 ```{r}
 #| echo: true
@@ -204,7 +209,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "homogeneity", pane
 
 # Normal Residuals
 
-## Assumption {.f6}
+## Assumption {.fs90}
 
 - The residuals are normally distributed around the line
     + The spread around the line is a bell curve
@@ -240,7 +245,7 @@ p2 <- ggplot(d4, aes(x = x, y = y_violated)) +
 (p1 | p2)
 ```
 
-## Diagnostics {.f6}
+## Diagnostics {.fs90}
 
 1. Plot the residuals' distribution
     + Visually compare density plot to normal distribution
@@ -255,7 +260,7 @@ p2 <- ggplot(d4, aes(x = x, y = y_violated)) +
     + But this test gets more power with a larger sample...
     
 
-## Example: Residual Distribution {.f6}
+## Example: Residual Distribution {.fs90}
 
 ```{r}
 fit_met <- lm(y_met ~ x, data = d4)
@@ -296,7 +301,7 @@ p2 <- see:::plot.see_check_model(check_model(fit_violated, check = "normality", 
 ```
 
 
-## Example: QQ Plot {.f6}
+## Example: QQ Plot {.fs90}
 
 ::: {.columns}
 ::: {.column}
@@ -344,7 +349,7 @@ check_normality(fit_violated)
 ```
 
 
-## Solutions {.f6}
+## Solutions {.fs90}
 
 1. Transform your outcome to be more normal
     + e.g., Box-Cox transformations
@@ -363,7 +368,7 @@ Note that addressing other issues may also help here.
 
 # Independent Residuals
 
-## Assumption {.f6}
+## Assumption {.fs90}
 
 - The residuals must be independent of (not related to) one another
     + This will be met in any random sample from a population
@@ -496,7 +501,7 @@ check_autocorrelation(fit_violated2)
 ```
 
 
-## Solutions {.f6}
+## Solutions {.fs90}
 
 1. Adjust the standard errors
     + e.g., cluster-robust standard errors
@@ -513,7 +518,7 @@ check_autocorrelation(fit_violated2)
 
 # Outliers
 
-## Definition {.f6}
+## Definition {.fs90}
 
 - Outliers are **atypical observations** that do not fit the other data
     + They may represent data contaminated by errors
@@ -613,7 +618,7 @@ check_outliers(fit_with, method = c("cook", "mahalanobis"))
 ```
 
 
-## Solutions {.f6}
+## Solutions {.fs90}
 
 1. **Fix** the outliers
     + If they are errors/contaminations, fix them

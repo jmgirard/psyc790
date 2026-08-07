@@ -34,11 +34,16 @@ mytheme <- function(sz = 30) {
   theme_gray(base_size = sz) + 
   theme(panel.grid.minor = element_blank())
 }
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
 ```
 
 # Overview
 
-## Motivation {.f6}
+## Motivation {.fs90}
 
 - The linear model makes certain assumptions about the data
 
@@ -54,7 +59,7 @@ mytheme <- function(sz = 30) {
 - Thus, our conclusions and inferences may be incorrect!
 
 
-## Assumptions Overview {.f6}
+## Assumptions Overview {.fs90}
 
 - **Assumptions about the Formula**
     + Correct Functional Form
@@ -114,7 +119,7 @@ ggplot(d1, aes(x =x , y = y_violated)) +
 :::
 
 
-## Diagnostics {.f6}
+## Diagnostics {.fs90}
 
 - We can use scatterplots as a visual diagnostic
     + A simple approach would plot $y$ against each $x$
@@ -176,7 +181,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
   )
 ```
 
-## Solutions {.f6}
+## Solutions {.fs90}
 
 1. Specify a more complex functional form
     + e.g., variable transformations
@@ -299,7 +304,7 @@ $$\text{VIF}_j = \frac{1}{1-R^2_j}$$
 :::
 
 
-## Example Data {.f6}
+## Example Data {.fs90}
 
 Let's simulate some data with various collinearity-related issues
 
@@ -349,7 +354,7 @@ simdat <- tibble(
 round(cor(simdat), digits = 2)
 ```
 
-::: {.f6}
+::: {.fs90}
 - `height1` and `height2` are highly correlated $(r=.97)$
 
 - `female` and `male` are perfectly correlated $(r=-1.00)$
@@ -358,7 +363,7 @@ round(cor(simdat), digits = 2)
 :::
 
 
-## Example with No Issues {.f6}
+## Example with No Issues {.fs90}
 
 ```{r}
 #| echo: true
@@ -390,7 +395,7 @@ check_collinearity(fit_none)
 - The VIFs for both predictors are low (<5)
 
 
-## Example with Collinearity {.f6}
+## Example with Collinearity {.fs90}
 
 ```{r}
 #| echo: true
@@ -422,7 +427,7 @@ check_collinearity(fit_co)
 - The VIFS for both height variables are very high (>10)
 
 
-## Example with Multicollinearity {.f6}
+## Example with Multicollinearity {.fs90}
 
 ```{r}
 #| echo: true
@@ -471,7 +476,7 @@ model_parameters(fit_xc)
 - This is why we use $(g-1)$ dummy codes and not $g$
 
 
-## Solutions {.f6}
+## Solutions {.fs90}
 
 1. Break the predictors' redundancy
     + e.g., drop one or more predictors

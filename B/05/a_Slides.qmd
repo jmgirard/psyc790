@@ -292,7 +292,7 @@ We denote parameters using Greek letters $(\mu,\sigma)$ or uppercase English let
 Note we use lowercase $n$ to denote the sample size
 :::
 
-## Basics of statistical inference {.smaller}
+## Basics of statistical inference {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/light_bulb.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -323,7 +323,7 @@ Note we use lowercase $n$ to denote the sample size
 
 :::
 
-## Sample example {.smaller}
+## Sample example {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -469,7 +469,7 @@ round(c(sigma, s, s - sigma), 2)
 
 :::
 
-## The law of large numbers {.smaller}
+## The law of large numbers {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/privacy_policy.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -485,7 +485,7 @@ round(c(sigma, s, s - sigma), 2)
 
 :::
 
-## Small population simulation {.smaller}
+## Small population simulation {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -523,7 +523,7 @@ ggplot(res, aes(x = factor(n), y = mean)) +
 
 :::
 
-## Large population simulation {.smaller}
+## Large population simulation {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
@@ -610,7 +610,7 @@ ggplot(filter(res, n == 12), aes(x = mean)) +
 
 :::
 
-## Standard errors {.smaller}
+## Standard errors {.fs70}
 
 ::: {.absolute top=-33 right=0 width=100 height=100}
 {{< lif "../../icons/question.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
