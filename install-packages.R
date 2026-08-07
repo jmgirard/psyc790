@@ -26,14 +26,15 @@ cran_packages <- c(
   # Plotting
   "patchwork",
   "ggdist",
-  "ggeffects",
   "ggbeeswarm",
   "ggbrace",
 
   # Stats / teaching helpers
   "afex",
-  "marginaleffects",  # required at runtime by modelbased::estimate_means()
-  "effects",
+  # Suggests-only dep of modelbased, so easystats does not pull it in. Needed by
+  # estimate_means()/estimate_slopes()/estimate_contrasts(), but NOT by
+  # estimate_relation(), which goes through insight::get_predicted() instead.
+  "marginaleffects",
   "emmeans",
   "distributional",
   "faux",

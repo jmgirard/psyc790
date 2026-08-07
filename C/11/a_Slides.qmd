@@ -36,7 +36,7 @@ mytheme <- function(sz = 30) {
 }
 # Make mytheme the default rather than relying on every plot remembering
 # `+ mytheme`. Plots built by other packages -- plot(), check_model(),
-# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# modelbased -- never get a manual `+ mytheme` and were rendering at
 # ggplot's 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme())
 ```
@@ -237,19 +237,19 @@ $$\hat{y} = 7.80 - 9.38(2) - 0.08(30) + 0.39(2)(30) = 10.04$$
 #| eval: false
 #| collapse: true
 
-library(ggeffects)
-plot(predict_response(fit, terms = c("duration", "intensity")))
+library(modelbased)
+plot(estimate_relation(fit, by = c("duration", "intensity=[sd]")))
 ```
 
 ```{r}
 #| echo: false
 
-library(ggeffects)
-plot(predict_response(fit, terms = c("duration", "intensity"))) + mytheme(24)
+library(modelbased)
+plot(estimate_relation(fit, by = c("duration", "intensity=[sd]"))) + mytheme(24)
 ```
 
 ::: {.footer}
-You can tell there is a non-zero interaction because the lines aren't parallel.
+The `=[sd]` shortcut spotlights intensity at Mean $\pm$ SD. The lines aren't parallel, so the interaction is non-zero.
 :::
 
 ## Plotting interaction effects
@@ -259,13 +259,13 @@ You can tell there is a non-zero interaction because the lines aren't parallel.
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit, terms = c("intensity", "duration")))
+plot(estimate_relation(fit, by = c("intensity", "duration=[sd]")))
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit, terms = c("intensity", "duration"))) + mytheme(24)
+plot(estimate_relation(fit, by = c("intensity", "duration=[sd]"))) + mytheme(24)
 ```
 
 ::: {.footer}
@@ -316,13 +316,13 @@ model_parameters(fit2)
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit2, terms = c("duration", "intensity")))
+plot(estimate_relation(fit2, by = c("duration", "intensity=[sd]")))
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit2, terms = c("duration", "intensity"))) + mytheme(24)
+plot(estimate_relation(fit2, by = c("duration", "intensity=[sd]"))) + mytheme(24)
 ```
 
 ::: {.footer}
@@ -336,13 +336,13 @@ You can tell there is no interaction because the lines are parallel.
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit2, terms = c("intensity", "duration")))
+plot(estimate_relation(fit2, by = c("intensity", "duration=[sd]")))
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit2, terms = c("intensity", "duration"))) + mytheme(24)
+plot(estimate_relation(fit2, by = c("intensity", "duration=[sd]"))) + mytheme(24)
 ```
 
 ::: {.footer}
@@ -379,7 +379,7 @@ d <- tibble(
   y = 10 + 1.1 * x1 + 0.8 * x2 + 0.6*x1*x2 + rnorm(n,0,6) 
 )
 fit0 <- lm(y ~ x1 * x2, d)
-plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) + 
+plot(estimate_relation(fit0, by = c("x1", "x2=c(-1,0,1)"))) +
   mytheme(20) + 
   theme(legend.position = "top") +
   labs(title = NULL)
@@ -400,7 +400,7 @@ d <- tibble(
   y = 0 + 0.1*x1 - 5*x2 + .2*x1*x2 + rnorm(n,0,2) 
 )
 fit0 <- lm(y ~ x1 * x2, d)
-plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) + 
+plot(estimate_relation(fit0, by = c("x1", "x2=c(-1,0,1)"))) +
   mytheme(20) + 
   theme(legend.position = "top") +
   labs(title = NULL)
@@ -420,7 +420,7 @@ d <- tibble(
   y = 0 + .1*x1 - .01*x2 - .025*x1*x2 + rnorm(n,0,2) 
 )
 fit0 <- lm(y ~ x1 * x2, d)
-plot(predict_response(fit0, terms = c("x1", "x2[-1,0,1]"))) + 
+plot(estimate_relation(fit0, by = c("x1", "x2=c(-1,0,1)"))) +
   mytheme(20) + 
   theme(legend.position = "top") +
   labs(title = NULL)
@@ -473,13 +473,13 @@ model_parameters(fit3)
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit3, terms = c("duration_c", "intensity_c")))
+plot(estimate_relation(fit3, by = c("duration_c", "intensity_c=[sd]")))
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit3, terms = c("duration_c", "intensity_c"))) + mytheme(24)
+plot(estimate_relation(fit3, by = c("duration_c", "intensity_c=[sd]"))) + mytheme(24)
 ```
 
 
@@ -490,13 +490,13 @@ plot(predict_response(fit3, terms = c("duration_c", "intensity_c"))) + mytheme(2
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit3, terms = c("intensity_c", "duration_c")))
+plot(estimate_relation(fit3, by = c("intensity_c", "duration_c=[sd]")))
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit3, terms = c("intensity_c", "duration_c"))) + mytheme(24)
+plot(estimate_relation(fit3, by = c("intensity_c", "duration_c=[sd]"))) + mytheme(24)
 ```
 
 ## Standardizing coefficients

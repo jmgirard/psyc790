@@ -47,7 +47,7 @@ b) Calculate the standardized coefficients for this model.{{< hp glyph="b" >}} H
 
 a) Fit a multiple regression model that predicts the `informed` variable from the categorical `voting` variable and also controls for the continuous `read_news` variable.{{< hp glyph="b" >}} Interpret the unstandardized regression coefficients from the model in Q4a (including the intercept). By interpret, I mean that you should report whether it is significant and also provide a description of what the estimate tells us about the relationship between the variables.
 
-b) Use the \{ggeffects\} package to plot the predictions of the linear model from Q4a (note that it may ask you to install the \{effects\} package as well). Plot the marginal effects of each predictor separately as well as the predicted values with `read_news` on the x-axis and `voting` as the color scale.
+b) Use the `estimate_relation()` function from the \{modelbased\} package to plot the predictions of the linear model from Q4a. Plot the marginal effects of each predictor separately as well as the predicted values with `read_news` on the x-axis and `voting` as the color scale.
 
 ## Question 5 (Two types of effects)
 

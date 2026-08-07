@@ -36,7 +36,7 @@ mytheme <- function(sz = 30) {
 }
 # Make mytheme the default rather than relying on every plot remembering
 # `+ mytheme`. Plots built by other packages -- plot(), check_model(),
-# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# modelbased -- never get a manual `+ mytheme` and were rendering at
 # ggplot's 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme())
 ```
@@ -432,8 +432,7 @@ Moving from model `fit1` to `fit3` (i.e., learning `yrs_since`) improves $R^2$ m
 #| echo: true
 #| message: false
 
-# install.packages(c("ggeffects", "effects"))
-library(ggeffects)
+library(modelbased)
 ```
 
 ::: {.columns}
@@ -443,14 +442,14 @@ library(ggeffects)
 #| echo: true
 #| eval: false
 
-plot(predict_response(
+plot(estimate_relation(
   model = fit3,
-  terms = "n_pubs"
+  by = "n_pubs"
 ))
 ```
 
 ```{r, fig.width=5, fig.height=3}
-plot(predict_response(fit3, "n_pubs")) + mytheme(18)
+plot(estimate_relation(fit3, by = "n_pubs")) + mytheme(18)
 ```
 
 :::
@@ -459,14 +458,14 @@ plot(predict_response(fit3, "n_pubs")) + mytheme(18)
 #| echo: true
 #| eval: false
 
-plot(predict_response(
-  model = fit3, 
-  terms = "yrs_since"
+plot(estimate_relation(
+  model = fit3,
+  by = "yrs_since"
 ))
 ```
 
 ```{r, fig.width=5, fig.height = 3}
-plot(predict_response(fit3, "yrs_since")) + mytheme(18)
+plot(estimate_relation(fit3, by = "yrs_since")) + mytheme(18)
 ```
 :::
 :::
@@ -484,17 +483,17 @@ Note these plots hold the other predictors at their average value.
 #| echo: true
 #| eval: false
 
-plot(predict_response(
-  model = fit3, 
-  terms = c(
-    "n_pubs", 
-    "yrs_since"
+plot(estimate_relation(
+  model = fit3,
+  by = c(
+    "n_pubs",
+    "yrs_since=[sd]"
   )
 ))
 ```
 
 ```{r, fig.width=5, fig.height=3}
-plot(predict_response(fit3, c("n_pubs", "yrs_since"))) + mytheme(18)
+plot(estimate_relation(fit3, by = c("n_pubs", "yrs_since=[sd]"))) + mytheme(18)
 ```
 :::
 ::: {.column}
@@ -503,17 +502,17 @@ plot(predict_response(fit3, c("n_pubs", "yrs_since"))) + mytheme(18)
 #| echo: true
 #| eval: false
 
-plot(predict_response(
-  model = fit3, 
-  terms = c(
-    "yrs_since", 
-    "n_pubs"
+plot(estimate_relation(
+  model = fit3,
+  by = c(
+    "yrs_since",
+    "n_pubs=[sd]"
   )
 ))
 ```
 
 ```{r, fig.width=5, fig.height = 3}
-plot(predict_response(fit3, c("yrs_since", "n_pubs"))) + mytheme(18)
+plot(estimate_relation(fit3, by = c("yrs_since", "n_pubs=[sd]"))) + mytheme(18)
 ```
 
 :::

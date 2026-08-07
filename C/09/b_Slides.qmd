@@ -36,7 +36,7 @@ mytheme <- function(sz = 30) {
 }
 # Make mytheme the default rather than relying on every plot remembering
 # `+ mytheme`. Plots built by other packages -- plot(), check_model(),
-# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# modelbased -- never get a manual `+ mytheme` and were rendering at
 # ggplot's 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme())
 ```
@@ -396,9 +396,8 @@ confint(fit)
 #| echo: true
 #| eval: false
 
-# install.packages(c("ggeffects", "effects"))
-library(ggeffects)
-est <- predict_response(fit, "hardness")
+library(modelbased)
+est <- estimate_relation(fit, by = "hardness")
 plot(est, show_data = TRUE)
 ```
 
@@ -406,8 +405,8 @@ plot(est, show_data = TRUE)
 #| echo: false
 #| eval: true
 
-library(ggeffects)
-est <- predict_response(fit, "hardness")
+library(modelbased)
+est <- estimate_relation(fit, by = "hardness")
 plot(est, show_data = TRUE) + mytheme(24)
 ```
 

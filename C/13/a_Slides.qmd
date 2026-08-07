@@ -36,7 +36,7 @@ mytheme <- function(sz = 30) {
 }
 # Make mytheme the default rather than relying on every plot remembering
 # `+ mytheme`. Plots built by other packages -- plot(), check_model(),
-# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# modelbased -- never get a manual `+ mytheme` and were rendering at
 # ggplot's 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme())
 ```
@@ -101,14 +101,14 @@ r2(fit)
 #| echo: true
 #| eval: false
 
-library(ggeffects)
-plot(predict_response(fit, terms = "x"), show_data = TRUE)
+library(modelbased)
+plot(estimate_relation(fit, by = "x"), show_data = TRUE)
 ```
 
 ```{r}
 #| message: false
-library(ggeffects)
-plot(predict_response(fit, terms = "x"), show_data = TRUE, dot_size = 3) + mytheme()
+library(modelbased)
+plot(estimate_relation(fit, by = "x"), show_data = TRUE, point = list(size = 3)) + mytheme()
 ```
 
 ## Assumption checking
@@ -269,13 +269,13 @@ The $x^2$ slope is NOT significant, so the curve is NOT needed
 #| echo: true
 #| eval: false
 
-plot(predict_response(fit1b, terms = "x"), show_data = TRUE)
+plot(estimate_relation(fit1b, by = "x"), show_data = TRUE)
 ```
 
 ```{r}
 #| message: false
 
-plot(predict_response(fit1b, terms = "x"), show_data = TRUE, dot_size = 3) + mytheme()
+plot(estimate_relation(fit1b, by = "x"), show_data = TRUE, point = list(size = 3)) + mytheme()
 ```
 
 ## Assumption checking
@@ -320,13 +320,13 @@ r2(fit2b)
 #| echo: true
 #| eval: false
 
-plot(predict_response(fit2b, terms = "x"), show_data = TRUE)
+plot(estimate_relation(fit2b, by = "x"), show_data = TRUE)
 ```
 
 ```{r}
 #| message: false
 
-plot(predict_response(fit2b, terms = "x"), show_data = TRUE, dot_size = 3) + mytheme()
+plot(estimate_relation(fit2b, by = "x"), show_data = TRUE, point = list(size = 3)) + mytheme()
 ```
 
 ## Assumption checking
@@ -465,11 +465,11 @@ model_parameters(fit3)
 #| echo: true
 #| eval: false
 
-plot(predict_response(fit3, terms = c("yrs.since.phd", "sex")), show_data = TRUE)
+plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE)
 ```
 
 ```{r}
-plot(predict_response(fit3, terms = c("yrs.since.phd", "sex")), show_data = TRUE) + mytheme()
+plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE) + mytheme()
 ```
 
 ## Adding moderation {.fs90}
@@ -496,11 +496,11 @@ model_parameters(fit4)
 #| echo: true
 #| eval: false
 
-plot(predict_response(fit4, terms = c("yrs.since.phd", "sex")))
+plot(estimate_relation(fit4, by = c("yrs.since.phd", "sex")))
 ```
 
 ```{r}
-plot(predict_response(fit4, terms = c("yrs.since.phd", "sex"))) + mytheme()
+plot(estimate_relation(fit4, by = c("yrs.since.phd", "sex"))) + mytheme()
 ```
 
 

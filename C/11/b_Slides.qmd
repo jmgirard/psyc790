@@ -36,7 +36,7 @@ mytheme <- function(sz = 30) {
 }
 # Make mytheme the default rather than relying on every plot remembering
 # `+ mytheme`. Plots built by other packages -- plot(), check_model(),
-# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# modelbased -- never get a manual `+ mytheme` and were rendering at
 # ggplot's 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme())
 ```
@@ -192,15 +192,16 @@ $$\text{Male: }\hat{y} = 3.33 + 3.32(2) + 3.57(1) - 1.72(2)(1) = 10.10$$
 #| eval: false
 #| collapse: true
 
-library(ggeffects)
-plot(predict_response(fit, terms = c("duration", "sex")))
+#install.packages("marginaleffects")
+library(modelbased)
+plot(estimate_relation(fit, by = c("duration", "sex")))
 ```
 
 ```{r}
 #| echo: false
 
-library(ggeffects)
-plot(predict_response(fit, terms = c("duration", "sex"))) + mytheme(24)
+library(modelbased)
+plot(estimate_relation(fit, by = c("duration", "sex"))) + mytheme(24)
 ```
 
 ::: {.footer}
@@ -214,13 +215,13 @@ You can tell there is not a significant interaction because the lines could be p
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit, terms = c("sex", "duration")), connect_lines = TRUE)
+plot(estimate_means(fit, by = c("sex", "duration=[sd]")), join_dots = TRUE)
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit, terms = c("sex", "duration")), connect_lines = TRUE) + mytheme(24)
+plot(estimate_means(fit, by = c("sex", "duration=[sd]")), join_dots = TRUE) + mytheme(24)
 ```
 
 ::: {.footer}
@@ -329,13 +330,13 @@ model_parameters(fit3)
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit3, terms = c("duration", "program")))
+plot(estimate_relation(fit3, by = c("duration", "program")))
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit3, terms = c("duration", "program"))) + mytheme(24)
+plot(estimate_relation(fit3, by = c("duration", "program"))) + mytheme(24)
 ```
 
 ## Plotting the interaction {.fs90}
@@ -345,13 +346,13 @@ plot(predict_response(fit3, terms = c("duration", "program"))) + mytheme(24)
 #| eval: false
 #| collapse: true
 
-plot(predict_response(fit3, terms = c("program", "duration")), connect_lines = TRUE)
+plot(estimate_means(fit3, by = c("program", "duration=[sd]")), join_dots = TRUE)
 ```
 
 ```{r}
 #| echo: false
 
-plot(predict_response(fit3, terms = c("program", "duration")), connect_lines = TRUE) + mytheme(24)
+plot(estimate_means(fit3, by = c("program", "duration=[sd]")), join_dots = TRUE) + mytheme(24)
 ```
 
 ## Centering {.fs90}
@@ -463,14 +464,14 @@ estimate_contrasts(fit5, contrast = "program", by = "sex")
 #| echo: true
 #| eval: false
 
-plot(predict_response(fit5, terms = c("sex", "program")), connect_lines = TRUE)
+plot(estimate_means(fit5, by = c("sex", "program")), join_dots = TRUE)
 ```
 
 ```{r}
 #| echo: false
 #| collapse: true
 
-plot(predict_response(fit5, terms = c("sex", "program")), connect_lines = TRUE) + mytheme()
+plot(estimate_means(fit5, by = c("sex", "program")), join_dots = TRUE) + mytheme()
 ```
 
 ## Plotting the interaction {.fs90}
@@ -479,14 +480,14 @@ plot(predict_response(fit5, terms = c("sex", "program")), connect_lines = TRUE) 
 #| echo: true
 #| eval: false
 
-plot(predict_response(fit5, terms = c("program", "sex")), connect_lines = TRUE)
+plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE)
 ```
 
 ```{r}
 #| echo: false
 #| collapse: true
 
-plot(predict_response(fit5, terms = c("program", "sex")), connect_lines = TRUE) + mytheme()
+plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme()
 ```
 
 
@@ -590,14 +591,14 @@ estimate_contrasts(fit6, contrast = "sex", by = c("program", "duration = [sd]"),
 #| echo: true
 #| eval: false
 
-plot(predict_response(fit6, terms = c("duration", "sex", "program")))
+plot(estimate_relation(fit6, by = c("duration", "sex", "program")))
 ```
 
 ```{r}
 #| echo: false
 #| message: false
 
-plot(predict_response(fit6, terms = c("duration", "sex", "program"))) + mytheme(20)
+plot(estimate_relation(fit6, by = c("duration", "sex", "program"))) + mytheme(20)
 ```
 
 ## Proceed with caution {.fs70}
