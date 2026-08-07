@@ -28,6 +28,9 @@ title: "Chapter 11: Moderation"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Assignment
+- [Lecture 11a Assignment](a_assignment.qmd)
+
 <!-- Lecture b -->
 
 ## [11b] Categorical Moderation
@@ -55,11 +58,8 @@ title: "Chapter 11: Moderation"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-<!-- Assignment -->
-
-## Assignment
-
-- [Chapter 11 Assignment](assignment.qmd)
+### Assignment
+- [Lecture 11b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->
 
