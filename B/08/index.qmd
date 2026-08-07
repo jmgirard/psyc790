@@ -1,5 +1,5 @@
 ---
-title: "Week 08: Extensions and Review"
+title: "Chapter 08: Extensions and Review"
 ---
 
 <!-- Lecture a -->
@@ -34,8 +34,8 @@ title: "Week 08: Extensions and Review"
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../07/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 07</a>
+  <a href="../07/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 07</a>
 
-  <a href="../../C/09/index.html" class="btn btn-primary" role="button">Week 09&nbsp;&nbsp;&raquo;</a>
+  <a href="../../C/09/index.html" class="btn btn-primary" role="button">Chapter 09&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

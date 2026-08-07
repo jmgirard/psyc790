@@ -1,5 +1,5 @@
 ---
-title: "Week 14: Unit C Project"
+title: "Chapter 14: Unit C Project"
 ---
 
 <!-- Lecture a -->
@@ -82,8 +82,8 @@ testing, in your own words, rather than only reporting what came out.
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../13/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 13</a>
+  <a href="../13/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 13</a>
 
-  <a href="../../D/15/index.html" class="btn btn-primary" role="button">Week 15&nbsp;&nbsp;&raquo;</a>
+  <a href="../../D/15/index.html" class="btn btn-primary" role="button">Chapter 15&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

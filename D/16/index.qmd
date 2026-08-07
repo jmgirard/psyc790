@@ -1,5 +1,5 @@
 ---
-title: "Week 16: Reporting and Reviewing"
+title: "Chapter 16: Reporting and Reviewing"
 ---
 
 <!-- Lecture a -->
@@ -46,12 +46,12 @@ title: "Week 16: Reporting and Reviewing"
 
 ## Assignment
 
-- [Week 16 Assignment](assignment.qmd)
+- [Chapter 16 Assignment](assignment.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../15/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 15</a>
+  <a href="../15/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 15</a>
 </div>
 ```

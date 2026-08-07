@@ -1,5 +1,5 @@
 ---
-title: "Week 03: Data and Exploration"
+title: "Chapter 03: Data and Exploration"
 ---
 
 <!-- Lecture a -->
@@ -101,7 +101,7 @@ I prefer the factor version because it includes the labels at the top, which is 
 #### Question 3
 
 a) Install the `tidyverse` package. It may take several minutes to install because it contains several sub-packages that we will use in this class.
-b) Check if the `tidyverse` package has a website and/or vignettes. Read the "Welcome to the tidyverse" vignette (it is relatively brief and will prepare you for next week).
+b) Check if the `tidyverse` package has a website and/or vignettes. Read the "Welcome to the tidyverse" vignette (it is relatively brief and will prepare you for the next chapter).
 
 {{< dstart summary="Answer key" >}}
 
@@ -292,14 +292,14 @@ qplot(x = calories, y = rating, data = cereal, geom = "jitter")
 
 ## Assignment
 
-- [Week 03 Assignment](assignment.qmd)
+- [Chapter 03 Assignment](assignment.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../02/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 02</a>
+  <a href="../02/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 02</a>
 
-  <a href="../04/index.html" class="btn btn-primary" role="button">Week 04&nbsp;&nbsp;&raquo;</a>
+  <a href="../04/index.html" class="btn btn-primary" role="button">Chapter 04&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

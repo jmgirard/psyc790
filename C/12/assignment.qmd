@@ -1,5 +1,5 @@
 ---
-title: "Week 12 Assignment"
+title: "Chapter 12 Assignment"
 format:
   html:
     css: ../../styles.css
@@ -14,7 +14,7 @@ format:
 
 ```markdown
 ---
-title: "Week 12 Assignment"
+title: "Chapter 12 Assignment"
 name: "Your Name"
 format: html
 embed-resources: true

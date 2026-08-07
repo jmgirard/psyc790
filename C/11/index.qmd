@@ -1,5 +1,5 @@
 ---
-title: "Week 11: Moderation"
+title: "Chapter 11: Moderation"
 ---
 
 <!-- Lecture a -->
@@ -59,14 +59,14 @@ title: "Week 11: Moderation"
 
 ## Assignment
 
-- [Week 11 Assignment](assignment.qmd)
+- [Chapter 11 Assignment](assignment.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../10/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 10</a>
+  <a href="../10/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 10</a>
 
-  <a href="../12/index.html" class="btn btn-primary" role="button">Week 12&nbsp;&nbsp;&raquo;</a>
+  <a href="../12/index.html" class="btn btn-primary" role="button">Chapter 12&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

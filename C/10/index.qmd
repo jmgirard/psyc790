@@ -1,5 +1,5 @@
 ---
-title: "Week 10: Categorical and Multiple Regression"
+title: "Chapter 10: Categorical and Multiple Regression"
 ---
 
 <!-- Lecture a -->
@@ -57,14 +57,14 @@ title: "Week 10: Categorical and Multiple Regression"
 
 ## Assignment
 
-- [Week 10 Assignment](assignment.qmd)
+- [Chapter 10 Assignment](assignment.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../09/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 09</a>
+  <a href="../09/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 09</a>
 
-  <a href="../11/index.html" class="btn btn-primary" role="button">Week 11&nbsp;&nbsp;&raquo;</a>
+  <a href="../11/index.html" class="btn btn-primary" role="button">Chapter 11&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

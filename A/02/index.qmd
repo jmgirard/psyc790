@@ -1,5 +1,5 @@
 ---
-title: "Week 02: Projects and Programming"
+title: "Chapter 02: Projects and Programming"
 ---
 
 <!-- Lecture a -->
@@ -214,14 +214,14 @@ sum(profits)
 
 ## Assignment
 
-- [Week 02 Assignment](assignment.qmd)
+- [Chapter 02 Assignment](assignment.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../01/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 01</a>
+  <a href="../01/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 01</a>
 
-  <a href="../03/index.html" class="btn btn-primary" role="button">Week 03&nbsp;&nbsp;&raquo;</a>
+  <a href="../03/index.html" class="btn btn-primary" role="button">Chapter 03&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

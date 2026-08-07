@@ -1,5 +1,5 @@
 ---
-title: "Week 01: Getting Started"
+title: "Chapter 01: Getting Started"
 ---
 
 <!-- Lecture b -->
@@ -102,6 +102,6 @@ What it feels like to talk to R sometimes...
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../02/index.html" class="btn btn-primary" role="button">Week 02&nbsp;&nbsp;&raquo;</a>
+  <a href="../02/index.html" class="btn btn-primary" role="button">Chapter 02&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

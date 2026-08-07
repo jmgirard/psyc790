@@ -1,5 +1,5 @@
 ---
-title: "Week 09: Regression"
+title: "Chapter 09: Regression"
 ---
 
 <!-- Lecture a -->
@@ -39,8 +39,8 @@ No course meeting
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../../B/08/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 08</a>
+  <a href="../../B/08/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 08</a>
 
-  <a href="../10/index.html" class="btn btn-primary" role="button">Week 10&nbsp;&nbsp;&raquo;</a>
+  <a href="../10/index.html" class="btn btn-primary" role="button">Chapter 10&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

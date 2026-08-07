@@ -1,5 +1,5 @@
 ---
-title: "Week 15: Best Practices"
+title: "Chapter 15: Best Practices"
 ---
 
 <!-- Lecture a -->
@@ -26,19 +26,7 @@ title: "Week 15: Best Practices"
 
 <!-- Lecture b -->
 
-## [15b] Thanksgiving Break
-
-No course meeting
-
-<!-- Unscheduled -->
-
-## Power Analysis {.unscheduled}
-
-::: {.callout-note}
-This deck was split out of [15a] because that lecture ran long. It is **not scheduled**
-in the Fall 2025 calendar, which has no free slot in Week 15 — Thanksgiving falls on 15b.
-Whoever teaches next should place it wherever the semester calendar allows.
-:::
+## [15b] Power Analysis
 
 ### Topics
 - Power analysis and its relationship to effect size, *n*, and alpha
@@ -56,8 +44,8 @@ Whoever teaches next should place it wherever the semester calendar allows.
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../../C/14/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 14</a>
+  <a href="../../C/14/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 14</a>
 
-  <a href="../16/index.html" class="btn btn-primary" role="button">Week 16&nbsp;&nbsp;&raquo;</a>
+  <a href="../16/index.html" class="btn btn-primary" role="button">Chapter 16&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Week 13: Polynomial Regression"
+title: "Chapter 13: Polynomial Regression"
 ---
 
 <!-- Lecture a -->
@@ -39,8 +39,8 @@ In-class project work — see the [project description](../14/index.html#project
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../12/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 12</a>
+  <a href="../12/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 12</a>
 
-  <a href="../14/index.html" class="btn btn-primary" role="button">Week 14&nbsp;&nbsp;&raquo;</a>
+  <a href="../14/index.html" class="btn btn-primary" role="button">Chapter 14&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

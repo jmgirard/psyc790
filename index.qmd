@@ -39,16 +39,16 @@ At the conclusion of this course, students will be able to:
 <!-- TODO: textbook list. Readings are PDFs in Canvas Files (see ICONS.md /
      MODERNIZATION-PLAN.md section 4 for how reading links are wired). -->
 
-## Fall 2025 Semester
-
 ### Instructor
 
 - [Dr. Jeffrey Girard](mailto:jmgirard@ku.edu), Instructor
 
-### Class Time and Location
+<!-- Deliberately omitted: meeting days/times/room, office hours, and the
+     semester heading. This site is semester-agnostic -- anything with a date
+     on it lives in Canvas, which is also where the chapter-to-week mapping and
+     the assignment/project due dates are maintained. See TEACHING.md. -->
 
-<!-- TODO: meeting days, times, and room. -->
-
-### Office Hours
-
-<!-- TODO: office hours. -->
+::: {.callout-note}
+Class meeting times, office hours, due dates, and the week-by-week schedule are
+maintained on [Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}){target="_blank"}.
+:::

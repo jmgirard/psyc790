@@ -1,5 +1,5 @@
 ---
-title: "Week 12: Assumptions and Diagnostics"
+title: "Chapter 12: Assumptions and Diagnostics"
 ---
 
 <!-- Lecture a -->
@@ -57,14 +57,14 @@ title: "Week 12: Assumptions and Diagnostics"
 
 ## Assignment
 
-- [Week 12 Assignment](assignment.qmd)
+- [Chapter 12 Assignment](assignment.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../11/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Week 11</a>
+  <a href="../11/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 11</a>
 
-  <a href="../13/index.html" class="btn btn-primary" role="button">Week 13&nbsp;&nbsp;&raquo;</a>
+  <a href="../13/index.html" class="btn btn-primary" role="button">Chapter 13&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

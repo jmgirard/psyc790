@@ -594,5 +594,5 @@ compare_performance(m_pub, m_yrs, m_sex, m_cit, m_all,
 - Think carefully about what to include vs. exclude
 
 ::: {.footer}
-There are optional readings this week on this topic.
+There are optional readings for this chapter on this topic.
 :::
