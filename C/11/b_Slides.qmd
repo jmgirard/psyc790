@@ -201,7 +201,7 @@ plot(estimate_relation(fit, by = c("duration", "sex")))
 #| echo: false
 
 library(modelbased)
-plot(estimate_relation(fit, by = c("duration", "sex"))) + mytheme(24)
+plot(estimate_relation(fit, by = c("duration", "sex"))) + mytheme(24) + labs(y = "expenditure")
 ```
 
 ::: {.footer}
@@ -336,7 +336,7 @@ plot(estimate_relation(fit3, by = c("duration", "program")))
 ```{r}
 #| echo: false
 
-plot(estimate_relation(fit3, by = c("duration", "program"))) + mytheme(24)
+plot(estimate_relation(fit3, by = c("duration", "program"))) + mytheme(24) + labs(y = "expenditure")
 ```
 
 ## Plotting the interaction {.fs90}

@@ -469,7 +469,7 @@ plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE)
 ```
 
 ```{r}
-plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE) + mytheme()
+plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE) + mytheme() + labs(y = "salary")
 ```
 
 ## Adding moderation {.fs90}
@@ -500,7 +500,7 @@ plot(estimate_relation(fit4, by = c("yrs.since.phd", "sex")))
 ```
 
 ```{r}
-plot(estimate_relation(fit4, by = c("yrs.since.phd", "sex"))) + mytheme()
+plot(estimate_relation(fit4, by = c("yrs.since.phd", "sex"))) + mytheme() + labs(y = "salary")
 ```
 
 

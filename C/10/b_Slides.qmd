@@ -449,7 +449,7 @@ plot(estimate_relation(
 ```
 
 ```{r, fig.width=5, fig.height=3}
-plot(estimate_relation(fit3, by = "n_pubs")) + mytheme(18)
+plot(estimate_relation(fit3, by = "n_pubs")) + mytheme(18) + labs(y = "salary")
 ```
 
 :::
@@ -465,7 +465,7 @@ plot(estimate_relation(
 ```
 
 ```{r, fig.width=5, fig.height = 3}
-plot(estimate_relation(fit3, by = "yrs_since")) + mytheme(18)
+plot(estimate_relation(fit3, by = "yrs_since")) + mytheme(18) + labs(y = "salary")
 ```
 :::
 :::
@@ -493,7 +493,7 @@ plot(estimate_relation(
 ```
 
 ```{r, fig.width=5, fig.height=3}
-plot(estimate_relation(fit3, by = c("n_pubs", "yrs_since=[sd]"))) + mytheme(18)
+plot(estimate_relation(fit3, by = c("n_pubs", "yrs_since=[sd]"))) + mytheme(18) + labs(y = "salary")
 ```
 :::
 ::: {.column}
@@ -512,7 +512,7 @@ plot(estimate_relation(
 ```
 
 ```{r, fig.width=5, fig.height = 3}
-plot(estimate_relation(fit3, by = c("yrs_since", "n_pubs=[sd]"))) + mytheme(18)
+plot(estimate_relation(fit3, by = c("yrs_since", "n_pubs=[sd]"))) + mytheme(18) + labs(y = "salary")
 ```
 
 :::
