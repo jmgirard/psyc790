@@ -25,11 +25,11 @@ embed-resources: true
 
 ## Question 1 (Unequal Variances)
 
-Download and read in the [`prestige.csv`](../../data/prestige.csv){download="prestige.csv"} data file, which records the Pineo-Porter `prestige` score of 98 Canadian occupations. **Be sure to set `type` to a factor.**
+Download and read in the [`exercise.csv`](../../data/exercise.csv){download="exercise.csv"} data file. It comes from a study of exercise and energy use in which 900 participants were each assigned to one of three programs (`program`: `jog`, `swim`, or `read`, with 300 people in each) and their energy `expenditure` was measured afterwards. **Be sure to set `program` to a factor.** You will meet this dataset again in Chapter 08.
 
-a) Compare the mean `prestige` of the three occupation types twice: once using Student's approach (which assumes equal variances) and once using Welch's approach (which does not). Report the test statistic, degrees of freedom, and $p$-value for each.
+a) Compare the mean `expenditure` of the three programs twice: once using Student's approach (which assumes equal variances) and once using Welch's approach (which does not). Report the test statistic, degrees of freedom, and $p$-value for each.
 
-b) The two approaches give noticeably different denominator degrees of freedom here, even though the three groups' standard deviations are very similar. Look at the group sizes as well, and explain what is driving the difference.{{< hp glyph="a" >}} Which approach would you report, and why?
+b) The two approaches give noticeably different denominator degrees of freedom here, even though the three groups are exactly the same size. Report each group's standard deviation and explain what is driving the difference.{{< hp glyph="a" >}} Which approach would you report, and why?
 
 ## Question 2 (Repeated Measures)
 
