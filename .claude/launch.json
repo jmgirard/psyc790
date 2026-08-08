@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "psyc790-site",
+      "name": "statistical-methods-site",
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "4200", "--directory", "_site"],
       "port": 4200
