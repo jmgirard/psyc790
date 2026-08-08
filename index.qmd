@@ -32,7 +32,9 @@ course, or work through them independently. Nothing here is tied to a
 particular semester, institution, or offering --- schedules, deadlines, and
 grading belong wherever the course is actually being run.
 
-Developed by [Jeffrey M. Girard](mailto:me@jmgirard.com).
+Developed by [Jeffrey M. Girard](https://jmgirard.com).
+
+Contact: [me@jmgirard.com](mailto:me@jmgirard.com)
 
 ### About the Course
 
@@ -88,9 +90,6 @@ the two reference books below have to be obtained separately.
   Unit A.
 - [**Learning Statistics with R**](https://learningstatisticswithr.com/) by
   Danielle Navarro. The main source for Unit B.
-- [**Advanced R**](https://adv-r.hadley.nz/) by Hadley Wickham and
-  [**ggplot2: Elegant Graphics for Data Analysis**](https://ggplot2-book.org/)
-  by Hadley Wickham et al., for occasional deeper reading in Unit A.
 
 **Optional references**
 
