@@ -34,70 +34,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #cccccc; background-color: #303030; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ffcfaf; } /* Alert */
-    code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-    code span.at { } /* Attribute */
-    code span.bn { color: #dca3a3; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #f0dfaf; } /* ControlFlow */
-    code span.ch { color: #dca3a3; } /* Char */
-    code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-    code span.co { color: #7f9f7f; } /* Comment */
-    code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-    code span.do { color: #7f9f7f; } /* Documentation */
-    code span.dt { color: #dfdfbf; } /* DataType */
-    code span.dv { color: #dcdccc; } /* DecVal */
-    code span.er { color: #c3bf9f; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #c0bed1; } /* Float */
-    code span.fu { color: #efef8f; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
-    code span.kw { color: #f0dfaf; } /* Keyword */
-    code span.op { color: #f0efd0; } /* Operator */
-    code span.ot { color: #efef8f; } /* Other */
-    code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-    code span.sc { color: #dca3a3; } /* SpecialChar */
-    code span.ss { color: #cc9393; } /* SpecialString */
-    code span.st { color: #cc9393; } /* String */
-    code span.va { } /* Variable */
-    code span.vs { color: #cc9393; } /* VerbatimString */
-    code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
@@ -200,9 +136,9 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Assumptions and Diagnostics II</p>
+<p>Researcher Degrees of Freedom</p>
 <div class="my-grey">
-<p><span>Unit C | Chapter 09</span><br> <span>Lecture 09b</span></p>
+<p><span>Unit E | Chapter 14</span><br> <span>Lecture 14b</span></p>
 </div>
 <div class="my-attrib">
 <p>Developed by Jeffrey M. Girard</p>
@@ -215,534 +151,151 @@
 <h1>Overview</h1>
 
 </section>
-<section class="slide level2 fs90">
-<h2>Assumptions Overview</h2>
-<ul>
-<li><strong>Assumptions about the Formula</strong>
-<ul>
-<li>Correct Functional Form</li>
-<li>Perfectly Measured Predictors</li>
-<li>No Collinearity/Multicollinearity</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><strong>Assumptions about the Residuals</strong>
-<ul>
-<li>Constant Error Variance</li>
-<li>Normality of Residuals</li>
-<li>Independence of Residuals</li>
-</ul></li>
-</ul>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Constant Error Variance</h1>
-
-</section>
-<section class="slide level2 fs90">
-<h2>Assumption</h2>
-<ul>
-<li>For any value of <span class="math inline">\(x\)</span>, the residual variance are constant
-<ul>
-<li>The spread of points around the line must be consistent</li>
-<li>This is similar to Student’s assumption of equal group variances</li>
-</ul></li>
-<li>This is also called “homoscedasticity” or “homogeneity of variance”
-<ul>
-<li>When violated, we say that there is “heteroscedasticity”</li>
-</ul></li>
-</ul>
-<div title="Consequences of Violating">
+<section class="slide level2">
+<h2>Research practice continuum</h2>
+<div title="Scientific Misconduct">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Consequences of Violating</strong></p>
+<p><strong>Scientific Misconduct</strong></p>
 </div>
 <div class="callout-content">
-<p>Bias in standard errors only</p>
+<p>Data Fabrication, Data Falsification, (Plagiarism), (Undisclosed COIs)</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>Assumption Examples</h2>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Diagnostics</h2>
-<ol type="1">
-<li>Breusch-Pagan heteroscedasticity test
-<ul>
-<li>A significant result indicates heteroscedasticity</li>
-<li>But this test gets more power with a larger sample…</li>
-</ul></li>
-</ol>
-<div class="tc">
-<p><code>check_heteroscedasticity(fit)</code></p>
-</div>
-<ol start="2" type="1">
-<li>Plot the residuals against the fitted values
-<ul>
-<li>(Or some derivative of the residuals)</li>
-</ul></li>
-</ol>
-<div class="tc">
-<p><code>check_model(fit, check = "homogeneity")</code></p>
-</div>
-</section>
-<section class="slide level2 fs90">
-<h2>Example: Assumption Met</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fit_met)</span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## OK: Error variance appears to be homoscedastic (p = 0.192).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment pv2">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_met, <span class="at">check =</span> <span class="st">"homogeneity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="1152"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2 fs90">
-<h2>Example: Assumption Violated</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fit_violated)</span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Heteroscedasticity (non-constant error variance) detected (p &lt; .001).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment pv2">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_violated, <span class="at">check =</span> <span class="st">"homogeneity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-9-1.png" width="1152"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Solutions</h2>
-<ol type="1">
-<li>Transform the outcome variable
-<ul>
-<li>e.g., Log or power transformations</li>
-</ul></li>
-<li>Adjust the standard errors
-<ul>
-<li>e.g., Huber-White (sandwich) estimation</li>
-</ul></li>
-<li>Model the error variance explicitly
-<ul>
-<li>e.g., weighted least squares estimation</li>
-<li>e.g., location-scale models</li>
-</ul></li>
-</ol>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Normal Residuals</h1>
-
-</section>
-<section class="slide level2 fs90">
-<h2>Assumption</h2>
-<ul>
-<li>The residuals are normally distributed around the line
-<ul>
-<li>The spread around the line is a bell curve</li>
-<li>This is more problematic with smaller samples</li>
-<li>Non-normal residuals may signal other problems</li>
-</ul></li>
-</ul>
-<div title="Consequences of Violating">
-<div class="callout callout-important callout-titled callout-style-default">
+<div title="Questionable Practices">
+<div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Consequences of Violating</strong></p>
+<p><strong>Questionable Practices</strong></p>
 </div>
 <div class="callout-content">
-<p>Standard errors will be biased</p>
+<p>Selective Reporting, <em>p</em>-hacking, HARKing, Data Peeking</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>Examples</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
-<h2>Diagnostics</h2>
-<ol type="1">
-<li>Plot the residuals’ distribution
-<ul>
-<li>Visually compare density plot to normal distribution</li>
-<li>Assumption is violated to the extent they differ</li>
-</ul></li>
-<li>Use a quantile-quantile (QQ) plot
-<ul>
-<li>Visually compare the sample and normal quantiles</li>
-<li>Assumption is violated if dots stray from the line</li>
-</ul></li>
-<li>Use the Shapiro-Wilk test
-<ul>
-<li>A significant result indicates non-normality</li>
-<li>But this test gets more power with a larger sample…</li>
-</ul></li>
-</ol>
-</section>
-<section class="slide level2 fs90">
-<h2>Example: Residual Distribution</h2>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_met, </span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>            <span class="at">check =</span> <span class="st">"normality"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_violated, </span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>            <span class="at">check =</span> <span class="st">"normality"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
-<h2>Example: QQ Plot</h2>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_met, </span>
-<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>            <span class="at">check =</span> <span class="st">"qq"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_violated, </span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>            <span class="at">check =</span> <span class="st">"qq"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Example: Shapiro-Wilk Test</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(fit_met)</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## OK: residuals appear as normally distributed (p = 0.320).</span></span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(fit_violated)</span>
-<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Non-normality of residuals detected (p &lt; .001).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section class="slide level2 fs90">
-<h2>Solutions</h2>
-<ol type="1">
-<li>Transform your outcome to be more normal
-<ul>
-<li>e.g., Box-Cox transformations</li>
-<li>e.g., Yeo-Johnson transformations</li>
-</ul></li>
-<li>Use a nonparametric approach
-<ul>
-<li>e.g., nonparametric bootstrapping</li>
-<li>e.g., rank-based nonparametrics</li>
-</ul></li>
-<li>Model the outcome as non-normal
-<ul>
-<li>e.g., generalized linear modeling (GLM)</li>
-</ul></li>
-</ol>
-<div class="footer">
-<p>Note that addressing other issues may also help here.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Independent Residuals</h1>
-
-</section>
-<section class="slide level2 fs90">
-<h2>Assumption</h2>
-<ul>
-<li>The residuals must be independent of (not related to) one another
-<ul>
-<li>This will be met in any random sample from a population</li>
-<li>It will be <em>violated</em> with <strong>clustered</strong> or <strong>autocorrelated</strong> data</li>
-<li>Clustered data has many observations from the same “group”</li>
-<li>Autocorrelated data has many observations close in time</li>
-</ul></li>
-</ul>
-<div title="Consequences of Violating">
-<div class="callout callout-important callout-titled callout-style-default">
+<div title="Best Practices">
+<div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Consequences of Violating</strong></p>
+<p><strong>Best Practices</strong></p>
 </div>
 <div class="callout-content">
-<p>Standard errors will be downwardly biased (i.e., deflated)</p>
+<p>Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>Example: Clustering</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Example: Autocorrelation</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Diagnostics</h2>
-<ol type="1">
-<li>If there is a potential clustering variable, do residuals differ?
-<ul>
-<li>Examine distribution of residuals in each cluster</li>
-<li>Calculate a multilevel intraclass correlation</li>
-</ul></li>
-<li>Is there autocorrelation between residuals?
-<ul>
-<li>Use the Durbin-Watson serial dependency test</li>
-<li>Significance indicates autocorrelation</li>
-</ul></li>
-</ol>
-<div class="tc">
-<p><code>check_autocorrelation(fit)</code></p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Example: No Clustering</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> school, <span class="at">y =</span> <span class="fu">residuals</span>(fit_met1), <span class="at">data =</span> d2a, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Example: Clustering</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> school, <span class="at">y =</span> <span class="fu">residuals</span>(fit_violated1), <span class="at">data =</span> d2a, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Example: Autocorrelation</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_autocorrelation</span>(fit_met2)</span>
-<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## OK: Residuals appear to be independent and not autocorrelated (p = 0.416).</span></span>
-<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_autocorrelation</span>(fit_violated2)</span>
-<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Autocorrelated residuals detected (p &lt; .001).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section class="slide level2 fs90">
-<h2>Solutions</h2>
-<ol type="1">
-<li>Adjust the standard errors
-<ul>
-<li>e.g., cluster-robust standard errors</li>
-</ul></li>
-<li>Model the clustering explicitly
-<ul>
-<li>e.g., fixed-effects modeling</li>
-<li>e.g., multilevel modeling (MLM, HLM, LME, LMM)</li>
-<li>e.g., generalized estimating equations (GEE)</li>
-</ul></li>
-<li>Model the serial dependency
-<ul>
-<li>e.g., time series analysis (ARIMA)</li>
-<li>e.g., autoregressive models (DSEM)</li>
-</ul></li>
-</ol>
+<p><span class="fs90">Ordered from least to most likely to produce true, replicable findings</span></p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Outliers</h1>
+<h1>Researcher Degrees of Freedom</h1>
 
 </section>
 <section class="slide level2 fs90">
-<h2>Definition</h2>
+<h2>Selective reporting</h2>
 <ul>
-<li>Outliers are <strong>atypical observations</strong> that do not fit the other data
+<li><strong>Cherry picking</strong> is only including or reporting a desired subset of information (intentionally or accidentally)
 <ul>
-<li>They may represent data contaminated by errors</li>
-<li>Or they may represent real but rare cases</li>
+<li>e.g., cases, variables, studies, analyses, results, references</li>
+<li>It is problematic when the subset misrepresents the whole</li>
+<li>It is especially problematic when unreported (e.g., hidden)</li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>Outliers can have <strong>large impacts</strong> on the results of your model
+<li><strong>Selective omission</strong> is excluding or not reporting an undesired subset of information (intentionally or accidentally)
 <ul>
-<li>Results may reflect the outliers rather than general patterns</li>
+<li>This is essentially the other side of cherry picking</li>
 </ul></li>
 </ul>
-</div>
-<div class="fragment">
-<ul>
-<li>So we need to be watchful for outliers and deal with them carefully
-<ul>
-<li>We should also be transparent about reporting our approach</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Examples</h2>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-29-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math display">\[b_0=3.4, b_1=2.2^\ast\]</span></p>
-</div><div class="column fragment">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math display">\[b_0=15.5^\ast, b_1= 0.3\]</span></p>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Diagnostics</h2>
-<p>For each observation, we can calculate its…</p>
-<ol type="1">
-<li><strong>Leverage:</strong> How unusual are its <span class="math inline">\(x\)</span> values?
-<ul>
-<li>e.g., <span class="math inline">\(h_{ii}\)</span> and Mahalonabis distance</li>
-</ul></li>
-<li><strong>Distance:</strong> How far is it from the regression line?
-<ul>
-<li>e.g., raw, standardized, or Studentized residuals</li>
-</ul></li>
-<li><strong>Influence:</strong> How much does it change the coefficients?
-<ul>
-<li>e.g., <span class="math inline">\(\text{DFFITS}_i\)</span>, <span class="math inline">\(\text{DFBETAS}_i\)</span>, and Cook’s <span class="math inline">\(D_i\)</span></li>
-</ul></li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Example: No Outliers</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_outliers</span>(fit_without, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"cook"</span>, <span class="st">"mahalanobis"</span>))</span>
-<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## OK: No outliers detected.</span></span>
-<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## - Based on the following methods and thresholds: cook (0.701), mahalanobis (13.816).</span></span>
-<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## - For variable: (Whole model)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Example: With Outliers</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_outliers</span>(fit_with, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"cook"</span>, <span class="st">"mahalanobis"</span>))</span>
-<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 1 outlier detected: case 2.</span></span>
-<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## - Based on the following methods and thresholds: cook (0.701),</span></span>
-<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   mahalanobis (13.816).</span></span>
-<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## - For variable: (Whole model).</span></span>
-<span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Note: Outliers were classified as such by at least half of the selected methods. </span></span>
-<span id="cb14-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb14-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------------</span></span>
-<span id="cb14-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  </span></span>
-<span id="cb14-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## The following observations were considered outliers for two or more</span></span>
-<span id="cb14-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   variables by at least one of the selected methods:</span></span>
-<span id="cb14-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb14-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   Row  n_Mahalanobis         n_Cook</span></span>
-<span id="cb14-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 1   2 (Multivariate) (Multivariate)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2 fs90">
-<h2>Solutions</h2>
-<ol type="1">
-<li><strong>Fix</strong> the outliers
+<h2>HARKing</h2>
 <ul>
-<li>If they are errors/contaminations, fix them</li>
-</ul></li>
-<li><strong>Keep</strong> the outliers
+<li>“Hypothesizing after the results are known”
 <ul>
-<li>If they belong to your distribution, maybe keep them</li>
+<li>It is claiming to have predicted an unexpected result</li>
+<li>Changing your hypothesis to match whatever you found</li>
+<li>Going into research without any real expectations</li>
 </ul></li>
-<li><strong>Remove</strong> the outliers
+<li>Why it’s problematic
 <ul>
-<li>If they belong to a different distribution, maybe remove them</li>
+<li>It falsely presents exploratory work as confirmatory</li>
+<li>The problem is the misrepresentation (not the exploration)</li>
+<li>It is more likely to capitalize on sampling error</li>
+<li>“The easiest person to fool is yourself”</li>
 </ul></li>
-<li><strong>Recode</strong> the outliers
-<ul>
-<li>If you want to reduce their influence, maybe Winsorize them</li>
-</ul></li>
-</ol>
+</ul>
 </section>
-<section class="slide level2">
-<h2>Remove the Outliers</h2>
-<p>If you do choose to remove the outliers, here’s how</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Number of observations before removing outliers</span></span>
-<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dat_with)</span>
-<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 62</span></span>
-<span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Identify outliers</span></span>
-<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">check_outliers</span>(fit_with, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"cook"</span>, <span class="st">"mahalanobis"</span>))</span>
-<span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Remove outliers</span></span>
-<span id="cb15-9"><a aria-hidden="true" tabindex="-1"></a>dat_drop <span class="ot">&lt;-</span> dat_with[<span class="sc">!</span><span class="fu">as.numeric</span>(outliers), ]</span>
-<span id="cb15-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Number of observations after removing outliers</span></span>
-<span id="cb15-12"><a aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dat_drop)</span>
-<span id="cb15-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 61</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<section class="slide level2 fs90">
+<h2><em>p</em>-hacking</h2>
+<ul>
+<li><p>Making analysis decisions to optimize <strong>significance</strong> instead of rigor</p>
+<ul>
+<li>How to measure and represent variables</li>
+<li>Which observations to include or exclude</li>
+<li>When to stop data collection</li>
+<li>Which tests and formulas to use</li>
+<li>Which covariates to control for</li>
+<li>How to handle assumptions and outliers</li>
+</ul></li>
+<li><p>If you try lots of options, a few will be significant <strong>by chance alone</strong></p></li>
+<li><p>If you don’t disclose all this trial-and-error, it is very misleading</p></li>
+</ul>
+</section>
+<section class="slide level2 fs90">
+<h2>Data peeking</h2>
+<ul>
+<li><strong>Data peeking</strong> is a form of <em>p</em>-hacking related to data collection
+<ul>
+<li>You collect some data, run analyses, and look at the <em>p</em>-value</li>
+<li>If your result is significant, then you stop and publish</li>
+<li>But if not, then you collect more data and try again…</li>
+</ul></li>
+<li>This practice capitalizes on sampling error and is biased
+<ul>
+<li>Your effect size will likely be inflated (too large)</li>
+<li>A correction for this is called “sequential analysis”</li>
+</ul></li>
+<li>A better approach is to choose <span class="math inline">\(n\)</span> using power analysis</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Constraining the Garden of Forking Paths</h1>
+
+</section>
+<section class="slide level2 fs90">
+<h2>Preregistration</h2>
+<ul>
+<li><p>Presenting exploratory work as confirmatory is misleading</p></li>
+<li><p>We can avoid this by “calling our shots” before data collection</p>
+<ul>
+<li>By preregistering our hypotheses, we avoid HARKing</li>
+<li>By preregistering our analyses, we avoid <em>p</em>-hacking</li>
+<li>It’s okay to change things, but you have to disclose it</li>
+</ul></li>
+<li><p>Many journals now offer <strong>registered reports</strong></p>
+<ul>
+<li>Reviewers evaluate and refine your preregistered plan</li>
+<li>The journal will publish your paper if you follow the plan</li>
+</ul></li>
+</ul>
 
 
 </section></section>

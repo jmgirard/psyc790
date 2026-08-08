@@ -34,6 +34,70 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cccccc; background-color: #303030; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ffcfaf; } /* Alert */
+    code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bn { color: #dca3a3; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #f0dfaf; } /* ControlFlow */
+    code span.ch { color: #dca3a3; } /* Char */
+    code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+    code span.co { color: #7f9f7f; } /* Comment */
+    code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+    code span.do { color: #7f9f7f; } /* Documentation */
+    code span.dt { color: #dfdfbf; } /* DataType */
+    code span.dv { color: #dcdccc; } /* DecVal */
+    code span.er { color: #c3bf9f; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #c0bed1; } /* Float */
+    code span.fu { color: #efef8f; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+    code span.kw { color: #f0dfaf; } /* Keyword */
+    code span.op { color: #f0efd0; } /* Operator */
+    code span.ot { color: #efef8f; } /* Other */
+    code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+    code span.sc { color: #dca3a3; } /* SpecialChar */
+    code span.ss { color: #cc9393; } /* SpecialString */
+    code span.st { color: #cc9393; } /* String */
+    code span.va { } /* Variable */
+    code span.vs { color: #cc9393; } /* VerbatimString */
+    code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
@@ -136,9 +200,9 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Best &amp; Questionable Practices</p>
+<p>Assumptions and Diagnostics I</p>
 <div class="my-grey">
-<p><span>Unit D | Chapter 12</span><br> <span>Lecture 12a</span></p>
+<p><span>Unit D | Chapter 10</span><br> <span>Lecture 10a</span></p>
 </div>
 <div class="my-attrib">
 <p>Developed by Jeffrey M. Girard</p>
@@ -151,236 +215,516 @@
 <h1>Overview</h1>
 
 </section>
+<section class="slide level2 fs90">
+<h2>Motivation</h2>
+<ul>
+<li><p>The linear model makes certain assumptions about the data</p></li>
+<li><p>When these assumptions are <strong>violated</strong>, two main problems occur</p></li>
+</ul>
+<ol type="1">
+<li>Estimated <strong>coefficients</strong> (i.e., relationships) may be biased
+<ul>
+<li>Intercepts and slopes directly affected</li>
+<li>Tests and confidence intervals indirectly affected</li>
+</ul></li>
+<li>Estimated <strong>standard errors</strong> (i.e., uncertainty) may be biased
+<ul>
+<li>Tests and confidence intervals directly affected</li>
+</ul></li>
+</ol>
+<ul>
+<li>Thus, our conclusions and inferences may be incorrect!</li>
+</ul>
+</section>
+<section class="slide level2 fs90">
+<h2>Assumptions Overview</h2>
+<ul>
+<li><strong>Assumptions about the Formula</strong>
+<ul>
+<li>Correct Functional Form</li>
+<li>Perfectly Measured Predictors</li>
+<li>No Collinearity/Multicollinearity</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Assumptions about the Residuals</strong>
+<ul>
+<li>Constant Error Variance</li>
+<li>Independence of Residuals</li>
+<li>Normality of Residuals</li>
+</ul></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Correct Form</h1>
+
+</section>
 <section class="slide level2">
-<h2>Research practice continuum</h2>
-<div title="Scientific Misconduct">
+<h2>Assumption</h2>
+<ul>
+<li>The “form” of the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> relationship(s) must be correct
+<ul>
+<li>The methods we learned so far assume <strong>straight</strong> lines</li>
+<li>We will also learn about polynomials for <strong>curved</strong> lines</li>
+<li>Advanced methods can take on other complex shapes</li>
+<li>This assumption is that we set up the model correctly</li>
+</ul></li>
+</ul>
+<div title="Consequences of Violating">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Scientific Misconduct</strong></p>
+<p><strong>Consequences of Violating</strong></p>
 </div>
 <div class="callout-content">
-<p>Data Fabrication, Data Falsification, (Plagiarism), (Undisclosed COIs)</p>
+<p>Bias in both coefficients and standard errors!</p>
 </div>
 </div>
 </div>
-</div>
-<div title="Questionable Practices">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Questionable Practices</strong></p>
-</div>
-<div class="callout-content">
-<p>Selective Reporting, <em>p</em>-hacking, HARKing, Data Peeking</p>
-</div>
-</div>
-</div>
-</div>
-<div title="Best Practices">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Best Practices</strong></p>
-</div>
-<div class="callout-content">
-<p>Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis</p>
-</div>
-</div>
-</div>
-</div>
-<p><span class="fs90">Ordered from least to most likely to produce true, replicable findings</span></p>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Bad Practices</h1>
-
-</section>
-<section class="slide level2 fs90">
-<h2>Scientific misconduct</h2>
-<ol type="1">
-<li>Must represent a “significant departure from accepted practices”</li>
-<li>Must be “committed intentionally, knowingly, or recklessly”</li>
-<li>Must be “proven by a preponderance of evidence”</li>
-</ol>
-<div class="fragment">
-<ul>
-<li><strong>Fabrication</strong> is making up fake data/results and presenting it as real</li>
-<li><strong>Falsification</strong> is manipulating data/results to give a false impression</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><strong>Plagiarism</strong> is presenting others’ ideas/results/words as your own</li>
-<li><strong>Undisclosed COIs</strong> is failing to report relevant conflicts of interest</li>
-<li><strong>Unapproved research</strong> is activity not approved by an ethics board</li>
-</ul>
 </div>
 </section>
-<section class="slide level2 fs90">
-<h2>Selective reporting</h2>
-<ul>
-<li><strong>Cherry picking</strong> is only including or reporting a desired subset of information (intentionally or accidentally)
-<ul>
-<li>e.g., cases, variables, studies, analyses, results, references</li>
-<li>It is problematic when the subset misrepresents the whole</li>
-<li>It is especially problematic when unreported (e.g., hidden)</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><strong>Selective omission</strong> is excluding or not reporting an undesired subset of information (intentionally or accidentally)
-<ul>
-<li>This is essentially the other side of cherry picking</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section class="slide level2 fs90">
-<h2>HARKing</h2>
-<ul>
-<li>“Hypothesizing after the results are known”
-<ul>
-<li>It is claiming to have predicted an unexpected result</li>
-<li>Changing your hypothesis to match whatever you found</li>
-<li>Going into research without any real expectations</li>
-</ul></li>
-<li>Why it’s problematic
-<ul>
-<li>It falsely presents exploratory work as confirmatory</li>
-<li>The problem is the misrepresentation (not the exploration)</li>
-<li>It is more likely to capitalize on sampling error</li>
-<li>“The easiest person to fool is yourself”</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2 fs90">
-<h2><em>p</em>-hacking</h2>
-<ul>
-<li><p>Making analysis decisions to optimize <strong>significance</strong> instead of rigor</p>
-<ul>
-<li>How to measure and represent variables</li>
-<li>Which observations to include or exclude</li>
-<li>When to stop data collection</li>
-<li>Which tests and formulas to use</li>
-<li>Which covariates to control for</li>
-<li>How to handle assumptions and outliers</li>
-</ul></li>
-<li><p>If you try lots of options, a few will be significant <strong>by chance alone</strong></p></li>
-<li><p>If you don’t disclose all this trial-and-error, it is very misleading</p></li>
-</ul>
-</section>
-<section class="slide level2 fs90">
-<h2>Data peeking</h2>
-<ul>
-<li><strong>Data peeking</strong> is a form of <em>p</em>-hacking related to data collection
-<ul>
-<li>You collect some data, run analyses, and look at the <em>p</em>-value</li>
-<li>If your result is significant, then you stop and publish</li>
-<li>But if not, then you collect more data and try again…</li>
-</ul></li>
-<li>This practice capitalizes on sampling error and is biased
-<ul>
-<li>Your effect size will likely be inflated (too large)</li>
-<li>A correction for this is called “sequential analysis”</li>
-</ul></li>
-<li>A better approach is to choose <span class="math inline">\(n\)</span> using power analysis</li>
-</ul>
-</section>
-<section class="slide level2 fs90">
-<h2>Reasons for bad practices</h2>
+<section class="slide level2">
+<h2>Assumption Examples</h2>
 <div class="columns">
 <div class="column">
-<p><strong>Perverse Incentives</strong></p>
-<ul>
-<li>Status and prestige</li>
-<li>Financial gain</li>
-<li>Dogmatic ideology</li>
-<li>Difficult to prove</li>
-</ul>
-</div><div class="column">
-<p><strong>Human Psychology</strong></p>
-<ul>
-<li>Overactive pattern detection</li>
-<li>Misunderstanding probability</li>
-<li>Need for narrative and schemas</li>
-<li>Confirmation bias</li>
-</ul>
-</div></div>
-<div class="pv2">
-<p>To learn more about these ideas, see <a href="https://doi.org/10/gg7mkb">Bishop (2020)</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="480"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2 fs90">
+<h2>Diagnostics</h2>
+<ul>
+<li>We can use scatterplots as a visual diagnostic
+<ul>
+<li>A simple approach would plot <span class="math inline">\(y\)</span> against each <span class="math inline">\(x\)</span></li>
+<li>But we can combine this into a single plot by…</li>
+</ul></li>
+<li>Plot the residuals <span class="math inline">\((y-\hat{y})\)</span> against the fitted values <span class="math inline">\(\hat{y}\)</span>
+<ul>
+<li>We can also add a reference (LOESS) line to these plots</li>
+<li>We want to see a <em>flat</em> and <em>horizontal</em> reference line</li>
+</ul></li>
+</ul>
+<div class="tc">
+<p><code>check_model(fit, check = "linearity")</code></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Example: Assumption Met</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_met, <span class="at">check =</span> <span class="st">"linearity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Example: Assumption Violated</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_violated, <span class="at">check =</span> <span class="st">"linearity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2 fs90">
+<h2>Solutions</h2>
+<ol type="1">
+<li>Specify a more complex functional form
+<ul>
+<li>e.g., variable transformations</li>
+<li>e.g., polynomial regression</li>
+<li>e.g., segmented or piece-wise regression</li>
+</ul></li>
+<li>Use a nonlinear extension of regression
+<ul>
+<li>e.g., generalized linear modeling (GLM)</li>
+<li>e.g., generalized additive modeling (GAM)</li>
+<li>e.g., supervised machine learning (ML)</li>
+</ul></li>
+</ol>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Best Practices</h1>
+<h1>Perfect Predictors</h1>
 
 </section>
+<section class="slide level2">
+<h2>Assumption</h2>
+<ul>
+<li>All predictors <span class="math inline">\((x)\)</span> must be measured without error
+<ul>
+<li>With a single predictor, the slope will be underestimated</li>
+<li>With many predictors, slopes may be too low or high</li>
+</ul></li>
+<li>When violated, called regression “dilution” or “attenuation”</li>
+</ul>
+<div title="Consequences of Violating">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Consequences of Violating</strong></p>
+</div>
+<div class="callout-content">
+<p>Bias in both coefficients and standard errors!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Error in <span class="math inline">\(y\)</span> will bias standardized (but not unstandardized) coefficients.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Diagnostics</h2>
+<p>Calculate predictors’ <strong>reliability</strong> (the opposite of error)</p>
+<ol type="1">
+<li>Test-retest reliability across time
+<ul>
+<li>Correlation from <code>correlation::correlation()</code></li>
+</ul></li>
+<li>Internal reliability across items
+<ul>
+<li>McDonald’s Omega from <code>psych::omega()</code></li>
+</ul></li>
+<li>Inter-rater reliability across raters
+<ul>
+<li>Intraclass Correlation from <code>irr::icc()</code></li>
+</ul></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Solutions</h2>
+<ol type="1">
+<li>Improve measurement reliability
+<ul>
+<li>e.g., add items, raters, or training</li>
+</ul></li>
+<li>Adjust coefficients for reliability
+<ul>
+<li>e.g., correlation disattenuation</li>
+</ul></li>
+<li>Model reliability/error explicitly
+<ul>
+<li>e.g., total least squares estimation</li>
+<li>e.g., errors-in-variables models</li>
+<li>e.g., structural equation modeling</li>
+</ul></li>
+</ol>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>No Collinearity</h1>
+
+</section>
+<section class="slide level2">
+<h2>Assumption</h2>
+<ul>
+<li>No set of predictors are redundant with one another
+<ul>
+<li>Collinearity = 2 predictors, Multicollinearity = 3+</li>
+</ul></li>
+<li>If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> fully overlap, there are no partial effects left
+<ul>
+<li>The model won’t fit (or drops one or more predictors)</li>
+</ul></li>
+<li>If they <em>almost</em> fully overlap, the estimates become unstable</li>
+</ul>
+<div title="Consequences of Violating">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Consequences of Violating</strong></p>
+</div>
+<div class="callout-content">
+<p>Coefficients are biased and standard errors are upwardly biased (i.e., inflated).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Assumption</h2>
+<div class="columns">
+<div class="column">
+<p>If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> overlap to a<br><em>very</em> large degree, then…</p>
+<ul>
+<li><span class="b green">c</span> and/or <span class="b purple">d</span> are large</li>
+<li><span class="b green">b</span> and <span class="b green">f</span> are unstable</li>
+</ul>
+<p><span class="math display">\[\hat{y} = b_0 + b_1x_1 + b_2x_2\]</span></p>
+<ul>
+<li>So <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> are unstable</li>
+</ul>
+</div><div class="column">
+<p><img data-src="../../img/venn/yx1x2.png"></p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Diagnostics</h2>
+<ol type="1">
+<li>Examine predictor correlations for collinearity
+<ul>
+<li><span class="math inline">\(r(x_1, x_2)\ge0.9\)</span> may be problematic</li>
+<li>But this captures <span class="b green">c</span> and <span class="b purple">d</span>, whereas only <span class="b green">c</span> is an issue</li>
+<li>It also doesn’t detect multicollinearity</li>
+</ul></li>
+<li>Calculate variance inflation factors (VIFs)
+<ul>
+<li>Look for evidence of inflated standard errors</li>
+<li>Each predictor will get its own VIF value</li>
+<li><span class="math inline">\(\text{VIF}&gt;5\)</span> is “moderate”, <span class="math inline">\(\text{VIF}&gt;10\)</span> is “high”</li>
+</ul></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Variance Inflation Factors</h2>
+<ul>
+<li>To calculate the <span class="math inline">\(\text{VIF}\)</span> for predictor <span class="math inline">\(j\)</span>…
+<ol type="1">
+<li>Regress <span class="math inline">\(x_j\)</span> on <em>all other</em> predictors</li>
+<li>Calculate <span class="math inline">\(R^2\)</span> from that model</li>
+<li>Calculate <span class="math inline">\(\text{VIF}\)</span> from that <span class="math inline">\(R^2\)</span></li>
+</ol></li>
+</ul>
+<p><span class="math display">\[\text{VIF}_j = \frac{1}{1-R^2_j}\]</span></p>
+<div class="tc">
+<p><code>check_collinearity(fit)</code></p>
+</div>
+</section>
 <section class="slide level2 fs90">
-<h2>Open sharing</h2>
+<h2>Example Data</h2>
+<p>Let’s simulate some data with various collinearity-related issues</p>
+<div class="columns">
+<div class="column">
+<h4>Simulated Data</h4>
 <ul>
-<li><strong>Deidentified Data</strong> (CSV) with data dictionary files
+<li><p><code>y</code> (Continuous)</p></li>
+<li><p><code>height1</code>, <code>height2</code>, <code>weight</code>, <code>size</code> (Continuous)</p></li>
+<li><p><code>female</code>, <code>male</code> (Binary)</p></li>
+</ul>
+</div><div class="column">
+<h4>Simulated Issues</h4>
 <ul>
-<li>Many analyses can be reproduced from a covariance matrix</li>
-</ul></li>
-<li><strong>Study Materials</strong> (surveys and stimuli) with documentation
+<li><p><code>height2</code> is collinear with <code>height1</code></p></li>
+<li><p><code>size</code> is multicollinear with <code>height1</code> and <code>weight</code></p></li>
+<li><p><code>female</code> and <code>male</code> are fully redundant</p></li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Bivariate Correlations</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(simdat), <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         height1 height2 weight  size female  male     y</span></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1    1.00    0.97   0.07  0.72   0.15 -0.15  0.33</span></span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height2    0.97    1.00   0.09  0.71   0.14 -0.14  0.29</span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight     0.07    0.09   1.00  0.72   0.16 -0.16 -0.66</span></span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## size       0.72    0.71   0.72  1.00   0.23 -0.23 -0.22</span></span>
+<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## female     0.15    0.14   0.16  0.23   1.00 -1.00 -0.05</span></span>
+<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## male      -0.15   -0.14  -0.16 -0.23  -1.00  1.00  0.05</span></span>
+<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## y          0.33    0.29  -0.66 -0.22  -0.05  0.05  1.00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fs90">
 <ul>
-<li>Surveys can be easily exported from Qualtrics</li>
-</ul></li>
-<li><strong>Analytical Code</strong> (Quarto HTML) with comments
+<li><p><code>height1</code> and <code>height2</code> are highly correlated <span class="math inline">\((r=.97)\)</span></p></li>
+<li><p><code>female</code> and <code>male</code> are perfectly correlated <span class="math inline">\((r=-1.00)\)</span></p></li>
+<li><p>However, <code>size</code> is not as correlated with <code>height1</code> <span class="math inline">\((r=.72)\)</span><br>or <code>weight</code> <span class="math inline">\((r=.72)\)</span> despite the three being multicollinear</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2 fs90">
+<h2>Example with No Issues</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>fit_none <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight, <span class="at">data =</span> simdat)</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_none)</span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI |  t(97) |      p</span></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------</span></span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.02 | 0.12 | [ 9.80, 10.25] |  87.06 | &lt; .001</span></span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1     |        0.20 | 0.04 | [ 0.13,  0.28] |   5.53 | &lt; .001</span></span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight      |       -0.38 | 0.04 | [-0.45, -0.30] | -10.16 | &lt; .001</span></span>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit_none)</span>
+<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # R2 for Linear Regression</span></span>
+<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.567</span></span>
+<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.558</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
-<li>Code to preprocess/tidy and analyze data</li>
-</ul></li>
-<li><strong>Manuscripts</strong> (DOCX or PDF) on a preprint server
+<li>Both slopes are significant</li>
+<li>The SE of both slopes is 0.04</li>
+<li>The <span class="math inline">\(R^2\)</span> is 0.567 (57%)</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example with No Issues</h2>
+<p>Let’s calculate the VIFs for this model</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_collinearity</span>(fit_none)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Check for Multicollinearity</span></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Low Correlation</span></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     Term  VIF       VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height1 1.00 [1.00, 4.50e+15]     1.00      1.00     [0.00, 1.00]</span></span>
+<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   weight 1.00 [1.00, 4.50e+15]     1.00      1.00     [0.00, 1.00]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
-<li>Pre-review versions can usually be shared</li>
-</ul></li>
+<li>The VIFs for both predictors are low (&lt;5)</li>
 </ul>
 </section>
 <section class="slide level2 fs90">
-<h2>Resources for sharing</h2>
+<h2>Example with Collinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>fit_co <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight <span class="sc">+</span> height2, <span class="at">data =</span> simdat)</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_co)</span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI |  t(96) |      p</span></span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------</span></span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.02 | 0.12 | [ 9.79, 10.25] |  86.61 | &lt; .001</span></span>
+<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1     |        0.24 | 0.15 | [-0.05,  0.53] |   1.61 | 0.110 </span></span>
+<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight      |       -0.38 | 0.04 | [-0.45, -0.30] | -10.04 | &lt; .001</span></span>
+<span id="cb6-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height2     |       -0.03 | 0.15 | [-0.32,  0.26] |  -0.23 | 0.821</span></span>
+<span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit_co)</span>
+<span id="cb6-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # R2 for Linear Regression</span></span>
+<span id="cb6-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.567</span></span>
+<span id="cb6-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.553</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
-<li><a href="https://osf.io">Open Science Framework (OSF)</a> is a free website for open sharing
+<li>The <code>height1</code> slope is no longer significant</li>
+<li>The SE of the height slopes are both 0.15 (up from 0.04)</li>
+<li>Note that the <span class="math inline">\(R^2\)</span> is basically the same (57%)</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example with Collinearity</h2>
+<p>Let’s calculate the VIFs for this model</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_collinearity</span>(fit_co)</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Check for Multicollinearity</span></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Low Correlation</span></span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    Term  VIF       VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  weight 1.01 [ 1.00, 5128.00]     1.01      0.99     [0.00, 1.00]</span></span>
+<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## High Correlation</span></span>
+<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     Term   VIF       VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb7-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height1 15.71 [11.06,   22.49]     3.96      0.06     [0.04, 0.09]</span></span>
+<span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height2 15.76 [11.10,   22.58]     3.97      0.06     [0.04, 0.09]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
-<li>You can have public or private projects with controlled access</li>
-<li>You can create anonymized links for blinded peer-review</li>
-</ul></li>
-<li><a href="https://github.org">GitHub</a> is a free website for code sharing and collaboration
-<ul>
-<li>It provides version control and free web hosting</li>
-</ul></li>
-<li><a href="https://psyarxiv.com">PsyArXiV</a> is a free preprint server for psychology manuscripts
-<ul>
-<li>Most journals allow preprint sharing (<a href="http://www.sherpa.ac.uk/romeo/journalbrowse.php">check here</a>)</li>
-<li>Many journals allow postprint sharing (post-review version)</li>
-</ul></li>
+<li>The VIFS for both height variables are very high (&gt;10)</li>
 </ul>
 </section>
 <section class="slide level2 fs90">
-<h2>Preregistration</h2>
+<h2>Example with Multicollinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>fit_mc <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight <span class="sc">+</span> size, <span class="at">data =</span> simdat)</span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_mc)</span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI | t(96) |      p</span></span>
+<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------</span></span>
+<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.02 | 0.12 | [ 9.79, 10.25] | 85.93 | &lt; .001</span></span>
+<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1     |        0.24 | 0.18 | [-0.11,  0.60] |  1.37 | 0.175 </span></span>
+<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight      |       -0.34 | 0.18 | [-0.69,  0.01] | -1.92 | 0.058 </span></span>
+<span id="cb8-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## size        |       -0.04 | 0.18 | [-0.39,  0.31] | -0.22 | 0.828</span></span>
+<span id="cb8-10"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit_mc)</span>
+<span id="cb8-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # R2 for Linear Regression</span></span>
+<span id="cb8-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.567</span></span>
+<span id="cb8-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.553</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
-<li><p>Presenting exploratory work as confirmatory is misleading</p></li>
-<li><p>We can avoid this by “calling our shots” before data collection</p>
-<ul>
-<li>By preregistering our hypotheses, we avoid HARKing</li>
-<li>By preregistering our analyses, we avoid <em>p</em>-hacking</li>
-<li>It’s okay to change things, but you have to disclose it</li>
-</ul></li>
-<li><p>Many journals now offer <strong>registered reports</strong></p>
-<ul>
-<li>Reviewers evaluate and refine your preregistered plan</li>
-<li>The journal will publish your paper if you follow the plan</li>
-</ul></li>
+<li>None of the slopes are significant</li>
+<li>The SE of all slopes is now 0.18 (up from 0.04)</li>
+<li>Note that the <span class="math inline">\(R^2\)</span> is basically the same (57%)</li>
 </ul>
+</section>
+<section class="slide level2">
+<h2>Example with Multicollinearity</h2>
+<p>Let’s calculate the VIFs for this model</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_collinearity</span>(fit_mc)</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Check for Multicollinearity</span></span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## High Correlation</span></span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     Term   VIF     VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height1 22.91 [16.05, 32.89]     4.79      0.04     [0.03, 0.06]</span></span>
+<span id="cb9-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   weight 22.60 [15.84, 32.44]     4.75      0.04     [0.03, 0.06]</span></span>
+<span id="cb9-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     size 47.41 [33.03, 68.25]     6.89      0.02     [0.01, 0.03]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>The VIFs for all predictors are very high (&gt;10)</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example with Exact Collinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>fit_xc <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> female <span class="sc">+</span> male, <span class="at">data =</span> simdat)</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_xc)</span>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Model matrix is rank deficient. Parameters `male` were not estimable.</span></span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI | t(98) |      p</span></span>
+<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------</span></span>
+<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.01 | 0.24 | [ 9.52, 10.49] | 40.89 | &lt; .001</span></span>
+<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## female      |       -0.19 | 0.34 | [-0.87,  0.49] | -0.54 | 0.590</span></span>
+<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed</span></span>
+<span id="cb10-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   using a Wald t-distribution approximation.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Note the warning about the <code>male</code> parameter</li>
+<li>Note the absence of a <code>male</code> slope (it was dropped)</li>
+<li>This is why we use <span class="math inline">\((g-1)\)</span> dummy codes and not <span class="math inline">\(g\)</span></li>
+</ul>
+</section>
+<section class="slide level2 fs90">
+<h2>Solutions</h2>
+<ol type="1">
+<li>Break the predictors’ redundancy
+<ul>
+<li>e.g., drop one or more predictors</li>
+<li>e.g., combine two or more predictors</li>
+<li>e.g., reduce predictor dimensionality (PCA)</li>
+<li>e.g., penalized (lasso or ridge) regression</li>
+</ul></li>
+<li>Model the predictors’ shared variance
+<ul>
+<li>e.g., partial least squares estimation</li>
+<li>e.g., structural equation modeling</li>
+</ul></li>
+</ol>
 
 
 </section></section>

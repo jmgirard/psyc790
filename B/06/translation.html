@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 10: Reliability and Measurement Error – PSYC790</title>
+<title>Unit B Translation Activity – PSYC790</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,11 +74,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -106,18 +135,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-a">    
         <li>
-    <a class="dropdown-item" href="../../A/01/index.html"><i class="bi bi-rocket-takeoff" role="img">
-</i> 
+    <a class="dropdown-item" href="../../A/01/index.html">
  <span class="dropdown-text">Chapter 01: Getting Started</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../A/02/index.html"><i class="bi bi-code-square" role="img">
-</i> 
+    <a class="dropdown-item" href="../../A/02/index.html">
  <span class="dropdown-text">Chapter 02: Projects and Programming</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../A/03/index.html"><i class="bi bi-table" role="img">
-</i> 
+    <a class="dropdown-item" href="../../A/03/index.html">
  <span class="dropdown-text">Chapter 03: Data and Exploration</span></a>
   </li>  
     </ul>
@@ -128,18 +154,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-b">    
         <li>
-    <a class="dropdown-item" href="../../B/04/index.html"><i class="bi bi-people" role="img">
-</i> 
+    <a class="dropdown-item" href="../../B/04/index.html">
  <span class="dropdown-text">Chapter 04: Sampling and Estimation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../B/05/index.html"><i class="bi bi-question-circle" role="img">
-</i> 
+    <a class="dropdown-item" href="../../B/05/index.html">
  <span class="dropdown-text">Chapter 05: Hypothesis Testing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../B/06/index.html"><i class="bi bi-bar-chart" role="img">
-</i> 
+    <a class="dropdown-item" href="../../B/06/index.html">
  <span class="dropdown-text">Chapter 06: Group Comparisons</span></a>
   </li>  
     </ul>
@@ -150,29 +173,16 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-c">    
         <li>
-    <a class="dropdown-item" href="../../C/07/index.html"><i class="bi bi-graph-up" role="img">
-</i> 
+    <a class="dropdown-item" href="../../C/07/index.html">
  <span class="dropdown-text">Chapter 07: Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/08/index.html"><i class="bi bi-sliders" role="img">
-</i> 
+    <a class="dropdown-item" href="../../C/08/index.html">
  <span class="dropdown-text">Chapter 08: Moderation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/09/index.html"><i class="bi bi-clipboard-check" role="img">
-</i> 
- <span class="dropdown-text">Chapter 09: Assumptions, Diagnostics, and Nonlinearity</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../C/10/index.html"><i class="bi bi-rulers" role="img">
-</i> 
- <span class="dropdown-text">Chapter 10: Reliability and Measurement Error</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../C/11/index.html"><i class="bi bi-shuffle" role="img">
-</i> 
- <span class="dropdown-text">Chapter 11: Bootstrap and Robust Inference</span></a>
+    <a class="dropdown-item" href="../../C/09/index.html">
+ <span class="dropdown-text">Chapter 09: Nonlinearity</span></a>
   </li>  
     </ul>
   </li>
@@ -182,14 +192,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-d">    
         <li>
-    <a class="dropdown-item" href="../../D/12/index.html"><i class="bi bi-shield-check" role="img">
-</i> 
- <span class="dropdown-text">Chapter 12: Best Practices and Power</span></a>
+    <a class="dropdown-item" href="../../D/10/index.html">
+ <span class="dropdown-text">Chapter 10: Assumptions and Diagnostics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../D/13/index.html"><i class="bi bi-pen" role="img">
-</i> 
- <span class="dropdown-text">Chapter 13: Reporting and Reviewing</span></a>
+    <a class="dropdown-item" href="../../D/11/index.html">
+ <span class="dropdown-text">Chapter 11: Bootstrap and Robust Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../D/12/index.html">
+ <span class="dropdown-text">Chapter 12: Missing Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-unit-e" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Unit E</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-e">    
+        <li>
+    <a class="dropdown-item" href="../../E/13/index.html">
+ <span class="dropdown-text">Chapter 13: Reliability and Measurement Error</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../E/14/index.html">
+ <span class="dropdown-text">Chapter 14: Power and Preregistration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../E/15/index.html">
+ <span class="dropdown-text">Chapter 15: Reporting and Reviewing Results</span></a>
   </li>  
     </ul>
   </li>
@@ -204,28 +235,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#a-classical-test-theory-and-internal-consistency" id="toc-a-classical-test-theory-and-internal-consistency" class="nav-link active" data-scroll-target="#a-classical-test-theory-and-internal-consistency">[10a] Classical Test Theory and Internal Consistency</a>
-  <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
-  </ul></li>
-  <li><a href="#b-inter-rater-reliability-and-attenuation" id="toc-b-inter-rater-reliability-and-attenuation" class="nav-link" data-scroll-target="#b-inter-rater-reliability-and-attenuation">[10b] Inter-Rater Reliability and Attenuation</a>
-  <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 10: Reliability and Measurement Error</h1>
+<h1 class="title">Unit B Translation Activity</h1>
 </div>
 
 
@@ -242,49 +258,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Under development
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This chapter is planned but not yet written. The outline below shows what it is intended to cover.</p>
-</div>
-</div>
-<!-- Lecture a -->
-<section id="a-classical-test-theory-and-internal-consistency" class="level2">
-<h2 class="anchored" data-anchor-id="a-classical-test-theory-and-internal-consistency">[10a] Classical Test Theory and Internal Consistency</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
-<ul>
-<li>True scores, measurement error, and reliability</li>
-<li>Cronbach’s alpha and why it is often the wrong choice</li>
-<li>McDonald’s omega</li>
-</ul>
-<!-- Lecture b -->
+<p><img src="../../img/exams_2780E3.svg" height="300"></p>
+<p><em>These activities are for practice only — there is nothing to turn in.</em></p>
+<p>Every question in Unit B told you which test to run. Research never does. This activity works the other direction: you are given a study in the words a researcher would use to describe it, and you have to work out what comparison is actually being asked for.</p>
+<p>For each study below, answer:</p>
+<ol type="1">
+<li>What might the data frame look like? Name the variables, give their types, and say what one row represents.</li>
+<li>Which procedure from Unit B fits — a one-sample, independent-samples, or paired-samples <span class="math inline">\(t\)</span>-test, a one-way ANOVA, or a correlation? Say why the others do not.</li>
+<li>What are the null and alternative hypotheses, in words and in symbols?</li>
+<li>Is there anything about the design that should make you hesitate before trusting the default version of that test?</li>
+</ol>
+<section id="example-1-developmental" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-developmental">Example 1 (Developmental)</h2>
+<blockquote class="blockquote">
+<p>A reading intervention is supposed to bring struggling second-graders up to the national benchmark of 90 words read correctly per minute. I run the programme with 40 children and measure their reading fluency at the end of it. I want to know whether this group has reached the benchmark.</p>
+</blockquote>
 </section>
+<section id="example-2-cognitive" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-cognitive">Example 2 (Cognitive)</h2>
+<blockquote class="blockquote">
+<p>I think people solve anagrams faster in a quiet room than in a noisy one. I recruit 60 people, and each person solves one set of anagrams in a quiet room and a different set in a noisy room, with the order counterbalanced. I record solution time in seconds for each person in each condition.</p>
+</blockquote>
 </section>
-<section id="b-inter-rater-reliability-and-attenuation" class="level2">
-<h2 class="anchored" data-anchor-id="b-inter-rater-reliability-and-attenuation">[10b] Inter-Rater Reliability and Attenuation</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
-<ul>
-<li>Intraclass correlations for rater agreement</li>
-<li>Test–retest reliability</li>
-<li>How unreliable predictors attenuate regression slopes</li>
-</ul>
-<!-- Bottom Nav -->
-<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../../C/09/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 09</a>
-  <a href="../../C/11/index.html" class="btn btn-primary" role="button">Chapter 11&nbsp;&nbsp;»</a>
-</div>
+<section id="example-3-organizational" class="level2">
+<h2 class="anchored" data-anchor-id="example-3-organizational">Example 3 (Organizational)</h2>
+<blockquote class="blockquote">
+<p>Our company uses three different onboarding programmes across its regional offices, and I want to know whether new hires end up equally satisfied under all three. I have satisfaction scores from 210 new hires, each of whom went through exactly one programme. The three offices are quite different sizes, and I have been told satisfaction scores are much more spread out at one of them.</p>
+</blockquote>
+</section>
+<section id="example-4-health" class="level2">
+<h2 class="anchored" data-anchor-id="example-4-health">Example 4 (Health)</h2>
+<blockquote class="blockquote">
+<p>I want to know whether people who sleep more report less daytime fatigue. I ask 95 adults to report their average nightly sleep in hours and to complete a continuous fatigue questionnaire.</p>
+</blockquote>
+</section>
+<section id="bring-your-own" class="level2">
+<h2 class="anchored" data-anchor-id="bring-your-own">Bring your own</h2>
+<p>Describe a study from your own area the same way — a short paragraph, no statistical vocabulary — and hand it to someone else to translate. Then compare what they wrote to the analysis you actually had in mind.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
