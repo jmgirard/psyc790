@@ -6,6 +6,10 @@ title: "Chapter 16: Reporting and Reviewing"
 
 ## [16a] Reporting & Reviewing
 
+### Readings
+- "Research Design" --- *Reviewer's Guide to Quantitative Methods in the Social Sciences*
+- "Multiple Regression" --- *Reviewer's Guide to Quantitative Methods in the Social Sciences*
+
 ### Slides
 
 ```{=html}

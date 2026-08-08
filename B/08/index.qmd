@@ -16,6 +16,9 @@ title: "Chapter 08: Extensions and Review"
 - [depression.csv](../../data/depression.csv){download="depression.csv"}
 - [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
 
+### Readings
+- [Comparing Several Means, §14.6--14.11](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*
+
 ### Slides
 
 ```{=html}

@@ -15,6 +15,9 @@ title: "Chapter 05: Sampling and Estimation"
 ### Files
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
 
+### Readings
+- [Estimating Unknown Quantities, §10.1--10.2](https://learningstatisticswithr.com/10-estimation.html) --- *Learning Statistics with R*
+
 ### Slides
 
 ```{=html}
@@ -43,6 +46,10 @@ title: "Chapter 05: Sampling and Estimation"
 ### Files
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
+
+### Readings
+- [Introduction to Probability, §9.1--9.2, 9.5](https://learningstatisticswithr.com/09-probability.html) --- *Learning Statistics with R*
+- [Estimating Unknown Quantities, §10.3--10.6](https://learningstatisticswithr.com/10-estimation.html) --- *Learning Statistics with R*
 
 ### Slides
 

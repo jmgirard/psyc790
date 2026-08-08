@@ -13,6 +13,9 @@ title: "Chapter 10: Categorical and Multiple Regression"
 ### Files
 - [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
 
+### Readings
+- *Applied Multiple Regression/Correlation Analysis*, §8.1--8.2
+
 ### Slides
 
 ```{=html}
@@ -38,6 +41,11 @@ title: "Chapter 10: Categorical and Multiple Regression"
 
 ### Files
 - [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
+
+### Readings
+- *Applied Multiple Regression/Correlation Analysis*, §3.2--3.3, 3.5--3.6
+- Rohrer (2018), [Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data](https://doi.org/10.1177/2515245917745629) --- *AMPPS*
+- Carlin \& Moreno-Betancur (2023), [On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching](https://arxiv.org/abs/2309.06668) --- *arXiv*
 
 ### Slides
 

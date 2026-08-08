@@ -15,6 +15,9 @@ title: "Chapter 13: Polynomial Regression"
 ### Files
 - [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
 
+### Readings
+- *Applied Multiple Regression/Correlation Analysis*, §6.1--6.2
+
 ### Slides
 
 ```{=html}

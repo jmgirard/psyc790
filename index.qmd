@@ -66,17 +66,28 @@ At the conclusion of this course, students will be able to:
 
 ### Course Textbooks
 
-There is no required textbook, and all three books below are optional. Assigned
-readings are distributed by your instructor.
+There is no required textbook. Each chapter page lists its own readings: those
+drawn from open-access books and articles link straight to the source, while
+chapters of the two reference books below are provided by your instructor.
 
-- **Learning Statistics with R** (v0.6) by Danielle Navarro. A free online
-  textbook; readings from it accompany Unit B and are optional.
+**Freely available online**
+
+- [**R for Data Science**](https://r4ds.hadley.nz/) (2nd ed.) by Hadley
+  Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. The main source for
+  Unit A.
+- [**Learning Statistics with R**](https://learningstatisticswithr.com/) by
+  Danielle Navarro. The main source for Unit B.
+- [**Advanced R**](https://adv-r.hadley.nz/) by Hadley Wickham and
+  [**ggplot2: Elegant Graphics for Data Analysis**](https://ggplot2-book.org/)
+  by Hadley Wickham et al., for occasional deeper reading in Unit A.
+
+**Optional references**
+
 - **Applied Multiple Regression/Correlation Analysis for the Behavioral
   Sciences** (3rd ed.) by Jacob Cohen, Patricia Cohen, Stephen G. West, and
-  Leona S. Aiken. Routledge, 2013. An optional reference.
+  Leona S. Aiken. Routledge, 2013. The main source for Unit C.
 - **Beyond Significance Testing: Statistics Reform in the Behavioral Sciences**
-  (2nd ed.) by Rex B. Kline. American Psychological Association, 2015. An
-  optional reference.
+  (2nd ed.) by Rex B. Kline. American Psychological Association, 2015.
 
 ### Instructor
 

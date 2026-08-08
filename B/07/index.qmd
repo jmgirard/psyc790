@@ -14,6 +14,10 @@ title: "Chapter 07: Group Comparisons"
 - [socialproblems.csv](../../data/socialproblems.csv){download="socialproblems.csv"}
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
 
+### Readings
+- [Comparing Two Means, §13.3--13.8](https://learningstatisticswithr.com/13-ttest.html) --- *Learning Statistics with R*
+- *Beyond Significance Testing*, pp. 123--138
+
 ### Slides
 
 ```{=html}
@@ -38,6 +42,10 @@ title: "Chapter 07: Group Comparisons"
 
 ### Files
 - [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+
+### Readings
+- [Comparing Several Means, §14.1--14.5](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*
+- [Introduction to Probability, §9.6](https://learningstatisticswithr.com/09-probability.html) --- *Learning Statistics with R*
 
 ### Slides
 

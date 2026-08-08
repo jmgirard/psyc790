@@ -15,6 +15,10 @@ title: "Chapter 09: Regression"
 - [parenthood.csv](../../data/parenthood.csv){download="parenthood.csv"}
 - [water.csv](../../data/water.csv){download="water.csv"}
 
+### Readings
+- [Linear Regression, §15.1--15.2, 15.4--15.5, 15.7](https://learningstatisticswithr.com/15-regression.html) --- *Learning Statistics with R*
+- *Applied Multiple Regression/Correlation Analysis*, §2.4, 2.6--2.8
+
 ### Slides
 
 ```{=html}

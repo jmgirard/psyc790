@@ -11,6 +11,12 @@ title: "Chapter 02: Projects and Programming"
 - Quarto
 - Markdown
 
+### Readings
+- [Workflow: Projects](https://r4ds.hadley.nz/workflow-scripts#projects) --- *R for Data Science*
+- [Quarto](https://r4ds.hadley.nz/quarto) --- *R for Data Science*
+- [Getting Started with Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) --- *Quarto*
+- [Quarto Cheat Sheet](https://rstudio.github.io/cheatsheets/html/quarto.html) --- *Posit*
+
 ### Slides
 
 ```{=html}
@@ -89,6 +95,11 @@ format: html
 - Naming
 - Functions
 - Vectors
+
+### Readings
+- [Workflow: Basics](https://r4ds.hadley.nz/workflow-basics) --- *R for Data Science*
+- [Functions](https://r4ds.hadley.nz/functions) --- *R for Data Science*
+- [Vectors](https://adv-r.hadley.nz/vectors-chap.html) --- *Advanced R*
 
 ### Slides
 
