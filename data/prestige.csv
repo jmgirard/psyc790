@@ -1,0 +1,99 @@
+"occupation","type","education","income","women","prestige"
+"gov.administrators","Professional",13.11,12351,11.16,68.8
+"general.managers","Professional",12.26,25879,4.02,69.1
+"accountants","Professional",12.77,9271,15.7,63.4
+"purchasing.officers","Professional",11.42,8865,9.11,56.8
+"chemists","Professional",14.62,8403,11.68,73.5
+"physicists","Professional",15.64,11030,5.13,77.6
+"biologists","Professional",15.09,8258,25.65,72.6
+"architects","Professional",15.44,14163,2.69,78.1
+"civil.engineers","Professional",14.52,11377,1.03,73.1
+"mining.engineers","Professional",14.64,11023,0.94,68.8
+"surveyors","Professional",12.39,5902,1.91,62
+"draughtsmen","Professional",12.3,7059,7.83,60
+"computer.programers","Professional",13.83,8425,15.33,53.8
+"economists","Professional",14.44,8049,57.31,62.2
+"psychologists","Professional",14.36,7405,48.28,74.9
+"social.workers","Professional",14.21,6336,54.77,55.1
+"lawyers","Professional",15.77,19263,5.13,82.3
+"librarians","Professional",14.15,6112,77.1,58.1
+"vocational.counsellors","Professional",15.22,9593,34.89,58.3
+"ministers","Professional",14.5,4686,4.14,72.8
+"university.teachers","Professional",15.97,12480,19.59,84.6
+"primary.school.teachers","Professional",13.62,5648,83.78,59.6
+"secondary.school.teachers","Professional",15.08,8034,46.8,66.1
+"physicians","Professional",15.96,25308,10.56,87.2
+"veterinarians","Professional",15.94,14558,4.32,66.7
+"osteopaths.chiropractors","Professional",14.71,17498,6.91,68.4
+"nurses","Professional",12.46,4614,96.12,64.7
+"nursing.aides","Blue Collar",9.45,3485,76.14,34.9
+"physio.therapsts","Professional",13.62,5092,82.66,72.1
+"pharmacists","Professional",15.21,10432,24.71,69.3
+"medical.technicians","White Collar",12.79,5180,76.04,67.5
+"commercial.artists","Professional",11.09,6197,21.03,57.2
+"radio.tv.announcers","White Collar",12.71,7562,11.15,57.6
+"secretaries","White Collar",11.59,4036,97.51,46
+"typists","White Collar",11.49,3148,95.97,41.9
+"bookkeepers","White Collar",11.32,4348,68.24,49.4
+"tellers.cashiers","White Collar",10.64,2448,91.76,42.3
+"computer.operators","White Collar",11.36,4330,75.92,47.7
+"shipping.clerks","White Collar",9.17,4761,11.37,30.9
+"file.clerks","White Collar",12.09,3016,83.19,32.7
+"receptionsts","White Collar",11.04,2901,92.86,38.7
+"mail.carriers","White Collar",9.22,5511,7.62,36.1
+"postal.clerks","White Collar",10.07,3739,52.27,37.2
+"telephone.operators","White Collar",10.51,3161,96.14,38.1
+"collectors","White Collar",11.2,4741,47.06,29.4
+"claim.adjustors","White Collar",11.13,5052,56.1,51.1
+"travel.clerks","White Collar",11.43,6259,39.17,35.7
+"office.clerks","White Collar",11,4075,63.23,35.6
+"sales.supervisors","White Collar",9.84,7482,17.04,41.5
+"commercial.travellers","White Collar",11.13,8780,3.16,40.2
+"sales.clerks","White Collar",10.05,2594,67.82,26.5
+"service.station.attendant","Blue Collar",9.93,2370,3.69,23.3
+"insurance.agents","White Collar",11.6,8131,13.09,47.3
+"real.estate.salesmen","White Collar",11.09,6992,24.44,47.1
+"buyers","White Collar",11.03,7956,23.88,51.1
+"firefighters","Blue Collar",9.47,8895,0,43.5
+"policemen","Blue Collar",10.93,8891,1.65,51.6
+"cooks","Blue Collar",7.74,3116,52,29.7
+"bartenders","Blue Collar",8.5,3930,15.51,20.2
+"funeral.directors","Blue Collar",10.57,7869,6.01,54.9
+"launderers","Blue Collar",7.33,3000,69.31,20.8
+"janitors","Blue Collar",7.11,3472,33.57,17.3
+"elevator.operators","Blue Collar",7.58,3582,30.08,20.1
+"farm.workers","Blue Collar",8.6,1656,27.75,21.5
+"rotary.well.drillers","Blue Collar",8.88,6860,0,35.3
+"bakers","Blue Collar",7.54,4199,33.3,38.9
+"slaughterers.1","Blue Collar",7.64,5134,17.26,25.2
+"slaughterers.2","Blue Collar",7.64,5134,17.26,34.8
+"canners","Blue Collar",7.42,1890,72.24,23.2
+"textile.weavers","Blue Collar",6.69,4443,31.36,33.3
+"textile.labourers","Blue Collar",6.74,3485,39.48,28.8
+"tool.die.makers","Blue Collar",10.09,8043,1.5,42.5
+"machinists","Blue Collar",8.81,6686,4.28,44.2
+"sheet.metal.workers","Blue Collar",8.4,6565,2.3,35.9
+"welders","Blue Collar",7.92,6477,5.17,41.8
+"auto.workers","Blue Collar",8.43,5811,13.62,35.9
+"aircraft.workers","Blue Collar",8.78,6573,5.78,43.7
+"electronic.workers","Blue Collar",8.76,3942,74.54,50.8
+"radio.tv.repairmen","Blue Collar",10.29,5449,2.92,37.2
+"sewing.mach.operators","Blue Collar",6.38,2847,90.67,28.2
+"auto.repairmen","Blue Collar",8.1,5795,0.81,38.1
+"aircraft.repairmen","Blue Collar",10.1,7716,0.78,50.3
+"railway.sectionmen","Blue Collar",6.67,4696,0,27.3
+"electrical.linemen","Blue Collar",9.05,8316,1.34,40.9
+"electricians","Blue Collar",9.93,7147,0.99,50.2
+"construction.foremen","Blue Collar",8.24,8880,0.65,51.1
+"carpenters","Blue Collar",6.92,5299,0.56,38.9
+"masons","Blue Collar",6.6,5959,0.52,36.2
+"house.painters","Blue Collar",7.81,4549,2.46,29.9
+"plumbers","Blue Collar",8.33,6928,0.61,42.9
+"construction.labourers","Blue Collar",7.52,3910,1.09,26.5
+"pilots","Professional",12.27,14032,0.58,66.1
+"train.engineers","Blue Collar",8.49,8845,0,48.9
+"bus.drivers","Blue Collar",7.58,5562,9.47,35.9
+"taxi.drivers","Blue Collar",7.93,4224,3.59,25.1
+"longshoremen","Blue Collar",8.37,4753,0,26.1
+"typesetters","Blue Collar",10,6462,13.58,42.2
+"bookbinders","Blue Collar",8.55,3617,70.87,35.2
