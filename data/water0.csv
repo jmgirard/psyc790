@@ -1,0 +1,62 @@
+town,region,mortality,hardness
+Bath,2,1247,105
+Birkenhead,1,1668,17
+Birmingham,2,1466,5
+Blackburn,1,1800,14
+Blackpool,1,1609,18
+Bolton,1,1558,10
+Bootle,1,1807,15
+Bournemouth,2,1299,78
+Bradford,1,1637,10
+Brighton,2,1359,84
+Bristol,2,1392,73
+Burnley,1,1755,12
+Cardiff,2,1519,21
+Coventry,2,1307,78
+Croydon,2,1254,96
+Darlington,1,1491,20
+Derby,1,1555,39
+Doncaster,1,1428,39
+East Ham,2,1318,122
+Exeter,2,1260,21
+Gateshead,1,1723,44
+Grimsby,1,1379,94
+Halifax,1,1742,8
+Huddersfield,1,1574,9
+Hull,1,1569,91
+Ipswich,2,1096,138
+Leeds,1,1591,16
+Leicester,2,1402,37
+Liverpool,1,1772,15
+Manchester,1,1828,8
+Middlesbrough,1,1704,26
+Newcastle,1,1702,44
+Newport,2,1581,14
+Northampton,2,1309,59
+Norwich,2,1259,133
+Nottingham,1,1427,27
+Oldham,1,1724,6
+Oxford,2,1175,107
+Plymouth,2,1486,5
+Portsmouth,2,1456,90
+Preston,1,1696,6
+Reading,2,1236,101
+Rochdale,1,1711,13
+Rotherham,1,1444,14
+St Helens,1,1591,49
+Salford,1,1987,8
+Sheffield,1,1495,14
+Southampton,2,1369,68
+Southend,2,1257,50
+Southport,1,1587,75
+South Shields,1,1713,71
+Stockport,1,1557,13
+Stoke,1,1640,57
+Sunderland,1,1709,71
+Swansea,2,1625,13
+Wallasey,1,1625,20
+Walsall,2,1527,60
+West Bromwich,2,1627,53
+West Ham,2,1486,122
+Wolverhampton,2,1485,81
+York,1,1378,71

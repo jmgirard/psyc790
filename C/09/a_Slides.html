@@ -206,10 +206,10 @@
 <h1><span class="blue">Statistical Methods</span></h1>
 <p>Regression / Inference / Centering</p>
 <div class="my-grey">
-<p><span>Fall 2025 | Course PSYC 790</span><br> <span>Jeffrey M. Girard | Lecture 09b</span></p>
+<p><span>Unit C | Chapter 09</span><br> <span>Lecture 09a</span></p>
 </div>
 <div class="my-attrib">
-<p></p>
+<p>Developed by Jeffrey M. Girard</p>
 </div>
 <p><img data-src="../../img/growth_curve_357EDD.png" class="absolute" style="bottom: 30px; right: 0px; width: 400px; "></p>
 </section>
@@ -225,14 +225,14 @@
 <li>A correlation quantifies how well a <strong>straight line</strong> represents the relationship between two continuous variables</li>
 </ul>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Regression as Fancy Correlation</h2>
 <ul>
 <li>A correlation quantifies how well a <span class="b salmon">straight line</span> represents the relationship between two continuous variables</li>
 </ul>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Regression as Fancy Correlation</h2>
 <ul>
@@ -240,14 +240,14 @@
 <li><p>Many different lines could have been drawn…</p></li>
 </ul>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Regression as Fancy Correlation</h2>
 <ul>
 <li>Regression is a way to <em>select</em> and <em>quantify</em> the “best” line</li>
 </ul>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Defining a Line in General</h2>
 <div class="columns">
@@ -264,7 +264,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -298,7 +298,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -322,7 +322,7 @@ y_i &amp;= \color{blue}{b_0} + \color{blue}{b_1}x_i + \color{magenta}{e_i} \\
 <section class="slide level2">
 <h2>Visualizing Regression Residuals</h2>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Minimizing Regression Residuals</h2>
 <ul>
@@ -752,7 +752,7 @@ b_0 = \bar{y} - b_1\bar{x}
 <section class="slide level2">
 <h2>Data Exploration</h2>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>OLS Regression by Hand</h2>
 <div class="cell">
@@ -781,7 +781,7 @@ b_0 = \bar{y} - b_1\bar{x}
 <span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> b1, <span class="at">intercept =</span> b0, <span class="at">color =</span> <span class="st">"salmon"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Regression using lm()</h2>
 <div class="cell">
@@ -874,7 +874,7 @@ b_0 \pm \text{SE}(b_0)\times t_{crit}
 <span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(est, <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="1152" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Hypothesis Testing</h2>
 <p><strong>Null:</strong> The true coefficient (in the population) is zero</p>
@@ -942,7 +942,7 @@ t_{obs} = \frac{b}{\text{SE}(b)}
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -954,7 +954,7 @@ t_{obs} = \frac{b}{\text{SE}(b)}
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="480"></p>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="480"></p>
 </figure>
 </div>
 </div>

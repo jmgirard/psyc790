@@ -203,10 +203,10 @@
 <h1><span class="blue">Statistical Methods</span></h1>
 <p>Categorical Moderation</p>
 <div class="my-grey">
-<p><span>Fall 2025 | Course PSYC 790</span><br> <span>Jeffrey M. Girard | Lecture 11b</span></p>
+<p><span>Unit C | Chapter 11</span><br> <span>Lecture 11b</span></p>
 </div>
 <div class="my-attrib">
-<p></p>
+<p>Developed by Jeffrey M. Girard</p>
 </div>
 <p><img data-src="../../img/growth_curve_357EDD.png" class="absolute" style="bottom: 30px; right: 0px; width: 400px; "></p>
 </section>
@@ -697,12 +697,6 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_means</span>(fit5, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"program"</span>, <span class="st">"sex"</span>)), <span class="at">join_dots =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<!-- ==========================================================================
-     DRAFT — three-way interactions. Written to address the note that 11b runs
-     short. The statistical pedagogy here has NOT been reviewed by the course
-     author; check the framing, the worked interpretations, and whether this
-     belongs in 11b at all before teaching it.
-     ========================================================================== -->
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -778,7 +772,7 @@
 <ul>
 <li>Read it <span class="b blue">top-down</span>, highest-order term first
 <ul>
-<li>If the three-way term is significant, the two-way interactions <em>cannot</em> be interpreted on their own</li>
+<li>If the three-way term is significant, the two-way interactions should not be read as <em>overall</em> effects</li>
 <li>Each lower-order term is now conditional on the others being zero</li>
 </ul></li>
 </ul>
@@ -854,6 +848,7 @@
 <ul>
 <li>They need substantially more power than two-way terms</li>
 <li>Cells get small quickly once you cross three variables</li>
+<li>Our example is <em>simulated</em>, with 150 per cell — real data is rarely this generous</li>
 </ul></li>
 </ul>
 <div class="fragment mt1">
