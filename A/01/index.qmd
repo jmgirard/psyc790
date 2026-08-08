@@ -36,9 +36,9 @@ You will need two free programs, installed in this order:
    environment you will actually work in
 
 Once both are installed, open RStudio and run the
-[`install-packages.R`](https://github.com/jmgirard/psyc790/blob/main/install-packages.R)
-script from the course repository. It installs every package used anywhere in
-these materials and skips anything you already have.
+[`install-packages.R`](/install-packages.R) script from this site. It installs
+every package used anywhere in these materials and skips anything you already
+have.
 
 The first two chapters walk through RStudio, projects, and Quarto in detail, so
 there is no need to understand any of it yet.

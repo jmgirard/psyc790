@@ -14,6 +14,9 @@ project:
     - "!archive/**"
   resources:
     - "icons/"
+    # Served from the site so the setup instructions can point at
+    # /install-packages.R instead of at the GitHub repo behind it.
+    - "install-packages.R"
 
 execute:
   freeze: auto
@@ -29,7 +32,7 @@ execute:
 # HTML chapter pages and assignments still show it. See SLIDE-OVERFLOW.md.
 
 website:
-  title: "PSYC790"
+  title: "Statistical Methods with R"
   navbar:
     background: primary
     search: true

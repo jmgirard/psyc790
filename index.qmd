@@ -1,5 +1,5 @@
 ---
-title: "Statistical Methods in Psychology"
+title: "Statistical Methods with R"
 toc: false
 email-obfuscation: javascript
 ---
@@ -27,10 +27,31 @@ methods for the behavioral and social sciences: slides, in-class practice
 activities, assignments, readings, and datasets, covering fifteen chapters
 across five units.
 
-Anyone is welcome to teach from these materials, adapt them for their own
-course, or work through them independently. Nothing here is tied to a
-particular semester, institution, or offering --- schedules, deadlines, and
-grading belong wherever the course is actually being run.
+Anyone is welcome to teach from these materials or work through them
+independently. Nothing here is tied to a particular semester, institution, or
+offering --- schedules, deadlines, and grading belong wherever the course is
+actually being run.
+
+::: {.callout-note}
+## For instructors
+
+Teach from these materials freely: assign the chapters, point your students at
+the slides, and build your own schedule, activities, and grading around them.
+Linking to a page here needs no permission at all.
+
+Answer keys, practice solutions, and grading rubrics are deliberately not
+published, since students can read this site as easily as you can. If you are
+teaching a course and want them, email [me@jmgirard.com](mailto:me@jmgirard.com)
+from your institutional address with a short note about the course.
+
+These materials are licensed
+[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/), which in
+plain terms means: link to them and teach from them, with credit. Please do not
+republish them under your own name, whether edited or verbatim, and do not sell
+them or fold them into paid training. If you need a change --- a fix, a
+different dataset, a slide that would work better reordered --- email me and I
+will consider making it here, where everyone gets it.
+:::
 
 Developed by [Jeffrey M. Girard](https://jmgirard.com).
 
