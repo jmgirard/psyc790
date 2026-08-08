@@ -1,10 +1,10 @@
 ---
-title: "Chapter 10: Assumptions and Diagnostics"
+title: "Chapter 10: Model Diagnostics"
 ---
 
 <!-- Lecture a -->
 
-## [10a] Assumptions and Diagnostics I
+## [10a] Form & Collinearity
 
 ### Topics
 - Correct Form
@@ -33,7 +33,7 @@ title: "Chapter 10: Assumptions and Diagnostics"
 
 <!-- Lecture b -->
 
-## [10b] Assumptions and Diagnostics II
+## [10b] Residuals & Outliers
 
 ### Topics
 - Constant Error Variance

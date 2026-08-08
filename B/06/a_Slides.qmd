@@ -9,7 +9,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-t-tests / Effect Sizes / Paired Groups
+Comparing Two Groups
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />

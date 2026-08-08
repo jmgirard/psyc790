@@ -9,7 +9,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-RStudio / Console / Scripts
+Working in RStudio
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />

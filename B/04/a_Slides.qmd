@@ -9,7 +9,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-Populations / Samples / Uncertainty
+Populations & Samples
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />

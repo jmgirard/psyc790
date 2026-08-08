@@ -1,10 +1,10 @@
 ---
-title: "Chapter 15: Reporting and Reviewing Results"
+title: "Chapter 15: Reporting & Reviewing"
 ---
 
 <!-- Lecture a -->
 
-## [15a] Reporting Statistical Results
+## [15a] Reporting Results
 
 ### Topics
 - Where the results section sits among a paper's goals
@@ -30,10 +30,10 @@ title: "Chapter 15: Reporting and Reviewing Results"
 
 <!-- Lecture b -->
 
-## [15b] Reviewing Statistical Claims
+## [15b] Reviewing Claims
 
 ::: {.callout-note}
-## Under development
+## Coming soon
 
 This lecture is planned but not yet written. The outline below shows what it is
 intended to cover.

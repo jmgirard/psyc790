@@ -60,7 +60,7 @@ follows.
 
 <!-- Lecture b -->
 
-## [01b] RStudio / Console / Scripts
+## [01b] Working in RStudio
 
 ### Topics
 - R and RStudio

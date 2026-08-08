@@ -4,7 +4,7 @@ title: "Chapter 07: Regression"
 
 <!-- Lecture a -->
 
-## [07a] Regression / Inference / Centering
+## [07a] Simple Regression
 
 ### Topics
 - Regression Inference
@@ -35,7 +35,7 @@ title: "Chapter 07: Regression"
 
 <!-- Lecture b -->
 
-## [07b] Dummy Codes / Means / Contrasts
+## [07b] Categorical Predictors
 
 ### Topics
 - Dichotomous  Dummy Coding
@@ -65,7 +65,7 @@ title: "Chapter 07: Regression"
 
 <!-- Lecture c -->
 
-## [07c] Multiple Regression / Partial Effects
+## [07c] Multiple Regression
 
 ### Topics
 - Shared Variance

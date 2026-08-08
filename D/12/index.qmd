@@ -3,7 +3,7 @@ title: "Chapter 12: Missing Data"
 ---
 
 ::: {.callout-note}
-## Under development
+## Coming soon
 
 This chapter is planned but not yet written. The outline below shows
 what it is intended to cover.
@@ -22,7 +22,7 @@ what it is intended to cover.
 
 <!-- Lecture b -->
 
-## [12b] Multiple Imputation and FIML
+## [12b] Imputation & FIML
 
 ### Topics
 - Multiple imputation with \{mice\}: impute, analyze, pool

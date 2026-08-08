@@ -9,7 +9,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-Data Frames / Files / Exploration
+Importing & Exploring
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />

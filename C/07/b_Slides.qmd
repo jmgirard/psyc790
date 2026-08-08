@@ -9,7 +9,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-Dummy Codes / Means / Contrasts
+Categorical Predictors
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />

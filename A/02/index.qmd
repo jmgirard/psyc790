@@ -1,10 +1,10 @@
 ---
-title: "Chapter 02: Projects and Programming"
+title: "Chapter 02: Projects & Programming"
 ---
 
 <!-- Lecture a -->
 
-## [02a] Projects / Quarto / Markdown
+## [02a] Reproducible Workflows
 
 ### Topics
 - Projects
@@ -38,7 +38,7 @@ title: "Chapter 02: Projects and Programming"
 
 <!-- Lecture b -->
 
-## [02b] Assignment / Functions / Vectors
+## [02b] Writing R Code
 
 ### Topics
 - Assignment

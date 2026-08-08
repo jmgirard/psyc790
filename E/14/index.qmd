@@ -1,5 +1,5 @@
 ---
-title: "Chapter 14: Power and Preregistration"
+title: "Chapter 14: Power & Preregistration"
 ---
 
 <!-- Lecture a -->
@@ -28,7 +28,7 @@ title: "Chapter 14: Power and Preregistration"
 
 <!-- Lecture b -->
 
-## [14b] Researcher Degrees of Freedom
+## [14b] Questionable Practices
 
 ### Topics
 - Bad Practices

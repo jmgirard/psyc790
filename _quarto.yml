@@ -49,15 +49,15 @@ website:
             text: "Chapter 01: Getting Started"
             href: A/01/index.html
           -
-            text: "Chapter 02: Projects and Programming"
+            text: "Chapter 02: Projects & Programming"
             href: A/02/index.html
           -
-            text: "Chapter 03: Data and Exploration"
+            text: "Chapter 03: Data & Exploration"
             href: A/03/index.html
       - text: "Unit B"
         menu:
           -
-            text: "Chapter 04: Sampling and Estimation"
+            text: "Chapter 04: Sampling & Estimation"
             href: B/04/index.html
           -
             text: "Chapter 05: Hypothesis Testing"
@@ -79,10 +79,10 @@ website:
       - text: "Unit D"
         menu:
           -
-            text: "Chapter 10: Assumptions and Diagnostics"
+            text: "Chapter 10: Model Diagnostics"
             href: D/10/index.html
           -
-            text: "Chapter 11: Bootstrap and Robust Inference"
+            text: "Chapter 11: Bootstrap & Robustness"
             href: D/11/index.html
           -
             text: "Chapter 12: Missing Data"
@@ -90,15 +90,15 @@ website:
       - text: "Unit E"
         menu:
           -
-            text: "Chapter 13: Reliability and Measurement Error"
+            text: "Chapter 13: Reliability"
             href: E/13/index.html
           -
-            text: "Chapter 14: Power and Preregistration"
+            text: "Chapter 14: Power & Preregistration"
             href: E/14/index.html
           -
-            text: "Chapter 15: Reporting and Reviewing Results"
+            text: "Chapter 15: Reporting & Reviewing"
             href: E/15/index.html
-  page-footer: "Copyright 2025 &copy; Jeffrey Girard"
+  page-footer: "Copyright 2026 &copy; Jeffrey Girard"
 
 format:
   html:

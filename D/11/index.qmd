@@ -1,9 +1,9 @@
 ---
-title: "Chapter 11: Bootstrap and Robust Inference"
+title: "Chapter 11: Bootstrap & Robustness"
 ---
 
 ::: {.callout-note}
-## Under development
+## Coming soon
 
 This chapter is planned but not yet written. The outline below shows
 what it is intended to cover.

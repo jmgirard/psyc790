@@ -4,7 +4,7 @@ title: "Chapter 06: Group Comparisons"
 
 <!-- Lecture a -->
 
-## [06a] t-tests / Effect Sizes / Paired Groups
+## [06a] Comparing Two Groups
 
 ### Topics
 - NHST Approaches
@@ -36,7 +36,7 @@ title: "Chapter 06: Group Comparisons"
 
 <!-- Lecture b -->
 
-## [06b] One-way ANOVA / Effect Sizes / Contrasts
+## [06b] Comparing Many Groups
 
 ### Topics
 - One-way ANOVA in R
@@ -65,7 +65,7 @@ title: "Chapter 06: Group Comparisons"
 
 <!-- Lecture c -->
 
-## [06c] Unequal Variances / Repeated Measures
+## [06c] ANOVA Extensions
 
 ### Topics
 - Unequal Variances

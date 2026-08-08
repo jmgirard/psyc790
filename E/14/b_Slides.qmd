@@ -9,7 +9,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-Researcher Degrees of Freedom
+Questionable Practices
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
@@ -59,7 +59,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 
 [Ordered from least to most likely to produce true, replicable findings]{.fs90}
 
-# Researcher Degrees of Freedom
+# Questionable Practices
 
 ## Selective reporting {.fs90}
 

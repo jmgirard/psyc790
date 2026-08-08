@@ -1,10 +1,10 @@
 ---
-title: "Chapter 03: Data and Exploration"
+title: "Chapter 03: Data & Exploration"
 ---
 
 <!-- Lecture a -->
 
-## [03a] Strings / Factors / Packages
+## [03a] Data Types & Packages
 
 ### Topics
 - Strings
@@ -37,7 +37,7 @@ title: "Chapter 03: Data and Exploration"
 
 <!-- Lecture b -->
 
-## [03b] Data Frames / Files / Exploration
+## [03b] Importing & Exploring
 
 ### Topics
 - Data Frames

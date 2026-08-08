@@ -1,9 +1,9 @@
 ---
-title: "Chapter 13: Reliability and Measurement Error"
+title: "Chapter 13: Reliability"
 ---
 
 ::: {.callout-note}
-## Under development
+## Coming soon
 
 This chapter is planned but not yet written. The outline below shows
 what it is intended to cover.
@@ -11,7 +11,7 @@ what it is intended to cover.
 
 <!-- Lecture a -->
 
-## [13a] Classical Test Theory and Internal Consistency
+## [13a] Internal Consistency
 
 ### Topics
 - True scores, measurement error, and reliability
@@ -20,7 +20,7 @@ what it is intended to cover.
 
 <!-- Lecture b -->
 
-## [13b] Inter-Rater Reliability and Attenuation
+## [13b] Raters & Attenuation
 
 ### Topics
 - Intraclass correlations for rater agreement

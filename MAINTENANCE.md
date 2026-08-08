@@ -185,10 +185,11 @@ Leave them there.
 
 | | |
 |---|---|
-| `C/09` lecture b | Piecewise and Spline Regression |
-| `D/11` | Bootstrap and Robust Inference |
+| `C/09` lecture b | Piecewise & Splines |
+| `D/11` | Bootstrap & Robustness |
 | `D/12` | Missing Data |
-| `E/13` | Reliability and Measurement Error |
+| `E/13` | Reliability |
+| `E/15` lecture b | Reviewing Claims |
 
 When these land, [`index.qmd`](index.qmd)'s "About the Course" paragraph and the learning
 outcomes list both need updating — they currently describe only the built material.
@@ -215,3 +216,31 @@ defaults to Type III).
 
 **`_brand.yml`.** `_quarto.yml` declares `theme: [cosmo, brand]` but no `_brand.yml` exists,
 here or in the other two repos. It renders fine; worth confirming it is intentional.
+
+---
+
+## 8. Outbound links to other courses
+
+[`schedule.qmd`](schedule.qmd) is the only page that links off this site to other course
+materials, in the `↳` line under a unit:
+
+| Unit | Links to | URL |
+|---|---|---|
+| A | Foundations of Data Science (`jmgirard/data2`) | `https://jmgirard.github.io/data2/` |
+| E | Multilevel Modeling (`jmgirard/psyc894`) | `https://jmgirard.github.io/psyc894/` |
+
+Both are GitHub Pages default URLs. **Neither repo has a `CNAME`, so both links break the
+day either one gets a custom domain** the way this site did when it moved to
+`stats.jmgirard.com`. Nothing in the build checks them: Quarto does not validate external
+links, so a dead one fails silently and stays dead. Re-check them whenever one of those
+courses is rebuilt or moved.
+
+The Unit E line also names a **Generalized Linear Models** course as `(coming soon)`, with no
+link because it does not exist yet. It is meant to sit between this course and Multilevel
+Modeling. Replace the marker with a link when it does.
+
+One tension worth knowing about: both linked sites are still offering-shaped — `data2`'s
+navbar points at a Canvas course and a dated syllabus PDF, and `psyc894`'s points at Canvas.
+So this site now links outward to pages that link to particular offerings, which the
+"links run one way" rule (§1) otherwise avoids. Accepted deliberately, on the expectation
+that `data2` will be rebuilt in this site's semester-agnostic style.

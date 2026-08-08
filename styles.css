@@ -66,6 +66,16 @@ lord-icon.rc {
   border: none !important;
 }
 
+/* Marks material that is outlined but not yet written, on the front page and
+   in the table of contents. Deliberately quiet: it should read as a footnote
+   on the line it follows, not as a badge competing with the link. */
+.soon {
+  color: #6c757d;
+  font-size: 0.85em;
+  font-style: italic;
+  white-space: nowrap;
+}
+
 /* Embedded deck. Reveal lays slides out on a fixed 1050x700 canvas and scales
    that canvas to fit the iframe, so a fixed iframe height leaves dead space at
    the top and bottom of any iframe narrower than 712px -- on a phone the deck

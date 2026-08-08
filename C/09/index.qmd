@@ -34,10 +34,10 @@ title: "Chapter 09: Nonlinearity"
 
 <!-- Lecture b -->
 
-## [09b] Piecewise and Spline Regression
+## [09b] Piecewise & Splines
 
 ::: {.callout-note}
-## Under development
+## Coming soon
 
 This lecture is planned but not yet written. The outline below shows what it is
 intended to cover.

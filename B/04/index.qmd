@@ -1,10 +1,10 @@
 ---
-title: "Chapter 04: Sampling and Estimation"
+title: "Chapter 04: Sampling & Estimation"
 ---
 
 <!-- Lecture a -->
 
-## [04a] Populations / Samples / Uncertainty
+## [04a] Populations & Samples
 
 ### Topics
 - Research Methods
@@ -36,7 +36,7 @@ title: "Chapter 04: Sampling and Estimation"
 
 <!-- Lecture b -->
 
-## [04b] Estimates / Normality / Confidence
+## [04b] Confidence Intervals
 
 ### Topics
 - Types of Estimates

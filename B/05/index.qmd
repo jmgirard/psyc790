@@ -4,7 +4,7 @@ title: "Chapter 05: Hypothesis Testing"
 
 <!-- Lecture a -->
 
-## [05a] Hypotheses / NHST / p-values
+## [05a] NHST & p-values
 
 ### Topics
 - Statistical Hypotheses
@@ -35,7 +35,7 @@ title: "Chapter 05: Hypothesis Testing"
 
 <!-- Lecture b -->
 
-## [05b] Covariances / Correlations / Inference
+## [05b] Correlation & Inference
 
 ### Topics
 - Calculating  Correlations
