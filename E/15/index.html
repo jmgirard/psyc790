@@ -213,15 +213,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-reporting-results" id="toc-a-reporting-results" class="nav-link active" data-scroll-target="#a-reporting-results">[15a] Reporting Results</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
   </ul></li>
-  <li><a href="#b-reviewing-claims" id="toc-b-reviewing-claims" class="nav-link" data-scroll-target="#b-reviewing-claims">[15b] Reviewing Claims</a>
-  <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
-  </ul></li>
+  <li><a href="#b-reviewing-claims" id="toc-b-reviewing-claims" class="nav-link" data-scroll-target="#b-reviewing-claims">[15b] Reviewing Claims</a></li>
   </ul>
 </nav>
     </div>
@@ -250,14 +246,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-reporting-results" class="level2">
 <h2 class="anchored" data-anchor-id="a-reporting-results">[15a] Reporting Results</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Where the results section sits among a paper’s goals</li>
 <li>What to report for each model, and what readers cannot reconstruct without it</li>
 <li>Tables and figures that carry the result rather than repeat it</li>
 </ul>
-</section>
+</div>
 <section id="readings" class="level3">
 <h3 class="anchored" data-anchor-id="readings">Readings</h3>
 <ul>
@@ -295,8 +290,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This lecture is planned but not yet written. The outline below shows what it is intended to cover.</p>
 </div>
 </div>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Checking a reported test for internal consistency (statistic, <em>df</em>, and <em>p</em> must agree)</li>
 <li>Recovering effect sizes and confidence intervals from what was reported</li>
@@ -304,14 +298,15 @@ ul.task-list li input[type="checkbox"] {
 <li>Reading a results section for what is <em>missing</em> rather than what is wrong</li>
 <li>Writing a statistical review that is specific and actionable</li>
 </ul>
+</div>
 <p>This is the reviewing half of the chapter, and it is deliberately a <em>statistical</em> skill rather than a methodological one: everything above can be checked from the numbers a paper already reports, without access to the data.</p>
 <!-- Bottom Nav -->
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
   <a href="../../E/14/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 14</a>
+  <a href="../../schedule.html" class="btn btn-outline-secondary" role="button">Contents</a>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -388,7 +383,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -76,6 +76,65 @@ lord-icon.rc {
   white-space: nowrap;
 }
 
+/* ---------------------------------------------------------------------------
+   Topics card (chapter pages)
+   ---------------------------------------------------------------------------
+   Opens each lecture section: what the lecture covers, before the readings and
+   the deck. Written as `::: {.topics}` around a plain bullet list, with no
+   heading of its own -- the label is generated below, which keeps sixteen
+   repetitions of "Topics" out of every chapter page's table of contents.
+
+   Deliberately one column, not two. Topic lists here run from two items to
+   eight and mix three-word chips ("Console", "Scripts") with full sentences,
+   and CSS column balancing distributes by height rather than by count -- a
+   three-item list of short topics lands as 1 + 2 with a visible hole in it.
+   Only one list on the whole site has more than five items, so a
+   long-list-only column rule would fire on a single page and read as a
+   glitch rather than as a system.
+   -------------------------------------------------------------------------- */
+.topics {
+  border: 1px solid #e9ecef;
+  border-left: 3px solid #2780e3;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+  padding: 0.85rem 1.15rem 0.9rem;
+  margin: 1.1rem 0 1.6rem;
+}
+
+.topics::before {
+  content: "Topics";
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.topics ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Hanging indent so a wrapped topic lines up under its own text rather than
+   sliding back under the marker. */
+.topics li {
+  padding-left: 1.05em;
+  text-indent: -1.05em;
+  margin: 0.15rem 0;
+  line-height: 1.45;
+}
+
+.topics li::before {
+  content: "\25B8";
+  display: inline-block;
+  width: 1.05em;
+  text-indent: 0;
+  color: #2780e3;
+}
+
 /* Embedded deck. Reveal lays slides out on a fixed 1050x700 canvas and scales
    that canvas to fit the iframe, so a fixed iframe height leaves dead space at
    the top and bottom of any iframe narrower than 712px -- on a phone the deck

@@ -213,7 +213,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-populations-samples" id="toc-a-populations-samples" class="nav-link active" data-scroll-target="#a-populations-samples">[04a] Populations &amp; Samples</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
@@ -221,7 +220,6 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#b-confidence-intervals" id="toc-b-confidence-intervals" class="nav-link" data-scroll-target="#b-confidence-intervals">[04b] Confidence Intervals</a>
   <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
   <li><a href="#files-1" id="toc-files-1" class="nav-link" data-scroll-target="#files-1">Files</a></li>
   <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
   <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
@@ -255,15 +253,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-populations-samples" class="level2">
 <h2 class="anchored" data-anchor-id="a-populations-samples">[04a] Populations &amp; Samples</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Research Methods</li>
 <li>Populations and Parameters</li>
 <li>Samples and Statistics</li>
 <li>Estimation and Uncertainty</li>
 </ul>
-</section>
+</div>
 <section id="files" class="level3">
 <h3 class="anchored" data-anchor-id="files">Files</h3>
 <ul>
@@ -295,8 +292,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="b-confidence-intervals" class="level2">
 <h2 class="anchored" data-anchor-id="b-confidence-intervals">[04b] Confidence Intervals</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Types of Estimates</li>
 <li>The Normal Distribution</li>
@@ -304,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Confidence Intervals</li>
 <li>Practical Matters</li>
 </ul>
-</section>
+</div>
 <section id="files-1" class="level3">
 <h3 class="anchored" data-anchor-id="files-1">Files</h3>
 <ul>
@@ -416,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

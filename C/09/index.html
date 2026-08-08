@@ -213,16 +213,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-polynomial-regression" id="toc-a-polynomial-regression" class="nav-link active" data-scroll-target="#a-polynomial-regression">[09a] Polynomial Regression</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
   </ul></li>
-  <li><a href="#b-piecewise-splines" id="toc-b-piecewise-splines" class="nav-link" data-scroll-target="#b-piecewise-splines">[09b] Piecewise &amp; Splines</a>
-  <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
-  </ul></li>
+  <li><a href="#b-piecewise-splines" id="toc-b-piecewise-splines" class="nav-link" data-scroll-target="#b-piecewise-splines">[09b] Piecewise &amp; Splines</a></li>
   <li><a href="#unit-c-translation-activity" id="toc-unit-c-translation-activity" class="nav-link" data-scroll-target="#unit-c-translation-activity">Unit C Translation Activity</a></li>
   </ul>
 </nav>
@@ -252,15 +248,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-polynomial-regression" class="level2">
 <h2 class="anchored" data-anchor-id="a-polynomial-regression">[09a] Polynomial Regression</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Polynomial Regression</li>
 <li>Quadratic Regression</li>
 <li>Adding Predictors</li>
 <li>Closing Thoughts</li>
 </ul>
-</section>
+</div>
 <section id="files" class="level3">
 <h3 class="anchored" data-anchor-id="files">Files</h3>
 <ul>
@@ -304,8 +299,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This lecture is planned but not yet written. The outline below shows what it is intended to cover.</p>
 </div>
 </div>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Why a global polynomial is the wrong tool for a local bend</li>
 <li>Piecewise regression: breakpoints as a dummy code and its interaction</li>
@@ -313,9 +307,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Splines as the smooth generalization</li>
 <li>Interpreting and plotting a fit you cannot read off a coefficient</li>
 </ul>
+</div>
 <p>Piecewise regression is built from machinery this course already teaches: a breakpoint is a dummy code, and letting the slope change at that point is the interaction from Chapter 08. Splines then generalize it, still as a single term inside <code>lm()</code>. The conceptual contrast with Chapter 09a is the point of the lecture — a polynomial’s shape near one end of <code>x</code> is constrained by data at the other end, and a spline’s is not.</p>
 <!-- Unit C Translation -->
-</section>
 </section>
 <section id="unit-c-translation-activity" class="level2">
 <h2 class="anchored" data-anchor-id="unit-c-translation-activity">Unit C Translation Activity</h2>
@@ -406,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

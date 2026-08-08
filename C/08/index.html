@@ -213,7 +213,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-continuous-moderation" id="toc-a-continuous-moderation" class="nav-link active" data-scroll-target="#a-continuous-moderation">[08a] Continuous Moderation</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
@@ -221,7 +220,6 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#b-categorical-moderation" id="toc-b-categorical-moderation" class="nav-link" data-scroll-target="#b-categorical-moderation">[08b] Categorical Moderation</a>
   <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
   <li><a href="#files-1" id="toc-files-1" class="nav-link" data-scroll-target="#files-1">Files</a></li>
   <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
   <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
@@ -255,14 +253,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-continuous-moderation" class="level2">
 <h2 class="anchored" data-anchor-id="a-continuous-moderation">[08a] Continuous Moderation</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Continuous-by-Continuous</li>
 <li>Interaction Patterns</li>
 <li>Centering with Interactions</li>
 </ul>
-</section>
+</div>
 <section id="files" class="level3">
 <h3 class="anchored" data-anchor-id="files">Files</h3>
 <ul>
@@ -297,15 +294,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="b-categorical-moderation" class="level2">
 <h2 class="anchored" data-anchor-id="b-categorical-moderation">[08b] Categorical Moderation</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Binary-by-Continuous</li>
 <li>Nominal-by-Continuous</li>
 <li>Categorical-by-Categorical</li>
 <li>Three-Way Interactions</li>
 </ul>
-</section>
+</div>
 <section id="files-1" class="level3">
 <h3 class="anchored" data-anchor-id="files-1">Files</h3>
 <ul>
@@ -416,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

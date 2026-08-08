@@ -213,7 +213,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-reproducible-workflows" id="toc-a-reproducible-workflows" class="nav-link active" data-scroll-target="#a-reproducible-workflows">[02a] Reproducible Workflows</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
@@ -221,7 +220,6 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#b-writing-r-code" id="toc-b-writing-r-code" class="nav-link" data-scroll-target="#b-writing-r-code">[02b] Writing R Code</a>
   <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
   <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
   <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
   <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1">Practice</a></li>
@@ -255,14 +253,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-reproducible-workflows" class="level2">
 <h2 class="anchored" data-anchor-id="a-reproducible-workflows">[02a] Reproducible Workflows</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Projects</li>
 <li>Quarto</li>
 <li>Markdown</li>
 </ul>
-</section>
+</div>
 <section id="readings" class="level3">
 <h3 class="anchored" data-anchor-id="readings">Readings</h3>
 <ul>
@@ -297,15 +294,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="b-writing-r-code" class="level2">
 <h2 class="anchored" data-anchor-id="b-writing-r-code">[02b] Writing R Code</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Assignment</li>
 <li>Naming</li>
 <li>Functions</li>
 <li>Vectors</li>
 </ul>
-</section>
+</div>
 <section id="readings-1" class="level3">
 <h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
@@ -417,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

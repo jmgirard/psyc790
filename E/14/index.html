@@ -213,14 +213,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-power-analysis" id="toc-a-power-analysis" class="nav-link active" data-scroll-target="#a-power-analysis">[14a] Power Analysis</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
   </ul></li>
   <li><a href="#b-questionable-practices" id="toc-b-questionable-practices" class="nav-link" data-scroll-target="#b-questionable-practices">[14b] Questionable Practices</a>
   <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
   <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
   <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
   <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1">Assignment</a></li>
@@ -254,14 +252,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture b -->
 <section id="a-power-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="a-power-analysis">[14a] Power Analysis</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Power analysis and its relationship to effect size, <em>n</em>, and alpha</li>
 <li>Types of power analysis</li>
 <li>Power for <em>t</em>-tests, one-way ANOVA, and the linear model</li>
 </ul>
-</section>
+</div>
 <section id="readings" class="level3">
 <h3 class="anchored" data-anchor-id="readings">Readings</h3>
 <ul>
@@ -283,13 +280,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="b-questionable-practices" class="level2">
 <h2 class="anchored" data-anchor-id="b-questionable-practices">[14b] Questionable Practices</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Bad Practices</li>
 <li>Best Practices</li>
 </ul>
-</section>
+</div>
 <section id="readings-1" class="level3">
 <h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
@@ -397,7 +393,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -211,14 +211,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-missing-data-theory" id="toc-a-missing-data-theory" class="nav-link active" data-scroll-target="#a-missing-data-theory">[12a] Missing Data Theory</a>
-  <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
-  </ul></li>
-  <li><a href="#b-imputation-fiml" id="toc-b-imputation-fiml" class="nav-link" data-scroll-target="#b-imputation-fiml">[12b] Imputation &amp; FIML</a>
-  <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
-  </ul></li>
+  <li><a href="#a-missing-data-theory" id="toc-a-missing-data-theory" class="nav-link active" data-scroll-target="#a-missing-data-theory">[12a] Missing Data Theory</a></li>
+  <li><a href="#b-imputation-fiml" id="toc-b-imputation-fiml" class="nav-link" data-scroll-target="#b-imputation-fiml">[12b] Imputation &amp; FIML</a></li>
   </ul>
 </nav>
     </div>
@@ -260,8 +254,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-missing-data-theory" class="level2">
 <h2 class="anchored" data-anchor-id="a-missing-data-theory">[12a] Missing Data Theory</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Missing completely at random, at random, and not at random</li>
 <li>Why the mechanism is an assumption about <em>unobserved</em> data</li>
@@ -269,13 +262,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Why listwise deletion, pairwise deletion, and mean imputation all fail</li>
 <li>What “unbiased” and “efficient” mean for a missing-data method</li>
 </ul>
+</div>
 <!-- Lecture b -->
-</section>
 </section>
 <section id="b-imputation-fiml" class="level2">
 <h2 class="anchored" data-anchor-id="b-imputation-fiml">[12b] Imputation &amp; FIML</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Multiple imputation with {mice}: impute, analyze, pool</li>
 <li>Choosing an imputation model, and why it should be at least as rich as the analysis model</li>
@@ -283,6 +275,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Full information maximum likelihood with {lavaan}</li>
 <li>Choosing between multiple imputation and FIML, and reporting either one</li>
 </ul>
+</div>
 <p>This chapter is deliberately two lectures rather than one. Mechanisms alone give students a vocabulary for a problem they cannot yet do anything about; pairing the theory with a lecture where they actually fit and pool a model is what makes it worth teaching.</p>
 <!-- Bottom Nav -->
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
@@ -291,7 +284,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -368,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -211,14 +211,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-the-bootstrap" id="toc-a-the-bootstrap" class="nav-link active" data-scroll-target="#a-the-bootstrap">[11a] The Bootstrap</a>
-  <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
-  </ul></li>
-  <li><a href="#b-robust-inference" id="toc-b-robust-inference" class="nav-link" data-scroll-target="#b-robust-inference">[11b] Robust Inference</a>
-  <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
-  </ul></li>
+  <li><a href="#a-the-bootstrap" id="toc-a-the-bootstrap" class="nav-link active" data-scroll-target="#a-the-bootstrap">[11a] The Bootstrap</a></li>
+  <li><a href="#b-robust-inference" id="toc-b-robust-inference" class="nav-link" data-scroll-target="#b-robust-inference">[11b] Robust Inference</a></li>
   </ul>
 </nav>
     </div>
@@ -260,25 +254,24 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-the-bootstrap" class="level2">
 <h2 class="anchored" data-anchor-id="a-the-bootstrap">[11a] The Bootstrap</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>Resampling as an empirical sampling distribution</li>
 <li>Bootstrap confidence intervals</li>
 <li>When the bootstrap helps and when it does not</li>
 </ul>
+</div>
 <!-- Lecture b -->
-</section>
 </section>
 <section id="b-robust-inference" class="level2">
 <h2 class="anchored" data-anchor-id="b-robust-inference">[11b] Robust Inference</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>Permutation tests</li>
 <li>Heteroscedasticity-consistent standard errors</li>
 <li>Choosing between robust and conventional inference</li>
 </ul>
+</div>
 <!-- Bottom Nav -->
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
   <a href="../../D/10/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 10</a>
@@ -286,7 +279,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -363,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

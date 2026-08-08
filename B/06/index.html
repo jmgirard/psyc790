@@ -213,7 +213,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#a-comparing-two-groups" id="toc-a-comparing-two-groups" class="nav-link active" data-scroll-target="#a-comparing-two-groups">[06a] Comparing Two Groups</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
@@ -221,7 +220,6 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#b-comparing-many-groups" id="toc-b-comparing-many-groups" class="nav-link" data-scroll-target="#b-comparing-many-groups">[06b] Comparing Many Groups</a>
   <ul class="collapse">
-  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
   <li><a href="#files-1" id="toc-files-1" class="nav-link" data-scroll-target="#files-1">Files</a></li>
   <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
   <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
@@ -229,7 +227,6 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#c-anova-extensions" id="toc-c-anova-extensions" class="nav-link" data-scroll-target="#c-anova-extensions">[06c] ANOVA Extensions</a>
   <ul class="collapse">
-  <li><a href="#topics-2" id="toc-topics-2" class="nav-link" data-scroll-target="#topics-2">Topics</a></li>
   <li><a href="#files-2" id="toc-files-2" class="nav-link" data-scroll-target="#files-2">Files</a></li>
   <li><a href="#readings-2" id="toc-readings-2" class="nav-link" data-scroll-target="#readings-2">Readings</a></li>
   <li><a href="#slides-2" id="toc-slides-2" class="nav-link" data-scroll-target="#slides-2">Slides</a></li>
@@ -264,13 +261,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- Lecture a -->
 <section id="a-comparing-two-groups" class="level2">
 <h2 class="anchored" data-anchor-id="a-comparing-two-groups">[06a] Comparing Two Groups</h2>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<div class="topics">
 <ul>
 <li>NHST Approaches</li>
 <li>Effect Sizes</li>
 </ul>
-</section>
+</div>
 <section id="files" class="level3">
 <h3 class="anchored" data-anchor-id="files">Files</h3>
 <ul>
@@ -304,13 +300,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="b-comparing-many-groups" class="level2">
 <h2 class="anchored" data-anchor-id="b-comparing-many-groups">[06b] Comparing Many Groups</h2>
-<section id="topics-1" class="level3">
-<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<div class="topics">
 <ul>
 <li>One-way ANOVA in R</li>
 <li>Post-hoc Tests</li>
 </ul>
-</section>
+</div>
 <section id="files-1" class="level3">
 <h3 class="anchored" data-anchor-id="files-1">Files</h3>
 <ul>
@@ -342,14 +337,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="c-anova-extensions" class="level2">
 <h2 class="anchored" data-anchor-id="c-anova-extensions">[06c] ANOVA Extensions</h2>
-<section id="topics-2" class="level3">
-<h3 class="anchored" data-anchor-id="topics-2">Topics</h3>
+<div class="topics">
 <ul>
 <li>Unequal Variances</li>
 <li>Repeated Measures</li>
 <li>Translation Activity</li>
 </ul>
-</section>
+</div>
 <section id="files-2" class="level3">
 <h3 class="anchored" data-anchor-id="files-2">Files</h3>
 <ul>
@@ -468,7 +462,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
