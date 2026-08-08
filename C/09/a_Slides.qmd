@@ -7,20 +7,25 @@ format:
     theme: default
 ---
 
-::: {.my-title}
-# [Statistical Methods]{.blue}
-Polynomial Regression
-
-::: {.my-grey}
-[Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
-[Lecture {{< meta chapter >}}{{< meta lecture >}}]{}
+::: {.t-title}
+::: {.t-eyebrow}
+{{< meta course >}}
 :::
 
-::: {.my-attrib}
+# Polynomial Regression
+
+::: {.t-rule}
+:::
+
+::: {.t-meta}
+Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapter >}}{{< meta lecture >}}
+:::
+
+::: {.t-attrib}
 {{< meta attribution >}}
 :::
 
-![](../../img/growth_curve_357EDD.png){.absolute bottom=30 right=0 width="400"}
+![]({{< meta unit-art >}}){.t-art}
 :::
 
 ```{r setup}

@@ -8,10 +8,31 @@ Animated icons by [Lordicon](https://lordicon.com/), used under a paid (PRO) lic
 
 ## Illustrations
 
-Hero and section illustrations are from [unDraw](https://undraw.co/), which permits free
-use without attribution. Files: `programmer_2780E3.svg`, `proud_coder_357EDD.svg`,
-`statistics_2780E3.svg`, `exams_2780E3.svg`, `abstract_357EDD.svg`,
-`growth_curve_357EDD.svg`.
+Hero and title-slide illustrations are from [unDraw](https://undraw.co/), which permits
+free use without attribution. All are the "classic" unDraw generation (the `/illustrations/`
+CDN path, not `/illustration/`) — mixing the two generations is what makes a set look
+mismatched — and all were recoloured from unDraw's default `#6c63ff` accent to the site
+blue `#2780E3`, which is what the filename suffix records.
+
+| File | Used for | unDraw slug |
+|---|---|---|
+| `statistics_2780E3.svg` | site front page | `statistics_z6y6` |
+| `exams_2780E3.svg` | assignment and practice pages | `exams` |
+| `unit-a_2780E3.svg` | Unit A title slides | `source-code_m0vh` |
+| `unit-b_2780E3.svg` | Unit B title slides | `percentages_wi9e` |
+| `unit-c_2780E3.svg` | Unit C title slides | `growth-curve_kzjb` |
+| `unit-d_2780E3.svg` | Unit D title slides | `inspection_tyum` |
+| `unit-e_2780E3.svg` | Unit E title slides | `publish-article_u3z6` |
+
+The five unit drawings were chosen as a set rather than one at a time: each is a single
+standing figure beside a light panel or chart, at a similar visual weight, so the title
+slides read as one family as a student moves through the course. They also track the
+statistics — bars with markers for estimation in B, a fitted curve in C, the same curve
+with a point sitting off it in D.
+
+Retired in favour of the per-unit set: `statistics_2780E3.png` and `growth_curve_357EDD.png`
+(the two illustrations every deck used to share) and `programmer_2780E3.svg` (already
+unreferenced). They remain in git history.
 
 ## Figures
 

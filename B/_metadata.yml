@@ -2,3 +2,8 @@
 # rather than in each deck, so moving a chapter between units is a directory
 # move with no file edits. The chapter number lives in NN/_metadata.yml.
 unit: "B"
+
+# Title-slide illustration for this unit. Lives here rather than in each deck so
+# that moving a chapter between units stays a directory move with no file edits.
+# The decks reference it as {{< meta unit-art >}}; see MAINTENANCE.md.
+unit-art: "../../img/unit-b_2780E3.svg"

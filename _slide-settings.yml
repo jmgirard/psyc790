@@ -6,6 +6,11 @@ author-meta: "Jeffrey Girard"
 # when the site became semester-agnostic: whoever teaches from these decks is
 # named by the LMS pointing at them, not by the decks themselves.
 #
+# `course` is the small letterspaced line above the topic on every title slide.
+# The topic itself is the headline, since that is the only part that differs from
+# deck to deck; the course name is context, not news.
+course: "Statistical Methods with R"
+
 # `attribution` is the small grey line at the bottom of every title slide. A
 # future instructor can add their own name to it while leaving the credit intact.
 attribution: "Developed by Jeffrey M. Girard"

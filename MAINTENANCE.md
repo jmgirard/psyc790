@@ -23,7 +23,10 @@ install-packages.R     unpinned CRAN list + standist from GitHub
 index.qmd              front door; schedule.qmd is the chapter index; 404.qmd
 styles.css             single shared stylesheet, root only
 icons/ img/ data/
+A/ ... E/              one folder per unit
+  _metadata.yml        `unit` letter and `unit-art` (that unit's title-slide illustration)
 A/01/ ... E/15/        one folder per chapter, grouped by unit letter
+  _metadata.yml        `chapter` number
   index.qmd            chapter hub: per lecture -- Topics / Files / Readings / Slides iframe
   a_Slides.qmd         revealjs; metadata-files: ../../_slide-settings.yml
   a_practice.qmd       in-class practice, answers in {{< dstart >}} blocks (public)
@@ -46,6 +49,47 @@ is why `_slide-settings.yml` carries `attribution` but no `semester`, `course`, 
 **Links run one way.** An LMS links *in*; nothing here links back out to a particular course
 site. There is deliberately no `canvas-id`, no LMS navbar entry, and no "download this from
 Canvas" — datasets are served from this site's own `data/`.
+
+### Title slides
+
+Every deck opens with the same block, and only the heading differs:
+
+```markdown
+::: {.t-title}
+::: {.t-eyebrow}
+{{< meta course >}}
+:::
+
+# Working in RStudio
+
+::: {.t-rule}
+:::
+
+::: {.t-meta}
+Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapter >}}{{< meta lecture >}}
+:::
+
+::: {.t-attrib}
+{{< meta attribution >}}
+:::
+
+![]({{< meta unit-art >}}){.t-art}
+:::
+```
+
+Everything except the heading is metadata, so the *design* lives entirely in the `.t-*`
+rules in `styles.css` and can be changed without touching 23 files. Two things follow from
+that and are worth not undoing:
+
+- **The topic is the `h1`, not the course name.** The course name is the eyebrow. The old
+  layout gave the largest type on every deck to the one line that never changed.
+- **`unit-art` is in the *unit's* `_metadata.yml`, not the deck's front matter.** Moving a
+  chapter to a different unit stays a directory move with no file edits, and the deck
+  front matter stays untouched — which is also what makes the freeze re-key below possible.
+
+Changing this block is a **purely textual** edit: `{{< meta >}}` shortcodes are resolved
+after knitr, so the frozen chunk output is unaffected. Rather than re-executing 22 decks
+(and inviting package drift), re-key the freeze instead — see §3.
 
 ---
 
@@ -109,6 +153,32 @@ mid-semester.
 `_quarto.yml`, `_slide-settings.yml`, or `_common.R` has *no effect* on already-frozen pages
 until the cache is cleared. Changes to those files have appeared to do nothing for exactly
 this reason.
+
+### Re-keying the freeze instead of re-executing
+
+A purely textual edit to a deck — a class rename, a restyled title block — does not need R
+to run again. The cache key (`hash` in `_freeze/<path>/execute-results/html.json`) is **md5
+of the source with line endings normalized to LF**, and `result.markdown` is the post-knitr
+markdown with all the div and heading attributes verbatim. Apply the same textual edit to
+`result.markdown`, set `hash` to the new md5, and Quarto skips execution entirely: no R run,
+no regenerated figures, no package drift. Serialize with
+`json.dumps(entry, indent=2, ensure_ascii=False)`, which round-trips byte-identical.
+
+Three traps:
+
+- **`result.markdown` also embeds the deck's own YAML front matter, and that copy is what
+  Quarto reads.** Re-keying a front-matter edit takes two edits, not one. Fixing only the
+  hash renders silently from the stale front matter — a `{{< meta >}}` field keeps its old
+  value with no error anywhere. Edits that stay out of the front matter avoid this.
+- **Line endings.** Most sources here are LF, but `C/07/c_Slides.qmd`, `E/14/b_Slides.qmd`,
+  and `E/15/a_Slides.qmd` are CRLF. Hash the LF-normalized text, and read and write the
+  `.qmd` with `newline=''` so a CRLF file is not silently rewritten as LF.
+- **Guard the rewrite.** Check that HEAD plus the same transform reproduces the working tree
+  byte-for-byte. If it does not, that file changed some other way too and genuinely needs a
+  real render.
+
+After a re-key, `git diff --numstat _freeze` should show exactly `2+ 2-` per deck (the hash
+line and the markdown line). Anything larger means something re-executed.
 
 Known drift as of the last full re-render: `qplot()` is deprecated in ggplot2 (still
 functional, but it warns). It is used as a teaching section in `A/03/b_Slides.qmd`, and
