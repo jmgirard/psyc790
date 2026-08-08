@@ -14,6 +14,9 @@ project:
     - "!archive/**"
   resources:
     - "icons/"
+    # Custom domain for GitHub Pages. Must reach the published branch on every
+    # deploy or Pages drops the domain and falls back to github.io.
+    - "CNAME"
     # Served from the site so the setup instructions can point at
     # /install-packages.R instead of at the GitHub repo behind it.
     - "install-packages.R"

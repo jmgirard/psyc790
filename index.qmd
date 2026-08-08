@@ -17,6 +17,78 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Byline under the opening blurb: one quiet line rather than two stacked
+   sentences competing with the body text. */
+.byline {
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 2rem auto 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e9ecef;
+  max-width: 32rem;
+}
+
+.byline a {
+  color: #6c757d;
+  text-decoration: underline;
+  text-decoration-color: #ced4da;
+  text-underline-offset: 0.2em;
+}
+
+.byline a:hover {
+  color: #2780e3;
+  text-decoration-color: #2780e3;
+}
+
+.byline .sep {
+  padding: 0 0.6rem;
+  color: #ced4da;
+}
+
+/* The instructor note is reference material, not an alert -- drop the tinted
+   header and warning icon that callout-note ships with, and let a single
+   accent rule carry it. */
+.callout.instructors {
+  border: 1px solid #e9ecef;
+  border-left: 4px solid #2780e3;
+  border-radius: 0.375rem;
+  background-color: #fbfcfd;
+  box-shadow: none;
+  margin: 2rem 0;
+}
+
+/* Quarto tints the header from `.callout-note.callout-style-default`, so this
+   needs the same weight to win. */
+.callout.instructors.callout-note > .callout-header {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 1rem 1.25rem 0.25rem;
+  opacity: 1;
+}
+
+.callout.instructors .callout-icon-container {
+  display: none;
+}
+
+.callout.instructors .callout-title-container {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.callout.instructors .callout-body-container {
+  padding: 0.25rem 1.25rem 1rem;
+}
+
+.callout.instructors .callout-body-container p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.callout.instructors .callout-body-container p:last-child {
+  margin-bottom: 0;
+}
 </style>
 ```
 
@@ -32,7 +104,7 @@ independently. Nothing here is tied to a particular semester, institution, or
 offering --- schedules, deadlines, and grading belong wherever the course is
 actually being run.
 
-::: {.callout-note}
+::: {.callout-note .instructors}
 ## For instructors
 
 Teach from these materials freely: assign the chapters, point your students at
@@ -53,9 +125,11 @@ different dataset, a slide that would work better reordered --- email me and I
 will consider making it here, where everyone gets it.
 :::
 
-Developed by [Jeffrey M. Girard](https://jmgirard.com).
-
-Contact: [me@jmgirard.com](mailto:me@jmgirard.com)
+::: {.byline}
+Developed by [Jeffrey M. Girard](https://jmgirard.com)
+[·]{.sep}
+[me@jmgirard.com](mailto:me@jmgirard.com)
+:::
 
 ### About the Course
 
