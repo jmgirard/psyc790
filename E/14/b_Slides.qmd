@@ -1,7 +1,5 @@
 ---
-unit: "E"
-chapter: "14"
-lecture: "14b"
+lecture: "b"
 metadata-files:
   - ../../_slide-settings.yml
 format:
@@ -15,7 +13,7 @@ Researcher Degrees of Freedom
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
-[Lecture {{< meta lecture >}}]{}
+[Lecture {{< meta chapter >}}{{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}

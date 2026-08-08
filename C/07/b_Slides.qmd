@@ -1,7 +1,5 @@
 ---
-unit: "C"
-chapter: "07"
-lecture: "07b"
+lecture: "b"
 metadata-files:
   - ../../_slide-settings.yml
 format:
@@ -15,7 +13,7 @@ Dummy Codes / Means / Contrasts
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
-[Lecture {{< meta lecture >}}]{}
+[Lecture {{< meta chapter >}}{{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}

@@ -1,7 +1,5 @@
 ---
-unit: "B"
-chapter: "06"
-lecture: "06b"
+lecture: "b"
 metadata-files:
   - ../../_slide-settings.yml
 format:
@@ -15,7 +13,7 @@ One-way ANOVA / Effect Sizes / Contrasts
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
-[Lecture {{< meta lecture >}}]{}
+[Lecture {{< meta chapter >}}{{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}

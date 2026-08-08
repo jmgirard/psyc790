@@ -1,7 +1,5 @@
 ---
-unit: "D"
-chapter: "10"
-lecture: "10b"
+lecture: "b"
 metadata-files:
   - ../../_slide-settings.yml
 format:
@@ -15,7 +13,7 @@ Assumptions and Diagnostics II
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
-[Lecture {{< meta lecture >}}]{}
+[Lecture {{< meta chapter >}}{{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}

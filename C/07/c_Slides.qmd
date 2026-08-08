@@ -1,7 +1,5 @@
 ---
-unit: "C"
-chapter: "07"
-lecture: "07c"
+lecture: "c"
 metadata-files:
   - ../../_slide-settings.yml
 format:
@@ -15,7 +13,7 @@ Multiple Regression / Partial Effects
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
-[Lecture {{< meta lecture >}}]{}
+[Lecture {{< meta chapter >}}{{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}

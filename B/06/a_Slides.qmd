@@ -1,7 +1,5 @@
 ---
-unit: "B"
-chapter: "06"
-lecture: "06a"
+lecture: "a"
 metadata-files:
   - ../../_slide-settings.yml
 format:
@@ -15,7 +13,7 @@ t-tests / Effect Sizes / Paired Groups
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
-[Lecture {{< meta lecture >}}]{}
+[Lecture {{< meta chapter >}}{{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}

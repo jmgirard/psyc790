@@ -1,0 +1,4 @@
+# Unit letter for every document below this directory. Written once here
+# rather than in each deck, so moving a chapter between units is a directory
+# move with no file edits. The chapter number lives in NN/_metadata.yml.
+unit: "C"
