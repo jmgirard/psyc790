@@ -89,38 +89,123 @@ iframe.slide-deck {
   max-height: 475px;
 }
 
-.my-title h1 {
-  font-size: 1.8em !important;
-  line-height: 1.1em;
+/* ---------------------------------------------------------------------------
+   Title slides
+   ---------------------------------------------------------------------------
+   One `::: {.t-title}` block opens every deck. It is deliberately identical in
+   all 22 decks except for the topic heading: everything else (course name, unit,
+   chapter, lecture, attribution, illustration) comes from metadata, so a design
+   change here is a stylesheet edit rather than 22 file edits.
+
+   Hierarchy is topic-first. The course name is the small letterspaced eyebrow
+   and the lecture topic is the headline, because the topic is the only thing
+   that differs between decks -- the old layout gave the largest type on every
+   deck to the one line that never changed.
+
+   Sizes are in px against reveal's fixed 1050x700 canvas, which reveal then
+   scales to the display. Do not switch these to `em`: the deck body font size
+   is tuned for content slides and would drag the title block around with it.
+   -------------------------------------------------------------------------- */
+
+.reveal .t-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 700px;
+  /* Right padding reserves the illustration column; .t-art is positioned into
+     it absolutely so the heading can never flow underneath the artwork. */
+  padding: 0 440px 0 85px;
+  box-sizing: border-box;
+  text-align: left;
 }
 
-.my-subtitle {
-  font-size: 0.8em !important;
+.reveal .t-title h1 {
+  font-size: 58px !important;
+  line-height: 1.06;
+  font-weight: 700;
+  color: #2780E3;
+  margin: 0;
+  text-transform: none;
 }
 
-.my-grey {
-  padding-top: 0.5em !important;
-  color: #CCCCCC;
-  font-size: 1.0em !important;
-  line-height: 0.5em !important;
+.reveal .t-eyebrow {
+  font-size: 22px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #8a949f;
+  margin-bottom: 18px;
+}
+
+/* Short accent rule between the headline and the chapter line. Purely a
+   separator -- it is what lets the metadata sit close without reading as part
+   of the title. */
+.reveal .t-rule {
+  width: 76px;
+  height: 6px;
+  background: #2780E3;
+  border-radius: 3px;
+  margin: 30px 0 24px;
+}
+
+/* Unit / chapter / lecture. The old `.my-grey` used #CCCCCC, which is about
+   1.6:1 on white -- invisible on a projector and a contrast failure on the
+   web. #6c757d is the same grey the site already uses for secondary text. */
+.reveal .t-meta {
+  font-size: 25px;
+  color: #6c757d;
 }
 
 /* Title-slide attribution line. Driven by the `attribution` metadata key in
    _slide-settings.yml; collapses when that key is empty. */
-.my-attrib {
-  padding-top: 1.5em !important;
-  color: #AAAAAA;
-  font-size: 0.55em !important;
+.reveal .t-attrib {
+  margin-top: 52px;
+  font-size: 17px;
   font-style: italic;
-  line-height: 1.2em !important;
+  color: #adb5bd;
 }
 
-/* Quarto emits <div class="my-attrib"><p></p></div> when `attribution` is
+/* Quarto emits <div class="t-attrib"><p></p></div> when `attribution` is
    empty, so the div itself is never :empty -- match the empty child too, or
-   the padding above would leave a phantom gap. */
-.my-attrib:empty,
-.my-attrib:has(p:empty:only-child) {
+   the margin above would leave a phantom gap. */
+.reveal .t-attrib:empty,
+.reveal .t-attrib:has(p:empty:only-child) {
   display: none;
+}
+
+/* Each of these divs wraps a single paragraph; the paragraph margin would
+   otherwise fight the spacing set on the wrapper. */
+.reveal .t-eyebrow p,
+.reveal .t-meta p,
+.reveal .t-attrib p {
+  margin: 0;
+}
+
+/* Per-unit illustration, from `unit-art` in each unit's _metadata.yml.
+   Bounded by height rather than width: the five unDraw drawings range from 1.16
+   to 1.53 in aspect ratio, and matching their heights is what makes them read
+   as one family across the units.
+
+   The `!important` on width/height is load-bearing. Quarto's auto-stretch marks
+   the last image on a slide `.r-stretch`, and reveal's stretch plugin then
+   writes an inline `width`/`height` sized to the leftover slide space -- 686px
+   wide here. The image's own `.nostretch` class is consumed but does not stop
+   it (Quarto 1.10.18), and turning auto-stretch off wholesale would change
+   every content slide in every deck. Overriding the two inline properties is
+   the narrow fix. */
+.reveal .t-title img.t-art {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto !important;
+  height: auto !important;
+  max-width: 380px;
+  max-height: 320px;
+  border: none;
+  box-shadow: none;
+  margin: 0;
 }
 
 .table-bad td {
