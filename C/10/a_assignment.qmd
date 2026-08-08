@@ -31,7 +31,7 @@ b) Select one dichotomous and one polytomous variable from your answer to part (
 
 ## Question 2 (Nominal Predictor)
 
-Read in the `political.csv` dataset (on Canvas), which contains information about students' political activities.
+Read in the [`political.csv`](../../data/political.csv){download="political.csv"} dataset, which contains information about students' political activities.
 
 a) Imagine that you want to use dummy coding to regress the `informed` variable on the categorical `voting` variable.{{< hp glyph="b" >}} Select a reference group for the `voting` variable and briefly justify your choice (i.e., explain why you selected that group).
 
@@ -47,4 +47,4 @@ b) Calculate the standardized coefficients for this model. How are they differen
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

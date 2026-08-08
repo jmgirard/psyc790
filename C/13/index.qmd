@@ -15,9 +15,6 @@ title: "Chapter 13: Polynomial Regression"
 ### Files
 - [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
-
 ### Slides
 
 ```{=html}

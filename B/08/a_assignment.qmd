@@ -25,7 +25,7 @@ embed-resources: true
 
 ## Question 1 (Unequal Variances)
 
-Download and read in the `salaries` data file. (Salaries are given in thousands of dollars per year, so 120 means $120,000.)
+Download and read in the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file. (Salaries are given in thousands of dollars per year, so 120 means $120,000.)
 
 a) Compare the mean `salary` of male and female professors twice: once using Student's approach (which assumes equal variances) and once using Welch's approach (which does not). Report the test statistic, degrees of freedom, and $p$-value for each.
 
@@ -33,7 +33,7 @@ b) The two approaches give noticeably different degrees of freedom here. Look at
 
 ## Question 2 (Repeated Measures)
 
-Download and read in the `depression` data file. It contains Hamilton Rating Scale for Depression scores (`hrsd`) for 54 patients (`patient`), each measured at three time points (`time`: `t0`, `t1`, and `t2`). **Be sure to set `time` and `patient` to factors.**
+Download and read in the [`depression.csv`](../../data/depression.csv){download="depression.csv"} data file. It contains Hamilton Rating Scale for Depression scores (`hrsd`) for 54 patients (`patient`), each measured at three time points (`time`: `t0`, `t1`, and `t2`). **Be sure to set `time` and `patient` to factors.**
 
 a) Explain why a one-way ANOVA that ignores `patient` would be the wrong analysis for these data.{{< hp glyph="a" >}}
 
@@ -49,4 +49,4 @@ b) Now write two or three sentences aimed at a non-statistical audience — for 
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

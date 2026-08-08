@@ -15,9 +15,6 @@ title: "Chapter 05: Sampling and Estimation"
 ### Files
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
-
 ### Slides
 
 ```{=html}
@@ -46,9 +43,6 @@ title: "Chapter 05: Sampling and Estimation"
 ### Files
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
-
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
 
 ### Slides
 

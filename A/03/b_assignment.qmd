@@ -39,7 +39,7 @@ b) Look at the short type abbreviation printed under each column name. Report wh
 
 ## Question 2 (Data Files)
 
-a) Download the "factbook.csv" file from Canvas and read it into R as a tibble. Tell R that any cell containing an asterisk (`*`) is actually missing.
+a) Download the [`factbook.csv`](../../data/factbook.csv){download="factbook.csv"} file and read it into R as a tibble. Tell R that any cell containing an asterisk (`*`) is actually missing.
 
 b) Use a function from the easystats package to describe the distribution of all continuous variables in this tibble. Which variables contain missing values, and what is the mean of the `maternal_mortality` variable?
 
@@ -54,4 +54,4 @@ b) Use `qplot()` to visualize the covariation of the `life_exp` and `net_migrati
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

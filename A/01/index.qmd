@@ -11,9 +11,6 @@ title: "Chapter 01: Getting Started"
 - Console
 - Scripts
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20A){target="_blank"}
-
 ### Slides
 
 ```{=html}

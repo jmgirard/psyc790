@@ -16,9 +16,6 @@ title: "Chapter 08: Extensions and Review"
 - [depression.csv](../../data/depression.csv){download="depression.csv"}
 - [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
-
 ### Slides
 
 ```{=html}

@@ -31,7 +31,7 @@ b) Violating an assumption about the residuals does not bias the estimated slope
 
 ## Question 2 (Error Variance and Normality)
 
-Read in the `screentime` dataset (from Canvas) and fit a multiple regression model predicting `mental_wellbeing` from `watch_wd`, `play_wd`, `compute_wd`, `phone_wd`, `gender`, `minority`, and `deprived_area`.
+Read in the [`screentime.csv`](../../data/screentime.csv){download="screentime.csv"} dataset and fit a multiple regression model predicting `mental_wellbeing` from `watch_wd`, `play_wd`, `compute_wd`, `phone_wd`, `gender`, `minority`, and `deprived_area`.
 
 a) Check the constant error variance assumption using the diagnostic(s) learned in lecture and interpret the results in terms of how reasonable vs. unreasonable the assumption is. (Explain *why* you think so, rather than just saying "looks good" or "looks bad.")
 
@@ -47,4 +47,4 @@ c) An outlier and an influential observation are not the same thing. Explain the
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

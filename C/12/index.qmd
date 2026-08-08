@@ -11,9 +11,6 @@ title: "Chapter 12: Assumptions and Diagnostics"
 - Perfect Predictors
 - No Collinearity
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
-
 ### Slides
 
 ```{=html}
@@ -41,9 +38,6 @@ title: "Chapter 12: Assumptions and Diagnostics"
 ### Files
 - [auto.csv](../../data/auto.csv){download="auto.csv"}
 - [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
-
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
 
 ### Slides
 

@@ -53,4 +53,4 @@ b) Explain why centering changed the coefficients that it did.{{< hp glyph="b" >
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

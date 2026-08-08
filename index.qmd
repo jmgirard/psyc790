@@ -24,10 +24,21 @@ img {
 
 ### Course Description
 
-Elementary distribution theory; *t*-test; simple regression and correlation;
-multiple regression and multiple correlation; curvilinear regression; logistic
-regression; general linear model. Applications across the behavioral and social
-sciences are emphasized.
+A graduate introduction to statistical methods for the behavioral and social
+sciences, taught entirely in R.
+
+The course opens with the R ecosystem itself — projects, Quarto, and the data
+wrangling and exploration needed to get real data ready to analyze. It then
+builds up statistical inference from sampling and estimation through hypothesis
+testing, correlation, *t*-tests, and one-way ANOVA. The largest part of the
+course develops the general linear model: simple and multiple regression,
+categorical predictors and dummy coding, interaction effects for testing
+moderation, assumption diagnostics, and polynomial regression for curvilinear
+relationships. It closes with research practices, power analysis, and how to
+report and critically review a linear model analysis.
+
+Throughout, the emphasis is on estimating and interpreting effects rather than
+on hypothesis testing alone, and on writing code you could hand to someone else.
 
 *Prerequisite:* A beginning course in statistics and graduate standing, or
 consent of instructor.
@@ -55,8 +66,8 @@ At the conclusion of this course, students will be able to:
 
 ### Course Textbooks
 
-There is no required textbook. All assigned readings are provided as PDFs in
-Canvas Files.
+There is no required textbook, and all three books below are optional. Assigned
+readings are distributed by your instructor.
 
 - **Learning Statistics with R** (v0.6) by Danielle Navarro. A free online
   textbook; readings from it accompany Unit B and are optional.
@@ -69,14 +80,10 @@ Canvas Files.
 
 ### Instructor
 
-- [Dr. Jeffrey Girard](mailto:jmgirard@ku.edu), Instructor
+- [Dr. Jeffrey Girard](mailto:me@jmgirard.com), Instructor
 
-<!-- Deliberately omitted: meeting days/times/room, office hours, and the
-     semester heading. This site is semester-agnostic -- anything with a date
-     on it lives in Canvas, which is also where the chapter-to-week mapping and
-     the assignment/project due dates are maintained. See TEACHING.md. -->
+<!-- Deliberately omitted: meeting days/times/room, office hours, due dates,
+     grading, and the semester heading. This site is semester-agnostic and holds
+     course content only. Links run one way -- a course LMS links in to these
+     pages; nothing here links back out to a particular course site. -->
 
-::: {.callout-note}
-Class meeting times, office hours, due dates, and the week-by-week schedule are
-maintained on [Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}){target="_blank"}.
-:::

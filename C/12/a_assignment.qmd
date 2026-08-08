@@ -23,7 +23,7 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-*Questions 2 and 3 use the `screentime` dataset (from Canvas). This is a random subsample of 3,000 observations from <https://doi.org/10.1177/0956797616678438> (including all 100,000 observations might be tough on slower computers) and includes self-reported mental wellbeing and different forms of screen time during weekdays and weekends. Note that this is real data, but given the subsampling we should be cautious generalizing from it.*
+*Questions 2 and 3 use the [`screentime.csv`](../../data/screentime.csv){download="screentime.csv"} dataset. This is a random subsample of 3,000 observations from <https://doi.org/10.1177/0956797616678438> (including all 100,000 observations might be tough on slower computers) and includes self-reported mental wellbeing and different forms of screen time during weekdays and weekends. Note that this is real data, but given the subsampling we should be cautious generalizing from it.*
 
 ## Question 1 (Model Specification)
 
@@ -49,4 +49,4 @@ b) Now fit a second model that adds the four weekend predictors (`watch_we`, `pl
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

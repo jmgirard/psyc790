@@ -15,9 +15,6 @@ title: "Chapter 09: Regression"
 - [parenthood.csv](../../data/parenthood.csv){download="parenthood.csv"}
 - [water.csv](../../data/water.csv){download="water.csv"}
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
-
 ### Slides
 
 ```{=html}

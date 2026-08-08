@@ -2,7 +2,7 @@
 # Filename stays `schedule.qmd` so the published /schedule.html URL keeps
 # working; only the title and navbar label changed when weeks became chapters.
 # This page is now a table of contents -- the chapter-to-date mapping lives in
-# Canvas, which owns anything with a date on it.
+# whatever LMS is pointing at this site, which owns anything with a date on it.
 title: "Contents"
 toc: false
 ---

@@ -31,7 +31,7 @@ b) If I wanted to reduce my chances of making each type of error,{{< hp glyph="a
 
 ## Question 2 (Statistical Hypotheses)
 
-Download and use the `salaries` data file for this question. (Note that the salaries are given in thousands of dollars per year, such that 120 would actually mean $120,000 per year.)
+Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question. (Note that the salaries are given in thousands of dollars per year, such that 120 would actually mean $120,000 per year.)
 
 a) My friend is arguing that professors (across all ranks and disciplines) make, on average, $100,000 per year. This doesn't sound right to me, so I want to approach this statistically.{{< hp glyph="a" >}} What should I use as my null hypothesis and what should I use as my alternative hypothesis?
 
@@ -39,7 +39,7 @@ b) Conduct a one-sample $t$-test of the null hypothesis from part (a). Report th
 
 ## Question 3 (p-values and Pragmatics)
 
-Download and use the `salaries` data file for this question as well. This time, test the null hypothesis that professors make, on average, $110,000 per year.
+Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question as well. This time, test the null hypothesis that professors make, on average, $110,000 per year.
 
 a) Conduct a one-sample $t$-test of this null hypothesis. Report the observed test statistic and its degrees of freedom.
 
@@ -47,4 +47,4 @@ b) This test gives a much larger $p$-value than a test against $100,000 would. E
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

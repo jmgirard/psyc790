@@ -10,9 +10,6 @@ title: "Chapter 15: Best Practices"
 - Bad Practices
 - Best Practices
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20D){target="_blank"}
-
 ### Slides
 
 ```{=html}

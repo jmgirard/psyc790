@@ -23,7 +23,7 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-*All three questions use the `factbook1M` dataset from Canvas, which contains information from the CIA's World Factbook about all countries with more than 1 million people. Each question tells you to read it in and fit whatever models it needs, so they can be answered in any order.*
+*All three questions use the [`factbook1M.csv`](../../data/factbook1M.csv){download="factbook1M.csv"} dataset, which contains information from the CIA's World Factbook about all countries with more than 1 million people. Each question tells you to read it in and fit whatever models it needs, so they can be answered in any order.*
 
 ## Question 1 (Polynomial Regression)
 
@@ -51,4 +51,4 @@ b) The squared `birth_rate` term is still significant after controlling for `lif
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

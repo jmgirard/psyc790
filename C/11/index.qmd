@@ -14,9 +14,6 @@ title: "Chapter 11: Moderation"
 ### Files
 - [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
-
 ### Slides
 
 ```{=html}
@@ -43,9 +40,6 @@ title: "Chapter 11: Moderation"
 
 ### Files
 - [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
-
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20C){target="_blank"}
 
 ### Slides
 

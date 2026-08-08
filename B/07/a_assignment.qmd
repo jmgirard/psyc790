@@ -31,7 +31,7 @@ b) Why is it important for us to distinguish between{{< hp glyph="a" >}} indepen
 
 ## Question 2 (Independent Samples)
 
-Download the `political.csv` file from Canvas. It contains information about 59 students' political activity. **Be sure to set the `read_edit` and `year` variables to factors.**
+Download the [`political.csv`](../../data/political.csv){download="political.csv"} file. It contains information about 59 students' political activity. **Be sure to set the `read_edit` and `year` variables to factors.**
 
 a) I want to test whether students who read editorials (`read_edit=1`) feel more politically informed (`informed`) than those who don't (`read_edit=0`). What type of $t$-test is appropriate here (one-sample, independent samples, or paired samples), and what should my null and alternative hypotheses be?
 
@@ -39,7 +39,7 @@ b) Test my hypothesis from part (a) in R using Welch's approach. Include your re
 
 ## Question 3 (Paired Samples)
 
-Download the `sleep.csv` file from Canvas. It contains ratings from 16 people: how important they consider sleep to be (`importance`) and how satisfied they are with their own sleep (`satisfaction`), both measured on a 0--100 scale.
+Download the [`sleep.csv`](../../data/sleep.csv){download="sleep.csv"} file. It contains ratings from 16 people: how important they consider sleep to be (`importance`) and how satisfied they are with their own sleep (`satisfaction`), both measured on a 0--100 scale.
 
 a) Because both ratings come from the same 16 people, these are dependent samples. Conduct the appropriate $t$-test of whether people rate the importance of sleep differently from their satisfaction with it, and calculate a standardized effect size.
 
@@ -47,4 +47,4 @@ b) Report the results verbally, and explain why treating these two ratings as *i
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

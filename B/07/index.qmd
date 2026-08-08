@@ -14,9 +14,6 @@ title: "Chapter 07: Group Comparisons"
 - [socialproblems.csv](../../data/socialproblems.csv){download="socialproblems.csv"}
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
-
 ### Slides
 
 ```{=html}
@@ -41,9 +38,6 @@ title: "Chapter 07: Group Comparisons"
 
 ### Files
 - [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
-
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
 
 ### Slides
 

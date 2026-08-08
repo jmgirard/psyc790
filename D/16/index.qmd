@@ -6,9 +6,6 @@ title: "Chapter 16: Reporting and Reviewing"
 
 ## [16a] Reporting & Reviewing
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20D){target="_blank"}
-
 ### Slides
 
 ```{=html}
@@ -30,9 +27,6 @@ title: "Chapter 16: Reporting and Reviewing"
 ### Topics
 - Examples
 - Activity
-
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20D){target="_blank"}
 
 ### Slides
 

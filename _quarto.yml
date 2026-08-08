@@ -1,8 +1,8 @@
-# Canvas course id, inherited by every page so reading links can be written as
-#   [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/pages/...)
-# This keeps the chapter index.qmd files identical between instructors -- only this
-# file changes. See MODERNIZATION-PLAN.md section 6.
-canvas-id: "164756"
+# No canvas-id here on purpose. This site holds course content only and links
+# run one way: a course LMS links in to these pages, and nothing here links back
+# out to a particular course site. That is what keeps the site reusable across
+# semesters and instructors -- readings, due dates, grading, and the
+# chapter-to-week mapping all live in whatever LMS is pointing at it.
 
 project:
   type: website
@@ -34,12 +34,6 @@ website:
     background: primary
     search: true
     right:
-      - href: https://canvas.ku.edu/courses/164756
-        icon: mortarboard
-        text: "Canvas"
-      - href: https://canvas.ku.edu/courses/164756
-        icon: file-text
-        text: "Syllabus"
       - href: schedule.qmd
         icon: list-ul
         text: "Contents"

@@ -12,9 +12,6 @@ title: "Chapter 06: Hypothesis Testing"
 - NHST Nuts and Bolts
 - $p$-values and  Pragmatics
 
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
-
 ### Slides
 
 ```{=html}
@@ -39,9 +36,6 @@ title: "Chapter 06: Hypothesis Testing"
 
 ### Files
 - [cigarettes.csv](../../data/cigarettes.csv){download="cigarettes.csv"}
-
-### Readings
-- [View on Canvas](https://canvas.ku.edu/courses/{{< meta canvas-id >}}/files/folder/Unit%20B){target="_blank"}
 
 ### Slides
 

@@ -42,7 +42,7 @@ b) Use a function in R to calculate the average number of characters across the 
 
 a) When would you want to convert a variable into a factor in R, and when would you not want to? {{< hp glyph="." >}}What problems could be avoided, and what problems could be caused, by using factors?
 
-b) Download the "water0.csv" file from Canvas and load it into R. Then convert the `region` variable to a factor such that 1=North and 2=South. Finally, tabulate the `region` variable to count how many towns are in each region in this dataset.
+b) Download the [`water0.csv`](../../data/water0.csv){download="water0.csv"} file and load it into R. Then convert the `region` variable to a factor such that 1=North and 2=South. Finally, tabulate the `region` variable to count how many towns are in each region in this dataset.
 
 
 ## Question 3 (Packages)
@@ -53,4 +53,4 @@ b) Install the `praise` package (don't put the `install.packages()` code in your
 
 ---
 
-✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*
