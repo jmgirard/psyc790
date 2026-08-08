@@ -42,7 +42,7 @@ title: "Chapter 11: Moderation"
 - Binary-by-Continuous
 - Nominal-by-Continuous
 - Categorical-by-Categorical
-- Three-Way Interactions *(draft — unreviewed)*
+- Three-Way Interactions
 
 ### Files
 - [exercise.csv](../../data/exercise.csv){download="exercise.csv"}

@@ -493,13 +493,6 @@ plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme
 ```
 
 
-<!-- ==========================================================================
-     DRAFT — three-way interactions. Written to address the note that 11b runs
-     short. The statistical pedagogy here has NOT been reviewed by the course
-     author; check the framing, the worked interpretations, and whether this
-     belongs in 11b at all before teaching it.
-     ========================================================================== -->
-
 # Three-Way Interactions
 
 ## When two-way isn't enough {.fs70}
@@ -555,7 +548,7 @@ model_parameters(fit6)
 ::: {.fragment .mt1}
 - Read it [top-down]{.b .blue}, highest-order term first
     + If the three-way term is significant, the two-way interactions
-      *cannot* be interpreted on their own
+      should not be read as *overall* effects
     + Each lower-order term is now conditional on the others being zero
 :::
 
@@ -610,6 +603,8 @@ plot(estimate_relation(fit6, by = c("duration", "sex", "program"))) + mytheme(20
 - Three-way interactions are [expensive]{.b .blue}
     + They need substantially more power than two-way terms
     + Cells get small quickly once you cross three variables
+    + Our example is *simulated*, with 150 per cell --- real data is rarely
+      this generous
 
 ::: {.fragment .mt1}
 - They are also easy to over-read
