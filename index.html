@@ -243,7 +243,7 @@ img {
 }
 </style>
 <p><img src="./img/statistics_2780E3.svg" class="img-fluid" width="400"></p>
-<p>This site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering sixteen chapters across four units.</p>
+<p>This site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering fifteen chapters across five units.</p>
 <p>Anyone is welcome to teach from these materials, adapt them for their own course, or work through them independently. Nothing here is tied to a particular semester, institution, or offering — schedules, deadlines, and grading belong wherever the course is actually being run.</p>
 <p>Developed by <script type="text/javascript">
 <!--
@@ -376,7 +376,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#74
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/jmgirard\.github\.io\/psyc790\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

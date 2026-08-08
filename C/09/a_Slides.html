@@ -202,7 +202,7 @@
 <h1><span class="blue">Statistical Methods</span></h1>
 <p>Polynomial Regression</p>
 <div class="my-grey">
-<p><span>Unit C | Chapter 09</span><br> <span>Lecture 09c</span></p>
+<p><span>Unit C | Chapter 09</span><br> <span>Lecture 09a</span></p>
 </div>
 <div class="my-attrib">
 <p>Developed by Jeffrey M. Girard</p>
@@ -223,7 +223,7 @@
 <li><p>If we fit a straight line anyway, our results may be very biased</p></li>
 </ul>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="864" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="864" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Linear regression</h2>
 <div class="cell">
@@ -248,14 +248,14 @@
 <span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit, <span class="at">by =</span> <span class="st">"x"</span>), <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Assumption checking</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit, <span class="at">check =</span> <span class="st">"linearity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2 fs90">
 <h2>Conclusions</h2>
 <ul>
@@ -302,14 +302,14 @@
 </ul></li>
 </ul>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2 fs90">
 <h2>Direction of curvature</h2>
 <ul>
 <li>The sign <span class="math inline">\((\pm)\)</span> of the curve’s highest degree term’s slope<br>determines its <strong>direction of curvature</strong> (i.e., up or down)</li>
 </ul>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Quadratic Regression</h1>
@@ -367,14 +367,14 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit1b, <span class="at">by =</span> <span class="st">"x"</span>), <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Assumption checking</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit1b, <span class="at">check =</span> <span class="st">"linearity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Quadratic regression 2</h2>
 <div class="cell">
@@ -403,18 +403,18 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit2b, <span class="at">by =</span> <span class="st">"x"</span>), <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Assumption checking</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit2b, <span class="at">check =</span> <span class="st">"linearity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Visualizing the tangent line</h2>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Calculating extrema</h2>
 <ul>
@@ -455,7 +455,7 @@
 <section class="slide level2">
 <h2>Visualizing extrema</h2>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Adding Predictors</h1>
@@ -491,7 +491,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"flipper_len"</span>, <span class="st">"sex"</span>)), <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2 fs90">
 <h2>Adding moderation</h2>
 <div class="cell">
@@ -530,7 +530,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit4, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"flipper_len"</span>, <span class="st">"sex"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Closing Thoughts</h1>
@@ -542,7 +542,7 @@
 <li>You may only see <em>part</em> of the curve in your sample!</li>
 </ul>
 
-<img data-src="c_Slides_files/figure-revealjs/unnamed-chunk-28-1.png" width="768" class="r-stretch"></section>
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-28-1.png" width="768" class="r-stretch"></section>
 <section class="slide level2 fs90">
 <h2>Advice</h2>
 <ul>
@@ -1020,7 +1020,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/jmgirard\.github\.io\/psyc790\/");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
