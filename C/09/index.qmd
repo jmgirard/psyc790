@@ -4,13 +4,7 @@ title: "Chapter 09: Regression"
 
 <!-- Lecture a -->
 
-## [09a] Fall Break
-
-No course meeting
-
-<!-- Lecture b -->
-
-## [09b] Regression / Inference / Centering
+## [09a] Regression / Inference / Centering
 
 ### Topics
 - Regression Inference
@@ -27,13 +21,16 @@ No course meeting
 ### Slides
 
 ```{=html}
-<iframe class="slide-deck" src="b_Slides.html" title="[09b] Slideshow">
+<iframe class="slide-deck" src="a_Slides.html" title="[09a] Slideshow">
 </iframe>
 ```
 
 ::: {.fs80}
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
+
+### Assignment
+- [Lecture 09a Assignment](a_assignment.qmd)
 
 <!-- Bottom Nav -->
 

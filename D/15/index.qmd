@@ -36,7 +36,7 @@ title: "Chapter 15: Best Practices"
 ### Slides
 
 ```{=html}
-<iframe class="slide-deck" src="power_Slides.html" title="Power Analysis Slideshow">
+<iframe class="slide-deck" src="b_Slides.html" title="[15b] Slideshow">
 </iframe>
 ```
 

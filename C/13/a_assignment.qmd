@@ -1,0 +1,54 @@
+---
+title: "Lecture 13a Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 13a Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+*All three questions use the `factbook1M` dataset from Canvas, which contains information from the CIA's World Factbook about all countries with more than 1 million people. Each question tells you to read it in and fit whatever models it needs, so they can be answered in any order.*
+
+## Question 1 (Polynomial Regression)
+
+Read in `factbook1M` and fit **two** models predicting a country's `death_rate`: one using only `birth_rate`, and one adding a squared `birth_rate` term.
+
+a) Report the $R^2$ of each model and whether the squared term is significant. Then compare the two models formally (e.g., with an $F$ test) and state which one you would keep.
+
+b) The linear model on its own finds almost nothing. Explain how a relationship can be strong and yet nearly invisible to a model that only allows a straight line.{{< hp glyph="b" >}}
+
+## Question 2 (Quadratic Regression)
+
+Read in `factbook1M` again and fit the model predicting `death_rate` from `birth_rate` and its squared term.
+
+a) Plot the model's predictions across the observed range of `birth_rate`. Describe the shape of the curve in words.
+
+b) The squared term is positive, so the curve has a minimum rather than a maximum. Estimate roughly where along `birth_rate` that minimum falls, and give a substantive interpretation of why countries at both low *and* high birth rates might have higher death rates than those in the middle.{{< hp glyph="b" >}}
+
+## Question 3 (Adding Predictors)
+
+Read in `factbook1M` again and fit a model predicting `death_rate` from `birth_rate`, its squared term, and `life_exp`.
+
+a) Report the coefficients and the $R^2$. How much did adding `life_exp` improve the model over the quadratic model from Question 2?
+
+b) The squared `birth_rate` term is still significant after controlling for `life_exp`. Explain what that tells you, and why you should be cautious about interpreting the `birth_rate` coefficient on its own in a model that also contains `birth_rate` squared.{{< hp glyph="b" >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

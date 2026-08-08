@@ -27,6 +27,9 @@ title: "Chapter 10: Categorical and Multiple Regression"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Assignment
+- [Lecture 10a Assignment](a_assignment.qmd)
+
 <!-- Lecture b -->
 
 ## [10b] Multiple Regression / Partial Effects
@@ -53,11 +56,8 @@ title: "Chapter 10: Categorical and Multiple Regression"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-<!-- Assignment -->
-
-## Assignment
-
-- [Chapter 10 Assignment](assignment.qmd)
+### Assignment
+- [Lecture 10b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->
 
