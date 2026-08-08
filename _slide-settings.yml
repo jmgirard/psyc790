@@ -1,12 +1,14 @@
 pagetitle: "Statistical Methods in Psychology"
 author-meta: "Jeffrey Girard"
-semester: "Fall 2025"
-course: "PSYC 790"
 
-# Shown on every title slide. Swapping these two lines is the whole of the
-# per-instructor diff -- see MODERNIZATION-PLAN.md section 6.
-instructor: "Jeffrey M. Girard"
-attribution: ""
+# Title slides identify the material (unit / chapter / lecture), not the offering.
+# Semester, course number, and instructor used to appear here and were removed
+# when the site became semester-agnostic: whoever teaches from these decks is
+# named by the LMS pointing at them, not by the decks themselves.
+#
+# `attribution` is the small grey line at the bottom of every title slide. A
+# future instructor can add their own name to it while leaving the credit intact.
+attribution: "Developed by Jeffrey M. Girard"
 
 navbar: false
 sidebar: false

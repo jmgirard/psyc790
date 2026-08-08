@@ -1,4 +1,6 @@
 ---
+unit: "B"
+chapter: "06"
 lecture: "06a"
 metadata-files:
   - ../../_slide-settings.yml
@@ -12,8 +14,8 @@ format:
 Hypotheses / NHST / p-values
 
 ::: {.my-grey}
-[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
-[{{< meta instructor >}} | Lecture {{< meta lecture >}}]{}
+[Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
+[Lecture {{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}

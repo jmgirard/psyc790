@@ -1,5 +1,7 @@
 ---
-lecture: "09b"
+unit: "C"
+chapter: "09"
+lecture: "09a"
 metadata-files:
   - ../../_slide-settings.yml
 format:
@@ -12,8 +14,8 @@ format:
 Regression / Inference / Centering
 
 ::: {.my-grey}
-[{{< meta semester >}} | Course {{< meta course >}}]{}<br />
-[{{< meta instructor >}} | Lecture {{< meta lecture >}}]{}
+[Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
+[Lecture {{< meta lecture >}}]{}
 :::
 
 ::: {.my-attrib}
