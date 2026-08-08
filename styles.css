@@ -28,7 +28,7 @@
 }
 
 /* NOTE: data2 sets `.reveal h2 { margin-bottom: 0.75em }` and
-   `.reveal h4 { margin-top: 0.5em }`. psyc790's slides were authored without
+   `.reveal h4 { margin-top: 0.5em }`. These slides were authored without
    them and are much denser, so adopting them pushed content off the bottom of
    ~50% of the affected slides. Left at the reveal default here.
    See SLIDE-OVERFLOW.md. */
@@ -64,6 +64,16 @@ lord-icon.rc {
 
 .mytable td {
   border: none !important;
+}
+
+/* Marks material that is outlined but not yet written, on the front page and
+   in the table of contents. Deliberately quiet: it should read as a footnote
+   on the line it follows, not as a badge competing with the link. */
+.soon {
+  color: #6c757d;
+  font-size: 0.85em;
+  font-style: italic;
+  white-space: nowrap;
 }
 
 /* Embedded deck. Reveal lays slides out on a fixed 1050x700 canvas and scales
@@ -351,15 +361,15 @@ iframe.slide-deck {
 }
 
 /* The legacy names above (.f3-.f6, .f90, .f36, .fsmaller) are aliases, not
-   separate stops -- every call site in psyc790, psyc894 and data2 now uses
+   separate stops -- every call site in this course, psyc894 and data2 now uses
    .fs*. They are kept deliberately so that an un-migrated directive renders at
    the right size instead of becoming a silent no-op. That failure mode is not
-   hypothetical: 132 dead .f4/.f5/.f6/.f90 directives went unnoticed in psyc790
-   and caused a 55-slide overflow regression (psyc790/SLIDE-OVERFLOW.md).
+   hypothetical: 132 dead .f4/.f5/.f6/.f90 directives went unnoticed here and
+   caused a 55-slide overflow regression (see SLIDE-OVERFLOW.md).
 
    This block is the one part of styles.css that is intentionally byte-identical
    across all three course repos. The rest is NOT interchangeable -- the h2/h4
-   margins and sourceCode padding differ on purpose, because psyc790's decks are
+   margins and sourceCode padding differ on purpose, because these decks are
    much denser than data2's. Do not sync the whole file between repos. */
 
 /* ==========================================================================
@@ -416,7 +426,7 @@ iframe.slide-deck {
 
 /* Format code output */
 
-/* Padding reduced from data2's 10px: psyc790's decks carry more code per
+/* Padding reduced from data2's 10px: these decks carry more code per
    slide, and the extra padding accounted for ~39% of the slide overflow. */
 .reveal div.sourceCode pre code {
   padding: 4px 10px !important;

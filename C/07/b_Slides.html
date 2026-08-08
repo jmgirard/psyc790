@@ -200,7 +200,7 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Dummy Codes / Means / Contrasts</p>
+<p>Categorical Predictors</p>
 <div class="my-grey">
 <p><span>Unit C | Chapter 07</span><br> <span>Lecture 07b</span></p>
 </div>
@@ -1424,7 +1424,7 @@ Control*
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

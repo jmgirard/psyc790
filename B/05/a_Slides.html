@@ -204,7 +204,7 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Hypotheses / NHST / p-values</p>
+<p>NHST &amp; p-values</p>
 <div class="my-grey">
 <p><span>Unit B | Chapter 05</span><br> <span>Lecture 05a</span></p>
 </div>
@@ -1396,7 +1396,7 @@ Alternative hypothesis: true mean is not equal to 3</code></pre>
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

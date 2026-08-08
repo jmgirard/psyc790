@@ -201,7 +201,7 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Populations / Samples / Uncertainty</p>
+<p>Populations &amp; Samples</p>
 <div class="my-grey">
 <p><span>Unit B | Chapter 04</span><br> <span>Lecture 04a</span></p>
 </div>
@@ -303,7 +303,7 @@
 <ul>
 <li>All humans who ever lived and ever will live</li>
 <li>All adults (18 years and older) living in the USA</li>
-<li>All students at KU in Fall 2026 enrolled in PSYC 790</li>
+<li>All students enrolled in this course this semester</li>
 </ul></li>
 </ul>
 <div class="footer">
@@ -1198,7 +1198,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

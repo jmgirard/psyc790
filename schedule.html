@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -111,11 +111,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./A/02/index.html">
- <span class="dropdown-text">Chapter 02: Projects and Programming</span></a>
+ <span class="dropdown-text">Chapter 02: Projects &amp; Programming</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./A/03/index.html">
- <span class="dropdown-text">Chapter 03: Data and Exploration</span></a>
+ <span class="dropdown-text">Chapter 03: Data &amp; Exploration</span></a>
   </li>  
     </ul>
   </li>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-b">    
         <li>
     <a class="dropdown-item" href="./B/04/index.html">
- <span class="dropdown-text">Chapter 04: Sampling and Estimation</span></a>
+ <span class="dropdown-text">Chapter 04: Sampling &amp; Estimation</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./B/05/index.html">
@@ -164,11 +164,11 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-d">    
         <li>
     <a class="dropdown-item" href="./D/10/index.html">
- <span class="dropdown-text">Chapter 10: Assumptions and Diagnostics</span></a>
+ <span class="dropdown-text">Chapter 10: Model Diagnostics</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./D/11/index.html">
- <span class="dropdown-text">Chapter 11: Bootstrap and Robust Inference</span></a>
+ <span class="dropdown-text">Chapter 11: Bootstrap &amp; Robustness</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./D/12/index.html">
@@ -183,15 +183,15 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-e">    
         <li>
     <a class="dropdown-item" href="./E/13/index.html">
- <span class="dropdown-text">Chapter 13: Reliability and Measurement Error</span></a>
+ <span class="dropdown-text">Chapter 13: Reliability</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./E/14/index.html">
- <span class="dropdown-text">Chapter 14: Power and Preregistration</span></a>
+ <span class="dropdown-text">Chapter 14: Power &amp; Preregistration</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./E/15/index.html">
- <span class="dropdown-text">Chapter 15: Reporting and Reviewing Results</span></a>
+ <span class="dropdown-text">Chapter 15: Reporting &amp; Reviewing</span></a>
   </li>  
     </ul>
   </li>
@@ -203,12 +203,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -217,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -229,116 +229,313 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="unit-a-foundations" class="level2">
-<h2 class="anchored" data-anchor-id="unit-a-foundations">Unit A — Foundations</h2>
-<ul>
-<li>Chapter 01: <a href="./A/01/index.html">Getting Started</a>
-<ol type="a">
-<li>Introduction</li>
-<li>RStudio / Console / Scripts</li>
-</ol></li>
-<li>Chapter 02: <a href="./A/02/index.html">Projects and Programming</a>
-<ol type="a">
-<li>Projects / Quarto / Markdown</li>
-<li>Assignment / Functions / Vectors</li>
-</ol></li>
-<li>Chapter 03: <a href="./A/03/index.html">Data and Exploration</a>
-<ol type="a">
-<li>Strings / Factors / Packages</li>
-<li>Data Frames / Files / Exploration</li>
-</ol></li>
-</ul>
+<style>
+/* Unit heading: the letter carries the unit, so it gets the weight and the
+   name sits next to it as plain text rather than competing for it. */
+.unit-letter {
+  display: inline-block;
+  background-color: #2780e3;
+  color: #fff;
+  border-radius: 0.35rem;
+  padding: 0.02em 0.45em;
+  margin-right: 0.15em;
+  font-weight: 700;
+}
+
+h2:has(.unit-letter) {
+  border-bottom: none;
+  margin-top: 2.75rem;
+  margin-bottom: 0.35rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.unit-desc {
+  color: #6c757d;
+  margin: 0 0 1.1rem;
+  max-width: 46rem;
+}
+
+/* Chapter cards. auto-fit rather than auto-fill so a unit's three chapters
+   spread across the row instead of leaving a phantom fourth column. */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.85rem;
+  /* Full-page layout has no column of its own, so cap the run here rather than
+     letting three cards stretch across a very wide monitor. */
+  max-width: 76rem;
+}
+
+/* The whole card is the link, so the click target is the card and not just
+   the title. Nothing else inside it may be an anchor. */
+a.chapter-card {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.chapter-card:hover,
+a.chapter-card:focus-visible {
+  border-color: #2780e3;
+  box-shadow: 0 2px 8px rgba(39, 128, 227, 0.12);
+}
+
+.chapter-num {
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #c9dcf5;
+}
+
+a.chapter-card:hover .chapter-num {
+  color: #2780e3;
+}
+
+.chapter-title {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+a.chapter-card:hover .chapter-title {
+  color: #2780e3;
+}
+
+/* Hanging indent so a wrapped lecture title lines up under its own text
+   rather than sliding back under the a/b/c letter. */
+.lec {
+  display: block;
+  font-size: 0.88rem;
+  color: #6c757d;
+  line-height: 1.45;
+  padding-left: 1.05em;
+  text-indent: -1.05em;
+}
+
+.lec b {
+  display: inline-block;
+  width: 1.05em;
+  text-indent: 0;
+  color: #adb5bd;
+  font-weight: 600;
+}
+
+/* Chapters that are outline-only: same card, less ink, so the unit still
+   reads as a whole rather than having holes in it. */
+a.chapter-card.pending {
+  background-color: #fbfcfd;
+  border-style: dashed;
+}
+
+/* Unit-closing translation activity. Set apart from the grid because it
+   belongs to the unit rather than to any one chapter. */
+.unit-extra {
+  margin-top: 0.7rem;
+  font-size: 0.92rem;
+}
+
+/* The marker goes on the paragraph, not the wrapping div: a ::before on the
+   div lands in block context and takes a line of its own. */
+.unit-extra p {
+  margin: 0;
+}
+
+.unit-extra p::before {
+  content: "\21B3";
+  color: #adb5bd;
+  margin-right: 0.45em;
+}
+</style>
+<p>Fifteen chapters across five units. Each chapter runs two or three lectures of about ninety minutes, and each lecture carries its own practice and assignment.</p>
+<section id="a-foundations" class="level2">
+<h2 class="anchored" data-anchor-id="a-foundations"><span class="unit-letter">A</span> Foundations</h2>
+<div class="unit-desc">
+<p>Getting R running, then writing code and handling data well enough to start asking questions of it.</p>
+</div>
+<div class="chapter-grid">
+  <a class="chapter-card" href="A/01/index.html">
+    <span class="chapter-num">01</span>
+    <span>
+      <span class="chapter-title">Getting Started</span>
+      <span class="lec"><b>a</b>Introduction</span>
+      <span class="lec"><b>b</b>Working in RStudio</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="A/02/index.html">
+    <span class="chapter-num">02</span>
+    <span>
+      <span class="chapter-title">Projects &amp; Programming</span>
+      <span class="lec"><b>a</b>Reproducible Workflows</span>
+      <span class="lec"><b>b</b>Writing R Code</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="A/03/index.html">
+    <span class="chapter-num">03</span>
+    <span>
+      <span class="chapter-title">Data &amp; Exploration</span>
+      <span class="lec"><b>a</b>Data Types &amp; Packages</span>
+      <span class="lec"><b>b</b>Importing &amp; Exploring</span>
+    </span>
+  </a>
+</div>
+<div class="unit-extra">
+<p>Alongside this unit: <a href="https://jmgirard.github.io/data2/" target="_blank">Foundations of Data Science</a>, a full course on R and the tidyverse</p>
+</div>
 </section>
-<section id="unit-b-inference" class="level2">
-<h2 class="anchored" data-anchor-id="unit-b-inference">Unit B — Inference</h2>
-<ul>
-<li>Chapter 04: <a href="./B/04/index.html">Sampling and Estimation</a>
-<ol type="a">
-<li>Populations / Samples / Uncertainty</li>
-<li>Estimates / Normality / Confidence</li>
-</ol></li>
-<li>Chapter 05: <a href="./B/05/index.html">Hypothesis Testing</a>
-<ol type="a">
-<li>Hypotheses / NHST / p-values</li>
-<li>Covariances / Correlations / Inference</li>
-</ol></li>
-<li>Chapter 06: <a href="./B/06/index.html">Group Comparisons</a>
-<ol type="a">
-<li>t-tests / Effect Sizes / Paired Groups</li>
-<li>One-way ANOVA / Effect Sizes / Contrasts</li>
-<li>Unequal Variances / Repeated Measures</li>
-</ol>
-<ul>
-<li><a href="./B/06/translation.html">Unit B Translation Activity</a></li>
-</ul></li>
-</ul>
+<section id="b-inference" class="level2">
+<h2 class="anchored" data-anchor-id="b-inference"><span class="unit-letter">B</span> Inference</h2>
+<div class="unit-desc">
+<p>Where an estimate comes from, how much of it to believe, and how to compare two or more groups.</p>
+</div>
+<div class="chapter-grid">
+  <a class="chapter-card" href="B/04/index.html">
+    <span class="chapter-num">04</span>
+    <span>
+      <span class="chapter-title">Sampling &amp; Estimation</span>
+      <span class="lec"><b>a</b>Populations &amp; Samples</span>
+      <span class="lec"><b>b</b>Confidence Intervals</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="B/05/index.html">
+    <span class="chapter-num">05</span>
+    <span>
+      <span class="chapter-title">Hypothesis Testing</span>
+      <span class="lec"><b>a</b>NHST &amp; p-values</span>
+      <span class="lec"><b>b</b>Correlation &amp; Inference</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="B/06/index.html">
+    <span class="chapter-num">06</span>
+    <span>
+      <span class="chapter-title">Group Comparisons</span>
+      <span class="lec"><b>a</b>Comparing Two Groups</span>
+      <span class="lec"><b>b</b>Comparing Many Groups</span>
+      <span class="lec"><b>c</b>ANOVA Extensions</span>
+    </span>
+  </a>
+</div>
+<div class="unit-extra">
+<p><a href="./B/06/translation.html">Unit B Translation Activity</a></p>
+</div>
 </section>
-<section id="unit-c-the-linear-model" class="level2">
-<h2 class="anchored" data-anchor-id="unit-c-the-linear-model">Unit C — The Linear Model</h2>
-<ul>
-<li>Chapter 07: <a href="./C/07/index.html">Regression</a>
-<ol type="a">
-<li>Regression / Inference / Centering</li>
-<li>Dummy Codes / Means / Contrasts</li>
-<li>Multiple Regression / Partial Effects</li>
-</ol></li>
-<li>Chapter 08: <a href="./C/08/index.html">Moderation</a>
-<ol type="a">
-<li>Continuous Moderation</li>
-<li>Categorical Moderation</li>
-</ol></li>
-<li>Chapter 09: <a href="./C/09/index.html">Nonlinearity</a>
-<ol type="a">
-<li>Polynomial Regression</li>
-<li>Piecewise and Spline Regression <em>(planned)</em></li>
-</ol>
-<ul>
-<li><a href="./C/09/translation.html">Unit C Translation Activity</a></li>
-</ul></li>
-</ul>
+<section id="c-the-linear-model" class="level2">
+<h2 class="anchored" data-anchor-id="c-the-linear-model"><span class="unit-letter">C</span> The Linear Model</h2>
+<div class="unit-desc">
+<p>One framework, regression, stretched to cover categorical predictors, interactions, and curves.</p>
+</div>
+<div class="chapter-grid">
+  <a class="chapter-card" href="C/07/index.html">
+    <span class="chapter-num">07</span>
+    <span>
+      <span class="chapter-title">Regression</span>
+      <span class="lec"><b>a</b>Simple Regression</span>
+      <span class="lec"><b>b</b>Categorical Predictors</span>
+      <span class="lec"><b>c</b>Multiple Regression</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="C/08/index.html">
+    <span class="chapter-num">08</span>
+    <span>
+      <span class="chapter-title">Moderation</span>
+      <span class="lec"><b>a</b>Continuous Moderation</span>
+      <span class="lec"><b>b</b>Categorical Moderation</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="C/09/index.html">
+    <span class="chapter-num">09</span>
+    <span>
+      <span class="chapter-title">Nonlinearity</span>
+      <span class="lec"><b>a</b>Polynomial Regression</span>
+      <span class="lec"><b>b</b>Piecewise &amp; Splines
+        <span class="soon">(coming soon)</span></span>
+    </span>
+  </a>
+</div>
+<div class="unit-extra">
+<p><a href="./C/09/translation.html">Unit C Translation Activity</a></p>
+</div>
 </section>
-<section id="unit-d-data-problems-and-robust-inference" class="level2">
-<h2 class="anchored" data-anchor-id="unit-d-data-problems-and-robust-inference">Unit D — Data Problems and Robust Inference</h2>
-<ul>
-<li>Chapter 10: <a href="./D/10/index.html">Assumptions and Diagnostics</a>
-<ol type="a">
-<li>Assumptions and Diagnostics I</li>
-<li>Assumptions and Diagnostics II</li>
-</ol>
-<ul>
-<li><a href="./D/10/translation.html">Unit D Translation Activity</a></li>
-</ul></li>
-<li>Chapter 11: <a href="./D/11/index.html">Bootstrap and Robust Inference</a> <em>(planned)</em>
-<ol type="a">
-<li>The Bootstrap</li>
-<li>Robust Inference</li>
-</ol></li>
-<li>Chapter 12: <a href="./D/12/index.html">Missing Data</a> <em>(planned)</em>
-<ol type="a">
-<li>Missing Data Theory</li>
-<li>Multiple Imputation and FIML</li>
-</ol></li>
-</ul>
+<section id="d-data-problems-and-robust-inference" class="level2">
+<h2 class="anchored" data-anchor-id="d-data-problems-and-robust-inference"><span class="unit-letter">D</span> Data Problems and Robust Inference</h2>
+<div class="unit-desc">
+<p>What to do when the assumptions those models rest on do not hold, and how to tell that they do not.</p>
+</div>
+<div class="chapter-grid">
+  <a class="chapter-card" href="D/10/index.html">
+    <span class="chapter-num">10</span>
+    <span>
+      <span class="chapter-title">Model Diagnostics</span>
+      <span class="lec"><b>a</b>Form &amp; Collinearity</span>
+      <span class="lec"><b>b</b>Residuals &amp; Outliers</span>
+    </span>
+  </a>
+  <a class="chapter-card pending" href="D/11/index.html">
+    <span class="chapter-num">11</span>
+    <span>
+      <span class="chapter-title">Bootstrap &amp; Robustness
+        <span class="soon">(coming soon)</span></span>
+      <span class="lec"><b>a</b>The Bootstrap</span>
+      <span class="lec"><b>b</b>Robust Inference</span>
+    </span>
+  </a>
+  <a class="chapter-card pending" href="D/12/index.html">
+    <span class="chapter-num">12</span>
+    <span>
+      <span class="chapter-title">Missing Data
+        <span class="soon">(coming soon)</span></span>
+      <span class="lec"><b>a</b>Missing Data Theory</span>
+      <span class="lec"><b>b</b>Imputation &amp; FIML</span>
+    </span>
+  </a>
+</div>
+<div class="unit-extra">
+<p><a href="./D/10/translation.html">Unit D Translation Activity</a></p>
+</div>
 </section>
-<section id="unit-e-designing-and-reporting-studies" class="level2">
-<h2 class="anchored" data-anchor-id="unit-e-designing-and-reporting-studies">Unit E — Designing and Reporting Studies</h2>
-<ul>
-<li>Chapter 13: <a href="./E/13/index.html">Reliability and Measurement Error</a> <em>(planned)</em>
-<ol type="a">
-<li>Classical Test Theory and Internal Consistency</li>
-<li>Inter-Rater Reliability and Attenuation</li>
-</ol></li>
-<li>Chapter 14: <a href="./E/14/index.html">Power and Preregistration</a>
-<ol type="a">
-<li>Power Analysis</li>
-<li>Researcher Degrees of Freedom</li>
-</ol></li>
-<li>Chapter 15: <a href="./E/15/index.html">Reporting and Reviewing Results</a>
-<ol type="a">
-<li>Reporting Statistical Results</li>
-<li>Reviewing Statistical Claims <em>(planned)</em></li>
-</ol></li>
-</ul>
+<section id="e-designing-and-reporting-studies" class="level2">
+<h2 class="anchored" data-anchor-id="e-designing-and-reporting-studies"><span class="unit-letter">E</span> Designing and Reporting Studies</h2>
+<div class="unit-desc">
+<p>Measuring well, planning a study large enough to answer its question, and reporting what came back.</p>
+</div>
+<div class="chapter-grid">
+  <a class="chapter-card pending" href="E/13/index.html">
+    <span class="chapter-num">13</span>
+    <span>
+      <span class="chapter-title">Reliability
+        <span class="soon">(coming soon)</span></span>
+      <span class="lec"><b>a</b>Internal Consistency</span>
+      <span class="lec"><b>b</b>Raters &amp; Attenuation</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="E/14/index.html">
+    <span class="chapter-num">14</span>
+    <span>
+      <span class="chapter-title">Power &amp; Preregistration</span>
+      <span class="lec"><b>a</b>Power Analysis</span>
+      <span class="lec"><b>b</b>Questionable Practices</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="E/15/index.html">
+    <span class="chapter-num">15</span>
+    <span>
+      <span class="chapter-title">Reporting &amp; Reviewing</span>
+      <span class="lec"><b>a</b>Reporting Results</span>
+      <span class="lec"><b>b</b>Reviewing Claims
+        <span class="soon">(coming soon)</span></span>
+    </span>
+  </a>
+</div>
+<div class="unit-extra">
+<p>After this course: Generalized Linear Models <span class="soon">(coming soon)</span>, then <a href="https://jmgirard.github.io/psyc894/" target="_blank">Multilevel Modeling</a></p>
+</div>
 
 
 </section>
@@ -417,7 +614,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -751,7 +948,7 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2025 © Jeffrey Girard</p>
+<p>Copyright 2026 © Jeffrey Girard</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

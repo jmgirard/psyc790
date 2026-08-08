@@ -4,63 +4,63 @@
     "href": "schedule.html",
     "title": "Contents",
     "section": "",
-    "text": "Chapter 01: Getting Started\n\nIntroduction\nRStudio / Console / Scripts\n\nChapter 02: Projects and Programming\n\nProjects / Quarto / Markdown\nAssignment / Functions / Vectors\n\nChapter 03: Data and Exploration\n\nStrings / Factors / Packages\nData Frames / Files / Exploration"
+    "text": "Fifteen chapters across five units. Each chapter runs two or three lectures of about ninety minutes, and each lecture carries its own practice and assignment."
   },
   {
-    "objectID": "schedule.html#unit-a-foundations",
-    "href": "schedule.html#unit-a-foundations",
+    "objectID": "schedule.html#a-foundations",
+    "href": "schedule.html#a-foundations",
     "title": "Contents",
-    "section": "",
-    "text": "Chapter 01: Getting Started\n\nIntroduction\nRStudio / Console / Scripts\n\nChapter 02: Projects and Programming\n\nProjects / Quarto / Markdown\nAssignment / Functions / Vectors\n\nChapter 03: Data and Exploration\n\nStrings / Factors / Packages\nData Frames / Files / Exploration"
+    "section": "A Foundations",
+    "text": "A Foundations\n\nGetting R running, then writing code and handling data well enough to start asking questions of it.\n\n\n  \n    01\n    \n      Getting Started\n      aIntroduction\n      bWorking in RStudio\n    \n  \n  \n    02\n    \n      Projects & Programming\n      aReproducible Workflows\n      bWriting R Code\n    \n  \n  \n    03\n    \n      Data & Exploration\n      aData Types & Packages\n      bImporting & Exploring\n    \n  \n\n\nAlongside this unit: Foundations of Data Science, a full course on R and the tidyverse"
   },
   {
-    "objectID": "schedule.html#unit-b-inference",
-    "href": "schedule.html#unit-b-inference",
+    "objectID": "schedule.html#b-inference",
+    "href": "schedule.html#b-inference",
     "title": "Contents",
-    "section": "Unit B — Inference",
-    "text": "Unit B — Inference\n\nChapter 04: Sampling and Estimation\n\nPopulations / Samples / Uncertainty\nEstimates / Normality / Confidence\n\nChapter 05: Hypothesis Testing\n\nHypotheses / NHST / p-values\nCovariances / Correlations / Inference\n\nChapter 06: Group Comparisons\n\nt-tests / Effect Sizes / Paired Groups\nOne-way ANOVA / Effect Sizes / Contrasts\nUnequal Variances / Repeated Measures\n\n\nUnit B Translation Activity"
+    "section": "B Inference",
+    "text": "B Inference\n\nWhere an estimate comes from, how much of it to believe, and how to compare two or more groups.\n\n\n  \n    04\n    \n      Sampling & Estimation\n      aPopulations & Samples\n      bConfidence Intervals\n    \n  \n  \n    05\n    \n      Hypothesis Testing\n      aNHST & p-values\n      bCorrelation & Inference\n    \n  \n  \n    06\n    \n      Group Comparisons\n      aComparing Two Groups\n      bComparing Many Groups\n      cANOVA Extensions\n    \n  \n\n\nUnit B Translation Activity"
   },
   {
-    "objectID": "schedule.html#unit-c-the-linear-model",
-    "href": "schedule.html#unit-c-the-linear-model",
+    "objectID": "schedule.html#c-the-linear-model",
+    "href": "schedule.html#c-the-linear-model",
     "title": "Contents",
-    "section": "Unit C — The Linear Model",
-    "text": "Unit C — The Linear Model\n\nChapter 07: Regression\n\nRegression / Inference / Centering\nDummy Codes / Means / Contrasts\nMultiple Regression / Partial Effects\n\nChapter 08: Moderation\n\nContinuous Moderation\nCategorical Moderation\n\nChapter 09: Nonlinearity\n\nPolynomial Regression\nPiecewise and Spline Regression (planned)\n\n\nUnit C Translation Activity"
+    "section": "C The Linear Model",
+    "text": "C The Linear Model\n\nOne framework, regression, stretched to cover categorical predictors, interactions, and curves.\n\n\n  \n    07\n    \n      Regression\n      aSimple Regression\n      bCategorical Predictors\n      cMultiple Regression\n    \n  \n  \n    08\n    \n      Moderation\n      aContinuous Moderation\n      bCategorical Moderation\n    \n  \n  \n    09\n    \n      Nonlinearity\n      aPolynomial Regression\n      bPiecewise & Splines\n        (coming soon)\n    \n  \n\n\nUnit C Translation Activity"
   },
   {
-    "objectID": "schedule.html#unit-d-data-problems-and-robust-inference",
-    "href": "schedule.html#unit-d-data-problems-and-robust-inference",
+    "objectID": "schedule.html#d-data-problems-and-robust-inference",
+    "href": "schedule.html#d-data-problems-and-robust-inference",
     "title": "Contents",
-    "section": "Unit D — Data Problems and Robust Inference",
-    "text": "Unit D — Data Problems and Robust Inference\n\nChapter 10: Assumptions and Diagnostics\n\nAssumptions and Diagnostics I\nAssumptions and Diagnostics II\n\n\nUnit D Translation Activity\n\nChapter 11: Bootstrap and Robust Inference (planned)\n\nThe Bootstrap\nRobust Inference\n\nChapter 12: Missing Data (planned)\n\nMissing Data Theory\nMultiple Imputation and FIML"
+    "section": "D Data Problems and Robust Inference",
+    "text": "D Data Problems and Robust Inference\n\nWhat to do when the assumptions those models rest on do not hold, and how to tell that they do not.\n\n\n  \n    10\n    \n      Model Diagnostics\n      aForm & Collinearity\n      bResiduals & Outliers\n    \n  \n  \n    11\n    \n      Bootstrap & Robustness\n        (coming soon)\n      aThe Bootstrap\n      bRobust Inference\n    \n  \n  \n    12\n    \n      Missing Data\n        (coming soon)\n      aMissing Data Theory\n      bImputation & FIML\n    \n  \n\n\nUnit D Translation Activity"
   },
   {
-    "objectID": "schedule.html#unit-e-designing-and-reporting-studies",
-    "href": "schedule.html#unit-e-designing-and-reporting-studies",
+    "objectID": "schedule.html#e-designing-and-reporting-studies",
+    "href": "schedule.html#e-designing-and-reporting-studies",
     "title": "Contents",
-    "section": "Unit E — Designing and Reporting Studies",
-    "text": "Unit E — Designing and Reporting Studies\n\nChapter 13: Reliability and Measurement Error (planned)\n\nClassical Test Theory and Internal Consistency\nInter-Rater Reliability and Attenuation\n\nChapter 14: Power and Preregistration\n\nPower Analysis\nResearcher Degrees of Freedom\n\nChapter 15: Reporting and Reviewing Results\n\nReporting Statistical Results\nReviewing Statistical Claims (planned)"
+    "section": "E Designing and Reporting Studies",
+    "text": "E Designing and Reporting Studies\n\nMeasuring well, planning a study large enough to answer its question, and reporting what came back.\n\n\n  \n    13\n    \n      Reliability\n        (coming soon)\n      aInternal Consistency\n      bRaters & Attenuation\n    \n  \n  \n    14\n    \n      Power & Preregistration\n      aPower Analysis\n      bQuestionable Practices\n    \n  \n  \n    15\n    \n      Reporting & Reviewing\n      aReporting Results\n      bReviewing Claims\n        (coming soon)\n    \n  \n\n\nAfter this course: Generalized Linear Models (coming soon), then Multilevel Modeling"
   },
   {
     "objectID": "E/15/index.html",
     "href": "E/15/index.html",
-    "title": "Chapter 15: Reporting and Reviewing Results",
+    "title": "Chapter 15: Reporting & Reviewing",
     "section": "",
     "text": "Where the results section sits among a paper’s goals\nWhat to report for each model, and what readers cannot reconstruct without it\nTables and figures that carry the result rather than repeat it\n\n\n\n\n\n“Multiple Regression” — Reviewer’s Guide to Quantitative Methods in the Social Sciences\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 15a Assignment"
   },
   {
-    "objectID": "E/15/index.html#a-reporting-statistical-results",
-    "href": "E/15/index.html#a-reporting-statistical-results",
-    "title": "Chapter 15: Reporting and Reviewing Results",
+    "objectID": "E/15/index.html#a-reporting-results",
+    "href": "E/15/index.html#a-reporting-results",
+    "title": "Chapter 15: Reporting & Reviewing",
     "section": "",
     "text": "Where the results section sits among a paper’s goals\nWhat to report for each model, and what readers cannot reconstruct without it\nTables and figures that carry the result rather than repeat it\n\n\n\n\n\n“Multiple Regression” — Reviewer’s Guide to Quantitative Methods in the Social Sciences\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 15a Assignment"
   },
   {
-    "objectID": "E/15/index.html#b-reviewing-statistical-claims",
-    "href": "E/15/index.html#b-reviewing-statistical-claims",
-    "title": "Chapter 15: Reporting and Reviewing Results",
-    "section": "[15b] Reviewing Statistical Claims",
-    "text": "[15b] Reviewing Statistical Claims\n\n\n\n\n\n\nNoteUnder development\n\n\n\nThis lecture is planned but not yet written. The outline below shows what it is intended to cover.\n\n\n\nTopics\n\nChecking a reported test for internal consistency (statistic, df, and p must agree)\nRecovering effect sizes and confidence intervals from what was reported\nDetecting impossible summary statistics from means, SDs, and sample sizes\nReading a results section for what is missing rather than what is wrong\nWriting a statistical review that is specific and actionable\n\nThis is the reviewing half of the chapter, and it is deliberately a statistical skill rather than a methodological one: everything above can be checked from the numbers a paper already reports, without access to the data.\n\n\n  «  Chapter 14"
+    "objectID": "E/15/index.html#b-reviewing-claims",
+    "href": "E/15/index.html#b-reviewing-claims",
+    "title": "Chapter 15: Reporting & Reviewing",
+    "section": "[15b] Reviewing Claims",
+    "text": "[15b] Reviewing Claims\n\n\n\n\n\n\nNoteComing soon\n\n\n\nThis lecture is planned but not yet written. The outline below shows what it is intended to cover.\n\n\n\nTopics\n\nChecking a reported test for internal consistency (statistic, df, and p must agree)\nRecovering effect sizes and confidence intervals from what was reported\nDetecting impossible summary statistics from means, SDs, and sample sizes\nReading a results section for what is missing rather than what is wrong\nWriting a statistical review that is specific and actionable\n\nThis is the reviewing half of the chapter, and it is deliberately a statistical skill rather than a methodological one: everything above can be checked from the numbers a paper already reports, without access to the data.\n\n\n  «  Chapter 14"
   },
   {
     "objectID": "E/14/b_assignment.html#instructions",
@@ -121,70 +121,70 @@
   {
     "objectID": "E/13/index.html",
     "href": "E/13/index.html",
-    "title": "Chapter 13: Reliability and Measurement Error",
+    "title": "Chapter 13: Reliability",
     "section": "",
-    "text": "NoteUnder development\n\n\n\nThis chapter is planned but not yet written. The outline below shows what it is intended to cover."
+    "text": "NoteComing soon\n\n\n\nThis chapter is planned but not yet written. The outline below shows what it is intended to cover."
   },
   {
-    "objectID": "E/13/index.html#a-classical-test-theory-and-internal-consistency",
-    "href": "E/13/index.html#a-classical-test-theory-and-internal-consistency",
-    "title": "Chapter 13: Reliability and Measurement Error",
-    "section": "[13a] Classical Test Theory and Internal Consistency",
-    "text": "[13a] Classical Test Theory and Internal Consistency\n\nTopics\n\nTrue scores, measurement error, and reliability\nCronbach’s alpha and why it is often the wrong choice\nMcDonald’s omega"
+    "objectID": "E/13/index.html#a-internal-consistency",
+    "href": "E/13/index.html#a-internal-consistency",
+    "title": "Chapter 13: Reliability",
+    "section": "[13a] Internal Consistency",
+    "text": "[13a] Internal Consistency\n\nTopics\n\nTrue scores, measurement error, and reliability\nCronbach’s alpha and why it is often the wrong choice\nMcDonald’s omega"
   },
   {
-    "objectID": "E/13/index.html#b-inter-rater-reliability-and-attenuation",
-    "href": "E/13/index.html#b-inter-rater-reliability-and-attenuation",
-    "title": "Chapter 13: Reliability and Measurement Error",
-    "section": "[13b] Inter-Rater Reliability and Attenuation",
-    "text": "[13b] Inter-Rater Reliability and Attenuation\n\nTopics\n\nIntraclass correlations for rater agreement\nTest–retest reliability\nHow unreliable predictors attenuate regression slopes\n\n\n\n  «  Chapter 12\n  Chapter 14  »"
+    "objectID": "E/13/index.html#b-raters-attenuation",
+    "href": "E/13/index.html#b-raters-attenuation",
+    "title": "Chapter 13: Reliability",
+    "section": "[13b] Raters & Attenuation",
+    "text": "[13b] Raters & Attenuation\n\nTopics\n\nIntraclass correlations for rater agreement\nTest–retest reliability\nHow unreliable predictors attenuate regression slopes\n\n\n\n  «  Chapter 12\n  Chapter 14  »"
   },
   {
     "objectID": "D/11/index.html",
     "href": "D/11/index.html",
-    "title": "Chapter 11: Bootstrap and Robust Inference",
+    "title": "Chapter 11: Bootstrap & Robustness",
     "section": "",
-    "text": "NoteUnder development\n\n\n\nThis chapter is planned but not yet written. The outline below shows what it is intended to cover."
+    "text": "NoteComing soon\n\n\n\nThis chapter is planned but not yet written. The outline below shows what it is intended to cover."
   },
   {
     "objectID": "D/11/index.html#a-the-bootstrap",
     "href": "D/11/index.html#a-the-bootstrap",
-    "title": "Chapter 11: Bootstrap and Robust Inference",
+    "title": "Chapter 11: Bootstrap & Robustness",
     "section": "[11a] The Bootstrap",
     "text": "[11a] The Bootstrap\n\nTopics\n\nResampling as an empirical sampling distribution\nBootstrap confidence intervals\nWhen the bootstrap helps and when it does not"
   },
   {
     "objectID": "D/11/index.html#b-robust-inference",
     "href": "D/11/index.html#b-robust-inference",
-    "title": "Chapter 11: Bootstrap and Robust Inference",
+    "title": "Chapter 11: Bootstrap & Robustness",
     "section": "[11b] Robust Inference",
     "text": "[11b] Robust Inference\n\nTopics\n\nPermutation tests\nHeteroscedasticity-consistent standard errors\nChoosing between robust and conventional inference\n\n\n\n  «  Chapter 10\n  Chapter 12  »"
   },
   {
     "objectID": "D/10/index.html",
     "href": "D/10/index.html",
-    "title": "Chapter 10: Assumptions and Diagnostics",
+    "title": "Chapter 10: Model Diagnostics",
     "section": "",
     "text": "Correct Form\nPerfect Predictors\nNo Collinearity\n\n\n\n\n\nApplied Multiple Regression/Correlation Analysis, §4.1, 4.3–4.5, 10.5–10.6\nCollinearity Isn’t a Disease That Needs Curing — Jan Vanhove\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 10a Assignment"
   },
   {
-    "objectID": "D/10/index.html#a-assumptions-and-diagnostics-i",
-    "href": "D/10/index.html#a-assumptions-and-diagnostics-i",
-    "title": "Chapter 10: Assumptions and Diagnostics",
+    "objectID": "D/10/index.html#a-form-collinearity",
+    "href": "D/10/index.html#a-form-collinearity",
+    "title": "Chapter 10: Model Diagnostics",
     "section": "",
     "text": "Correct Form\nPerfect Predictors\nNo Collinearity\n\n\n\n\n\nApplied Multiple Regression/Correlation Analysis, §4.1, 4.3–4.5, 10.5–10.6\nCollinearity Isn’t a Disease That Needs Curing — Jan Vanhove\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 10a Assignment"
   },
   {
-    "objectID": "D/10/index.html#b-assumptions-and-diagnostics-ii",
-    "href": "D/10/index.html#b-assumptions-and-diagnostics-ii",
-    "title": "Chapter 10: Assumptions and Diagnostics",
-    "section": "[10b] Assumptions and Diagnostics II",
-    "text": "[10b] Assumptions and Diagnostics II\n\nTopics\n\nConstant Error Variance\nNormal Residuals\nIndependent Residuals\nOutliers\n\n\n\nFiles\n\nauto.csv\nyearspubs.csv\n\n\n\nReadings\n\nApplied Multiple Regression/Correlation Analysis, §4.1, 4.3–4.5, 10.2–10.4\nPek, Wong, & Wong (2018), How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated — Frontiers in Psychology\nLeys et al. (2019), How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration — IRSP\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 10b Assignment"
+    "objectID": "D/10/index.html#b-residuals-outliers",
+    "href": "D/10/index.html#b-residuals-outliers",
+    "title": "Chapter 10: Model Diagnostics",
+    "section": "[10b] Residuals & Outliers",
+    "text": "[10b] Residuals & Outliers\n\nTopics\n\nConstant Error Variance\nNormal Residuals\nIndependent Residuals\nOutliers\n\n\n\nFiles\n\nauto.csv\nyearspubs.csv\n\n\n\nReadings\n\nApplied Multiple Regression/Correlation Analysis, §4.1, 4.3–4.5, 10.2–10.4\nPek, Wong, & Wong (2018), How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated — Frontiers in Psychology\nLeys et al. (2019), How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration — IRSP\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 10b Assignment"
   },
   {
     "objectID": "D/10/index.html#unit-d-translation-activity",
     "href": "D/10/index.html#unit-d-translation-activity",
-    "title": "Chapter 10: Assumptions and Diagnostics",
+    "title": "Chapter 10: Model Diagnostics",
     "section": "Unit D Translation Activity",
     "text": "Unit D Translation Activity\nA closing activity for the unit: studies described the way a researcher would describe them, for you to translate into data frames, models, and assumptions.\n\nUnit D Translation Activity\n\n\n\n  «  Chapter 09\n  Chapter 11  »"
   },
@@ -203,11 +203,11 @@
     "text": "Polynomial Regression\nQuadratic Regression\nAdding Predictors\nClosing Thoughts\n\n\n\n\n\npenguins.csv\n\n\n\n\n\nApplied Multiple Regression/Correlation Analysis, §6.1–6.2\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 09a Assignment"
   },
   {
-    "objectID": "C/09/index.html#b-piecewise-and-spline-regression",
-    "href": "C/09/index.html#b-piecewise-and-spline-regression",
+    "objectID": "C/09/index.html#b-piecewise-splines",
+    "href": "C/09/index.html#b-piecewise-splines",
     "title": "Chapter 09: Nonlinearity",
-    "section": "[09b] Piecewise and Spline Regression",
-    "text": "[09b] Piecewise and Spline Regression\n\n\n\n\n\n\nNoteUnder development\n\n\n\nThis lecture is planned but not yet written. The outline below shows what it is intended to cover.\n\n\n\nTopics\n\nWhy a global polynomial is the wrong tool for a local bend\nPiecewise regression: breakpoints as a dummy code and its interaction\nChoosing and justifying a breakpoint\nSplines as the smooth generalization\nInterpreting and plotting a fit you cannot read off a coefficient\n\nPiecewise regression is built from machinery this course already teaches: a breakpoint is a dummy code, and letting the slope change at that point is the interaction from Chapter 08. Splines then generalize it, still as a single term inside lm(). The conceptual contrast with Chapter 09a is the point of the lecture — a polynomial’s shape near one end of x is constrained by data at the other end, and a spline’s is not."
+    "section": "[09b] Piecewise & Splines",
+    "text": "[09b] Piecewise & Splines\n\n\n\n\n\n\nNoteComing soon\n\n\n\nThis lecture is planned but not yet written. The outline below shows what it is intended to cover.\n\n\n\nTopics\n\nWhy a global polynomial is the wrong tool for a local bend\nPiecewise regression: breakpoints as a dummy code and its interaction\nChoosing and justifying a breakpoint\nSplines as the smooth generalization\nInterpreting and plotting a fit you cannot read off a coefficient\n\nPiecewise regression is built from machinery this course already teaches: a breakpoint is a dummy code, and letting the slope change at that point is the interaction from Chapter 08. Splines then generalize it, still as a single term inside lm(). The conceptual contrast with Chapter 09a is the point of the lecture — a polynomial’s shape near one end of x is constrained by data at the other end, and a spline’s is not."
   },
   {
     "objectID": "C/09/index.html#unit-c-translation-activity",
@@ -280,25 +280,25 @@
     "text": "Regression Inference\nCentering\nRegression Effect Sizes\n\n\n\n\n\nparenthood.csv\nwater.csv\n\n\n\n\n\nLinear Regression, §15.1–15.2, 15.4–15.5, 15.7 — Learning Statistics with R\nApplied Multiple Regression/Correlation Analysis, §2.4, 2.6–2.8\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 07a Assignment"
   },
   {
-    "objectID": "C/07/index.html#a-regression-inference-centering",
-    "href": "C/07/index.html#a-regression-inference-centering",
+    "objectID": "C/07/index.html#a-simple-regression",
+    "href": "C/07/index.html#a-simple-regression",
     "title": "Chapter 07: Regression",
     "section": "",
     "text": "Regression Inference\nCentering\nRegression Effect Sizes\n\n\n\n\n\nparenthood.csv\nwater.csv\n\n\n\n\n\nLinear Regression, §15.1–15.2, 15.4–15.5, 15.7 — Learning Statistics with R\nApplied Multiple Regression/Correlation Analysis, §2.4, 2.6–2.8\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 07a Assignment"
   },
   {
-    "objectID": "C/07/index.html#b-dummy-codes-means-contrasts",
-    "href": "C/07/index.html#b-dummy-codes-means-contrasts",
+    "objectID": "C/07/index.html#b-categorical-predictors",
+    "href": "C/07/index.html#b-categorical-predictors",
     "title": "Chapter 07: Regression",
-    "section": "[07b] Dummy Codes / Means / Contrasts",
-    "text": "[07b] Dummy Codes / Means / Contrasts\n\nTopics\n\nDichotomous Dummy Coding\nPolytomous Dummy Coding\n\n\n\nFiles\n\npenguins.csv\n\n\n\nReadings\n\nApplied Multiple Regression/Correlation Analysis, §8.1–8.2\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 07b Assignment"
+    "section": "[07b] Categorical Predictors",
+    "text": "[07b] Categorical Predictors\n\nTopics\n\nDichotomous Dummy Coding\nPolytomous Dummy Coding\n\n\n\nFiles\n\npenguins.csv\n\n\n\nReadings\n\nApplied Multiple Regression/Correlation Analysis, §8.1–8.2\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 07b Assignment"
   },
   {
-    "objectID": "C/07/index.html#c-multiple-regression-partial-effects",
-    "href": "C/07/index.html#c-multiple-regression-partial-effects",
+    "objectID": "C/07/index.html#c-multiple-regression",
+    "href": "C/07/index.html#c-multiple-regression",
     "title": "Chapter 07: Regression",
-    "section": "[07c] Multiple Regression / Partial Effects",
-    "text": "[07c] Multiple Regression / Partial Effects\n\nTopics\n\nShared Variance\nMultiple Regression\nMany Predictors\n\n\n\nFiles\n\npenguins.csv\n\n\n\nReadings\n\nApplied Multiple Regression/Correlation Analysis, §3.2–3.3, 3.5–3.6\nRohrer (2018), Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data — AMPPS\nCarlin & Moreno-Betancur (2023), On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching — arXiv\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 07c Assignment\n\n\n\n  «  Chapter 06\n  Chapter 08  »"
+    "section": "[07c] Multiple Regression",
+    "text": "[07c] Multiple Regression\n\nTopics\n\nShared Variance\nMultiple Regression\nMany Predictors\n\n\n\nFiles\n\npenguins.csv\n\n\n\nReadings\n\nApplied Multiple Regression/Correlation Analysis, §3.2–3.3, 3.5–3.6\nRohrer (2018), Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data — AMPPS\nCarlin & Moreno-Betancur (2023), On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching — arXiv\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 07c Assignment\n\n\n\n  «  Chapter 06\n  Chapter 08  »"
   },
   {
     "objectID": "B/06/index.html",
@@ -308,25 +308,25 @@
     "text": "NHST Approaches\nEffect Sizes\n\n\n\n\n\nsocialproblems.csv\nteaching_ratings.csv\n\n\n\n\n\nComparing Two Means, §13.3–13.8 — Learning Statistics with R\nBeyond Significance Testing, pp. 123–138\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 06a Assignment"
   },
   {
-    "objectID": "B/06/index.html#a-t-tests-effect-sizes-paired-groups",
-    "href": "B/06/index.html#a-t-tests-effect-sizes-paired-groups",
+    "objectID": "B/06/index.html#a-comparing-two-groups",
+    "href": "B/06/index.html#a-comparing-two-groups",
     "title": "Chapter 06: Group Comparisons",
     "section": "",
     "text": "NHST Approaches\nEffect Sizes\n\n\n\n\n\nsocialproblems.csv\nteaching_ratings.csv\n\n\n\n\n\nComparing Two Means, §13.3–13.8 — Learning Statistics with R\nBeyond Significance Testing, pp. 123–138\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 06a Assignment"
   },
   {
-    "objectID": "B/06/index.html#b-one-way-anova-effect-sizes-contrasts",
-    "href": "B/06/index.html#b-one-way-anova-effect-sizes-contrasts",
+    "objectID": "B/06/index.html#b-comparing-many-groups",
+    "href": "B/06/index.html#b-comparing-many-groups",
     "title": "Chapter 06: Group Comparisons",
-    "section": "[06b] One-way ANOVA / Effect Sizes / Contrasts",
-    "text": "[06b] One-way ANOVA / Effect Sizes / Contrasts\n\nTopics\n\nOne-way ANOVA in R\nPost-hoc Tests\n\n\n\nFiles\n\npenguins.csv\n\n\n\nReadings\n\nComparing Several Means, §14.1–14.5 — Learning Statistics with R\nIntroduction to Probability, §9.6 — Learning Statistics with R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 06b Assignment"
+    "section": "[06b] Comparing Many Groups",
+    "text": "[06b] Comparing Many Groups\n\nTopics\n\nOne-way ANOVA in R\nPost-hoc Tests\n\n\n\nFiles\n\npenguins.csv\n\n\n\nReadings\n\nComparing Several Means, §14.1–14.5 — Learning Statistics with R\nIntroduction to Probability, §9.6 — Learning Statistics with R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 06b Assignment"
   },
   {
-    "objectID": "B/06/index.html#c-unequal-variances-repeated-measures",
-    "href": "B/06/index.html#c-unequal-variances-repeated-measures",
+    "objectID": "B/06/index.html#c-anova-extensions",
+    "href": "B/06/index.html#c-anova-extensions",
     "title": "Chapter 06: Group Comparisons",
-    "section": "[06c] Unequal Variances / Repeated Measures",
-    "text": "[06c] Unequal Variances / Repeated Measures\n\nTopics\n\nUnequal Variances\nRepeated Measures\nTranslation Activity\n\n\n\nFiles\n\ndepression.csv\npenguins.csv\n\n\n\nReadings\n\nComparing Several Means, §14.6–14.11 — Learning Statistics with R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 06c Assignment"
+    "section": "[06c] ANOVA Extensions",
+    "text": "[06c] ANOVA Extensions\n\nTopics\n\nUnequal Variances\nRepeated Measures\nTranslation Activity\n\n\n\nFiles\n\ndepression.csv\npenguins.csv\n\n\n\nReadings\n\nComparing Several Means, §14.6–14.11 — Learning Statistics with R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 06c Assignment"
   },
   {
     "objectID": "B/06/index.html#unit-b-translation-activity",
@@ -394,23 +394,23 @@
   {
     "objectID": "B/04/index.html",
     "href": "B/04/index.html",
-    "title": "Chapter 04: Sampling and Estimation",
+    "title": "Chapter 04: Sampling & Estimation",
     "section": "",
     "text": "Research Methods\nPopulations and Parameters\nSamples and Statistics\nEstimation and Uncertainty\n\n\n\n\n\nsleep.csv\n\n\n\n\n\nEstimating Unknown Quantities, §10.1–10.2 — Learning Statistics with R\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 04a Assignment"
   },
   {
-    "objectID": "B/04/index.html#a-populations-samples-uncertainty",
-    "href": "B/04/index.html#a-populations-samples-uncertainty",
-    "title": "Chapter 04: Sampling and Estimation",
+    "objectID": "B/04/index.html#a-populations-samples",
+    "href": "B/04/index.html#a-populations-samples",
+    "title": "Chapter 04: Sampling & Estimation",
     "section": "",
     "text": "Research Methods\nPopulations and Parameters\nSamples and Statistics\nEstimation and Uncertainty\n\n\n\n\n\nsleep.csv\n\n\n\n\n\nEstimating Unknown Quantities, §10.1–10.2 — Learning Statistics with R\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 04a Assignment"
   },
   {
-    "objectID": "B/04/index.html#b-estimates-normality-confidence",
-    "href": "B/04/index.html#b-estimates-normality-confidence",
-    "title": "Chapter 04: Sampling and Estimation",
-    "section": "[04b] Estimates / Normality / Confidence",
-    "text": "[04b] Estimates / Normality / Confidence\n\nTopics\n\nTypes of Estimates\nThe Normal Distribution\nCentral Limit Theorem\nConfidence Intervals\nPractical Matters\n\n\n\nFiles\n\nsleep.csv\nteaching_ratings.csv\n\n\n\nReadings\n\nIntroduction to Probability, §9.1–9.2, 9.5 — Learning Statistics with R\nEstimating Unknown Quantities, §10.3–10.6 — Learning Statistics with R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 04b Assignment\n\n\n\n  «  Chapter 03\n  Chapter 05  »"
+    "objectID": "B/04/index.html#b-confidence-intervals",
+    "href": "B/04/index.html#b-confidence-intervals",
+    "title": "Chapter 04: Sampling & Estimation",
+    "section": "[04b] Confidence Intervals",
+    "text": "[04b] Confidence Intervals\n\nTopics\n\nTypes of Estimates\nThe Normal Distribution\nCentral Limit Theorem\nConfidence Intervals\nPractical Matters\n\n\n\nFiles\n\nsleep.csv\nteaching_ratings.csv\n\n\n\nReadings\n\nIntroduction to Probability, §9.1–9.2, 9.5 — Learning Statistics with R\nEstimating Unknown Quantities, §10.3–10.6 — Learning Statistics with R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 04b Assignment\n\n\n\n  «  Chapter 03\n  Chapter 05  »"
   },
   {
     "objectID": "A/03/b_practice.html",
@@ -471,23 +471,23 @@
   {
     "objectID": "A/02/index.html",
     "href": "A/02/index.html",
-    "title": "Chapter 02: Projects and Programming",
+    "title": "Chapter 02: Projects & Programming",
     "section": "",
     "text": "Projects\nQuarto\nMarkdown\n\n\n\n\n\nWorkflow: Projects — R for Data Science\nQuarto — R for Data Science\nGetting Started with Quarto — Quarto\nQuarto Cheat Sheet — Posit\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 02a Practice\n\n\n\n\n\nLecture 02a Assignment"
   },
   {
-    "objectID": "A/02/index.html#a-projects-quarto-markdown",
-    "href": "A/02/index.html#a-projects-quarto-markdown",
-    "title": "Chapter 02: Projects and Programming",
+    "objectID": "A/02/index.html#a-reproducible-workflows",
+    "href": "A/02/index.html#a-reproducible-workflows",
+    "title": "Chapter 02: Projects & Programming",
     "section": "",
     "text": "Projects\nQuarto\nMarkdown\n\n\n\n\n\nWorkflow: Projects — R for Data Science\nQuarto — R for Data Science\nGetting Started with Quarto — Quarto\nQuarto Cheat Sheet — Posit\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 02a Practice\n\n\n\n\n\nLecture 02a Assignment"
   },
   {
-    "objectID": "A/02/index.html#b-assignment-functions-vectors",
-    "href": "A/02/index.html#b-assignment-functions-vectors",
-    "title": "Chapter 02: Projects and Programming",
-    "section": "[02b] Assignment / Functions / Vectors",
-    "text": "[02b] Assignment / Functions / Vectors\n\nTopics\n\nAssignment\nNaming\nFunctions\nVectors\n\n\n\nReadings\n\nWorkflow: Basics — R for Data Science\nFunctions — R for Data Science\nVectors — Advanced R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nPractice\n\nLecture 02b Practice\n\n\n\nAssignment\n\nLecture 02b Assignment\n\n\n\n  «  Chapter 01\n  Chapter 03  »"
+    "objectID": "A/02/index.html#b-writing-r-code",
+    "href": "A/02/index.html#b-writing-r-code",
+    "title": "Chapter 02: Projects & Programming",
+    "section": "[02b] Writing R Code",
+    "text": "[02b] Writing R Code\n\nTopics\n\nAssignment\nNaming\nFunctions\nVectors\n\n\n\nReadings\n\nWorkflow: Basics — R for Data Science\nFunctions — R for Data Science\nVectors — Advanced R\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nPractice\n\nLecture 02b Practice\n\n\n\nAssignment\n\nLecture 02b Assignment\n\n\n\n  «  Chapter 01\n  Chapter 03  »"
   },
   {
     "objectID": "A/02/b_assignment.html#instructions",
@@ -529,7 +529,7 @@
     "href": "A/02/a_practice.html#question-1-projects",
     "title": "Lecture 02a Practice",
     "section": "Question 1 (Projects)",
-    "text": "Question 1 (Projects)\nIf you haven’t already, create an RStudio Project for this entire course. Name it whatever makes sense to you (e.g., PSYC 790 or Stats Class) and save it somewhere convenient on your computer (e.g., in a OneDrive/Dropbox/Box folder or on your desktop). Think about how you will organize and name your files in this project folder. Will you save your notes in one Quarto document per day or per week or something else? Will you have a consistent naming system for the files based on lecture numbers (e.g., 02a Notes.qmd and 02a Homework.qmd) or dates (e.g., 09-03 Notes.qmd) or something else?"
+    "text": "Question 1 (Projects)\nIf you haven’t already, create an RStudio Project for this entire course. Name it whatever makes sense to you (e.g., Statistical Methods or Stats Class) and save it somewhere convenient on your computer (e.g., in a OneDrive/Dropbox/Box folder or on your desktop). Think about how you will organize and name your files in this project folder. Will you save your notes in one Quarto document per day or per week or something else? Will you have a consistent naming system for the files based on lecture numbers (e.g., 02a Notes.qmd and 02a Homework.qmd) or dates (e.g., 09-03 Notes.qmd) or something else?"
   },
   {
     "objectID": "A/02/a_practice.html#question-2-quarto",
@@ -595,11 +595,11 @@
     "text": "How this site is organised\nSetting up R and RStudio\nHow the course is designed\n\n\n\n\nThis site holds a full set of teaching materials for a graduate course in statistical methods. Everything is free to use: teach from it, adapt it for your own course, or work through it on your own.\nThe material is organised into five units, each containing three chapters, each containing two or three lectures. A lecture is sized to roughly ninety minutes. Every lecture has its own page section with slides, readings, and usually an assignment; Unit A lectures also have practice activities with answer keys.\nAssignments are attached to individual lectures rather than to chapters, and each one stands alone. If a lecture is skipped, its assignment can be skipped with it and nothing else breaks.\n\n\n\nYou will need two free programs, installed in this order:\n\nR — the language everything is written in\nRStudio Desktop — the environment you will actually work in\n\nOnce both are installed, open RStudio and run the install-packages.R script from this site. It installs every package used anywhere in these materials and skips anything you already have.\nThe first two chapters walk through RStudio, projects, and Quarto in detail, so there is no need to understand any of it yet.\n\n\n\nA few choices are worth stating up front, because they shape everything that follows.\n\nEstimation over testing alone. The emphasis throughout is on estimating effects and describing their uncertainty, not only on whether a p-value crosses a threshold.\nOne modelling framework. Group comparisons, ANOVA, regression, and moderation are all presented as the same general linear model rather than as a catalogue of separate tests.\nCode you could hand to someone else. Analyses are written in Quarto documents so that the code, output, and prose stay together and can be re-run by anyone."
   },
   {
-    "objectID": "A/01/index.html#b-rstudio-console-scripts",
-    "href": "A/01/index.html#b-rstudio-console-scripts",
+    "objectID": "A/01/index.html#b-working-in-rstudio",
+    "href": "A/01/index.html#b-working-in-rstudio",
     "title": "Chapter 01: Getting Started",
-    "section": "[01b] RStudio / Console / Scripts",
-    "text": "[01b] RStudio / Console / Scripts\n\nTopics\n\nR and RStudio\nConsole\nScripts\n\n\n\nReadings\n\nCoding Basics — R for Data Science\nComments — R for Data Science\nScripts — R for Data Science\nRStudio IDE Cheat Sheet — Posit\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nPractice\n\nLecture 01b Practice\n\n\n\n  Chapter 02  »"
+    "section": "[01b] Working in RStudio",
+    "text": "[01b] Working in RStudio\n\nTopics\n\nR and RStudio\nConsole\nScripts\n\n\n\nReadings\n\nCoding Basics — R for Data Science\nComments — R for Data Science\nScripts — R for Data Science\nRStudio IDE Cheat Sheet — Posit\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nPractice\n\nLecture 01b Practice\n\n\n\n  Chapter 02  »"
   },
   {
     "objectID": "A/02/a_assignment.html#instructions",
@@ -723,23 +723,23 @@
   {
     "objectID": "A/03/index.html",
     "href": "A/03/index.html",
-    "title": "Chapter 03: Data and Exploration",
+    "title": "Chapter 03: Data & Exploration",
     "section": "",
     "text": "Strings\nFactors\nPackages\n\n\n\n\n\nStrings — R for Data Science\nFactors — R for Data Science\nPrerequisites — R for Data Science\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 03a Practice\n\n\n\n\n\nLecture 03a Assignment"
   },
   {
-    "objectID": "A/03/index.html#a-strings-factors-packages",
-    "href": "A/03/index.html#a-strings-factors-packages",
-    "title": "Chapter 03: Data and Exploration",
+    "objectID": "A/03/index.html#a-data-types-packages",
+    "href": "A/03/index.html#a-data-types-packages",
+    "title": "Chapter 03: Data & Exploration",
     "section": "",
     "text": "Strings\nFactors\nPackages\n\n\n\n\n\nStrings — R for Data Science\nFactors — R for Data Science\nPrerequisites — R for Data Science\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 03a Practice\n\n\n\n\n\nLecture 03a Assignment"
   },
   {
-    "objectID": "A/03/index.html#b-data-frames-files-exploration",
-    "href": "A/03/index.html#b-data-frames-files-exploration",
-    "title": "Chapter 03: Data and Exploration",
-    "section": "[03b] Data Frames / Files / Exploration",
-    "text": "[03b] Data Frames / Files / Exploration\n\nTopics\n\nData Frames\nData Files\nData Exploration\n\n\n\nFiles\n\npenguins.csv\npenguins0.csv\ngradebook.csv\n\n\n\nReadings\n\nTidy Data — tidyr\nData Import — R for Data Science\nData Transformation — R for Data Science\nData Visualization — R for Data Science\nggplot2: Elegant Graphics for Data Analysis — Wickham et al.\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nPractice\n\nLecture 03b Practice\n\n\n\nAssignment\n\nLecture 03b Assignment\n\n\n\n  «  Chapter 02\n  Chapter 04  »"
+    "objectID": "A/03/index.html#b-importing-exploring",
+    "href": "A/03/index.html#b-importing-exploring",
+    "title": "Chapter 03: Data & Exploration",
+    "section": "[03b] Importing & Exploring",
+    "text": "[03b] Importing & Exploring\n\nTopics\n\nData Frames\nData Files\nData Exploration\n\n\n\nFiles\n\npenguins.csv\npenguins0.csv\ngradebook.csv\n\n\n\nReadings\n\nTidy Data — tidyr\nData Import — R for Data Science\nData Transformation — R for Data Science\nData Visualization — R for Data Science\nggplot2: Elegant Graphics for Data Analysis — Wickham et al.\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nPractice\n\nLecture 03b Practice\n\n\n\nAssignment\n\nLecture 03b Assignment\n\n\n\n  «  Chapter 02\n  Chapter 04  »"
   },
   {
     "objectID": "B/04/a_assignment.html#instructions",
@@ -805,18 +805,18 @@
     "text": "Statistical Hypotheses\nNHST Logic\nNHST Nuts and Bolts\n\\(p\\)-values and Pragmatics\n\n\n\n\n\nHypothesis Testing, §11.1–11.7 — Learning Statistics with R\nComparing Two Means, §13.1–13.2 — Learning Statistics with R\nCassidy et al. (2019), Failing Grade: 89% of Introduction-to-Psychology Textbooks That Define or Explain Statistical Significance Do So Incorrectly — AMPPS\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 05a Assignment"
   },
   {
-    "objectID": "B/05/index.html#a-hypotheses-nhst-p-values",
-    "href": "B/05/index.html#a-hypotheses-nhst-p-values",
+    "objectID": "B/05/index.html#a-nhst-p-values",
+    "href": "B/05/index.html#a-nhst-p-values",
     "title": "Chapter 05: Hypothesis Testing",
     "section": "",
     "text": "Statistical Hypotheses\nNHST Logic\nNHST Nuts and Bolts\n\\(p\\)-values and Pragmatics\n\n\n\n\n\nHypothesis Testing, §11.1–11.7 — Learning Statistics with R\nComparing Two Means, §13.1–13.2 — Learning Statistics with R\nCassidy et al. (2019), Failing Grade: 89% of Introduction-to-Psychology Textbooks That Define or Explain Statistical Significance Do So Incorrectly — AMPPS\n\n\n\n\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\n\n\nLecture 05a Assignment"
   },
   {
-    "objectID": "B/05/index.html#b-covariances-correlations-inference",
-    "href": "B/05/index.html#b-covariances-correlations-inference",
+    "objectID": "B/05/index.html#b-correlation-inference",
+    "href": "B/05/index.html#b-correlation-inference",
     "title": "Chapter 05: Hypothesis Testing",
-    "section": "[05b] Covariances / Correlations / Inference",
-    "text": "[05b] Covariances / Correlations / Inference\n\nTopics\n\nCalculating Correlations\nStatistical Inference\n\n\n\nFiles\n\ncigarettes.csv\n\n\n\nReadings\n\nDescriptive Statistics — Learning Statistics with R\nBeyond Significance Testing, pp. 126–128, 138–140\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 05b Assignment\n\n\n\n  «  Chapter 04\n  Chapter 06  »"
+    "section": "[05b] Correlation & Inference",
+    "text": "[05b] Correlation & Inference\n\nTopics\n\nCalculating Correlations\nStatistical Inference\n\n\n\nFiles\n\ncigarettes.csv\n\n\n\nReadings\n\nDescriptive Statistics — Learning Statistics with R\nBeyond Significance Testing, pp. 126–128, 138–140\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 05b Assignment\n\n\n\n  «  Chapter 04\n  Chapter 06  »"
   },
   {
     "objectID": "B/06/a_assignment.html#instructions",
@@ -1222,7 +1222,7 @@
     "href": "D/12/index.html",
     "title": "Chapter 12: Missing Data",
     "section": "",
-    "text": "NoteUnder development\n\n\n\nThis chapter is planned but not yet written. The outline below shows what it is intended to cover."
+    "text": "NoteComing soon\n\n\n\nThis chapter is planned but not yet written. The outline below shows what it is intended to cover."
   },
   {
     "objectID": "D/12/index.html#a-missing-data-theory",
@@ -1232,32 +1232,32 @@
     "text": "[12a] Missing Data Theory\n\nTopics\n\nMissing completely at random, at random, and not at random\nWhy the mechanism is an assumption about unobserved data\nDescribing and visualizing missingness patterns\nWhy listwise deletion, pairwise deletion, and mean imputation all fail\nWhat “unbiased” and “efficient” mean for a missing-data method"
   },
   {
-    "objectID": "D/12/index.html#b-multiple-imputation-and-fiml",
-    "href": "D/12/index.html#b-multiple-imputation-and-fiml",
+    "objectID": "D/12/index.html#b-imputation-fiml",
+    "href": "D/12/index.html#b-imputation-fiml",
     "title": "Chapter 12: Missing Data",
-    "section": "[12b] Multiple Imputation and FIML",
-    "text": "[12b] Multiple Imputation and FIML\n\nTopics\n\nMultiple imputation with {mice}: impute, analyze, pool\nChoosing an imputation model, and why it should be at least as rich as the analysis model\nHow many imputations, and how to tell if it was enough\nFull information maximum likelihood with {lavaan}\nChoosing between multiple imputation and FIML, and reporting either one\n\nThis chapter is deliberately two lectures rather than one. Mechanisms alone give students a vocabulary for a problem they cannot yet do anything about; pairing the theory with a lecture where they actually fit and pool a model is what makes it worth teaching.\n\n\n  «  Chapter 11\n  Chapter 13  »"
+    "section": "[12b] Imputation & FIML",
+    "text": "[12b] Imputation & FIML\n\nTopics\n\nMultiple imputation with {mice}: impute, analyze, pool\nChoosing an imputation model, and why it should be at least as rich as the analysis model\nHow many imputations, and how to tell if it was enough\nFull information maximum likelihood with {lavaan}\nChoosing between multiple imputation and FIML, and reporting either one\n\nThis chapter is deliberately two lectures rather than one. Mechanisms alone give students a vocabulary for a problem they cannot yet do anything about; pairing the theory with a lecture where they actually fit and pool a model is what makes it worth teaching.\n\n\n  «  Chapter 11\n  Chapter 13  »"
   },
   {
     "objectID": "E/14/index.html",
     "href": "E/14/index.html",
-    "title": "Chapter 14: Power and Preregistration",
+    "title": "Chapter 14: Power & Preregistration",
     "section": "",
     "text": "Power analysis and its relationship to effect size, n, and alpha\nTypes of power analysis\nPower for t-tests, one-way ANOVA, and the linear model\n\n\n\n\n\nWebPower Manual — WebPower\n\n\n\n\n\n\n\n\n\n\nLecture 14a Assignment"
   },
   {
     "objectID": "E/14/index.html#a-power-analysis",
     "href": "E/14/index.html#a-power-analysis",
-    "title": "Chapter 14: Power and Preregistration",
+    "title": "Chapter 14: Power & Preregistration",
     "section": "",
     "text": "Power analysis and its relationship to effect size, n, and alpha\nTypes of power analysis\nPower for t-tests, one-way ANOVA, and the linear model\n\n\n\n\n\nWebPower Manual — WebPower\n\n\n\n\n\n\n\n\n\n\nLecture 14a Assignment"
   },
   {
-    "objectID": "E/14/index.html#b-researcher-degrees-of-freedom",
-    "href": "E/14/index.html#b-researcher-degrees-of-freedom",
-    "title": "Chapter 14: Power and Preregistration",
-    "section": "[14b] Researcher Degrees of Freedom",
-    "text": "[14b] Researcher Degrees of Freedom\n\nTopics\n\nBad Practices\nBest Practices\n\n\n\nReadings\n\nSimmons, Nelson, & Simonsohn (2011), False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant — Psychological Science\nBishop (2020), The Psychology of Experimental Psychologists: Overcoming Cognitive Constraints to Improve Research — QJEP\nNosek & Bar-Anan (2012), Scientific Utopia: I. Opening Scientific Communication — Psychological Inquiry\nNosek, Spies, & Motyl (2012), Scientific Utopia: II. Restructuring Incentives and Practices to Promote Truth Over Publishability — Perspectives on Psychological Science\nNosek et al. (2018), The Preregistration Revolution — PNAS\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 14b Assignment\n\n\n\n  «  Chapter 13\n  Chapter 15  »"
+    "objectID": "E/14/index.html#b-questionable-practices",
+    "href": "E/14/index.html#b-questionable-practices",
+    "title": "Chapter 14: Power & Preregistration",
+    "section": "[14b] Questionable Practices",
+    "text": "[14b] Questionable Practices\n\nTopics\n\nBad Practices\nBest Practices\n\n\n\nReadings\n\nSimmons, Nelson, & Simonsohn (2011), False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant — Psychological Science\nBishop (2020), The Psychology of Experimental Psychologists: Overcoming Cognitive Constraints to Improve Research — QJEP\nNosek & Bar-Anan (2012), Scientific Utopia: I. Opening Scientific Communication — Psychological Inquiry\nNosek, Spies, & Motyl (2012), Scientific Utopia: II. Restructuring Incentives and Practices to Promote Truth Over Publishability — Perspectives on Psychological Science\nNosek et al. (2018), The Preregistration Revolution — PNAS\n\n\n\nSlides\n\n\n\n*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.\n\n\n\nAssignment\n\nLecture 14b Assignment\n\n\n\n  «  Chapter 13\n  Chapter 15  »"
   },
   {
     "objectID": "E/15/a_assignment.html#instructions",
@@ -1292,6 +1292,6 @@
     "href": "index.html",
     "title": "Statistical Methods with R",
     "section": "",
-    "text": "This site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering fifteen chapters across five units.\nAnyone is welcome to teach from these materials or work through them independently. Nothing here is tied to a particular semester, institution, or offering — schedules, deadlines, and grading belong wherever the course is actually being run.\n\n\n\n\n\n\nNoteFor instructors\n\n\n\nTeach from these materials freely: assign the chapters, point your students at the slides, and build your own schedule, activities, and grading around them. Linking to a page here needs no permission at all.\nAnswer keys, practice solutions, and grading rubrics are deliberately not published, since students can read this site as easily as you can. If you are teaching a course and want them, email me at jmgirard dot com from your institutional address with a short note about the course.\nThese materials are licensed CC BY-NC-ND 4.0, which in plain terms means: link to them and teach from them, with credit. Please do not republish them under your own name, whether edited or verbatim, and do not sell them or fold them into paid training. If you need a change — a fix, a different dataset, a slide that would work better reordered — email me and I will consider making it here, where everyone gets it.\n\n\n\nDeveloped by Jeffrey M. Girard · me at jmgirard dot com\n\n\nAbout the Course\nA graduate introduction to statistical methods for the behavioral and social sciences, taught entirely in R.\nThe course opens with the R ecosystem itself — projects, Quarto, and the data wrangling and exploration needed to get real data ready to analyze. It then builds up statistical inference from sampling and estimation through hypothesis testing, correlation, t-tests, and one-way ANOVA. The largest part of the course develops the general linear model: simple and multiple regression, categorical predictors and dummy coding, interaction effects for testing moderation, assumption diagnostics, and polynomial regression for curvilinear relationships. It closes with research practices, power analysis, and how to report and critically review a linear model analysis.\nThroughout, the emphasis is on estimating and interpreting effects rather than on hypothesis testing alone, and on writing code you could hand to someone else.\nThe material assumes a prior introductory statistics course, but starts from the beginning with R itself and expects no programming experience.\n\n\nLearning Outcomes\nBy the end of the material, students should be able to:\n\nDescribe the parts of the R ecosystem used in the course\nUnderstand and apply R code for basic programming tasks\nAccomplish basic data wrangling and exploration tasks in R\nSummarize the main roles that statistics play in psychology\nDiscuss the logic of estimation and hypothesis testing\nEstimate group comparisons and variable associations\nDesign, conduct, and interpret an effect size analysis\nDiscuss the logic and steps of the general linear model\nRegress continuous outcomes on any predictor variables\nApply interaction effects to test moderation hypotheses\nDesign, conduct, and interpret a linear model analysis\nDiscuss, diagnose, and address violated model assumptions\nModel curvilinear relationships with polynomial regression\nConduct an a priori power analysis to determine sample size\nReport and review the results of a linear model analysis\n\n\n\nReadings\nThere is no required textbook. Each chapter page lists its own readings: those drawn from open-access books and articles link straight to the source, while the two reference books below have to be obtained separately.\nFreely available online\n\nR for Data Science (2nd ed.) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. The main source for Unit A.\nLearning Statistics with R by Danielle Navarro. The main source for Unit B.\n\nOptional references\n\nApplied Multiple Regression/Correlation Analysis for the Behavioral Sciences (3rd ed.) by Jacob Cohen, Patricia Cohen, Stephen G. West, and Leona S. Aiken. Routledge, 2013. The main source for Unit C.\nBeyond Significance Testing: Statistics Reform in the Behavioral Sciences (2nd ed.) by Rex B. Kline. American Psychological Association, 2015."
+    "text": "Developed by Jeffrey M. Girard · me at jmgirard dot com\n\nThis site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering fifteen chapters across five units. Anyone is welcome to teach from these materials or work through them independently. Nothing here is tied to a particular semester, institution, or offering, since schedules, deadlines, and grading belong wherever the course is actually being run.\n\n\n\n\n\n\nNoteFor instructors\n\n\n\nTeach from these materials freely: assign the chapters, point your students at the slides, and build your own schedule, activities, and grading around them. Linking to a page here needs no permission at all.\nAnswer keys, practice solutions, and grading rubrics are deliberately not published, since students can read this site as easily as you can. If you are teaching a course and want them, email me at jmgirard dot com from your institutional address with a short note about the course.\nThese materials are licensed CC BY-NC-ND 4.0, which means you can link to them and teach from them, with credit. Please do not republish them under your own name, whether edited or verbatim, and do not sell them or fold them into paid training. If you need a change (a fix, a different dataset, a slide that would work better reordered), email me and I will consider making it here, where everyone gets it.\n\n\n\nAbout the Course\nA graduate introduction to statistical methods for the behavioral and social sciences, taught entirely in R.\nThe course opens with the R ecosystem itself: projects, Quarto, and the data wrangling and exploration needed to get real data ready to analyze. It then builds up statistical inference from sampling and estimation through hypothesis testing, correlation, t-tests, and one-way ANOVA. The largest part of the course develops the general linear model: simple and multiple regression, categorical predictors and dummy coding, interaction effects for testing moderation, and polynomial and spline regression for curvilinear relationships. From there it turns to what to do when a model’s assumptions do not hold: diagnostics, the bootstrap and other robust methods, and missing data. It closes with measurement reliability, power analysis, and how to report and critically review a linear model analysis.\nSome of that material is outlined but not yet written, and is marked coming soon wherever it appears: piecewise and spline regression, bootstrap and robust inference, missing data, reliability and measurement error, and reviewing statistical claims. Each chapter page shows what its lectures will cover.\nThroughout, the emphasis is on estimating and interpreting effects rather than on hypothesis testing alone, and on writing code you could hand to someone else.\nThe material assumes a prior introductory statistics course, but starts from the beginning with R itself and expects no programming experience.\n\n\nLearning Outcomes\nBy the end of the material, students should be able to:\n\nDescribe the parts of the R ecosystem used in the course\nUnderstand and apply R code for basic programming tasks\nAccomplish basic data wrangling and exploration tasks in R\nSummarize the main roles that statistics play in psychology\nDiscuss the logic of estimation and hypothesis testing\nEstimate group comparisons and variable associations\nDesign, conduct, and interpret an effect size analysis\nDiscuss the logic and steps of the general linear model\nRegress continuous outcomes on any predictor variables\nApply interaction effects to test moderation hypotheses\nDesign, conduct, and interpret a linear model analysis\nModel curvilinear relationships with polynomial regression\nFit and interpret piecewise and spline regressions (coming soon)\nDiscuss, diagnose, and address violated model assumptions\nEstimate uncertainty by bootstrapping and resampling (coming soon)\nAddress missing data with multiple imputation or FIML (coming soon)\nEvaluate the reliability of measures and its cost to power (coming soon)\nConduct an a priori power analysis to determine sample size\nReport and review the results of a linear model analysis\n\n\n\nReadings\nThere is no required textbook. The lectures are meant to stand on their own, and each chapter page lists its own readings, linking straight to the source whenever that source is open access.\nThe four books below are for readers who want to go further than a lecture does. Chapter pages point at specific sections of them where they are relevant, but none of the four is required.\nFreely available online\n\nR for Data Science (2nd ed.) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Goes deeper on the tidyverse tools introduced in Unit A.\nLearning Statistics with R by Danielle Navarro. A slower, book-length treatment of the inference material in Unit B.\n\nAvailable for purchase\n\nApplied Multiple Regression/Correlation Analysis for the Behavioral Sciences (3rd ed.) by Jacob Cohen, Patricia Cohen, Stephen G. West, and Leona S. Aiken. Routledge, 2013. The standard reference for the linear model material in Unit C.\nBeyond Significance Testing: Statistics Reform in the Behavioral Sciences (2nd ed.) by Rex B. Kline. American Psychological Association, 2015. Makes the case for the estimation-first emphasis this course takes."
   }
 ]

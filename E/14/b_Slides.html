@@ -136,7 +136,7 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Researcher Degrees of Freedom</p>
+<p>Questionable Practices</p>
 <div class="my-grey">
 <p><span>Unit E | Chapter 14</span><br> <span>Lecture 14b</span></p>
 </div>
@@ -202,7 +202,7 @@
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Researcher Degrees of Freedom</h1>
+<h1>Questionable Practices</h1>
 
 </section>
 <section class="slide level2 fs90">
@@ -754,7 +754,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

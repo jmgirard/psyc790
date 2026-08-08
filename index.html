@@ -111,11 +111,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./A/02/index.html">
- <span class="dropdown-text">Chapter 02: Projects and Programming</span></a>
+ <span class="dropdown-text">Chapter 02: Projects &amp; Programming</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./A/03/index.html">
- <span class="dropdown-text">Chapter 03: Data and Exploration</span></a>
+ <span class="dropdown-text">Chapter 03: Data &amp; Exploration</span></a>
   </li>  
     </ul>
   </li>
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-b">    
         <li>
     <a class="dropdown-item" href="./B/04/index.html">
- <span class="dropdown-text">Chapter 04: Sampling and Estimation</span></a>
+ <span class="dropdown-text">Chapter 04: Sampling &amp; Estimation</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./B/05/index.html">
@@ -164,11 +164,11 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-d">    
         <li>
     <a class="dropdown-item" href="./D/10/index.html">
- <span class="dropdown-text">Chapter 10: Assumptions and Diagnostics</span></a>
+ <span class="dropdown-text">Chapter 10: Model Diagnostics</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./D/11/index.html">
- <span class="dropdown-text">Chapter 11: Bootstrap and Robust Inference</span></a>
+ <span class="dropdown-text">Chapter 11: Bootstrap &amp; Robustness</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./D/12/index.html">
@@ -183,15 +183,15 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-e">    
         <li>
     <a class="dropdown-item" href="./E/13/index.html">
- <span class="dropdown-text">Chapter 13: Reliability and Measurement Error</span></a>
+ <span class="dropdown-text">Chapter 13: Reliability</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./E/14/index.html">
- <span class="dropdown-text">Chapter 14: Power and Preregistration</span></a>
+ <span class="dropdown-text">Chapter 14: Power &amp; Preregistration</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./E/15/index.html">
- <span class="dropdown-text">Chapter 15: Reporting and Reviewing Results</span></a>
+ <span class="dropdown-text">Chapter 15: Reporting &amp; Reviewing</span></a>
   </li>  
     </ul>
   </li>
@@ -242,15 +242,14 @@ img {
   margin-right: auto;
 }
 
-/* Byline under the opening blurb: one quiet line rather than two stacked
-   sentences competing with the body text. */
+/* Byline directly under the hero image, where it reads as a credit on the
+   artwork rather than as a footer to the opening text. No rule above it: the
+   image already separates it from the title. */
 .byline {
   text-align: center;
   color: #6c757d;
   font-size: 0.9rem;
-  margin: 2rem auto 2.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid #e9ecef;
+  margin: 0.5rem auto 2.5rem;
   max-width: 32rem;
 }
 
@@ -315,8 +314,15 @@ img {
 }
 </style>
 <p><img src="./img/statistics_2780E3.svg" class="img-fluid" width="400"></p>
-<p>This site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering fifteen chapters across five units.</p>
-<p>Anyone is welcome to teach from these materials or work through them independently. Nothing here is tied to a particular semester, institution, or offering — schedules, deadlines, and grading belong wherever the course is actually being run.</p>
+<div class="byline">
+<p>Developed by <a href="https://jmgirard.com">Jeffrey M. Girard</a> <span class="sep">·</span> <script type="text/javascript">
+<!--
+h='&#106;&#x6d;&#x67;&#x69;&#114;&#x61;&#114;&#100;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x65;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>me at jmgirard dot com</noscript></p>
+</div>
+<p>This site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering fifteen chapters across five units. Anyone is welcome to teach from these materials or work through them independently. Nothing here is tied to a particular semester, institution, or offering, since schedules, deadlines, and grading belong wherever the course is actually being run.</p>
 <div class="instructors callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -334,21 +340,14 @@ h='&#106;&#x6d;&#x67;&#x69;&#114;&#x61;&#114;&#100;&#46;&#x63;&#x6f;&#x6d;';a='&
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
 </script><noscript>me at jmgirard dot com</noscript> from your institutional address with a short note about the course.</p>
-<p>These materials are licensed <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, which in plain terms means: link to them and teach from them, with credit. Please do not republish them under your own name, whether edited or verbatim, and do not sell them or fold them into paid training. If you need a change — a fix, a different dataset, a slide that would work better reordered — email me and I will consider making it here, where everyone gets it.</p>
+<p>These materials are licensed <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, which means you can link to them and teach from them, with credit. Please do not republish them under your own name, whether edited or verbatim, and do not sell them or fold them into paid training. If you need a change (a fix, a different dataset, a slide that would work better reordered), email me and I will consider making it here, where everyone gets it.</p>
 </div>
-</div>
-<div class="byline">
-<p>Developed by <a href="https://jmgirard.com">Jeffrey M. Girard</a> <span class="sep">·</span> <script type="text/javascript">
-<!--
-h='&#106;&#x6d;&#x67;&#x69;&#114;&#x61;&#114;&#100;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>me at jmgirard dot com</noscript></p>
 </div>
 <section id="about-the-course" class="level3">
 <h3 class="anchored" data-anchor-id="about-the-course">About the Course</h3>
 <p>A graduate introduction to statistical methods for the behavioral and social sciences, taught entirely in R.</p>
-<p>The course opens with the R ecosystem itself — projects, Quarto, and the data wrangling and exploration needed to get real data ready to analyze. It then builds up statistical inference from sampling and estimation through hypothesis testing, correlation, <em>t</em>-tests, and one-way ANOVA. The largest part of the course develops the general linear model: simple and multiple regression, categorical predictors and dummy coding, interaction effects for testing moderation, assumption diagnostics, and polynomial regression for curvilinear relationships. It closes with research practices, power analysis, and how to report and critically review a linear model analysis.</p>
+<p>The course opens with the R ecosystem itself: projects, Quarto, and the data wrangling and exploration needed to get real data ready to analyze. It then builds up statistical inference from sampling and estimation through hypothesis testing, correlation, <em>t</em>-tests, and one-way ANOVA. The largest part of the course develops the general linear model: simple and multiple regression, categorical predictors and dummy coding, interaction effects for testing moderation, and polynomial and spline regression for curvilinear relationships. From there it turns to what to do when a model’s assumptions do not hold: diagnostics, the bootstrap and other robust methods, and missing data. It closes with measurement reliability, power analysis, and how to report and critically review a linear model analysis.</p>
+<p>Some of that material is outlined but not yet written, and is marked <em>coming soon</em> wherever it appears: piecewise and spline regression, bootstrap and robust inference, missing data, reliability and measurement error, and reviewing statistical claims. Each chapter page shows what its lectures will cover.</p>
 <p>Throughout, the emphasis is on estimating and interpreting effects rather than on hypothesis testing alone, and on writing code you could hand to someone else.</p>
 <p>The material assumes a prior introductory statistics course, but starts from the beginning with R itself and expects no programming experience.</p>
 </section>
@@ -367,24 +366,29 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <li>Regress continuous outcomes on any predictor variables</li>
 <li>Apply interaction effects to test moderation hypotheses</li>
 <li>Design, conduct, and interpret a linear model analysis</li>
-<li>Discuss, diagnose, and address violated model assumptions</li>
 <li>Model curvilinear relationships with polynomial regression</li>
+<li>Fit and interpret piecewise and spline regressions <span class="soon">(coming soon)</span></li>
+<li>Discuss, diagnose, and address violated model assumptions</li>
+<li>Estimate uncertainty by bootstrapping and resampling <span class="soon">(coming soon)</span></li>
+<li>Address missing data with multiple imputation or FIML <span class="soon">(coming soon)</span></li>
+<li>Evaluate the reliability of measures and its cost to power <span class="soon">(coming soon)</span></li>
 <li>Conduct an a priori power analysis to determine sample size</li>
 <li>Report and review the results of a linear model analysis</li>
 </ul>
 </section>
 <section id="readings" class="level3">
 <h3 class="anchored" data-anchor-id="readings">Readings</h3>
-<p>There is no required textbook. Each chapter page lists its own readings: those drawn from open-access books and articles link straight to the source, while the two reference books below have to be obtained separately.</p>
+<p>There is no required textbook. The lectures are meant to stand on their own, and each chapter page lists its own readings, linking straight to the source whenever that source is open access.</p>
+<p>The four books below are for readers who want to go further than a lecture does. Chapter pages point at specific sections of them where they are relevant, but none of the four is required.</p>
 <p><strong>Freely available online</strong></p>
 <ul>
-<li><a href="https://r4ds.hadley.nz/"><strong>R for Data Science</strong></a> (2nd ed.) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. The main source for Unit A.</li>
-<li><a href="https://learningstatisticswithr.com/"><strong>Learning Statistics with R</strong></a> by Danielle Navarro. The main source for Unit B.</li>
+<li><a href="https://r4ds.hadley.nz/"><strong>R for Data Science</strong></a> (2nd ed.) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Goes deeper on the tidyverse tools introduced in Unit A.</li>
+<li><a href="https://learningstatisticswithr.com/"><strong>Learning Statistics with R</strong></a> by Danielle Navarro. A slower, book-length treatment of the inference material in Unit B.</li>
 </ul>
-<p><strong>Optional references</strong></p>
+<p><strong>Available for purchase</strong></p>
 <ul>
-<li><strong>Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences</strong> (3rd ed.) by Jacob Cohen, Patricia Cohen, Stephen G. West, and Leona S. Aiken. Routledge, 2013. The main source for Unit C.</li>
-<li><strong>Beyond Significance Testing: Statistics Reform in the Behavioral Sciences</strong> (2nd ed.) by Rex B. Kline. American Psychological Association, 2015.</li>
+<li><strong>Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences</strong> (3rd ed.) by Jacob Cohen, Patricia Cohen, Stephen G. West, and Leona S. Aiken. Routledge, 2013. The standard reference for the linear model material in Unit C.</li>
+<li><strong>Beyond Significance Testing: Statistics Reform in the Behavioral Sciences</strong> (2nd ed.) by Rex B. Kline. American Psychological Association, 2015. Makes the case for the estimation-first emphasis this course takes.</li>
 </ul>
 <!-- Deliberately omitted: meeting times, office hours, due dates, grading,
      prerequisites as policy, instructor contact as course staffing, and the
@@ -469,7 +473,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -803,7 +807,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2025 © Jeffrey Girard</p>
+<p>Copyright 2026 © Jeffrey Girard</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
