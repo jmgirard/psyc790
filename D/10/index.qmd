@@ -6,10 +6,11 @@ title: "Chapter 10: Model Diagnostics"
 
 ## [10a] Form & Collinearity
 
-### Topics
+::: {.topics}
 - Correct Form
 - Perfect Predictors
 - No Collinearity
+:::
 
 ### Readings
 - *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.5--10.6
@@ -35,11 +36,12 @@ title: "Chapter 10: Model Diagnostics"
 
 ## [10b] Residuals & Outliers
 
-### Topics
+::: {.topics}
 - Constant Error Variance
 - Normal Residuals
 - Independent Residuals
 - Outliers
+:::
 
 ### Files
 - [auto.csv](../../data/auto.csv){download="auto.csv"}

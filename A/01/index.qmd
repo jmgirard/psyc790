@@ -6,10 +6,11 @@ title: "Chapter 01: Getting Started"
 
 ## [01a] Introduction
 
-### Topics
+::: {.topics}
 - How this site is organised
 - Setting up R and RStudio
 - How the course is designed
+:::
 
 ### About this course
 
@@ -19,7 +20,7 @@ your own course, or work through it on your own.
 
 The material is organised into five **units**, each containing three
 **chapters**, each containing two or three **lectures**. A lecture is sized to
-roughly ninety minutes. Every lecture has its own page section with slides,
+about 75 to 90 minutes. Every lecture has its own page section with slides,
 readings, and usually an assignment; Unit A lectures also have practice
 activities with answer keys.
 
@@ -62,10 +63,11 @@ follows.
 
 ## [01b] Working in RStudio
 
-### Topics
+::: {.topics}
 - R and RStudio
 - Console
 - Scripts
+:::
 
 ### Readings
 - [Coding Basics](https://r4ds.hadley.nz/workflow-basics#coding-basics) --- *R for Data Science*
@@ -91,6 +93,7 @@ follows.
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../schedule.html" class="btn btn-outline-secondary" role="button">Contents</a>
   <a href="../../A/02/index.html" class="btn btn-primary" role="button">Chapter 02&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

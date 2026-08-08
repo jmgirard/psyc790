@@ -6,10 +6,11 @@ title: "Chapter 08: Moderation"
 
 ## [08a] Continuous Moderation
 
-### Topics
+::: {.topics}
 - Continuous-by-Continuous
 - Interaction Patterns
 - Centering with Interactions
+:::
 
 ### Files
 - [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
@@ -40,11 +41,12 @@ title: "Chapter 08: Moderation"
 
 ## [08b] Categorical Moderation
 
-### Topics
+::: {.topics}
 - Binary-by-Continuous
 - Nominal-by-Continuous
 - Categorical-by-Categorical
 - Three-Way Interactions
+:::
 
 ### Files
 - [exercise.csv](../../data/exercise.csv){download="exercise.csv"}

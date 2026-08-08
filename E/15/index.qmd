@@ -6,10 +6,11 @@ title: "Chapter 15: Reporting & Reviewing"
 
 ## [15a] Reporting Results
 
-### Topics
+::: {.topics}
 - Where the results section sits among a paper's goals
 - What to report for each model, and what readers cannot reconstruct without it
 - Tables and figures that carry the result rather than repeat it
+:::
 
 ### Readings
 - "Multiple Regression" --- *Reviewer's Guide to Quantitative Methods in the Social Sciences*
@@ -39,12 +40,13 @@ This lecture is planned but not yet written. The outline below shows what it is
 intended to cover.
 :::
 
-### Topics
+::: {.topics}
 - Checking a reported test for internal consistency (statistic, *df*, and *p* must agree)
 - Recovering effect sizes and confidence intervals from what was reported
 - Detecting impossible summary statistics from means, *SD*s, and sample sizes
 - Reading a results section for what is *missing* rather than what is wrong
 - Writing a statistical review that is specific and actionable
+:::
 
 This is the reviewing half of the chapter, and it is deliberately a *statistical*
 skill rather than a methodological one: everything above can be checked from the
@@ -55,5 +57,6 @@ numbers a paper already reports, without access to the data.
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
   <a href="../../E/14/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 14</a>
+  <a href="../../schedule.html" class="btn btn-outline-secondary" role="button">Contents</a>
 </div>
 ```

@@ -6,11 +6,12 @@ title: "Chapter 09: Nonlinearity"
 
 ## [09a] Polynomial Regression
 
-### Topics
+::: {.topics}
 - Polynomial Regression
 - Quadratic Regression
 - Adding Predictors
 - Closing Thoughts
+:::
 
 ### Files
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
@@ -43,12 +44,13 @@ This lecture is planned but not yet written. The outline below shows what it is
 intended to cover.
 :::
 
-### Topics
+::: {.topics}
 - Why a global polynomial is the wrong tool for a local bend
 - Piecewise regression: breakpoints as a dummy code and its interaction
 - Choosing and justifying a breakpoint
 - Splines as the smooth generalization
 - Interpreting and plotting a fit you cannot read off a coefficient
+:::
 
 Piecewise regression is built from machinery this course already teaches: a
 breakpoint is a dummy code, and letting the slope change at that point is the

@@ -6,10 +6,11 @@ title: "Chapter 03: Data & Exploration"
 
 ## [03a] Data Types & Packages
 
-### Topics
+::: {.topics}
 - Strings
 - Factors
 - Packages
+:::
 
 ### Readings
 - [Strings](https://r4ds.hadley.nz/strings) --- *R for Data Science*
@@ -39,10 +40,11 @@ title: "Chapter 03: Data & Exploration"
 
 ## [03b] Importing & Exploring
 
-### Topics
+::: {.topics}
 - Data Frames
 - Data Files
 - Data Exploration
+:::
 
 ### Files
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}

@@ -6,11 +6,12 @@ title: "Chapter 05: Hypothesis Testing"
 
 ## [05a] NHST & p-values
 
-### Topics
+::: {.topics}
 - Statistical Hypotheses
 - NHST Logic
 - NHST Nuts and Bolts
 - $p$-values and  Pragmatics
+:::
 
 ### Readings
 - [Hypothesis Testing, §11.1--11.7](https://learningstatisticswithr.com/11-hypothesistesting.html) --- *Learning Statistics with R*
@@ -37,9 +38,10 @@ title: "Chapter 05: Hypothesis Testing"
 
 ## [05b] Correlation & Inference
 
-### Topics
+::: {.topics}
 - Calculating  Correlations
 - Statistical Inference
+:::
 
 ### Files
 - [cigarettes.csv](../../data/cigarettes.csv){download="cigarettes.csv"}

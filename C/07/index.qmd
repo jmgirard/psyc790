@@ -6,10 +6,11 @@ title: "Chapter 07: Regression"
 
 ## [07a] Simple Regression
 
-### Topics
+::: {.topics}
 - Regression Inference
 - Centering
 - Regression Effect Sizes
+:::
 
 ### Files
 - [parenthood.csv](../../data/parenthood.csv){download="parenthood.csv"}
@@ -37,9 +38,10 @@ title: "Chapter 07: Regression"
 
 ## [07b] Categorical Predictors
 
-### Topics
+::: {.topics}
 - Dichotomous  Dummy Coding
 - Polytomous  Dummy Coding
+:::
 
 ### Files
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
@@ -67,10 +69,11 @@ title: "Chapter 07: Regression"
 
 ## [07c] Multiple Regression
 
-### Topics
+::: {.topics}
 - Shared Variance
 - Multiple Regression
 - Many Predictors
+:::
 
 ### Files
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}

@@ -6,11 +6,12 @@ title: "Chapter 04: Sampling & Estimation"
 
 ## [04a] Populations & Samples
 
-### Topics
+::: {.topics}
 - Research Methods
 - Populations and Parameters
 - Samples and Statistics
 - Estimation and Uncertainty
+:::
 
 ### Files
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
@@ -38,12 +39,13 @@ title: "Chapter 04: Sampling & Estimation"
 
 ## [04b] Confidence Intervals
 
-### Topics
+::: {.topics}
 - Types of Estimates
 - The Normal Distribution
 - Central Limit Theorem
 - Confidence Intervals
 - Practical Matters
+:::
 
 ### Files
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}

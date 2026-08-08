@@ -13,23 +13,25 @@ what it is intended to cover.
 
 ## [12a] Missing Data Theory
 
-### Topics
+::: {.topics}
 - Missing completely at random, at random, and not at random
 - Why the mechanism is an assumption about *unobserved* data
 - Describing and visualizing missingness patterns
 - Why listwise deletion, pairwise deletion, and mean imputation all fail
 - What "unbiased" and "efficient" mean for a missing-data method
+:::
 
 <!-- Lecture b -->
 
 ## [12b] Imputation & FIML
 
-### Topics
+::: {.topics}
 - Multiple imputation with \{mice\}: impute, analyze, pool
 - Choosing an imputation model, and why it should be at least as rich as the analysis model
 - How many imputations, and how to tell if it was enough
 - Full information maximum likelihood with \{lavaan\}
 - Choosing between multiple imputation and FIML, and reporting either one
+:::
 
 This chapter is deliberately two lectures rather than one. Mechanisms alone
 give students a vocabulary for a problem they cannot yet do anything about;

@@ -8,10 +8,11 @@ title: "Chapter 14: Power & Preregistration"
 
 ## [14a] Power Analysis
 
-### Topics
+::: {.topics}
 - Power analysis and its relationship to effect size, *n*, and alpha
 - Types of power analysis
 - Power for *t*-tests, one-way ANOVA, and the linear model
+:::
 
 ### Readings
 - [WebPower Manual](https://webpower.psychstat.org/wiki/) --- *WebPower*
@@ -30,9 +31,10 @@ title: "Chapter 14: Power & Preregistration"
 
 ## [14b] Questionable Practices
 
-### Topics
+::: {.topics}
 - Bad Practices
 - Best Practices
+:::
 
 ### Readings
 - Simmons, Nelson, \& Simonsohn (2011), [False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant](https://doi.org/10.1177/0956797611417632) --- *Psychological Science*

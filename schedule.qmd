@@ -139,7 +139,7 @@ a.chapter-card.pending {
 ```
 
 Fifteen chapters across five units. Each chapter runs two or three lectures of
-about ninety minutes, and each lecture carries its own practice and assignment.
+about 75 to 90 minutes, and each lecture carries its own practice and assignment.
 
 ## [A]{.unit-letter} Foundations
 

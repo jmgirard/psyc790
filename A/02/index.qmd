@@ -6,10 +6,11 @@ title: "Chapter 02: Projects & Programming"
 
 ## [02a] Reproducible Workflows
 
-### Topics
+::: {.topics}
 - Projects
 - Quarto
 - Markdown
+:::
 
 ### Readings
 - [Workflow: Projects](https://r4ds.hadley.nz/workflow-scripts#projects) --- *R for Data Science*
@@ -40,11 +41,12 @@ title: "Chapter 02: Projects & Programming"
 
 ## [02b] Writing R Code
 
-### Topics
+::: {.topics}
 - Assignment
 - Naming
 - Functions
 - Vectors
+:::
 
 ### Readings
 - [Workflow: Basics](https://r4ds.hadley.nz/workflow-basics) --- *R for Data Science*

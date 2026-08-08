@@ -6,9 +6,10 @@ title: "Chapter 06: Group Comparisons"
 
 ## [06a] Comparing Two Groups
 
-### Topics
+::: {.topics}
 - NHST Approaches
 - Effect Sizes
+:::
 
 ### Files
 - [socialproblems.csv](../../data/socialproblems.csv){download="socialproblems.csv"}
@@ -38,9 +39,10 @@ title: "Chapter 06: Group Comparisons"
 
 ## [06b] Comparing Many Groups
 
-### Topics
+::: {.topics}
 - One-way ANOVA in R
 - Post-hoc Tests
+:::
 
 ### Files
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
@@ -67,10 +69,11 @@ title: "Chapter 06: Group Comparisons"
 
 ## [06c] ANOVA Extensions
 
-### Topics
+::: {.topics}
 - Unequal Variances
 - Repeated Measures
 - Translation Activity
+:::
 
 ### Files
 - [depression.csv](../../data/depression.csv){download="depression.csv"}

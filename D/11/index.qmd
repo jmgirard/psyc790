@@ -13,19 +13,21 @@ what it is intended to cover.
 
 ## [11a] The Bootstrap
 
-### Topics
+::: {.topics}
 - Resampling as an empirical sampling distribution
 - Bootstrap confidence intervals
 - When the bootstrap helps and when it does not
+:::
 
 <!-- Lecture b -->
 
 ## [11b] Robust Inference
 
-### Topics
+::: {.topics}
 - Permutation tests
 - Heteroscedasticity-consistent standard errors
 - Choosing between robust and conventional inference
+:::
 
 <!-- Bottom Nav -->
 

@@ -13,19 +13,21 @@ what it is intended to cover.
 
 ## [13a] Internal Consistency
 
-### Topics
+::: {.topics}
 - True scores, measurement error, and reliability
 - Cronbach's alpha and why it is often the wrong choice
 - McDonald's omega
+:::
 
 <!-- Lecture b -->
 
 ## [13b] Raters & Attenuation
 
-### Topics
+::: {.topics}
 - Intraclass correlations for rater agreement
 - Test--retest reliability
 - How unreliable predictors attenuate regression slopes
+:::
 
 <!-- Bottom Nav -->
 
