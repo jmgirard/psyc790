@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 14: Unit C Project – PSYC790</title>
+<title>Lecture 01a Practice – PSYC790</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -74,40 +109,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -148,11 +154,6 @@ window.Quarto = {
     <a class="dropdown-item" href="../../A/03/index.html"><i class="bi bi-table" role="img">
 </i> 
  <span class="dropdown-text">Chapter 03: Data and Exploration</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../A/04/index.html"><i class="bi bi-briefcase" role="img">
-</i> 
- <span class="dropdown-text">Chapter 04: Unit A Project</span></a>
   </li>  
     </ul>
   </li>
@@ -213,11 +214,6 @@ window.Quarto = {
 </i> 
  <span class="dropdown-text">Chapter 13: Polynomial Regression</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../C/14/index.html"><i class="bi bi-briefcase" role="img">
-</i> 
- <span class="dropdown-text">Chapter 14: Unit C Project</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -248,29 +244,13 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#a-unit-c-project" id="toc-a-unit-c-project" class="nav-link active" data-scroll-target="#a-unit-c-project">[14a] Unit C Project</a></li>
-  <li><a href="#b-unit-c-project" id="toc-b-unit-c-project" class="nav-link" data-scroll-target="#b-unit-c-project">[14b] Unit C Project</a></li>
-  <li><a href="#project-description" id="toc-project-description" class="nav-link" data-scroll-target="#project-description">Project Description</a>
-  <ul class="collapse">
-  <li><a href="#your-dataset" id="toc-your-dataset" class="nav-link" data-scroll-target="#your-dataset">Your dataset</a></li>
-  <li><a href="#your-focal-model" id="toc-your-focal-model" class="nav-link" data-scroll-target="#your-focal-model">Your focal model</a></li>
-  <li><a href="#what-to-report" id="toc-what-to-report" class="nav-link" data-scroll-target="#what-to-report">What to report</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 14: Unit C Project</h1>
+<h1 class="title">Lecture 01a Practice</h1>
 </div>
 
 
@@ -287,94 +267,72 @@ window.Quarto = {
 </header>
 
 
-<!-- Lecture a -->
-<section id="a-unit-c-project" class="level2">
-<h2 class="anchored" data-anchor-id="a-unit-c-project">[14a] Unit C Project</h2>
-<p>In-class project work</p>
-<!-- Lecture b -->
+<p><img src="../../img/exams_2780E3.svg" height="300"></p>
+<p><em>These activities are for practice only — there is nothing to turn in. Answer keys are included, so try each question yourself before opening them.</em></p>
+<section id="question-1-r-and-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-r-and-rstudio">Question 1 (R and RStudio)</h2>
+<p>There are many ways to customize the RStudio interface. To explore the possibilities, go to <strong>Tools</strong> &gt; <strong>Global Options</strong>. The most noticeable things you can change are aspects of RStudio’s appearance. If you click on the <em>Appearance</em> section, you can select a different zoom level, editor font, font size, and editor theme. I usually teach with the default settings and you can keep everything the same if you want your computer to match the one I teach from, but for my own work I use the “Tomorrow Night 80s” theme and a custom font called <a href="https://affcom.ku.edu/posts/firacode/">Fira Code</a>. I also make slight changes to the <em>Pane Layout</em> section that I’d be happy to describe to you in class if you’re interested.</p>
+<p>All of this stuff is optional, but a few changes that I’d recommend making are to go to the <em>General</em> section and make sure that “Restore .RData into workspace at startup” is unchecked and that “Save workspace to .RData on exit” is set to “Never”. Finally, under the <em>Code</em> section and the Display tab, I like to check the box for “Allow scroll past end of document”.</p>
 </section>
-<section id="b-unit-c-project" class="level2">
-<h2 class="anchored" data-anchor-id="b-unit-c-project">[14b] Unit C Project</h2>
-<p>In-class project work</p>
-<!-- Project -->
-<!-- ==========================================================================
-     REVISED per teaching notes: instructions clarified, and the zero-order
-     effects requirement replaced with an interaction (rubric updated to
-     match). Compare against the Fall 2025 Canvas version before posting.
-     ========================================================================== -->
-</section>
-<section id="project-description" class="level2">
-<h2 class="anchored" data-anchor-id="project-description">Project Description</h2>
-<p>For this project, you will put the Unit C skills to use. Whereas the assignments in this course use curated datasets that are pre-cleaned and ready-to-analyze, data in the real world is often a bit messy and needs to be tidied. Projects are opportunities to work with real-world data that you care about (e.g., data from your own research lab or domains you care about).</p>
-<p>The goal of the Unit C Project is to <strong>use a linear model to analyze data you care about and interpret the results</strong>. This data could be the same as or different from the data you prepared in the Unit A Project. You should create a Quarto document that conducts these steps, prints the output, and describes your findings in text.</p>
-<section id="your-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="your-dataset">Your dataset</h3>
-<ul>
-<li>At least <strong>20 rows</strong> and at least <strong>4 columns</strong></li>
-<li>Some datasets include hundreds of columns and that can be overwhelming, so I recommend selecting a subset of the most important/interesting columns to focus on for this project</li>
-<li>Ideally there would be a mix of categorical and continuous variables (but this is not required)</li>
-</ul>
-</section>
-<section id="your-focal-model" class="level3">
-<h3 class="anchored" data-anchor-id="your-focal-model">Your focal model</h3>
-<p>Fit <strong>one focal multiple regression model</strong> that includes:</p>
-<ul>
-<li>An outcome variable and <strong>at least two predictors</strong></li>
-<li><strong>At least one interaction</strong> between two of your predictors</li>
-</ul>
-<p>Before you fit it, state in text what you expect and why — name the hypotheses your model is testing, in your own words, rather than only reporting what came out.</p>
-</section>
-<section id="what-to-report" class="level3">
-<h3 class="anchored" data-anchor-id="what-to-report">What to report</h3>
-<ol type="1">
-<li><strong>State your hypotheses</strong> before fitting the model.</li>
-<li><strong>Estimate the focal model</strong> and present the coefficient table.</li>
-<li><strong>Interpret every coefficient in text</strong>, including the intercept. For the interaction, say what it means in terms of your variables — not just whether it was significant.</li>
-<li><strong>Probe the interaction.</strong> Report simple slopes (for a continuous moderator) or marginal contrasts (for a categorical one), and explain what they show.</li>
-<li><strong>Report effect sizes</strong>: standardized slopes and <span class="math inline">\(R^2\)</span>.</li>
-<li><strong>Include a marginal effects plot</strong> of the interaction, and use it to support your interpretation in text.</li>
-<li><strong>Check the assumptions</strong> of your focal model — correct functional form, no perfect collinearity, constant error variance, normal residuals, independent residuals, and influential cases/outliers. Say what you checked, what you found, and whether it changes your confidence in the results.</li>
+<section id="question-2-console" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-console">Question 2 (Console)</h2>
+<p>Read what the user wanted to do and look at the command they sent to R. Fix the errors in the commands and calculate the answers.</p>
+<ol type="a">
+<li>I want to add 20 and 0.2 and divide that sum by 4.1. But I get an error when I try:<br><code>[20 + .2] \ 4.1</code></li>
+<li>I want to multiply 6 by the sum of 2 and 1,300. But I get an error when I try:<br><code>6 x (2 + 1,300)</code></li>
 </ol>
-</section>
-<section id="grading" class="level3">
-<h3 class="anchored" data-anchor-id="grading">Grading</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>1 point</td>
-<td>Was the focal model specified and estimated properly, including the interaction?</td>
-</tr>
-<tr class="even">
-<td>1 point</td>
-<td>Were the coefficients interpreted properly, including the interaction?</td>
-</tr>
-<tr class="odd">
-<td>1 point</td>
-<td>Was the interaction probed properly (simple slopes or marginal contrasts)?</td>
-</tr>
-<tr class="even">
-<td>1 point</td>
-<td>Were the effect sizes and marginal effects plots generated properly?</td>
-</tr>
-<tr class="odd">
-<td>1 point</td>
-<td>Were the assumptions tested and interpreted properly?</td>
-</tr>
-</tbody>
-</table>
-<!-- Bottom Nav -->
-<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../13/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 13</a>
-
-  <a href="../../D/15/index.html" class="btn btn-primary" role="button">Chapter 15&nbsp;&nbsp;»</a>
+<p>
+</p><details>
+<summary>
+Click here for the answer key
+</summary>
+<blockquote class="blockquote">
+<p><strong>Answer (a)</strong></p>
+<p>Change the brackets <code>[]</code> to parentheses <code>()</code> because parentheses <code>()</code> are the order-of-operations operator in R. Also, change the backslash <code>\</code> to a forward slash <code>/</code> because forward slash <code>/</code> is the division operator in R.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">20</span> <span class="sc">+</span> .<span class="dv">2</span>) <span class="sc">/</span> <span class="fl">4.1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4.926829</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-
-
+<p><strong>Answer (b)</strong></p>
+<p>Change the <code>x</code> to an asterisk <code>*</code> because asterisk <code>*</code> is the multiplication operator in R. Also, remove the comma <code>,</code> from <code>1,300</code> because R doesn’t use commas to delimit digits in large numbers.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1300</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 7812</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</blockquote>
+</details>
+<p></p>
 </section>
+<section id="question-3-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-scripts">Question 3 (Scripts)</h2>
+<p>Create a new R script file and copy your answers to Question 2 into it. Add some comments to explain which line of code corresponds to 2a and 2b. I’ll talk about this more in [06a], but it is a good idea to get into the practice of keeping your code organized and commented. Organized code will also make grading easier, and a happy grader is associated with a happy student. 😉</p>
+<p>
+</p><details>
+<summary>
+Click here for the answer key
+</summary>
+<blockquote class="blockquote">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### File &gt; New File &gt; R Script (or equivalent shortcuts)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Question 2a</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">20</span> <span class="sc">+</span> .<span class="dv">2</span>) <span class="sc">/</span> <span class="fl">4.1</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Question 2b</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1300</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">#### File &gt; Save (or equivalent shortcuts)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</blockquote>
+</details>
+<p></p>
+</section>
+<section id="fun-stuff-the-literal-genie" class="level2">
+<h2 class="anchored" data-anchor-id="fun-stuff-the-literal-genie">Fun Stuff: The Literal Genie</h2>
+<p>What it feels like to talk to R sometimes…</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/58l7ZqoU0a0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+
 </section>
 
 </main> <!-- /main -->
