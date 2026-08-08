@@ -24,6 +24,9 @@ title: "Chapter 15: Best Practices"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Assignment
+- [Lecture 15a Assignment](a_assignment.qmd)
+
 <!-- Lecture b -->
 
 ## [15b] Power Analysis
@@ -39,6 +42,9 @@ title: "Chapter 15: Best Practices"
 <iframe class="slide-deck" src="b_Slides.html" title="[15b] Slideshow">
 </iframe>
 ```
+
+### Assignment
+- [Lecture 15b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->
 

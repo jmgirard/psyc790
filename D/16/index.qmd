@@ -20,6 +20,9 @@ title: "Chapter 16: Reporting and Reviewing"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Assignment
+- [Lecture 16a Assignment](a_assignment.qmd)
+
 <!-- Lecture b -->
 
 ## [16b] Translation Activity
@@ -42,11 +45,8 @@ title: "Chapter 16: Reporting and Reviewing"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-<!-- Assignment -->
-
-## Assignment
-
-- [Chapter 16 Assignment](assignment.qmd)
+### Assignment
+- [Lecture 16b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->
 

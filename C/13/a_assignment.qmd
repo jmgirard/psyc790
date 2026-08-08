@@ -43,9 +43,9 @@ b) The squared term is positive, so the curve has a minimum rather than a maximu
 
 ## Question 3 (Adding Predictors)
 
-Read in `factbook1M` again and fit a model predicting `death_rate` from `birth_rate`, its squared term, and `life_exp`.
+Read in `factbook1M` again and fit **two** models: one predicting `death_rate` from `birth_rate` and its squared term, and one that adds `life_exp` to those predictors.
 
-a) Report the coefficients and the $R^2$. How much did adding `life_exp` improve the model over the quadratic model from Question 2?
+a) Report the coefficients and the $R^2$ of the larger model. How much did adding `life_exp` improve the $R^2$ over the model without it?
 
 b) The squared `birth_rate` term is still significant after controlling for `life_exp`. Explain what that tells you, and why you should be cautious about interpreting the `birth_rate` coefficient on its own in a model that also contains `birth_rate` squared.{{< hp glyph="b" >}}
 

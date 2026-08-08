@@ -1,0 +1,50 @@
+---
+title: "Lecture 15a Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 15a Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Bad Practices)
+
+a) In your own words, describe selective reporting, HARKing, and *p*-hacking.{{< hp glyph="i" >}} When have you felt (or might you feel in the future) pressured to engage in such practices, and what steps might you take to avoid the temptations? <span class="tiny-text">Use the word "testy" in the answer.</span>
+
+b) These three practices are often described as things that inflate the false positive rate. Explain *why* each one does that.{{< hp glyph="i" >}}
+
+## Question 2 (Best Practices)
+
+a) In your own words, describe open sharing, preregistration, and power analysis.{{< hp glyph="i" >}} What are some of these practices you could apply in your own work, and what are some challenges that might make this difficult?
+
+b) Preregistration is sometimes described as making a study "confirmatory rather than exploratory." Explain what that distinction means, and say whether you think exploratory research is therefore less valuable.{{< hp glyph="i" >}}
+
+## Question 3 (Diagnosing a Study)
+
+Consider the following description of a study:
+
+> A researcher collects 30 outcome measures from 40 participants. None of the planned comparisons reach significance, so she examines all 30 outcomes and finds that 2 of them differ significantly between groups at $p<.05$. She writes up those 2 outcomes, frames the introduction around the theory they support, and reports that the study confirmed her hypothesis.
+
+a) Identify each questionable research practice in this description and name it.{{< hp glyph="i" >}} For each one, explain specifically what the researcher did that qualifies.
+
+b) Rewrite the study plan so the same scientific question could be asked defensibly.{{< hp glyph="i" >}} Be concrete about what she should have decided in advance and what she should report.
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then upload this file to Canvas by the deadline listed on the syllabus. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*
