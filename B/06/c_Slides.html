@@ -221,7 +221,7 @@
 <section class="slide level2">
 <h2>Welch’s one-way test</h2>
 <ul>
-<li>The ANOVA we learned in the previous chapter used Student’s approach
+<li>The ANOVA we learned in the previous lecture used Student’s approach
 <ul>
 <li>It simplifies the math by assuming all <span class="math inline">\(\sigma\)</span> are equal</li>
 <li>The “homogeneity of variance” or “sphericity” assumption</li>
@@ -238,22 +238,22 @@
 <h2>Example dataset</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>salaries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/salaries.csv"</span>)</span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>salaries</span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 397 × 6</span></span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    rank      discipline yrs.since.phd yrs.service sex    salary</span></span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;</span></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Full      Applied               19          18 Male    140. </span></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Full      Applied               20          16 Male    173. </span></span>
-<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Assistant Applied                4           3 Male     79.8</span></span>
-<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Full      Applied               45          39 Male    115  </span></span>
-<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Full      Applied               40          41 Male    142. </span></span>
-<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Associate Applied                6           6 Male     97  </span></span>
-<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Full      Applied               30          23 Male    175  </span></span>
-<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Full      Applied               45          45 Male    148. </span></span>
-<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Full      Applied               21          20 Male    119. </span></span>
-<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Full      Applied               18          18 Female  129  </span></span>
-<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 387 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins.csv"</span>)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>penguins</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 344 × 8</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    species island    bill_len bill_dep flipper_len body_mass sex     year</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Adelie  Torgersen     39.1     18.7         181      3750 male    2007</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Adelie  Torgersen     39.5     17.4         186      3800 female  2007</span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Adelie  Torgersen     40.3     18           195      3250 female  2007</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Adelie  Torgersen     NA       NA            NA        NA &lt;NA&gt;    2007</span></span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Adelie  Torgersen     36.7     19.3         193      3450 female  2007</span></span>
+<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Adelie  Torgersen     39.3     20.6         190      3650 male    2007</span></span>
+<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Adelie  Torgersen     38.9     17.8         181      3625 female  2007</span></span>
+<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Adelie  Torgersen     39.2     19.6         195      4675 male    2007</span></span>
+<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Adelie  Torgersen     34.1     18.1         193      3475 &lt;NA&gt;    2007</span></span>
+<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Adelie  Torgersen     42       20.2         190      4250 &lt;NA&gt;    2007</span></span>
+<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 334 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -266,8 +266,8 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
 <span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(</span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> salary <span class="sc">~</span> rank,</span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> salaries</span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> body_mass <span class="sc">~</span> species,</span>
+<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins</span>
 <span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit)</span>
@@ -275,7 +275,7 @@
 <span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## F      | df | df (error) |      p</span></span>
 <span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------</span></span>
-<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 271.44 |  2 |     177.19 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 317.57 |  2 |     189.48 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>

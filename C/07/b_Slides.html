@@ -359,22 +359,22 @@ Male*
 <section class="slide level2">
 <h2>Example dataset</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>salaries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/salaries.csv"</span>)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>salaries</span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 397 × 6</span></span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    rank      discipline yrs.since.phd yrs.service sex    salary</span></span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;</span></span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Full      Applied               19          18 Male    140. </span></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Full      Applied               20          16 Male    173. </span></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Assistant Applied                4           3 Male     79.8</span></span>
-<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Full      Applied               45          39 Male    115  </span></span>
-<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Full      Applied               40          41 Male    142. </span></span>
-<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Associate Applied                6           6 Male     97  </span></span>
-<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Full      Applied               30          23 Male    175  </span></span>
-<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Full      Applied               45          45 Male    148. </span></span>
-<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Full      Applied               21          20 Male    119. </span></span>
-<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Full      Applied               18          18 Female  129  </span></span>
-<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 387 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins.csv"</span>)</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>penguins</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 344 × 8</span></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    species island    bill_len bill_dep flipper_len body_mass sex     year</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Adelie  Torgersen     39.1     18.7         181      3750 male    2007</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Adelie  Torgersen     39.5     17.4         186      3800 female  2007</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Adelie  Torgersen     40.3     18           195      3250 female  2007</span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Adelie  Torgersen     NA       NA            NA        NA &lt;NA&gt;    2007</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Adelie  Torgersen     36.7     19.3         193      3450 female  2007</span></span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Adelie  Torgersen     39.3     20.6         190      3650 male    2007</span></span>
+<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Adelie  Torgersen     38.9     17.8         181      3625 female  2007</span></span>
+<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Adelie  Torgersen     39.2     19.6         195      4675 male    2007</span></span>
+<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Adelie  Torgersen     34.1     18.1         193      3475 &lt;NA&gt;    2007</span></span>
+<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Adelie  Torgersen     42       20.2         190      4250 &lt;NA&gt;    2007</span></span>
+<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 334 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -383,28 +383,28 @@ Male*
 <li>We can use the <code>recode()</code> function from {tidyverse}</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>salaries<span class="sc">$</span>sex_c1 <span class="ot">&lt;-</span> <span class="fu">recode</span>(salaries<span class="sc">$</span>sex, <span class="at">Female =</span> <span class="dv">1</span>, <span class="at">Male =</span> <span class="dv">0</span>)</span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>salaries</span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 397 × 7</span></span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    rank      discipline yrs.since.phd yrs.service sex    salary sex_c1</span></span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Full      Applied               19          18 Male    140.       0</span></span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Full      Applied               20          16 Male    173.       0</span></span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Assistant Applied                4           3 Male     79.8      0</span></span>
-<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Full      Applied               45          39 Male    115        0</span></span>
-<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Full      Applied               40          41 Male    142.       0</span></span>
-<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Associate Applied                6           6 Male     97        0</span></span>
-<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Full      Applied               30          23 Male    175        0</span></span>
-<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Full      Applied               45          45 Male    148.       0</span></span>
-<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Full      Applied               21          20 Male    119.       0</span></span>
-<span id="cb2-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Full      Applied               18          18 Female  129        1</span></span>
-<span id="cb2-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 387 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>sex_c1 <span class="ot">&lt;-</span> <span class="fu">recode</span>(penguins<span class="sc">$</span>sex, <span class="at">female =</span> <span class="dv">1</span>, <span class="at">male =</span> <span class="dv">0</span>)</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>penguins</span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 344 × 9</span></span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    species island    bill_len bill_dep flipper_len body_mass sex     year sex_c1</span></span>
+<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Adelie  Torgersen     39.1     18.7         181      3750 male    2007      0</span></span>
+<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Adelie  Torgersen     39.5     17.4         186      3800 female  2007      1</span></span>
+<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Adelie  Torgersen     40.3     18           195      3250 female  2007      1</span></span>
+<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Adelie  Torgersen     NA       NA            NA        NA &lt;NA&gt;    2007     NA</span></span>
+<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Adelie  Torgersen     36.7     19.3         193      3450 female  2007      1</span></span>
+<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Adelie  Torgersen     39.3     20.6         190      3650 male    2007      0</span></span>
+<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Adelie  Torgersen     38.9     17.8         181      3625 female  2007      1</span></span>
+<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Adelie  Torgersen     39.2     19.6         195      4675 male    2007      0</span></span>
+<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Adelie  Torgersen     34.1     18.1         193      3475 &lt;NA&gt;    2007     NA</span></span>
+<span id="cb2-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Adelie  Torgersen     42       20.2         190      4250 &lt;NA&gt;    2007     NA</span></span>
+<span id="cb2-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 334 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Regression with a dummy code</h2>
 <ul>
-<li>We can regress <code>salary</code> on the numeric dummy code <span class="math inline">\(C_1\)</span></li>
+<li>We can regress <code>body_mass</code> on the numeric dummy code <span class="math inline">\(C_1\)</span></li>
 </ul>
 <p><span class="math display">\[\hat{y}_i = b_0 + b_1 C_{1i}\]</span></p>
 <ul>
@@ -421,19 +421,19 @@ Male*
 <section class="slide level2">
 <h2>Regression with a dummy code</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> salary <span class="sc">~</span> sex_c1, <span class="at">data =</span> salaries)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> body_mass <span class="sc">~</span> sex_c1, <span class="at">data =</span> penguins)</span>
 <span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>fit</span>
 <span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = salary ~ sex_c1, data = salaries)</span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = body_mass ~ sex_c1, data = penguins)</span></span>
 <span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
 <span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)       sex_c1  </span></span>
-<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##      115.09       -14.09</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##      4545.7       -683.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p>The average salary of <em>male</em> professors is $115,090</p></li>
-<li><p><em>Female</em> professors make $14,090 less on average</p></li>
+<li><p>The average body mass of <em>male</em> penguins is 4545.68 g</p></li>
+<li><p><em>Female</em> penguins weigh 683.41 g less on average</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -446,16 +446,16 @@ Male*
 </ul></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>salaries<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(salaries<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>))</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> salary <span class="sc">~</span> sex, <span class="at">data =</span> salaries)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> body_mass <span class="sc">~</span> sex, <span class="at">data =</span> penguins)</span>
 <span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>fit2</span>
 <span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = salary ~ sex, data = salaries)</span></span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = body_mass ~ sex, data = penguins)</span></span>
 <span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)    sexFemale  </span></span>
-<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##      115.09       -14.09</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)    sexfemale  </span></span>
+<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##      4545.7       -683.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -464,20 +464,20 @@ Male*
 <li>To use female as the reference group, we just put it first</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>salaries<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(salaries<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>))</span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> salary <span class="sc">~</span> sex, <span class="at">data =</span> salaries)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>))</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> body_mass <span class="sc">~</span> sex, <span class="at">data =</span> penguins)</span>
 <span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>fit3</span>
 <span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = salary ~ sex, data = salaries)</span></span>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = body_mass ~ sex, data = penguins)</span></span>
 <span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb5-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)      sexMale  </span></span>
-<span id="cb5-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##      101.00        14.09</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)      sexmale  </span></span>
+<span id="cb5-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##      3862.3        683.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p>The average salary of <em>female</em> professors is $101,000</p></li>
-<li><p><em>Male</em> professors make $14,090 more on average</p></li>
+<li><p>The average body mass of <em>female</em> penguins is 3862.27 g</p></li>
+<li><p><em>Male</em> penguins weigh 683.41 g more on average</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -487,31 +487,31 @@ Male*
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2)</span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter    | Coefficient |   SE |           95% CI | t(395) |      p</span></span>
-<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------</span></span>
-<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  |      115.09 | 1.59 | [111.97, 118.21] |  72.50 | &lt; .001</span></span>
-<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sex [Female] |      -14.09 | 5.06 | [-24.04,  -4.13] |  -2.78 | 0.006</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter    | Coefficient |    SE |             95% CI | t(331) |      p</span></span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------------</span></span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  |     4545.68 | 56.32 | [4434.90, 4656.47] |  80.71 | &lt; .001</span></span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sex [female] |     -683.41 | 80.01 | [-840.80, -526.02] |  -8.54 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote>
-<p>“The average salary of female professors was estimated to be 14.09 thousand US dollars lower than that of male professors, 95% CI: [–24.04, –2.13], <em>t</em> = –2.78, <em>p</em> = .006.”</p>
+<p>“The average body mass of female penguins was estimated to be 683.41 grams lower than that of male penguins, 95% CI: [–840.80, –526.02], <em>t</em> = –8.54, <em>p</em> &lt; .001.”</p>
 </blockquote>
 </section>
 <section class="slide level2 fs90">
 <h2>Relation to Student’s t-test</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>fit2b <span class="ot">&lt;-</span> <span class="fu">t.test</span>(salary <span class="sc">~</span> sex, <span class="at">data =</span> salaries, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>fit2b <span class="ot">&lt;-</span> <span class="fu">t.test</span>(body_mass <span class="sc">~</span> sex, <span class="at">data =</span> penguins, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2b)</span>
 <span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Two Sample t-test</span></span>
 <span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Group | sex = Female | sex = Male | Difference |          95% CI</span></span>
-<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------------</span></span>
-<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## salary    |   sex |       101.00 |     115.09 |     -14.09 | [-24.04, -4.13]</span></span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Group | sex = female | sex = male | Difference |             95% CI</span></span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------------------</span></span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## body_mass |   sex |      3862.27 |    4545.68 |    -683.41 | [-840.80, -526.02]</span></span>
 <span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | t(395) |     p</span></span>
-<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------</span></span>
-<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## salary    |  -2.78 | 0.006</span></span>
+<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | t(331) |      p</span></span>
+<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------</span></span>
+<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## body_mass |  -8.54 | &lt; .001</span></span>
 <span id="cb7-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true difference in means between group Female and group Male is not equal to 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true difference in means between group female and group male is not equal to 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The slope test and Student’s <em>t</em>-test give the same results
@@ -528,14 +528,14 @@ Male*
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter    | Coefficient |   SE |         95% CI | t(395) |     p</span></span>
-<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------</span></span>
-<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  |        0.05 | 0.05 | [-0.06,  0.15] |   0.87 | 0.384</span></span>
-<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sex [Female] |       -0.47 | 0.17 | [-0.79, -0.14] |  -2.78 | 0.006</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter    | Coefficient |   SE |         95% CI | t(331) |      p</span></span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------</span></span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  |        0.42 | 0.07 | [ 0.28,  0.56] |   6.01 | &lt; .001</span></span>
+<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sex [female] |       -0.85 | 0.10 | [-1.04, -0.65] |  -8.54 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fs70">
 <blockquote>
-<p>“The average salary for female professors was 0.47 standard deviations lower than that of male professors, 95% CI: [–0.79, –0.14], p=.006.”</p>
+<p>“The average body mass of female penguins was 0.85 standard deviations lower than that of male penguins, 95% CI: [–1.04, –0.65], p&lt;.001.”</p>
 </blockquote>
 </div>
 <div class="footer">
@@ -549,12 +549,12 @@ Male*
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit2, <span class="at">ci =</span> <span class="fl">0.95</span>)</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.019 [0.002, 0.055]</span></span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.017 [9.684e-04, 0.050]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.181 [0.110, 0.259]</span></span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.178 [0.108, 0.256]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fs70">
 <blockquote>
-<p>“Only around 2% of the variance in professors’ salary was explained by sex,<br>R² = .019, 95% CI: [.002, .055], Adjusted R² = .017.”</p>
+<p>“Around 18% of the variance in penguins’ body mass was explained by sex,<br>R² = .181, 95% CI: [.110, .259], Adjusted R² = .178.”</p>
 </blockquote>
 </div>
 </section>
@@ -563,16 +563,16 @@ Male*
 <p><span class="math display">\[
 \begin{align}
 \text{Model Equation: }&amp;\hat{y}=b_0 + b_1(C_1)\\
-&amp;\hat{y} = 115.09 -14.09(C_1)\\ \\
-\text{Male professors: }&amp;\hat{y} = 115.09 -14.09(0)=115.09 \\
-\text{Female professors: }&amp;\hat{y} = 115.09 -14.09(1)=101.00
+&amp;\hat{y} = 4545.68 -683.41(C_1)\\ \\
+\text{Male penguins: }&amp;\hat{y} = 4545.68 -683.41(0)=4545.68 \\
+\text{Female penguins: }&amp;\hat{y} = 4545.68 -683.41(1)=3862.27
 \end{align}
 \]</span></p>
 <div class="fragment">
 <ul>
-<li>Each professor <span class="math inline">\(i\)</span> will have a residual <span class="math inline">\(e_i\)</span> that pushes their salary above or below the mean for their group (i.e., sex)</li>
+<li>Each penguin <span class="math inline">\(i\)</span> will have a residual <span class="math inline">\(e_i\)</span> that pushes its body mass above or below the mean for its group (i.e., sex)</li>
 </ul>
-<p><span class="math display">\[y_i=115.09-14.09(C_1)+e_i\]</span></p>
+<p><span class="math display">\[y_i=4545.68-683.41(C_1)+e_i\]</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -582,12 +582,12 @@ Male*
 <span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>gmeans</span>
 <span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Estimated Marginal Means</span></span>
 <span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sex    |   Mean |   SE |           95% CI | t(395)</span></span>
-<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------</span></span>
-<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Female | 101.00 | 4.81 | [ 91.55, 110.46] |  21.00</span></span>
-<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Male   | 115.09 | 1.59 | [111.97, 118.21] |  72.50</span></span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sex    |    Mean |    SE |             95% CI | t(331)</span></span>
+<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------</span></span>
+<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## female | 3862.27 | 56.83 | [3750.48, 3974.06] |  67.96</span></span>
+<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## male   | 4545.68 | 56.32 | [4434.90, 4656.47] |  80.71</span></span>
 <span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: salary</span></span>
+<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: body_mass</span></span>
 <span id="cb10-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors modulated: sex</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -781,9 +781,9 @@ Control*
 <li>To create the dummy codes, we can use <code>recode()</code> again</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>salaries<span class="sc">$</span>rank_c1 <span class="ot">&lt;-</span> <span class="fu">recode</span>(salaries<span class="sc">$</span>rank, <span class="at">Assistant=</span><span class="dv">0</span>, <span class="at">Associate=</span><span class="dv">1</span>, <span class="at">Full=</span><span class="dv">0</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>species_c1 <span class="ot">&lt;-</span> <span class="fu">recode</span>(penguins<span class="sc">$</span>species, <span class="at">Adelie=</span><span class="dv">0</span>, <span class="at">Chinstrap=</span><span class="dv">1</span>, <span class="at">Gentoo=</span><span class="dv">0</span>)</span>
 <span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>salaries<span class="sc">$</span>rank_c2 <span class="ot">&lt;-</span> <span class="fu">recode</span>(salaries<span class="sc">$</span>rank, <span class="at">Assistant=</span><span class="dv">0</span>, <span class="at">Associate=</span><span class="dv">0</span>, <span class="at">Full=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>species_c2 <span class="ot">&lt;-</span> <span class="fu">recode</span>(penguins<span class="sc">$</span>species, <span class="at">Adelie=</span><span class="dv">0</span>, <span class="at">Chinstrap=</span><span class="dv">0</span>, <span class="at">Gentoo=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <ul>
@@ -791,9 +791,9 @@ Control*
 <li><p>It’s easier and less error-prone to use the factor shortcut</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>salaries<span class="sc">$</span>rank <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>  salaries<span class="sc">$</span>rank, </span>
-<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Assistant"</span>, <span class="st">"Associate"</span>, <span class="st">"Full"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>species <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>  penguins<span class="sc">$</span>species,</span>
+<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>, <span class="st">"Gentoo"</span>)</span>
 <span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -819,48 +819,48 @@ Control*
 <section class="slide level2">
 <h2>Regression with many dummy codes</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>fit4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> rank_c1 <span class="sc">+</span> rank_c2, <span class="at">data =</span> salaries)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>fit4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass <span class="sc">~</span> species_c1 <span class="sc">+</span> species_c2, <span class="at">data =</span> penguins)</span>
 <span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>fit4</span>
 <span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = salary ~ rank_c1 + rank_c2, data = salaries)</span></span>
+<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = body_mass ~ species_c1 + species_c2, data = penguins)</span></span>
 <span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb14-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)      rank_c1      rank_c2  </span></span>
-<span id="cb14-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##       80.78        13.10        46.00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)   species_c1   species_c2  </span></span>
+<span id="cb14-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     3700.66        32.43      1375.35</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><em>Assistant</em> rank averages $80,780 per year</li>
-<li><em>Associate</em> rank averages $13,100 more than <em>Assistant</em> rank</li>
-<li><em>Full</em> rank averages $46,000 more than <em>Assistant</em> rank</li>
+<li><em>Adelie</em> species averages 3700.66 g</li>
+<li><em>Chinstrap</em> species averages 32.43 g more than <em>Adelie</em> species</li>
+<li><em>Gentoo</em> species averages 1375.35 g more than <em>Adelie</em> species</li>
 </ul>
 </section>
 <section class="slide level2">
 <h2>Parameter significance testing</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit4)</span>
-<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI | t(394) |      p</span></span>
-<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------</span></span>
-<span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       80.78 | 2.89 | [75.10, 86.45] |  27.98 | &lt; .001</span></span>
-<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank c1     |       13.10 | 4.13 | [ 4.98, 21.22] |   3.17 | 0.002 </span></span>
-<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank c2     |       46.00 | 3.23 | [39.64, 52.35] |  14.24 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |    SE |             95% CI | t(339) |      p</span></span>
+<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
+<span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |     3700.66 | 37.62 | [3626.67, 3774.66] |  98.37 | &lt; .001</span></span>
+<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species c1  |       32.43 | 67.51 | [-100.37,  165.22] |   0.48 | 0.631 </span></span>
+<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species c2  |     1375.35 | 56.15 | [1264.91, 1485.80] |  24.50 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p>Intercept: <em>Is the Assistant rank salary zero?</em></p></li>
-<li><p><span class="math inline">\(C_1\)</span> Slope: <em>Is the Associate-Assistant group difference zero?</em></p></li>
-<li><p><span class="math inline">\(C_2\)</span> Slope: <em>Is the Full-Assistant group difference zero?</em></p></li>
+<li><p>Intercept: <em>Is the Adelie species body mass zero?</em></p></li>
+<li><p><span class="math inline">\(C_1\)</span> Slope: <em>Is the Chinstrap-Adelie group difference zero?</em></p></li>
+<li><p><span class="math inline">\(C_2\)</span> Slope: <em>Is the Gentoo-Adelie group difference zero?</em></p></li>
 </ul>
 </section>
 <section class="slide level2">
 <h2>The factor shortcut</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>fit5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salary <span class="sc">~</span> rank, <span class="at">data =</span> salaries)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>fit5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
 <span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit5)</span>
-<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter        | Coefficient |   SE |         95% CI | t(394) |      p</span></span>
-<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
-<span id="cb16-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)      |       80.78 | 2.89 | [75.10, 86.45] |  27.98 | &lt; .001</span></span>
-<span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank [Associate] |       13.10 | 4.13 | [ 4.98, 21.22] |   3.17 | 0.002 </span></span>
-<span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank [Full]      |       46.00 | 3.23 | [39.64, 52.35] |  14.24 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter           | Coefficient |    SE |             95% CI | t(339) |      p</span></span>
+<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------------------</span></span>
+<span id="cb16-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)         |     3700.66 | 37.62 | [3626.67, 3774.66] |  98.37 | &lt; .001</span></span>
+<span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species [Chinstrap] |       32.43 | 67.51 | [-100.37,  165.22] |   0.48 | 0.631 </span></span>
+<span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species [Gentoo]    |     1375.35 | 56.15 | [1264.91, 1485.80] |  24.50 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>Note that we already set the factor up on slide 25</p></li>
@@ -870,7 +870,7 @@ Control*
 <section class="slide level2">
 <h2>Model significance testing</h2>
 <ul>
-<li>What is the overall effect of rank (à la ANOVA)?
+<li>What is the overall effect of species (à la ANOVA)?
 <ul>
 <li>Do all categories have the same mean?</li>
 <li>We can actually give the <code>lm()</code> results to <code>aov()</code></li>
@@ -881,8 +881,8 @@ Control*
 <span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit5b)</span>
 <span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Sum_Squares |  df | Mean_Square |      F |      p</span></span>
 <span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------</span></span>
-<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank      |    1.43e+05 |   2 |    71615.88 | 128.22 | &lt; .001</span></span>
-<span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Residuals |    2.20e+05 | 394 |      558.55 |        |       </span></span>
+<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species   |    1.47e+08 |   2 |    7.34e+07 | 343.63 | &lt; .001</span></span>
+<span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Residuals |    7.24e+07 | 339 |    2.14e+05 |        |       </span></span>
 <span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb17-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Anova Table (Type 1 tests)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -894,20 +894,20 @@ Control*
 <h2>Effect sizes</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit5, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
-<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter        | Coefficient |   SE |         95% CI | t(394) |      p</span></span>
-<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
-<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)      |       -1.09 | 0.10 | [-1.27, -0.90] | -11.41 | &lt; .001</span></span>
-<span id="cb18-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank [Associate] |        0.43 | 0.14 | [ 0.16,  0.70] |   3.17 | 0.002 </span></span>
-<span id="cb18-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank [Full]      |        1.52 | 0.11 | [ 1.31,  1.73] |  14.24 | &lt; .001</span></span>
+<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter           | Coefficient |   SE |         95% CI | t(339) |      p</span></span>
+<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------------</span></span>
+<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)         |       -0.62 | 0.05 | [-0.72, -0.53] | -13.32 | &lt; .001</span></span>
+<span id="cb18-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species [Chinstrap] |        0.04 | 0.08 | [-0.13,  0.21] |   0.48 | 0.631 </span></span>
+<span id="cb18-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species [Gentoo]    |        1.72 | 0.07 | [ 1.58,  1.85] |  24.50 | &lt; .001</span></span>
 <span id="cb18-7"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit5, <span class="at">ci =</span> <span class="fl">0.95</span>)</span>
-<span id="cb18-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.394 [0.316, 0.466]</span></span>
-<span id="cb18-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.391 [0.313, 0.463]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.670 [0.607, 0.722]</span></span>
+<span id="cb18-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.668 [0.604, 0.720]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p><em>Associate</em> rank averages 0.43 SDs higher salary than <em>Assistant</em></p></li>
-<li><p><em>Full</em> rank averages 1.52 SDs higher salary than <em>Assistant</em></p></li>
-<li><p>Rank explained 39% of the variance in salary</p></li>
+<li><p><em>Chinstrap</em> species averages 0.04 SDs higher body mass than <em>Adelie</em></p></li>
+<li><p><em>Gentoo</em> species averages 1.72 SDs higher body mass than <em>Adelie</em></p></li>
+<li><p>Species explained 67% of the variance in body mass</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -915,28 +915,28 @@ Control*
 <p><span class="math display">\[
 \begin{align}
 \text{Equation: }&amp;\hat{y} = b_0 + b_1(C_1) + b_2(C_2) \\
-  &amp;\hat{y} = 80.78 + 13.10(C_1) + 46.00(C_2) \\ \\
-\text{Assistant: }&amp;\hat{y} = 80.78 + 13.10(0) + 46.00(0) = 80.78 \\
-\text{Associate: }&amp;\hat{y} = 80.78 + 13.10(1) + 46.00(0) = 93.88 \\
-\text{Full: }     &amp;\hat{y} = 80.78 + 13.10(0) + 46.00(1) = 126.78
+  &amp;\hat{y} = 3700.66 + 32.43(C_1) + 1375.35(C_2) \\ \\
+\text{Adelie: }   &amp;\hat{y} = 3700.66 + 32.43(0) + 1375.35(0) = 3700.66 \\
+\text{Chinstrap: }&amp;\hat{y} = 3700.66 + 32.43(1) + 1375.35(0) = 3733.09 \\
+\text{Gentoo: }   &amp;\hat{y} = 3700.66 + 32.43(0) + 1375.35(1) = 5076.01
 \end{align}
 \]</span></p>
 </section>
 <section class="slide level2">
 <h2>Estimating means in R</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>gmeans <span class="ot">&lt;-</span> <span class="fu">estimate_means</span>(fit5, <span class="at">by =</span> <span class="st">"rank"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>gmeans <span class="ot">&lt;-</span> <span class="fu">estimate_means</span>(fit5, <span class="at">by =</span> <span class="st">"species"</span>)</span>
 <span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>gmeans</span>
 <span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Estimated Marginal Means</span></span>
 <span id="cb19-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb19-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank      |   Mean |   SE |           95% CI | t(394)</span></span>
-<span id="cb19-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------</span></span>
-<span id="cb19-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Assistant |  80.78 | 2.89 | [ 75.10,  86.45] |  27.98</span></span>
-<span id="cb19-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Associate |  93.88 | 2.95 | [ 88.07,  99.68] |  31.78</span></span>
-<span id="cb19-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | 126.77 | 1.45 | [123.92, 129.62] |  87.48</span></span>
+<span id="cb19-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## species   |    Mean |    SE |             95% CI | t(339)</span></span>
+<span id="cb19-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------</span></span>
+<span id="cb19-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Adelie    | 3700.66 | 37.62 | [3626.67, 3774.66] |  98.37</span></span>
+<span id="cb19-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Chinstrap | 3733.09 | 56.06 | [3622.82, 3843.36] |  66.59</span></span>
+<span id="cb19-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Gentoo    | 5076.02 | 41.68 | [4994.03, 5158.00] | 121.78</span></span>
 <span id="cb19-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb19-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: salary</span></span>
-<span id="cb19-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors modulated: rank</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: body_mass</span></span>
+<span id="cb19-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors modulated: species</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -949,21 +949,21 @@ Control*
 <section class="slide level2">
 <h2>Contrasts</h2>
 <ul>
-<li><p>What about the difference between Associate and Full?</p></li>
+<li><p>What about the difference between Chinstrap and Gentoo?</p></li>
 <li><p>How can we compare non-reference groups to each other?</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(fit5, <span class="at">contrast =</span> <span class="st">"rank"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(fit5, <span class="at">contrast =</span> <span class="st">"species"</span>)</span>
 <span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Marginal Contrasts Analysis</span></span>
 <span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Level1    | Level2    | Difference |   SE |         95% CI | t(394) |      p</span></span>
-<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------------</span></span>
-<span id="cb21-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Associate | Assistant |      13.10 | 4.13 | [ 4.98, 21.22] |   3.17 |  0.002</span></span>
-<span id="cb21-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | Assistant |      46.00 | 3.23 | [39.64, 52.35] |  14.24 | &lt; .001</span></span>
-<span id="cb21-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | Associate |      32.90 | 3.29 | [26.43, 39.36] |  10.00 | &lt; .001</span></span>
+<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Level1    | Level2    | Difference |    SE |             95% CI | t(339) |      p</span></span>
+<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------------------</span></span>
+<span id="cb21-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Chinstrap | Adelie    |      32.43 | 67.51 | [-100.37,  165.22] |   0.48 |  0.631</span></span>
+<span id="cb21-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Gentoo    | Adelie    |    1375.35 | 56.15 | [1264.91, 1485.80] |  24.50 | &lt; .001</span></span>
+<span id="cb21-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Gentoo    | Chinstrap |    1342.93 | 69.86 | [1205.52, 1480.34] |  19.22 | &lt; .001</span></span>
 <span id="cb21-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb21-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: salary</span></span>
-<span id="cb21-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors contrasted: rank</span></span>
+<span id="cb21-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: body_mass</span></span>
+<span id="cb21-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors contrasted: species</span></span>
 <span id="cb21-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-values are uncorrected.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
