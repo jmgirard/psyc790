@@ -24,20 +24,48 @@ img {
 
 ### Course Description
 
-<!-- TODO: course description. Not recoverable from the archive -- copy from the
-     Fall 2025 syllabus or Canvas. -->
+Elementary distribution theory; *t*-test; simple regression and correlation;
+multiple regression and multiple correlation; curvilinear regression; logistic
+regression; general linear model. Applications across the behavioral and social
+sciences are emphasized.
+
+*Prerequisite:* A beginning course in statistics and graduate standing, or
+consent of instructor.
 
 ### Learning Outcomes
 
 At the conclusion of this course, students will be able to:
 
-<!-- TODO: learning outcomes, copied from the syllabus. Deliberately not
-     invented from the lecture topics. -->
+- Explain the format, policies, and objectives of the course
+- Describe the parts of the R ecosystem used in the course
+- Understand and apply R code for basic programming tasks
+- Accomplish basic data wrangling and exploration tasks in R
+- Summarize the main roles that statistics play in psychology
+- Discuss the logic of estimation and hypothesis testing
+- Estimate group comparisons and variable associations
+- Design, conduct, and interpret an effect size analysis
+- Discuss the logic and steps of the general linear model
+- Regress continuous outcomes on any predictor variables
+- Apply interaction effects to test moderation hypotheses
+- Design, conduct, and interpret a linear model analysis
+- Discuss, diagnose, and address violated model assumptions
+- Model curvilinear relationships with polynomial regression
+- Conduct an a priori power analysis to determine sample size
+- Report and review the results of a linear model analysis
 
 ### Course Textbooks
 
-<!-- TODO: textbook list. Readings are PDFs in Canvas Files (see ICONS.md /
-     MODERNIZATION-PLAN.md section 4 for how reading links are wired). -->
+There is no required textbook. All assigned readings are provided as PDFs in
+Canvas Files.
+
+- **Learning Statistics with R** (v0.6) by Danielle Navarro. A free online
+  textbook; readings from it accompany Unit B and are optional.
+- **Applied Multiple Regression/Correlation Analysis for the Behavioral
+  Sciences** (3rd ed.) by Jacob Cohen, Patricia Cohen, Stephen G. West, and
+  Leona S. Aiken. Routledge, 2013. An optional reference.
+- **Beyond Significance Testing: Statistics Reform in the Behavioral Sciences**
+  (2nd ed.) by Rex B. Kline. American Psychological Association, 2015. An
+  optional reference.
 
 ### Instructor
 
