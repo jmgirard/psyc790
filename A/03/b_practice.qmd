@@ -69,7 +69,7 @@ write_csv(breaking_bad, "breaking_bad.csv")
 
 ## Question 2
 
-a) Download the [`kaggle_cereal.csv`](../../data/kaggle_cereal.csv){download="kaggle_cereal.csv"} file and save it to your class Project folder.
+a) Download the [`cereal.csv`](../../data/cereal.csv){download="cereal.csv"} file and save it to your class Project folder.
 
 b) Use \{tidyverse\} to import this file into R as a tibble named `cereal`, using an argument to make the missing values (coded as `"missing"`) into `NA`s.
 
@@ -81,10 +81,10 @@ c) Run your command again but with the `show_col_types = FALSE` argument to supp
 
 ```{r}
 #| replace_path: ["../../data/", ""]
-cereal <- read_csv("../../data/kaggle_cereal.csv", na = "missing")
+cereal <- read_csv("../../data/cereal.csv", na = "missing")
 cereal
 
-cereal <- read_csv("../../data/kaggle_cereal.csv", na = "missing", show_col_types = FALSE)
+cereal <- read_csv("../../data/cereal.csv", na = "missing", show_col_types = FALSE)
 ```
 
 {{< dstop >}}

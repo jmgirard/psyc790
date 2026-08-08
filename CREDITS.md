@@ -87,8 +87,28 @@ than publish material of unknown provenance, it was redrawn from scratch; see ab
 
 ## Data
 
-Teaching datasets are standard published examples. `data/Przybylski2017/` derives from
-Przybylski & Weinstein (2017), open research data.
+Most teaching datasets are standard published examples. The ones with a traceable
+external source are listed here.
+
+| File | Used in | Source |
+|---|---|---|
+| `penguins.csv`, `penguins0.csv` | A/03b, B/06b+c, C/07b, C/09c | Generated from `datasets::penguins` (base R ≥ 4.5), which packages the Palmer Station LTER data of Gorman, Williams & Fraser (2014). `penguins0.csv` is the same data with the factors left as numeric codes so A/03b can teach `factor()`; both are written by a script, not edited by hand. |
+| `prestige.csv` | B/06b+c, C/07b+c | Generated from `carData::Prestige` (Fox & Weisberg), 1971 Canadian census occupational data with Pineo-Porter prestige scores. The 4 rows with a missing `type` are dropped and the `census` code column omitted; factor levels are spelled out. |
+| `screentime.csv` | C/08b, C/09a+b | A 3,000-row random subsample of the open data from Przybylski & Weinstein (2017), <https://doi.org/10.1177/0956797616678438>. See also `data/Przybylski2017/`. |
+| `cereal.csv` | A/03b practice | Nutrition data for 77 breakfast cereals, obtained from the Kaggle "80 Cereals" dataset. ⚠️ **Provenance not fully verified.** The underlying data appears to originate from the cereals dataset circulated for the 1993 ASA Statistical Graphics exposition, but neither that chain nor the licence stated on the Kaggle page has been checked against a primary source. The file was renamed from `kaggle_cereal.csv` on 2026-08-08; the name previously implied Kaggle was the origin rather than the download point. Worth resolving or replacing before relying on it. |
+
+Gorman, K. B., Williams, T. D., & Fraser, W. R. (2014). Ecological sexual dimorphism and
+environmental variability within a community of Antarctic penguins (genus *Pygoscelis*).
+*PLoS ONE, 9*(3), e90081. <https://doi.org/10.1371/journal.pone.0090081>
+
+### Retired datasets
+
+`salaries.csv`, `salaries0.csv`, `political.csv`, and `affairs.csv` are no longer
+referenced by any page, so Quarto no longer copies them into the built site. The files
+remain in `data/` because `archive/` still points at some of them. `salaries.csv` (which
+was `carData::Salaries`) was dropped because every group comparison it supported was a
+gender pay gap; `political.csv` and `affairs.csv` because every outcome they offered was
+a 4- or 5-level ordinal being fed to a linear model.
 
 ## Shared files in other courses
 

@@ -73,7 +73,7 @@ title: "Chapter 07: Regression"
 - Many Predictors
 
 ### Files
-- [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
+- [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
 
 ### Readings
 - *Applied Multiple Regression/Correlation Analysis*, §3.2--3.3, 3.5--3.6

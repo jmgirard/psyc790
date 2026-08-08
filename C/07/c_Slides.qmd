@@ -56,8 +56,8 @@ We often predict outcome variables using [multiple predictors]{.b .blue}
     + When predictors are correlated, they have redundancy
     
 ::: {.fragment}
-- *Example:* Predict salary from productivity and seniority
-    + Having more pubs and more years both increase salary
+- *Example:* Predict a penguin's body mass from its bill and flipper
+    + Longer bills and longer flippers both go with heavier penguins
     + However, these predictors are positively correlated
     + What is the *unique* contribution of each predictor?
     
@@ -112,12 +112,12 @@ the *unique* relationship between $x_2$ and $y$ (controlling $x_1$)
 - What does it mean to statistically "control" (for) a predictor?
 
 ::: {.fragment}
-+ **What is the relationship between $x_1$ and $y$ if we hold $x_2$ at a constant value?** *e.g., What is the salary difference between prof A (10 pubs, 10 years) and prof B (10 pubs, 11 years)?*
++ **What is the relationship between $x_1$ and $y$ if we hold $x_2$ at a constant value?** *e.g., What is the body mass difference between penguin A (40 mm bill, 190 mm flipper) and penguin B (40 mm bill, 191 mm flipper)?*
 
 :::
 
 ::: {.fragment}
-+ **If we already know $x_2$, how much does learning $x_1$ change our prediction of $y$?** *e.g., how much does learning that prof C has 20 pubs change our prediction of their salary if we already knew they have 15 years of seniority?*
++ **If we already know $x_2$, how much does learning $x_1$ change our prediction of $y$?** *e.g., how much does learning that penguin C has a 45 mm bill change our prediction of its body mass if we already knew its flippers are 200 mm?*
 
 :::
 
@@ -338,8 +338,8 @@ $$b_0 = \bar{y} - b_1\bar{x}_1 - b_2\bar{x}_2$$
 
 library(tidyverse)
 library(easystats)
-yearspubs <- read_csv("../../data/yearspubs.csv")
-yearspubs
+penguins <- read_csv("../../data/penguins.csv")
+penguins
 ```
 
 ## Zero-order correlations
@@ -348,9 +348,9 @@ yearspubs
 #| echo: true
 #| collapse: true
 
-y <- yearspubs$salary
-x1 <- yearspubs$n_pubs
-x2 <- yearspubs$yrs_since
+y <- penguins$body_mass
+x1 <- penguins$bill_len
+x2 <- penguins$flipper_len
 
 r_y1 <- cor(y, x1)
 r_y1
@@ -368,8 +368,8 @@ r_12
 #| echo: true
 #| collapse: true
 
-fit1 <- lm(salary ~ n_pubs, data = yearspubs)
-fit2 <- lm(salary ~ yrs_since, data = yearspubs)
+fit1 <- lm(body_mass ~ bill_len, data = penguins)
+fit2 <- lm(body_mass ~ flipper_len, data = penguins)
 
 compare_parameters(fit1, fit2)
 
@@ -382,7 +382,7 @@ compare_parameters(fit1, fit2, standardize = "refit")
 #| echo: true
 #| collapse: true
 
-fit3 <- lm(salary ~ n_pubs + yrs_since, data = yearspubs)
+fit3 <- lm(body_mass ~ bill_len + flipper_len, data = penguins)
 
 model_parameters(fit3)
 
@@ -391,22 +391,22 @@ model_parameters(fit3, standardize = "refit")
 
 ## Coefficient interpretation {.fs70}
 
-> The intercept is the estimated salary for a professor with zero years since PhD and zero publications: &dollar;45113.71, 95% CI: [40114.89, 50112.53]. 
+> The intercept is the estimated body mass for a penguin with a zero-millimetre bill and zero-millimetre flippers: &minus;5736.90 g, 95% CI: [&minus;6342.65, &minus;5131.15]. This is of course impossible, which is exactly why the intercept is often not worth interpreting.
 
-> The partial effect of *number of publications* was not significantly different from zero at &dollar;151.18. When controlling for the number of years since PhD, each additional publication was associated with an additional &minus;&dollar;95.98 to &dollar;398.34.
+> The partial effect of *bill length* was not significantly different from zero at 6.05 g. When controlling for flipper length, each additional millimetre of bill was associated with an additional &minus;4.14 to 16.24 g.
 
-> The partial effect of *years since PhD* was significantly different from zero at &dollar;1075.21. Thus, when controlling for number of publications, each additional year since PhD was associated with an additional &dollar;261.30 to &dollar;1889.11.
+> The partial effect of *flipper length* was significantly different from zero at 48.14 g. Thus, when controlling for bill length, each additional millimetre of flipper was associated with an additional 44.19 to 52.10 g.
 
 ## Coefficient comparison {.fs70}
 
 Note that the partial effects were *smaller* than the zero-order effects
 
-- The slope for `n_pubs` went from 364.82 (*p*<.001) to 151.18 (*p*=.226)
+- The slope for `bill_len` went from 87.42 (*p*<.001) to 6.05 (*p*=.244)
 
-- The slope for `yrs_since` went from 1400.94 (*p*<.001) to 1075.21 (*p*=.010)
+- The slope for `flipper_len` went from 49.69 (*p*<.001) to 48.14 (*p*<.001)
 
 ::: {.fragment}
-This suggests that the *shared variance* is doing a lot of work (especially for `n_pubs`)
+This suggests that the *shared variance* is doing a lot of work (especially for `bill_len`)
 
 - When we remove this shared variance, the partial effects become smaller
 
@@ -426,7 +426,7 @@ This suggests that the *shared variance* is doing a lot of work (especially for 
 compare_performance(fit1, fit2, fit3, metrics = "R2")
 ```
 
-Moving from model `fit1` to `fit3` (i.e., learning `yrs_since`) improves $R^2$ more $(\Delta R^2=.086)$ than moving from model `fit2` to `fit3` (i.e., learning `n_pubs`) does $(\Delta R^2=.019)$.
+Moving from model `fit1` to `fit3` (i.e., learning `flipper_len`) improves $R^2$ far more $(\Delta R^2=.406)$ than moving from model `fit2` to `fit3` (i.e., learning `bill_len`) does $(\Delta R^2=.001)$.
 
 ## Plotting marginal effects
 
@@ -446,12 +446,12 @@ library(modelbased)
 
 plot(estimate_relation(
   model = fit3,
-  by = "n_pubs"
+  by = "bill_len"
 ))
 ```
 
 ```{r, fig.width=5, fig.height=3}
-plot(estimate_relation(fit3, by = "n_pubs")) + mytheme(18) + labs(y = "salary")
+plot(estimate_relation(fit3, by = "bill_len")) + mytheme(18) + labs(y = "body_mass")
 ```
 
 :::
@@ -462,12 +462,12 @@ plot(estimate_relation(fit3, by = "n_pubs")) + mytheme(18) + labs(y = "salary")
 
 plot(estimate_relation(
   model = fit3,
-  by = "yrs_since"
+  by = "flipper_len"
 ))
 ```
 
 ```{r, fig.width=5, fig.height = 3}
-plot(estimate_relation(fit3, by = "yrs_since")) + mytheme(18) + labs(y = "salary")
+plot(estimate_relation(fit3, by = "flipper_len")) + mytheme(18) + labs(y = "body_mass")
 ```
 :::
 :::
@@ -488,14 +488,14 @@ Note these plots hold the other predictors at their average value.
 plot(estimate_relation(
   model = fit3,
   by = c(
-    "n_pubs",
-    "yrs_since=[sd]"
+    "bill_len",
+    "flipper_len=[sd]"
   )
 ))
 ```
 
 ```{r, fig.width=5, fig.height=3}
-plot(estimate_relation(fit3, by = c("n_pubs", "yrs_since=[sd]"))) + mytheme(18) + labs(y = "salary")
+plot(estimate_relation(fit3, by = c("bill_len", "flipper_len=[sd]"))) + mytheme(18) + labs(y = "body_mass")
 ```
 :::
 ::: {.column}
@@ -507,14 +507,14 @@ plot(estimate_relation(fit3, by = c("n_pubs", "yrs_since=[sd]"))) + mytheme(18) 
 plot(estimate_relation(
   model = fit3,
   by = c(
-    "yrs_since",
-    "n_pubs=[sd]"
+    "flipper_len",
+    "bill_len=[sd]"
   )
 ))
 ```
 
 ```{r, fig.width=5, fig.height = 3}
-plot(estimate_relation(fit3, by = c("yrs_since", "n_pubs=[sd]"))) + mytheme(18) + labs(y = "salary")
+plot(estimate_relation(fit3, by = c("flipper_len", "bill_len=[sd]"))) + mytheme(18) + labs(y = "body_mass")
 ```
 
 :::
@@ -545,12 +545,12 @@ $$\hat{y} = b_0 + b_1x_1 + b_2x_2 + \cdots + b_kx_k$$
 #| echo: true
 #| collapse: true
 
-m_pub <- lm(salary ~ n_pubs, data = yearspubs)
-m_yrs <- lm(salary ~ yrs_since, data = yearspubs)
-m_sex <- lm(salary ~ sex, data = yearspubs)
-m_cit <- lm(salary ~ n_cites, data = yearspubs)
+m_bil <- lm(body_mass ~ bill_len, data = penguins)
+m_fli <- lm(body_mass ~ flipper_len, data = penguins)
+m_dep <- lm(body_mass ~ bill_dep, data = penguins)
+m_sex <- lm(body_mass ~ sex, data = penguins)
 
-compare_parameters(m_pub, m_yrs, m_sex, m_cit, standardize = "refit")
+compare_parameters(m_bil, m_fli, m_dep, m_sex, standardize = "refit")
 ```
 
 - All zero-order effects are significant (we can tell this from above because none of the slopes' 95% CIs contain zero)
@@ -561,11 +561,11 @@ compare_parameters(m_pub, m_yrs, m_sex, m_cit, standardize = "refit")
 #| echo: true
 #| collapse: true
 
-m_all <- lm(salary ~ n_pubs + yrs_since + sex + n_cites, data = yearspubs)
+m_all <- lm(body_mass ~ bill_len + flipper_len + bill_dep + sex, data = penguins)
 model_parameters(m_all, standardize = "refit")
 ```
 ::: {.fs70}
-- "The partial effect of *years since PhD* was significant (*p*=.040). Thus, while controlling for sex and the number of publications and citations, each SD increase in years since PhD was associated with a 0.31 SD increase in salary."
+- "The partial effect of *flipper length* was significant (*p*<.001). Thus, while controlling for sex and bill length and depth, each SD increase in flipper length was associated with a 0.68 SD increase in body mass."
 :::
 
 ## Example effect sizes
@@ -574,11 +574,11 @@ model_parameters(m_all, standardize = "refit")
 #| echo: true
 #| collapse: true
 
-compare_performance(m_pub, m_yrs, m_sex, m_cit, m_all, 
+compare_performance(m_bil, m_fli, m_dep, m_sex, m_all, 
                     metrics = c("R2", "R2_adj"))
 ```
 ::: {.fs70}
-- "The linear model predicting salary from years since PhD, number of publications, sex, and number of citations explained one-third of the variance in salary (R²=.333, Adjusted R²=.286)."
+- "The linear model predicting body mass from bill length, flipper length, bill depth, and sex explained most of the variance in body mass (R²=.823, Adjusted R²=.821)."
 :::
 
 ## Striking a balance
