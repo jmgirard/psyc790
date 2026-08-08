@@ -23,7 +23,7 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-*Every question below uses the `affairs` dataset and specifies its own model, so the questions can be answered in any order and do not depend on one another.*
+*Every question below uses the [`affairs.csv`](../../data/affairs.csv){download="affairs.csv"} dataset and specifies its own model, so the questions can be answered in any order and do not depend on one another.*
 
 ## Question 1 (Binary-by-Continuous)
 
