@@ -17,7 +17,7 @@ This site holds a full set of teaching materials for a graduate course in
 statistical methods. Everything is free to use: teach from it, adapt it for
 your own course, or work through it on your own.
 
-The material is organised into four **units**, each containing several
+The material is organised into five **units**, each containing three
 **chapters**, each containing two or three **lectures**. A lecture is sized to
 roughly ninety minutes. Every lecture has its own page section with slides,
 readings, and usually an assignment; Unit A lectures also have practice

@@ -24,8 +24,8 @@ img {
 
 This site holds the teaching materials for a graduate course in statistical
 methods for the behavioral and social sciences: slides, in-class practice
-activities, assignments, readings, and datasets, covering sixteen chapters
-across four units.
+activities, assignments, readings, and datasets, covering fifteen chapters
+across five units.
 
 Anyone is welcome to teach from these materials, adapt them for their own
 course, or work through them independently. Nothing here is tied to a
