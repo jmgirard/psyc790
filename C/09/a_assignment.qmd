@@ -23,31 +23,29 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-*All three questions use the [`fatalism.csv`](../../data/fatalism.csv){download="fatalism.csv"} dataset, which contains `fatalism`, `simplicity`, and `depression` scores from 82 participants. Each question tells you to read it in, so they can be answered in any order.*
+*Questions 2 and 3 use the [`screentime.csv`](../../data/screentime.csv){download="screentime.csv"} dataset. This is a random subsample of 3,000 observations from <https://doi.org/10.1177/0956797616678438> (including all 100,000 observations might be tough on slower computers) and includes self-reported mental wellbeing and different forms of screen time during weekdays and weekends. Note that this is real data, but given the subsampling we should be cautious generalizing from it.*
 
-## Question 1 (Regression Inference)
+## Question 1 (Model Specification)
 
-Read in the `fatalism` dataset and fit a simple linear regression predicting `depression` from `fatalism`.
+a) In your own words, describe the three LM assumptions about the model formula/specification.{{< hp glyph="b" >}} What are they assuming, and what will the consequences be if they are violated?
 
-a) Report the estimated intercept and slope. For each one, state whether it is significantly different from zero and explain in plain language what the estimate means.{{< hp glyph="b" >}}
+b) Of those three assumptions, which do you think is hardest to check in practice, and why?{{< hp glyph="b" >}}
 
-b) The intercept is the predicted value of `depression` when `fatalism` equals zero. Look at the range of the `fatalism` variable and comment on whether that intercept describes anyone who was actually measured.{{< hp glyph="b" >}}
+## Question 2 (Correct Form)
 
-## Question 2 (Centering)
+Read in the `screentime` dataset and fit a multiple regression model predicting `mental_wellbeing` from `watch_wd`, `play_wd`, `compute_wd`, `phone_wd`, `gender`, `minority`, and `deprived_area`. To ease the comparison between slopes, standardize them using the "refit" method.
 
-Read in the `fatalism` dataset again, create a centered version of the `fatalism` variable, and fit a simple linear regression predicting `depression` from the centered predictor.
+a) Briefly report which partial effects are significant.
 
-a) Report the intercept and slope of this model alongside those from the uncentered model. Which changed and which did not?
+b) Check the functional form assumption using the diagnostic(s) learned in lecture and interpret the results in terms of how reasonable vs. unreasonable the assumption is. (Note that you should explain *why* you think it is more or less reasonable and not just say "looks good" or "looks bad.")
 
-b) Compare the new intercept to the mean of the `depression` variable, and explain why centering produced that particular value.{{< hp glyph="b" >}}
+## Question 3 (No Collinearity)
 
-## Question 3 (Regression Effect Sizes)
+Read in the `screentime` dataset again for this question so that it can be answered on its own.
 
-Read in the `fatalism` dataset again and fit the simple linear regression predicting `depression` from `fatalism`.
+a) Fit a model predicting `mental_wellbeing` from the four weekday screen-time variables (`watch_wd`, `play_wd`, `compute_wd`, `phone_wd`) plus `gender`, `minority`, and `deprived_area`. A reviewer is concerned that, because several predictors are all about "screen time," there may be multicollinearity. Check for this using the diagnostic(s) learned in lecture and interpret the results.
 
-a) Report the $R^2$ of this model and the standardized slope. Explain in plain language what each one tells you.{{< hp glyph="b" >}}
-
-b) Calculate the correlation between `fatalism` and `depression`. Compare it to the standardized slope, and compare its square to the $R^2$. Explain why these relationships hold for a model with a single predictor, and say whether you would expect them to still hold if a second predictor were added.{{< hp glyph="b" >}}
+b) Now fit a second model that adds the four weekend predictors (`watch_we`, `play_we`, `compute_we`, `phone_we`). Re-check for multicollinearity. Which predictors became problematic, and why would adding weekend versions of the same activities do that?{{< hp glyph="b" >}}
 
 ---
 

@@ -1,0 +1,50 @@
+---
+title: "Lecture 09b Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 09b Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Residual Assumptions)
+
+a) In your own words, describe the three LM assumptions about the model residuals.{{< hp glyph="b" >}} What are they assuming, and what will the consequences be if they are violated?
+
+b) Violating an assumption about the residuals does not bias the estimated slopes in the way that misspecifying the model does. Explain what it *does* affect, and why that still matters.{{< hp glyph="b" >}}
+
+## Question 2 (Error Variance and Normality)
+
+Read in the [`screentime.csv`](../../data/screentime.csv){download="screentime.csv"} dataset and fit a multiple regression model predicting `mental_wellbeing` from `watch_wd`, `play_wd`, `compute_wd`, `phone_wd`, `gender`, `minority`, and `deprived_area`.
+
+a) Check the constant error variance assumption using the diagnostic(s) learned in lecture and interpret the results in terms of how reasonable vs. unreasonable the assumption is. (Explain *why* you think so, rather than just saying "looks good" or "looks bad.")
+
+b) Check the normality assumption for the same model using the diagnostic(s) learned in lecture, and interpret the results the same way.
+
+## Question 3 (Independence and Outliers)
+
+a) Describe an example study/model from your field that would violate the assumption of independent residuals due to **clustering**.{{< hp glyph="b" >}} Be sure to explain what the main variables are and why the assumption would be violated.
+
+b) Describe an example study/model from your field that would violate the assumption of independent residuals due to **autocorrelation**.{{< hp glyph="b" >}} Be sure to explain what the main variables are and why the assumption would be violated.
+
+c) An outlier and an influential observation are not the same thing. Explain the difference, and describe how you would decide whether a given unusual data point was actually a problem for your model.{{< hp glyph="b" >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

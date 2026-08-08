@@ -164,7 +164,7 @@ Projects / Quarto / Markdown
     - Try doing some calculations in the chunk and hit the green arrow
     - The answer appears right below the chunk!
     - If we save and render the document, it appears in the output too
-    - We can add options to the chunk but we will return to this in [06a]
+    - We can also add options to the chunk to control how it behaves
 :::
 
 

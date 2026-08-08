@@ -1,0 +1,104 @@
+---
+title: "Chapter 07: Regression"
+---
+
+<!-- Lecture a -->
+
+## [07a] Regression / Inference / Centering
+
+### Topics
+- Regression Inference
+- Centering
+- Regression Effect Sizes
+
+### Files
+- [parenthood.csv](../../data/parenthood.csv){download="parenthood.csv"}
+- [water.csv](../../data/water.csv){download="water.csv"}
+
+### Readings
+- [Linear Regression, §15.1--15.2, 15.4--15.5, 15.7](https://learningstatisticswithr.com/15-regression.html) --- *Learning Statistics with R*
+- *Applied Multiple Regression/Correlation Analysis*, §2.4, 2.6--2.8
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[07a] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 07a Assignment](a_assignment.qmd)
+
+<!-- Lecture b -->
+
+## [07b] Dummy Codes / Means / Contrasts
+
+### Topics
+- Dichotomous  Dummy Coding
+- Polytomous  Dummy Coding
+
+### Files
+- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+
+### Readings
+- *Applied Multiple Regression/Correlation Analysis*, §8.1--8.2
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="b_Slides.html" title="[07b] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 07b Assignment](b_assignment.qmd)
+
+<!-- Lecture b -->
+
+<!-- Lecture c -->
+
+## [07c] Multiple Regression / Partial Effects
+
+### Topics
+- Shared Variance
+- Multiple Regression
+- Many Predictors
+
+### Files
+- [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
+
+### Readings
+- *Applied Multiple Regression/Correlation Analysis*, §3.2--3.3, 3.5--3.6
+- Rohrer (2018), [Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data](https://doi.org/10.1177/2515245917745629) --- *AMPPS*
+- Carlin \& Moreno-Betancur (2023), [On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching](https://arxiv.org/abs/2309.06668) --- *arXiv*
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="c_Slides.html" title="[07c] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 07c Assignment](c_assignment.qmd)
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../B/06/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 06</a>
+  <a href="../../C/08/index.html" class="btn btn-primary" role="button">Chapter 08&nbsp;&nbsp;&raquo;</a>
+</div>
+```

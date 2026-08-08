@@ -1,0 +1,46 @@
+---
+title: "Lecture 13a Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 13a Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (Reporting)
+
+a) For each of the four main sections of an empirical paper (introduction, methods, results, discussion), state in one or two sentences what that section is supposed to accomplish for the reader.{{< hp glyph="i" >}}
+
+b) Pick one specific piece of information that authors frequently put in the wrong section (for example, an interpretation that belongs in the discussion but appears in the results). Explain where it belongs and why placing it correctly matters to the reader.{{< hp glyph="i" >}}
+
+## Question 2 (Reviewing the Introduction and Methods)
+
+During the Lecture [13a] methodological review activity, you found a research paper in your area that used multiple regression and evaluated it from the perspective of a methodological reviewer. Write up a summary of what you found regarding the **introduction and methods** sections. (You are welcome to select a different paper if you missed the activity or if the paper you selected in class was not ideal.)
+
+## Question 3 (Reviewing the Results and Discussion)
+
+Using the same paper you evaluated during the methodological review activity, write a summary of what you found regarding the **results and discussion** sections.
+
+a) Report what you found, paying particular attention to whether the statistical claims are supported by the analyses actually conducted.
+
+b) Include a few sentences about what you learned from reviewing a paper this way, and one thing you will do differently in your own writing as a result.{{< hp glyph="i" >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

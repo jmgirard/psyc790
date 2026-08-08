@@ -1,72 +1,37 @@
 ---
-title: "Chapter 10: Categorical and Multiple Regression"
+title: "Chapter 10: Reliability and Measurement Error"
 ---
+
+::: {.callout-note}
+## Under development
+
+This chapter is planned but not yet written. The outline below shows
+what it is intended to cover.
+:::
 
 <!-- Lecture a -->
 
-## [10a] Dummy Codes / Means / Contrasts
+## [10a] Classical Test Theory and Internal Consistency
 
 ### Topics
-- Dichotomous  Dummy Coding
-- Polytomous  Dummy Coding
-
-### Files
-- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
-
-### Readings
-- *Applied Multiple Regression/Correlation Analysis*, §8.1--8.2
-
-### Slides
-
-```{=html}
-<iframe class="slide-deck" src="a_Slides.html" title="[10a] Slideshow">
-</iframe>
-```
-
-::: {.fs80}
-\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
-:::
-
-### Assignment
-- [Lecture 10a Assignment](a_assignment.qmd)
+- True scores, measurement error, and reliability
+- Cronbach's alpha and why it is often the wrong choice
+- McDonald's omega
 
 <!-- Lecture b -->
 
-## [10b] Multiple Regression / Partial Effects
+## [10b] Inter-Rater Reliability and Attenuation
 
 ### Topics
-- Shared Variance
-- Multiple Regression
-- Many Predictors
-
-### Files
-- [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
-
-### Readings
-- *Applied Multiple Regression/Correlation Analysis*, §3.2--3.3, 3.5--3.6
-- Rohrer (2018), [Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data](https://doi.org/10.1177/2515245917745629) --- *AMPPS*
-- Carlin \& Moreno-Betancur (2023), [On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching](https://arxiv.org/abs/2309.06668) --- *arXiv*
-
-### Slides
-
-```{=html}
-<iframe class="slide-deck" src="b_Slides.html" title="[10b] Slideshow">
-</iframe>
-```
-
-::: {.fs80}
-\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
-:::
-
-### Assignment
-- [Lecture 10b Assignment](b_assignment.qmd)
+- Intraclass correlations for rater agreement
+- Test--retest reliability
+- How unreliable predictors attenuate regression slopes
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../09/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 09</a>
-
-  <a href="../11/index.html" class="btn btn-primary" role="button">Chapter 11&nbsp;&nbsp;&raquo;</a>
+  <a href="../../C/09/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 09</a>
+  <a href="../../C/11/index.html" class="btn btn-primary" role="button">Chapter 11&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

@@ -9,7 +9,8 @@ toc: false
 
 ## Unit A
 - Chapter 01: [Getting Started](A/01/index.qmd)
-    a. RStudio / Console / Scripts
+    a. Introduction
+    b. RStudio / Console / Scripts
 
 - Chapter 02: [Projects and Programming](A/02/index.qmd)
     a. Projects / Quarto / Markdown
@@ -20,46 +21,47 @@ toc: false
     b. Data Frames / Files / Exploration
 
 ## Unit B
-- Chapter 05: [Sampling and Estimation](B/05/index.qmd)
+- Chapter 04: [Sampling and Estimation](B/04/index.qmd)
     a. Populations / Samples / Uncertainty
     b. Estimates / Normality / Confidence
 
-- Chapter 06: [Hypothesis Testing](B/06/index.qmd)
+- Chapter 05: [Hypothesis Testing](B/05/index.qmd)
     a. Hypotheses / NHST / p-values
     b. Covariances / Correlations / Inference
 
-- Chapter 07: [Group Comparisons](B/07/index.qmd)
+- Chapter 06: [Group Comparisons](B/06/index.qmd)
     a. t-tests / Effect Sizes / Paired Groups
     b. One-way ANOVA / Effect Sizes / Contrasts
-
-- Chapter 08: [Extensions and Review](B/08/index.qmd)
-    a. Extensions / Translation / Review
+    c. Unequal Variances / Repeated Measures
 
 ## Unit C
-- Chapter 09: [Regression](C/09/index.qmd)
-    a. Fall Break
-    b. Regression / Inference / Centering
+- Chapter 07: [Regression](C/07/index.qmd)
+    a. Regression / Inference / Centering
+    b. Dummy Codes / Means / Contrasts
+    c. Multiple Regression / Partial Effects
 
-- Chapter 10: [Categorical and Multiple Regression](C/10/index.qmd)
-    a. Dummy Codes / Means / Contrasts
-    b. Multiple Regression / Partial Effects
-
-- Chapter 11: [Moderation](C/11/index.qmd)
+- Chapter 08: [Moderation](C/08/index.qmd)
     a. Continuous Moderation
     b. Categorical Moderation
 
-- Chapter 12: [Assumptions and Diagnostics](C/12/index.qmd)
+- Chapter 09: [Assumptions, Diagnostics, and Nonlinearity](C/09/index.qmd)
     a. Assumptions and Diagnostics I
     b. Assumptions and Diagnostics II
+    c. Polynomial Regression
 
-- Chapter 13: [Polynomial Regression](C/13/index.qmd)
-    a. Polynomial Regression
+- Chapter 10: [Reliability and Measurement Error](C/10/index.qmd)
+    a. Classical Test Theory and Internal Consistency
+    b. Inter-Rater Reliability and Attenuation
+
+- Chapter 11: [Bootstrap and Robust Inference](C/11/index.qmd)
+    a. The Bootstrap
+    b. Robust Inference
 
 ## Unit D
-- Chapter 15: [Best Practices](D/15/index.qmd)
+- Chapter 12: [Best Practices and Power](D/12/index.qmd)
     a. Best & Questionable Practices
     b. Power Analysis
 
-- Chapter 16: [Reporting and Reviewing](D/16/index.qmd)
+- Chapter 13: [Reporting and Reviewing](D/13/index.qmd)
     a. Reporting & Reviewing
     b. Translation Activity

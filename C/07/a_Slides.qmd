@@ -1,0 +1,613 @@
+---
+unit: "C"
+chapter: "07"
+lecture: "07a"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Regression / Inference / Centering
+
+::: {.my-grey}
+[Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
+[Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/growth_curve_357EDD.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r setup}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(easystats)
+library(patchwork)
+mytheme <- function(sz = 30) {
+  theme_gray(base_size = sz) + 
+  theme(panel.grid.minor = element_blank())
+}
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# modelbased -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
+```
+
+
+# Introduction
+
+## Regression as Fancy Correlation
+
+- A correlation quantifies how well a **straight line** represents the relationship between two continuous variables
+
+```{r, fig.width=12, fig.height=5}
+#| echo: false
+#| replace_path: ["../../data/", ""]
+
+parenthood <- read_csv("../../data/parenthood.csv", show_col_types = FALSE)
+p <- ggplot(parenthood, aes(x = dan.sleep, y = dan.grump)) +
+  geom_point(size = 3) +
+  labs(x = "sleep", y = "grumpiness") + 
+  mytheme()
+p
+```
+
+## Regression as Fancy Correlation
+
+- A correlation quantifies how well a [straight line]{.b .salmon} represents the relationship between two continuous variables
+
+```{r, fig.width=12, fig.height=5}
+#| echo: false
+
+p + geom_smooth(
+  formula = y ~ x, 
+  method = "lm", 
+  se = FALSE, 
+  color = "salmon",
+  linewidth = 2
+)
+```
+
+## Regression as Fancy Correlation
+
+- But how did we know *where* to draw the line?
+
+- Many different lines could have been drawn...
+
+```{r, fig.width=12, fig.height=5}
+#| echo: false
+
+p + 
+  geom_abline(intercept = 125, slope = -8.937, linewidth = 2, color = "#7570b3") +
+  geom_abline(intercept = 150, slope = -12, linewidth = 2, color = "#1b9e77") +
+  geom_abline(intercept = 100, slope = -5, linewidth = 2, color = "#1f78b4")
+```
+
+## Regression as Fancy Correlation
+
+- Regression is a way to *select* and *quantify* the "best" line
+
+```{r, fig.width=12, fig.height=5}
+#| echo: false
+
+p + geom_smooth(
+  formula = y ~ x, 
+  method = "lm", 
+  se = FALSE, 
+  color = "salmon",
+  linewidth = 2
+)
+```
+
+## Defining a Line in General
+
+::: {.columns}
+::: {.column}
+
+$$y = \color{blue}{m}x + \color{blue}{b}$$
+
+$y$ and $x$ are variables
+
+$\color{blue}m$ and $\color{blue}b$ are coefficients
+
+- $\color{blue}m$ is the **slope**<br>
+    Change in $y$ when $x+1$
+
+- $\color{blue}b$ is the **intercept**<br>
+    Value of $y$ when $x=0$ 
+
+:::
+::: {.column}
+```{r, fig.width=5, fig.height=5}
+m <- 4
+b <- 2
+ggplot() + 
+  geom_polygon(aes(x = c(0, 1, 1), y = c(b, b, b + m)), fill = "blue", alpha = 0.5) + 
+  geom_vline(xintercept = 0, color = "grey", linewidth = 1.25) +
+  geom_abline(intercept = b, slope = m, linewidth = 2, color = "salmon") +
+  scale_y_continuous(limits = c(0, 8), breaks = seq(0, 8, 2)) + 
+  scale_x_continuous(limits = c(-2, 2)) +
+  geom_segment(aes(x = -0.9, y = b, xend = -0.1, yend = b), linewidth = 1, 
+               arrow = arrow(length = unit(0.5, "cm")),
+               lineend = "square", linejoin = "mitre") +
+  annotate("text", x = -1.5, y = b, label = "b", size = 12) +
+  annotate("text", x = 1.75, y = 4.15, label = "m", size = 12) +
+  ggbrace::stat_brace(
+    aes(x = c(1.1, 1.3), y = c(b, b + m)),
+    rotate = 90, 
+    linewidth = 1, 
+    outside = FALSE
+  ) +
+  labs(x = "x", y = "y") +
+  mytheme()
+```
+
+:::
+:::
+
+## Defining a Regression Line
+
+- If $y$ is the outcome and $x$ is the predictor...
+
+- We can define the regression line in the same way
+
+$$\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i$$
+
+$\color{red}{\hat{y}_i}$ is the model-predicted value of $y$ for observation $i$
+
+$\color{blue}{b_0}$ is the intercept of the line (i.e., $b$ on the previous slide)
+
+$\color{blue}{b_1}$ is the slope of the line (i.e., $m$ on the previous slide)
+
+## Defining Regression Residuals
+
+::: {.columns}
+::: {.column}
+- Our regression line is defined by the formula:
+
+$$\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i$$
+
+- But many points aren't exactly on the line, so our predictions aren't perfect
+
+:::
+::: {.column}
+```{r, fig.width=5, fig.height=5}
+p + geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2)
+```
+
+:::
+:::
+
+## Defining Regression Residuals
+
+- Thus, predictions $(\color{red}{\hat{y}_i})$ differ from the observed values $(y_i)$
+
+- We refer to these differences as the model's [residuals]{.b .pink}
+
+$$
+\begin{align}
+\color{red}{\hat{y}_i} &= \color{blue}{b_0} + \color{blue}{b_1}x_i\\
+y_i &= \color{blue}{b_0} + \color{blue}{b_1}x_i + \color{magenta}{e_i} \\
+\color{magenta}{e_i} &= y_i - \color{red}{\hat{y}_i}
+\end{align}
+$$
+
+## Visualizing Regression Residuals
+
+```{r, fig.width=12, fig.height=6}
+fit <- lm(dan.grump ~ dan.sleep, data = parenthood)
+p + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  geom_segment(aes(x = dan.sleep, xend = dan.sleep, 
+                   y = dan.grump, yend = dan.grump - residuals(fit)),
+               linewidth = 0.75, color = "grey30") 
+```
+
+
+## Minimizing Regression Residuals
+
+- If we want the best possible estimates of $y$, we should...
+- ...look for the line that minimizes the prediction errors
+- Residuals are the prediction errors
+- We thus seek to minimize the residuals
+
+::: {.fragment}
+- But residuals can be positive or negative...
+- So minimizing the sum of the residuals won't work
+- We thus minimize the sum of the *squared* residuals
+:::
+
+## OLS Regression
+
+- Minimizing the sum of the squared residuals is called OLS
+    - This stands for "Ordinary Least Squares" Regression
+
+- So what are the OLS formulas for the slope and intercept?
+
+
+$$
+b_1 = r_{xy}\frac{s_y}{s_x}
+\qquad\quad
+b_0 = \bar{y} - b_1\bar{x}
+$$
+
+- Regression and correlation are thus integrally connected
+
+## Example Dataset
+
+The `water` dataset has information about mortality and water hardness in 61 UK towns
+
+```{r}
+#| echo: true
+#| eval: false
+#| replace_path: ["../../data/", ""]
+
+water <- read_csv("../../data/water.csv")
+water
+```
+
+
+```{r}
+#| echo: false
+#| replace_path: ["../../data/", ""]
+water <- read_csv("../../data/water.csv")
+knitr::kable(water) |> kableExtra::scroll_box(height="400px")
+```
+
+
+## Data Exploration
+
+```{r, fig.width=12, fig.height=6}
+p1 <- ggplot(water, aes(x = mortality)) + geom_histogram(bins = 10) +
+  mytheme()
+p2 <- ggplot(water, aes(x = hardness)) + geom_histogram(bins = 10) +
+  mytheme()
+p3 <- ggplot(water, aes(x = hardness, y = mortality)) + geom_point(size = 2) +
+  mytheme()
+(p1 / p2) | p3
+```
+
+## OLS Regression by Hand
+
+```{r}
+#| echo: true
+#| collapse: true
+
+x <- water$hardness
+y <- water$mortality
+
+b1 <- cor(x, y) * sd(y) / sd(x)
+b1
+
+b0 <- mean(y) - b1 * mean(x)
+b0
+```
+
+$$
+\hat{y}_i = 1676.356 - 3.226 x_i
+$$
+
+
+::: {.fragment .fs70}
+"We estimate that a town with a water hardness of zero would have a mortality of 1676.356. For every one-unit increase in a town's water hardness, we estimate that its mortality would *decrease* by 3.226."
+:::
+
+## Visualizing our Result
+
+```{r}
+#| echo: true
+#| eval: false
+qplot(x = hardness, y = mortality, data = water, geom = "point") + 
+  geom_abline(slope = b1, intercept = b0, color = "salmon")
+```
+
+```{r, fig.width=12, fig.height=5}
+ggplot(water, aes(x = hardness, y = mortality)) +
+  geom_point(size = 3) + 
+  geom_abline(slope = b1, intercept = b0, linewidth = 2, color = "salmon") + 
+  mytheme()
+```
+
+
+## Regression using lm()
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit <- lm(formula = mortality ~ hardness, data = water)
+fit
+```
+
+- Just like before, the formula is `outcome ~ predictor`
+
+- R refers to $b_0$ as `(Intercept)` and $b_1$ as `hardness`
+
+- This will be helpful when we add multiple predictors
+
+# Regression Inference
+
+## Uncertainty in the Population
+
+- OLS finds the best coefficients *for the sample*
+
+- But we usually care more about the **population**
+
+::: {.fragment}
+- Thus, we *estimate* the population intercept and slope
+
+- There will be some inferential uncertainty in this process
+:::
+
+::: {.fragment}
+- As before, we can use NHST and/or estimation approaches
+
+- Let's calculate 95% CIs, test statistics, and $p$-values
+:::
+
+## Slope Confidence Interval
+
+$$
+b_1 \pm \text{SE}(b_1)\times t_{crit}
+$$
+
+$$
+\text{SE}(b_1) = \frac{s_y}{s_x}\sqrt{\frac{1-r_{xy}^2}{n-2}}
+$$
+
+$$t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}$$
+
+## Intercept Confidence Interval
+
+$$
+b_0 \pm \text{SE}(b_0)\times t_{crit}
+$$
+
+$$
+\text{SE}(b_0) = \sqrt{\frac{\sum_i(y_i-\hat{y}_i)^2}{n-2}} \sqrt{\frac{1}{n} + \frac{\bar{x}^2}{(n-1)s_x^2}}
+$$
+
+$$t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}$$
+
+## Confidence Intervals in R
+
+```{r}
+#| echo: true
+#| collapse: true
+
+fit
+
+confint(fit)
+```
+
+- I'll show you the {easystats} way after we cover NHST
+
+## Plotting Regression Results
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(modelbased)
+est <- estimate_relation(fit, by = "hardness")
+plot(est, show_data = TRUE)
+```
+
+```{r, fig.width=12, fig.height=5}
+#| echo: false
+#| eval: true
+
+library(modelbased)
+est <- estimate_relation(fit, by = "hardness")
+plot(est, show_data = TRUE) + mytheme(24)
+```
+
+## Hypothesis Testing
+
+**Null:** The true coefficient (in the population) is zero
+
+$$H_0: b = 0$$
+
+**Alternative:** The true coefficient (in the population) is *not* zero
+
+$$H_1: b \neq 0$$
+
+Note that this applies to both intercepts and slopes
+
+## Testing Individual Coefficients
+
+- We can re-use the logic/procedure of the one-sample $t$-test
+
+- We assume the null sampling distribution for $\hat{b}$ is normal
+
+$$
+t_{obs} = \frac{b}{\text{SE}(b)}
+$$
+
+$$t_{obs} \sim t(\mathit{df}=n-k-1, \mu=0, \sigma=1)$$
+
+::: {.footer}
+Note that $k$ is the number of predictors in the model (i.e., 1 for now).
+:::
+
+## Statistical Inference in R
+
+```{r}
+#| echo: true
+#| collapse: true
+
+library(easystats)
+model_parameters(fit)
+```
+
+"A town with zero water hardness is expected to have a mortality rate of 1676.36, which is significantly different from zero, 95% CI: [1617.73, 1734.98], *p*<.001. For each one-unit increase in water hardness, the model predicts a significant decrease in mortality of 3.23, 95% CI: [--4.20, --2.26], *p*<.001."
+
+::: {.footer}
+Note that the $t$ values equal Coefficient / SE (e.g., --3.23/0.48 ≈ --6.66).
+:::
+
+# Centering
+
+## Centering a Predictor
+
+- The intercept $(b_0)$ is the value of $\hat{y}$ when $x=0$
+
+- This isn't so useful if $x$ never equals $0$ in the sample
+
+::: {.fragment}
+- In such cases, it can be useful to "center" $x$ before modeling
+
+$$x_i^c = x_i - \bar{x}$$
+
+```{r}
+xc <- x - mean(x)
+```
+
+- The **slope will stay the same** but the intercept will change
+
+- The intercept will become the value of $\hat{y}$ when $x=\bar{x}$
+
+:::
+
+## Centering a Predictor
+
+::: {.columns}
+::: {.column .tc}
+```{r, fig.width=5, fig.height=3}
+ggplot(water, aes(x = hardness, y = mortality)) +
+  geom_vline(xintercept = 0, color = "grey", linewidth = 2) +
+  geom_point(size = 2.5) + 
+  geom_abline(slope = -3.226, intercept = 1676.356, linewidth = 2, color = "salmon") + 
+  scale_x_continuous(breaks = seq(0, 120, 30)) +
+  mytheme(24)
+```
+
+$$b_0 = 1676.356$$
+
+["A town with *zero* water hardness<br>would have 1676.356 mortality."]{.fs70}
+:::
+::: {.column .tc}
+```{r, fig.width=5, fig.height=3}
+ggplot(water, aes(x = hardness - mean(hardness), y = mortality)) +
+  geom_vline(xintercept = 0, color = "grey", linewidth = 2) +
+  geom_point(size = 2.5) + 
+  geom_abline(slope = -3.226, intercept = 1524.148, linewidth = 2, color = "salmon") + 
+  scale_x_continuous(breaks = seq(-30, 90, 30)) +
+  labs(x = "center(hardness)") +
+  mytheme(24)
+```
+
+$$b_0 = 1524.148$$
+
+["A town with *average* water hardness<br>would have 1524.148 mortality."]{.fs70}
+:::
+:::
+
+## Centering in R
+
+```{r}
+#| echo: true
+#| collapse: true
+
+# Two-step process
+water$hardness_c <- water$hardness - mean(water$hardness)
+
+fit2a <- lm(formula = mortality ~ hardness_c, data = water)
+model_parameters(fit2a)
+```
+::: {.fragment .pv2}
+```{r}
+#| echo: true
+#| collapse: true
+
+# Or equivalent one-step process
+fit2b <- lm(formula = mortality ~ center(hardness), data = water)
+model_parameters(fit2b)
+```
+:::
+
+# Regression Effect Sizes
+
+## Standardized Slopes
+
+- It is common to standardize regression slopes (called $\beta$s)
+
+- We can do this by standardizing both $y$ and $x$ and refitting
+
+$$x_i^z = \frac{x_i - \bar{x}}{s_x} \qquad \quad y_i^z = \frac{y_i - \bar{y}}{s_y}$$
+
+$$\hat{y}_i^z = \beta_0 + \beta_1x_i^z$$
+
+- The standardized slope $(\beta_1)$ is interpreted in SD units
+- The standardized intercept $(\beta_0)$ will equal/approach zero
+
+## Standardizing in R
+
+```{r}
+#| echo: true
+#| collapse: true
+
+# Method 1: Fit normally then refit
+fit <- lm(mortality ~ hardness, data = water)
+model_parameters(fit, standardize = "refit")
+
+# Method 2: Standardize data then fit
+fit2 <- lm(mortality ~ hardness, data = standardize(water))
+model_parameters(fit2)
+```
+
+::: {.fragment .fs70 .tc}
+"For each one SD increase in water hardness, we would expect a 0.65 SD<br>*decrease* in mortality, $\beta=-0.65$, 95% CI: $[-0.85, -0.46]$, $p<.001$."
+:::
+
+## R-Squared
+
+- $R^2$ is the variance in $y$ explained by the regression model
+    + Ranges from 0.0 (0% explained) to 1.0 (100% explained)
+    + It is equivalent to squaring the correlation of $y$ and $\hat{y}$
+    + It is also called the "coefficient of determination"
+    
+$$
+R^2 = 1 - \frac{\text{SS}_{res}}{\text{SS}_{tot}} = 1 - \frac{\sum_i(y_i - \hat{y}_i)^2}{\sum_i(y_i - \bar{y})^2}
+$$
+
+## Adjusted R-Squared
+
+- $R^2$ will never decrease when adding more predictors
+
+- So we often adjust it to penalize adding more predictors
+
+$$
+R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1}{n - k - 1}\right)
+$$
+
+- Negative values of $R_{adj}^2$ are possible
+
+- Its interpretation is less straightforward
+
+## Model Performance in R
+
+```{r}
+#| echo: true
+#| collapse: true
+
+# By hand (with the residuals function shortcut)
+R2a <- 1 - sum(residuals(fit)^2) / sum((y - mean(y))^2)
+R2a
+
+# By function (recommended)
+R2b <- r2(fit, ci = 0.95)
+R2b
+```
+
+"The regression model in which mortality was regressed on water hardness explained 42.9% of the variance in mortality, R² = 0.429, 95% CI: [0.230, 0.601], Adjusted R² = 0.419."

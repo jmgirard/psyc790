@@ -23,31 +23,27 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-## Question 1 (Populations and Parameters)
+## Question 1 (NHST Logic)
 
-a) Give a relatively simple example of a population you might want to study (in your own work) and a parameter of interest.{{< hp glyph="a" >}} Be sure to clearly define what the population is and what the parameter is in your answer.
+a) If my test has 70% power and an $\alpha$ of .01,{{< hp glyph="a" >}} what are my chances of making a Type I Error and a Type II Error?
 
-b) Identify the population and parameter of interest in the following example:{{< hp glyph="a" >}} *I am studying the side-effects of a new drug that will be prescribed to older adults (aged 70+) with high blood pressure. I want to know how safe it is for anyone who might be prescribed this drug in the future. I recruit 10 older adults with high blood pressure to take a 50mg dose of the new drug and report on how many headaches they experience.*
+b) If I wanted to reduce my chances of making each type of error,{{< hp glyph="a" >}} what could I change about my study/analysis?
 
-## Question 2 (Samples and Statistics)
+## Question 2 (Statistical Hypotheses)
 
-a) In your own words,{{< hp glyph="a" >}} describe what "statistical inference" is and why it is so important in the social and behavioral sciences.
+Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question. (Note that the salaries are given in thousands of dollars per year, such that 120 would actually mean $120,000 per year.)
 
-b) Why is the size of a sample important to statistical inference?{{< hp glyph="a" >}} Be specific in your answer.
+a) My friend is arguing that professors (across all ranks and disciplines) make, on average, $100,000 per year. This doesn't sound right to me, so I want to approach this statistically.{{< hp glyph="a" >}} What should I use as my null hypothesis and what should I use as my alternative hypothesis?
 
-## Question 3 (Estimation and Uncertainty)
+b) Conduct a one-sample $t$-test of the null hypothesis from part (a). Report the $p$-value and your decision whether to retain or reject the null.
 
-Use this information to answer the following questions.
+## Question 3 (p-values and Pragmatics)
 
-> I am studying the side-effects of a new drug that will be prescribed to older adults (aged 70+) with high blood pressure. I want to know how safe it is for anyone who might be prescribed this drug in the future.
->
-> I recruit 10 older adults with high blood pressure to take a 50mg dose of the new drug and report on how many headaches they experience that day. Here are their responses: `0, 4, 2, 1, 1, 0, 1, 3, 1, 0`.
+Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question as well. This time, test the null hypothesis that professors make, on average, $110,000 per year.
 
-a) Use R to estimate the average number of headaches experienced in this population. Print it.
+a) Conduct a one-sample $t$-test of this null hypothesis. Report the observed test statistic and its degrees of freedom.
 
-b) Use R to estimate the standard error of that average (assume an infinite population). Print it.
-
-c) In one or two sentences, explain what the standard error tells us that the average alone does not.{{< hp glyph="a" >}}
+b) This test gives a much larger $p$-value than a test against $100,000 would. Explain what the $p$-value in *this* test means and how it should be interpreted statistically.{{< hp glyph="a" >}} Your answer should go beyond merely stating whether it was significant, and should address why testing a different null value changes the $p$-value even though the data never changed.
 
 ---
 

@@ -1,22 +1,21 @@
 ---
-title: "Chapter 05: Sampling and Estimation"
+title: "Chapter 05: Hypothesis Testing"
 ---
 
 <!-- Lecture a -->
 
-## [05a] Populations / Samples / Uncertainty
+## [05a] Hypotheses / NHST / p-values
 
 ### Topics
-- Research Methods
-- Populations and Parameters
-- Samples and Statistics
-- Estimation and Uncertainty
-
-### Files
-- [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
+- Statistical Hypotheses
+- NHST Logic
+- NHST Nuts and Bolts
+- $p$-values and  Pragmatics
 
 ### Readings
-- [Estimating Unknown Quantities, §10.1--10.2](https://learningstatisticswithr.com/10-estimation.html) --- *Learning Statistics with R*
+- [Hypothesis Testing, §11.1--11.7](https://learningstatisticswithr.com/11-hypothesistesting.html) --- *Learning Statistics with R*
+- [Comparing Two Means, §13.1--13.2](https://learningstatisticswithr.com/13-ttest.html) --- *Learning Statistics with R*
+- Cassidy et al. (2019), [Failing Grade: 89% of Introduction-to-Psychology Textbooks That Define or Explain Statistical Significance Do So Incorrectly](https://doi.org/10.1177/2515245919858072) --- *AMPPS*
 
 ### Slides
 
@@ -34,22 +33,20 @@ title: "Chapter 05: Sampling and Estimation"
 
 <!-- Lecture b -->
 
-## [05b] Estimates / Normality / Confidence
+<!-- Lecture b -->
+
+## [05b] Covariances / Correlations / Inference
 
 ### Topics
-- Types of Estimates
-- The Normal Distribution
-- Central Limit Theorem
-- Confidence Intervals
-- Practical Matters
+- Calculating  Correlations
+- Statistical Inference
 
 ### Files
-- [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
-- [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
+- [cigarettes.csv](../../data/cigarettes.csv){download="cigarettes.csv"}
 
 ### Readings
-- [Introduction to Probability, §9.1--9.2, 9.5](https://learningstatisticswithr.com/09-probability.html) --- *Learning Statistics with R*
-- [Estimating Unknown Quantities, §10.3--10.6](https://learningstatisticswithr.com/10-estimation.html) --- *Learning Statistics with R*
+- [Descriptive Statistics](https://learningstatisticswithr.com/05-descriptives.html) --- *Learning Statistics with R*
+- *Beyond Significance Testing*, pp. 126--128, 138--140
 
 ### Slides
 
@@ -69,8 +66,7 @@ title: "Chapter 05: Sampling and Estimation"
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../../A/03/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 03</a>
-
-  <a href="../06/index.html" class="btn btn-primary" role="button">Chapter 06&nbsp;&nbsp;&raquo;</a>
+  <a href="../../B/04/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 04</a>
+  <a href="../../B/06/index.html" class="btn btn-primary" role="button">Chapter 06&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

@@ -1,0 +1,52 @@
+---
+title: "Lecture 12b Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 12b Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+*All three questions use the \{WebPower\} package. Install it if you have not already (do this in your console or with the RStudio button rather than in a code chunk).*
+
+## Question 1 (Power, Effect Size, *n*, and Alpha)
+
+a) For a two-group comparison with 80% power and $\alpha=.05$, use \{WebPower\} to determine the sample size needed *per group* to detect a small ($d=0.2$), medium ($d=0.5$), and large ($d=0.8$) effect. Report all three.
+
+b) Now hold the effect size at $d=0.5$ and 80% power, and compare the sample size needed at $\alpha=.05$ against $\alpha=.01$. Using both sets of numbers, describe in your own words how required sample size responds to effect size and to alpha.{{< hp glyph="i" >}} Which of the two had the larger influence here?
+
+## Question 2 (Power for *t*-tests)
+
+Imagine I want to run a study comparing the spatial recognition memory of currently depressed patients and non-depressed controls in a new, never-before-used way. I found a meta-analysis ([Rock et al., 2014](https://doi.org/10/f58cfq)) that estimated this difference (using traditional methods) to be *d*=--0.41.
+
+a) Use \{WebPower\} to determine how many participants I should recruit *in each group* in order to have 80% power to detect an effect of this size with α=.05. (*Hint:* What test did we learn to compare the means of two separate groups?)
+
+b) My study measures memory in a new way that has never been used before. Explain why borrowing an effect size from a meta-analysis of traditional methods might make this power analysis optimistic, and what I could do instead.{{< hp glyph="i" >}}
+
+## Question 3 (Power for the Linear Model)
+
+In a recent study, my colleagues and I were able to explain 14.3% of the variance in participants' work performance using 12 low-cost predictors. If we wanted to design a follow-up study to replicate this finding, how many participants would we need to recruit to have 80% omnibus power to detect this same effect (with α=.05)?
+
+a) Report the $f^2$ value implied by that $R^2$, and the sample size required. (*Hint:* Be careful not to confuse $R^2$ and $f^2$; you will have to do some conversion.)
+
+b) "Omnibus power" here refers to detecting the overall model, not any individual predictor. Explain why a study powered to detect the overall model may still be badly underpowered for the individual slopes.{{< hp glyph="i" >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

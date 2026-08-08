@@ -2,9 +2,65 @@
 title: "Chapter 01: Getting Started"
 ---
 
+<!-- Lecture a -->
+
+## [01a] Introduction
+
+### Topics
+- How this site is organised
+- Setting up R and RStudio
+- How the course is designed
+
+### About this course
+
+This site holds a full set of teaching materials for a graduate course in
+statistical methods. Everything is free to use: teach from it, adapt it for
+your own course, or work through it on your own.
+
+The material is organised into four **units**, each containing several
+**chapters**, each containing two or three **lectures**. A lecture is sized to
+roughly ninety minutes. Every lecture has its own page section with slides,
+readings, and usually an assignment; Unit A lectures also have practice
+activities with answer keys.
+
+Assignments are attached to individual lectures rather than to chapters, and
+each one stands alone. If a lecture is skipped, its assignment can be skipped
+with it and nothing else breaks.
+
+### Setting up
+
+You will need two free programs, installed in this order:
+
+1. [**R**](https://cran.r-project.org/) --- the language everything is written in
+2. [**RStudio Desktop**](https://posit.co/download/rstudio-desktop/) --- the
+   environment you will actually work in
+
+Once both are installed, open RStudio and run the
+[`install-packages.R`](https://github.com/jmgirard/psyc790/blob/main/install-packages.R)
+script from the course repository. It installs every package used anywhere in
+these materials and skips anything you already have.
+
+The first two chapters walk through RStudio, projects, and Quarto in detail, so
+there is no need to understand any of it yet.
+
+### How the course is designed
+
+A few choices are worth stating up front, because they shape everything that
+follows.
+
+- **Estimation over testing alone.** The emphasis throughout is on estimating
+  effects and describing their uncertainty, not only on whether a *p*-value
+  crosses a threshold.
+- **One modelling framework.** Group comparisons, ANOVA, regression, and
+  moderation are all presented as the same general linear model rather than as
+  a catalogue of separate tests.
+- **Code you could hand to someone else.** Analyses are written in Quarto
+  documents so that the code, output, and prose stay together and can be
+  re-run by anyone.
+
 <!-- Lecture b -->
 
-## [01a] RStudio / Console / Scripts
+## [01b] RStudio / Console / Scripts
 
 ### Topics
 - R and RStudio
@@ -20,7 +76,7 @@ title: "Chapter 01: Getting Started"
 ### Slides
 
 ```{=html}
-<iframe class="slide-deck" src="a_Slides.html" title="[01a] Slideshow">
+<iframe class="slide-deck" src="b_Slides.html" title="[01b] Slideshow">
 </iframe>
 ```
 
@@ -29,12 +85,13 @@ title: "Chapter 01: Getting Started"
 :::
 
 ### Practice
-- [Lecture 01a Practice](a_practice.qmd)
+- [Lecture 01b Practice](b_practice.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../02/index.html" class="btn btn-primary" role="button">Chapter 02&nbsp;&nbsp;&raquo;</a>
+
+  <a href="../../A/02/index.html" class="btn btn-primary" role="button">Chapter 02&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

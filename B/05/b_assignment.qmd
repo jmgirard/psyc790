@@ -23,29 +23,72 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-## Question 1 (The Normal Distribution)
+## Question 1 (Correlation Theory)
 
-a) If I want to contain the middle 80% of the density of a normal distribution, how many SDs do I need to move above and below the mean? Include your R code and output.
+a) What does it mean for two variables to be positively or negatively correlated with one another?{{< hp glyph="a" >}} What does it mean for two variables to have a correlation close to zero?
 
-b) Repeat part (a) for the middle 95% and the middle 99%. Arrange your three answers in a short table or list, and describe in a sentence what happens to the required distance as the percentage increases.{{< hp glyph="a" >}}
+b) Look at the following scatterplots and indicate whether you think the Pearson correlation for each would be positive, negative, or close to zero. Also indicate whether you think each relationship depicted is linear, nonlinear, or none.
 
-## Question 2 (Types of Estimates)
+```{r}
+#| echo: false
+#| message: false
+#| fig-width: 7
+#| fig-height: 5
 
-a) What are the main differences between the Normal distribution and the Student $t$ distribution?{{< hp glyph="a" >}} Why do we tend to use the latter when calculating confidence intervals?
+library(tidyverse)
+library(faux)
+library(patchwork)
 
-b) In your own words, describe what the Central Limit Theorem says about the sampling distribution of the mean.{{< hp glyph="a" >}} Why is it useful that this holds even when the variable itself is not normally distributed in the population?
+rsim <- function(r) {
+  rnorm_multi(n = 200, vars = 2, mu = 0, sd = 1, r = r) %>%
+    as_tibble() %>%
+    rename(x = X1, y = X2)
+}
 
-## Question 3 (Confidence Intervals)
+set.seed(2021)
+d1 <- tibble(
+  x = rgamma(300, 1, 1),
+  y = rnorm(300, 0, 5)
+)
 
-Use this information to answer the following questions.
+d2 <- tibble(
+  x = runif(300, -3, 3),
+  y = 1 / (1 + exp(-x * 4)) + rnorm(300, 0, .03)
+)
 
-> I recruit 10 older adults with high blood pressure to take a 50mg dose of a new drug and report on how many headaches they experience that day. Here are their responses: `0, 4, 2, 1, 1, 0, 1, 3, 1, 0`.
+d3 <- tibble(
+  x = runif(300, -pi, 2*pi),
+  y = cos(x) + rnorm(300, 0, 0.3)
+)
 
-a) Use R to estimate a 95% confidence interval for the mean number of headaches.
+d4 <- rsim(-0.8)
 
-b) Write one or more sentences to report (i.e., describe in text) and correctly interpret this interval.{{< hp glyph="a" >}}
+p1 <- ggplot(d1, aes(x, y)) +
+  geom_point()
+p2 <- ggplot(d2, aes(x, y)) +
+  geom_point()
+p3 <- ggplot(d3, aes(x, y)) +
+  geom_point()
+p4 <- ggplot(d4, aes(x, y)) +
+  geom_point()
+(p1 + p2 + p3 + p4) + plot_annotation(tag_levels = "i")
+```
 
-c) A colleague looks at your interval and says "so there is a 95% chance the true mean is inside it." Is that a correct interpretation? Explain why or why not.{{< hp glyph="a" >}}
+## Question 2 (Calculating Correlations)
+
+Download and read in the [`factbook1M.csv`](../../data/factbook1M.csv){download="factbook1M.csv"} dataset, which contains information from the CIA's World Factbook about all countries with more than 1 million people.
+
+a) Calculate the covariance and the correlation between life expectancy (`life_exp`) and birth rate (`birth_rate`).
+
+b) The covariance and the correlation describe the same relationship but are not equally easy to interpret. Explain what the correlation tells you that the covariance does not.{{< hp glyph="a" >}}
+
+## Question 3 (Statistical Inference)
+
+Read in the `factbook1M` dataset again for this question so that it can be answered on its own.
+
+a) Test whether the correlation between `life_exp` and `birth_rate` is significantly different from zero at $\alpha=.05$. Report the test statistic, $p$-value, and confidence interval.
+
+b) Calculate the correlations among these four variables: `life_exp`, `birth_rate`, `infant_mortality`, and `death_rate`. Which pair is most strongly related and which pair is most weakly related? Give a verbal interpretation of the strongest relationship.{{< hp glyph="a" >}}
 
 ---
 

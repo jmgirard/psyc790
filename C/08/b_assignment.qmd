@@ -1,0 +1,56 @@
+---
+title: "Lecture 08b Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks. For questions that ask you to fix code, correct any errors (while achieving the stated goal) and include only the working code in your document.*
+
+```markdown
+---
+title: "Lecture 08b Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+*Every question below uses the [`affairs.csv`](../../data/affairs.csv){download="affairs.csv"} dataset and specifies its own model, so the questions can be answered in any order and do not depend on one another.*
+
+## Question 1 (Binary-by-Continuous)
+
+Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `yearsmarried`, `gender`, and their interaction.
+
+a) Report the estimated interaction coefficient and whether it is significant. Which gender shows the steeper relationship between `yearsmarried` and `satisfaction`?
+
+b) Use `estimate_slopes()` to report the slope of `yearsmarried` separately for women and men. Is each slope significantly different from zero, and does that match your answer to part (a)?{{< hp glyph="b" >}}
+
+
+## Question 2 (Categorical-by-Categorical)
+
+Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `children`, `gender`, and their interaction.
+
+a) Use `estimate_means()` to report the predicted mean `satisfaction` for all four combinations of `children` and `gender`.
+
+b) Report the estimated interaction coefficient and whether it is significant. Is the satisfaction difference between those with and without children the same size for women and men?{{< hp glyph="b" >}}
+
+
+## Question 3 (Probing a Categorical Interaction)
+
+Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `yearsmarried`, `children`, and their interaction.
+
+a) Use `estimate_relation()` to plot the model's predictions, and use `estimate_slopes()` to report the slope of `yearsmarried` separately for participants with and without children.
+
+b) Based on the interaction test and the two simple slopes, does having children meaningfully moderate the relationship between `yearsmarried` and `satisfaction`?{{< hp glyph="b" >}} Note that "no" can be the correct answer — justify whichever conclusion you reach.
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking "Render" about a missing file, this actually means that there is an error in one of your chunks.*

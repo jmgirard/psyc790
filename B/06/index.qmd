@@ -1,21 +1,22 @@
 ---
-title: "Chapter 06: Hypothesis Testing"
+title: "Chapter 06: Group Comparisons"
 ---
 
 <!-- Lecture a -->
 
-## [06a] Hypotheses / NHST / p-values
+## [06a] t-tests / Effect Sizes / Paired Groups
 
 ### Topics
-- Statistical Hypotheses
-- NHST Logic
-- NHST Nuts and Bolts
-- $p$-values and  Pragmatics
+- NHST Approaches
+- Effect Sizes
+
+### Files
+- [socialproblems.csv](../../data/socialproblems.csv){download="socialproblems.csv"}
+- [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
 
 ### Readings
-- [Hypothesis Testing, §11.1--11.7](https://learningstatisticswithr.com/11-hypothesistesting.html) --- *Learning Statistics with R*
-- [Comparing Two Means, §13.1--13.2](https://learningstatisticswithr.com/13-ttest.html) --- *Learning Statistics with R*
-- Cassidy et al. (2019), [Failing Grade: 89% of Introduction-to-Psychology Textbooks That Define or Explain Statistical Significance Do So Incorrectly](https://doi.org/10.1177/2515245919858072) --- *AMPPS*
+- [Comparing Two Means, §13.3--13.8](https://learningstatisticswithr.com/13-ttest.html) --- *Learning Statistics with R*
+- *Beyond Significance Testing*, pp. 123--138
 
 ### Slides
 
@@ -33,18 +34,20 @@ title: "Chapter 06: Hypothesis Testing"
 
 <!-- Lecture b -->
 
-## [06b] Covariances / Correlations / Inference
+<!-- Lecture b -->
+
+## [06b] One-way ANOVA / Effect Sizes / Contrasts
 
 ### Topics
-- Calculating  Correlations
-- Statistical Inference
+- One-way ANOVA in R
+- Post-hoc Tests
 
 ### Files
-- [cigarettes.csv](../../data/cigarettes.csv){download="cigarettes.csv"}
+- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
 
 ### Readings
-- [Descriptive Statistics](https://learningstatisticswithr.com/05-descriptives.html) --- *Learning Statistics with R*
-- *Beyond Significance Testing*, pp. 126--128, 138--140
+- [Comparing Several Means, §14.1--14.5](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*
+- [Introduction to Probability, §9.6](https://learningstatisticswithr.com/09-probability.html) --- *Learning Statistics with R*
 
 ### Slides
 
@@ -60,12 +63,41 @@ title: "Chapter 06: Hypothesis Testing"
 ### Assignment
 - [Lecture 06b Assignment](b_assignment.qmd)
 
+<!-- Lecture c -->
+
+## [06c] Unequal Variances / Repeated Measures
+
+### Topics
+- Unequal Variances
+- Repeated Measures
+- Translation Activity
+
+### Files
+- [depression.csv](../../data/depression.csv){download="depression.csv"}
+- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+
+### Readings
+- [Comparing Several Means, §14.6--14.11](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="c_Slides.html" title="[06c] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 06c Assignment](c_assignment.qmd)
+
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../05/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 05</a>
-
-  <a href="../07/index.html" class="btn btn-primary" role="button">Chapter 07&nbsp;&nbsp;&raquo;</a>
+  <a href="../../B/05/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 05</a>
+  <a href="../../C/07/index.html" class="btn btn-primary" role="button">Chapter 07&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

@@ -1,0 +1,52 @@
+---
+title: "Lecture 04b Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 04b Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+## Question 1 (The Normal Distribution)
+
+a) If I want to contain the middle 80% of the density of a normal distribution, how many SDs do I need to move above and below the mean? Include your R code and output.
+
+b) Repeat part (a) for the middle 95% and the middle 99%. Arrange your three answers in a short table or list, and describe in a sentence what happens to the required distance as the percentage increases.{{< hp glyph="a" >}}
+
+## Question 2 (Types of Estimates)
+
+a) What are the main differences between the Normal distribution and the Student $t$ distribution?{{< hp glyph="a" >}} Why do we tend to use the latter when calculating confidence intervals?
+
+b) In your own words, describe what the Central Limit Theorem says about the sampling distribution of the mean.{{< hp glyph="a" >}} Why is it useful that this holds even when the variable itself is not normally distributed in the population?
+
+## Question 3 (Confidence Intervals)
+
+Use this information to answer the following questions.
+
+> I recruit 10 older adults with high blood pressure to take a 50mg dose of a new drug and report on how many headaches they experience that day. Here are their responses: `0, 4, 2, 1, 1, 0, 1, 3, 1, 0`.
+
+a) Use R to estimate a 95% confidence interval for the mean number of headaches.
+
+b) Write one or more sentences to report (i.e., describe in text) and correctly interpret this interval.{{< hp glyph="a" >}}
+
+c) A colleague looks at your interval and says "so there is a 95% chance the true mean is inside it." Is that a correct interpretation? Explain why or why not.{{< hp glyph="a" >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

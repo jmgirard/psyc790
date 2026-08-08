@@ -11,7 +11,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-Populations / Samples / Uncertainty
+Hypotheses / NHST / p-values
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
@@ -25,700 +25,658 @@ Populations / Samples / Uncertainty
 ![](../../img/statistics_2780E3.png){.absolute bottom=30 right=0 width="400"}
 :::
 
-# Research Methods
-
-## The scientific method
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- Uncertainty can be scary, uncomfortable, and dangerous
-
-- We strive to **understand** the world and make **predictions** 
-
-- We often use our **intuition** and **experiences** to do so
-    + Intuitions and experience are usually better than nothing
-    + However, they can often be *wrong* and *misleading!*
-
-- We can do much better using the [scientific method]{.b .blue}
-
-::: {.footer}
-See [*The Demon-Haunted World: Science as a Candle in the Dark*](https://en.wikipedia.org/wiki/The_Demon-Haunted_World) by Sagan & Druyan
-:::
-
-## What is the scientific method?
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/test_tubes.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- Start with a **research question** that is answerable with data
-
-- Generate a **hypothesis** (i.e., a testable prediction)
-    + Hypotheses usually derive from scientific *theories*
-    + Hypotheses need to be *operationalized* and *falsifiable*
-
-- Conduct a **replicable study** to collect relevant data
-
-- Analyze the data to **test the hypothesis**/predictions
-
-::: {.footer}
-The scientific method classically uses experimental studies, but it can also improve observational studies
-:::
-
-## Example
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/coffee.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- **Question:** Does caffeine make you smarter?
-
-- **Hypothesis:** Adult humans given caffeine will navigate a maze faster than adult humans not given caffeine.
-
-- **Experiment:** Recruit adult humans and give one group decaffeinated coffee and give another group normal coffee. Measure the time it takes each human to navigate a maze. 
-
-- **Analysis:** Compare the two groups' maze completion times.
-
-::: {.footer}
-
-:::
-
-## What role do statistics play?
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/calculator.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- **Descriptive Statistics** summarize and visualize the distributions and associations between variables
-
-- **Inferential Statistics** allow us to make inferences about our data and quantify the uncertainty in those inferences
-
-  - **Probability:** Model $\to$ Data <br />
-(e.g., given a fair coin, what is the chance of HHHHH...)
-
-  - **Statistics:** Data $\to$ Model <br />
-(e.g., given HHHHH, what is the chance the coin is fair...)
-
-::: {.footer}
-
-:::
-
-# Populations and Parameters
-
-## What is a population?
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/people.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
-
-- The **population** is **the set of all possible observations** that we want to draw conclusions and make predictions about
-
-- Imagine that we are interested in studying sleeping behavior
-
-- Are we interested in understanding the behavior of...
-    + All humans who ever lived and ever will live
-    + All adults (18 years and older) living in the USA
-    + All students at KU in Fall `r lubridate::year(lubridate::today())` enrolled in PSYC 790
-
-::: {.footer}
-Populations aren't always made up of people; you could have populations of groups, objects, events, etc.
-:::
-
-## How large is the population?
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/counter.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- The number of individuals in a population is denoted $N$
-    + The number of humans in past and future, $N\rightarrow\infty$
-    + The number of adults in the USA, $N\approx209$ million
-    + The number of students in this class, $N=24$
-
-- We need to be very careful about **generalizing**/extrapolating
-    + Conclusions may not apply to other populations
-    + Predictions may be less accurate in other populations
-
-::: {.footer}
-
-:::
-
-## What is a parameter?
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/rulers.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- [Parameters]{.b .blue} are things we want to learn about a population
-    + The *typical* sleep duration for students
-    + The *spread* in sleep duration across students
-
-- *And beyond (e.g., other summaries, differences, associations)*
-
-::: {.fragment}
-- A few years ago, I sent out a survey to every student in class
-
-- I was able to gather data for this entire population!
-:::
-
-::: {.footer}
-
-:::
-
-## Small population example
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-::: {.columns}
-
-::: {.column}
 ```{r}
-#| echo: true
-#| eval: true
+#| echo: false
 #| message: false
-#| replace_path: ["../../data/", ""]
 
-# Read in data from file
 library(tidyverse)
-sleep <- read_csv("../../data/sleep.csv")
-
-# Calculate total sleep hours
-sleep$total <- 
-  sleep$night + sleep$day
-sleep$total
-```
-:::
-
-::: {.column}
-```{r}
-#| echo: true
-#| eval: false
-
-qplot(x = total, data = sleep, 
-      geom = "density")
+library(distributional)
+library(ggdist)
+library(lsr)
+mytheme <- theme_gray(base_size = 30) + theme(panel.grid.minor = element_blank())
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme)
 ```
 
 
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
+# Statistical Hypotheses
 
-ggplot(sleep, aes(x = total)) +
-  geom_density(fill = "gray", alpha = 1/2) +
-  scale_x_continuous(limits = c(4,10)) +
-  theme_bw(base_size = 30)
-```
-:::
+## What is a hypothesis?
 
-:::
+- A hypothesis is a **testable** prediction
+    + It derives from a broader scientific theory
+    + It needs to be operationalized and falsifiable
+
+- A statistical hypothesis needs to be mathematically **precise**
+    + It is about characteristics of the population of interest
+    + It is a *comparison* involving population parameters
+        + The mean of the whole population is 100 $(\mu=100)$
+        + The mean is greater in group 1 than group 2 $(\mu_1>\mu_2)$
 
 ::: {.footer}
 
 :::
 
-## Small population example
+## Example research question
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
+- Imagine that we study *nutrition* and *obesity*
 
-::: {.columns}
+- Participants really like a brand of "low sugar" cereal
 
-::: {.column}
-#### Population Mean
+- The label claims that it only contains 3 g of sugar per serving
 
-The mean represents the "typical" sleep duration
-
-$$\mu=\frac{1}{N} \sum_{i=1}^N x_i$$
-
-```{r}
-#| echo: true
-#| collapse: true
-
-x <- sleep$total
-N <- length(x)
-mu <- (1 / N) * sum(x)
-mu
-```
-
-:::
-
-::: {.column .fragment}
-#### Population Std. Deviation
-
-The SD represents the "spread" across individuals
-
-$$\sigma=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)^2}$$
-
-```{r}
-#| echo: true
-#| collapse: true
-
-sqdiff <- (x - mu)^2
-sigma <- sqrt((1 / N) * sum(sqdiff))
-sigma
-```
-:::
-
-:::
-
-::: {.footer}
-We denote parameters using Greek letters $(\mu,\sigma)$ or uppercase English letters $(N)$
-:::
-
-# Samples and Statistics
-
-## Sampling
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/example.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- In practice, we are often interested in very large populations
-    + $N$ = 209M adults in USA, $N$ = 35T blood cells in body
-
-- It would be infeasible to measure such populations entirely
-
-- In these cases, we rely on [sampling]{.b .blue} and statistical [inference]{.b .blue}
-
-- A **sample** is a subset drawn from a population
-    + $n$ = 600 adults from USA, $n$ = 5M blood cells from body
-
-
-::: {.footer}
-Note we use lowercase $n$ to denote the sample size
-:::
-
-## Basics of statistical inference {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/light_bulb.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-:::{.columns}
-
-:::{.column}
-
-- **Sampling** is drawing a subset of observations to represent a population
-
-- **Inference** is learning about the population by studying a sample drawn from it
-
-- We first measure *in the sample* whatever we want to know about the population
-
-- We call this measure the sample [statistic]{.b .blue}
-
-- We use the sample statistic to **estimate** (i.e., guess) the population parameter
-
-:::
-
-::: {.column}
-![](../../img/inference.png)
-:::
-
-:::
-::: {.footer}
-
-:::
-
-## Sample example {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-::: {.columns}
-
-::: {.column}
-- Our population is all the students in the class $(N=16)$ and our parameters of interest are the mean and SD of their total sleep time $(\mu=7.63, \sigma=1.04)$
-
-- But imagine it is not feasible or possible to survey the entire population... so we randomly select six students to survey
-:::
-
-::: {.column .fragment}
-The `sample()` function will randomly draw a sample (of given size) from a vector
-
-*Note that, because sampling is random, we will each get a slightly different sample.*
-
-```{r}
-#| echo: false
-set.seed(2021)
-```
-
-```{r}
-#| echo: true
-#| collapse: true
-xs <- sample(sleep$total, size=6)
-xs
-```
-:::
-
-:::
-::: {.footer}
-In practice, we usually *only* have the sample's data and so using `sample()` isn't usually necessary
-:::
-
-## Sample example
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-::: {.columns}
-
-::: {.column}
-#### Sample Mean
-
-The mean formulas are basically identical for both samples and populations
-
-$$\bar{x}=\frac{1}{n} \sum_{i=1}^n x_i$$
-
-```{r}
-#| echo: true
-#| collapse: true
-
-xbar <- mean(xs)
-xbar
-```
-
-:::
-
-::: {.column .fragment}
-#### Sample Std. Deviation
-
-But the SD formulas are a bit different (we subtract 1 to correct for bias in small samples)
-
-$$s=\sqrt{\frac{1}{\color{red}{n-1}}\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
-
-```{r}
-#| echo: true
-#| collapse: true
-
-s <- sd(xs)
-s
-```
-:::
-
-:::
-
-::: {.footer}
-We denote sample statistics using lowercase English letters $(n, \bar{x},s)$ or Greek letters with hats $(\hat{\mu},\hat{\sigma})$
-:::
-
-
-# Estimation and Uncertainty
-
-## Sampling error
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/caution.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- Uh-oh, our statistics $\neq$ their corresponding parameters!
-
-:::{.columns}
-:::{.column}
-```{r}
-#| echo: true
-#| collapse: true
-round(c(mu, xbar, xbar - mu), 2)
-```
-
-:::
-:::{.column}
-```{r}
-#| echo: true
-#| collapse: true
-round(c(sigma, s, s - sigma), 2)
-```
-:::
-:::
-
-- Such differences are called [sampling errors]{.b .blue}
+- However, we think this may be **false advertising**!
 
 ::: {.fragment}
-- Sampling errors come from two main sources
-    +   **Stochastic Error:** The sample was *too small* to be perfectly representative of the population
-    +   **Systematic Error:** The sample was *not random enough* to be perfectly representative of the population
+- We buy a *sample* of 20 cereal boxes from various stores
+
+- We measure the amount of sugar per serving in each box
+
+- **Is 3 g a reasonable estimate of the *population mean*?**
 :::
 
 ::: {.footer}
 
 :::
 
-## Why does sample size matter?
+## Null and alternative hypotheses
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/funnel.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+- Just like in a criminal trial, we need to represent *both* sides
+
+::: {.fragment}
+- The **null hypothesis** represents the company's "defense"
+    + Boxes *do* contain 3 g on average, or $H_0: \mu=3$
 :::
 
-- Imagine we had drawn a sample of 2 instead of 6...
+::: {.fragment}
+- The **alternative hypothesis** represents the "prosecution"
+    + Boxes contain *more* than 3 g on average, or $H_1: \mu>3$
+    + Boxes *do not* contain 3 g on average, or $H_2: \mu\neq3$
+    
+:::
 
-- We might only sample part of the distribution
-    + The sample mean *would* depend on who was included
-    + We might end up with only extreme people
-    + Our estimate would thus be *more* influenced by chance
+::: {.footer}
+$H_1$ is a "one-sided" and $H_2$ is a "two-sided" hypothesis.
+:::
 
-- Now imagine we had drawn a sample of 14 instead of 6...
-    + The sample mean *wouldn't* depend on who was included
-    + Our estimate would thus be *less* influenced by chance
+# NHST Logic
+
+## What is NHST?
+
+- In null hypothesis significance testing (NHST), the null hyp. is the defense and the alternative hyp. is the prosecution
+
+- The statistical test is the *judge and jury* (makes the decision)
+
+::: {.fragment}
+- We begin with a "presumption of innocence"
+    + The null hypothesis is **assumed true** unless...
+    + ...there is good evidence that it is ***very unlikely***
+    + The burden of proof thus lies with the prosecution
+:::
+
+::: {.footer}
+NHST helps protect the null hypothesis from researchers who are incentivized to disprove it.
+:::
+
+## Potential test outcomes
+
+1. [Retain the null hypothesis]{.b .blue}
+    + There is not enough evidence to reject $\mu=3$
+    + We cannot be certain that $\mu$ does not equal $3$
+    + *It **does not** mean that we are certain that $\mu=3$*
+    
+2. [Reject the null hypothesis]{.b .blue}
+    + There is enough evidence to conclude $\mu\neq3$
+    + The cereal's nutrion label should be changed...
+    + *It **does not** prove that this was deliberate fraud*
 
 ::: {.footer}
 
 :::
 
-## The law of large numbers {.fs70}
+## Potential errors
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/privacy_policy.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
+- In reality, there is **only one correct decision**
+    + In the two-sided case, either $\mu=3$ or $\mu\neq3$
+
+- Due to *sampling error*, our sample may lead us astray
+    + We might make one two possible [wrong]{.red} decisions...
+
+::: {.fragment}
+|                    | Retain $H_0$   | Reject $H_0$   |
+| :----------------- | :------------- | :------------- |
+| $H_0$ **is True**  | Correct Retain | [Type I Error]{.red}   |
+| $H_0$ **is False** | [Type II Error]{.red} | Correct Reject |
 :::
+
+::: {.footer}
+
+:::
+
+## Example outcomes
+
+- In a world where the cereal *does* contain 3g on average
+    + The **null hypothesis is true** and should be *retained*
+    + If our test retains it, that is the correct decision
+    + If our test rejects it, that is a [Type I error]{.red}
+
+- In a world where the cereal *doesn't* contain 3g on average
+    + The **null hypothesis is false** and should be *rejected*
+    + If our test retains it, that is a [Type II error]{.red}
+    + If our test rejects it, that is the correct decision
+
+::: {.footer}
+
+:::
+
+## Controlling error rates
+
+- NHST is particularly interested in preventing Type I errors
+    + Researchers want to reject the null, so NHST protects it
+
+::: {.fragment}
+- We control the Type I error rate $(\alpha)$ by modifying the test
+    + e.g., we set $\alpha=.05$ to allow only 5% type I error
+:::
+
+::: {.fragment}
+- We control the Type II error rate $(\beta)$ via large samples
+    + We refer to a test's **statistical power** as $1-\beta$
+    + e.g., we decide $n$ to get 80% power (only 20% type II error)
+:::
+
+::: {.footer}
+:::
+
+## Outcome probabilities
+
+|                    | Retain $H_0$ | Reject $H_0$  |
+| :----------------- | :-------:    | :-----------: |
+| $H_0$ **is True**  | $1-\alpha$   | [$\text{[I] }\alpha$]{.red}      |
+| $H_0$ **is False** | [$\text{[II] }\beta$]{.red}      | $1-\beta$     |
+
+::: {.fragment}
+- If we set $\alpha$ to .05, we are accepting...
+    + Up to a 5% (1 in 20) chance of rejecting a true null hyp.
+:::
+
+::: {.fragment}
+- If we use a sample with 80% power, we are accepting...
+    + Up to a 20% (1 in 5) chance of retaining a false null hyp.
+:::
+
+::: {.footer}
+
+:::
+
+
+# NHST Nuts and Bolts
+
+## Test statistics
+
+- How do we decide to retain or reject the null hypothesis?
+
+::: {.fragment}
+- We compare our sample data to our "null expectations"
+    + *What would we expect to see if the null were true?*
+    + If they **match**, we we **retain** the null hypothesis
+    + If they **do not match**, we **reject** the null hypothesis
+:::
+
+::: {.fragment}
+- We need a way to quantify the extent of this matching
+    + The [test statistic]{.b .blue} quantifies the *mismatch*
+:::
+
+::: {.footer}
+
+:::
+
+## Test statistics
+
+- The population mean expected under the null $(\mu_0)$ is 3
+    + Our null expectation is a sample mean $(\bar{x})$ close to this
+
+- The extent of matching here is captured by the difference
+    + We can use the difference $(\Delta)$ as a simple test statistic
+    $$\Delta = \bar{x} - \mu_0 \qquad \Delta = \bar{x} - 3$$
+    + If the null is true, then $\Delta$ should be very close to zero
+    + We would reject the null if $\Delta$ is too far from zero
+
+::: {.footer}
+
+:::
+
+## Critical values
+
+- How far from zero is too far? When do we reject the null?
+
+- We look at the sampling distribution of $\Delta$ under the null
+    + If we assume that the null hypothesis is true...
+    + ...what values would we see with repeated samples?
+
+- We can use this to make our statistical decision
+    + We reject $H_0$ if the test statistic is unlikely under the null
+    + If greater than the [critical value]{.b .blue}, we reject the null
+    + The critical value controls the Type I error rate $(\alpha)$
+    
+::: {.footer}
+
+:::
+
+## Single sample $z$-test
+
+- To set $\alpha=.05$, we reject the null if the test statistic is outside the middle 95% of its null sampling distribution
+
+- The math becomes easier if we standardize the test statistic by dividing it by its standard error
+
+::: {.columns}
+::: {.column}
+
+$$
+z_{\bar{x}} = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \\
+z_{\bar{x}} \sim \mathcal{N}(0, 1)
+$$
+
+:::
+::: {.column}
+```{r}
+#| echo: false
+
+data.frame(mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_normal(mu, sigma), fill = after_stat(abs(x) < 1.96))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -1.96, size = 2, color = "salmon") +
+  geom_vline(xintercept = 1.96, size = 2, color = "salmon") +
+  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "z Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+:::
+:::
+
+::: {.footer}
+Critical values: $|z_{\bar{x}}| > 1.96$ (i.e., it falls in the red regions)
+:::
+
+
+## Single sample $t$-test
+
+- This $z$-test is rarely used because $\sigma$ is rarely known
+
+- Instead, we estimate $\sigma$ using $s$ and use the $t$-test
+
+- With a small sample, the critical values are now higher
+
+::: {.columns}
+::: {.column}
+
+$$
+t_{\bar{x}} = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \\
+t_{\bar{x}} \sim t(n-1, 0, 1)
+$$
+
+:::
+::: {.column}
+```{r}
+#| echo: false
+
+data.frame(df = 20 - 1, mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = after_stat(abs(x) < 2.093024))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -2.093024, size = 2, color = "salmon") +
+  geom_vline(xintercept = 2.093024, size = 2, color = "salmon") +
+  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "t Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+:::
+:::
+
+::: {.footer}
+Critical values: $|t_{\bar{x}}| > 2.09$ (i.e., it falls in the red regions)
+:::
+
+## Example where $H_0$ is true
+
+::: {.columns}
+::: {.column}
 
 ```{r}
 #| echo: false
+ 
+set.seed(2021)
+
+# set simulation parameters
+n <- 20
+mu_0 <- 3 # the null mean is 3 g
+mu <- 3   # the true mean is 3 g
+sigma <- 0.25
+
+# simulate data
+sugar_null <- rnorm(n, mu, sigma) |> round(1)
+```
+
+Imagine $H_0$ is true $(\mu=3)$ and we collect the following sample of 20 cereal boxes
+
+```{r}
+#| echo: true
+
+sugar_null <- c(
+  3.0, 3.1, 3.1, 3.1, 3.2,
+  2.5, 3.1, 3.2, 3.0, 3.4, 
+  2.7, 2.9, 3.0, 3.4, 3.4, 
+  2.5, 3.4, 3.0, 3.4, 3.4
+)
+```
+
+:::
+::: {.column}
+```{r, echo=FALSE, fig.width=5, fig.height = 3.5}
+ggplot(tibble(sugar = sugar_null), aes(x = sugar)) + 
+  geom_density(fill = "blue", alpha = 1/3) + 
+  labs(x = "Sugar (Sample 1)") +
+  mytheme
+```
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Example where $H_0$ is true
+
+::: {.columns}
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+mu_0 <- 3
+s <- sd(sugar_null)
+se <- s / sqrt(n)
+xbar <- mean(sugar_null)
+xbar
+
+t_xbar <- (xbar - mu_0) / se
+t_xbar
+
+t_crit <- qt(0.975, df = n - 1)
+t_crit
+```
+:::
+
+::: {.column}
+```{r, echo=FALSE, fig.width = 5, fig.height=3.5}
+data.frame(df = 20-1, mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = stat(abs(x) < t_crit))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_xbar, linetype = "dashed", size = 2, color = "cornflowerblue") +
+  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "t Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+$|t_{\bar{x}}|<t_{crit}: \text{Retain }H_0$
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Example where $H_0$ is false
+
+::: {.columns}
+::: {.column}
+
+```{r}
+#| echo: false
+ 
+set.seed(2023)
+
+# set simulation parameters
+n <- 20
+mu_0 <- 3 # the null mean is 3 g
+mu <- 4   # the true mean is 3 g
+sigma <- 1
+
+# simulate data
+sugar_alt <- rnorm(n, mu, sigma) |> round(1)
+```
+
+Imagine $H_0$ is false $(\mu=4)$ and we collect the following sample of 20 cereal boxes
+
+```{r}
+#| echo: true
+
+sugar_alt <- c(
+  3.9, 3.0, 2.1, 3.8, 3.4, 
+  5.1, 3.1, 5.0, 3.6, 3.5, 
+  4.3, 3.6, 4.6, 4.7, 3.4, 
+  4.7, 4.6, 4.5, 4.9, 4.6
+)
+```
+
+:::
+::: {.column}
+```{r, echo=FALSE, fig.width=5, fig.height = 3.5}
+ggplot(tibble(sugar = sugar_alt), aes(x = sugar)) + 
+  geom_density(fill = "blue", alpha = 1/3) + 
+  labs(x = "Sugar (Sample 2)") +
+  mytheme
+```
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Example where $H_0$ is false
+
+::: {.columns}
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+mu_0 <- 3
+s <- sd(sugar_alt)
+se <- s / sqrt(n)
+xbar <- mean(sugar_alt)
+xbar
+
+t_xbar <- (xbar - mu_0) / se
+t_xbar
+
+t_crit <- qt(0.975, df = n - 1)
+t_crit
+```
+:::
+
+::: {.column}
+```{r, echo=FALSE, fig.width = 5, fig.height=3.5}
+data.frame(df = 20-1, mu = 0, sigma = 1) %>%
+  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = stat(abs(x) < t_crit))) + 
+  stat_dist_slab(color = "black") +
+  geom_vline(xintercept = -t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_crit, size = 2, color = "salmon") +
+  geom_vline(xintercept = t_xbar, linetype = "dashed", size = 2, color = "cornflowerblue") +
+  coord_cartesian(xlim = c(-6, 6), expand = FALSE) +
+  scale_x_continuous(breaks = seq(-6, 6, by = 2)) +
+  scale_fill_manual(values = c("darkred", "grey98")) + 
+  labs(
+    y = NULL,
+    x = "t Sampling Distribution"
+  ) +
+  mytheme + theme(legend.position = "none")
+```
+
+$|t_{\bar{x}}|>t_{crit}: \text{Reject }H_0$
+:::
+:::
+
+::: {.footer}
+
+:::
+
+## Making decisions
+
+- Critical values let us decide and control $\alpha$
+    + $t_{obs} < t_{crit}$ = Retain the null
+    + $t_{obs} \ge t_{crit}$ = Reject the null
+
+- When we reject the null, the test was "significant"
+    + Remember that not all rejections are correct
+    + Even a correct rejection may not be important
+    + In a large sample, a small effect may be significant
+
+::: {.footer}
+
+:::
+
+# $p$-values and <br>Pragmatics
+
+## The $p$-value of a test
+
+- But what if we had selected a different $\alpha$ level?
+    + Some $\alpha$ values would yield a different decision
+
+- The $p$-value is a popular approach for dealing with this
+
+::: {.callout-note title="Correct p-value Definitions"}
+The $p$-value is the smallest $\alpha$ value that would reject the null hypothesis.<br />
+The $p$-value is the probability of observing a test statistic *at least* as extreme as ours.
+:::
+
+::: {.callout-important title="Wrong p-value Definition"}
+The $p$-value is the probability that the null hypothesis is true.
+:::
+
+::: {.footer}
+
+:::
+
+## Using the $p$-value
+
+- The $p$-value is a summary of all possible $\alpha$ values
+    + How would you feel about setting $\alpha$ to $p$?
+
+- It is best to set $\alpha$ for the study *before* seeing the data
+    + Then, you reject the null if and only if $p<\alpha$
+
+- Reporting $p$ directly softens your decision
+    + e.g., $p=.049$ (Reject) vs. $p=.051$ (Retain)
+    + e.g., $p=.002$ (Reject) vs. $p=.047$ (Reject)
+
+
+::: {.footer}
+
+:::
+
+
+## Reporting a significance test
+
+```{r}
+tribble(
+  ~Notation, ~Stars, ~Translation, ~Decision,
+  "p ≥ .05", "", "Test was NOT significant at α=.05", "Retain Null",
+  "p < .05", "*", "Test was significant at α=.05", "REJECT Null",
+  "p < .01", "**", "Test was significant at α=.01", "REJECT Null",
+  "p < .001", "***", "Test was significant at α=.001", "REJECT Null"
+) |>  
+  knitr::kable() |> 
+  kableExtra::kable_styling(font_size = 32)
+```
+
+- Report your exact $p$-value (unless less than .001)
+    + Saying $p<.05$ or $p\ge.05$ discards useful information
+
+- It can be helpful to report a CI and your test statistic too
+
+::: {.footer}
+
+:::
+
+## Putting it all together
+
+- We can do a one-sample $t$-test in R with `t.test()`
+- We can get a results table with `model_parameters()`
+
+```{r}
+#| echo: true
+#| collapse: true
 #| message: false
-#| fig-width: 12
-#| fig-height: 3.3
 
-# This deck sets themes per plot rather than globally, so state it here.
-library(patchwork)
-set.seed(2025)
-# Three panels share the slide width, so the base size has to come down or the
-# titles collide with the panel edges.
-lln_theme <- theme_gray(base_size = 20) + theme(panel.grid.minor = element_blank())
+fit1 <- t.test(sugar_null, mu = 3)
 
-lln_pop <- tibble(x = seq(55, 145, length.out = 500), y = dnorm(x, 100, 15))
-lln_sample <- function(n, title) {
-  ggplot(tibble(iq = rnorm(n, 100, 15)), aes(iq)) +
-    geom_histogram(bins = 24, fill = "#357EDD", alpha = 0.6) +
-    coord_cartesian(xlim = c(55, 145)) +
-    labs(title = title, x = "IQ Score", y = "Frequency") +
-    lln_theme
-}
-
-(ggplot(lln_pop, aes(x, y)) +
-   geom_line(linewidth = 1.1, colour = "#357EDD") +
-   scale_y_continuous(breaks = NULL) +
-   labs(title = "Population", x = "IQ Score", y = "Density") +
-   lln_theme) +
-  lln_sample(100, "n = 100") +
-  lln_sample(10000, "n = 10,000")
+library(easystats)
+model_parameters(fit1)
 ```
 
-- Larger (random) samples will tend to better approximate the population
-
-- Statistics from larger (random) samples will tend to better estimate the parameters
 
 ::: {.footer}
 
 :::
 
-## Small population simulation {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-Let's take samples of different sizes from our population and calculate the sample mean
-
-To show the influence of chance, we can repeat this 50 times for each sample size
-
-Let's plot each repetition's sample mean as a point (and the population mean as a line)
+## Interpreting the results
 
 ```{r}
-set.seed(2021)
-n <- 1:15
+#| echo: false
 
-many_sample <- function(n, population, iter) {
-  out <- vector("double", length = iter)
-  for (i in 1:iter) {
-    out[i] <- mean(sample(population, size = n))
-  }
-  tibble(n = n, i = 1:iter, mean = out)
-}
-
-res <- map_dfr(n, many_sample, population = sleep$total, iter = 50)
-
-ggplot(res, aes(x = factor(n), y = mean)) + 
-  geom_hline(yintercept = mean(sleep$total), color = "darkred", linewidth = 2) +
-  ggbeeswarm::geom_quasirandom() +
-  labs(x = "Sample Size (from population of N=16)", y = "Sample Mean") +
-  theme_gray(base_size = 20) +
-  theme(panel.grid.minor = element_blank())
+model_parameters(fit1)
 ```
 
-::: {.footer}
 
-:::
+> "The mean sugar content per serving in our sample was 3.09&nbsp;g, 95% CI: [2.96, 3.22], which was not significantly different from the 3 g stated on the label, $t(19)=1.42$, $p=.171$. Thus, we retain the null hypothesis that there are 3 g of sugar per serving."
 
-## Large population simulation {.fs70}
+## Putting it all together... again
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
+- Let's repeat with the other sample
 
-With larger populations, we need larger samples to get good estimates
-
-Here is a simulation of sampling from a population $N=1000000, \mu=100, \sigma=15$
-
-```{r}
-set.seed(2021)
-n2 <- c(10, 20, 40, 80, 160, 320, 640, 1280)
-pop2 <- rnorm(1e6, 100, 15)
-res2 <- map_dfr(n2, many_sample, population = pop2, iter = 50)
-
-ggplot(res2, aes(x = factor(n), y = mean)) + 
-  geom_hline(yintercept = mean(pop2), color = "darkred", linewidth = 2) +
-  ggbeeswarm::geom_quasirandom() +
-  labs(x = "Sample Size (from population of N=1,000,000)", y = "Sample Mean") +
-  theme_gray(base_size = 20) +
-  theme(panel.grid.minor = element_blank())
-```
-
-::: {.footer}
-
-:::
-
-## Insights from the simulations
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/insights.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-1. Repetitions of a study (with different samples) will result in different estimates due to sampling error
-
-1. There is thus some **uncertainty** in our estimates/inferences due to sampling error
-
-1. We can *quantify* the amount of sampling error in an estimate
-
-1. Larger samples tend to decrease this uncertainty and "stabilize" our estimates (reducing sampling error)
-
-1. However, larger populations require larger samples to achieve this benefit 
-
-::: {.footer}
-
-:::
-
-## Sampling distributions
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/equalizer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-:::{.columns}
-:::{.column}
-- The **sampling distribution** contains the statistic values from repeated samples
-
-- The wider the sampling distribution, the more uncertainty there is
-
-- The SD of the sampling distribution is called the **standard error**
-:::
-:::{.column}
-```{r}
-ggplot(filter(res, n == 3), aes(x = mean)) + 
-  geom_histogram(bins = 10) +
-  scale_y_continuous(breaks = c(0, 5, 10)) +
-  coord_cartesian(xlim = c(6.5, 9), ylim = c(0, 10)) +
-  labs(y = "count", x = "Sample Mean (n=3)") +
-  theme_gray(base_size = 30) +
-  theme(panel.grid.minor = element_blank())
-
-ggplot(filter(res, n == 12), aes(x = mean)) + 
-  geom_histogram(bins = 10) +
-  scale_y_continuous(breaks = c(0, 5, 10)) +
-  labs(y = "count", x = "Sample Mean (n=12)") +
-  coord_cartesian(xlim = c(6.5, 9), ylim = c(0, 10)) +
-  theme_gray(base_size = 30) +
-  theme(panel.grid.minor = element_blank())
-```
-:::
-:::
-
-::: {.footer}
-
-:::
-
-## Standard errors {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/question.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-:::{.columns}
-:::{.column}
-We can rarely take many repeated samples, construct the sampling distribution, and calculate the SE directly
-
-So, instead, we typically *estimate* the SE from the data (just like a parameter)
-
-The estimate for the SE of the mean depends on two main things:
-
-1. How large the sample is $(n)$
-
-1. How spread out the data is $(s)$
-
-:::
-
-:::{.column}
-#### Standard Error of the Mean
-$$s_{\bar{x}} = \frac{s}{\sqrt{n}} \sqrt{\frac{N-n}{N-1}}$$
-
-As $s$ increases, the SE increases
-
-As $n$ increases, the SE decreases
-
-As $n\to N$, the second part $\to$ zero
-
-As $N\to\infty$, the second part $\to$ one
-:::
-:::
-
-::: {.footer}
-Because we are often interested in infinite populations, the right side of this equation is often left off entirely.
-:::
-
-## Example
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-:::{.columns}
-:::{.column}
-#### Smaller Sample (n=3)
 ```{r}
 #| echo: true
 #| collapse: true
-n <- 3
-xs <- sample(sleep$total, n)
-N <- length(sleep$total)
-s <- sd(xs)
-se_m <- (s / sqrt(n)) * 
-  sqrt((N - n)/(N - 1))
-se_m
-```
-:::
+#| message: false
 
-:::{.column}
-#### Larger Sample (n=12)
-```{r}
-#| echo: true
-#| collapse: true
-n <- 12
-xs <- sample(sleep$total, n)
-N <- length(sleep$total)
-s <- sd(xs)
-se_m <- (s / sqrt(n)) * 
-  sqrt((N - n)/(N - 1))
-se_m
-```
-:::
-:::
+fit2 <- t.test(sugar_alt, mu = 3)
 
-The larger sample thus has a smaller estimated SE
+model_parameters(fit2)
+```
+
 
 ::: {.footer}
 
 :::
+
+## Interpreting the results
+
+```{r}
+#| echo: false
+
+model_parameters(fit2)
+```
+
+
+> "The mean sugar content per serving in our sample was 4.02&nbsp;g, 95% CI: [3.65, 4.39], which was significantly greater than the 3 g stated on the label, $t(19)=5.70$, $p<.001$. Thus, we reject the null hypothesis that there are 3 g of sugar per serving."

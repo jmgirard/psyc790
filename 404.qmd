@@ -13,6 +13,39 @@ Below, I will track my progress updating this website chapter-by-chapter.
 - [x] Chapter 01
 - [x] Chapter 02
 - [x] Chapter 03
+- [x] Chapter 04
+:::
+:::{.column width="25%"}
+- [x] Chapter 05
+- [x] Chapter 06
+- [x] Chapter 07
+- [x] Chapter 08
+:::
+:::{.column width="25%"}
+- [x] Chapter 09
+- [x] Chapter 10
+- [x] Chapter 11
+- [x] Chapter 12
+:::
+:::{.column width="25%"}
+- [x] Chapter 13
+:::
+:::
+:::{.column width="25%"}
+- [x] Chapter 05
+- [x] Chapter 06
+- [x] Chapter 07
+- [x] Chapter 08
+:::
+:::{.column width="25%"}
+- [x] Chapter 09
+- [x] Chapter 10
+- [x] Chapter 11
+- [x] Chapter 12
+:::
+:::{.column width="25%"}
+- [x] Chapter 13
+:::
 :::
 :::{.column width="25%"}
 - [x] Chapter 05

@@ -23,72 +23,31 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-## Question 1 (Correlation Theory)
+*All three questions below use the [`political.csv`](../../data/political.csv){download="political.csv"} file, which contains information about 59 students' political activity. Each question tells you to read it in, so they can be answered in any order.* **Be sure to set the `year` variable to a factor.**
 
-a) What does it mean for two variables to be positively or negatively correlated with one another?{{< hp glyph="a" >}} What does it mean for two variables to have a correlation close to zero?
+## Question 1 (One-way ANOVA in R)
 
-b) Look at the following scatterplots and indicate whether you think the Pearson correlation for each would be positive, negative, or close to zero. Also indicate whether you think each relationship depicted is linear, nonlinear, or none.
+Read in `political.csv` and set `year` to a factor.
 
-```{r}
-#| echo: false
-#| message: false
-#| fig-width: 7
-#| fig-height: 5
+a) I want to test whether students from different years (`year`, i.e., 1=freshman, 2=sophomore, 3=junior, 4=senior) watch different amounts of news on television (`tv_news`) on average.{{< hp glyph="a" >}} What should my null and alternative hypotheses be? What are the two components of variation in this data (give the technical names and describe what they are verbally)?
 
-library(tidyverse)
-library(faux)
-library(patchwork)
+b) Test my hypothesis from part (a) in R. Include your results table and write a sentence (or several) that reports the results verbally. What can we conclude?
 
-rsim <- function(r) {
-  rnorm_multi(n = 200, vars = 2, mu = 0, sd = 1, r = r) %>%
-    as_tibble() %>%
-    rename(x = X1, y = X2)
-}
+## Question 2 (Effect Sizes)
 
-set.seed(2021)
-d1 <- tibble(
-  x = rgamma(300, 1, 1),
-  y = rnorm(300, 0, 5)
-)
+Read in `political.csv` and set `year` to a factor, then fit the same one-way ANOVA predicting `tv_news` from `year`.
 
-d2 <- tibble(
-  x = runif(300, -3, 3),
-  y = 1 / (1 + exp(-x * 4)) + rnorm(300, 0, .03)
-)
+a) Calculate a standardized effect size for this ANOVA (e.g., $\eta^2$) and report it with its confidence interval.
 
-d3 <- tibble(
-  x = runif(300, -pi, 2*pi),
-  y = cos(x) + rnorm(300, 0, 0.3)
-)
+b) A significant $p$-value and a large effect size tell you different things. Explain what the effect size adds here that the $p$-value alone does not.{{< hp glyph="a" >}}
 
-d4 <- rsim(-0.8)
+## Question 3 (Post-hoc Tests)
 
-p1 <- ggplot(d1, aes(x, y)) +
-  geom_point()
-p2 <- ggplot(d2, aes(x, y)) +
-  geom_point()
-p3 <- ggplot(d3, aes(x, y)) +
-  geom_point()
-p4 <- ggplot(d4, aes(x, y)) +
-  geom_point()
-(p1 + p2 + p3 + p4) + plot_annotation(tag_levels = "i")
-```
+Read in `political.csv` and set `year` to a factor, then fit the same one-way ANOVA predicting `tv_news` from `year`.
 
-## Question 2 (Calculating Correlations)
+a) Estimate the mean and 95% CI of each year group's TV news watching. *Optional challenge: create a plot showing these means.*
 
-Download and read in the [`factbook1M.csv`](../../data/factbook1M.csv){download="factbook1M.csv"} dataset, which contains information from the CIA's World Factbook about all countries with more than 1 million people.
-
-a) Calculate the covariance and the correlation between life expectancy (`life_exp`) and birth rate (`birth_rate`).
-
-b) The covariance and the correlation describe the same relationship but are not equally easy to interpret. Explain what the correlation tells you that the covariance does not.{{< hp glyph="a" >}}
-
-## Question 3 (Statistical Inference)
-
-Read in the `factbook1M` dataset again for this question so that it can be answered on its own.
-
-a) Test whether the correlation between `life_exp` and `birth_rate` is significantly different from zero at $\alpha=.05$. Report the test statistic, $p$-value, and confidence interval.
-
-b) Calculate the correlations among these four variables: `life_exp`, `birth_rate`, `infant_mortality`, and `death_rate`. Which pair is most strongly related and which pair is most weakly related? Give a verbal interpretation of the strongest relationship.{{< hp glyph="a" >}}
+b) Would it be appropriate to run a post-hoc test here?{{< hp glyph="a" >}} Why or why not? If appropriate, conduct pairwise comparisons and adjust the $p$-values using Holm's method. What can we conclude, and why does the adjustment matter?
 
 ---
 

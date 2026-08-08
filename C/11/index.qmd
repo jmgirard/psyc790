@@ -1,76 +1,37 @@
 ---
-title: "Chapter 11: Moderation"
+title: "Chapter 11: Bootstrap and Robust Inference"
 ---
+
+::: {.callout-note}
+## Under development
+
+This chapter is planned but not yet written. The outline below shows
+what it is intended to cover.
+:::
 
 <!-- Lecture a -->
 
-## [11a] Continuous Moderation
+## [11a] The Bootstrap
 
 ### Topics
-- Continuous-by-Continuous
-- Interaction Patterns
-- Centering with Interactions
-
-### Files
-- [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
-
-### Readings
-- *Applied Multiple Regression/Correlation Analysis*, §7.1--7.5, 7.7
-- [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/) --- *UCLA OARC*
-- Finsaas \& Goldstein (2021), [Do Simple Slopes Follow-Up Tests Lead Us Astray? Advancements in the Visualization and Reporting of Interactions](https://doi.org/10/ggsng9) --- *Psychological Methods*
-- Rohrer \& Arslan (2021), [Precise Answers to Vague Questions: Issues With Interactions](https://doi.org/10/gk9zkd) --- *AMPPS*
-
-### Slides
-
-```{=html}
-<iframe class="slide-deck" src="a_Slides.html" title="[11a] Slideshow">
-</iframe>
-```
-
-::: {.fs80}
-\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
-:::
-
-### Assignment
-- [Lecture 11a Assignment](a_assignment.qmd)
+- Resampling as an empirical sampling distribution
+- Bootstrap confidence intervals
+- When the bootstrap helps and when it does not
 
 <!-- Lecture b -->
 
-## [11b] Categorical Moderation
+## [11b] Robust Inference
 
 ### Topics
-- Binary-by-Continuous
-- Nominal-by-Continuous
-- Categorical-by-Categorical
-- Three-Way Interactions
-
-### Files
-- [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
-
-### Readings
-- *Applied Multiple Regression/Correlation Analysis*, §7.6, 7.8, 9.1--9.3
-- [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/) --- *UCLA OARC*
-
-### Slides
-
-```{=html}
-<iframe class="slide-deck" src="b_Slides.html" title="[11b] Slideshow">
-</iframe>
-```
-
-::: {.fs80}
-\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
-:::
-
-### Assignment
-- [Lecture 11b Assignment](b_assignment.qmd)
+- Permutation tests
+- Heteroscedasticity-consistent standard errors
+- Choosing between robust and conventional inference
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../10/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 10</a>
-
-  <a href="../12/index.html" class="btn btn-primary" role="button">Chapter 12&nbsp;&nbsp;&raquo;</a>
+  <a href="../../C/10/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 10</a>
+  <a href="../../D/12/index.html" class="btn btn-primary" role="button">Chapter 12&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

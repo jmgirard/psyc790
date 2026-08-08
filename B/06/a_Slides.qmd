@@ -11,7 +11,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-Hypotheses / NHST / p-values
+t-tests / Effect Sizes / Paired Groups
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
@@ -42,641 +42,400 @@ theme_set(mytheme)
 ```
 
 
-# Statistical Hypotheses
+# Introductions
 
-## What is a hypothesis?
+## Group Comparisons
 
-- A hypothesis is a **testable** prediction
-    + It derives from a broader scientific theory
-    + It needs to be operationalized and falsifiable
+- Many research questions are about **comparing groups**
 
-- A statistical hypothesis needs to be mathematically **precise**
-    + It is about characteristics of the population of interest
-    + It is a *comparison* involving population parameters
-        + The mean of the whole population is 100 $(\mu=100)$
-        + The mean is greater in group 1 than group 2 $(\mu_1>\mu_2)$
+- Do two (or more) groups have the same population mean?
+    + These groups may be naturally occurring<br />
+      (e.g., Do *adults* or *children* watch more TV?)
+    + Or they may correspond to experimental conditions<br />
+      (e.g., Do outcomes differ in *treatment* and *placebo*?)
+    + Two groups of measurements may be related/paired<br />
+      (e.g., Is a person's memory better *before* or *after* exercise?)
 
-::: {.footer}
+## Types of Groups
 
-:::
+- We will collect a sample of data from each group
 
-## Example research question
+- [Independent Samples:]{.b .blue} Observations are unrelated
+    + e.g., Each participant only occurs in a single group/sample
+    + e.g., Different people are assigned to condition A or B
+  
+- [Dependent/Paired Samples:]{.b .blue} Observations are linked
+    + e.g., Each participant occurs in multiple groups/samples
+    + e.g., Each person participates in both condition A and B
 
-- Imagine that we study *nutrition* and *obesity*
-
-- Participants really like a brand of "low sugar" cereal
-
-- The label claims that it only contains 3 g of sugar per serving
-
-- However, we think this may be **false advertising**!
-
-::: {.fragment}
-- We buy a *sample* of 20 cereal boxes from various stores
-
-- We measure the amount of sugar per serving in each box
-
-- **Is 3 g a reasonable estimate of the *population mean*?**
-:::
-
-::: {.footer}
-
-:::
-
-## Null and alternative hypotheses
-
-- Just like in a criminal trial, we need to represent *both* sides
-
-::: {.fragment}
-- The **null hypothesis** represents the company's "defense"
-    + Boxes *do* contain 3 g on average, or $H_0: \mu=3$
-:::
-
-::: {.fragment}
-- The **alternative hypothesis** represents the "prosecution"
-    + Boxes contain *more* than 3 g on average, or $H_1: \mu>3$
-    + Boxes *do not* contain 3 g on average, or $H_2: \mu\neq3$
-    
-:::
-
-::: {.footer}
-$H_1$ is a "one-sided" and $H_2$ is a "two-sided" hypothesis.
-:::
-
-# NHST Logic
-
-## What is NHST?
-
-- In null hypothesis significance testing (NHST), the null hyp. is the defense and the alternative hyp. is the prosecution
-
-- The statistical test is the *judge and jury* (makes the decision)
-
-::: {.fragment}
-- We begin with a "presumption of innocence"
-    + The null hypothesis is **assumed true** unless...
-    + ...there is good evidence that it is ***very unlikely***
-    + The burden of proof thus lies with the prosecution
-:::
-
-::: {.footer}
-NHST helps protect the null hypothesis from researchers who are incentivized to disprove it.
-:::
-
-## Potential test outcomes
-
-1. [Retain the null hypothesis]{.b .blue}
-    + There is not enough evidence to reject $\mu=3$
-    + We cannot be certain that $\mu$ does not equal $3$
-    + *It **does not** mean that we are certain that $\mu=3$*
-    
-2. [Reject the null hypothesis]{.b .blue}
-    + There is enough evidence to conclude $\mu\neq3$
-    + The cereal's nutrion label should be changed...
-    + *It **does not** prove that this was deliberate fraud*
-
-::: {.footer}
-
-:::
-
-## Potential errors
-
-- In reality, there is **only one correct decision**
-    + In the two-sided case, either $\mu=3$ or $\mu\neq3$
-
-- Due to *sampling error*, our sample may lead us astray
-    + We might make one two possible [wrong]{.red} decisions...
-
-::: {.fragment}
-|                    | Retain $H_0$   | Reject $H_0$   |
-| :----------------- | :------------- | :------------- |
-| $H_0$ **is True**  | Correct Retain | [Type I Error]{.red}   |
-| $H_0$ **is False** | [Type II Error]{.red} | Correct Reject |
-:::
-
-::: {.footer}
-
-:::
-
-## Example outcomes
-
-- In a world where the cereal *does* contain 3g on average
-    + The **null hypothesis is true** and should be *retained*
-    + If our test retains it, that is the correct decision
-    + If our test rejects it, that is a [Type I error]{.red}
-
-- In a world where the cereal *doesn't* contain 3g on average
-    + The **null hypothesis is false** and should be *rejected*
-    + If our test retains it, that is a [Type II error]{.red}
-    + If our test rejects it, that is the correct decision
-
-::: {.footer}
-
-:::
-
-## Controlling error rates
-
-- NHST is particularly interested in preventing Type I errors
-    + Researchers want to reject the null, so NHST protects it
-
-::: {.fragment}
-- We control the Type I error rate $(\alpha)$ by modifying the test
-    + e.g., we set $\alpha=.05$ to allow only 5% type I error
-:::
-
-::: {.fragment}
-- We control the Type II error rate $(\beta)$ via large samples
-    + We refer to a test's **statistical power** as $1-\beta$
-    + e.g., we decide $n$ to get 80% power (only 20% type II error)
-:::
-
-::: {.footer}
-:::
-
-## Outcome probabilities
-
-|                    | Retain $H_0$ | Reject $H_0$  |
-| :----------------- | :-------:    | :-----------: |
-| $H_0$ **is True**  | $1-\alpha$   | [$\text{[I] }\alpha$]{.red}      |
-| $H_0$ **is False** | [$\text{[II] }\beta$]{.red}      | $1-\beta$     |
-
-::: {.fragment}
-- If we set $\alpha$ to .05, we are accepting...
-    + Up to a 5% (1 in 20) chance of rejecting a true null hyp.
-:::
-
-::: {.fragment}
-- If we use a sample with 80% power, we are accepting...
-    + Up to a 20% (1 in 5) chance of retaining a false null hyp.
-:::
-
-::: {.footer}
-
-:::
-
-
-# NHST Nuts and Bolts
-
-## Test statistics
-
-- How do we decide to retain or reject the null hypothesis?
-
-::: {.fragment}
-- We compare our sample data to our "null expectations"
-    + *What would we expect to see if the null were true?*
-    + If they **match**, we we **retain** the null hypothesis
-    + If they **do not match**, we **reject** the null hypothesis
-:::
-
-::: {.fragment}
-- We need a way to quantify the extent of this matching
-    + The [test statistic]{.b .blue} quantifies the *mismatch*
-:::
-
-::: {.footer}
-
-:::
-
-## Test statistics
-
-- The population mean expected under the null $(\mu_0)$ is 3
-    + Our null expectation is a sample mean $(\bar{x})$ close to this
-
-- The extent of matching here is captured by the difference
-    + We can use the difference $(\Delta)$ as a simple test statistic
-    $$\Delta = \bar{x} - \mu_0 \qquad \Delta = \bar{x} - 3$$
-    + If the null is true, then $\Delta$ should be very close to zero
-    + We would reject the null if $\Delta$ is too far from zero
-
-::: {.footer}
-
-:::
-
-## Critical values
-
-- How far from zero is too far? When do we reject the null?
-
-- We look at the sampling distribution of $\Delta$ under the null
-    + If we assume that the null hypothesis is true...
-    + ...what values would we see with repeated samples?
-
-- We can use this to make our statistical decision
-    + We reject $H_0$ if the test statistic is unlikely under the null
-    + If greater than the [critical value]{.b .blue}, we reject the null
-    + The critical value controls the Type I error rate $(\alpha)$
-    
-::: {.footer}
-
-:::
-
-## Single sample $z$-test
-
-- To set $\alpha=.05$, we reject the null if the test statistic is outside the middle 95% of its null sampling distribution
-
-- The math becomes easier if we standardize the test statistic by dividing it by its standard error
+## Types of Comparisons
 
 ::: {.columns}
 ::: {.column}
+[Significance Testing]{.b .blue}
+
+- Is the difference between the two group means zero?
+
+- The result is a test statistic, <br>$p$-value, and decision to retain or reject the null
+
+- *Adults watch significantly more TV than do children, $t(99)=20.14, p<.001$*
+:::
+::: {.column .fragment}
+[Estimation]{.b .blue}
+
+- What are reasonable values for the difference between the two group means?
+
+- The result is a point estimate and interval estimate (CI)
+
+- *Adults watch $3.2$ more hours of TV per day than do children, 95% CI: $[1.8, 4.6]$*
+:::
+:::
+
+# NHST Approaches
+
+## Recap of Steps in NHST
+
+1. Set **null and alternative hypotheses**, Type I Error Rate $(\alpha)$
+
+1. Choose an appropriate test and calculate its **test statistic**
+
+1. Estimate **null sampling distribution** for test statistic
+
+1. Calculate **critical values** from null sampling distribution
+
+1. Compare the observed test statistic to these critical values
+
+1. Calculate $\boldsymbol{p}$**-value** and decide to **retain or reject** the null
+
+## Independent Samples $t$-test
+
+- **Research Question:** Do tenure track (G1) or non-tenure track (G2) professors receive better teaching evals, on average?
+
+- Each professor is G1 or G2, so these are *independent* groups
+
+::: {.fragment}
+- Are the G1 and G2 samples drawn from populations with <br>the same mean (null) or different means (alternative)?
 
 $$
-z_{\bar{x}} = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \\
-z_{\bar{x}} \sim \mathcal{N}(0, 1)
+H_0: \mu_1=\mu_2\\
+H_1: \mu_1\neq\mu_2
 $$
-
-:::
-::: {.column}
-```{r}
-#| echo: false
-
-data.frame(mu = 0, sigma = 1) %>%
-  ggplot(aes(y = "", dist = dist_normal(mu, sigma), fill = after_stat(abs(x) < 1.96))) + 
-  stat_dist_slab(color = "black") +
-  geom_vline(xintercept = -1.96, size = 2, color = "salmon") +
-  geom_vline(xintercept = 1.96, size = 2, color = "salmon") +
-  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
-  scale_fill_manual(values = c("darkred", "grey98")) + 
-  labs(
-    y = NULL,
-    x = "z Sampling Distribution"
-  ) +
-  mytheme + theme(legend.position = "none")
-```
-
-:::
 :::
 
-::: {.footer}
-Critical values: $|z_{\bar{x}}| > 1.96$ (i.e., it falls in the red regions)
-:::
+## Example data
 
-
-## Single sample $t$-test
-
-- This $z$-test is rarely used because $\sigma$ is rarely known
-
-- Instead, we estimate $\sigma$ using $s$ and use the $t$-test
-
-- With a small sample, the critical values are now higher
-
-::: {.columns}
-::: {.column}
-
-$$
-t_{\bar{x}} = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \\
-t_{\bar{x}} \sim t(n-1, 0, 1)
-$$
-
-:::
-::: {.column}
-```{r}
-#| echo: false
-
-data.frame(df = 20 - 1, mu = 0, sigma = 1) %>%
-  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = after_stat(abs(x) < 2.093024))) + 
-  stat_dist_slab(color = "black") +
-  geom_vline(xintercept = -2.093024, size = 2, color = "salmon") +
-  geom_vline(xintercept = 2.093024, size = 2, color = "salmon") +
-  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
-  scale_fill_manual(values = c("darkred", "grey98")) + 
-  labs(
-    y = NULL,
-    x = "t Sampling Distribution"
-  ) +
-  mytheme + theme(legend.position = "none")
-```
-
-:::
-:::
-
-::: {.footer}
-Critical values: $|t_{\bar{x}}| > 2.09$ (i.e., it falls in the red regions)
-:::
-
-## Example where $H_0$ is true
-
-::: {.columns}
-::: {.column}
-
-```{r}
-#| echo: false
- 
-set.seed(2021)
-
-# set simulation parameters
-n <- 20
-mu_0 <- 3 # the null mean is 3 g
-mu <- 3   # the true mean is 3 g
-sigma <- 0.25
-
-# simulate data
-sugar_null <- rnorm(n, mu, sigma) |> round(1)
-```
-
-Imagine $H_0$ is true $(\mu=3)$ and we collect the following sample of 20 cereal boxes
-
-```{r}
-#| echo: true
-
-sugar_null <- c(
-  3.0, 3.1, 3.1, 3.1, 3.2,
-  2.5, 3.1, 3.2, 3.0, 3.4, 
-  2.7, 2.9, 3.0, 3.4, 3.4, 
-  2.5, 3.4, 3.0, 3.4, 3.4
-)
-```
-
-:::
-::: {.column}
-```{r, echo=FALSE, fig.width=5, fig.height = 3.5}
-ggplot(tibble(sugar = sugar_null), aes(x = sugar)) + 
-  geom_density(fill = "blue", alpha = 1/3) + 
-  labs(x = "Sugar (Sample 1)") +
-  mytheme
-```
-:::
-:::
-
-::: {.footer}
-
-:::
-
-## Example where $H_0$ is true
-
-::: {.columns}
-::: {.column}
 ```{r}
 #| echo: true
 #| collapse: true
+#| message: false
+#| replace_path: ["../../data/", ""]
 
-mu_0 <- 3
-s <- sd(sugar_null)
-se <- s / sqrt(n)
-xbar <- mean(sugar_null)
-xbar
-
-t_xbar <- (xbar - mu_0) / se
-t_xbar
-
-t_crit <- qt(0.975, df = n - 1)
-t_crit
+library(tidyverse)
+tratings <- read_csv("../../data/teaching_ratings.csv")
+tratings
 ```
-:::
 
-::: {.column}
-```{r, echo=FALSE, fig.width = 5, fig.height=3.5}
-data.frame(df = 20-1, mu = 0, sigma = 1) %>%
-  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = stat(abs(x) < t_crit))) + 
-  stat_dist_slab(color = "black") +
-  geom_vline(xintercept = -t_crit, size = 2, color = "salmon") +
-  geom_vline(xintercept = t_crit, size = 2, color = "salmon") +
-  geom_vline(xintercept = t_xbar, linetype = "dashed", size = 2, color = "cornflowerblue") +
-  coord_cartesian(xlim = c(-3, 3), expand = FALSE) +
-  scale_fill_manual(values = c("darkred", "grey98")) + 
-  labs(
-    y = NULL,
-    x = "t Sampling Distribution"
+## Data Exploration
+
+```{r}
+#| fig-height: 5
+
+ggplot(tratings, aes(x = factor(track), y = eval)) +
+  ggbeeswarm::geom_quasirandom(
+    color = "cornflowerblue", 
+    size = 3,
+    width = 0.25
   ) +
-  mytheme + theme(legend.position = "none")
-```
-
-$|t_{\bar{x}}|<t_{crit}: \text{Retain }H_0$
-:::
-:::
-
-::: {.footer}
-
-:::
-
-## Example where $H_0$ is false
-
-::: {.columns}
-::: {.column}
-
-```{r}
-#| echo: false
- 
-set.seed(2023)
-
-# set simulation parameters
-n <- 20
-mu_0 <- 3 # the null mean is 3 g
-mu <- 4   # the true mean is 3 g
-sigma <- 1
-
-# simulate data
-sugar_alt <- rnorm(n, mu, sigma) |> round(1)
-```
-
-Imagine $H_0$ is false $(\mu=4)$ and we collect the following sample of 20 cereal boxes
-
-```{r}
-#| echo: true
-
-sugar_alt <- c(
-  3.9, 3.0, 2.1, 3.8, 3.4, 
-  5.1, 3.1, 5.0, 3.6, 3.5, 
-  4.3, 3.6, 4.6, 4.7, 3.4, 
-  4.7, 4.6, 4.5, 4.9, 4.6
-)
-```
-
-:::
-::: {.column}
-```{r, echo=FALSE, fig.width=5, fig.height = 3.5}
-ggplot(tibble(sugar = sugar_alt), aes(x = sugar)) + 
-  geom_density(fill = "blue", alpha = 1/3) + 
-  labs(x = "Sugar (Sample 2)") +
+  scale_y_continuous(limits = c(1, 5)) +
+  scale_x_discrete(
+    breaks = 1:2,
+    labels = c("1 (Tenure)", "2 (Non-tenure)")
+  ) +
+  labs(
+    x = "Track",
+    y = "Eval"
+  ) +
   mytheme
 ```
-:::
-:::
 
-::: {.footer}
+## Test Statistic
+- If the null is true and $\mu_1 = \mu_2$, then $\mu_1 - \mu_2 = 0$
 
-:::
+- We can use this as the basis of our test statistic
 
-## Example where $H_0$ is false
+- But again, the math is easier if we standardize it
 
-::: {.columns}
-::: {.column}
-```{r}
-#| echo: true
-#| collapse: true
+$$t_{diff}=\frac{\bar{x}_1 - \bar{x}_2}{SE_{diff}}$$
 
-mu_0 <- 3
-s <- sd(sugar_alt)
-se <- s / sqrt(n)
-xbar <- mean(sugar_alt)
-xbar
+- So now we just need to estimate the SE of the difference
 
-t_xbar <- (xbar - mu_0) / se
-t_xbar
+## Two approaches
 
-t_crit <- qt(0.975, df = n - 1)
-t_crit
-```
-:::
+- There are two main approaches to estimating $SE_{diff}$
 
-::: {.column}
-```{r, echo=FALSE, fig.width = 5, fig.height=3.5}
-data.frame(df = 20-1, mu = 0, sigma = 1) %>%
-  ggplot(aes(y = "", dist = dist_student_t(df, mu, sigma), fill = stat(abs(x) < t_crit))) + 
-  stat_dist_slab(color = "black") +
-  geom_vline(xintercept = -t_crit, size = 2, color = "salmon") +
-  geom_vline(xintercept = t_crit, size = 2, color = "salmon") +
-  geom_vline(xintercept = t_xbar, linetype = "dashed", size = 2, color = "cornflowerblue") +
-  coord_cartesian(xlim = c(-6, 6), expand = FALSE) +
-  scale_x_continuous(breaks = seq(-6, 6, by = 2)) +
-  scale_fill_manual(values = c("darkred", "grey98")) + 
-  labs(
-    y = NULL,
-    x = "t Sampling Distribution"
-  ) +
-  mytheme + theme(legend.position = "none")
-```
+- [Student's approach]{.b .blue} assumes "equal variance"
+    + It assumes that both populations have the same SD
+    + In parameter terms, it assumes that $\sigma_1 = \sigma_2$
+    + This approach simplifies the math, so we start here
+    
+- [Welch's approach]{.b .blue} does not make this assumption
+    + It has a more complicated equation
+    + But it is usually more realistic
 
-$|t_{\bar{x}}|>t_{crit}: \text{Reject }H_0$
-:::
+## Student's approach
+
+- We can estimate $\sigma$ by "pooling" $s_1$ and $s_2$
+
+$$
+s_p = \sqrt{\frac{s_1^2(n_1-1) + s_2^2(n_2-1)}{n_1+n_2-2}}
+$$
+
+::: {.fragment}
+- We can now use $s_p$ to estimate $SE_{diff}$
+
+$$SE_{diff} = s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$$
 :::
 
 ::: {.footer}
-
+Pooling is taking a weighted average (weighted by sample size minus 1).
 :::
 
-## Making decisions
+## Student's approach
 
-- Critical values let us decide and control $\alpha$
-    + $t_{obs} < t_{crit}$ = Retain the null
-    + $t_{obs} \ge t_{crit}$ = Reject the null
+- Our test statistic for Student's approach is:
 
-- When we reject the null, the test was "significant"
-    + Remember that not all rejections are correct
-    + Even a correct rejection may not be important
-    + In a large sample, a small effect may be significant
+$$t_{diff} = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$
 
-::: {.footer}
+- The null sampling distribution is assumed to be:
 
-:::
+$$t_{diff} \sim t(\textit{df}=n_1+n_2-2, \mu=0, \sigma=1)$$
 
-# $p$-values and <br>Pragmatics
+## Welch's approach
 
-## The $p$-value of a test
+$$SE_{diff} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$
 
-- But what if we had selected a different $\alpha$ level?
-    + Some $\alpha$ values would yield a different decision
-
-- The $p$-value is a popular approach for dealing with this
-
-::: {.callout-note title="Correct p-value Definitions"}
-The $p$-value is the smallest $\alpha$ value that would reject the null hypothesis.<br />
-The $p$-value is the probability of observing a test statistic *at least* as extreme as ours.
-:::
-
-::: {.callout-important title="Wrong p-value Definition"}
-The $p$-value is the probability that the null hypothesis is true.
-:::
-
-::: {.footer}
-
-:::
-
-## Using the $p$-value
-
-- The $p$-value is a summary of all possible $\alpha$ values
-    + How would you feel about setting $\alpha$ to $p$?
-
-- It is best to set $\alpha$ for the study *before* seeing the data
-    + Then, you reject the null if and only if $p<\alpha$
-
-- Reporting $p$ directly softens your decision
-    + e.g., $p=.049$ (Reject) vs. $p=.051$ (Retain)
-    + e.g., $p=.002$ (Reject) vs. $p=.047$ (Reject)
+$$
+t_{diff} \sim t\left(
+\textit{df}=\frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}
+{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1} + \frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}, 
+\mu=0, 
+\sigma=1\right)
+$$
 
 
-::: {.footer}
+## Both approaches in R
 
-:::
+- We can have R do all this math for us using `t.test()`
+    + `formula`: in the format *outcome ~ group*
+    + `data`: tibble containing *outcome* and *group*
+    + `var.equal`: TRUE (Student's) or FALSE (Welch's)
 
-
-## Reporting a significance test
-
-```{r}
-tribble(
-  ~Notation, ~Stars, ~Translation, ~Decision,
-  "p ≥ .05", "", "Test was NOT significant at α=.05", "Retain Null",
-  "p < .05", "*", "Test was significant at α=.05", "REJECT Null",
-  "p < .01", "**", "Test was significant at α=.01", "REJECT Null",
-  "p < .001", "***", "Test was significant at α=.001", "REJECT Null"
-) |>  
-  knitr::kable() |> 
-  kableExtra::kable_styling(font_size = 32)
-```
-
-- Report your exact $p$-value (unless less than .001)
-    + Saying $p<.05$ or $p\ge.05$ discards useful information
-
-- It can be helpful to report a CI and your test statistic too
-
-::: {.footer}
-
-:::
-
-## Putting it all together
-
-- We can do a one-sample $t$-test in R with `t.test()`
-- We can get a results table with `model_parameters()`
+## Student's test results {.fs70}
 
 ```{r}
 #| echo: true
 #| collapse: true
 #| message: false
 
-fit1 <- t.test(sugar_null, mu = 3)
+fit_s <- t.test(
+  formula = eval ~ track,
+  data = tratings,
+  var.equal = TRUE # <1>
+)
 
 library(easystats)
-model_parameters(fit1)
+model_parameters(fit_s)
 ```
+1. Be sure to set `var.equal=TRUE` to use Student's approach
 
-
-::: {.footer}
-
+::: {.fragment .pv2}
+"A Student's independent samples *t*-test found that tenure-track professors' average eval (M=3.87) was significantly lower than non-tenure-track professors' average eval (M=4.12), *t*(92)=–1.99, *p*=.049. The difference was estimated to be –0.25, 95% CI: [–0.51, 0.00]."
 :::
 
-## Interpreting the results
+::: {.footer}
+Note that this result is *barely* significant.
+:::
+
+## Welch's approach in R {.fs70}
 
 ```{r}
-#| echo: false
+#| echo: true
+#| collapse: true
 
-model_parameters(fit1)
+fit_w <- t.test(
+  formula = eval ~ track,
+  data = tratings,
+  var.equal = FALSE # <1>
+)
+
+model_parameters(fit_w)
 ```
+1. Be sure to set `var.equal=FALSE` to use Welch's approach
 
+::: {.fragment .pv2}
+"A Welch's independent samples *t*-test found that tenure-track professors' average eval (M=3.87) was significantly lower than non-tenure-track professors' average eval (M=4.12), *t*(21.62)=–2.19, *p*=.040. The difference was estimated to be –0.25, 95% CI: [–0.50, –0.01]."
+:::
 
-> "The mean sugar content per serving in our sample was 3.09&nbsp;g, 95% CI: [2.96, 3.22], which was not significantly different from the 3 g stated on the label, $t(19)=1.42$, $p=.171$. Thus, we retain the null hypothesis that there are 3 g of sugar per serving."
+## Paired groups
 
-## Putting it all together... again
+- Sometimes observations in our groups are related
+    + Obs. X in G1 is related somehow to obs. X in G2
+    + e.g., repeated measures of the same person or thing
+    
+- If we ignore these relationships in our modeling...
+    + Our SE estimates will tend to be too low
+    + Therefore, our $p$-values and CIs will be incorrect
 
-- Let's repeat with the other sample
+## Paired samples $t$-test
+
+- To fix this, we can calculate the paired differences
+
+$$\Delta_i = x_{1i} - x_{2i}$$
+
+- Then we do a one-sample $t$-test on the differences
+
+$$t_\Delta = \frac{\bar{\Delta}}{SE_{\bar{\Delta}}} = \frac{\bar{\Delta}}{s_{\Delta}/\sqrt{n}}$$
+
+$$t_\Delta \sim t(\textit{df}=n-1, \mu=0, \sigma=1)$$
+
+## Example data
 
 ```{r}
 #| echo: true
 #| collapse: true
 #| message: false
+#| replace_path: ["../../data/", ""]
 
-fit2 <- t.test(sugar_alt, mu = 3)
-
-model_parameters(fit2)
+social <- read_csv("../../data/socialproblems.csv")
+social
 ```
 
 
-::: {.footer}
+## Paired $t$-test in R
 
-:::
-
-## Interpreting the results
+- We can use `t.test()` again but our formula changes
 
 ```{r}
-#| echo: false
+#| echo: true
+#| collapse: true
+fit_p <- t.test(
+  formula = Pair(endpoint, baseline) ~ 1,
+  data = social
+)
 
-model_parameters(fit2)
+model_parameters(fit_p)
 ```
 
+::: {.footer}
+Note that $\textit{df}=33$ (not $67$) because we count each pair only once.
+:::
 
-> "The mean sugar content per serving in our sample was 4.02&nbsp;g, 95% CI: [3.65, 4.39], which was significantly greater than the 3 g stated on the label, $t(19)=5.70$, $p<.001$. Thus, we reject the null hypothesis that there are 3 g of sugar per serving."
+## One-sample $t$-test equivalence
+
+```{r}
+#| echo: true
+#| collapse: true
+
+# Calculate paired differences
+social$change <- social$endpoint - social$baseline
+
+# One-sample t-test on paired differences
+fit_o <- t.test(social$change, mu = 0)
+
+model_parameters(fit_o)
+```
+
+Note that these results are identical
+
+# Effect Sizes
+
+## Effect sizes
+
+- The $p$ value combines the effect size and uncertainty
+
+- But sometimes we want to separate these quantities out
+
+- A *pure* measure of effect size would be nice sometimes
+
+- In the current case of group comparisons...
+    + **How large is the difference between group means?**
+    + Is this difference large enough to matter in practice?
+    + Can we make it easier to interpret and compare?
+
+## Group difference effect sizes
+
+- The difference in means $(\bar{x}_1 - \bar{x}_2)$ is a simple effect size
+    + This is an "unstandardized" effect size (in original units)
+    + If the original units are intuitive, this might work well
+    
+- It may help comparison to standardize this value
+    + The difference is now in *standard deviation* units
+    
+$$ES = \frac{\bar{x}_1 - \bar{x}_2}{SD}$$
+
+::: {.footer}
+The question now becomes... which SD to use for standardization?
+:::
+
+## Independent samples
+
+- When comparing the means of independent samples...
+    + We can use the pooled SD in the denominator
+    
+$$d = \frac{\bar{x}_1 - \bar{x}_2}{s_p} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{(n_1 - 1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}}$$
+
+- This effect size measure is often referred to as Cohen's $d$
+
+- Other options include Hedge's $g$ and Glass' $\Delta$
+
+::: {.footer}
+$g$ corrects for small sample sizes and $\Delta$ uses the SD from one group only
+:::
+
+## Unstandardized difference
+
+```{r}
+#| echo: true
+#| collapse: true
+#| warning: false
+model_parameters(fit_s)
+```
+
+::: {.pv2}
+Tenure track professors' average teaching evaluations were 0.25 units lower (on a scale from 1 to 5) than were non-tenure track professors', 95% CI: [–0.51, 0.00].
+:::
+
+## Cohen's $d$
+
+```{r}
+#| echo: true
+#| collapse: true
+
+cohens_d(eval ~ track, data = tratings)
+```
+
+::: {.pv2}
+Tenure track professors' average teaching evaluations were 0.56 standard deviations lower than were non-tenure track professors', 95% CI: [–1.12, 0.00].
+:::
+
+## Dependent samples
+
+- When comparing the means of dependent/paired samples...
+    + We use the SD of the paired differences in the denominator
+    
+$$ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}$$
+
+- This is often referred to as a paired Cohen's $d$
+
+## Example
+
+```{r}
+#| echo: true
+#| collapse: true
+
+model_parameters(fit_p)
+
+cohens_d(Pair(endpoint, baseline) ~ 1, data = social)
+```
+
+Patients' social problems were 0.42 units (or 0.66 standard deviations) lower at the endpoint compared to baseline.

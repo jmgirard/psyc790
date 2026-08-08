@@ -35,6 +35,8 @@ title: "Chapter 03: Data and Exploration"
 
 <!-- Lecture b -->
 
+<!-- Lecture b -->
+
 ## [03b] Data Frames / Files / Exploration
 
 ### Topics
@@ -75,8 +77,7 @@ title: "Chapter 03: Data and Exploration"
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../02/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 02</a>
-
-  <a href="../../B/05/index.html" class="btn btn-primary" role="button">Chapter 05&nbsp;&nbsp;&raquo;</a>
+  <a href="../../A/02/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 02</a>
+  <a href="../../B/04/index.html" class="btn btn-primary" role="button">Chapter 04&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

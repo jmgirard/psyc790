@@ -23,27 +23,27 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-## Question 1 (NHST Logic)
+## Question 1 (NHST Approaches)
 
-a) If my test has 70% power and an $\alpha$ of .01,{{< hp glyph="a" >}} what are my chances of making a Type I Error and a Type II Error?
+a) Provide an example of independent samples/groups{{< hp glyph="a" >}} that you might want to study and an example of dependent samples/groups that you might want to study.
 
-b) If I wanted to reduce my chances of making each type of error,{{< hp glyph="a" >}} what could I change about my study/analysis?
+b) Why is it important for us to distinguish between{{< hp glyph="a" >}} independent and dependent samples when comparing group means?
 
-## Question 2 (Statistical Hypotheses)
+## Question 2 (Independent Samples)
 
-Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question. (Note that the salaries are given in thousands of dollars per year, such that 120 would actually mean $120,000 per year.)
+Download the [`political.csv`](../../data/political.csv){download="political.csv"} file. It contains information about 59 students' political activity. **Be sure to set the `read_edit` and `year` variables to factors.**
 
-a) My friend is arguing that professors (across all ranks and disciplines) make, on average, $100,000 per year. This doesn't sound right to me, so I want to approach this statistically.{{< hp glyph="a" >}} What should I use as my null hypothesis and what should I use as my alternative hypothesis?
+a) I want to test whether students who read editorials (`read_edit=1`) feel more politically informed (`informed`) than those who don't (`read_edit=0`). What type of $t$-test is appropriate here (one-sample, independent samples, or paired samples), and what should my null and alternative hypotheses be?
 
-b) Conduct a one-sample $t$-test of the null hypothesis from part (a). Report the $p$-value and your decision whether to retain or reject the null.
+b) Test my hypothesis from part (a) in R using Welch's approach. Include your results table, calculate a standardized effect size, and write a sentence that reports both verbally.
 
-## Question 3 (p-values and Pragmatics)
+## Question 3 (Paired Samples)
 
-Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question as well. This time, test the null hypothesis that professors make, on average, $110,000 per year.
+Download the [`sleep.csv`](../../data/sleep.csv){download="sleep.csv"} file. It contains ratings from 16 people: how important they consider sleep to be (`importance`) and how satisfied they are with their own sleep (`satisfaction`), both measured on a 0--100 scale.
 
-a) Conduct a one-sample $t$-test of this null hypothesis. Report the observed test statistic and its degrees of freedom.
+a) Because both ratings come from the same 16 people, these are dependent samples. Conduct the appropriate $t$-test of whether people rate the importance of sleep differently from their satisfaction with it, and calculate a standardized effect size.
 
-b) This test gives a much larger $p$-value than a test against $100,000 would. Explain what the $p$-value in *this* test means and how it should be interpreted statistically.{{< hp glyph="a" >}} Your answer should go beyond merely stating whether it was significant, and should address why testing a different null value changes the $p$-value even though the data never changed.
+b) Report the results verbally, and explain why treating these two ratings as *independent* samples would be a mistake.{{< hp glyph="a" >}}
 
 ---
 

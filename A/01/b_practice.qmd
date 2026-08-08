@@ -1,0 +1,81 @@
+---
+title: "Lecture 01b Practice"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+*These activities are for practice only --- there is nothing to turn in. Answer
+keys are included, so try each question yourself before opening them.*
+
+## Question 1 (R and RStudio)
+
+There are many ways to customize the RStudio interface. To explore the possibilities, go to **Tools** > **Global Options**. The most noticeable things you can change are aspects of RStudio's appearance. If you click on the *Appearance* section, you can select a different zoom level, editor font, font size, and editor theme. I usually teach with the default settings and you can keep everything the same if you want your computer to match the one I teach from, but for my own work I use the "Tomorrow Night 80s" theme and a custom font called [Fira Code](https://affcom.ku.edu/posts/firacode/). I also make slight changes to the *Pane Layout* section that I'd be happy to describe to you in class if you're interested.
+
+All of this stuff is optional, but a few changes that I'd recommend making are to go to the *General* section and make sure that "Restore .RData into workspace at startup" is unchecked and that "Save workspace to .RData on exit" is set to "Never". Finally, under the *Code* section and the Display tab, I like to check the box for "Allow scroll past end of document".
+
+## Question 2 (Console)
+
+Read what the user wanted to do and look at the command they sent to R. Fix the errors in the commands and calculate the answers.
+
+a)  I want to add 20 and 0.2 and divide that sum by 4.1. But I get an error when I try:<br />`[20 + .2] \ 4.1`
+b)  I want to multiply 6 by the sum of 2 and 1,300. But I get an error when I try:<br />`6 x (2 + 1,300)`
+
+<p><details>
+<summary>Click here for the answer key</summary>
+<blockquote>
+
+**Answer (a)**
+
+Change the brackets `[]` to parentheses `()` because parentheses `()` are the order-of-operations operator in R. Also, change the backslash `\` to a forward slash `/` because forward slash `/` is the division operator in R.
+
+```{r}
+#| comment: "#>"
+#| collapse: true
+
+(20 + .2) / 4.1
+```
+
+**Answer (b)**
+
+Change the `x` to an asterisk `*` because asterisk `*` is the multiplication operator in R. Also, remove the comma `,` from `1,300` because R doesn't use commas to delimit digits in large numbers.
+
+```{r}
+#| comment: "#>"
+#| collapse: true
+
+6 * (2 + 1300)
+```
+
+</blockquote></details></p>
+
+## Question 3 (Scripts)
+
+Create a new R script file and copy your answers to Question 2 into it. Add some comments to explain which line of code corresponds to 2a and 2b. It is a good idea to get into the practice of keeping your code organized and commented. Organized code will also make grading easier, and a happy grader is associated with a happy student. 😉
+
+<p><details>
+<summary>Click here for the answer key</summary>
+<blockquote>
+```{r}
+#| eval: false
+
+#### File > New File > R Script (or equivalent shortcuts)
+
+# Question 2a
+(20 + .2) / 4.1
+
+# Question 2b
+6 * (2 + 1300)
+
+#### File > Save (or equivalent shortcuts)
+```
+</blockquote></details></p>
+
+## Fun Stuff: The Literal Genie
+
+What it feels like to talk to R sometimes...
+
+{{< video https://www.youtube.com/embed/58l7ZqoU0a0 >}}

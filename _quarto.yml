@@ -51,42 +51,39 @@ website:
       - text: "Unit B"
         menu:
           - icon: people
-            text: "Chapter 05: Sampling and Estimation"
-            href: B/05/index.html
+            text: "Chapter 04: Sampling and Estimation"
+            href: B/04/index.html
           - icon: question-circle
-            text: "Chapter 06: Hypothesis Testing"
-            href: B/06/index.html
+            text: "Chapter 05: Hypothesis Testing"
+            href: B/05/index.html
           - icon: bar-chart
-            text: "Chapter 07: Group Comparisons"
-            href: B/07/index.html
-          - icon: signpost
-            text: "Chapter 08: Extensions and Review"
-            href: B/08/index.html
+            text: "Chapter 06: Group Comparisons"
+            href: B/06/index.html
       - text: "Unit C"
         menu:
           - icon: graph-up
-            text: "Chapter 09: Regression"
+            text: "Chapter 07: Regression"
+            href: C/07/index.html
+          - icon: sliders
+            text: "Chapter 08: Moderation"
+            href: C/08/index.html
+          - icon: clipboard-check
+            text: "Chapter 09: Assumptions, Diagnostics, and Nonlinearity"
             href: C/09/index.html
-          - icon: diagram-3
-            text: "Chapter 10: Categorical and Multiple Regression"
+          - icon: rulers
+            text: "Chapter 10: Reliability and Measurement Error"
             href: C/10/index.html
-          - icon: intersect
-            text: "Chapter 11: Moderation"
+          - icon: shuffle
+            text: "Chapter 11: Bootstrap and Robust Inference"
             href: C/11/index.html
-          - icon: activity
-            text: "Chapter 12: Assumptions and Diagnostics"
-            href: C/12/index.html
-          - icon: graph-up-arrow
-            text: "Chapter 13: Polynomial Regression"
-            href: C/13/index.html
       - text: "Unit D"
         menu:
           - icon: shield-check
-            text: "Chapter 15: Best Practices"
-            href: D/15/index.html
+            text: "Chapter 12: Best Practices and Power"
+            href: D/12/index.html
           - icon: pen
-            text: "Chapter 16: Reporting and Reviewing"
-            href: D/16/index.html
+            text: "Chapter 13: Reporting and Reviewing"
+            href: D/13/index.html
   page-footer: "Copyright 2025 &copy; Jeffrey Girard"
 
 format:

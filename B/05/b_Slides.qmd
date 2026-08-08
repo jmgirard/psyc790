@@ -11,7 +11,7 @@ format:
 
 ::: {.my-title}
 # [Statistical Methods]{.blue}
-Estimates / Normality / Confidence
+Covariances / Correlations / Inference
 
 ::: {.my-grey}
 [Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
@@ -28,526 +28,303 @@ Estimates / Normality / Confidence
 ```{r}
 #| echo: false
 #| message: false
-#| warning: false
 
 library(tidyverse)
-library(patchwork)
 library(distributional)
+library(patchwork)
+library(faux)
 library(ggdist)
-mytheme <- theme_gray(base_size = 30) + theme(panel.grid.minor = element_blank())
+library(lsr)
+mytheme <- theme_gray(base_size = 26) + theme(panel.grid.minor = element_blank())
 # Make mytheme the default rather than relying on every plot remembering
-# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
-# ggeffects -- never get a manual `+ mytheme` and were rendering at
-# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+# `+ mytheme`. Plots built by other packages -- plot(r_mat), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at ggplot's
+# 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme)
-```
-
-
-# Types of Estimates
-
-## Point and Interval Estimates {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/target.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-In statistical inference, we will often want **two** types of estimates...
-
-::: {.columns}
-::: {.column}
-#### [Point Estimates]{.blue}
-- What is our ***single best guess*** for the <br>value of the population parameter?
-
-- This is usually the sample statistic
-
-- Does not say anything about uncertainty
-
-*e.g., I don't know for sure the average height of all adult men, but I will guess that it is equal to the average height in my sample*
-:::
-::: {.column}
-#### [Interval Estimates]{.blue}
-- What is a ***range of reasonable guesses*** for the value of the population parameter?
-
-- Usually the statistic plus/minus some amount that is based on uncertainty
-
-*e.g., Due to sampling error, any number within 2.9 cm of the average height in my sample is also a very reasonable guess*
-:::
-:::
-
-::: {.footer}
-
-:::
-
-## Reasonable values
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/morale.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- Our uncertainty comes from the fact that sampling error causes different samples to yield different estimates
-
-- The sampling distribution shows what statistic values would be more or less common across many such samples
-
-- Reasonable values would be those where the sampling distribution is densest (i.e., the values that are the most commonly observed across different samples)
-
-- With less uncertainty (e.g., larger samples), the range of reasonable values will be tighter/narrower
-
-
-::: {.footer}
-
-:::
-
-## Sampling distribution
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/equalizer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- But we don't have access to the sampling distribution!
-    + This is because we usually only take one sample...
-
-- So we will need to *estimate* the statistic values for which <br>the sampling distribution is densest
-    + There are many different techniques for doing this
-
-- We will use the frequentist **parametric** approach
-    + This approach is very common and assumes that <br>the sampling distribution is *normally distributed*
-    + What does that mean? Is it reasonable to assume?
-
-::: {.footer}
-
-:::
-
-# The Normal Distribution
-
-## The normal distribution {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/bell.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-::: {.columns}
-::: {.column}
-The Normal Distribution is also called the *Bell Curve* and the *Gaussian* distribution
-
-We say that $x$ is normally distributed with mean $\mu$ and standard deviation $\sigma$ as
-
-$$x \sim \text{Normal}(\mu, \sigma)\\x \sim \mathcal{N}(\mu,\sigma)$$
-
-- $\mu$ (mu) determines the mean
-- $\sigma$ (sigma) determines the SD
-
-The $\mathcal{N}(0,1)$ distribution is called <br>the "Standard Normal Distribution"
-:::
-::: {.column}
-```{r}
-#| fig-width: 6
-#| fig-height: 6
-data.frame(mu = 0, sigma = 1) %>%
-  ggplot(aes(y = "", dist = dist_normal(mu, sigma))) + 
-  stat_dist_slab(fill = NA, color = "black") +
-  coord_cartesian(expand = FALSE) +
-  scale_color_viridis_c() + 
-  labs(
-    y = NULL,
-    x = "Normal(0, 1) distribution"
-  ) +
-  mytheme
-```
-:::
-:::
-
-::: {.footer}
-
-:::
-
-## The mu parameter
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/location_pin.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-Changing $\mu$ shifts the distribution left ($-$) or right ($+$)
-
-```{r}
-#| fig-width: 12
-#| fig-height: 5
-data.frame(mu = seq(-3, 3, 1)) %>% 
-  ggplot(aes(y = "", dist = dist_normal(mu, 1), color = mu)) + 
-  stat_dist_slab(fill = NA, linewidth = 1) +
-  coord_cartesian(expand = FALSE) +
-  scale_color_viridis_c(breaks = c(-3, 0, 3)) + 
-  labs(
-    y = NULL,
-    x = "Normal(mu, 1) distribution",
-    color = "mu"
-  ) +
-  mytheme
-```
-
-
-::: {.footer}
-
-:::
-
-## The sigma parameter
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/mountains.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-Changing $\sigma$ expands ($+$) or contracts ($-$) the distribution
-
-```{r}
-#| fig-width: 12
-#| fig-height: 5
-data.frame(sigma = seq(1, 5, 1)) %>% 
-  ggplot(aes(y = "", dist = dist_normal(0, sigma), color = sigma)) + 
-  stat_dist_slab(fill = NA, linewidth = 1) +
-  coord_cartesian(expand = FALSE) +
-  scale_color_viridis_c(breaks = c(1, 3, 5)) + 
-  labs(
-    y = NULL,
-    x = "Normal(0, sigma) distribution",
-    color = "sigma"
-  ) +
-  mytheme
-```
-
-::: {.footer}
-
-:::
-
-## The empirical rule
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/beach.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-```{r}
-#| echo: false
-#| fig-width: 12
-#| fig-height: 3.4
-
-sd_labels <- c(
-  "1" = "68.3% within 1 SD",
-  "2" = "95.4% within 2 SD",
-  "3" = "99.7% within 3 SD"
-)
-emp_curve <- expand_grid(k = 1:3, x = seq(-4, 4, length.out = 600)) |>
-  mutate(y = dnorm(x))
-
-ggplot(emp_curve, aes(x, y)) +
-  geom_area(data = filter(emp_curve, abs(x) <= k), fill = "#357EDD", alpha = 0.45) +
-  geom_line(linewidth = 1) +
-  facet_wrap(~k, labeller = labeller(k = sd_labels)) +
-  scale_x_continuous(breaks = seq(-4, 4, 2)) +
-  scale_y_continuous(breaks = NULL, expand = expansion(c(0, 0.05))) +
-  labs(x = NULL, y = NULL)
-```
-
-~68.3\% of the Normal distribution falls within 1 SD of the mean<br>
-~95.4\% of the Normal distribution falls within 2 SD of the mean<br>
-~99.7\% of the Normal distribution falls within 3 SD of the mean
-
-::: {.footer}
-
-:::
-
-## Quantiles in R
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/caliper.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
-
-How many SDs contain a given percentage?
-
-- We want the *middle* 95%, so we cut the 5% in half
-
-- We thus calculate the 2.5th and 97.5th percentiles
-
-- `qnorm()` does this for the Normal distribution
-
-```{r}
-#| echo: true
-#| collapse: true
-qnorm(0.025)
-qnorm(0.975)
-```
-- So 95% of the Normal distribution is within ~1.96 SDs
-
-
-::: {.footer}
-
-:::
-
-## Putting it all together {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/bricks.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-1. Our interval estimate should be the densest part of the sampling distribution
-
-1. 95% of the density of a normal distribution is within ~1.96 SD of the mean
-
-1. The SD of the sampling distribution is the standard error (SE) of the statistic
-
-1. So, if we assume the sampling distribution is normally distributed, then...
-
-1. Our interval estimate is the sample statistic plus/minus 1.96 * SE
-
-$$\text{CI}_{95} = \bar{x} \pm (1.96 \times s_{\bar{x}})$$
-
-This is called the [95% Confidence Interval (CI)]{.b .blue} and we'll talk about it more soon
-
-But this parametric approach all hinges on the assumption of normality (#4)...
-
-::: {.footer}
-
-:::
-
-# Central Limit Theorem
-
-## Non-normally distributed data
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
-
-What happens to the sampling distribution of $\bar{x}$ <br>when $x$ itself is not normally distributed?
-
-```{r}
-#| echo: false
-#| fig-width: 12
-#| fig-height: 4.0
-
-# Population is Beta(2, 1): a ramp on [0, 1], clearly non-normal, mean 2/3.
-set.seed(2025)
-clt_mean <- 2 / 3
-clt_sd <- sqrt(2 / 36)
-
-clt_plot <- function(sizes, reps = 20000) {
-  draws <- map_dfr(sizes, \(n) tibble(
-    n = n,
-    xbar = replicate(reps, mean(rbeta(n, 2, 1)))
-  ))
-  normal <- map_dfr(sizes, \(n) tibble(
-    n = n,
-    x = seq(0, 1.2, length.out = 400),
-    y = dnorm(x, clt_mean, clt_sd / sqrt(n))
-  ))
-  ggplot(draws, aes(xbar)) +
-    geom_histogram(aes(y = after_stat(density)), bins = 40,
-                   fill = "#357EDD", alpha = 0.55) +
-    geom_line(data = normal, aes(x, y), linewidth = 1) +
-    facet_wrap(~n, labeller = labeller(n = \(v) paste("Sample Size =", v))) +
-    scale_y_continuous(breaks = NULL, expand = expansion(c(0, 0.05))) +
-    labs(x = "Sample Mean", y = NULL)
+# Seed here so the unseeded rsim() draws below are reproducible; without
+# it these figures change on every render and churn _freeze.
+set.seed(2021)
+rsim <- function(r) {
+  rnorm_multi(n = 200, vars = 2, mu = 0, sd = 1, r = r)
 }
-
-clt_plot(c(1, 2))
 ```
 
+
+# Introductions
+
+## Variable relationships
+
+- So far, we have focused on the mean of one variable
+
+- But we are often interested in **variable relationships**
+    + As one variable changes, does the other tend to change?
+    + People with *more* anxiety tend to have *more* depression
+    + Nations with *more* museums tend to have *lower* mortality
+    
+- We can quantify such relationships using [correlations]{.b .blue}
+
 ::: {.footer}
-
+We will expand the idea of correlation into regression during Unit C.
 :::
 
-## Central limit theorem
+## Correlations
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
+- A correlation $(\rho,r)$ quantifies the **direction** and **strength** of the *linear* relationships between two variables
+    
+- [Direction]{.b .blue}: do the variables change together or opposing?
+    + $\rho>0$: the variables change together
+    + $\rho<0$: the variables change in opposition
+
+- [Strength]{.b .blue}: how well does one variable predict the other?
+    + $\rho \to 0$: no linear (or nonlinear) relationship
+    + $\rho \to \pm1$: perfect (positive or negative) relationship
+
+::: {.footer}
+A *linear* relationship is one that can be represented by a *straight* line
 :::
 
-The sampling distribution of $x$ will become more normal <br>as $n$ increases (even if $x$ itself is not normally distributed)
+## Positive linear
 
 ```{r}
 #| echo: false
-#| fig-width: 12
-#| fig-height: 4.0
 
-clt_plot(c(4, 8))
+p1 <- 
+  ggplot(rsim(0.25), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.25", x = "x1", y = "y") + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p2 <-   
+  ggplot(rsim(0.50), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.50", x = "x2", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p3 <- 
+  ggplot(rsim(0.75), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.75", x = "x3", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+p1 | p2 | p3
+```
+
+## Positive linear
+
+```{r}
+#| echo: false
+
+p1b <- p1 + geom_smooth(method = "lm", se = FALSE, color = "cornflowerblue", size = 2)
+
+p2b <- p2 + geom_smooth(method = "lm", se = FALSE, color = "cornflowerblue", size = 2)
+
+p3b <- p3 + geom_smooth(method = "lm", se = FALSE, color = "cornflowerblue", size = 2)
+
+p1b | p2b | p3b
+```
+
+## Negative linear
+
+```{r}
+#| echo: false
+
+p4 <- 
+  ggplot(rsim(-0.25), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = −0.25", x = "x4", y = "y") + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p5 <-   
+  ggplot(rsim(-0.50), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = −0.50", x = "x5", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p6 <- 
+  ggplot(rsim(-0.75), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = −0.75", x = "x6", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+p4 | p5 | p6
+```
+
+## Negative linear
+
+```{r}
+#| echo: false
+
+p4b <- p4 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p5b <- p5 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p6b <- p6 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p4b | p5b | p6b
+```
+
+## No linear / Nonlinear
+
+```{r, echo=FALSE}
+set.seed(2021)
+p7 <- 
+  ggplot(rsim(0), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.00", x = "x7", y = "y") + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p8 <-   
+  ggplot(tibble(X1 = runif(200, -5, 5), 
+                X2 = -X1^2 + rnorm(200, 0, 3)), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.00", x = "x8", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+p9 <-   
+  ggplot(tibble(X1 = runif(200, -5, 5), 
+                X2 = X1^2 + X1^3 + rnorm(200, 0, 10)), aes(x = X1, y = X2)) +
+  geom_point() +
+  labs(title = "𝜌 = 0.87", x = "x9", y = NULL) + 
+  mytheme +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+
+p7 | p8 | p9
 ```
 
 ::: {.footer}
-
+Two variables can also have no relationship (left) or a nonlinear relationship (middle, right)
 :::
 
-## Normal approximations
+## No linear / Nonlinear
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
+```{r}
+#| echo: false
+
+p7b <- p7 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p8b <- p8 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p9b <- p9 + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p7b | p8b | p9b
+```
+
+::: {.footer}
+If the line-of-best-fit is horizontal, there is no linear relationship
 :::
 
-- The central limit theorem **applies for *almost* all statistics**
-    + Why? Normal distributions come from summing up many random processes (e.g., genetic, environmental, social)
-    + Some values will be higher and others will be lower
-    + These deviations will tend to cancel each other out
-    + Central values are common and extreme values are rarer
+## No linear / Nonlinear
+
+```{r}
+#| echo: false
+
+p7c <- p7b + geom_smooth(method = "lm", se = FALSE, color = "salmon", size = 2)
+
+p8c <- p8b + geom_smooth(method = "lm", formula = y ~ poly(x, 2), se = FALSE, 
+              size = 2, color = "limegreen")
+
+p9c <- p9b + geom_smooth(method = "lm", formula = y ~ poly(x, 3), se = FALSE, 
+              size = 2, color = "limegreen")
+
+p7c | p8c | p9c
+```
+
+::: {.footer}
+Standard correlations do not count these kinds of nonlinear relationships
+:::
+
+# Calculating <br>Correlations
+
+## Variance and covariance
+
+- A single variable's **variance** measures its spread/changes
+
+$$\text{Var}(x) = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(x_i - \bar{x})$$
 
 ::: {.fragment}
-- Thus, we often assume a normal sampling distribution...
-    + This becomes more reasonable as $n$ increases
+- Two variables' [covariance]{.b .blue} measures their *linked* changes
+
+$$\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})$$
 :::
 
 ::: {.footer}
-
+A variable's variance is equal to its covariance with itself
 :::
 
+## More on covariance
 
-# Confidence Intervals
+$$\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})$$
 
-## Calculations
+- $\text{Cov}$ is positive when $x$ and $y$ vary together
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/calculator.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
+- $\text{Cov}$ is negative when $x$ and $y$ vary in opposition
 
-- To estimate the 95% Confidence Interval of the mean
+- The $\text{Cov}$ thus quantifies linear relationships...
+    + But it has weird units and an unbounded range
+    + So we standardize it to create the correlation
 
-$$\text{CI}_{95}= \bar{x}\pm\left(1.96\times\frac{\sigma}{\sqrt{n}}\right)$$
+## Pearson's correlation
 
-::: {.fragment}
-- However, this requires that we know $\sigma$, the population SD
+- In general, we standardize something by dividing it by its SD
 
-- Usually we estimate $\sigma$ using $s$, the sample SD
+- Here we need to divide by the product of the SDs of $x$ and $y$
 
-- This estimation introduces a bit more uncertainty...
-:::
+$$r_{xy} = \frac{\text{Cov}(x,y)}{s_x s_y}$$
 
-::: {.footer}
+- This is called the Pearson Correlation Coefficient (or PCC)
+    + Also called the product-moment or inter-class correlation
+    + The population parameter is $\rho$, the sample statistic is $r$
 
-:::
 
-## A complication
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/beer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-- To account for this extra uncertainty, we need to...
-    + Stop using the Normal distribution and `qnorm()`
-    + Instead use the Student $t$ distribution and `qt()`
-
-::: {.fragment}
-- The $t$ distribution has more uncertainty when $n$ is small
-    + It becomes increasingly normal as $n$ increases
-    + The $t$ distribution has the same $\mu$ and $\sigma$ parameters
-    + But it also has "degrees of freedom" $(\textit{df}=n-1)$
-    + As $n$ increases, *df* increases, and $t$ becomes more normal
-    
-:::
-
-::: {.footer}
-
-:::
-
-## The *df* parameter
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/beer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-As *df* increases, $t(\textit{df},\mu,\sigma)$ becomes increasingly normal
-
-```{r}
-#| fig-width: 12
-#| fig-height: 5
-standist::visualize("student_t(1, 0, 1)", "student_t(3, 0, 1)",
-                    "normal(0, 1)", xlim = c(-6, 6)) +
-  scale_color_discrete(breaks = c("student_t(1, 0, 1)", "student_t(3, 0, 1)", "normal(0, 1)")) +
-  labs(color = NULL, y = NULL, x = NULL) +
-  mytheme + theme(legend.position = "bottom")
-```
-
-::: {.footer}
-Sometimes you'll also see *df* referred to as $\nu$
-:::
-
-## Comparing multipliers
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/scales.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-When $n$ is small, the $t$ multiplier is higher (more uncertainty)
-
-As $n$ increases, the multipliers become increasingly similar
-
-```{r}
-#| fig-width: 12
-#| fig-height: 5
-tibble(
-  n = seq(2, 30, 1),
-  Normal = qnorm(0.975),
-  t = qt(0.975, n - 1)
-) |> 
-  pivot_longer(
-    cols = -n, 
-    names_to = "distribution", 
-    values_to = "multiplier"
-  ) |> 
-  ggplot(aes(x = n, y = multiplier, color = distribution, shape = distribution)) +
-  geom_line(linewidth = 1.5) +
-  geom_point(size = 4) +
-  scale_y_continuous(breaks = seq(2, 14, 2)) +
-  labs(x = "Sample Size (n)", color = NULL, shape = NULL) +
-  mytheme
-```
-
-::: {.footer}
-
-:::
-
-## A correction to our formula
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/edit_doc.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-::: {.columns}
-::: {.column}
-#### Population SD is known
-
-$$\text{CI}_{\%}=\bar{x}\pm z \left(\frac{\sigma}{\sqrt{n}}\right)$$
-
-```{r}
-#| echo: true
-#| collapse: true
-
-# n = 20
-(z <- qnorm(0.975))
-
-# n = 100
-(z <- qnorm(0.975))
-```
-
-:::
-::: {.column}
-#### Population SD is estimated
-$$\text{CI}_{\%}=\bar{x}\pm t \left(\frac{s}{\sqrt{n}}\right)$$
-
-```{r}
-#| echo: true
-#| collapse: true
-
-# n = 20
-(t <- qt(0.975, df = 20 - 1))
-
-# n = 100
-(t <- qt(0.975, df = 100 - 1))
-```
-:::
-:::
-
-::: {.footer}
-
-:::
-
-## An example in R
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/review.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
+## Example dataset
 
 ```{r}
 #| echo: true
@@ -555,217 +332,395 @@ $$\text{CI}_{\%}=\bar{x}\pm t \left(\frac{s}{\sqrt{n}}\right)$$
 #| message: false
 #| replace_path: ["../../data/", ""]
 
-tratings <- read_csv("../../data/teaching_ratings.csv")
-summary(tratings$eval)
+library(tidyverse)
+cigarettes <- read_csv("../../data/cigarettes.csv")
 ```
 
-::: {.columns}
-::: {.column .fragment}
-Estimate mean and SE
 ```{r}
-#| echo: true
-#| collapse: true
+#| echo: false
 
-x <- tratings$eval
-n <- length(x)
-xbar <- mean(x)
-s <- sd(x)
-se <- s / sqrt(n)
-
-xbar
-se
+knitr::kable(cigarettes) |> kableExtra::scroll_box(height = "500px")
 ```
-:::
-::: {.column .fragment}
-Estimate confidence interval
+
+
+## Scatterplots
+
 ```{r}
-#| echo: true
-#| collapse: true
+#| fig-width: 12
+#| fig-height: 6
 
-t <- qt(0.975, df = n - 1)
-ci_lo <- xbar - (t * se)
-ci_hi <- xbar + (t * se)
+p1 <- 
+  ggplot(cigarettes, aes(x = log_price, y = log_packs)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(0, 0.4, 0.1)) +
+  mytheme
+p2 <-   
+ggplot(cigarettes, aes(x = log_income, y = log_packs)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(4.6, 5.2, 0.2)) +
+  mytheme
+p3 <-   
+ggplot(cigarettes, aes(x = log_income, y = log_price)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(4.6, 5.2, 0.2)) +
+  mytheme
 
-ci_lo
-ci_hi
+p1 | p2 | p3
 ```
 
-:::
-:::
-
-::: {.footer}
-I will teach you easier ways to calculate CIs in R soon.
-:::
-
-# Practical Matters
-
-## Reporting a CI {.fs70}
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
+## Estimation in R
 
 ::: {.columns}
 ::: {.column}
-- It is recommended to always report point and interval estimates together
-
-- Reporting in text often uses this format:
-    + Statistic = Point Estimate, X% CI: [Lower Bound, Upper Bound]
-    + e.g., $\bar{x}=3.91$, 95% CI: $[3.81, 4.00]$
-
-- You can also put point and interval estimates in a table or a figure (though be sure to specify that they are X% CIs)
-:::
-::: {.column .tc}
-*Example Table*
+Covariance
 
 ```{r}
-tibble(
-  Parameter = "Mean Eval",
-  Estimate = 3.91,
-  `95% CI` = "[3.81, 4.00]"
-) |>  knitr::kable()
+#| echo: true
+#| collapse: true
+
+x <- cigarettes$log_packs
+y <- cigarettes$log_price
+n <- nrow(cigarettes)
+
+cov_xy <- 1 / (n - 1) * sum(
+  (x - mean(x)) * (y - mean(y)))
+cov_xy
 ```
 
-*Example Figure*
+:::
+::: {.column}
+Correlation
+
 ```{r}
+#| echo: true
+#| collapse: true
+
+s_x <- sd(x)
+s_y <- sd(y)
+
+r_xy <- cov_xy / (s_x * s_y)
+r_xy
+```
+:::
+:::
+
+::: {.fragment}
+Shortcut Functions:
+
+::: {.columns}
+
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+cov_xy <- cov(x, y)
+cov_xy
+```
+
+:::
+
+::: {.column}
+```{r}
+#| echo: true
+#| collapse: true
+
+r_xy <- cor(x, y)
+r_xy
+```
+:::
+
+:::
+
+:::
+
+## Interpretation
+
+- $r=0$ is no relationship, $r=\pm1$ is a perfect relationship
+
+- How should we interpret correlations between $0$ and $\pm1$?
+
+- It depends on the context (what is common in your field?)
+
+- But here are some heuristics to use as a starting place
+
+| $(0.0,0.1)$ | $[0.1,0.3)$ | $[0.3,0.5)$ | $[0.5,1.0)$ |
+| :-: | :-: | :-: | :-: |
+| Negligible | Small | Medium | Large |
+
+::: {.footer}
+This heuristic comes from Cohen (1988, 1992)
+:::
+
+## Ansombe's quartet
+
+- All four data sets have the same correlation $(r=.816)$
+
+- But they show very different relationships qualitatively!
+
+```{r}
+#| echo: false
+#| fig-width: 15
+#| fig-height: 5
+
+data("anscombe")
+p1 <- ggplot(anscombe, aes(x = x1, y = y1)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = "y") +
+  mytheme
+p2 <- ggplot(anscombe, aes(x = x2, y = y2)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = NULL) +
+  mytheme
+p3 <- ggplot(anscombe, aes(x = x3, y = y3)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = NULL) +
+  mytheme
+p4 <- ggplot(anscombe, aes(x = x4, y = y4)) + 
+  geom_point(size = 3, color = "blue") + 
+  geom_smooth(method = "lm", se = FALSE, color = "salmon", linewidth = 2) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 15)) +
+  labs(x = "x", y = NULL) +
+  mytheme
+
+p1 | p2 | p3 | p4
+```
+
+
+## Another effect size
+
+- We can square $r$ to get the [coefficient of determination]{.b .blue} $(r^2)$
+
+- How much variability is explained by the linear relationship?
+
+::: {.columns}
+::: {.column}
+| $r$  | $r^2$ | Explained |
+| :--: | :---: | :-------: |
+| 0.1  | 0.01  | 1%        |
+| 0.3  | 0.09  | 9%        |
+| 0.5  | 0.25  | 25%       |
+| 0.7  | 0.49  | 49%       |
+| 0.9  | 0.81  | 81%       |
+:::
+::: {.column}
+```{r}
+#| echo: false
 #| fig-width: 5
-#| fig-height: 2
-ggplot(
-  tibble(param = "", est = 3.91, lo = 3.81, hi = 4.00), 
-  aes(x = est, xmin = lo, xmax = hi, y = param)
-) + 
-  geom_point(size = 4) + 
-  geom_errorbar(width = 0.25, size = 2) + 
-  coord_cartesian(xlim = c(3.5, 4.5)) +
-  labs(x = "Mean Eval (with 95% CI)", y = NULL) +
-  theme_gray(base_size = 24) +
-  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(),
-        axis.ticks.y = element_blank())
+#| fig-height: 4
+ggplot(tibble(r = seq(-1, 1, 0.001), rsq = r^2), aes(x = r, y = rsq)) + 
+  geom_line(size = 2) + 
+  scale_x_continuous(breaks = seq(-1, 1, 0.5)) +
+  mytheme
 ```
 :::
 :::
 
-::: {.footer}
+## Obligatory PSA
 
-:::
+- Finding a correlation **does not** prove any causal story
 
-## Comparing CIs
+- There are many ways for $x$ and $y$ to become correlated
+    + Maybe $x$ causes $y$ (theorized model)
+    + Maybe $y$ causes $x$ (reverse causation)
+    + Maybe $x$ and $y$ cause each other (bidirectional)
+    + Maybe $z$ causes both $x$ and $y$ (third variable)
+    + Maybe it is just sampling error (spurious)
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/scales.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
-- A *higher* confidence level will result in a *wider* interval
-   + It is actually a riskier guess to be more confident
-   
+# Statistical Inference
+
+## Sampling error simulation
+
 ::: {.columns}
 ::: {.column}
+Samples from $\rho=0.0$
+![](../../img/nocorr.gif)
+:::
+::: {.column .fragment}
+Samples from $\rho=0.7$
+![](../../img/poscorr.gif)
+:::
+:::
+
+## Statistical inference
+
+- I tend to treat $r$ as a descriptive summary statistic
+    + I estimate it and maybe its CI but don't use NHST
+    + I use more sophisticated methods to test relationships
+
+- But we *can* test the significance of a correlation
+    + Usually the null hypothesis is that it equals zero
+
+$$
+H_0: \rho=0\\
+H_1: \rho\neq0
+$$
+
+## Test statistic
+
+- Test statistics incorporate the effect size and sample size
+
+$$t_{obs}=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}$$
+
+- What is its sampling distribution under the null?
+    + The frequentist parameteric approach assumes:
+
+$$t_{obs} \sim t(\textit{df}=n-2, \mu=0, \sigma=1)$$
+
+## Significance testing
+
 ```{r}
 #| echo: true
 #| collapse: true
-library(lsr)
 
-ciMean(x, conf = 0.99)
+r_xy
 
-ciMean(x, conf = 0.95)
+t_obs <- (r_xy * sqrt(n - 2)) / sqrt(1 - r_xy^2)
+t_obs
 
-ciMean(x, conf = 0.90)
+t_crit <- qt(c(0.025, 0.975), df = n - 2)
+t_crit
 ```
+
+- Because $t_{obs}$ is more extreme than $t_{crit}$, we reject $H_0$
+
+- Thus, we conclude that $r\neq0$ and specifically that $r<0$
+
+## Confidence intervals
+
+- Because $r$ is bounded $[0,1]$, its CI is often asymmetrical
+
+- So we need a more complicated procedure to estimate its CI
+
+::: {.columns}
+::: {.column}
+1. Transform $r$ to $z$,<br>which is unbounded
+
+2. Calculate a CI around $z$,<br>which is symmetrical
+
+3. Transform the bounds<br>of the $z$ CI back to $r$
 
 :::
 ::: {.column}
 ```{r}
+#| echo: false
 #| fig-width: 5
 #| fig-height: 4
 
-ggplot(
-  tibble(level = c("0.90", "0.95", "0.99"), 
-         est = c(3.906, 3.906, 3.906), 
-         lo = c(3.827, 3.812, 3.781), 
-         hi = c(3.985, 4.000, 4.031)), 
-  aes(x = est, xmin = lo, xmax = hi, y = level)
-) + 
-  geom_point(size = 4) + 
-  geom_errorbar(width = 0.25, linewidth = 1.5) + 
-  coord_cartesian(xlim = c(3.7, 4.1)) +
-  labs(x = "Estimated Mean Eval", y = "Confidence Level") +
-  theme_gray(base_size = 24) +
-  theme(panel.grid.minor = element_blank())
+rtoz <- function(r) {
+  (1 / 2) * log((1 + r)/(1 - r))
+}
+ggplot(tibble(r = seq(-1, 1, 0.0001), z = rtoz(r)), aes(x = r, y = z)) + 
+  geom_line(size = 2) +
+  mytheme
+```
+
+:::
+:::
+
+## Confidence intervals {.fs70}
+
+::: {.columns}
+::: {.column width="33%"}
+#### Step 1
+Transform $r$ to $z$
+
+$z = \frac{1}{2}\ln\left(\frac{1+r}{1-r}\right)$
+
+:::
+::: {.column width="33%"}
+#### Step 2
+Estimate $z$ CI
+
+$z \pm \sqrt{\frac{1}{n-3}} \times 1.96$
+
+:::
+::: {.column width="33%"}
+#### Step 3
+Transform CI to $r$
+
+$r=\frac{e^{2z}-1}{e^{2z}+1}$
+:::
+:::
+
+::: {.fragment}
+```{r}
+#| echo: true
+#| collapse: true
+
+r_xy
+
+z <-  (1 / 2) * log((1 + r_xy) / (1 - r_xy), base = exp(1))
+z
+
+zmult <- qnorm(0.975)
+ci_z <- c(lo = z - sqrt(1 / (n - 3)) * zmult, hi = z + sqrt(1 / (n - 3)) * zmult)
+ci_z
+
+ci_r <- (exp(2 * ci_z) - 1) / (exp(2 * ci_z) + 1)
+ci_r
 ```
 :::
-:::
 
-::: {.footer}
+## A simple function
 
-:::
-
-## Interpreting CIs
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/newspaper.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-It is common to misinterpret what confidence intervals mean
-
-:::{.callout-important title="Incorrect Interpretation"}
-"There is a 95% probability that the population parameter value lies within the 95% CI."
-:::
-
-The above is incorrect because it does not align with the frequentist view of probability
-
-::: {.footer}
-Bayesian interval estimates (credible intervals) actually can be interpreted this way
-:::
-
-## Interpreting CIs
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/newspaper.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-The correct frequentist interpretation is quite a mouthful
-
-:::{.callout-tip title="Correct Interpretation"}
-"If we repeated the experiment over and over again (with different samples of the same size) and computed the 95% CI in each sample, then 95% of those intervals would contain the population parameter value."
-:::
-
-Alternatives that are reasonable shortcuts
-
-:::{.callout-note title="Acceptable Interpretations"}
-"We can be 95% confident that the 95% CI contains the population mean."
-
-"The 95% CI contains highly reasonable estimates of the population mean."
-:::
-
-::: {.footer}
-The first alternative isn't my favorite as it implies a view of probability as belief (which isn't very frequentist)
-:::
-
-## Another example
-
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
-
-Let's estimate the mean sleep satisfaction of all grad students
-
-We have a sample of 16 grad students that we can use
+- The `cor.test()` function will do all this work for you
+    + Note that our results are identical to before
 
 ```{r}
 #| echo: true
 #| collapse: true
-#| message: false
-#| replace_path: ["../../data/", ""]
 
-sleep <- read_csv("../../data/sleep.csv")
-
-mean(sleep$satisfaction)
-
-ciMean(sleep$satisfaction, conf = 0.95)
+cor.test(x, y)
 ```
 
-*"We estimate that the mean sleep satisfaction among all grad students is 68.75, 95% CI: [57.78, 79.72]. Thus, our best guess for this value is 68.75 but, given sampling error, any number from 57.78 to 79.72 would also be a highly reasonable guess."*
+## Prettier output
 
-::: {.footer}
+- The `correlation()` function is more convenient
 
-:::
+```{r}
+#| echo: true
+#| collapse: true
+
+library(easystats)
+correlation(cigarettes, select = "log_packs", select2 = "log_price")
+```
+
+## Many correlations
+
+```{r}
+#| echo: true
+#| collapse: true
+
+r_all <- correlation(cigarettes)
+r_all
+```
+
+- This also applies the Holm method to adjust the $p$-values
+    + We will talk more about this in a future lecture
+
+## Correlation matrix
+
+```{r}
+#| echo: true
+#| collapse: true
+
+r_mat <- summary(r_all)
+r_mat
+```
+
+## Plotting a matrix
+
+```{r}
+#| echo: true
+#| collapse: true
+
+plot(r_mat)
+```
