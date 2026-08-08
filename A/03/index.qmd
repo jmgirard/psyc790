@@ -45,8 +45,8 @@ title: "Chapter 03: Data and Exploration"
 - Data Exploration
 
 ### Files
-- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
-- [salaries0.csv](../../data/salaries0.csv){download="salaries0.csv"}
+- [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
+- [penguins0.csv](../../data/penguins0.csv){download="penguins0.csv"}
 - [gradebook.csv](../../data/gradebook.csv){download="gradebook.csv"}
 
 ### Readings

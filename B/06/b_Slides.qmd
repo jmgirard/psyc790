@@ -70,18 +70,18 @@ $$
 #| replace_path: ["../../data/", ""]
 
 library(tidyverse)
-salaries <- read_csv("../../data/salaries.csv")
-salaries
+penguins <- read_csv("../../data/penguins.csv")
+penguins
 ```
 
-- Do the three professor **ranks** have the same mean salary?
+- Do the three penguin **species** have the same mean body mass?
 
 ## Exploratory analysis
 
 ```{r}
 #| fig-height: 5
 
-ggplot(salaries, aes(x = rank, y = salary)) +
+ggplot(penguins, aes(x = species, y = body_mass)) +
   ggbeeswarm::geom_quasirandom(
     color = "cornflowerblue", 
     size = 3,
@@ -168,10 +168,10 @@ ggplot(bw_curves, aes(x, y)) +
 
 ::: {.columns}
 ::: {.column}
-*How different are the three groups/ranks (on average)?*
+*How different are the three groups/species (on average)?*
 :::
 ::: {.column}
-*How different are professors <br>in the same group/rank?*
+*How different are penguins <br>in the same group/species?*
 :::
 :::
 
@@ -262,14 +262,14 @@ $$x \sim F(\textit{df}_1, \textit{df}_2)$$
 #| fig-width: 6
 #| fig-height: 6
 
-data.frame(df1 = 2, df2 = 394) |>
-  ggplot(aes(y = "", dist = dist_f(df1, df2))) + 
+data.frame(df1 = 2, df2 = 339) |>
+  ggplot(aes(y = "", dist = dist_f(df1, df2))) +
   stat_dist_slab(fill = NA, color = "black") +
   coord_cartesian(expand = FALSE) +
-  scale_color_viridis_c() + 
+  scale_color_viridis_c() +
   labs(
     y = NULL,
-    x = "F(2, 394) distribution"
+    x = "F(2, 339) distribution"
   ) +
   mytheme
 ```
@@ -330,8 +330,8 @@ data.frame(df2 = c(10, 20, 30, 40, 50)) |>
 #| collapse: true
 
 fit <- aov(
-  formula = salary ~ rank,
-  data = salaries
+  formula = body_mass ~ species,
+  data = penguins
 )
 ```
 
@@ -350,8 +350,8 @@ summary(fit)
 #| echo: true
 #| collapse: true
 
-# Critical value (to compare to F_obs = 128.2)
-qf(.975, df1 = 2, df2 = 394)
+# Critical value (to compare to F_obs = 343.6)
+qf(.975, df1 = 2, df2 = 339)
 ```
 
 :::
@@ -367,7 +367,7 @@ library(easystats)
 model_parameters(fit)
 ```
 
-*We used a one-way ANOVA to compare the mean salaries of Assistant, Associate, and Full professors and rejected the null hypothesis that these three groups have the same mean, $F(2,394)=128.22$, $p<.001$.*
+*We used a one-way ANOVA to compare the mean body masses of Adelie, Chinstrap, and Gentoo penguins and rejected the null hypothesis that these three groups have the same mean, $F(2,339)=343.63$, $p<.001$.*
 
 
 ## Estimating group means
@@ -379,7 +379,7 @@ model_parameters(fit)
 #| collapse: true
 #| message: false
 
-gmeans <- estimate_means(fit, by = "rank")
+gmeans <- estimate_means(fit, by = "species")
 gmeans
 ```
 
@@ -428,8 +428,8 @@ $$\eta^2 = \frac{SS_b}{SS_{tot}}$$
 #| echo: true
 #| collapse: true
 
-ss_b <- 143232
-ss_w <- 220069
+ss_b <- 146864214
+ss_w <- 72443483
 ss_tot <- ss_b + ss_w
 
 ss_b / ss_tot
@@ -444,7 +444,7 @@ eta_squared(fit)
 ```
 :::
 
-- So 39% of the variation in salary was between groups/ranks
+- So 67% of the variation in body mass was between groups/species
 
 # Post-hoc Tests
 
@@ -539,7 +539,7 @@ Holm is complicated but more powerful
 
 estimate_contrasts(
   model = fit, 
-  contrast = "rank", 
+  contrast = "species", 
   method = "pairwise",
   p_adjust = "bonferroni"
 )
@@ -556,7 +556,7 @@ estimate_contrasts(
 
 estimate_contrasts(
   model = fit, 
-  contrast = "rank", 
+  contrast = "species", 
   method = "pairwise",
   p_adjust = "holm" # change the method here
 )

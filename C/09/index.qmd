@@ -75,7 +75,7 @@ title: "Chapter 09: Assumptions, Diagnostics, and Nonlinearity"
 - Closing Thoughts
 
 ### Files
-- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+- [screentime.csv](../../data/screentime.csv){download="screentime.csv"}
 
 ### Readings
 - *Applied Multiple Regression/Correlation Analysis*, §6.1--6.2

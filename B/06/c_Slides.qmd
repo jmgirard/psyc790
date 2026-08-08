@@ -47,7 +47,7 @@ theme_set(mytheme)
 
 ## Welch's one-way test
 
-- The ANOVA we learned in the previous chapter used Student's approach
+- The ANOVA we learned in the previous lecture used Student's approach
     + It simplifies the math by assuming all $\sigma$ are equal
     + The "homogeneity of variance" or "sphericity" assumption
     
@@ -65,8 +65,8 @@ theme_set(mytheme)
 #| replace_path: ["../../data/", ""]
 
 library(tidyverse)
-salaries <- read_csv("../../data/salaries.csv")
-salaries
+penguins <- read_csv("../../data/penguins.csv")
+penguins
 ```
 
 ## Exploratory analysis
@@ -74,7 +74,7 @@ salaries
 ```{r}
 #| fig-height: 5
 
-ggplot(salaries, aes(x = rank, y = salary)) +
+ggplot(penguins, aes(x = species, y = body_mass)) +
   ggbeeswarm::geom_quasirandom(
     color = "cornflowerblue", 
     size = 3,
@@ -94,8 +94,8 @@ ggplot(salaries, aes(x = rank, y = salary)) +
 library(easystats)
 
 fit <- oneway.test(
-  formula = salary ~ rank,
-  data = salaries
+  formula = body_mass ~ species,
+  data = penguins
 )
 
 model_parameters(fit)

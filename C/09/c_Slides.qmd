@@ -449,16 +449,19 @@ ggplot(df2, aes(x = x, y = y2)) +
 #| replace_path: ["../../data/", ""]
 
 library(tidyverse)
-salaries <- read_csv("../../data/salaries.csv")
+screentime <- read_csv("../../data/screentime.csv")
 
-fit3 <- lm(salary ~ yrs.since.phd + I(yrs.since.phd^2) + sex, data = salaries)
+fit3 <- lm(
+  mental_wellbeing ~ play_wd + I(play_wd^2) + deprived_area,
+  data = screentime
+)
 
 model_parameters(fit3)
 ```
 
-- The effects of `yrs.since.phd` are significant controlling for sex
+- The effects of `play_wd` are significant controlling for `deprived_area`
 
-- The effect of `sex` is significant controlling for `yrs.since.phd` and its square
+- The effect of `deprived_area` is *not* significant controlling for `play_wd` and its square
 
 
 ## Visualizing the model {.fs90}
@@ -467,11 +470,11 @@ model_parameters(fit3)
 #| echo: true
 #| eval: false
 
-plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE)
+plot(estimate_relation(fit3, by = c("play_wd", "deprived_area")), show_data = TRUE)
 ```
 
 ```{r}
-plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE) + mytheme() + labs(y = "salary")
+plot(estimate_relation(fit3, by = c("play_wd", "deprived_area")), show_data = TRUE) + mytheme() + labs(y = "mental_wellbeing")
 ```
 
 ## Adding moderation {.fs90}
@@ -482,15 +485,15 @@ plot(estimate_relation(fit3, by = c("yrs.since.phd", "sex")), show_data = TRUE) 
 #| message: false
 
 fit4 <- lm(
-  salary ~ yrs.since.phd + I(yrs.since.phd^2) + sex + 
-    yrs.since.phd:sex + I(yrs.since.phd^2):sex, 
-  data = salaries
+  mental_wellbeing ~ play_wd + I(play_wd^2) + deprived_area +
+    play_wd:deprived_area + I(play_wd^2):deprived_area,
+  data = screentime
 )
 
 model_parameters(fit4)
 ```
 
-- The effects of `yrs.since.phd` are not moderated by sex
+- The effects of `play_wd` are not moderated by `deprived_area`
 
 ## Visualizing the model
 
@@ -498,11 +501,11 @@ model_parameters(fit4)
 #| echo: true
 #| eval: false
 
-plot(estimate_relation(fit4, by = c("yrs.since.phd", "sex")))
+plot(estimate_relation(fit4, by = c("play_wd", "deprived_area")))
 ```
 
 ```{r}
-plot(estimate_relation(fit4, by = c("yrs.since.phd", "sex"))) + mytheme() + labs(y = "salary")
+plot(estimate_relation(fit4, by = c("play_wd", "deprived_area"))) + mytheme() + labs(y = "mental_wellbeing")
 ```
 
 

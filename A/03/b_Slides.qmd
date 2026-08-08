@@ -634,42 +634,45 @@ library(easystats)
 
 # ==============================================================================
 
-# SETUP: We will use the salaries data and configure its factors
+# SETUP: We will use the penguins data and configure its factors
 
-salaries <- read_csv("../../data/salaries0.csv")
-salaries
+penguins <- read_csv("../../data/penguins0.csv")
+penguins
 
-salaries$rank <- factor(salaries$rank, levels = c(1, 2, 3), 
-                        labels = c("Assistant", "Associate", "Full"))
+penguins$species <- factor(penguins$species, levels = c(1, 2, 3),
+                           labels = c("Adelie", "Chinstrap", "Gentoo"))
 
-salaries$discipline <- factor(salaries$discipline, levels = c(1, 2), 
-                              labels = c("Applied", "Theoretical"))
+penguins$island <- factor(penguins$island, levels = c(1, 2, 3),
+                          labels = c("Biscoe", "Dream", "Torgersen"))
 
-salaries$sex <- factor(salaries$sex, levels = c(1, 2), 
-                       labels = c("Female", "Male"))
+penguins$sex <- factor(penguins$sex, levels = c(1, 2),
+                       labels = c("female", "male"))
 
-salaries
-write_csv(salaries, "salaries.csv")
+penguins
+write_csv(penguins, "penguins.csv")
 
 # ==============================================================================
 
 # LESSON: Then check the summary statistics for problems
 
-summary(salaries)
+# Note the NA counts: 2 penguins were never measured and 11 more were never
+# sexed. Real data has holes, and summary() is where you find them.
+
+summary(penguins)
 
 # ==============================================================================
 
 # LESSON: Describe the distribution of continuous variables
 
-describe_distribution(salaries, salary)
-describe_distribution(salaries)
+describe_distribution(penguins, body_mass)
+describe_distribution(penguins)
 
 # ==============================================================================
 
 # LESSON: Describe the distributions of discrete variables / factors
 
-data_tabulate(salaries, rank)
-data_tabulate(salaries, is.factor)
+data_tabulate(penguins, species)
+data_tabulate(penguins, is.factor)
 ```
 
 ## Data Visualization {.fs70}
@@ -707,47 +710,47 @@ data_tabulate(salaries, is.factor)
 
 library(tidyverse)
 
-salaries <- read_csv("../../data/salaries.csv")
+penguins <- read_csv("../../data/penguins.csv")
 
 # ==============================================================================
 
 # USECASE: Visualize the variation of a discrete variable / factor
 
-qplot(x = rank, data = salaries, geom = "bar")
+qplot(x = species, data = penguins, geom = "bar")
 
-qplot(x = discipline, data = salaries, geom = "bar")
+qplot(x = island, data = penguins, geom = "bar")
 
 # ==============================================================================
 
 # USECASE: Visualize the variation of a continuous variable
 
-qplot(x = yrs.since.phd, data = salaries, geom = "histogram")
+qplot(x = flipper_len, data = penguins, geom = "histogram")
 
-qplot(x = yrs.since.phd, data = salaries, geom = "boxplot")
+qplot(x = flipper_len, data = penguins, geom = "boxplot")
 
-qplot(x = salary, data = salaries, geom = "histogram")
+qplot(x = body_mass, data = penguins, geom = "histogram")
 
-qplot(x = salary, data = salaries, geom = "boxplot")
+qplot(x = body_mass, data = penguins, geom = "boxplot")
 
 # ==============================================================================
 
 # USECASE: Visualize the covariation of two continuous variables
 
-qplot(x = yrs.since.phd, y = salary, data = salaries, geom = "point")
+qplot(x = flipper_len, y = body_mass, data = penguins, geom = "point")
 
 # ==============================================================================
 
 # USECASE: Visualize the covariation of two discrete variables
 
-qplot(x = rank, y = discipline, data = salaries, geom = "jitter")
+qplot(x = species, y = island, data = penguins, geom = "jitter")
 
-qplot(x = rank, fill = discipline, data = salaries, geom = "bar")
+qplot(x = species, fill = island, data = penguins, geom = "bar")
 
 # ==============================================================================
 
 # USECASE: Visualize the covariation of a discrete and a continuous variable
 
-qplot(x = salary, y = rank, data = salaries, geom = "boxplot")
+qplot(x = body_mass, y = species, data = penguins, geom = "boxplot")
 
-qplot(x = salary, y = rank, data = salaries, geom = "violin")
+qplot(x = body_mass, y = species, data = penguins, geom = "violin")
 ```

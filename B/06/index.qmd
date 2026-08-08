@@ -43,7 +43,7 @@ title: "Chapter 06: Group Comparisons"
 - Post-hoc Tests
 
 ### Files
-- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+- [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
 
 ### Readings
 - [Comparing Several Means, §14.1--14.5](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*
@@ -74,7 +74,7 @@ title: "Chapter 06: Group Comparisons"
 
 ### Files
 - [depression.csv](../../data/depression.csv){download="depression.csv"}
-- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+- [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
 
 ### Readings
 - [Comparing Several Means, §14.6--14.11](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*

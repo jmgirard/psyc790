@@ -149,8 +149,8 @@ theme_set(mytheme())
 #| message: false
 #| replace_path: ["../../data/", ""]
 
-salaries <- read_csv("../../data/salaries.csv")
-salaries
+penguins <- read_csv("../../data/penguins.csv")
+penguins
 ```
 
 ## Dummy coding by hand
@@ -161,13 +161,13 @@ salaries
 #| echo: true
 #| collapse: true
 
-salaries$sex_c1 <- recode(salaries$sex, Female = 1, Male = 0)
-salaries
+penguins$sex_c1 <- recode(penguins$sex, female = 1, male = 0)
+penguins
 ```
 
 ## Regression with a dummy code
 
-- We can regress `salary` on the numeric dummy code $C_1$
+- We can regress `body_mass` on the numeric dummy code $C_1$
     
 $$\hat{y}_i = b_0 + b_1 C_{1i}$$
 
@@ -183,13 +183,13 @@ $$\hat{y}_i = b_0 + b_1 C_{1i}$$
 #| echo: true
 #| collapse: true
 
-fit <- lm(formula = salary ~ sex_c1, data = salaries)
+fit <- lm(formula = body_mass ~ sex_c1, data = penguins)
 fit
 ```
 
-- The average salary of *male* professors is $115,090
+- The average body mass of *male* penguins is 4545.68 g
 
-- *Female* professors make $14,090 less on average
+- *Female* penguins weigh 683.41 g less on average
 
 ## The factor shortcut (recommended)
 
@@ -201,8 +201,8 @@ fit
 #| echo: true
 #| collapse: true
 
-salaries$sex <- factor(salaries$sex, levels = c("Male", "Female"))
-fit2 <- lm(formula = salary ~ sex, data = salaries)
+penguins$sex <- factor(penguins$sex, levels = c("male", "female"))
+fit2 <- lm(formula = body_mass ~ sex, data = penguins)
 fit2
 ```
 
@@ -214,14 +214,14 @@ fit2
 #| echo: true
 #| collapse: true
 
-salaries$sex <- factor(salaries$sex, levels = c("Female", "Male"))
-fit3 <- lm(formula = salary ~ sex, data = salaries)
+penguins$sex <- factor(penguins$sex, levels = c("female", "male"))
+fit3 <- lm(formula = body_mass ~ sex, data = penguins)
 fit3
 ```
 
-- The average salary of *female* professors is $101,000
+- The average body mass of *female* penguins is 3862.27 g
 
-- *Male* professors make $14,090 more on average
+- *Male* penguins weigh 683.41 g more on average
 
 ## Parameter significance testing
 
@@ -234,7 +234,7 @@ fit3
 model_parameters(fit2)
 ```
 
-> "The average salary of female professors was estimated to be 14.09 thousand US dollars lower than that of male professors, 95% CI: [--24.04, --2.13], *t* = --2.78, *p* = .006."
+> "The average body mass of female penguins was estimated to be 683.41 grams lower than that of male penguins, 95% CI: [--840.80, --526.02], *t* = --8.54, *p* < .001."
 
 ## Relation to Student's t-test {.fs90}
 
@@ -242,7 +242,7 @@ model_parameters(fit2)
 #| echo: true
 #| collapse: true
 
-fit2b <- t.test(salary ~ sex, data = salaries, var.equal = TRUE)
+fit2b <- t.test(body_mass ~ sex, data = penguins, var.equal = TRUE)
 model_parameters(fit2b)
 ```
 
@@ -261,7 +261,7 @@ model_parameters(fit2b)
 model_parameters(fit2, standardize = "refit")
 ```
 ::: {.fs70}
-> "The average salary for female professors was 0.47 standard deviations lower than that of male professors, 95% CI: [--0.79, --0.14], p=.006."
+> "The average body mass of female penguins was 0.85 standard deviations lower than that of male penguins, 95% CI: [--1.04, --0.65], p<.001."
 
 :::
 
@@ -280,7 +280,7 @@ Note that $y$ is standardized but the dummy code is left 0 or 1.
 r2(fit2, ci = 0.95)
 ```
 ::: {.fs70}
-> "Only around 2% of the variance in professors' salary was explained by sex,<br>R² = .019, 95% CI: [.002, .055], Adjusted R² = .017."
+> "Around 18% of the variance in penguins' body mass was explained by sex,<br>R² = .181, 95% CI: [.110, .259], Adjusted R² = .178."
 
 :::
 
@@ -289,16 +289,16 @@ r2(fit2, ci = 0.95)
 $$
 \begin{align}
 \text{Model Equation: }&\hat{y}=b_0 + b_1(C_1)\\
-&\hat{y} = 115.09 -14.09(C_1)\\ \\
-\text{Male professors: }&\hat{y} = 115.09 -14.09(0)=115.09 \\
-\text{Female professors: }&\hat{y} = 115.09 -14.09(1)=101.00
+&\hat{y} = 4545.68 -683.41(C_1)\\ \\
+\text{Male penguins: }&\hat{y} = 4545.68 -683.41(0)=4545.68 \\
+\text{Female penguins: }&\hat{y} = 4545.68 -683.41(1)=3862.27
 \end{align}
 $$
 
 ::: {.fragment}
-- Each professor $i$ will have a residual $e_i$ that pushes their salary above or below the mean for their group (i.e., sex)
+- Each penguin $i$ will have a residual $e_i$ that pushes its body mass above or below the mean for its group (i.e., sex)
 
-$$y_i=115.09-14.09(C_1)+e_i$$
+$$y_i=4545.68-683.41(C_1)+e_i$$
 :::
 
 ## Estimating means in R
@@ -440,9 +440,9 @@ The reference group has implications for interpretation
 #| echo: true
 #| collapse: true
 
-salaries$rank_c1 <- recode(salaries$rank, Assistant=0, Associate=1, Full=0)
+penguins$species_c1 <- recode(penguins$species, Adelie=0, Chinstrap=1, Gentoo=0)
 
-salaries$rank_c2 <- recode(salaries$rank, Assistant=0, Associate=0, Full=1)
+penguins$species_c2 <- recode(penguins$species, Adelie=0, Chinstrap=0, Gentoo=1)
 ```
 
 ::: {.fragment}
@@ -454,9 +454,9 @@ salaries$rank_c2 <- recode(salaries$rank, Assistant=0, Associate=0, Full=1)
 #| echo: true
 #| collapse: true
 
-salaries$rank <- factor(
-  salaries$rank, 
-  levels = c("Assistant", "Associate", "Full")
+penguins$species <- factor(
+  penguins$species,
+  levels = c("Adelie", "Chinstrap", "Gentoo")
 )
 ```
 :::
@@ -482,13 +482,13 @@ We will elaborate on multiple regression during the next lecture
 #| echo: true
 #| collapse: true
 
-fit4 <- lm(salary ~ rank_c1 + rank_c2, data = salaries)
+fit4 <- lm(body_mass ~ species_c1 + species_c2, data = penguins)
 fit4
 ```
 
-- *Assistant* rank averages $80,780 per year
-- *Associate* rank averages $13,100 more than *Assistant* rank
-- *Full* rank averages $46,000 more than *Assistant* rank
+- *Adelie* species averages 3700.66 g
+- *Chinstrap* species averages 32.43 g more than *Adelie* species
+- *Gentoo* species averages 1375.35 g more than *Adelie* species
 
 ## Parameter significance testing
 
@@ -499,11 +499,11 @@ fit4
 model_parameters(fit4)
 ```
 
-- Intercept: *Is the Assistant rank salary zero?*
+- Intercept: *Is the Adelie species body mass zero?*
 
-- $C_1$ Slope: *Is the Associate-Assistant group difference zero?*
+- $C_1$ Slope: *Is the Chinstrap-Adelie group difference zero?*
 
-- $C_2$ Slope: *Is the Full-Assistant group difference zero?*
+- $C_2$ Slope: *Is the Gentoo-Adelie group difference zero?*
 
 
 
@@ -513,7 +513,7 @@ model_parameters(fit4)
 #| echo: true
 #| collapse: true
 
-fit5 <- lm(salary ~ rank, data = salaries)
+fit5 <- lm(body_mass ~ species, data = penguins)
 model_parameters(fit5)
 ```
 
@@ -523,7 +523,7 @@ model_parameters(fit5)
 
 ## Model significance testing
 
-- What is the overall effect of rank (à la ANOVA)?
+- What is the overall effect of species (à la ANOVA)?
     + Do all categories have the same mean?
     + We can actually give the `lm()` results to `aov()`
 
@@ -550,21 +550,21 @@ model_parameters(fit5, standardize = "refit")
 r2(fit5, ci = 0.95)
 ```
 
-- *Associate* rank averages 0.43 SDs higher salary than *Assistant*
+- *Chinstrap* species averages 0.04 SDs higher body mass than *Adelie*
 
-- *Full* rank averages 1.52 SDs higher salary than *Assistant*
+- *Gentoo* species averages 1.72 SDs higher body mass than *Adelie*
 
-- Rank explained 39% of the variance in salary
+- Species explained 67% of the variance in body mass
 
 ## Estimating means by hand
 
 $$
 \begin{align}
 \text{Equation: }&\hat{y} = b_0 + b_1(C_1) + b_2(C_2) \\
-  &\hat{y} = 80.78 + 13.10(C_1) + 46.00(C_2) \\ \\
-\text{Assistant: }&\hat{y} = 80.78 + 13.10(0) + 46.00(0) = 80.78 \\
-\text{Associate: }&\hat{y} = 80.78 + 13.10(1) + 46.00(0) = 93.88 \\
-\text{Full: }     &\hat{y} = 80.78 + 13.10(0) + 46.00(1) = 126.78
+  &\hat{y} = 3700.66 + 32.43(C_1) + 1375.35(C_2) \\ \\
+\text{Adelie: }   &\hat{y} = 3700.66 + 32.43(0) + 1375.35(0) = 3700.66 \\
+\text{Chinstrap: }&\hat{y} = 3700.66 + 32.43(1) + 1375.35(0) = 3733.09 \\
+\text{Gentoo: }   &\hat{y} = 3700.66 + 32.43(0) + 1375.35(1) = 5076.01
 \end{align}
 $$
 
@@ -574,7 +574,7 @@ $$
 #| echo: true
 #| collapse: true
 
-gmeans <- estimate_means(fit5, by = "rank")
+gmeans <- estimate_means(fit5, by = "species")
 gmeans
 ```
 
@@ -598,7 +598,7 @@ plot(
 
 ## Contrasts
 
-- What about the difference between Associate and Full?
+- What about the difference between Chinstrap and Gentoo?
 
 - How can we compare non-reference groups to each other?
 
@@ -606,5 +606,5 @@ plot(
 #| echo: true
 #| collapse: true
 
-estimate_contrasts(fit5, contrast = "rank")
+estimate_contrasts(fit5, contrast = "species")
 ```

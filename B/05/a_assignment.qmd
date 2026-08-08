@@ -31,19 +31,19 @@ b) If I wanted to reduce my chances of making each type of error,{{< hp glyph="a
 
 ## Question 2 (Statistical Hypotheses)
 
-Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question. (Note that the salaries are given in thousands of dollars per year, such that 120 would actually mean $120,000 per year.)
+Download and use the [`penguins.csv`](../../data/penguins.csv){download="penguins.csv"} data file for this question. (Note that `body_mass` is given in grams, such that 4000 would mean 4 kilograms.)
 
-a) My friend is arguing that professors (across all ranks and disciplines) make, on average, $100,000 per year. This doesn't sound right to me, so I want to approach this statistically.{{< hp glyph="a" >}} What should I use as my null hypothesis and what should I use as my alternative hypothesis?
+a) My friend is arguing that penguins (across all three species) weigh, on average, 4000 grams. This doesn't sound right to me, so I want to approach this statistically.{{< hp glyph="a" >}} What should I use as my null hypothesis and what should I use as my alternative hypothesis?
 
 b) Conduct a one-sample $t$-test of the null hypothesis from part (a). Report the $p$-value and your decision whether to retain or reject the null.
 
 ## Question 3 (p-values and Pragmatics)
 
-Download and use the [`salaries.csv`](../../data/salaries.csv){download="salaries.csv"} data file for this question as well. This time, test the null hypothesis that professors make, on average, $110,000 per year.
+Download and use the [`penguins.csv`](../../data/penguins.csv){download="penguins.csv"} data file for this question as well. This time, test the null hypothesis that penguins weigh, on average, 4150 grams.
 
 a) Conduct a one-sample $t$-test of this null hypothesis. Report the observed test statistic and its degrees of freedom.
 
-b) This test gives a much larger $p$-value than a test against $100,000 would. Explain what the $p$-value in *this* test means and how it should be interpreted statistically.{{< hp glyph="a" >}} Your answer should go beyond merely stating whether it was significant, and should address why testing a different null value changes the $p$-value even though the data never changed.
+b) This test gives a much larger $p$-value than a test against 4000 grams would. Explain what the $p$-value in *this* test means and how it should be interpreted statistically.{{< hp glyph="a" >}} Your answer should go beyond merely stating whether it was significant, and should address why testing a different null value changes the $p$-value even though the data never changed.
 
 ---
 

@@ -42,7 +42,7 @@ title: "Chapter 07: Regression"
 - Polytomous  Dummy Coding
 
 ### Files
-- [salaries.csv](../../data/salaries.csv){download="salaries.csv"}
+- [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
 
 ### Readings
 - *Applied Multiple Regression/Correlation Analysis*, §8.1--8.2
