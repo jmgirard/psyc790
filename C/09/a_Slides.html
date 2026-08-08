@@ -192,10 +192,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -204,7 +200,7 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Regression / Inference / Centering</p>
+<p>Assumptions and Diagnostics I</p>
 <div class="my-grey">
 <p><span>Unit C | Chapter 09</span><br> <span>Lecture 09a</span></p>
 </div>
@@ -216,862 +212,519 @@
 
 <section>
 <section class="title-slide slide level1 center">
-<h1>Introduction</h1>
+<h1>Overview</h1>
 
 </section>
-<section class="slide level2">
-<h2>Regression as Fancy Correlation</h2>
+<section class="slide level2 fs90">
+<h2>Motivation</h2>
 <ul>
-<li>A correlation quantifies how well a <strong>straight line</strong> represents the relationship between two continuous variables</li>
+<li><p>The linear model makes certain assumptions about the data</p></li>
+<li><p>When these assumptions are <strong>violated</strong>, two main problems occur</p></li>
 </ul>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Regression as Fancy Correlation</h2>
+<ol type="1">
+<li>Estimated <strong>coefficients</strong> (i.e., relationships) may be biased
 <ul>
-<li>A correlation quantifies how well a <span class="b salmon">straight line</span> represents the relationship between two continuous variables</li>
-</ul>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Regression as Fancy Correlation</h2>
+<li>Intercepts and slopes directly affected</li>
+<li>Tests and confidence intervals indirectly affected</li>
+</ul></li>
+<li>Estimated <strong>standard errors</strong> (i.e., uncertainty) may be biased
 <ul>
-<li><p>But how did we know <em>where</em> to draw the line?</p></li>
-<li><p>Many different lines could have been drawn…</p></li>
-</ul>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Regression as Fancy Correlation</h2>
+<li>Tests and confidence intervals directly affected</li>
+</ul></li>
+</ol>
 <ul>
-<li>Regression is a way to <em>select</em> and <em>quantify</em> the “best” line</li>
+<li>Thus, our conclusions and inferences may be incorrect!</li>
 </ul>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Defining a Line in General</h2>
-<div class="columns">
-<div class="column">
-<p><span class="math display">\[y = \color{blue}{m}x + \color{blue}{b}\]</span></p>
-<p><span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> are variables</p>
-<p><span class="math inline">\(\color{blue}m\)</span> and <span class="math inline">\(\color{blue}b\)</span> are coefficients</p>
-<ul>
-<li><p><span class="math inline">\(\color{blue}m\)</span> is the <strong>slope</strong><br> Change in <span class="math inline">\(y\)</span> when <span class="math inline">\(x+1\)</span></p></li>
-<li><p><span class="math inline">\(\color{blue}b\)</span> is the <strong>intercept</strong><br> Value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x=0\)</span></p></li>
-</ul>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
 </section>
-<section class="slide level2">
-<h2>Defining a Regression Line</h2>
+<section class="slide level2 fs90">
+<h2>Assumptions Overview</h2>
 <ul>
-<li><p>If <span class="math inline">\(y\)</span> is the outcome and <span class="math inline">\(x\)</span> is the predictor…</p></li>
-<li><p>We can define the regression line in the same way</p></li>
-</ul>
-<p><span class="math display">\[\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i\]</span></p>
-<p><span class="math inline">\(\color{red}{\hat{y}_i}\)</span> is the model-predicted value of <span class="math inline">\(y\)</span> for observation <span class="math inline">\(i\)</span></p>
-<p><span class="math inline">\(\color{blue}{b_0}\)</span> is the intercept of the line (i.e., <span class="math inline">\(b\)</span> on the previous slide)</p>
-<p><span class="math inline">\(\color{blue}{b_1}\)</span> is the slope of the line (i.e., <span class="math inline">\(m\)</span> on the previous slide)</p>
-</section>
-<section class="slide level2">
-<h2>Defining Regression Residuals</h2>
-<div class="columns">
-<div class="column">
+<li><strong>Assumptions about the Formula</strong>
 <ul>
-<li>Our regression line is defined by the formula:</li>
-</ul>
-<p><span class="math display">\[\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i\]</span></p>
-<ul>
-<li>But many points aren’t exactly on the line, so our predictions aren’t perfect</li>
-</ul>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Defining Regression Residuals</h2>
-<ul>
-<li><p>Thus, predictions <span class="math inline">\((\color{red}{\hat{y}_i})\)</span> differ from the observed values <span class="math inline">\((y_i)\)</span></p></li>
-<li><p>We refer to these differences as the model’s <span class="b pink">residuals</span></p></li>
-</ul>
-<p><span class="math display">\[
-\begin{align}
-\color{red}{\hat{y}_i} &amp;= \color{blue}{b_0} + \color{blue}{b_1}x_i\\
-y_i &amp;= \color{blue}{b_0} + \color{blue}{b_1}x_i + \color{magenta}{e_i} \\
-\color{magenta}{e_i} &amp;= y_i - \color{red}{\hat{y}_i}
-\end{align}
-\]</span></p>
-</section>
-<section class="slide level2">
-<h2>Visualizing Regression Residuals</h2>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Minimizing Regression Residuals</h2>
-<ul>
-<li>If we want the best possible estimates of <span class="math inline">\(y\)</span>, we should…</li>
-<li>…look for the line that minimizes the prediction errors</li>
-<li>Residuals are the prediction errors</li>
-<li>We thus seek to minimize the residuals</li>
+<li>Correct Functional Form</li>
+<li>Perfectly Measured Predictors</li>
+<li>No Collinearity/Multicollinearity</li>
+</ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>But residuals can be positive or negative…</li>
-<li>So minimizing the sum of the residuals won’t work</li>
-<li>We thus minimize the sum of the <em>squared</em> residuals</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>OLS Regression</h2>
+<li><strong>Assumptions about the Residuals</strong>
 <ul>
-<li>Minimizing the sum of the squared residuals is called OLS
-<ul>
-<li>This stands for “Ordinary Least Squares” Regression</li>
+<li>Constant Error Variance</li>
+<li>Independence of Residuals</li>
+<li>Normality of Residuals</li>
 </ul></li>
-<li>So what are the OLS formulas for the slope and intercept?</li>
 </ul>
-<p><span class="math display">\[
-b_1 = r_{xy}\frac{s_y}{s_x}
-\qquad\quad
-b_0 = \bar{y} - b_1\bar{x}
-\]</span></p>
-<ul>
-<li>Regression and correlation are thus integrally connected</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Example Dataset</h2>
-<p>The <code>water</code> dataset has information about mortality and water hardness in 61 UK towns</p>
-<div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>water <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/water.csv"</span>)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>water</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="cell-output-display">
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">town</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">location</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">mortality</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">hardness</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Bath</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1247</td>
-<td style="text-align: right;">105</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Birkenhead</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1668</td>
-<td style="text-align: right;">17</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Birmingham</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1466</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Blackburn</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1800</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Blackpool</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1609</td>
-<td style="text-align: right;">18</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bolton</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1558</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bootle</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1807</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bournemouth</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1299</td>
-<td style="text-align: right;">78</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bradford</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1637</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Brighton</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1359</td>
-<td style="text-align: right;">84</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bristol</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1392</td>
-<td style="text-align: right;">73</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Burnley</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1755</td>
-<td style="text-align: right;">12</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Cardiff</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1519</td>
-<td style="text-align: right;">21</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Coventry</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1307</td>
-<td style="text-align: right;">78</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Croydon</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1254</td>
-<td style="text-align: right;">96</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Darlington</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1491</td>
-<td style="text-align: right;">20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Derby</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1555</td>
-<td style="text-align: right;">39</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Doncaster</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1428</td>
-<td style="text-align: right;">39</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">East Ham</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1318</td>
-<td style="text-align: right;">122</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Exeter</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1260</td>
-<td style="text-align: right;">21</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Gateshead</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1723</td>
-<td style="text-align: right;">44</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Grimsby</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1379</td>
-<td style="text-align: right;">94</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Halifax</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1742</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Huddersfield</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1574</td>
-<td style="text-align: right;">9</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Hull</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1569</td>
-<td style="text-align: right;">91</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ipswich</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1096</td>
-<td style="text-align: right;">138</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Leeds</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1591</td>
-<td style="text-align: right;">16</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Leicester</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1402</td>
-<td style="text-align: right;">37</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Liverpool</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1772</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Manchester</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1828</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Middlesbrough</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1704</td>
-<td style="text-align: right;">26</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Newcastle</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1702</td>
-<td style="text-align: right;">44</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Newport</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1581</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Northampton</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1309</td>
-<td style="text-align: right;">59</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Norwich</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1259</td>
-<td style="text-align: right;">133</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nottingham</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1427</td>
-<td style="text-align: right;">27</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Oldham</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1724</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Oxford</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1175</td>
-<td style="text-align: right;">107</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Plymouth</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1486</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Portsmouth</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1456</td>
-<td style="text-align: right;">90</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Preston</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1696</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Reading</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1236</td>
-<td style="text-align: right;">101</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Rochdale</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1711</td>
-<td style="text-align: right;">13</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Rotherham</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1444</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">St Helens</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1591</td>
-<td style="text-align: right;">49</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Salford</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1987</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sheffield</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1495</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Southampton</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1369</td>
-<td style="text-align: right;">68</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Southend</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1257</td>
-<td style="text-align: right;">50</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Southport</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1587</td>
-<td style="text-align: right;">75</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">South Shields</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1713</td>
-<td style="text-align: right;">71</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Stockport</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1557</td>
-<td style="text-align: right;">13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Stoke</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1640</td>
-<td style="text-align: right;">57</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sunderland</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1709</td>
-<td style="text-align: right;">71</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Swansea</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1625</td>
-<td style="text-align: right;">13</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wallasey</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1625</td>
-<td style="text-align: right;">20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Walsall</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1527</td>
-<td style="text-align: right;">60</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">West Bromwich</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1627</td>
-<td style="text-align: right;">53</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">West Ham</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1486</td>
-<td style="text-align: right;">122</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wolverhampton</td>
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">1485</td>
-<td style="text-align: right;">81</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">York</td>
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">1378</td>
-<td style="text-align: right;">71</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Data Exploration</h2>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>OLS Regression by Hand</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> water<span class="sc">$</span>hardness</span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> water<span class="sc">$</span>mortality</span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(x, y) <span class="sc">*</span> <span class="fu">sd</span>(y) <span class="sc">/</span> <span class="fu">sd</span>(x)</span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>b1</span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -3.226092</span></span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(y) <span class="sc">-</span> b1 <span class="sc">*</span> <span class="fu">mean</span>(x)</span>
-<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a>b0</span>
-<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1676.356</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><span class="math display">\[
-\hat{y}_i = 1676.356 - 3.226 x_i
-\]</span></p>
-<div class="fragment fs70">
-<p>“We estimate that a town with a water hardness of zero would have a mortality of 1676.356. For every one-unit increase in a town’s water hardness, we estimate that its mortality would <em>decrease</em> by 3.226.”</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Visualizing our Result</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> hardness, <span class="at">y =</span> mortality, <span class="at">data =</span> water, <span class="at">geom =</span> <span class="st">"point"</span>) <span class="sc">+</span> </span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> b1, <span class="at">intercept =</span> b0, <span class="at">color =</span> <span class="st">"salmon"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Regression using lm()</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> mortality <span class="sc">~</span> hardness, <span class="at">data =</span> water)</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>fit</span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = mortality ~ hardness, data = water)</span></span>
-<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)     hardness  </span></span>
-<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    1676.356       -3.226</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li><p>Just like before, the formula is <code>outcome ~ predictor</code></p></li>
-<li><p>R refers to <span class="math inline">\(b_0\)</span> as <code>(Intercept)</code> and <span class="math inline">\(b_1\)</span> as <code>hardness</code></p></li>
-<li><p>This will be helpful when we add multiple predictors</p></li>
-</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Regression Inference</h1>
+<h1>Correct Form</h1>
 
 </section>
 <section class="slide level2">
-<h2>Uncertainty in the Population</h2>
+<h2>Assumption</h2>
 <ul>
-<li><p>OLS finds the best coefficients <em>for the sample</em></p></li>
-<li><p>But we usually care more about the <strong>population</strong></p></li>
-</ul>
-<div class="fragment">
+<li>The “form” of the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> relationship(s) must be correct
 <ul>
-<li><p>Thus, we <em>estimate</em> the population intercept and slope</p></li>
-<li><p>There will be some inferential uncertainty in this process</p></li>
+<li>The methods we learned so far assume <strong>straight</strong> lines</li>
+<li>We will also learn about polynomials for <strong>curved</strong> lines</li>
+<li>Advanced methods can take on other complex shapes</li>
+<li>This assumption is that we set up the model correctly</li>
+</ul></li>
 </ul>
+<div title="Consequences of Violating">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="fragment">
-<ul>
-<li><p>As before, we can use NHST and/or estimation approaches</p></li>
-<li><p>Let’s calculate 95% CIs, test statistics, and <span class="math inline">\(p\)</span>-values</p></li>
-</ul>
+<p><strong>Consequences of Violating</strong></p>
+</div>
+<div class="callout-content">
+<p>Bias in both coefficients and standard errors!</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Slope Confidence Interval</h2>
-<p><span class="math display">\[
-b_1 \pm \text{SE}(b_1)\times t_{crit}
-\]</span></p>
-<p><span class="math display">\[
-\text{SE}(b_1) = \frac{s_y}{s_x}\sqrt{\frac{1-r_{xy}^2}{n-2}}
-\]</span></p>
-<p><span class="math display">\[t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}\]</span></p>
-</section>
-<section class="slide level2">
-<h2>Intercept Confidence Interval</h2>
-<p><span class="math display">\[
-b_0 \pm \text{SE}(b_0)\times t_{crit}
-\]</span></p>
-<p><span class="math display">\[
-\text{SE}(b_0) = \sqrt{\frac{\sum_i(y_i-\hat{y}_i)^2}{n-2}} \sqrt{\frac{1}{n} + \frac{\bar{x}^2}{(n-1)s_x^2}}
-\]</span></p>
-<p><span class="math display">\[t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}\]</span></p>
-</section>
-<section class="slide level2">
-<h2>Confidence Intervals in R</h2>
+<h2>Assumption Examples</h2>
+<div class="columns">
+<div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>fit</span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = mortality ~ hardness, data = water)</span></span>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2 fs90">
+<h2>Diagnostics</h2>
+<ul>
+<li>We can use scatterplots as a visual diagnostic
+<ul>
+<li>A simple approach would plot <span class="math inline">\(y\)</span> against each <span class="math inline">\(x\)</span></li>
+<li>But we can combine this into a single plot by…</li>
+</ul></li>
+<li>Plot the residuals <span class="math inline">\((y-\hat{y})\)</span> against the fitted values <span class="math inline">\(\hat{y}\)</span>
+<ul>
+<li>We can also add a reference (LOESS) line to these plots</li>
+<li>We want to see a <em>flat</em> and <em>horizontal</em> reference line</li>
+</ul></li>
+</ul>
+<div class="tc">
+<p><code>check_model(fit, check = "linearity")</code></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Example: Assumption Met</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_met, <span class="at">check =</span> <span class="st">"linearity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Example: Assumption Violated</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(fit_violated, <span class="at">check =</span> <span class="st">"linearity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2 fs90">
+<h2>Solutions</h2>
+<ol type="1">
+<li>Specify a more complex functional form
+<ul>
+<li>e.g., variable transformations</li>
+<li>e.g., polynomial regression</li>
+<li>e.g., segmented or piece-wise regression</li>
+</ul></li>
+<li>Use a nonlinear extension of regression
+<ul>
+<li>e.g., generalized linear modeling (GLM)</li>
+<li>e.g., generalized additive modeling (GAM)</li>
+<li>e.g., supervised machine learning (ML)</li>
+</ul></li>
+</ol>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Perfect Predictors</h1>
+
+</section>
+<section class="slide level2">
+<h2>Assumption</h2>
+<ul>
+<li>All predictors <span class="math inline">\((x)\)</span> must be measured without error
+<ul>
+<li>With a single predictor, the slope will be underestimated</li>
+<li>With many predictors, slopes may be too low or high</li>
+</ul></li>
+<li>When violated, called regression “dilution” or “attenuation”</li>
+</ul>
+<div title="Consequences of Violating">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Consequences of Violating</strong></p>
+</div>
+<div class="callout-content">
+<p>Bias in both coefficients and standard errors!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Error in <span class="math inline">\(y\)</span> will bias standardized (but not unstandardized) coefficients.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Diagnostics</h2>
+<p>Calculate predictors’ <strong>reliability</strong> (the opposite of error)</p>
+<ol type="1">
+<li>Test-retest reliability across time
+<ul>
+<li>Correlation from <code>correlation::correlation()</code></li>
+</ul></li>
+<li>Internal reliability across items
+<ul>
+<li>McDonald’s Omega from <code>psych::omega()</code></li>
+</ul></li>
+<li>Inter-rater reliability across raters
+<ul>
+<li>Intraclass Correlation from <code>irr::icc()</code></li>
+</ul></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Solutions</h2>
+<ol type="1">
+<li>Improve measurement reliability
+<ul>
+<li>e.g., add items, raters, or training</li>
+</ul></li>
+<li>Adjust coefficients for reliability
+<ul>
+<li>e.g., correlation disattenuation</li>
+</ul></li>
+<li>Model reliability/error explicitly
+<ul>
+<li>e.g., total least squares estimation</li>
+<li>e.g., errors-in-variables models</li>
+<li>e.g., structural equation modeling</li>
+</ul></li>
+</ol>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>No Collinearity</h1>
+
+</section>
+<section class="slide level2">
+<h2>Assumption</h2>
+<ul>
+<li>No set of predictors are redundant with one another
+<ul>
+<li>Collinearity = 2 predictors, Multicollinearity = 3+</li>
+</ul></li>
+<li>If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> fully overlap, there are no partial effects left
+<ul>
+<li>The model won’t fit (or drops one or more predictors)</li>
+</ul></li>
+<li>If they <em>almost</em> fully overlap, the estimates become unstable</li>
+</ul>
+<div title="Consequences of Violating">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Consequences of Violating</strong></p>
+</div>
+<div class="callout-content">
+<p>Coefficients are biased and standard errors are upwardly biased (i.e., inflated).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Assumption</h2>
+<div class="columns">
+<div class="column">
+<p>If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> overlap to a<br><em>very</em> large degree, then…</p>
+<ul>
+<li><span class="b green">c</span> and/or <span class="b purple">d</span> are large</li>
+<li><span class="b green">b</span> and <span class="b green">f</span> are unstable</li>
+</ul>
+<p><span class="math display">\[\hat{y} = b_0 + b_1x_1 + b_2x_2\]</span></p>
+<ul>
+<li>So <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> are unstable</li>
+</ul>
+</div><div class="column">
+<p><img data-src="../../img/venn/yx1x2.png"></p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Diagnostics</h2>
+<ol type="1">
+<li>Examine predictor correlations for collinearity
+<ul>
+<li><span class="math inline">\(r(x_1, x_2)\ge0.9\)</span> may be problematic</li>
+<li>But this captures <span class="b green">c</span> and <span class="b purple">d</span>, whereas only <span class="b green">c</span> is an issue</li>
+<li>It also doesn’t detect multicollinearity</li>
+</ul></li>
+<li>Calculate variance inflation factors (VIFs)
+<ul>
+<li>Look for evidence of inflated standard errors</li>
+<li>Each predictor will get its own VIF value</li>
+<li><span class="math inline">\(\text{VIF}&gt;5\)</span> is “moderate”, <span class="math inline">\(\text{VIF}&gt;10\)</span> is “high”</li>
+</ul></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Variance Inflation Factors</h2>
+<ul>
+<li>To calculate the <span class="math inline">\(\text{VIF}\)</span> for predictor <span class="math inline">\(j\)</span>…
+<ol type="1">
+<li>Regress <span class="math inline">\(x_j\)</span> on <em>all other</em> predictors</li>
+<li>Calculate <span class="math inline">\(R^2\)</span> from that model</li>
+<li>Calculate <span class="math inline">\(\text{VIF}\)</span> from that <span class="math inline">\(R^2\)</span></li>
+</ol></li>
+</ul>
+<p><span class="math display">\[\text{VIF}_j = \frac{1}{1-R^2_j}\]</span></p>
+<div class="tc">
+<p><code>check_collinearity(fit)</code></p>
+</div>
+</section>
+<section class="slide level2 fs90">
+<h2>Example Data</h2>
+<p>Let’s simulate some data with various collinearity-related issues</p>
+<div class="columns">
+<div class="column">
+<h4>Simulated Data</h4>
+<ul>
+<li><p><code>y</code> (Continuous)</p></li>
+<li><p><code>height1</code>, <code>height2</code>, <code>weight</code>, <code>size</code> (Continuous)</p></li>
+<li><p><code>female</code>, <code>male</code> (Binary)</p></li>
+</ul>
+</div><div class="column">
+<h4>Simulated Issues</h4>
+<ul>
+<li><p><code>height2</code> is collinear with <code>height1</code></p></li>
+<li><p><code>size</code> is multicollinear with <code>height1</code> and <code>weight</code></p></li>
+<li><p><code>female</code> and <code>male</code> are fully redundant</p></li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Bivariate Correlations</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(simdat), <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         height1 height2 weight  size female  male     y</span></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1    1.00    0.97   0.07  0.72   0.15 -0.15  0.33</span></span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height2    0.97    1.00   0.09  0.71   0.14 -0.14  0.29</span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight     0.07    0.09   1.00  0.72   0.16 -0.16 -0.66</span></span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## size       0.72    0.71   0.72  1.00   0.23 -0.23 -0.22</span></span>
+<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## female     0.15    0.14   0.16  0.23   1.00 -1.00 -0.05</span></span>
+<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## male      -0.15   -0.14  -0.16 -0.23  -1.00  1.00  0.05</span></span>
+<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## y          0.33    0.29  -0.66 -0.22  -0.05  0.05  1.00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fs90">
+<ul>
+<li><p><code>height1</code> and <code>height2</code> are highly correlated <span class="math inline">\((r=.97)\)</span></p></li>
+<li><p><code>female</code> and <code>male</code> are perfectly correlated <span class="math inline">\((r=-1.00)\)</span></p></li>
+<li><p>However, <code>size</code> is not as correlated with <code>height1</code> <span class="math inline">\((r=.72)\)</span><br>or <code>weight</code> <span class="math inline">\((r=.72)\)</span> despite the three being multicollinear</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2 fs90">
+<h2>Example with No Issues</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>fit_none <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight, <span class="at">data =</span> simdat)</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_none)</span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI |  t(97) |      p</span></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------</span></span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.02 | 0.12 | [ 9.80, 10.25] |  87.06 | &lt; .001</span></span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1     |        0.20 | 0.04 | [ 0.13,  0.28] |   5.53 | &lt; .001</span></span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight      |       -0.38 | 0.04 | [-0.45, -0.30] | -10.16 | &lt; .001</span></span>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit_none)</span>
+<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # R2 for Linear Regression</span></span>
+<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.567</span></span>
+<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.558</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Both slopes are significant</li>
+<li>The SE of both slopes is 0.04</li>
+<li>The <span class="math inline">\(R^2\)</span> is 0.567 (57%)</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example with No Issues</h2>
+<p>Let’s calculate the VIFs for this model</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_collinearity</span>(fit_none)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Check for Multicollinearity</span></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Low Correlation</span></span>
 <span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)     hardness  </span></span>
-<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    1676.356       -3.226</span></span>
-<span id="cb5-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(fit)</span>
-<span id="cb5-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##                  2.5 %      97.5 %</span></span>
-<span id="cb5-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) 1617.73030 1734.980903</span></span>
-<span id="cb5-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## hardness      -4.19602   -2.256163</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     Term  VIF       VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height1 1.00 [1.00, 4.50e+15]     1.00      1.00     [0.00, 1.00]</span></span>
+<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   weight 1.00 [1.00, 4.50e+15]     1.00      1.00     [0.00, 1.00]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li>I’ll show you the {easystats} way after we cover NHST</li>
+<li>The VIFs for both predictors are low (&lt;5)</li>
+</ul>
+</section>
+<section class="slide level2 fs90">
+<h2>Example with Collinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>fit_co <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight <span class="sc">+</span> height2, <span class="at">data =</span> simdat)</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_co)</span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI |  t(96) |      p</span></span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------------</span></span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.02 | 0.12 | [ 9.79, 10.25] |  86.61 | &lt; .001</span></span>
+<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1     |        0.24 | 0.15 | [-0.05,  0.53] |   1.61 | 0.110 </span></span>
+<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight      |       -0.38 | 0.04 | [-0.45, -0.30] | -10.04 | &lt; .001</span></span>
+<span id="cb6-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height2     |       -0.03 | 0.15 | [-0.32,  0.26] |  -0.23 | 0.821</span></span>
+<span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit_co)</span>
+<span id="cb6-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # R2 for Linear Regression</span></span>
+<span id="cb6-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.567</span></span>
+<span id="cb6-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.553</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>The <code>height1</code> slope is no longer significant</li>
+<li>The SE of the height slopes are both 0.15 (up from 0.04)</li>
+<li>Note that the <span class="math inline">\(R^2\)</span> is basically the same (57%)</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Plotting Regression Results</h2>
+<h2>Example with Collinearity</h2>
+<p>Let’s calculate the VIFs for this model</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelbased)</span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>est <span class="ot">&lt;-</span> <span class="fu">estimate_relation</span>(fit, <span class="at">by =</span> <span class="st">"hardness"</span>)</span>
-<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(est, <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_collinearity</span>(fit_co)</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Check for Multicollinearity</span></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Low Correlation</span></span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    Term  VIF       VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  weight 1.01 [ 1.00, 5128.00]     1.01      0.99     [0.00, 1.00]</span></span>
+<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## High Correlation</span></span>
+<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     Term   VIF       VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb7-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height1 15.71 [11.06,   22.49]     3.96      0.06     [0.04, 0.09]</span></span>
+<span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height2 15.76 [11.10,   22.58]     3.97      0.06     [0.04, 0.09]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-
-<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Hypothesis Testing</h2>
-<p><strong>Null:</strong> The true coefficient (in the population) is zero</p>
-<p><span class="math display">\[H_0: b = 0\]</span></p>
-<p><strong>Alternative:</strong> The true coefficient (in the population) is <em>not</em> zero</p>
-<p><span class="math display">\[H_1: b \neq 0\]</span></p>
-<p>Note that this applies to both intercepts and slopes</p>
-</section>
-<section class="slide level2">
-<h2>Testing Individual Coefficients</h2>
 <ul>
-<li><p>We can re-use the logic/procedure of the one-sample <span class="math inline">\(t\)</span>-test</p></li>
-<li><p>We assume the null sampling distribution for <span class="math inline">\(\hat{b}\)</span> is normal</p></li>
+<li>The VIFS for both height variables are very high (&gt;10)</li>
 </ul>
-<p><span class="math display">\[
-t_{obs} = \frac{b}{\text{SE}(b)}
-\]</span></p>
-<p><span class="math display">\[t_{obs} \sim t(\mathit{df}=n-k-1, \mu=0, \sigma=1)\]</span></p>
-<div class="footer">
-<p>Note that <span class="math inline">\(k\)</span> is the number of predictors in the model (i.e., 1 for now).</p>
-</div>
 </section>
-<section class="slide level2">
-<h2>Statistical Inference in R</h2>
+<section class="slide level2 fs90">
+<h2>Example with Multicollinearity</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit)</span>
-<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |    SE |             95% CI | t(59) |      p</span></span>
-<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------</span></span>
-<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |     1676.36 | 29.30 | [1617.73, 1734.98] | 57.22 | &lt; .001</span></span>
-<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## hardness    |       -3.23 |  0.48 | [  -4.20,   -2.26] | -6.66 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>fit_mc <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight <span class="sc">+</span> size, <span class="at">data =</span> simdat)</span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_mc)</span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI | t(96) |      p</span></span>
+<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------</span></span>
+<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.02 | 0.12 | [ 9.79, 10.25] | 85.93 | &lt; .001</span></span>
+<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## height1     |        0.24 | 0.18 | [-0.11,  0.60] |  1.37 | 0.175 </span></span>
+<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## weight      |       -0.34 | 0.18 | [-0.69,  0.01] | -1.92 | 0.058 </span></span>
+<span id="cb8-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## size        |       -0.04 | 0.18 | [-0.39,  0.31] | -0.22 | 0.828</span></span>
+<span id="cb8-10"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit_mc)</span>
+<span id="cb8-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # R2 for Linear Regression</span></span>
+<span id="cb8-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.567</span></span>
+<span id="cb8-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.553</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>“A town with zero water hardness is expected to have a mortality rate of 1676.36, which is significantly different from zero, 95% CI: [1617.73, 1734.98], <em>p</em>&lt;.001. For each one-unit increase in water hardness, the model predicts a significant decrease in mortality of 3.23, 95% CI: [–4.20, –2.26], <em>p</em>&lt;.001.”</p>
-<div class="footer">
-<p>Note that the <span class="math inline">\(t\)</span> values equal Coefficient / SE (e.g., –3.23/0.48 ≈ –6.66).</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Centering</h1>
-
-</section>
-<section class="slide level2">
-<h2>Centering a Predictor</h2>
 <ul>
-<li><p>The intercept <span class="math inline">\((b_0)\)</span> is the value of <span class="math inline">\(\hat{y}\)</span> when <span class="math inline">\(x=0\)</span></p></li>
-<li><p>This isn’t so useful if <span class="math inline">\(x\)</span> never equals <span class="math inline">\(0\)</span> in the sample</p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>In such cases, it can be useful to “center” <span class="math inline">\(x\)</span> before modeling</li>
-</ul>
-<p><span class="math display">\[x_i^c = x_i - \bar{x}\]</span></p>
-<ul>
-<li><p>The <strong>slope will stay the same</strong> but the intercept will change</p></li>
-<li><p>The intercept will become the value of <span class="math inline">\(\hat{y}\)</span> when <span class="math inline">\(x=\bar{x}\)</span></p></li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Centering a Predictor</h2>
-<div class="columns">
-<div class="column tc">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math display">\[b_0 = 1676.356\]</span></p>
-<p><span class="fs70">“A town with <em>zero</em> water hardness<br>would have 1676.356 mortality.”</span></p>
-</div><div class="column tc">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math display">\[b_0 = 1524.148\]</span></p>
-<p><span class="fs70">“A town with <em>average</em> water hardness<br>would have 1524.148 mortality.”</span></p>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Centering in R</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Two-step process</span></span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>water<span class="sc">$</span>hardness_c <span class="ot">&lt;-</span> water<span class="sc">$</span>hardness <span class="sc">-</span> <span class="fu">mean</span>(water<span class="sc">$</span>hardness)</span>
-<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>fit2a <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> mortality <span class="sc">~</span> hardness_c, <span class="at">data =</span> water)</span>
-<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2a)</span>
-<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |    SE |             95% CI | t(59) |      p</span></span>
-<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------</span></span>
-<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |     1524.15 | 18.31 | [1487.50, 1560.79] | 83.23 | &lt; .001</span></span>
-<span id="cb8-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## hardness c  |       -3.23 |  0.48 | [  -4.20,   -2.26] | -6.66 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment pv2">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Or equivalent one-step process</span></span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>fit2b <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> mortality <span class="sc">~</span> <span class="fu">center</span>(hardness), <span class="at">data =</span> water)</span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2b)</span>
-<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter        | Coefficient |    SE |             95% CI | t(59) |      p</span></span>
-<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------------</span></span>
-<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)      |     1524.15 | 18.31 | [1487.50, 1560.79] | 83.23 | &lt; .001</span></span>
-<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## center(hardness) |       -3.23 |  0.48 | [  -4.20,   -2.26] | -6.66 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Regression Effect Sizes</h1>
-
-</section>
-<section class="slide level2">
-<h2>Standardized Slopes</h2>
-<ul>
-<li><p>It is common to standardize regression slopes (called <span class="math inline">\(\beta\)</span>s)</p></li>
-<li><p>We can do this by standardizing both <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> and refitting</p></li>
-</ul>
-<p><span class="math display">\[x_i^z = \frac{x_i - \bar{x}}{s_x} \qquad \quad y_i^z = \frac{y_i - \bar{y}}{s_y}\]</span></p>
-<p><span class="math display">\[\hat{y}_i^z = \beta_0 + \beta_1x_i^z\]</span></p>
-<ul>
-<li>The standardized slope <span class="math inline">\((\beta_1)\)</span> is interpreted in SD units</li>
-<li>The standardized intercept <span class="math inline">\((\beta_0)\)</span> will equal/approach zero</li>
+<li>None of the slopes are significant</li>
+<li>The SE of all slopes is now 0.18 (up from 0.04)</li>
+<li>Note that the <span class="math inline">\(R^2\)</span> is basically the same (57%)</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Standardizing in R</h2>
+<h2>Example with Multicollinearity</h2>
+<p>Let’s calculate the VIFs for this model</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: Fit normally then refit</span></span>
-<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mortality <span class="sc">~</span> hardness, <span class="at">data =</span> water)</span>
-<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
-<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI |     t(59) |      p</span></span>
-<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------</span></span>
-<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |   -4.55e-16 | 0.10 | [-0.20,  0.20] | -4.66e-15 | &gt; .999</span></span>
-<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## hardness    |       -0.65 | 0.10 | [-0.85, -0.46] |     -6.66 | &lt; .001</span></span>
-<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Method 2: Standardize data then fit</span></span>
-<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mortality <span class="sc">~</span> hardness, <span class="at">data =</span> <span class="fu">standardize</span>(water))</span>
-<span id="cb10-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2)</span>
-<span id="cb10-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI |     t(59) |      p</span></span>
-<span id="cb10-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------</span></span>
-<span id="cb10-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |   -4.55e-16 | 0.10 | [-0.20,  0.20] | -4.66e-15 | &gt; .999</span></span>
-<span id="cb10-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## hardness    |       -0.65 | 0.10 | [-0.85, -0.46] |     -6.66 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_collinearity</span>(fit_mc)</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Check for Multicollinearity</span></span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## High Correlation</span></span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     Term   VIF     VIF 95% CI adj. VIF Tolerance Tolerance 95% CI</span></span>
+<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  height1 22.91 [16.05, 32.89]     4.79      0.04     [0.03, 0.06]</span></span>
+<span id="cb9-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   weight 22.60 [15.84, 32.44]     4.75      0.04     [0.03, 0.06]</span></span>
+<span id="cb9-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     size 47.41 [33.03, 68.25]     6.89      0.02     [0.01, 0.03]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="fragment fs70 tc">
-<p>“For each one SD increase in water hardness, we would expect a 0.65 SD<br><em>decrease</em> in mortality, <span class="math inline">\(\beta=-0.65\)</span>, 95% CI: <span class="math inline">\([-0.85, -0.46]\)</span>, <span class="math inline">\(p&lt;.001\)</span>.”</p>
-</div>
+<ul>
+<li>The VIFs for all predictors are very high (&gt;10)</li>
+</ul>
 </section>
 <section class="slide level2">
-<h2>R-Squared</h2>
+<h2>Example with Exact Collinearity</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>fit_xc <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> female <span class="sc">+</span> male, <span class="at">data =</span> simdat)</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_xc)</span>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Model matrix is rank deficient. Parameters `male` were not estimable.</span></span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |         95% CI | t(98) |      p</span></span>
+<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------</span></span>
+<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |       10.01 | 0.24 | [ 9.52, 10.49] | 40.89 | &lt; .001</span></span>
+<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## female      |       -0.19 | 0.34 | [-0.87,  0.49] | -0.54 | 0.590</span></span>
+<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Uncertainty intervals (equal-tailed) and p-values (two-tailed) computed</span></span>
+<span id="cb10-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   using a Wald t-distribution approximation.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
-<li><span class="math inline">\(R^2\)</span> is the variance in <span class="math inline">\(y\)</span> explained by the regression model
+<li>Note the warning about the <code>male</code> parameter</li>
+<li>Note the absence of a <code>male</code> slope (it was dropped)</li>
+<li>This is why we use <span class="math inline">\((g-1)\)</span> dummy codes and not <span class="math inline">\(g\)</span></li>
+</ul>
+</section>
+<section class="slide level2 fs90">
+<h2>Solutions</h2>
+<ol type="1">
+<li>Break the predictors’ redundancy
 <ul>
-<li>Ranges from 0.0 (0% explained) to 1.0 (100% explained)</li>
-<li>It is equivalent to squaring the correlation of <span class="math inline">\(y\)</span> and <span class="math inline">\(\hat{y}\)</span></li>
-<li>It is also called the “coefficient of determination”</li>
+<li>e.g., drop one or more predictors</li>
+<li>e.g., combine two or more predictors</li>
+<li>e.g., reduce predictor dimensionality (PCA)</li>
+<li>e.g., penalized (lasso or ridge) regression</li>
 </ul></li>
-</ul>
-<p><span class="math display">\[
-R^2 = 1 - \frac{\text{SS}_{res}}{\text{SS}_{tot}} = 1 - \frac{\sum_i(y_i - \hat{y}_i)^2}{\sum_i(y_i - \bar{y})^2}
-\]</span></p>
-</section>
-<section class="slide level2">
-<h2>Adjusted R-Squared</h2>
+<li>Model the predictors’ shared variance
 <ul>
-<li><p><span class="math inline">\(R^2\)</span> will never decrease when adding more predictors</p></li>
-<li><p>So we often adjust it to penalize adding more predictors</p></li>
-</ul>
-<p><span class="math display">\[
-R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1}{n - k - 1}\right)
-\]</span></p>
-<ul>
-<li><p>Negative values of <span class="math inline">\(R_{adj}^2\)</span> are possible</p></li>
-<li><p>Its interpretation is less straightforward</p></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Model Performance in R</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># By hand (with the residuals function shortcut)</span></span>
-<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>R2a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(fit)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sum</span>((y <span class="sc">-</span> <span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>R2a</span>
-<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.4288267</span></span>
-<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># By function (recommended)</span></span>
-<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a>R2b <span class="ot">&lt;-</span> <span class="fu">r2</span>(fit, <span class="at">ci =</span> <span class="fl">0.95</span>)</span>
-<span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a>R2b</span>
-<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        R2: 0.429 [0.230, 0.601]</span></span>
-<span id="cb11-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.419 [0.220, 0.593]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>“The regression model in which mortality was regressed on water hardness explained 42.9% of the variance in mortality, R² = 0.429, 95% CI: [0.230, 0.601], Adjusted R² = 0.419.”</p>
+<li>e.g., partial least squares estimation</li>
+<li>e.g., structural equation modeling</li>
+</ul></li>
+</ol>
 
 
 </section></section>

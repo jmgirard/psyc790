@@ -192,10 +192,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -204,7 +200,7 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Covariances / Correlations / Inference</p>
+<p>One-way ANOVA / Effect Sizes / Contrasts</p>
 <div class="my-grey">
 <p><span>Unit B | Chapter 06</span><br> <span>Lecture 06b</span></p>
 </div>
@@ -216,567 +212,169 @@
 
 <section>
 <section class="title-slide slide level1 center">
-<h1>Introductions</h1>
+<h1>Introduction</h1>
 
 </section>
 <section class="slide level2">
-<h2>Variable relationships</h2>
+<h2>Rationale</h2>
 <ul>
-<li><p>So far, we have focused on the mean of one variable</p></li>
-<li><p>But we are often interested in <strong>variable relationships</strong></p>
+<li><p>The <span class="math inline">\(t\)</span>-test compares two groups’ population means</p></li>
+<li><p>But sometimes we want to compare <strong>three or more</strong> groups</p></li>
+<li><p>This is what <span class="b blue">one-way analysis of variance</span> (ANOVA) does</p>
 <ul>
-<li>As one variable changes, does the other tend to change?</li>
-<li>People with <em>more</em> anxiety tend to have <em>more</em> depression</li>
-<li>Nations with <em>more</em> museums tend to have <em>lower</em> mortality</li>
-</ul></li>
-<li><p>We can quantify such relationships using <span class="b blue">correlations</span></p></li>
-</ul>
-<div class="footer">
-<p>We will expand the idea of correlation into regression during Unit C.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Correlations</h2>
-<ul>
-<li><p>A correlation <span class="math inline">\((\rho,r)\)</span> quantifies the <strong>direction</strong> and <strong>strength</strong> of the <em>linear</em> relationships between two variables</p></li>
-<li><p><span class="b blue">Direction</span>: do the variables change together or opposing?</p>
-<ul>
-<li><span class="math inline">\(\rho&gt;0\)</span>: the variables change together</li>
-<li><span class="math inline">\(\rho&lt;0\)</span>: the variables change in opposition</li>
-</ul></li>
-<li><p><span class="b blue">Strength</span>: how well does one variable predict the other?</p>
-<ul>
-<li><span class="math inline">\(\rho \to 0\)</span>: no linear (or nonlinear) relationship</li>
-<li><span class="math inline">\(\rho \to \pm1\)</span>: perfect (positive or negative) relationship</li>
+<li>One-way focuses on <em>one</em> source of variance (i.e., groups)</li>
+<li>The one-way ANOVA is for <strong>independent samples</strong>/groups</li>
 </ul></li>
 </ul>
-<div class="footer">
-<p>A <em>linear</em> relationship is one that can be represented by a <em>straight</em> line</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Positive linear</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Positive linear</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Negative linear</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Negative linear</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2">
-<h2>No linear / Nonlinear</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Two variables can also have no relationship (left) or a nonlinear relationship (middle, right)</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>No linear / Nonlinear</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="footer">
-<p>If the line-of-best-fit is horizontal, there is no linear relationship</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>No linear / Nonlinear</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><div class="footer">
-<p>Standard correlations do not count these kinds of nonlinear relationships</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Calculating <br>Correlations</h1>
-
-</section>
-<section class="slide level2">
-<h2>Variance and covariance</h2>
-<ul>
-<li>A single variable’s <strong>variance</strong> measures its spread/changes</li>
-</ul>
-<p><span class="math display">\[\text{Var}(x) = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(x_i - \bar{x})\]</span></p>
-<div class="fragment">
-<ul>
-<li>Two variables’ <span class="b blue">covariance</span> measures their <em>linked</em> changes</li>
-</ul>
-<p><span class="math display">\[\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})\]</span></p>
-</div>
-<div class="footer">
-<p>A variable’s variance is equal to its covariance with itself</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>More on covariance</h2>
-<p><span class="math display">\[\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})\]</span></p>
-<ul>
-<li><p><span class="math inline">\(\text{Cov}\)</span> is positive when <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> vary together</p></li>
-<li><p><span class="math inline">\(\text{Cov}\)</span> is negative when <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> vary in opposition</p></li>
-<li><p>The <span class="math inline">\(\text{Cov}\)</span> thus quantifies linear relationships…</p>
-<ul>
-<li>But it has weird units and an unbounded range</li>
-<li>So we standardize it to create the correlation</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Pearson’s correlation</h2>
-<ul>
-<li><p>In general, we standardize something by dividing it by its SD</p></li>
-<li><p>Here we need to divide by the product of the SDs of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p></li>
-</ul>
-<p><span class="math display">\[r_{xy} = \frac{\text{Cov}(x,y)}{s_x s_y}\]</span></p>
-<ul>
-<li>This is called the Pearson Correlation Coefficient (or PCC)
-<ul>
-<li>Also called the product-moment or inter-class correlation</li>
-<li>The population parameter is <span class="math inline">\(\rho\)</span>, the sample statistic is <span class="math inline">\(r\)</span></li>
-</ul></li>
-</ul>
+<p><span class="math display">\[
+H_0: \text{it is true that } \mu_1=\mu_2=\mu_3 \cdots \\
+H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
+\]</span></p>
 </section>
 <section class="slide level2">
 <h2>Example dataset</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>cigarettes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/cigarettes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>salaries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/salaries.csv"</span>)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>salaries</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 397 × 6</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    rank      discipline yrs.since.phd yrs.service sex    salary</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1 Full      Applied               19          18 Male    140. </span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2 Full      Applied               20          16 Male    173. </span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3 Assistant Applied                4           3 Male     79.8</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4 Full      Applied               45          39 Male    115  </span></span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5 Full      Applied               40          41 Male    142. </span></span>
+<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6 Associate Applied                6           6 Male     97  </span></span>
+<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7 Full      Applied               30          23 Male    175  </span></span>
+<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8 Full      Applied               45          45 Male    148. </span></span>
+<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9 Full      Applied               21          20 Male    119. </span></span>
+<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10 Full      Applied               18          18 Female  129  </span></span>
+<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 387 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; ">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">state</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">log_packs</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">log_price</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">log_income</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">AL</td>
-<td style="text-align: right;">4.96213</td>
-<td style="text-align: right;">0.20487</td>
-<td style="text-align: right;">4.64039</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AZ</td>
-<td style="text-align: right;">4.66312</td>
-<td style="text-align: right;">0.16640</td>
-<td style="text-align: right;">4.68389</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">AR</td>
-<td style="text-align: right;">5.10709</td>
-<td style="text-align: right;">0.23406</td>
-<td style="text-align: right;">4.59435</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CA</td>
-<td style="text-align: right;">4.50449</td>
-<td style="text-align: right;">0.36399</td>
-<td style="text-align: right;">4.88147</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CT</td>
-<td style="text-align: right;">4.66983</td>
-<td style="text-align: right;">0.32149</td>
-<td style="text-align: right;">5.09472</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">DE</td>
-<td style="text-align: right;">5.04705</td>
-<td style="text-align: right;">0.21929</td>
-<td style="text-align: right;">4.87087</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">DC</td>
-<td style="text-align: right;">4.65637</td>
-<td style="text-align: right;">0.28946</td>
-<td style="text-align: right;">5.05960</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">FL</td>
-<td style="text-align: right;">4.80081</td>
-<td style="text-align: right;">0.28733</td>
-<td style="text-align: right;">4.81155</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GA</td>
-<td style="text-align: right;">4.97974</td>
-<td style="text-align: right;">0.12826</td>
-<td style="text-align: right;">4.73299</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ID</td>
-<td style="text-align: right;">4.74902</td>
-<td style="text-align: right;">0.17541</td>
-<td style="text-align: right;">4.64307</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">IL</td>
-<td style="text-align: right;">4.81445</td>
-<td style="text-align: right;">0.24806</td>
-<td style="text-align: right;">4.90387</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">IN</td>
-<td style="text-align: right;">5.11129</td>
-<td style="text-align: right;">0.08992</td>
-<td style="text-align: right;">4.72916</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">IA</td>
-<td style="text-align: right;">4.80857</td>
-<td style="text-align: right;">0.24081</td>
-<td style="text-align: right;">4.74211</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">KS</td>
-<td style="text-align: right;">4.79263</td>
-<td style="text-align: right;">0.21642</td>
-<td style="text-align: right;">4.79613</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">KY</td>
-<td style="text-align: right;">5.37906</td>
-<td style="text-align: right;">-0.03260</td>
-<td style="text-align: right;">4.64937</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">LA</td>
-<td style="text-align: right;">4.98602</td>
-<td style="text-align: right;">0.23856</td>
-<td style="text-align: right;">4.61461</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ME</td>
-<td style="text-align: right;">4.98722</td>
-<td style="text-align: right;">0.29106</td>
-<td style="text-align: right;">4.75501</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MD</td>
-<td style="text-align: right;">4.77751</td>
-<td style="text-align: right;">0.12575</td>
-<td style="text-align: right;">4.94692</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MA</td>
-<td style="text-align: right;">4.73877</td>
-<td style="text-align: right;">0.22613</td>
-<td style="text-align: right;">4.99998</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MI</td>
-<td style="text-align: right;">4.94744</td>
-<td style="text-align: right;">0.23067</td>
-<td style="text-align: right;">4.80620</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MN</td>
-<td style="text-align: right;">4.69589</td>
-<td style="text-align: right;">0.34297</td>
-<td style="text-align: right;">4.81207</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MS</td>
-<td style="text-align: right;">4.93990</td>
-<td style="text-align: right;">0.13638</td>
-<td style="text-align: right;">4.52938</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MO</td>
-<td style="text-align: right;">5.06430</td>
-<td style="text-align: right;">0.08731</td>
-<td style="text-align: right;">4.78189</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MT</td>
-<td style="text-align: right;">4.73313</td>
-<td style="text-align: right;">0.15303</td>
-<td style="text-align: right;">4.70417</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NE</td>
-<td style="text-align: right;">4.77558</td>
-<td style="text-align: right;">0.18907</td>
-<td style="text-align: right;">4.79671</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NV</td>
-<td style="text-align: right;">4.96642</td>
-<td style="text-align: right;">0.32304</td>
-<td style="text-align: right;">4.83816</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NH</td>
-<td style="text-align: right;">5.10990</td>
-<td style="text-align: right;">0.15852</td>
-<td style="text-align: right;">5.00319</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NJ</td>
-<td style="text-align: right;">4.70633</td>
-<td style="text-align: right;">0.30901</td>
-<td style="text-align: right;">5.10268</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NM</td>
-<td style="text-align: right;">4.58107</td>
-<td style="text-align: right;">0.16458</td>
-<td style="text-align: right;">4.58202</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NY</td>
-<td style="text-align: right;">4.66496</td>
-<td style="text-align: right;">0.34701</td>
-<td style="text-align: right;">4.96075</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ND</td>
-<td style="text-align: right;">4.58237</td>
-<td style="text-align: right;">0.18197</td>
-<td style="text-align: right;">4.69163</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">OH</td>
-<td style="text-align: right;">4.97952</td>
-<td style="text-align: right;">0.12889</td>
-<td style="text-align: right;">4.75875</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">OK</td>
-<td style="text-align: right;">4.72720</td>
-<td style="text-align: right;">0.19554</td>
-<td style="text-align: right;">4.62730</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">PA</td>
-<td style="text-align: right;">4.80363</td>
-<td style="text-align: right;">0.22784</td>
-<td style="text-align: right;">4.83516</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RI</td>
-<td style="text-align: right;">4.84693</td>
-<td style="text-align: right;">0.30324</td>
-<td style="text-align: right;">4.84670</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SC</td>
-<td style="text-align: right;">5.07801</td>
-<td style="text-align: right;">0.07944</td>
-<td style="text-align: right;">4.62549</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SD</td>
-<td style="text-align: right;">4.81545</td>
-<td style="text-align: right;">0.13139</td>
-<td style="text-align: right;">4.67747</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">TN</td>
-<td style="text-align: right;">5.04939</td>
-<td style="text-align: right;">0.15547</td>
-<td style="text-align: right;">4.72525</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">TX</td>
-<td style="text-align: right;">4.65398</td>
-<td style="text-align: right;">0.28196</td>
-<td style="text-align: right;">4.73437</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">UT</td>
-<td style="text-align: right;">4.40859</td>
-<td style="text-align: right;">0.19260</td>
-<td style="text-align: right;">4.55586</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">VT</td>
-<td style="text-align: right;">5.08799</td>
-<td style="text-align: right;">0.18018</td>
-<td style="text-align: right;">4.77578</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">VA</td>
-<td style="text-align: right;">4.93065</td>
-<td style="text-align: right;">0.11818</td>
-<td style="text-align: right;">4.85490</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">WA</td>
-<td style="text-align: right;">4.66134</td>
-<td style="text-align: right;">0.35053</td>
-<td style="text-align: right;">4.85645</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">WV</td>
-<td style="text-align: right;">4.82454</td>
-<td style="text-align: right;">0.12008</td>
-<td style="text-align: right;">4.56859</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">WI</td>
-<td style="text-align: right;">4.83026</td>
-<td style="text-align: right;">0.22954</td>
-<td style="text-align: right;">4.75826</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">WY</td>
-<td style="text-align: right;">5.00087</td>
-<td style="text-align: right;">0.10029</td>
-<td style="text-align: right;">4.71169</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Scatterplots</h2>
-
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="1152" class="r-stretch"></section>
-<section class="slide level2">
-<h2>Estimation in R</h2>
-<div class="columns">
-<div class="column">
-<p>Covariance</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> cigarettes<span class="sc">$</span>log_packs</span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> cigarettes<span class="sc">$</span>log_price</span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cigarettes)</span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>cov_xy <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sum</span>(</span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">*</span> (y <span class="sc">-</span> <span class="fu">mean</span>(y)))</span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a>cov_xy</span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.008910294</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<p>Correlation</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)</span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(y)</span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>r_xy <span class="ot">&lt;-</span> cov_xy <span class="sc">/</span> (s_x <span class="sc">*</span> s_y)</span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Shortcut Functions:</p>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>cov_xy <span class="ot">&lt;-</span> <span class="fu">cov</span>(x, y)</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>cov_xy</span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.008910294</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>r_xy <span class="ot">&lt;-</span> <span class="fu">cor</span>(x, y)</span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Interpretation</h2>
 <ul>
-<li><p><span class="math inline">\(r=0\)</span> is no relationship, <span class="math inline">\(r=\pm1\)</span> is a perfect relationship</p></li>
-<li><p>How should we interpret correlations between <span class="math inline">\(0\)</span> and <span class="math inline">\(\pm1\)</span>?</p></li>
-<li><p>It depends on the context (what is common in your field?)</p></li>
-<li><p>But here are some heuristics to use as a starting place</p></li>
+<li>Do the three professor <strong>ranks</strong> have the same mean salary?</li>
 </ul>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\((0.0,0.1)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\([0.1,0.3)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\([0.3,0.5)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\([0.5,1.0)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Negligible</td>
-<td style="text-align: center;">Small</td>
-<td style="text-align: center;">Medium</td>
-<td style="text-align: center;">Large</td>
-</tr>
-</tbody>
-</table>
+</section>
+<section class="slide level2">
+<h2>Exploratory analysis</h2>
+
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Total variance</h2>
+<p><em>Across all observations (in all groups), what is the average squared difference between each observation and the global mean (calculated across all observations in all groups)?</em></p>
+<p><span class="math display">\[
+\text{Var}(y)=\frac{1}{n}\sum_{i=1}^n(y_i - \bar{y})^2
+\]</span></p>
+<p><span class="math inline">\(n\)</span> is the total sample size across all groups</p>
+<p><span class="math inline">\(\bar{y}\)</span> is the global mean of <span class="math inline">\(y\)</span> across all groups</p>
+</section>
+<section class="slide level2">
+<h2>Sums of squares</h2>
+<ul>
+<li>ANOVA uses <span class="b blue">sums of squares</span> (<span class="math inline">\(SS\)</span>) rather than variances
+<ul>
+<li><span class="math inline">\(SS\)</span> are the same as variances but don’t divide by <span class="math inline">\(n\)</span></li>
+<li>They are the <strong>sums</strong> of squared differences (not the means)</li>
+</ul></li>
+</ul>
+<div class="columns">
+<div class="column">
+<p><span class="math display">\[\color{blue}{\text{SS}_{tot}=\sum_{i=1}^n(y_{i}-\bar{y})^2}\]</span></p>
+</div><div class="column">
+<p><span class="math display">\[\text{Var}(y)=\frac{1}{n}\sum_{i=1}^n(y_{i} - \bar{y})^2\]</span></p>
+</div></div>
 <div class="footer">
-<p>This heuristic comes from Cohen (1988, 1992)</p>
+<p>Using <span class="math inline">\(SS\)</span> yields a nicer interpretation and enables the use of the <span class="math inline">\(F\)</span> distribution</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Ansombe’s quartet</h2>
+<h2>Between and within groups</h2>
 <ul>
-<li><p>All four data sets have the same correlation <span class="math inline">\((r=.816)\)</span></p></li>
-<li><p>But they show very different relationships qualitatively!</p></li>
+<li>The total variation (<span class="math inline">\(SS_{tot}\)</span>) contains two components</li>
 </ul>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="1440" class="r-stretch"></section>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="1152" class="r-stretch"><div class="columns">
+<div class="column">
+<p><em>How different are the three groups/ranks (on average)?</em></p>
+</div><div class="column">
+<p><em>How different are professors <br>in the same group/rank?</em></p>
+</div></div>
+</section>
 <section class="slide level2">
-<h2>Another effect size</h2>
+<h2>Decomposing the variation</h2>
 <ul>
-<li><p>We can square <span class="math inline">\(r\)</span> to get the <span class="b blue">coefficient of determination</span> <span class="math inline">\((r^2)\)</span></p></li>
-<li><p>How much variability is explained by the linear relationship?</p></li>
+<li>We can decompose total variation into two components:</li>
 </ul>
 <div class="columns">
 <div class="column">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(r^2\)</span></th>
-<th style="text-align: center;">Explained</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">0.1</td>
-<td style="text-align: center;">0.01</td>
-<td style="text-align: center;">1%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">0.3</td>
-<td style="text-align: center;">0.09</td>
-<td style="text-align: center;">9%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.25</td>
-<td style="text-align: center;">25%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">0.7</td>
-<td style="text-align: center;">0.49</td>
-<td style="text-align: center;">49%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.9</td>
-<td style="text-align: center;">0.81</td>
-<td style="text-align: center;">81%</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Between-group variation</strong></p>
+<p><span class="math display">\[\text{SS}_b = \sum_{k=1}^gn_k(\bar{y}_k - \bar{y})^2\]</span></p>
+<p><em>How far is each group mean <span class="math inline">\(\bar{y}_k\)</span> from the global mean <span class="math inline">\(\bar{y}\)</span>?</em></p>
+</div><div class="column">
+<p><strong>Within-group variation</strong></p>
+<p><span class="math display">\[\text{SS}_w = \sum_{k=1}^g\sum_{i=1}^{n_k}(y_{ik} - \bar{y}_k)^2\]</span></p>
+<p><em>How far is each observation <span class="math inline">\(y_{ik}\)</span> from its group mean <span class="math inline">\(\bar{y}_k\)</span>?</em></p>
+</div></div>
+<div class="footer">
+<p>Note that the decomposition ensures that <span class="math inline">\(SS_{tot}=SS_b + SS_w\)</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Testing for mean differences</h2>
+<ul>
+<li>If <span class="math inline">\(H_0\)</span> is true, the groups’ population means are the same
+<ul>
+<li>Thus, between-group variation <span class="math inline">\((SS_b)\)</span> should be small</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>But how small is small enough? We need to contextualize it
+<ul>
+<li>ANOVA does so by comparing <span class="math inline">\(SS_b\)</span> to <span class="math inline">\(SS_w\)</span></li>
+<li>It focuses on the ratio of <span class="math inline">\(SS_b\)</span> to <span class="math inline">\(SS_w\)</span> (i.e., <span class="math inline">\(SS_b/SS_w\)</span>)</li>
+<li>But we need to build in the group and sample sizes</li>
+<li>Doing so will allow us to calibrate our uncertainty</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Incorporating uncertainty</h2>
+<div class="tc">
+<div class="columns">
+<div class="column">
+<p><strong>Mean Squares Between</strong></p>
+<p><span class="math display">\[\textit{MS}_b = \frac{\textit{SS}_b}{g - 1}\]</span></p>
+</div><div class="column">
+<p><strong>Mean Squares Within</strong></p>
+<p><span class="math display">\[\textit{MS}_w = \frac{\textit{SS}_w}{n - g}\]</span></p>
+</div></div>
+<p><span class="b">The One-way ANOVA Test Statistic</span> <span class="math display">\[
+F_{obs} = \frac{\textit{MS}_b}{\textit{MS}_w}\\
+F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
+\]</span></p>
+</div>
+<div class="footer">
+<p><span class="math inline">\(g\)</span> is the number of groups, <span class="math inline">\(n\)</span> is the total sample size</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The F distribution</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>The sum of squared normally distributed values will have a <span class="math inline">\(\chi^2\)</span> distribution</p></li>
+<li><p>The ratio of two <span class="math inline">\(\chi^2\)</span> distributed variables will have an <span class="math inline">\(F\)</span> distribution</p></li>
+</ul>
+<p><span class="math display">\[x \sim F(\textit{df}_1, \textit{df}_2)\]</span></p>
 </div><div class="column">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="480"></p>
+<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -784,235 +382,414 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Obligatory PSA</h2>
-<ul>
-<li><p>Finding a correlation <strong>does not</strong> prove any causal story</p></li>
-<li><p>There are many ways for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> to become correlated</p>
-<ul>
-<li>Maybe <span class="math inline">\(x\)</span> causes <span class="math inline">\(y\)</span> (theorized model)</li>
-<li>Maybe <span class="math inline">\(y\)</span> causes <span class="math inline">\(x\)</span> (reverse causation)</li>
-<li>Maybe <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> cause each other (bidirectional)</li>
-<li>Maybe <span class="math inline">\(z\)</span> causes both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (third variable)</li>
-<li>Maybe it is just sampling error (spurious)</li>
-</ul></li>
+<h2>The df1 parameter</h2>
+
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="1152" class="r-stretch"><ul>
+<li>Higher <span class="math inline">\(\textit{df}_1\)</span> has thinner tails (i.e., lower critical values)</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The df2 parameter</h2>
+
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152" class="r-stretch"><ul>
+<li>Higher <span class="math inline">\(\textit{df}_2\)</span> has thinner tails (i.e., lower critical values)</li>
 </ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Statistical Inference</h1>
+<h1>One-way ANOVA in R</h1>
 
 </section>
 <section class="slide level2">
-<h2>Sampling error simulation</h2>
-<div class="columns">
-<div class="column">
-<p>Samples from <span class="math inline">\(\rho=0.0\)</span> <img data-src="../../img/nocorr.gif"></p>
-</div><div class="column fragment">
-<p>Samples from <span class="math inline">\(\rho=0.7\)</span> <img data-src="../../img/poscorr.gif"></p>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Statistical inference</h2>
+<h2>The aov function</h2>
 <ul>
-<li>I tend to treat <span class="math inline">\(r\)</span> as a descriptive summary statistic
-<ul>
-<li>I estimate it and maybe its CI but don’t use NHST</li>
-<li>I use more sophisticated methods to test relationships</li>
-</ul></li>
-<li>But we <em>can</em> test the significance of a correlation
-<ul>
-<li>Usually the null hypothesis is that it equals zero</li>
-</ul></li>
+<li>The <code>aov()</code> function will do this math for us</li>
 </ul>
-<p><span class="math display">\[
-H_0: \rho=0\\
-H_1: \rho\neq0
-\]</span></p>
-</section>
-<section class="slide level2">
-<h2>Test statistic</h2>
-<ul>
-<li>Test statistics incorporate the effect size and sample size</li>
-</ul>
-<p><span class="math display">\[t_{obs}=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}\]</span></p>
-<ul>
-<li>What is its sampling distribution under the null?
-<ul>
-<li>The frequentist parameteric approach assumes:</li>
-</ul></li>
-</ul>
-<p><span class="math display">\[t_{obs} \sim t(\textit{df}=n-2, \mu=0, \sigma=1)\]</span></p>
-</section>
-<section class="slide level2">
-<h2>Significance testing</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span>
-<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a>t_obs <span class="ot">&lt;-</span> (r_xy <span class="sc">*</span> <span class="fu">sqrt</span>(n <span class="sc">-</span> <span class="dv">2</span>)) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> r_xy<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>t_obs</span>
-<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -4.252537</span></span>
-<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a>t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">2</span>)</span>
-<span id="cb6-9"><a aria-hidden="true" tabindex="-1"></a>t_crit</span>
-<span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -2.015368  2.015368</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> salary <span class="sc">~</span> rank,</span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> salaries</span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<ul>
-<li><p>Because <span class="math inline">\(t_{obs}\)</span> is more extreme than <span class="math inline">\(t_{crit}\)</span>, we reject <span class="math inline">\(H_0\)</span></p></li>
-<li><p>Thus, we conclude that <span class="math inline">\(r\neq0\)</span> and specifically that <span class="math inline">\(r&lt;0\)</span></p></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li><p>Because <span class="math inline">\(r\)</span> is bounded <span class="math inline">\([0,1]\)</span>, its CI is often asymmetrical</p></li>
-<li><p>So we need a more complicated procedure to estimate its CI</p></li>
-</ul>
-<div class="columns">
-<div class="column">
-<ol type="1">
-<li><p>Transform <span class="math inline">\(r\)</span> to <span class="math inline">\(z\)</span>,<br>which is unbounded</p></li>
-<li><p>Calculate a CI around <span class="math inline">\(z\)</span>,<br>which is symmetrical</p></li>
-<li><p>Transform the bounds<br>of the <span class="math inline">\(z\)</span> CI back to <span class="math inline">\(r\)</span></p></li>
-</ol>
-</div><div class="column">
+<div class="fragment pv4">
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-19-1.png" width="480"></p>
-</figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">##              Df Sum Sq Mean Sq F value Pr(&gt;F)    </span></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank          2 143232   71616   128.2 &lt;2e-16 ***</span></span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Residuals   394 220069     559                   </span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-</div>
-</div></div>
-</section>
-<section class="slide level2 fs70">
-<h2>Confidence intervals</h2>
-<div class="columns">
-<div class="column" style="width:33%;">
-<h4>Step 1</h4>
-<p>Transform <span class="math inline">\(r\)</span> to <span class="math inline">\(z\)</span></p>
-<p><span class="math inline">\(z = \frac{1}{2}\ln\left(\frac{1+r}{1-r}\right)\)</span></p>
-</div><div class="column" style="width:33%;">
-<h4>Step 2</h4>
-<p>Estimate <span class="math inline">\(z\)</span> CI</p>
-<p><span class="math inline">\(z \pm \sqrt{\frac{1}{n-3}} \times 1.96\)</span></p>
-</div><div class="column" style="width:33%;">
-<h4>Step 3</h4>
-<p>Transform CI to <span class="math inline">\(r\)</span></p>
-<p><span class="math inline">\(r=\frac{e^{2z}-1}{e^{2z}+1}\)</span></p>
-</div></div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span>
-<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span>  (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="fu">log</span>((<span class="dv">1</span> <span class="sc">+</span> r_xy) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r_xy), <span class="at">base =</span> <span class="fu">exp</span>(<span class="dv">1</span>))</span>
-<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a>z</span>
-<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.603742</span></span>
-<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a>zmult <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span>
-<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a>ci_z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">lo =</span> z <span class="sc">-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">3</span>)) <span class="sc">*</span> zmult, <span class="at">hi =</span> z <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">3</span>)) <span class="sc">*</span> zmult)</span>
-<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a>ci_z</span>
-<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         lo         hi </span></span>
-<span id="cb7-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.9026337 -0.3048503</span></span>
-<span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a aria-hidden="true" tabindex="-1"></a>ci_r <span class="ot">&lt;-</span> (<span class="fu">exp</span>(<span class="dv">2</span> <span class="sc">*</span> ci_z) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> (<span class="fu">exp</span>(<span class="dv">2</span> <span class="sc">*</span> ci_z) <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb7-15"><a aria-hidden="true" tabindex="-1"></a>ci_r</span>
-<span id="cb7-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         lo         hi </span></span>
-<span id="cb7-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.7175778 -0.2957450</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Critical value (to compare to F_obs = 128.2)</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(.<span class="dv">975</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">394</span>)</span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.723634</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</section>
-<section class="slide level2">
-<h2>A simple function</h2>
-<ul>
-<li>The <code>cor.test()</code> function will do all this work for you
-<ul>
-<li>Note that our results are identical to before</li>
-</ul></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  Pearson's product-moment correlation</span></span>
-<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## data:  x and y</span></span>
-<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## t = -4.2525, df = 44, p-value = 0.0001085</span></span>
-<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## alternative hypothesis: true correlation is not equal to 0</span></span>
-<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb8-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  -0.7175778 -0.2957450</span></span>
-<span id="cb8-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb8-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        cor </span></span>
-<span id="cb8-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Prettier output</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit)</span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Sum_Squares |  df | Mean_Square |      F |      p</span></span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------</span></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank      |    1.43e+05 |   2 |    71615.88 | 128.22 | &lt; .001</span></span>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Residuals |    2.20e+05 | 394 |      558.55 |        |       </span></span>
+<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Anova Table (Type 1 tests)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><em>We used a one-way ANOVA to compare the mean salaries of Assistant, Associate, and Full professors and rejected the null hypothesis that these three groups have the same mean, <span class="math inline">\(F(2,394)=128.22\)</span>, <span class="math inline">\(p&lt;.001\)</span>.</em></p>
+</section>
+<section class="slide level2">
+<h2>Estimating group means</h2>
 <ul>
-<li>The <code>correlation()</code> function is more convenient</li>
+<li>We can also estimate the model-implied group means</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">correlation</span>(cigarettes, <span class="at">select =</span> <span class="st">"log_packs"</span>, <span class="at">select2 =</span> <span class="st">"log_price"</span>)</span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
-<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter1 | Parameter2 |     r |         95% CI | t(44) |         p</span></span>
-<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------</span></span>
-<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  |  log_price | -0.54 | [-0.72, -0.30] | -4.25 | &lt; .001***</span></span>
-<span id="cb9-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb9-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span>
-<span id="cb9-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations: 46</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>gmeans <span class="ot">&lt;-</span> <span class="fu">estimate_means</span>(fit, <span class="at">by =</span> <span class="st">"rank"</span>)</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>gmeans</span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Estimated Marginal Means</span></span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank      |   Mean |   SE |           95% CI | t(394)</span></span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------</span></span>
+<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Assistant |  80.78 | 2.89 | [ 75.10,  86.45] |  27.98</span></span>
+<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Associate |  93.88 | 2.95 | [ 88.07,  99.68] |  31.78</span></span>
+<span id="cb6-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | 126.77 | 1.45 | [123.92, 129.62] |  87.48</span></span>
+<span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb6-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: salary</span></span>
+<span id="cb6-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors modulated: rank</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="footer">
+<p>Note that this function requires the {emmeans} package to be installed</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Many correlations</h2>
+<h2>Plotting group means</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>r_all <span class="ot">&lt;-</span> <span class="fu">correlation</span>(cigarettes)</span>
-<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>r_all</span>
-<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
-<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter1 | Parameter2 |     r |         95% CI | t(44) |         p</span></span>
-<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------</span></span>
-<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  |  log_price | -0.54 | [-0.72, -0.30] | -4.25 | &lt; .001***</span></span>
-<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  | log_income | -0.17 | [-0.44,  0.13] | -1.14 | 0.262    </span></span>
-<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_price  | log_income |  0.49 | [ 0.24,  0.68] |  3.75 | 0.001**  </span></span>
-<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span>
-<span id="cb10-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations: 46</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gmeans)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+<h2>An effect size for One-way ANOVA</h2>
+<ul>
+<li><p>We conclude that <span class="math inline">\(H_0\)</span> is wrong, but <em>how wrong</em> was it?</p></li>
+<li><p><strong>How much of the total variation was between groups?</strong></p></li>
+</ul>
+<p><span class="math display">\[\eta^2 = \frac{SS_b}{SS_{tot}}\]</span></p>
+<ul>
+<li><p>If <span class="math inline">\(\eta^2=0\)</span>, then none of the variation was between groups</p></li>
+<li><p>If <span class="math inline">\(\eta^2=1\)</span>, then all of the variation was between groups</p></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Application and interpretation</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>ss_b <span class="ot">&lt;-</span> <span class="dv">143232</span></span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>ss_w <span class="ot">&lt;-</span> <span class="dv">220069</span></span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>ss_tot <span class="ot">&lt;-</span> ss_b <span class="sc">+</span> ss_w</span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a>ss_b <span class="sc">/</span> ss_tot</span>
+<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.3942516</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="pv4">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(fit)</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Effect Size for ANOVA</span></span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Eta2 |       95% CI</span></span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------</span></span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## rank      | 0.39 | [0.33, 1.00]</span></span>
+<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## - One-sided CIs: upper bound fixed at [1.00].</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 <ul>
-<li>This also applies the Holm method to adjust the <span class="math inline">\(p\)</span>-values
+<li>So 39% of the variation in salary was between groups/ranks</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Post-hoc Tests</h1>
+
+</section>
+<section class="slide level2">
+<h2>Many ways to reject the null</h2>
 <ul>
-<li>We will talk more about this in a future lecture</li>
+<li>Recall that our null hypothesis is that <span class="math inline">\(\mu_1=\mu_2=\mu_3\)</span></li>
+</ul>
+<div class="fs60">
+<table class="caption-top">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Possibility</th>
+<th><span class="math inline">\(\mu_1=\mu_2\)</span></th>
+<th><span class="math inline">\(\mu_1=\mu_3\)</span></th>
+<th><span class="math inline">\(\mu_2=\mu_3\)</span></th>
+<th>Hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>null</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>-</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>alternative</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>TRUE</td>
+<td>-</td>
+<td>TRUE</td>
+<td>alternative</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>-</td>
+<td>alternative</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>TRUE</td>
+<td>-</td>
+<td>-</td>
+<td>alternative</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>-</td>
+<td>TRUE</td>
+<td>-</td>
+<td>alternative</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>-</td>
+<td>-</td>
+<td>TRUE</td>
+<td>alternative</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>alternative</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Thus, if we reject the null, we don’t know exactly why…</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Pairwise <span class="math inline">\(t\)</span>-tests</h2>
+<ul>
+<li>To figure it out, we can run a <span class="math inline">\(t\)</span>-test for each pair of groups
+<ul>
+<li>These are called “post hoc” (Latin for “after that”) tests</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[\mu_1=\mu_2 \qquad \mu_1=\mu_3 \qquad \mu_2=\mu_3\]</span></p>
+<ul>
+<li>There are two main challenges with this approach
+<ul>
+<li>It will be a hassle to run all these tests as <span class="math inline">\(g\)</span> increases</li>
+<li>Running many tests will increase the Type I Error rate</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Correlation matrix</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>r_mat <span class="ot">&lt;-</span> <span class="fu">summary</span>(r_all)</span>
-<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>r_mat</span>
-<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
-<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | log_income | log_price</span></span>
-<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------</span></span>
-<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs |      -0.17 |  -0.54***</span></span>
-<span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_price |     0.49** |          </span></span>
-<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb11-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h2>Addressing the challenges</h2>
+<ul>
+<li>For the first challenge, we will use programming
+<ul>
+<li>We will use R functions to do all the work for us</li>
+</ul></li>
+<li>For the second challenge, we will use two approaches
+<ul>
+<li><strong>Gating:</strong> only run post-hoc tests if ANOVA is significant</li>
+<li><span class="math inline">\(p\)</span>-value adjustment: increase <span class="math inline">\(p\)</span> based on # of tests run</li>
+</ul></li>
+<li>We want to keep the overall (“familywise”) error rate at <span class="math inline">\(\alpha\)</span>
+<ul>
+<li>We will learn two common adjustment approaches</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Bonferroni correction</h2>
+<ul>
+<li>Multiply each <span class="math inline">\(p\)</span> by the number of tests run (<span class="math inline">\(m\)</span>)</li>
+</ul>
+<p><span class="math display">\[p' = p \times m\]</span></p>
+<div class="fs70">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>raw <span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(m\)</span></th>
+<th>Bonferroni <span class="math inline">\(p'\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>.001 ***</td>
+<td>5</td>
+<td>.005 **</td>
+</tr>
+<tr class="even">
+<td>.005 **</td>
+<td>5</td>
+<td>.025 *</td>
+</tr>
+<tr class="odd">
+<td>.019 *</td>
+<td>5</td>
+<td>.095</td>
+</tr>
+<tr class="even">
+<td>.022 *</td>
+<td>5</td>
+<td>.110</td>
+</tr>
+<tr class="odd">
+<td>.103</td>
+<td>5</td>
+<td>.515</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="footer">
+<p>Bonferonni is simple but very conservative</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Plotting a matrix</h2>
+<h2>Holm correction</h2>
+<ul>
+<li><p>Pretend you do the tests from smallest to largest <span class="math inline">\(p\)</span>-value</p></li>
+<li><p>Take the larger of <span class="math inline">\((p'_j=j\times p_j)\)</span> and <span class="math inline">\((p'_{j+1})\)</span></p></li>
+</ul>
+<div class="fs70">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>raw <span class="math inline">\(p\)</span></th>
+<th>rank <span class="math inline">\(j\)</span></th>
+<th><span class="math inline">\(p\times j\)</span></th>
+<th>Holm <span class="math inline">\(p'\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>.001 ***</td>
+<td>5</td>
+<td>.005</td>
+<td>.005 **</td>
+</tr>
+<tr class="even">
+<td>.005 **</td>
+<td>4</td>
+<td>.020</td>
+<td>.020 *</td>
+</tr>
+<tr class="odd">
+<td>.019 *</td>
+<td>3</td>
+<td>.057</td>
+<td>.057</td>
+</tr>
+<tr class="even">
+<td>.022 *</td>
+<td>2</td>
+<td>.044</td>
+<td>.057</td>
+</tr>
+<tr class="odd">
+<td>.103</td>
+<td>1</td>
+<td>.103</td>
+<td>.103</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="footer">
+<p>Holm is complicated but more powerful</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Post-hoc tests in R</h2>
+<div class="fs90">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r_mat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit, </span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">contrast =</span> <span class="st">"rank"</span>, </span>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"pairwise"</span>,</span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">p_adjust =</span> <span class="st">"bonferroni"</span></span>
+<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Marginal Contrasts Analysis</span></span>
+<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Level1    | Level2    | Difference |   SE |         95% CI | t(394) |      p</span></span>
+<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------------</span></span>
+<span id="cb10-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Associate | Assistant |      13.10 | 4.13 | [ 4.98, 21.22] |   3.17 |  0.005</span></span>
+<span id="cb10-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | Assistant |      46.00 | 3.23 | [39.64, 52.35] |  14.24 | &lt; .001</span></span>
+<span id="cb10-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | Associate |      32.90 | 3.29 | [26.43, 39.36] |  10.00 | &lt; .001</span></span>
+<span id="cb10-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: salary</span></span>
+<span id="cb10-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors contrasted: rank</span></span>
+<span id="cb10-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Bonferroni</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Adjustment in R</h2>
+<div class="fs90">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(</span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> fit, </span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">contrast =</span> <span class="st">"rank"</span>, </span>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"pairwise"</span>,</span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">p_adjust =</span> <span class="st">"holm"</span> <span class="co"># change the method here</span></span>
+<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Marginal Contrasts Analysis</span></span>
+<span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Level1    | Level2    | Difference |   SE |         95% CI | t(394) |      p</span></span>
+<span id="cb11-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------------------------------------------------</span></span>
+<span id="cb11-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Associate | Assistant |      13.10 | 4.13 | [ 4.98, 21.22] |   3.17 |  0.002</span></span>
+<span id="cb11-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | Assistant |      46.00 | 3.23 | [39.64, 52.35] |  14.24 | &lt; .001</span></span>
+<span id="cb11-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Full      | Associate |      32.90 | 3.29 | [26.43, 39.36] |  10.00 | &lt; .001</span></span>
+<span id="cb11-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb11-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Variable predicted: salary</span></span>
+<span id="cb11-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors contrasted: rank</span></span>
+<span id="cb11-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section></section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -192,10 +192,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -204,7 +200,7 @@
 
 <section class="title-slide slide level1 my-title center">
 <h1><span class="blue">Statistical Methods</span></h1>
-<p>Hypotheses / NHST / p-values</p>
+<p>t-tests / Effect Sizes / Paired Groups</p>
 <div class="my-grey">
 <p><span>Unit B | Chapter 06</span><br> <span>Lecture 06a</span></p>
 </div>
@@ -216,728 +212,469 @@
 
 <section>
 <section class="title-slide slide level1 center">
-<h1>Statistical Hypotheses</h1>
+<h1>Introductions</h1>
 
 </section>
 <section class="slide level2">
-<h2>What is a hypothesis?</h2>
+<h2>Group Comparisons</h2>
 <ul>
-<li>A hypothesis is a <strong>testable</strong> prediction
+<li><p>Many research questions are about <strong>comparing groups</strong></p></li>
+<li><p>Do two (or more) groups have the same population mean?</p>
 <ul>
-<li>It derives from a broader scientific theory</li>
-<li>It needs to be operationalized and falsifiable</li>
-</ul></li>
-<li>A statistical hypothesis needs to be mathematically <strong>precise</strong>
-<ul>
-<li>It is about characteristics of the population of interest</li>
-<li>It is a <em>comparison</em> involving population parameters
-<ul>
-<li>The mean of the whole population is 100 <span class="math inline">\((\mu=100)\)</span></li>
-<li>The mean is greater in group 1 than group 2 <span class="math inline">\((\mu_1&gt;\mu_2)\)</span></li>
-</ul></li>
+<li>These groups may be naturally occurring<br> (e.g., Do <em>adults</em> or <em>children</em> watch more TV?)</li>
+<li>Or they may correspond to experimental conditions<br> (e.g., Do outcomes differ in <em>treatment</em> and <em>placebo</em>?)</li>
+<li>Two groups of measurements may be related/paired<br> (e.g., Is a person’s memory better <em>before</em> or <em>after</em> exercise?)</li>
 </ul></li>
 </ul>
-<div class="footer">
-
-</div>
 </section>
 <section class="slide level2">
-<h2>Example research question</h2>
+<h2>Types of Groups</h2>
 <ul>
-<li><p>Imagine that we study <em>nutrition</em> and <em>obesity</em></p></li>
-<li><p>Participants really like a brand of “low sugar” cereal</p></li>
-<li><p>The label claims that it only contains 3 g of sugar per serving</p></li>
-<li><p>However, we think this may be <strong>false advertising</strong>!</p></li>
-</ul>
-<div class="fragment">
+<li><p>We will collect a sample of data from each group</p></li>
+<li><p><span class="b blue">Independent Samples:</span> Observations are unrelated</p>
 <ul>
-<li><p>We buy a <em>sample</em> of 20 cereal boxes from various stores</p></li>
-<li><p>We measure the amount of sugar per serving in each box</p></li>
-<li><p><strong>Is 3 g a reasonable estimate of the <em>population mean</em>?</strong></p></li>
+<li>e.g., Each participant only occurs in a single group/sample</li>
+<li>e.g., Different people are assigned to condition A or B</li>
+</ul></li>
+<li><p><span class="b blue">Dependent/Paired Samples:</span> Observations are linked</p>
+<ul>
+<li>e.g., Each participant occurs in multiple groups/samples</li>
+<li>e.g., Each person participates in both condition A and B</li>
+</ul></li>
 </ul>
-</div>
-<div class="footer">
-
-</div>
 </section>
 <section class="slide level2">
-<h2>Null and alternative hypotheses</h2>
+<h2>Types of Comparisons</h2>
+<div class="columns">
+<div class="column">
+<p><span class="b blue">Significance Testing</span></p>
 <ul>
-<li>Just like in a criminal trial, we need to represent <em>both</em> sides</li>
+<li><p>Is the difference between the two group means zero?</p></li>
+<li><p>The result is a test statistic, <br><span class="math inline">\(p\)</span>-value, and decision to retain or reject the null</p></li>
+<li><p><em>Adults watch significantly more TV than do children, <span class="math inline">\(t(99)=20.14, p&lt;.001\)</span></em></p></li>
 </ul>
-<div class="fragment">
+</div><div class="column fragment">
+<p><span class="b blue">Estimation</span></p>
 <ul>
-<li>The <strong>null hypothesis</strong> represents the company’s “defense”
-<ul>
-<li>Boxes <em>do</em> contain 3 g on average, or <span class="math inline">\(H_0: \mu=3\)</span></li>
-</ul></li>
+<li><p>What are reasonable values for the difference between the two group means?</p></li>
+<li><p>The result is a point estimate and interval estimate (CI)</p></li>
+<li><p><em>Adults watch <span class="math inline">\(3.2\)</span> more hours of TV per day than do children, 95% CI: <span class="math inline">\([1.8, 4.6]\)</span></em></p></li>
 </ul>
-</div>
-<div class="fragment">
-<ul>
-<li>The <strong>alternative hypothesis</strong> represents the “prosecution”
-<ul>
-<li>Boxes contain <em>more</em> than 3 g on average, or <span class="math inline">\(H_1: \mu&gt;3\)</span></li>
-<li>Boxes <em>do not</em> contain 3 g on average, or <span class="math inline">\(H_2: \mu\neq3\)</span></li>
-</ul></li>
-</ul>
-</div>
-<div class="footer">
-<p><span class="math inline">\(H_1\)</span> is a “one-sided” and <span class="math inline">\(H_2\)</span> is a “two-sided” hypothesis.</p>
-</div>
+</div></div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>NHST Logic</h1>
+<h1>NHST Approaches</h1>
 
 </section>
 <section class="slide level2">
-<h2>What is NHST?</h2>
-<ul>
-<li><p>In null hypothesis significance testing (NHST), the null hyp. is the defense and the alternative hyp. is the prosecution</p></li>
-<li><p>The statistical test is the <em>judge and jury</em> (makes the decision)</p></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>We begin with a “presumption of innocence”
-<ul>
-<li>The null hypothesis is <strong>assumed true</strong> unless…</li>
-<li>…there is good evidence that it is <strong><em>very unlikely</em></strong></li>
-<li>The burden of proof thus lies with the prosecution</li>
-</ul></li>
-</ul>
-</div>
-<div class="footer">
-<p>NHST helps protect the null hypothesis from researchers who are incentivized to disprove it.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Potential test outcomes</h2>
+<h2>Recap of Steps in NHST</h2>
 <ol type="1">
-<li><span class="b blue">Retain the null hypothesis</span>
-<ul>
-<li>There is not enough evidence to reject <span class="math inline">\(\mu=3\)</span></li>
-<li>We cannot be certain that <span class="math inline">\(\mu\)</span> does not equal <span class="math inline">\(3\)</span></li>
-<li><em>It <strong>does not</strong> mean that we are certain that <span class="math inline">\(\mu=3\)</span></em></li>
-</ul></li>
-<li><span class="b blue">Reject the null hypothesis</span>
-<ul>
-<li>There is enough evidence to conclude <span class="math inline">\(\mu\neq3\)</span></li>
-<li>The cereal’s nutrion label should be changed…</li>
-<li><em>It <strong>does not</strong> prove that this was deliberate fraud</em></li>
-</ul></li>
+<li><p>Set <strong>null and alternative hypotheses</strong>, Type I Error Rate <span class="math inline">\((\alpha)\)</span></p></li>
+<li><p>Choose an appropriate test and calculate its <strong>test statistic</strong></p></li>
+<li><p>Estimate <strong>null sampling distribution</strong> for test statistic</p></li>
+<li><p>Calculate <strong>critical values</strong> from null sampling distribution</p></li>
+<li><p>Compare the observed test statistic to these critical values</p></li>
+<li><p>Calculate <span class="math inline">\(\boldsymbol{p}\)</span><strong>-value</strong> and decide to <strong>retain or reject</strong> the null</p></li>
 </ol>
-<div class="footer">
-
+</section>
+<section class="slide level2">
+<h2>Independent Samples <span class="math inline">\(t\)</span>-test</h2>
+<ul>
+<li><p><strong>Research Question:</strong> Do tenure track (G1) or non-tenure track (G2) professors receive better teaching evals, on average?</p></li>
+<li><p>Each professor is G1 or G2, so these are <em>independent</em> groups</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Are the G1 and G2 samples drawn from populations with <br>the same mean (null) or different means (alternative)?</li>
+</ul>
+<p><span class="math display">\[
+H_0: \mu_1=\mu_2\\
+H_1: \mu_1\neq\mu_2
+\]</span></p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Potential errors</h2>
-<ul>
-<li>In reality, there is <strong>only one correct decision</strong>
-<ul>
-<li>In the two-sided case, either <span class="math inline">\(\mu=3\)</span> or <span class="math inline">\(\mu\neq3\)</span></li>
-</ul></li>
-<li>Due to <em>sampling error</em>, our sample may lead us astray
-<ul>
-<li>We might make one two possible <span class="red">wrong</span> decisions…</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Retain <span class="math inline">\(H_0\)</span></th>
-<th style="text-align: left;">Reject <span class="math inline">\(H_0\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(H_0\)</span> <strong>is True</strong></td>
-<td style="text-align: left;">Correct Retain</td>
-<td style="text-align: left;"><span class="red">Type I Error</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(H_0\)</span> <strong>is False</strong></td>
-<td style="text-align: left;"><span class="red">Type II Error</span></td>
-<td style="text-align: left;">Correct Reject</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="footer">
-
+<h2>Example data</h2>
+<div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>tratings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/teaching_ratings.csv"</span>)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>tratings</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 94 × 9</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##     prof   age sex    minority native track beauty  eval courses</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1     1    36 female        1      1     1   0.29  4          4</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2     2    59 male          0      1     1  -0.74  3.53       3</span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3     3    51 male          0      1     1  -0.57  3.45       2</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4     4    40 female        0      1     1  -0.68  4.01       8</span></span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5     5    31 female        0      1     1   1.51  4.35       6</span></span>
+<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6     6    62 male          0      1     1   0.59  4.44       7</span></span>
+<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7     7    33 female        0      1     1  -0.13  3.84       5</span></span>
+<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8     8    51 female        0      1     1  -0.26  4.03       7</span></span>
+<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9     9    33 female        0      1     1   0.15  4.26       7</span></span>
+<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10    10    47 male          0      1     2   0.54  4.56      10</span></span>
+<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 84 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Example outcomes</h2>
+<h2>Data Exploration</h2>
+
+<img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Test Statistic</h2>
 <ul>
-<li>In a world where the cereal <em>does</em> contain 3g on average
+<li><p>If the null is true and <span class="math inline">\(\mu_1 = \mu_2\)</span>, then <span class="math inline">\(\mu_1 - \mu_2 = 0\)</span></p></li>
+<li><p>We can use this as the basis of our test statistic</p></li>
+<li><p>But again, the math is easier if we standardize it</p></li>
+</ul>
+<p><span class="math display">\[t_{diff}=\frac{\bar{x}_1 - \bar{x}_2}{SE_{diff}}\]</span></p>
 <ul>
-<li>The <strong>null hypothesis is true</strong> and should be <em>retained</em></li>
-<li>If our test retains it, that is the correct decision</li>
-<li>If our test rejects it, that is a <span class="red">Type I error</span></li>
+<li>So now we just need to estimate the SE of the difference</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Two approaches</h2>
+<ul>
+<li><p>There are two main approaches to estimating <span class="math inline">\(SE_{diff}\)</span></p></li>
+<li><p><span class="b blue">Student’s approach</span> assumes “equal variance”</p>
+<ul>
+<li>It assumes that both populations have the same SD</li>
+<li>In parameter terms, it assumes that <span class="math inline">\(\sigma_1 = \sigma_2\)</span></li>
+<li>This approach simplifies the math, so we start here</li>
 </ul></li>
-<li>In a world where the cereal <em>doesn’t</em> contain 3g on average
+<li><p><span class="b blue">Welch’s approach</span> does not make this assumption</p>
 <ul>
-<li>The <strong>null hypothesis is false</strong> and should be <em>rejected</em></li>
-<li>If our test retains it, that is a <span class="red">Type II error</span></li>
-<li>If our test rejects it, that is the correct decision</li>
+<li>It has a more complicated equation</li>
+<li>But it is usually more realistic</li>
 </ul></li>
 </ul>
+</section>
+<section class="slide level2">
+<h2>Student’s approach</h2>
+<ul>
+<li>We can estimate <span class="math inline">\(\sigma\)</span> by “pooling” <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span></li>
+</ul>
+<p><span class="math display">\[
+s_p = \sqrt{\frac{s_1^2(n_1-1) + s_2^2(n_2-1)}{n_1+n_2-2}}
+\]</span></p>
+<div class="fragment">
+<ul>
+<li>We can now use <span class="math inline">\(s_p\)</span> to estimate <span class="math inline">\(SE_{diff}\)</span></li>
+</ul>
+<p><span class="math display">\[SE_{diff} = s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\]</span></p>
+</div>
 <div class="footer">
-
+<p>Pooling is taking a weighted average (weighted by sample size minus 1).</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Controlling error rates</h2>
+<h2>Student’s approach</h2>
 <ul>
-<li>NHST is particularly interested in preventing Type I errors
+<li>Our test statistic for Student’s approach is:</li>
+</ul>
+<p><span class="math display">\[t_{diff} = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}\]</span></p>
 <ul>
-<li>Researchers want to reject the null, so NHST protects it</li>
+<li>The null sampling distribution is assumed to be:</li>
+</ul>
+<p><span class="math display">\[t_{diff} \sim t(\textit{df}=n_1+n_2-2, \mu=0, \sigma=1)\]</span></p>
+</section>
+<section class="slide level2">
+<h2>Welch’s approach</h2>
+<p><span class="math display">\[SE_{diff} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\]</span></p>
+<p><span class="math display">\[
+t_{diff} \sim t\left(
+\textit{df}=\frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}
+{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1} + \frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}},
+\mu=0,
+\sigma=1\right)
+\]</span></p>
+</section>
+<section class="slide level2">
+<h2>Both approaches in R</h2>
+<ul>
+<li>We can have R do all this math for us using <code>t.test()</code>
+<ul>
+<li><code>formula</code>: in the format <em>outcome ~ group</em></li>
+<li><code>data</code>: tibble containing <em>outcome</em> and <em>group</em></li>
+<li><code>var.equal</code>: TRUE (Student’s) or FALSE (Welch’s)</li>
 </ul></li>
 </ul>
-<div class="fragment">
-<ul>
-<li>We control the Type I error rate <span class="math inline">\((\alpha)\)</span> by modifying the test
-<ul>
-<li>e.g., we set <span class="math inline">\(\alpha=.05\)</span> to allow only 5% type I error</li>
-</ul></li>
-</ul>
+</section>
+<section class="slide level2 fs70">
+<h2>Student’s test results</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>fit_s <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> eval <span class="sc">~</span> track,</span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> tratings,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.equal =</span> <span class="cn">TRUE</span></span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_s)</span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Two Sample t-test</span></span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Group | track = 1 | track = 2 | Difference |         95% CI | t(92) |     p</span></span>
+<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------------------------</span></span>
+<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a><span class="do">## eval      | track |      3.87 |      4.12 |      -0.25 | [-0.51,  0.00] | -1.99 | 0.049</span></span>
+<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="annotated-cell-2-15"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="1">Be sure to set <code>var.equal=TRUE</code> to use Student’s approach</span>
+</dd>
+</dl>
 </div>
-<div class="fragment">
-<ul>
-<li>We control the Type II error rate <span class="math inline">\((\beta)\)</span> via large samples
-<ul>
-<li>We refer to a test’s <strong>statistical power</strong> as <span class="math inline">\(1-\beta\)</span></li>
-<li>e.g., we decide <span class="math inline">\(n\)</span> to get 80% power (only 20% type II error)</li>
-</ul></li>
-</ul>
+</div>
+<div class="fragment pv2">
+<p>“A Student’s independent samples <em>t</em>-test found that tenure-track professors’ average eval (M=3.87) was significantly lower than non-tenure-track professors’ average eval (M=4.12), <em>t</em>(92)=–1.99, <em>p</em>=.049. The difference was estimated to be –0.25, 95% CI: [–0.51, 0.00].”</p>
 </div>
 <div class="footer">
-
+<p>Note that this result is <em>barely</em> significant.</p>
+</div>
+</section>
+<section class="slide level2 fs70">
+<h2>Welch’s approach in R</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>fit_w <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> eval <span class="sc">~</span> track,</span>
+<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> tratings,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.equal =</span> <span class="cn">FALSE</span></span>
+<span id="annotated-cell-3-5"><a href="#annotated-cell-3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="annotated-cell-3-6"><a href="#annotated-cell-3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-3-7"><a href="#annotated-cell-3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_w)</span>
+<span id="annotated-cell-3-8"><a href="#annotated-cell-3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Welch Two Sample t-test</span></span>
+<span id="annotated-cell-3-9"><a href="#annotated-cell-3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="annotated-cell-3-10"><a href="#annotated-cell-3-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Group | track = 1 | track = 2 | Difference |         95% CI</span></span>
+<span id="annotated-cell-3-11"><a href="#annotated-cell-3-11" aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------</span></span>
+<span id="annotated-cell-3-12"><a href="#annotated-cell-3-12" aria-hidden="true" tabindex="-1"></a><span class="do">## eval      | track |      3.87 |      4.12 |      -0.25 | [-0.50, -0.01]</span></span>
+<span id="annotated-cell-3-13"><a href="#annotated-cell-3-13" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="annotated-cell-3-14"><a href="#annotated-cell-3-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | t(21.62) |     p</span></span>
+<span id="annotated-cell-3-15"><a href="#annotated-cell-3-15" aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------</span></span>
+<span id="annotated-cell-3-16"><a href="#annotated-cell-3-16" aria-hidden="true" tabindex="-1"></a><span class="do">## eval      |    -2.19 | 0.040</span></span>
+<span id="annotated-cell-3-17"><a href="#annotated-cell-3-17" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="annotated-cell-3-18"><a href="#annotated-cell-3-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="1">Be sure to set <code>var.equal=FALSE</code> to use Welch’s approach</span>
+</dd>
+</dl>
+</div>
+</div>
+<div class="fragment pv2">
+<p>“A Welch’s independent samples <em>t</em>-test found that tenure-track professors’ average eval (M=3.87) was significantly lower than non-tenure-track professors’ average eval (M=4.12), <em>t</em>(21.62)=–2.19, <em>p</em>=.040. The difference was estimated to be –0.25, 95% CI: [–0.50, –0.01].”</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Outcome probabilities</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 45%">
-<col style="width: 22%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Retain <span class="math inline">\(H_0\)</span></th>
-<th style="text-align: center;">Reject <span class="math inline">\(H_0\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(H_0\)</span> <strong>is True</strong></td>
-<td style="text-align: center;"><span class="math inline">\(1-\alpha\)</span></td>
-<td style="text-align: center;"><span class="red"><span class="math inline">\(\text{[I] }\alpha\)</span></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(H_0\)</span> <strong>is False</strong></td>
-<td style="text-align: center;"><span class="red"><span class="math inline">\(\text{[II] }\beta\)</span></span></td>
-<td style="text-align: center;"><span class="math inline">\(1-\beta\)</span></td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
+<h2>Paired groups</h2>
 <ul>
-<li>If we set <span class="math inline">\(\alpha\)</span> to .05, we are accepting…
+<li>Sometimes observations in our groups are related
 <ul>
-<li>Up to a 5% (1 in 20) chance of rejecting a true null hyp.</li>
+<li>Obs. X in G1 is related somehow to obs. X in G2</li>
+<li>e.g., repeated measures of the same person or thing</li>
+</ul></li>
+<li>If we ignore these relationships in our modeling…
+<ul>
+<li>Our SE estimates will tend to be too low</li>
+<li>Therefore, our <span class="math inline">\(p\)</span>-values and CIs will be incorrect</li>
 </ul></li>
 </ul>
+</section>
+<section class="slide level2">
+<h2>Paired samples <span class="math inline">\(t\)</span>-test</h2>
+<ul>
+<li>To fix this, we can calculate the paired differences</li>
+</ul>
+<p><span class="math display">\[\Delta_i = x_{1i} - x_{2i}\]</span></p>
+<ul>
+<li>Then we do a one-sample <span class="math inline">\(t\)</span>-test on the differences</li>
+</ul>
+<p><span class="math display">\[t_\Delta = \frac{\bar{\Delta}}{SE_{\bar{\Delta}}} = \frac{\bar{\Delta}}{s_{\Delta}/\sqrt{n}}\]</span></p>
+<p><span class="math display">\[t_\Delta \sim t(\textit{df}=n-1, \mu=0, \sigma=1)\]</span></p>
+</section>
+<section class="slide level2">
+<h2>Example data</h2>
+<div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>social <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/socialproblems.csv"</span>)</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>social</span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 34 × 3</span></span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    patient baseline endpoint</span></span>
+<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">##      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  1       1   0.289    -0.261</span></span>
+<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  2       2  -1.37     -1.54 </span></span>
+<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  3       3   0.142    -0.328</span></span>
+<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  4       4  -0.872    -0.360</span></span>
+<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  5       5   0.731    -1.38 </span></span>
+<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  6       8   0.818     0.218</span></span>
+<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  7       9  -0.0437   -0.389</span></span>
+<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  8      10  -0.341    -0.404</span></span>
+<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  9      11   0.380    -1.22 </span></span>
+<span id="cb2-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 10      12  -0.373    -0.558</span></span>
+<span id="cb2-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 24 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="fragment">
+</section>
+<section class="slide level2">
+<h2>Paired <span class="math inline">\(t\)</span>-test in R</h2>
 <ul>
-<li>If we use a sample with 80% power, we are accepting…
-<ul>
-<li>Up to a 20% (1 in 5) chance of retaining a false null hyp.</li>
-</ul></li>
+<li>We can use <code>t.test()</code> again but our formula changes</li>
 </ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>fit_p <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> <span class="fu">Pair</span>(endpoint, baseline) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> social</span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_p)</span>
+<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Paired t-test</span></span>
+<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter                | Difference | t(33) |      p |         95% CI</span></span>
+<span id="cb3-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------</span></span>
+<span id="cb3-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Pair(endpoint, baseline) |      -0.42 | -3.86 | &lt; .001 | [-0.64, -0.20]</span></span>
+<span id="cb3-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true mean difference is not equal to 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="footer">
-
+<p>Note that <span class="math inline">\(\textit{df}=33\)</span> (not <span class="math inline">\(67\)</span>) because we count each pair only once.</p>
 </div>
+</section>
+<section class="slide level2">
+<h2>One-sample <span class="math inline">\(t\)</span>-test equivalence</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate paired differences</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>social<span class="sc">$</span>change <span class="ot">&lt;-</span> social<span class="sc">$</span>endpoint <span class="sc">-</span> social<span class="sc">$</span>baseline</span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="co"># One-sample t-test on paired differences</span></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>fit_o <span class="ot">&lt;-</span> <span class="fu">t.test</span>(social<span class="sc">$</span>change, <span class="at">mu =</span> <span class="dv">0</span>)</span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_o)</span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## One Sample t-test</span></span>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter |  Mean | mu | Difference |         95% CI | t(33) |      p</span></span>
+<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------</span></span>
+<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## change    | -0.42 |  0 |      -0.42 | [-0.64, -0.20] | -3.86 | &lt; .001</span></span>
+<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true mean is not equal to 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Note that these results are identical</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>NHST Nuts and Bolts</h1>
+<h1>Effect Sizes</h1>
 
 </section>
 <section class="slide level2">
-<h2>Test statistics</h2>
+<h2>Effect sizes</h2>
 <ul>
-<li>How do we decide to retain or reject the null hypothesis?</li>
-</ul>
-<div class="fragment">
+<li><p>The <span class="math inline">\(p\)</span> value combines the effect size and uncertainty</p></li>
+<li><p>But sometimes we want to separate these quantities out</p></li>
+<li><p>A <em>pure</em> measure of effect size would be nice sometimes</p></li>
+<li><p>In the current case of group comparisons…</p>
 <ul>
-<li>We compare our sample data to our “null expectations”
-<ul>
-<li><em>What would we expect to see if the null were true?</em></li>
-<li>If they <strong>match</strong>, we we <strong>retain</strong> the null hypothesis</li>
-<li>If they <strong>do not match</strong>, we <strong>reject</strong> the null hypothesis</li>
+<li><strong>How large is the difference between group means?</strong></li>
+<li>Is this difference large enough to matter in practice?</li>
+<li>Can we make it easier to interpret and compare?</li>
 </ul></li>
 </ul>
-</div>
-<div class="fragment">
+</section>
+<section class="slide level2">
+<h2>Group difference effect sizes</h2>
 <ul>
-<li>We need a way to quantify the extent of this matching
+<li>The difference in means <span class="math inline">\((\bar{x}_1 - \bar{x}_2)\)</span> is a simple effect size
 <ul>
-<li>The <span class="b blue">test statistic</span> quantifies the <em>mismatch</em></li>
+<li>This is an “unstandardized” effect size (in original units)</li>
+<li>If the original units are intuitive, this might work well</li>
+</ul></li>
+<li>It may help comparison to standardize this value
+<ul>
+<li>The difference is now in <em>standard deviation</em> units</li>
 </ul></li>
 </ul>
-</div>
+<p><span class="math display">\[ES = \frac{\bar{x}_1 - \bar{x}_2}{SD}\]</span></p>
 <div class="footer">
-
+<p>The question now becomes… which SD to use for standardization?</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Test statistics</h2>
+<h2>Independent samples</h2>
 <ul>
-<li>The population mean expected under the null <span class="math inline">\((\mu_0)\)</span> is 3
+<li>When comparing the means of independent samples…
 <ul>
-<li>Our null expectation is a sample mean <span class="math inline">\((\bar{x})\)</span> close to this</li>
-</ul></li>
-<li>The extent of matching here is captured by the difference
-<ul>
-<li>We can use the difference <span class="math inline">\((\Delta)\)</span> as a simple test statistic <span class="math display">\[\Delta = \bar{x} - \mu_0 \qquad \Delta = \bar{x} - 3\]</span></li>
-<li>If the null is true, then <span class="math inline">\(\Delta\)</span> should be very close to zero</li>
-<li>We would reject the null if <span class="math inline">\(\Delta\)</span> is too far from zero</li>
+<li>We can use the pooled SD in the denominator</li>
 </ul></li>
 </ul>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Critical values</h2>
+<p><span class="math display">\[d = \frac{\bar{x}_1 - \bar{x}_2}{s_p} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{(n_1 - 1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}}\]</span></p>
 <ul>
-<li><p>How far from zero is too far? When do we reject the null?</p></li>
-<li><p>We look at the sampling distribution of <span class="math inline">\(\Delta\)</span> under the null</p>
-<ul>
-<li>If we assume that the null hypothesis is true…</li>
-<li>…what values would we see with repeated samples?</li>
-</ul></li>
-<li><p>We can use this to make our statistical decision</p>
-<ul>
-<li>We reject <span class="math inline">\(H_0\)</span> if the test statistic is unlikely under the null</li>
-<li>If greater than the <span class="b blue">critical value</span>, we reject the null</li>
-<li>The critical value controls the Type I error rate <span class="math inline">\((\alpha)\)</span></li>
-</ul></li>
+<li><p>This effect size measure is often referred to as Cohen’s <span class="math inline">\(d\)</span></p></li>
+<li><p>Other options include Hedge’s <span class="math inline">\(g\)</span> and Glass’ <span class="math inline">\(\Delta\)</span></p></li>
 </ul>
 <div class="footer">
-
+<p><span class="math inline">\(g\)</span> corrects for small sample sizes and <span class="math inline">\(\Delta\)</span> uses the SD from one group only</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Single sample <span class="math inline">\(z\)</span>-test</h2>
+<h2>Unstandardized difference</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_s)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Two Sample t-test</span></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Group | track = 1 | track = 2 | Difference |         95% CI | t(92) |     p</span></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------------------------</span></span>
+<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## eval      | track |      3.87 |      4.12 |      -0.25 | [-0.51,  0.00] | -1.99 | 0.049</span></span>
+<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="pv2">
+<p>Tenure track professors’ average teaching evaluations were 0.25 units lower (on a scale from 1 to 5) than were non-tenure track professors’, 95% CI: [–0.51, 0.00].</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Cohen’s <span class="math inline">\(d\)</span></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(eval <span class="sc">~</span> track, <span class="at">data =</span> tratings)</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Cohen's d |         95% CI</span></span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------</span></span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.56     | [-1.12,  0.00]</span></span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## - Estimated using pooled SD.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="pv2">
+<p>Tenure track professors’ average teaching evaluations were 0.56 standard deviations lower than were non-tenure track professors’, 95% CI: [–1.12, 0.00].</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Dependent samples</h2>
 <ul>
-<li><p>To set <span class="math inline">\(\alpha=.05\)</span>, we reject the null if the test statistic is outside the middle 95% of its null sampling distribution</p></li>
-<li><p>The math becomes easier if we standardize the test statistic by dividing it by its standard error</p></li>
-</ul>
-<div class="columns">
-<div class="column">
-<p><span class="math display">\[
-z_{\bar{x}} = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \\
-z_{\bar{x}} \sim \mathcal{N}(0, 1)
-\]</span></p>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="footer">
-<p>Critical values: <span class="math inline">\(|z_{\bar{x}}| &gt; 1.96\)</span> (i.e., it falls in the red regions)</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Single sample <span class="math inline">\(t\)</span>-test</h2>
+<li>When comparing the means of dependent/paired samples…
 <ul>
-<li><p>This <span class="math inline">\(z\)</span>-test is rarely used because <span class="math inline">\(\sigma\)</span> is rarely known</p></li>
-<li><p>Instead, we estimate <span class="math inline">\(\sigma\)</span> using <span class="math inline">\(s\)</span> and use the <span class="math inline">\(t\)</span>-test</p></li>
-<li><p>With a small sample, the critical values are now higher</p></li>
-</ul>
-<div class="columns">
-<div class="column">
-<p><span class="math display">\[
-t_{\bar{x}} = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \\
-t_{\bar{x}} \sim t(n-1, 0, 1)
-\]</span></p>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="footer">
-<p>Critical values: <span class="math inline">\(|t_{\bar{x}}| &gt; 2.09\)</span> (i.e., it falls in the red regions)</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Example where <span class="math inline">\(H_0\)</span> is true</h2>
-<div class="columns">
-<div class="column">
-<p>Imagine <span class="math inline">\(H_0\)</span> is true <span class="math inline">\((\mu=3)\)</span> and we collect the following sample of 20 cereal boxes</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>sugar_null <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>,</span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">2.5</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">3.4</span>, </span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">2.7</span>, <span class="fl">2.9</span>, <span class="fl">3.0</span>, <span class="fl">3.4</span>, <span class="fl">3.4</span>, </span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">2.5</span>, <span class="fl">3.4</span>, <span class="fl">3.0</span>, <span class="fl">3.4</span>, <span class="fl">3.4</span></span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Example where <span class="math inline">\(H_0\)</span> is true</h2>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(sugar_null)</span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> s <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(sugar_null)</span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>xbar</span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.09</span></span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a>t_xbar <span class="ot">&lt;-</span> (xbar <span class="sc">-</span> mu_0) <span class="sc">/</span> se</span>
-<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a>t_xbar</span>
-<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.423962</span></span>
-<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a>t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a>t_crit</span>
-<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.093024</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math inline">\(|t_{\bar{x}}|&lt;t_{crit}: \text{Retain }H_0\)</span></p>
-</div></div>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Example where <span class="math inline">\(H_0\)</span> is false</h2>
-<div class="columns">
-<div class="column">
-<p>Imagine <span class="math inline">\(H_0\)</span> is false <span class="math inline">\((\mu=4)\)</span> and we collect the following sample of 20 cereal boxes</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>sugar_alt <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">3.9</span>, <span class="fl">3.0</span>, <span class="fl">2.1</span>, <span class="fl">3.8</span>, <span class="fl">3.4</span>, </span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">5.1</span>, <span class="fl">3.1</span>, <span class="fl">5.0</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, </span>
-<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">4.3</span>, <span class="fl">3.6</span>, <span class="fl">4.6</span>, <span class="fl">4.7</span>, <span class="fl">3.4</span>, </span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="fl">4.7</span>, <span class="fl">4.6</span>, <span class="fl">4.5</span>, <span class="fl">4.9</span>, <span class="fl">4.6</span></span>
-<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Example where <span class="math inline">\(H_0\)</span> is false</h2>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>mu_0 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(sugar_alt)</span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> s <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
-<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(sugar_alt)</span>
-<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>xbar</span>
-<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.02</span></span>
-<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a>t_xbar <span class="ot">&lt;-</span> (xbar <span class="sc">-</span> mu_0) <span class="sc">/</span> se</span>
-<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a>t_xbar</span>
-<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5.699162</span></span>
-<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a>t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a>t_crit</span>
-<span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.093024</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math inline">\(|t_{\bar{x}}|&gt;t_{crit}: \text{Reject }H_0\)</span></p>
-</div></div>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Making decisions</h2>
-<ul>
-<li>Critical values let us decide and control <span class="math inline">\(\alpha\)</span>
-<ul>
-<li><span class="math inline">\(t_{obs} &lt; t_{crit}\)</span> = Retain the null</li>
-<li><span class="math inline">\(t_{obs} \ge t_{crit}\)</span> = Reject the null</li>
-</ul></li>
-<li>When we reject the null, the test was “significant”
-<ul>
-<li>Remember that not all rejections are correct</li>
-<li>Even a correct rejection may not be important</li>
-<li>In a large sample, a small effect may be significant</li>
+<li>We use the SD of the paired differences in the denominator</li>
 </ul></li>
 </ul>
-<div class="footer">
-
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1><span class="math inline">\(p\)</span>-values and <br>Pragmatics</h1>
-
-</section>
-<section class="slide level2">
-<h2>The <span class="math inline">\(p\)</span>-value of a test</h2>
+<p><span class="math display">\[ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}\]</span></p>
 <ul>
-<li>But what if we had selected a different <span class="math inline">\(\alpha\)</span> level?
-<ul>
-<li>Some <span class="math inline">\(\alpha\)</span> values would yield a different decision</li>
-</ul></li>
-<li>The <span class="math inline">\(p\)</span>-value is a popular approach for dealing with this</li>
+<li>This is often referred to as a paired Cohen’s <span class="math inline">\(d\)</span></li>
 </ul>
-<div title="Correct p-value Definitions">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Correct p-value Definitions</strong></p>
-</div>
-<div class="callout-content">
-<p>The <span class="math inline">\(p\)</span>-value is the smallest <span class="math inline">\(\alpha\)</span> value that would reject the null hypothesis.<br> The <span class="math inline">\(p\)</span>-value is the probability of observing a test statistic <em>at least</em> as extreme as ours.</p>
-</div>
-</div>
-</div>
-</div>
-<div title="Wrong p-value Definition">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Wrong p-value Definition</strong></p>
-</div>
-<div class="callout-content">
-<p>The <span class="math inline">\(p\)</span>-value is the probability that the null hypothesis is true.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="footer">
-
-</div>
 </section>
 <section class="slide level2">
-<h2>Using the <span class="math inline">\(p\)</span>-value</h2>
-<ul>
-<li>The <span class="math inline">\(p\)</span>-value is a summary of all possible <span class="math inline">\(\alpha\)</span> values
-<ul>
-<li>How would you feel about setting <span class="math inline">\(\alpha\)</span> to <span class="math inline">\(p\)</span>?</li>
-</ul></li>
-<li>It is best to set <span class="math inline">\(\alpha\)</span> for the study <em>before</em> seeing the data
-<ul>
-<li>Then, you reject the null if and only if <span class="math inline">\(p&lt;\alpha\)</span></li>
-</ul></li>
-<li>Reporting <span class="math inline">\(p\)</span> directly softens your decision
-<ul>
-<li>e.g., <span class="math inline">\(p=.049\)</span> (Reject) vs.&nbsp;<span class="math inline">\(p=.051\)</span> (Retain)</li>
-<li>e.g., <span class="math inline">\(p=.002\)</span> (Reject) vs.&nbsp;<span class="math inline">\(p=.047\)</span> (Reject)</li>
-</ul></li>
-</ul>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Reporting a significance test</h2>
+<h2>Example</h2>
 <div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top" style="font-size: 32px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Notation</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Stars</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Translation</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Decision</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">p ≥ .05</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Test was NOT significant at α=.05</td>
-<td style="text-align: left;">Retain Null</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">p &lt; .05</td>
-<td style="text-align: left;">*</td>
-<td style="text-align: left;">Test was significant at α=.05</td>
-<td style="text-align: left;">REJECT Null</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">p &lt; .01</td>
-<td style="text-align: left;">**</td>
-<td style="text-align: left;">Test was significant at α=.01</td>
-<td style="text-align: left;">REJECT Null</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">p &lt; .001</td>
-<td style="text-align: left;">***</td>
-<td style="text-align: left;">Test was significant at α=.001</td>
-<td style="text-align: left;">REJECT Null</td>
-</tr>
-</tbody>
-</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit_p)</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Paired t-test</span></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter                | Difference | t(33) |      p |         95% CI</span></span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------</span></span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Pair(endpoint, baseline) |      -0.42 | -3.86 | &lt; .001 | [-0.64, -0.20]</span></span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true mean difference is not equal to 0</span></span>
+<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(<span class="fu">Pair</span>(endpoint, baseline) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> social)</span>
+<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Cohen's d |         95% CI</span></span>
+<span id="cb7-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------</span></span>
+<span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.66     | [-1.03, -0.29]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<ul>
-<li>Report your exact <span class="math inline">\(p\)</span>-value (unless less than .001)
-<ul>
-<li>Saying <span class="math inline">\(p&lt;.05\)</span> or <span class="math inline">\(p\ge.05\)</span> discards useful information</li>
-</ul></li>
-<li>It can be helpful to report a CI and your test statistic too</li>
-</ul>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Putting it all together</h2>
-<ul>
-<li>We can do a one-sample <span class="math inline">\(t\)</span>-test in R with <code>t.test()</code></li>
-<li>We can get a results table with <code>model_parameters()</code></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">t.test</span>(sugar_null, <span class="at">mu =</span> <span class="dv">3</span>)</span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit1)</span>
-<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## One Sample t-test</span></span>
-<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter  | Mean | mu | Difference |       95% CI | t(19) |     p</span></span>
-<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------</span></span>
-<span id="cb5-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sugar_null | 3.09 |  3 |       0.09 | [2.96, 3.22] |  1.42 | 0.171</span></span>
-<span id="cb5-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb5-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true mean is not equal to 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Interpreting the results</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>One Sample t-test
-
-Parameter  | Mean | mu | Difference |       95% CI | t(19) |     p
-------------------------------------------------------------------
-sugar_null | 3.09 |  3 |       0.09 | [2.96, 3.22] |  1.42 | 0.171
-
-Alternative hypothesis: true mean is not equal to 3</code></pre>
-</div>
-</div>
-<blockquote>
-<p>“The mean sugar content per serving in our sample was 3.09&nbsp;g, 95% CI: [2.96, 3.22], which was not significantly different from the 3 g stated on the label, <span class="math inline">\(t(19)=1.42\)</span>, <span class="math inline">\(p=.171\)</span>. Thus, we retain the null hypothesis that there are 3 g of sugar per serving.”</p>
-</blockquote>
-</section>
-<section class="slide level2">
-<h2>Putting it all together… again</h2>
-<ul>
-<li>Let’s repeat with the other sample</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">t.test</span>(sugar_alt, <span class="at">mu =</span> <span class="dv">3</span>)</span>
-<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2)</span>
-<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## One Sample t-test</span></span>
-<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Mean | mu | Difference |       95% CI | t(19) |      p</span></span>
-<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------</span></span>
-<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sugar_alt | 4.02 |  3 |       1.02 | [3.65, 4.39] |  5.70 | &lt; .001</span></span>
-<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true mean is not equal to 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-<h2>Interpreting the results</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>One Sample t-test
-
-Parameter | Mean | mu | Difference |       95% CI | t(19) |      p
-------------------------------------------------------------------
-sugar_alt | 4.02 |  3 |       1.02 | [3.65, 4.39] |  5.70 | &lt; .001
-
-Alternative hypothesis: true mean is not equal to 3</code></pre>
-</div>
-</div>
-<blockquote>
-<p>“The mean sugar content per serving in our sample was 4.02&nbsp;g, 95% CI: [3.65, 4.39], which was significantly greater than the 3 g stated on the label, <span class="math inline">\(t(19)=5.70\)</span>, <span class="math inline">\(p&lt;.001\)</span>. Thus, we reject the null hypothesis that there are 3 g of sugar per serving.”</p>
-</blockquote>
+<p>Patients’ social problems were 0.42 units (or 0.66 standard deviations) lower at the endpoint compared to baseline.</p>
 
 
 </section></section>

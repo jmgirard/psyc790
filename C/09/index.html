@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 09: Regression – PSYC790</title>
+<title>Chapter 09: Assumptions, Diagnostics, and Nonlinearity – PSYC790</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -128,24 +128,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-b">    
         <li>
-    <a class="dropdown-item" href="../../B/05/index.html"><i class="bi bi-people" role="img">
+    <a class="dropdown-item" href="../../B/04/index.html"><i class="bi bi-people" role="img">
 </i> 
- <span class="dropdown-text">Chapter 05: Sampling and Estimation</span></a>
+ <span class="dropdown-text">Chapter 04: Sampling and Estimation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../B/06/index.html"><i class="bi bi-question-circle" role="img">
+    <a class="dropdown-item" href="../../B/05/index.html"><i class="bi bi-question-circle" role="img">
 </i> 
- <span class="dropdown-text">Chapter 06: Hypothesis Testing</span></a>
+ <span class="dropdown-text">Chapter 05: Hypothesis Testing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../B/07/index.html"><i class="bi bi-bar-chart" role="img">
+    <a class="dropdown-item" href="../../B/06/index.html"><i class="bi bi-bar-chart" role="img">
 </i> 
- <span class="dropdown-text">Chapter 07: Group Comparisons</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../B/08/index.html"><i class="bi bi-signpost" role="img">
-</i> 
- <span class="dropdown-text">Chapter 08: Extensions and Review</span></a>
+ <span class="dropdown-text">Chapter 06: Group Comparisons</span></a>
   </li>  
     </ul>
   </li>
@@ -155,29 +150,29 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-c">    
         <li>
-    <a class="dropdown-item" href="../../C/09/index.html"><i class="bi bi-graph-up" role="img">
+    <a class="dropdown-item" href="../../C/07/index.html"><i class="bi bi-graph-up" role="img">
 </i> 
- <span class="dropdown-text">Chapter 09: Regression</span></a>
+ <span class="dropdown-text">Chapter 07: Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/10/index.html"><i class="bi bi-diagram-3" role="img">
+    <a class="dropdown-item" href="../../C/08/index.html"><i class="bi bi-sliders" role="img">
 </i> 
- <span class="dropdown-text">Chapter 10: Categorical and Multiple Regression</span></a>
+ <span class="dropdown-text">Chapter 08: Moderation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/11/index.html"><i class="bi bi-intersect" role="img">
+    <a class="dropdown-item" href="../../C/09/index.html"><i class="bi bi-clipboard-check" role="img">
 </i> 
- <span class="dropdown-text">Chapter 11: Moderation</span></a>
+ <span class="dropdown-text">Chapter 09: Assumptions, Diagnostics, and Nonlinearity</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/12/index.html"><i class="bi bi-activity" role="img">
+    <a class="dropdown-item" href="../../C/10/index.html"><i class="bi bi-rulers" role="img">
 </i> 
- <span class="dropdown-text">Chapter 12: Assumptions and Diagnostics</span></a>
+ <span class="dropdown-text">Chapter 10: Reliability and Measurement Error</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/13/index.html"><i class="bi bi-graph-up-arrow" role="img">
+    <a class="dropdown-item" href="../../C/11/index.html"><i class="bi bi-shuffle" role="img">
 </i> 
- <span class="dropdown-text">Chapter 13: Polynomial Regression</span></a>
+ <span class="dropdown-text">Chapter 11: Bootstrap and Robust Inference</span></a>
   </li>  
     </ul>
   </li>
@@ -187,14 +182,14 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-d">    
         <li>
-    <a class="dropdown-item" href="../../D/15/index.html"><i class="bi bi-shield-check" role="img">
+    <a class="dropdown-item" href="../../D/12/index.html"><i class="bi bi-shield-check" role="img">
 </i> 
- <span class="dropdown-text">Chapter 15: Best Practices</span></a>
+ <span class="dropdown-text">Chapter 12: Best Practices and Power</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../D/16/index.html"><i class="bi bi-pen" role="img">
+    <a class="dropdown-item" href="../../D/13/index.html"><i class="bi bi-pen" role="img">
 </i> 
- <span class="dropdown-text">Chapter 16: Reporting and Reviewing</span></a>
+ <span class="dropdown-text">Chapter 13: Reporting and Reviewing</span></a>
   </li>  
     </ul>
   </li>
@@ -214,13 +209,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-regression-inference-centering" id="toc-a-regression-inference-centering" class="nav-link active" data-scroll-target="#a-regression-inference-centering">[09a] Regression / Inference / Centering</a>
+  <li><a href="#a-assumptions-and-diagnostics-i" id="toc-a-assumptions-and-diagnostics-i" class="nav-link active" data-scroll-target="#a-assumptions-and-diagnostics-i">[09a] Assumptions and Diagnostics I</a>
   <ul class="collapse">
   <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
-  <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  </ul></li>
+  <li><a href="#b-assumptions-and-diagnostics-ii" id="toc-b-assumptions-and-diagnostics-ii" class="nav-link" data-scroll-target="#b-assumptions-and-diagnostics-ii">[09b] Assumptions and Diagnostics II</a>
+  <ul class="collapse">
+  <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
+  <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
+  <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
+  <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
+  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1">Assignment</a></li>
+  </ul></li>
+  <li><a href="#c-polynomial-regression" id="toc-c-polynomial-regression" class="nav-link" data-scroll-target="#c-polynomial-regression">[09c] Polynomial Regression</a>
+  <ul class="collapse">
+  <li><a href="#topics-2" id="toc-topics-2" class="nav-link" data-scroll-target="#topics-2">Topics</a></li>
+  <li><a href="#files-1" id="toc-files-1" class="nav-link" data-scroll-target="#files-1">Files</a></li>
+  <li><a href="#readings-2" id="toc-readings-2" class="nav-link" data-scroll-target="#readings-2">Readings</a></li>
+  <li><a href="#slides-2" id="toc-slides-2" class="nav-link" data-scroll-target="#slides-2">Slides</a></li>
+  <li><a href="#assignment-2" id="toc-assignment-2" class="nav-link" data-scroll-target="#assignment-2">Assignment</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -230,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 09: Regression</h1>
+<h1 class="title">Chapter 09: Assumptions, Diagnostics, and Nonlinearity</h1>
 </div>
 
 
@@ -248,28 +258,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- Lecture a -->
-<section id="a-regression-inference-centering" class="level2">
-<h2 class="anchored" data-anchor-id="a-regression-inference-centering">[09a] Regression / Inference / Centering</h2>
+<section id="a-assumptions-and-diagnostics-i" class="level2">
+<h2 class="anchored" data-anchor-id="a-assumptions-and-diagnostics-i">[09a] Assumptions and Diagnostics I</h2>
 <section id="topics" class="level3">
 <h3 class="anchored" data-anchor-id="topics">Topics</h3>
 <ul>
-<li>Regression Inference</li>
-<li>Centering</li>
-<li>Regression Effect Sizes</li>
-</ul>
-</section>
-<section id="files" class="level3">
-<h3 class="anchored" data-anchor-id="files">Files</h3>
-<ul>
-<li><a href="../../data/parenthood.csv" download="parenthood.csv">parenthood.csv</a></li>
-<li><a href="../../data/water.csv" download="water.csv">water.csv</a></li>
+<li>Correct Form</li>
+<li>Perfect Predictors</li>
+<li>No Collinearity</li>
 </ul>
 </section>
 <section id="readings" class="level3">
 <h3 class="anchored" data-anchor-id="readings">Readings</h3>
 <ul>
-<li><a href="https://learningstatisticswithr.com/15-regression.html">Linear Regression, §15.1–15.2, 15.4–15.5, 15.7</a> — <em>Learning Statistics with R</em></li>
-<li><em>Applied Multiple Regression/Correlation Analysis</em>, §2.4, 2.6–2.8</li>
+<li><em>Applied Multiple Regression/Correlation Analysis</em>, §4.1, 4.3–4.5, 10.5–10.6</li>
+<li><a href="https://janhove.github.io/analysis/2019/09/11/collinearity">Collinearity Isn’t a Disease That Needs Curing</a> — <em>Jan Vanhove</em></li>
 </ul>
 </section>
 <section id="slides" class="level3">
@@ -285,11 +288,92 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><a href="../../C/09/a_assignment.html">Lecture 09a Assignment</a></li>
 </ul>
+<!-- Lecture b -->
+<!-- Lecture b -->
+</section>
+</section>
+<section id="b-assumptions-and-diagnostics-ii" class="level2">
+<h2 class="anchored" data-anchor-id="b-assumptions-and-diagnostics-ii">[09b] Assumptions and Diagnostics II</h2>
+<section id="topics-1" class="level3">
+<h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
+<ul>
+<li>Constant Error Variance</li>
+<li>Normal Residuals</li>
+<li>Independent Residuals</li>
+<li>Outliers</li>
+</ul>
+</section>
+<section id="files" class="level3">
+<h3 class="anchored" data-anchor-id="files">Files</h3>
+<ul>
+<li><a href="../../data/auto.csv" download="auto.csv">auto.csv</a></li>
+<li><a href="../../data/yearspubs.csv" download="yearspubs.csv">yearspubs.csv</a></li>
+</ul>
+</section>
+<section id="readings-1" class="level3">
+<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
+<ul>
+<li><em>Applied Multiple Regression/Correlation Analysis</em>, §4.1, 4.3–4.5, 10.2–10.4</li>
+<li>Pek, Wong, &amp; Wong (2018), <a href="https://doi.org/10/gf9r69">How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated</a> — <em>Frontiers in Psychology</em></li>
+<li>Leys et al.&nbsp;(2019), <a href="https://doi.org/10/ghkz2s">How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration</a> — <em>IRSP</em></li>
+</ul>
+</section>
+<section id="slides-1" class="level3">
+<h3 class="anchored" data-anchor-id="slides-1">Slides</h3>
+<iframe class="slide-deck" src="b_Slides.html" title="[09b] Slideshow">
+</iframe>
+<div class="fs80">
+<p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
+</div>
+</section>
+<section id="assignment-1" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
+<ul>
+<li><a href="../../C/09/b_assignment.html">Lecture 09b Assignment</a></li>
+</ul>
+<!-- Lecture c -->
+</section>
+</section>
+<section id="c-polynomial-regression" class="level2">
+<h2 class="anchored" data-anchor-id="c-polynomial-regression">[09c] Polynomial Regression</h2>
+<section id="topics-2" class="level3">
+<h3 class="anchored" data-anchor-id="topics-2">Topics</h3>
+<ul>
+<li>Polynomial Regression</li>
+<li>Quadratic Regression</li>
+<li>Adding Predictors</li>
+<li>Closing Thoughts</li>
+</ul>
+</section>
+<section id="files-1" class="level3">
+<h3 class="anchored" data-anchor-id="files-1">Files</h3>
+<ul>
+<li><a href="../../data/salaries.csv" download="salaries.csv">salaries.csv</a></li>
+</ul>
+</section>
+<section id="readings-2" class="level3">
+<h3 class="anchored" data-anchor-id="readings-2">Readings</h3>
+<ul>
+<li><em>Applied Multiple Regression/Correlation Analysis</em>, §6.1–6.2</li>
+</ul>
+</section>
+<section id="slides-2" class="level3">
+<h3 class="anchored" data-anchor-id="slides-2">Slides</h3>
+<iframe class="slide-deck" src="c_Slides.html" title="[09c] Slideshow">
+</iframe>
+<div class="fs80">
+<p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
+</div>
+</section>
+<section id="assignment-2" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-2">Assignment</h3>
+<ul>
+<li><a href="../../C/09/c_assignment.html">Lecture 09c Assignment</a></li>
+</ul>
 <!-- Bottom Nav -->
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../../B/08/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 08</a>
-
-  <a href="../10/index.html" class="btn btn-primary" role="button">Chapter 10&nbsp;&nbsp;»</a>
+  <a href="../../C/08/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 08</a>
+  <a href="../../C/10/index.html" class="btn btn-primary" role="button">Chapter 10&nbsp;&nbsp;»</a>
 </div>
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 11: Moderation – PSYC790</title>
+<title>Chapter 11: Bootstrap and Robust Inference – PSYC790</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -128,24 +128,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-b">    
         <li>
-    <a class="dropdown-item" href="../../B/05/index.html"><i class="bi bi-people" role="img">
+    <a class="dropdown-item" href="../../B/04/index.html"><i class="bi bi-people" role="img">
 </i> 
- <span class="dropdown-text">Chapter 05: Sampling and Estimation</span></a>
+ <span class="dropdown-text">Chapter 04: Sampling and Estimation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../B/06/index.html"><i class="bi bi-question-circle" role="img">
+    <a class="dropdown-item" href="../../B/05/index.html"><i class="bi bi-question-circle" role="img">
 </i> 
- <span class="dropdown-text">Chapter 06: Hypothesis Testing</span></a>
+ <span class="dropdown-text">Chapter 05: Hypothesis Testing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../B/07/index.html"><i class="bi bi-bar-chart" role="img">
+    <a class="dropdown-item" href="../../B/06/index.html"><i class="bi bi-bar-chart" role="img">
 </i> 
- <span class="dropdown-text">Chapter 07: Group Comparisons</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../B/08/index.html"><i class="bi bi-signpost" role="img">
-</i> 
- <span class="dropdown-text">Chapter 08: Extensions and Review</span></a>
+ <span class="dropdown-text">Chapter 06: Group Comparisons</span></a>
   </li>  
     </ul>
   </li>
@@ -155,29 +150,29 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-c">    
         <li>
-    <a class="dropdown-item" href="../../C/09/index.html"><i class="bi bi-graph-up" role="img">
+    <a class="dropdown-item" href="../../C/07/index.html"><i class="bi bi-graph-up" role="img">
 </i> 
- <span class="dropdown-text">Chapter 09: Regression</span></a>
+ <span class="dropdown-text">Chapter 07: Regression</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/10/index.html"><i class="bi bi-diagram-3" role="img">
+    <a class="dropdown-item" href="../../C/08/index.html"><i class="bi bi-sliders" role="img">
 </i> 
- <span class="dropdown-text">Chapter 10: Categorical and Multiple Regression</span></a>
+ <span class="dropdown-text">Chapter 08: Moderation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/11/index.html"><i class="bi bi-intersect" role="img">
+    <a class="dropdown-item" href="../../C/09/index.html"><i class="bi bi-clipboard-check" role="img">
 </i> 
- <span class="dropdown-text">Chapter 11: Moderation</span></a>
+ <span class="dropdown-text">Chapter 09: Assumptions, Diagnostics, and Nonlinearity</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/12/index.html"><i class="bi bi-activity" role="img">
+    <a class="dropdown-item" href="../../C/10/index.html"><i class="bi bi-rulers" role="img">
 </i> 
- <span class="dropdown-text">Chapter 12: Assumptions and Diagnostics</span></a>
+ <span class="dropdown-text">Chapter 10: Reliability and Measurement Error</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../C/13/index.html"><i class="bi bi-graph-up-arrow" role="img">
+    <a class="dropdown-item" href="../../C/11/index.html"><i class="bi bi-shuffle" role="img">
 </i> 
- <span class="dropdown-text">Chapter 13: Polynomial Regression</span></a>
+ <span class="dropdown-text">Chapter 11: Bootstrap and Robust Inference</span></a>
   </li>  
     </ul>
   </li>
@@ -187,14 +182,14 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-unit-d">    
         <li>
-    <a class="dropdown-item" href="../../D/15/index.html"><i class="bi bi-shield-check" role="img">
+    <a class="dropdown-item" href="../../D/12/index.html"><i class="bi bi-shield-check" role="img">
 </i> 
- <span class="dropdown-text">Chapter 15: Best Practices</span></a>
+ <span class="dropdown-text">Chapter 12: Best Practices and Power</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../D/16/index.html"><i class="bi bi-pen" role="img">
+    <a class="dropdown-item" href="../../D/13/index.html"><i class="bi bi-pen" role="img">
 </i> 
- <span class="dropdown-text">Chapter 16: Reporting and Reviewing</span></a>
+ <span class="dropdown-text">Chapter 13: Reporting and Reviewing</span></a>
   </li>  
     </ul>
   </li>
@@ -214,21 +209,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-continuous-moderation" id="toc-a-continuous-moderation" class="nav-link active" data-scroll-target="#a-continuous-moderation">[11a] Continuous Moderation</a>
+  <li><a href="#a-the-bootstrap" id="toc-a-the-bootstrap" class="nav-link active" data-scroll-target="#a-the-bootstrap">[11a] The Bootstrap</a>
   <ul class="collapse">
   <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
-  <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
   </ul></li>
-  <li><a href="#b-categorical-moderation" id="toc-b-categorical-moderation" class="nav-link" data-scroll-target="#b-categorical-moderation">[11b] Categorical Moderation</a>
+  <li><a href="#b-robust-inference" id="toc-b-robust-inference" class="nav-link" data-scroll-target="#b-robust-inference">[11b] Robust Inference</a>
   <ul class="collapse">
   <li><a href="#topics-1" id="toc-topics-1" class="nav-link" data-scroll-target="#topics-1">Topics</a></li>
-  <li><a href="#files-1" id="toc-files-1" class="nav-link" data-scroll-target="#files-1">Files</a></li>
-  <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
-  <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
-  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1">Assignment</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -238,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 11: Moderation</h1>
+<h1 class="title">Chapter 11: Bootstrap and Robust Inference</h1>
 </div>
 
 
@@ -255,90 +242,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Under development
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter is planned but not yet written. The outline below shows what it is intended to cover.</p>
+</div>
+</div>
 <!-- Lecture a -->
-<section id="a-continuous-moderation" class="level2">
-<h2 class="anchored" data-anchor-id="a-continuous-moderation">[11a] Continuous Moderation</h2>
+<section id="a-the-bootstrap" class="level2">
+<h2 class="anchored" data-anchor-id="a-the-bootstrap">[11a] The Bootstrap</h2>
 <section id="topics" class="level3">
 <h3 class="anchored" data-anchor-id="topics">Topics</h3>
 <ul>
-<li>Continuous-by-Continuous</li>
-<li>Interaction Patterns</li>
-<li>Centering with Interactions</li>
-</ul>
-</section>
-<section id="files" class="level3">
-<h3 class="anchored" data-anchor-id="files">Files</h3>
-<ul>
-<li><a href="../../data/exercise.csv" download="exercise.csv">exercise.csv</a></li>
-</ul>
-</section>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
-<ul>
-<li><em>Applied Multiple Regression/Correlation Analysis</em>, §7.1–7.5, 7.7</li>
-<li><a href="https://stats.idre.ucla.edu/r/seminars/interactions-r/">Interactions in R</a> — <em>UCLA OARC</em></li>
-<li>Finsaas &amp; Goldstein (2021), <a href="https://doi.org/10/ggsng9">Do Simple Slopes Follow-Up Tests Lead Us Astray? Advancements in the Visualization and Reporting of Interactions</a> — <em>Psychological Methods</em></li>
-<li>Rohrer &amp; Arslan (2021), <a href="https://doi.org/10/gk9zkd">Precise Answers to Vague Questions: Issues With Interactions</a> — <em>AMPPS</em></li>
-</ul>
-</section>
-<section id="slides" class="level3">
-<h3 class="anchored" data-anchor-id="slides">Slides</h3>
-<iframe class="slide-deck" src="a_Slides.html" title="[11a] Slideshow">
-</iframe>
-<div class="fs80">
-<p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
-</div>
-</section>
-<section id="assignment" class="level3">
-<h3 class="anchored" data-anchor-id="assignment">Assignment</h3>
-<ul>
-<li><a href="../../C/11/a_assignment.html">Lecture 11a Assignment</a></li>
+<li>Resampling as an empirical sampling distribution</li>
+<li>Bootstrap confidence intervals</li>
+<li>When the bootstrap helps and when it does not</li>
 </ul>
 <!-- Lecture b -->
 </section>
 </section>
-<section id="b-categorical-moderation" class="level2">
-<h2 class="anchored" data-anchor-id="b-categorical-moderation">[11b] Categorical Moderation</h2>
+<section id="b-robust-inference" class="level2">
+<h2 class="anchored" data-anchor-id="b-robust-inference">[11b] Robust Inference</h2>
 <section id="topics-1" class="level3">
 <h3 class="anchored" data-anchor-id="topics-1">Topics</h3>
 <ul>
-<li>Binary-by-Continuous</li>
-<li>Nominal-by-Continuous</li>
-<li>Categorical-by-Categorical</li>
-<li>Three-Way Interactions</li>
-</ul>
-</section>
-<section id="files-1" class="level3">
-<h3 class="anchored" data-anchor-id="files-1">Files</h3>
-<ul>
-<li><a href="../../data/exercise.csv" download="exercise.csv">exercise.csv</a></li>
-</ul>
-</section>
-<section id="readings-1" class="level3">
-<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
-<ul>
-<li><em>Applied Multiple Regression/Correlation Analysis</em>, §7.6, 7.8, 9.1–9.3</li>
-<li><a href="https://stats.idre.ucla.edu/r/seminars/interactions-r/">Interactions in R</a> — <em>UCLA OARC</em></li>
-</ul>
-</section>
-<section id="slides-1" class="level3">
-<h3 class="anchored" data-anchor-id="slides-1">Slides</h3>
-<iframe class="slide-deck" src="b_Slides.html" title="[11b] Slideshow">
-</iframe>
-<div class="fs80">
-<p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
-</div>
-</section>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
-<ul>
-<li><a href="../../C/11/b_assignment.html">Lecture 11b Assignment</a></li>
+<li>Permutation tests</li>
+<li>Heteroscedasticity-consistent standard errors</li>
+<li>Choosing between robust and conventional inference</li>
 </ul>
 <!-- Bottom Nav -->
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../10/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 10</a>
-
-  <a href="../12/index.html" class="btn btn-primary" role="button">Chapter 12&nbsp;&nbsp;»</a>
+  <a href="../../C/10/index.html" class="btn btn-outline-primary" role="button">«&nbsp;&nbsp;Chapter 10</a>
+  <a href="../../D/12/index.html" class="btn btn-primary" role="button">Chapter 12&nbsp;&nbsp;»</a>
 </div>
 
 
