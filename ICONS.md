@@ -40,7 +40,7 @@ exporting. The blue is then baked in as a static value and renders correctly.
 The shortcodes stay uniform — `colors=secondary:#2a76dd` on all 70 call sites — even where
 inert. Same rendered result, and if raw export ever returns it simply starts working again.
 
-## Maintenance note (also for Katie)
+## Maintenance note
 
 For the 12 export-customized icons the accent colour is **fixed at export time**. If the
 course ever changes its accent colour, those must be re-exported from Lordicon — a

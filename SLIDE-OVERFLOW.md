@@ -14,15 +14,19 @@ Remaining: `B/08/a` Post-hoc tests (+50), `C/10/b` Example zero-order effects (+
 `C/10/a` Relation to Student's t-test (+26), `B/08/a` Further partitioning (+16). All minor —
 a line or two each. 20 of 24 decks are completely clean.
 
+⚠️ Every deck id on this page is from the **pre-restructure week numbering**, which the
+Unit → Chapter → Lecture renumbering has since replaced. Treat them as historical labels; the
+counts above have not been re-measured against the current chapters.
+
 ## What went wrong
 
-data2's config is written for a coding course with sparse slides. psyc790 is a stats course
-with dense slides. Three separate settings came across that shouldn't have:
+data2's config is written for a coding course with sparse slides. This is a stats course with
+dense slides. Three separate settings came across that shouldn't have:
 
 ### 1. `echo: true` in `_quarto.yml` — the big one
 
 data2 sets this because showing code *is* the lesson there. It overrides revealjs's default of
-`echo: false`, exposing plumbing code psyc790's slides were written to hide.
+`echo: false`, exposing plumbing code these slides were written to hide.
 
 Verified defaults by rendering a bare chunk: **html → code shown, revealjs → code hidden.**
 
@@ -39,7 +43,7 @@ and assignments still show it. All four decks above now match their originals ex
 
 ### 2. Missing font utilities in `styles.css`
 
-psyc790's per-unit stylesheets define `.f4`, `.f5`, `.f6`, `.f90`; data2's defines only `.f3`.
+The archive's per-unit stylesheets define `.f4`, `.f5`, `.f6`, `.f90`; data2's defines only `.f3`.
 The slides use them **132 times**, so every one was a silent no-op. Also lost: `.pb4`,
 `.full-width`, `.tiny-text`. Restored with the values all four archive stylesheets agreed on.
 
@@ -83,7 +87,7 @@ for (const s of [...document.querySelectorAll('.reveal .slides section')]
 }
 ```
 
-## Lesson for Katie's copy
+## The lesson
 
 **Do not sync `styles.css` or `_quarto.yml` from data2 or psyc894.** Each course's slides are
 authored against their own spacing and echo conventions. The files share names and lineage but

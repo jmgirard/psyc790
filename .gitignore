@@ -9,9 +9,9 @@
 .positai
 
 # ---------------------------------------------------------------------------
-# Answer keys must NEVER be committed. See MODERNIZATION-PLAN.md section 3b.
-# These files contain graded assignment/quiz answers AND document the honeypot
-# design used across psyc790, data2, and psyc894 -- publishing them would
+# Answer keys must NEVER be committed. See MAINTENANCE.md section 4.
+# These files contain graded assignment answers AND document the honeypot
+# design used across this course, data2, and psyc894 -- publishing them would
 # defeat that mechanism for all three courses.
 # ---------------------------------------------------------------------------
 # Source files...
@@ -32,9 +32,10 @@
 _freeze/archive/
 
 # ---------------------------------------------------------------------------
-# Course readings are copyrighted textbook chapters and live on Canvas, behind
-# authentication. They must never be committed here -- this repo is public and
-# is published to GitHub Pages. Link to Canvas instead. See section 7.
+# Course readings that are copyrighted textbook chapters must never be
+# committed here -- this repo is public and is published to GitHub Pages. Link
+# to an open-access source, or leave the file to the course LMS. See
+# MAINTENANCE.md section 5.
 # ---------------------------------------------------------------------------
 *.pdf
 *.epub
