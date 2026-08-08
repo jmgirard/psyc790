@@ -1,0 +1,144 @@
+---
+title: "Lecture 03b Practice"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+*These activities are for practice only --- there is nothing to turn in. Answer
+keys are included, so try each question yourself before opening them.*
+
+## Question 1
+
+The following table summarizes the season information for the eight seasons of AMC's *Breaking Bad* show. 
+
+a) Tidy up this data and save it to a tibble. Decide for yourself how to handle season 5 (should it be a single observation or two?). For the first and last aired dates, just store the year as a number.
+
+b) Save the tibble you created to a CSV file named "breaking_bad.csv".
+
+![](../../img/breaking_bad_wikipedia.png)
+
+{{< dstart summary="Answer key" >}}
+
+**Part (a)**
+
+Version with one observation for the season five parts
+
+```{r}
+#| message: false
+
+library(tidyverse)
+season <- c(1, 2, 3, 4, 5)
+episodes <- c(7, 13, 13, 13, 16)
+first_air <- c(2008, 2009, 2010, 2011, 2012)
+last_air <- c(2008, 2009, 2010, 2011, 2013)
+network <- "AMC"
+breaking_bad <- 
+  tibble(season, episodes, first_air, last_air, network)
+breaking_bad
+```
+
+Version with two separate observations for the season five parts
+
+```{r}
+
+library(tidyverse)
+season <- c(1, 2, 3, 4, 5.1, 5.2)
+episodes <- c(7, 13, 13, 13, 8, 8)
+first_air <- c(2008, 2009, 2010, 2011, 2012, 2013)
+last_air <- c(2008, 2009, 2010, 2011, 2012, 2013)
+network <- "AMC"
+breaking_bad <- 
+  tibble(season, episodes, first_air, last_air, network)
+breaking_bad
+```
+
+**Part (b)**
+
+```{r}
+#| message: false
+#| eval: false
+
+write_csv(breaking_bad, "breaking_bad.csv")
+```
+
+{{< dstop >}}
+
+## Question 2
+
+a) Download the [`kaggle_cereal.csv`](../../data/kaggle_cereal.csv){download="kaggle_cereal.csv"} file and save it to your class Project folder.
+
+b) Use \{tidyverse\} to import this file into R as a tibble named `cereal`, using an argument to make the missing values (coded as `"missing"`) into `NA`s.
+
+c) Run your command again but with the `show_col_types = FALSE` argument to suppress the column specification message.
+
+{{< dstart summary="Answer key" >}}
+
+**Part (b)**
+
+```{r}
+#| replace_path: ["../../data/", ""]
+cereal <- read_csv("../../data/kaggle_cereal.csv", na = "missing")
+cereal
+
+cereal <- read_csv("../../data/kaggle_cereal.csv", na = "missing", show_col_types = FALSE)
+```
+
+{{< dstop >}}
+
+## Question 3
+
+a) Update the `cereal` tibble from Question 2 to make the `type` variable a factor.
+
+b) Tabulate the `type` variable using `data_tabulate()` and plot its discrete distribution using `qplot()`.
+
+c) Describe the `calories` variable using `describe_distribution()` and plot its continuous distribution using `qplot()` and a "histogram" or "boxplot" geom.
+
+d) Plot the covariation of the `calories` and `rating` variables using `qplot()` and a "point" or "jitter" geom.
+
+{{< dstart summary="Answer key" >}}
+
+**Part (a)**
+
+```{r}
+cereal$type <- factor(cereal$type)
+cereal
+```
+
+**Part (b)**
+
+```{r}
+library(easystats)
+data_tabulate(cereal, type)
+```
+
+```{r}
+qplot(x = type, data = cereal, geom = "bar")
+```
+
+**Part (c)**
+
+```{r}
+describe_distribution(cereal, calories)
+```
+
+```{r}
+qplot(x = calories, data = cereal, geom = "histogram")
+```
+
+**Part (d)**
+
+```{r}
+qplot(x = calories, y = rating, data = cereal, geom = "point")
+qplot(x = calories, y = rating, data = cereal, geom = "jitter")
+```
+
+
+{{< dstop >}}
+
+---
+
+*Note that there is no need to turn in Activities. These are just for practice!*

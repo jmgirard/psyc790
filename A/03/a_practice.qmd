@@ -1,0 +1,111 @@
+---
+title: "Lecture 03a Practice"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+*These activities are for practice only --- there is nothing to turn in. Answer
+keys are included, so try each question yourself before opening them.*
+
+## Question 1
+
+a) Create a character vector named `flavors` that contains the following strings and print it to the console: 
+- Cookies & Cream
+- Americone Dream (R)
+- Bob Marley's 1 Love
+b) Use a function to calculate the number of strings in `flavors`.
+c) Use another function to calculate the number of characters in each string in `flavors`.
+d) Let R know how you feel about ice cream by using a function to either make all the characters in `flavors` uppercase (you LOVE ice cream) or lowercase (you don't love ice cream).
+
+{{< dstart summary="Answer key" >}}
+
+```{r}
+#| collapse: true
+
+# Part (a)
+flavors <- c("Cookies & Cream", "Americone Dream (R)", "Bob Marley's 1 Love")
+flavors
+
+# Part (b)
+length(flavors)
+
+# Part (c)
+nchar(flavors)
+
+# Part (d)
+toupper(flavors)
+tolower(flavors)
+```
+
+{{< dstop >}}
+
+## Question 2
+
+Ebi has tracked her spending over two weeks. Every time she makes a purchase on items that are not food, she writes down a code representing the day of the week (e.g., 1 = Sunday and 2 = Monday). At the end of the week, she has the following codes written down: 1 2 2 4 7 1 1 5 6 7.
+
+a) Create a numerical vector (not a factor) called `ebi_num` that contains these codes. Print it to the console.
+b) Turn `ebi_num` into a factor object called `ebi_fct` with levels 1, 2, ..., 7 and labels "Sun", "Mon", ..., "Sat". Print it to the console.
+c) Use the `table()` function on `ebi_num` and then on `ebi_fct`. Compare their output. Which version do you prefer and why?
+
+{{< dstart summary="Answer key" >}}
+
+**Answer (a)**
+
+```{r}
+ebi_num <- c(1, 2, 2, 4, 7, 1, 1, 5, 6, 7)
+ebi_num
+```
+
+**Answer (b)**
+
+```{r}
+ebi_fct <- factor(
+  ebi_num, 
+  levels = c(1, 2, 3, 4, 5, 6, 7), 
+  labels = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+)
+ebi_fct
+```
+
+**Answer (c)**
+
+```{r}
+table(ebi_num)
+table(ebi_fct)
+```
+
+I prefer the factor version because it includes the labels at the top, which is convenient, and it also includes the zero count for "Tue", whereas the numerical version omits it. This makes it easier to see that Tuesdays had the fewest purchases for Ebi.
+
+{{< dstop >}}
+
+## Question 3
+
+a) Install the `tidyverse` package. It may take several minutes to install because it contains several sub-packages that we will use in this class.
+b) Check if the `tidyverse` package has a website and/or vignettes. Read the "Welcome to the tidyverse" vignette (it is relatively brief and will prepare you for the next chapter).
+
+{{< dstart summary="Answer key" >}}
+
+```{r}
+#| collapse: true
+#| eval: false
+
+# Part (a)
+install.packages("tidyverse")
+# or RStudio > Extras pane > Packages tab > Install button
+
+# Part (b)
+browseVignettes("tidyverse")
+# or RStudio > Extras Pane > Packages tab > search for tidyverse > click globe icon > check website for Articles
+```
+
+<https://tidyverse.tidyverse.org/articles/paper.html>
+
+{{< dstop >}}
+
+---
+
+*Note that there is no need to turn in Activities. These are just for practice!*

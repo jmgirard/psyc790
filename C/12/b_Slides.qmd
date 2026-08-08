@@ -41,6 +41,9 @@ mytheme <- function(sz = 30) {
 # ggeffects -- never get a manual `+ mytheme` and were rendering at
 # ggplot's 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme())
+# Seed here so chunks that inherit RNG state rather than seeding themselves
+# are reproducible; without it those figures churn _freeze on every render.
+set.seed(2021)
 ```
 
 

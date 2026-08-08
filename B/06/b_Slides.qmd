@@ -41,6 +41,9 @@ mytheme <- theme_gray(base_size = 26) + theme(panel.grid.minor = element_blank()
 # ggeffects -- never get a manual `+ mytheme` and were rendering at ggplot's
 # 11pt default, which reads as tiny next to the 40px slide text.
 theme_set(mytheme)
+# Seed here so the unseeded rsim() draws below are reproducible; without
+# it these figures change on every render and churn _freeze.
+set.seed(2021)
 rsim <- function(r) {
   rnorm_multi(n = 200, vars = 2, mu = 0, sd = 1, r = r)
 }
