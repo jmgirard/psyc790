@@ -32,18 +32,12 @@ title: "Chapter 13: Polynomial Regression"
 ### Assignment
 - [Lecture 13a Assignment](a_assignment.qmd)
 
-<!-- Lecture b -->
-
-## [13b] Unit C Project
-
-In-class project work — see the [project description](../14/index.html#project-description).
-
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
   <a href="../12/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 12</a>
 
-  <a href="../14/index.html" class="btn btn-primary" role="button">Chapter 14&nbsp;&nbsp;&raquo;</a>
+  <a href="../../D/15/index.html" class="btn btn-primary" role="button">Chapter 15&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

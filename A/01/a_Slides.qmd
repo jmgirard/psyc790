@@ -1,7 +1,7 @@
 ---
 unit: "A"
 chapter: "01"
-lecture: "01b"
+lecture: "01a"
 metadata-files:
   - ../../_slide-settings.yml
 format:

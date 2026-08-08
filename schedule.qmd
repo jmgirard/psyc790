@@ -9,7 +9,7 @@ toc: false
 
 ## Unit A
 - Chapter 01: [Getting Started](A/01/index.qmd)
-    b. RStudio / Console / Scripts
+    a. RStudio / Console / Scripts
 
 - Chapter 02: [Projects and Programming](A/02/index.qmd)
     a. Projects / Quarto / Markdown
@@ -18,10 +18,6 @@ toc: false
 - Chapter 03: [Data and Exploration](A/03/index.qmd)
     a. Strings / Factors / Packages
     b. Data Frames / Files / Exploration
-
-- Chapter 04: [Unit A Project](A/04/index.qmd)
-    a. Unit A Project
-    b. Unit A Project
 
 ## Unit B
 - Chapter 05: [Sampling and Estimation](B/05/index.qmd)
@@ -58,11 +54,6 @@ toc: false
 
 - Chapter 13: [Polynomial Regression](C/13/index.qmd)
     a. Polynomial Regression
-    b. Unit C Project
-
-- Chapter 14: [Unit C Project](C/14/index.qmd)
-    a. Unit C Project
-    b. Unit C Project
 
 ## Unit D
 - Chapter 15: [Best Practices](D/15/index.qmd)

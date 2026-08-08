@@ -48,9 +48,6 @@ website:
           - icon: table
             text: "Chapter 03: Data and Exploration"
             href: A/03/index.html
-          - icon: briefcase
-            text: "Chapter 04: Unit A Project"
-            href: A/04/index.html
       - text: "Unit B"
         menu:
           - icon: people
@@ -82,9 +79,6 @@ website:
           - icon: graph-up-arrow
             text: "Chapter 13: Polynomial Regression"
             href: C/13/index.html
-          - icon: briefcase
-            text: "Chapter 14: Unit C Project"
-            href: C/14/index.html
       - text: "Unit D"
         menu:
           - icon: shield-check

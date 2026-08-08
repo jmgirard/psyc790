@@ -1,5 +1,5 @@
 ---
-title: "Lecture 01b Practice"
+title: "Lecture 01a Practice"
 format:
   html:
     css: ../../styles.css

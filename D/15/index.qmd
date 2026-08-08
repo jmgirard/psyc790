@@ -57,7 +57,7 @@ title: "Chapter 15: Best Practices"
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../../C/14/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 14</a>
+  <a href="../../C/13/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 13</a>
 
   <a href="../16/index.html" class="btn btn-primary" role="button">Chapter 16&nbsp;&nbsp;&raquo;</a>
 </div>
