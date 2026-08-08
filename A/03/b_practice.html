@@ -328,14 +328,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-2" class="level2">
 <h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
 <ol type="a">
-<li><p>Download the <a href="../../data/kaggle_cereal.csv" download="kaggle_cereal.csv"><code>kaggle_cereal.csv</code></a> file and save it to your class Project folder.</p></li>
+<li><p>Download the <a href="../../data/cereal.csv" download="cereal.csv"><code>cereal.csv</code></a> file and save it to your class Project folder.</p></li>
 <li><p>Use {tidyverse} to import this file into R as a tibble named <code>cereal</code>, using an argument to make the missing values (coded as <code>"missing"</code>) into <code>NA</code>s.</p></li>
 <li><p>Run your command again but with the <code>show_col_types = FALSE</code> argument to suppress the column specification message.</p></li>
 </ol>
 <p></p><p></p><details><summary>Answer key</summary><blockquote class="blockquote"><p></p>
 <p><strong>Part (b)</strong></p>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cereal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/kaggle_cereal.csv"</span>, <span class="at">na =</span> <span class="st">"missing"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cereal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/cereal.csv"</span>, <span class="at">na =</span> <span class="st">"missing"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 77 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
@@ -363,7 +363,7 @@ dbl (5): calories, sodium, carbo, sugars, rating
 10 Bran Flakes               Post      cold        90    210  13        5   53.3
 # ℹ 67 more rows</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cereal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/kaggle_cereal.csv"</span>, <span class="at">na =</span> <span class="st">"missing"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cereal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/cereal.csv"</span>, <span class="at">na =</span> <span class="st">"missing"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p></p></blockquote></details><p></p><p></p>
 </section>
