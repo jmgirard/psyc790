@@ -22,7 +22,19 @@ img {
 
 ![](./img/statistics_2780E3.svg){width="400"}
 
-### Course Description
+This site holds the teaching materials for a graduate course in statistical
+methods for the behavioral and social sciences: slides, in-class practice
+activities, assignments, readings, and datasets, covering sixteen chapters
+across four units.
+
+Anyone is welcome to teach from these materials, adapt them for their own
+course, or work through them independently. Nothing here is tied to a
+particular semester, institution, or offering --- schedules, deadlines, and
+grading belong wherever the course is actually being run.
+
+Developed by [Jeffrey M. Girard](mailto:me@jmgirard.com).
+
+### About the Course
 
 A graduate introduction to statistical methods for the behavioral and social
 sciences, taught entirely in R.
@@ -40,14 +52,13 @@ report and critically review a linear model analysis.
 Throughout, the emphasis is on estimating and interpreting effects rather than
 on hypothesis testing alone, and on writing code you could hand to someone else.
 
-*Prerequisite:* A beginning course in statistics and graduate standing, or
-consent of instructor.
+The material assumes a prior introductory statistics course, but starts from
+the beginning with R itself and expects no programming experience.
 
 ### Learning Outcomes
 
-At the conclusion of this course, students will be able to:
+By the end of the material, students should be able to:
 
-- Explain the format, policies, and objectives of the course
 - Describe the parts of the R ecosystem used in the course
 - Understand and apply R code for basic programming tasks
 - Accomplish basic data wrangling and exploration tasks in R
@@ -64,11 +75,11 @@ At the conclusion of this course, students will be able to:
 - Conduct an a priori power analysis to determine sample size
 - Report and review the results of a linear model analysis
 
-### Course Textbooks
+### Readings
 
 There is no required textbook. Each chapter page lists its own readings: those
 drawn from open-access books and articles link straight to the source, while
-chapters of the two reference books below are provided by your instructor.
+the two reference books below have to be obtained separately.
 
 **Freely available online**
 
@@ -89,12 +100,9 @@ chapters of the two reference books below are provided by your instructor.
 - **Beyond Significance Testing: Statistics Reform in the Behavioral Sciences**
   (2nd ed.) by Rex B. Kline. American Psychological Association, 2015.
 
-### Instructor
-
-- [Dr. Jeffrey Girard](mailto:me@jmgirard.com), Instructor
-
-<!-- Deliberately omitted: meeting days/times/room, office hours, due dates,
-     grading, and the semester heading. This site is semester-agnostic and holds
-     course content only. Links run one way -- a course LMS links in to these
-     pages; nothing here links back out to a particular course site. -->
+<!-- Deliberately omitted: meeting times, office hours, due dates, grading,
+     prerequisites as policy, instructor contact as course staffing, and the
+     semester heading. This site presents the material, not an offering of it.
+     Links run one way -- a course LMS links in to these pages; nothing here
+     links back out to a particular course site. -->
 
