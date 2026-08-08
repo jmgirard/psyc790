@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistical Methods in Psychology – PSYC790</title>
+<title>Statistical Methods with R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PSYC790</span>
+    <span class="navbar-title">Statistical Methods with R</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -212,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistical Methods in Psychology</h1>
+<h1 class="title">Statistical Methods with R</h1>
 </div>
 
 
@@ -241,16 +241,110 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Byline under the opening blurb: one quiet line rather than two stacked
+   sentences competing with the body text. */
+.byline {
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 2rem auto 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e9ecef;
+  max-width: 32rem;
+}
+
+.byline a {
+  color: #6c757d;
+  text-decoration: underline;
+  text-decoration-color: #ced4da;
+  text-underline-offset: 0.2em;
+}
+
+.byline a:hover {
+  color: #2780e3;
+  text-decoration-color: #2780e3;
+}
+
+.byline .sep {
+  padding: 0 0.6rem;
+  color: #ced4da;
+}
+
+/* The instructor note is reference material, not an alert -- drop the tinted
+   header and warning icon that callout-note ships with, and let a single
+   accent rule carry it. */
+.callout.instructors {
+  border: 1px solid #e9ecef;
+  border-left: 4px solid #2780e3;
+  border-radius: 0.375rem;
+  background-color: #fbfcfd;
+  box-shadow: none;
+  margin: 2rem 0;
+}
+
+/* Quarto tints the header from `.callout-note.callout-style-default`, so this
+   needs the same weight to win. */
+.callout.instructors.callout-note > .callout-header {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 1rem 1.25rem 0.25rem;
+  opacity: 1;
+}
+
+.callout.instructors .callout-icon-container {
+  display: none;
+}
+
+.callout.instructors .callout-title-container {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.callout.instructors .callout-body-container {
+  padding: 0.25rem 1.25rem 1rem;
+}
+
+.callout.instructors .callout-body-container p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.callout.instructors .callout-body-container p:last-child {
+  margin-bottom: 0;
+}
 </style>
 <p><img src="./img/statistics_2780E3.svg" class="img-fluid" width="400"></p>
 <p>This site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering fifteen chapters across five units.</p>
-<p>Anyone is welcome to teach from these materials, adapt them for their own course, or work through them independently. Nothing here is tied to a particular semester, institution, or offering — schedules, deadlines, and grading belong wherever the course is actually being run.</p>
-<p>Developed by <script type="text/javascript">
+<p>Anyone is welcome to teach from these materials or work through them independently. Nothing here is tied to a particular semester, institution, or offering — schedules, deadlines, and grading belong wherever the course is actually being run.</p>
+<div class="instructors callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>For instructors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Teach from these materials freely: assign the chapters, point your students at the slides, and build your own schedule, activities, and grading around them. Linking to a page here needs no permission at all.</p>
+<p>Answer keys, practice solutions, and grading rubrics are deliberately not published, since students can read this site as easily as you can. If you are teaching a course and want them, email <script type="text/javascript">
 <!--
 h='&#106;&#x6d;&#x67;&#x69;&#114;&#x61;&#114;&#100;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#74;&#x65;&#102;&#102;&#114;&#x65;&#x79;&#32;&#x4d;&#46;&#32;&#x47;&#x69;&#114;&#x61;&#114;&#100;'+'<\/'+'a'+'>');
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
 // -->
-</script><noscript>Jeffrey M. Girard (me at jmgirard dot com)</noscript>.</p>
+</script><noscript>me at jmgirard dot com</noscript> from your institutional address with a short note about the course.</p>
+<p>These materials are licensed <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, which in plain terms means: link to them and teach from them, with credit. Please do not republish them under your own name, whether edited or verbatim, and do not sell them or fold them into paid training. If you need a change — a fix, a different dataset, a slide that would work better reordered — email me and I will consider making it here, where everyone gets it.</p>
+</div>
+</div>
+<div class="byline">
+<p>Developed by <a href="https://jmgirard.com">Jeffrey M. Girard</a> <span class="sep">·</span> <script type="text/javascript">
+<!--
+h='&#106;&#x6d;&#x67;&#x69;&#114;&#x61;&#114;&#100;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x65;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>me at jmgirard dot com</noscript></p>
+</div>
 <section id="about-the-course" class="level3">
 <h3 class="anchored" data-anchor-id="about-the-course">About the Course</h3>
 <p>A graduate introduction to statistical methods for the behavioral and social sciences, taught entirely in R.</p>
@@ -286,7 +380,6 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#74
 <ul>
 <li><a href="https://r4ds.hadley.nz/"><strong>R for Data Science</strong></a> (2nd ed.) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. The main source for Unit A.</li>
 <li><a href="https://learningstatisticswithr.com/"><strong>Learning Statistics with R</strong></a> by Danielle Navarro. The main source for Unit B.</li>
-<li><a href="https://adv-r.hadley.nz/"><strong>Advanced R</strong></a> by Hadley Wickham and <a href="https://ggplot2-book.org/"><strong>ggplot2: Elegant Graphics for Data Analysis</strong></a> by Hadley Wickham et al., for occasional deeper reading in Unit A.</li>
 </ul>
 <p><strong>Optional references</strong></p>
 <ul>
