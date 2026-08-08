@@ -23,19 +23,19 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-*All three questions below use the [`political.csv`](../../data/political.csv){download="political.csv"} file, which contains information about 59 students' political activity. Each question tells you to read it in, so they can be answered in any order.* **Be sure to set the `year` variable to a factor.**
+*All three questions below use the [`prestige.csv`](../../data/prestige.csv){download="prestige.csv"} file, which records the average education, income, percentage of women, and Pineo-Porter prestige score of 98 Canadian occupations. Each question tells you to read it in, so they can be answered in any order.* **Be sure to set the `type` variable to a factor.**
 
 ## Question 1 (One-way ANOVA in R)
 
-Read in `political.csv` and set `year` to a factor.
+Read in `prestige.csv` and set `type` to a factor.
 
-a) I want to test whether students from different years (`year`, i.e., 1=freshman, 2=sophomore, 3=junior, 4=senior) watch different amounts of news on television (`tv_news`) on average.{{< hp glyph="a" >}} What should my null and alternative hypotheses be? What are the two components of variation in this data (give the technical names and describe what they are verbally)?
+a) I want to test whether the three types of occupation (`type`, i.e., Blue Collar, White Collar, and Professional) have different mean `prestige` scores.{{< hp glyph="a" >}} What should my null and alternative hypotheses be? What are the two components of variation in this data (give the technical names and describe what they are verbally)?
 
 b) Test my hypothesis from part (a) in R. Include your results table and write a sentence (or several) that reports the results verbally. What can we conclude?
 
 ## Question 2 (Effect Sizes)
 
-Read in `political.csv` and set `year` to a factor, then fit the same one-way ANOVA predicting `tv_news` from `year`.
+Read in `prestige.csv` and set `type` to a factor, then fit the same one-way ANOVA predicting `prestige` from `type`.
 
 a) Calculate a standardized effect size for this ANOVA (e.g., $\eta^2$) and report it with its confidence interval.
 
@@ -43,9 +43,9 @@ b) A significant $p$-value and a large effect size tell you different things. Ex
 
 ## Question 3 (Post-hoc Tests)
 
-Read in `political.csv` and set `year` to a factor, then fit the same one-way ANOVA predicting `tv_news` from `year`.
+Read in `prestige.csv` and set `type` to a factor, then fit the same one-way ANOVA predicting `prestige` from `type`.
 
-a) Estimate the mean and 95% CI of each year group's TV news watching. *Optional challenge: create a plot showing these means.*
+a) Estimate the mean and 95% CI of each occupation type's prestige score. *Optional challenge: create a plot showing these means.*
 
 b) Would it be appropriate to run a post-hoc test here?{{< hp glyph="a" >}} Why or why not? If appropriate, conduct pairwise comparisons and adjust the $p$-values using Holm's method. What can we conclude, and why does the adjustment matter?
 

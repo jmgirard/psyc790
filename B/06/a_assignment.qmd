@@ -31,9 +31,9 @@ b) Why is it important for us to distinguish between{{< hp glyph="a" >}} indepen
 
 ## Question 2 (Independent Samples)
 
-Download the [`political.csv`](../../data/political.csv){download="political.csv"} file. It contains information about 59 students' political activity. **Be sure to set the `read_edit` and `year` variables to factors.**
+Download the [`water0.csv`](../../data/water0.csv){download="water0.csv"} file. It records the annual mortality rate per 100,000 people (`mortality`) and the calcium concentration of the drinking water (`hardness`) in 61 British towns. **Be sure to set `region` to a factor, where 1 is North and 2 is South.**
 
-a) I want to test whether students who read editorials (`read_edit=1`) feel more politically informed (`informed`) than those who don't (`read_edit=0`). What type of $t$-test is appropriate here (one-sample, independent samples, or paired samples), and what should my null and alternative hypotheses be?
+a) I want to test whether towns in the North have a different mean `mortality` than towns in the South. What type of $t$-test is appropriate here (one-sample, independent samples, or paired samples), and what should my null and alternative hypotheses be?
 
 b) Test my hypothesis from part (a) in R using Welch's approach. Include your results table, calculate a standardized effect size, and write a sentence that reports both verbally.
 

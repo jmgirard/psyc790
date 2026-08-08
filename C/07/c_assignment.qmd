@@ -23,27 +23,27 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-*All three questions use the [`political.csv`](../../data/political.csv){download="political.csv"} dataset. Each question tells you to read it in and fit whatever models it needs, so they can be answered in any order.*
+*All three questions use the [`prestige.csv`](../../data/prestige.csv){download="prestige.csv"} dataset, which records the education, income, percentage of women, and Pineo-Porter `prestige` score of 98 Canadian occupations. Each question tells you to read it in and fit whatever models it needs, so they can be answered in any order.* **Be sure to set `type` to a factor.**
 
 ## Question 1 (Multiple Regression)
 
-Read in `political.csv` and fit a multiple regression model that predicts the `informed` variable from the categorical `voting` variable while also controlling for the continuous `read_news` variable.
+Read in `prestige.csv` and fit a multiple regression model that predicts the `prestige` variable from the categorical `type` variable while also controlling for the continuous `education` variable.
 
 a) Interpret the unstandardized regression coefficients from this model (including the intercept).{{< hp glyph="b" >}} By interpret, I mean that you should report whether each is significant and also describe what the estimate tells us about the relationship between the variables.
 
-b) Use the `estimate_relation()` function from the \{modelbased\} package to plot this model's predictions, with `read_news` on the x-axis and `voting` as the color scale.
+b) Use the `estimate_relation()` function from the {modelbased} package to plot this model's predictions, with `education` on the x-axis and `type` as the color scale.
 
 ## Question 2 (Shared Variance)
 
-Read in `political.csv` and fit **two** models: one regressing `informed` on `voting` alone, and one regressing `informed` on both `voting` and `read_news`.
+Read in `prestige.csv` and fit **two** models: one regressing `prestige` on `type` alone, and one regressing `prestige` on both `type` and `education`.
 
-a) The `voting` coefficients differ between the two models. Explain why.{{< hp glyph="b" >}} Which set are zero-order effects and which are partial effects, and how does that change how you would describe them?
+a) The `type` coefficients differ between the two models -- one of them even changes sign. Explain why.{{< hp glyph="b" >}} Which set are zero-order effects and which are partial effects, and how does that change how you would describe them?
 
-b) Report the $R^2$ of both models. How much additional variance in `informed` is explained by adding `read_news`, and what does that tell you about the two predictors?
+b) Report the $R^2$ of both models. How much additional variance in `prestige` is explained by adding `education`, and what does that tell you about the two predictors?
 
 ## Question 3 (Many Predictors)
 
-Read in `political.csv` and fit a model predicting `informed` from `read_news`, `tv_news`, and `read_edit`.
+Read in `prestige.csv` and fit a model predicting `prestige` from `education`, `income`, and `women`.
 
 a) Report which partial effects are significant. Then explain why a predictor can be significantly correlated with the outcome on its own and yet have a non-significant partial effect once the other predictors are in the model.{{< hp glyph="b" >}}
 

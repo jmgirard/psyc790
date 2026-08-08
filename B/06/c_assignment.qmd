@@ -25,11 +25,11 @@ embed-resources: true
 
 ## Question 1 (Unequal Variances)
 
-Download and read in the [`political.csv`](../../data/political.csv){download="political.csv"} data file, which contains information about 59 students' political activity. Here we compare students who read editorials (`read_edit=1`) to those who don't (`read_edit=0`).
+Download and read in the [`prestige.csv`](../../data/prestige.csv){download="prestige.csv"} data file, which records the Pineo-Porter `prestige` score of 98 Canadian occupations. **Be sure to set `type` to a factor.**
 
-a) Compare the mean `read_news` of these two groups twice: once using Student's approach (which assumes equal variances) and once using Welch's approach (which does not). Report the test statistic, degrees of freedom, and $p$-value for each.
+a) Compare the mean `prestige` of the three occupation types twice: once using Student's approach (which assumes equal variances) and once using Welch's approach (which does not). Report the test statistic, degrees of freedom, and $p$-value for each.
 
-b) The two approaches give noticeably different degrees of freedom here. Look at the group sizes and standard deviations, and explain why.{{< hp glyph="a" >}} Which approach would you report, and why?
+b) The two approaches give noticeably different denominator degrees of freedom here, even though the three groups' standard deviations are very similar. Look at the group sizes as well, and explain what is driving the difference.{{< hp glyph="a" >}} Which approach would you report, and why?
 
 ## Question 2 (Repeated Measures)
 

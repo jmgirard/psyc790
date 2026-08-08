@@ -23,33 +23,33 @@ embed-resources: true
 
 *Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
 
-*Every question below uses the [`affairs.csv`](../../data/affairs.csv){download="affairs.csv"} dataset and specifies its own model, so the questions can be answered in any order and do not depend on one another.*
+*Every question below uses the [`fatalism.csv`](../../data/fatalism.csv){download="fatalism.csv"} dataset and specifies its own model, so the questions can be answered in any order and do not depend on one another. It records three scores for 82 participants: cognitive `simplicity`, `fatalism`, and `depression`.*
 
 ## Question 1 (Continuous Moderation)
 
-Using the `affairs` dataset, fit a linear model predicting marital `satisfaction` from `yearsmarried`, `education`, and their interaction.
+Using the `fatalism` dataset, fit a linear model predicting `depression` from `fatalism`, `simplicity`, and their interaction.
 
-a) Report the estimated interaction coefficient and whether it is significant. In your own words, describe what this coefficient says about how the relationship between `yearsmarried` and `satisfaction` changes as `education` increases.{{< hp glyph="b" >}}
+a) Report the estimated interaction coefficient and whether it is significant. In your own words, describe what this coefficient says about how the relationship between `fatalism` and `depression` changes as `simplicity` increases.{{< hp glyph="b" >}}
 
-b) Explain why the `yearsmarried` coefficient in this model should **not** be described as "the effect of `yearsmarried`."{{< hp glyph="b" >}} What value of `education` does it correspond to, and is that value plausible for anyone in this dataset?
+b) Explain why the `fatalism` coefficient in this model should **not** be described as "the effect of `fatalism`."{{< hp glyph="b" >}} What value of `simplicity` does it correspond to, and is that value plausible for anyone in this dataset?
 
 
 ## Question 2 (Interaction Patterns)
 
-Using the `affairs` dataset, fit a linear model predicting `satisfaction` from `yearsmarried`, `education`, and their interaction.
+Using the `fatalism` dataset, fit a linear model predicting `depression` from `fatalism`, `simplicity`, and their interaction.
 
-a) Use `estimate_relation()` to plot the model's predictions with `yearsmarried` on the x-axis, spotlighting `education` at the mean and one SD above and below (use `"education=[sd]"` as the second term in `by`). Include the plot in your document.
+a) Use `estimate_relation()` to plot the model's predictions with `fatalism` on the x-axis, spotlighting `simplicity` at the mean and one SD above and below (use `"simplicity=[sd]"` as the second term in `by`). Include the plot in your document.
 
 b) Using your plot, classify this interaction as potentiation, attenuation, or crossover, and justify your choice in two or three sentences.{{< hp glyph="b" >}}
 
 
 ## Question 3 (Centering with Interactions)
 
-Using the `affairs` dataset, fit the model predicting `satisfaction` from `yearsmarried`, `education`, and their interaction **twice**: once with the raw predictors, and once with both predictors centered.
+Using the `fatalism` dataset, fit the model predicting `depression` from `fatalism`, `simplicity`, and their interaction **twice**: once with the raw predictors, and once with both predictors centered.
 
 a) Show the coefficients from both models. Which coefficients changed and which stayed essentially the same?
 
-b) Explain why centering changed the coefficients that it did.{{< hp glyph="b" >}} In the centered model, what does the `yearsmarried` coefficient now represent?
+b) Explain why centering changed the coefficients that it did.{{< hp glyph="b" >}} In the centered model, what does the `fatalism` coefficient now represent?
 
 ---
 
