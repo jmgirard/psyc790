@@ -39,51 +39,59 @@ website:
         text: "Contents"
       - text: "Unit A"
         menu:
-          - icon: rocket-takeoff
+          -
             text: "Chapter 01: Getting Started"
             href: A/01/index.html
-          - icon: code-square
+          -
             text: "Chapter 02: Projects and Programming"
             href: A/02/index.html
-          - icon: table
+          -
             text: "Chapter 03: Data and Exploration"
             href: A/03/index.html
       - text: "Unit B"
         menu:
-          - icon: people
+          -
             text: "Chapter 04: Sampling and Estimation"
             href: B/04/index.html
-          - icon: question-circle
+          -
             text: "Chapter 05: Hypothesis Testing"
             href: B/05/index.html
-          - icon: bar-chart
+          -
             text: "Chapter 06: Group Comparisons"
             href: B/06/index.html
       - text: "Unit C"
         menu:
-          - icon: graph-up
+          -
             text: "Chapter 07: Regression"
             href: C/07/index.html
-          - icon: sliders
+          -
             text: "Chapter 08: Moderation"
             href: C/08/index.html
-          - icon: clipboard-check
-            text: "Chapter 09: Assumptions, Diagnostics, and Nonlinearity"
+          -
+            text: "Chapter 09: Nonlinearity"
             href: C/09/index.html
-          - icon: rulers
-            text: "Chapter 10: Reliability and Measurement Error"
-            href: C/10/index.html
-          - icon: shuffle
-            text: "Chapter 11: Bootstrap and Robust Inference"
-            href: C/11/index.html
       - text: "Unit D"
         menu:
-          - icon: shield-check
-            text: "Chapter 12: Best Practices and Power"
+          -
+            text: "Chapter 10: Assumptions and Diagnostics"
+            href: D/10/index.html
+          -
+            text: "Chapter 11: Bootstrap and Robust Inference"
+            href: D/11/index.html
+          -
+            text: "Chapter 12: Missing Data"
             href: D/12/index.html
-          - icon: pen
-            text: "Chapter 13: Reporting and Reviewing"
-            href: D/13/index.html
+      - text: "Unit E"
+        menu:
+          -
+            text: "Chapter 13: Reliability and Measurement Error"
+            href: E/13/index.html
+          -
+            text: "Chapter 14: Power and Preregistration"
+            href: E/14/index.html
+          -
+            text: "Chapter 15: Reporting and Reviewing Results"
+            href: E/15/index.html
   page-footer: "Copyright 2025 &copy; Jeffrey Girard"
 
 format:

@@ -1,0 +1,82 @@
+---
+title: "Chapter 10: Assumptions and Diagnostics"
+---
+
+<!-- Lecture a -->
+
+## [10a] Assumptions and Diagnostics I
+
+### Topics
+- Correct Form
+- Perfect Predictors
+- No Collinearity
+
+### Readings
+- *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.5--10.6
+- [Collinearity Isn't a Disease That Needs Curing](https://janhove.github.io/analysis/2019/09/11/collinearity) --- *Jan Vanhove*
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[10a] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 10a Assignment](a_assignment.qmd)
+
+<!-- Lecture b -->
+
+<!-- Lecture b -->
+
+## [10b] Assumptions and Diagnostics II
+
+### Topics
+- Constant Error Variance
+- Normal Residuals
+- Independent Residuals
+- Outliers
+
+### Files
+- [auto.csv](../../data/auto.csv){download="auto.csv"}
+- [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
+
+### Readings
+- *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.2--10.4
+- Pek, Wong, \& Wong (2018), [How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated](https://doi.org/10/gf9r69) --- *Frontiers in Psychology*
+- Leys et al. (2019), [How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration](https://doi.org/10/ghkz2s) --- *IRSP*
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="b_Slides.html" title="[10b] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 10b Assignment](b_assignment.qmd)
+
+<!-- Unit D Translation -->
+
+## Unit D Translation Activity
+
+A closing activity for the unit: studies described the way a researcher would describe them, for you to translate into data frames, models, and assumptions.
+
+- [Unit D Translation Activity](translation.qmd)
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../C/09/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 09</a>
+  <a href="../../D/11/index.html" class="btn btn-primary" role="button">Chapter 11&nbsp;&nbsp;&raquo;</a>
+</div>
+```

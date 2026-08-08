@@ -51,6 +51,13 @@ cran_packages <- c(
   "praise"
 )
 
+# Not installed yet -- these are needed only once the planned chapters are
+# written, and there is no reason to make everyone install them before then.
+#
+#   mice    -- Chapter 12b, multiple imputation
+#   lavaan  -- Chapter 12b, FIML
+#   splines -- Chapter 09b (ships with R, nothing to install)
+
 missing <- setdiff(cran_packages, rownames(installed.packages()))
 if (length(missing) > 0) {
   install.packages(missing)

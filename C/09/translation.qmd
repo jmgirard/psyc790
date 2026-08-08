@@ -1,0 +1,61 @@
+---
+title: "Unit C Translation Activity"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+*These activities are for practice only --- there is nothing to turn in.*
+
+Every question so far has told you which model to fit. Research never does. This
+activity works the other direction: you are given a study in the words a
+researcher would use to describe it, and you have to translate it into a data
+frame, a formula, and a set of assumptions worth worrying about.
+
+Work through each one in a small group if you can. There is usually more than
+one defensible answer --- being able to say *why* you chose yours is the skill
+being practiced.
+
+For each study below, answer:
+
+1. What might the data frame look like? Name the variables, give their types,
+   and say what one row represents.
+2. What formula would you use to test the hypothesis with a linear model?
+3. Should you be worried about any of the linear model's assumptions here?
+
+## Example 1 (Clinical / Health Psychology)
+
+> I read that doctors sometimes use the amount of beta-amyloid proteins in a
+> patient's cerebrospinal fluid (CSF) to help detect Alzheimer's disease. I am
+> interested to know if this amount is also related to patients' cognitive
+> functioning. To investigate this, I collect CSF from and measure beta-amyloid
+> and working memory in 120 patients with different types of dementia. Assume
+> that both measures are continuous.
+
+## Example 2 (Sports Science)
+
+> I want to help the tennis player I coach to improve her service return game. I
+> suspect she struggles with faster serves and serves she tried to return
+> backhand. To test this, I watch 70 of her recent matches and mark down the
+> average speed of all the serves she received in that match, the percentage
+> that she attempted to return backhand (as opposed to forehand), and the
+> percentage that she successfully returned (as opposed to did not return).
+
+## Example 3 (Social Psychology)
+
+> I think that people at a bar will enjoy being approached by and talking with a
+> stranger only if they find that stranger attractive, but my friend thinks that
+> attractiveness has nothing to do with it. To test this, we observe people at a
+> local bar and, after someone is approached by someone else, ask them if they
+> knew that person (yes or no), how attractive they found that person (1 to 10),
+> and how much they liked talking with that person (1 to 10). We end up with
+> ratings from 20 participants being approached by 55 strangers and 30 friends.
+
+## Bring your own
+
+Describe a study from your own area the same way --- a short paragraph, no
+statistical vocabulary --- and hand it to someone else to translate. Then
+compare what they wrote to the analysis you actually had in mind.

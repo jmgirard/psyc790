@@ -1,0 +1,59 @@
+---
+title: "Chapter 15: Reporting and Reviewing Results"
+---
+
+<!-- Lecture a -->
+
+## [15a] Reporting Statistical Results
+
+### Topics
+- Where the results section sits among a paper's goals
+- What to report for each model, and what readers cannot reconstruct without it
+- Tables and figures that carry the result rather than repeat it
+
+### Readings
+- "Multiple Regression" --- *Reviewer's Guide to Quantitative Methods in the Social Sciences*
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[15a] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 15a Assignment](a_assignment.qmd)
+
+<!-- Lecture b -->
+
+## [15b] Reviewing Statistical Claims
+
+::: {.callout-note}
+## Under development
+
+This lecture is planned but not yet written. The outline below shows what it is
+intended to cover.
+:::
+
+### Topics
+- Checking a reported test for internal consistency (statistic, *df*, and *p* must agree)
+- Recovering effect sizes and confidence intervals from what was reported
+- Detecting impossible summary statistics from means, *SD*s, and sample sizes
+- Reading a results section for what is *missing* rather than what is wrong
+- Writing a statistical review that is specific and actionable
+
+This is the reviewing half of the chapter, and it is deliberately a *statistical*
+skill rather than a methodological one: everything above can be checked from the
+numbers a paper already reports, without access to the data.
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../E/14/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 14</a>
+</div>
+```

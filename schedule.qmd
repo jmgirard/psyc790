@@ -7,7 +7,7 @@ title: "Contents"
 toc: false
 ---
 
-## Unit A
+## Unit A --- Foundations
 - Chapter 01: [Getting Started](A/01/index.qmd)
     a. Introduction
     b. RStudio / Console / Scripts
@@ -20,7 +20,7 @@ toc: false
     a. Strings / Factors / Packages
     b. Data Frames / Files / Exploration
 
-## Unit B
+## Unit B --- Inference
 - Chapter 04: [Sampling and Estimation](B/04/index.qmd)
     a. Populations / Samples / Uncertainty
     b. Estimates / Normality / Confidence
@@ -33,8 +33,9 @@ toc: false
     a. t-tests / Effect Sizes / Paired Groups
     b. One-way ANOVA / Effect Sizes / Contrasts
     c. Unequal Variances / Repeated Measures
+    - [Unit B Translation Activity](B/06/translation.qmd)
 
-## Unit C
+## Unit C --- The Linear Model
 - Chapter 07: [Regression](C/07/index.qmd)
     a. Regression / Inference / Centering
     b. Dummy Codes / Means / Contrasts
@@ -44,24 +45,34 @@ toc: false
     a. Continuous Moderation
     b. Categorical Moderation
 
-- Chapter 09: [Assumptions, Diagnostics, and Nonlinearity](C/09/index.qmd)
+- Chapter 09: [Nonlinearity](C/09/index.qmd)
+    a. Polynomial Regression
+    b. Piecewise and Spline Regression *(planned)*
+    - [Unit C Translation Activity](C/09/translation.qmd)
+
+## Unit D --- Data Problems and Robust Inference
+- Chapter 10: [Assumptions and Diagnostics](D/10/index.qmd)
     a. Assumptions and Diagnostics I
     b. Assumptions and Diagnostics II
-    c. Polynomial Regression
+    - [Unit D Translation Activity](D/10/translation.qmd)
 
-- Chapter 10: [Reliability and Measurement Error](C/10/index.qmd)
-    a. Classical Test Theory and Internal Consistency
-    b. Inter-Rater Reliability and Attenuation
-
-- Chapter 11: [Bootstrap and Robust Inference](C/11/index.qmd)
+- Chapter 11: [Bootstrap and Robust Inference](D/11/index.qmd) *(planned)*
     a. The Bootstrap
     b. Robust Inference
 
-## Unit D
-- Chapter 12: [Best Practices and Power](D/12/index.qmd)
-    a. Best & Questionable Practices
-    b. Power Analysis
+- Chapter 12: [Missing Data](D/12/index.qmd) *(planned)*
+    a. Missing Data Theory
+    b. Multiple Imputation and FIML
 
-- Chapter 13: [Reporting and Reviewing](D/13/index.qmd)
-    a. Reporting & Reviewing
-    b. Translation Activity
+## Unit E --- Designing and Reporting Studies
+- Chapter 13: [Reliability and Measurement Error](E/13/index.qmd) *(planned)*
+    a. Classical Test Theory and Internal Consistency
+    b. Inter-Rater Reliability and Attenuation
+
+- Chapter 14: [Power and Preregistration](E/14/index.qmd)
+    a. Power Analysis
+    b. Researcher Degrees of Freedom
+
+- Chapter 15: [Reporting and Reviewing Results](E/15/index.qmd)
+    a. Reporting Statistical Results
+    b. Reviewing Statistical Claims *(planned)*

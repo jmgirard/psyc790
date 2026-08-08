@@ -1,19 +1,22 @@
 ---
-title: "Chapter 09: Assumptions, Diagnostics, and Nonlinearity"
+title: "Chapter 09: Nonlinearity"
 ---
 
 <!-- Lecture a -->
 
-## [09a] Assumptions and Diagnostics I
+## [09a] Polynomial Regression
 
 ### Topics
-- Correct Form
-- Perfect Predictors
-- No Collinearity
+- Polynomial Regression
+- Quadratic Regression
+- Adding Predictors
+- Closing Thoughts
+
+### Files
+- [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
 
 ### Readings
-- *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.5--10.6
-- [Collinearity Isn't a Disease That Needs Curing](https://janhove.github.io/analysis/2019/09/11/collinearity) --- *Jan Vanhove*
+- *Applied Multiple Regression/Correlation Analysis*, §6.1--6.2
 
 ### Slides
 
@@ -31,74 +34,42 @@ title: "Chapter 09: Assumptions, Diagnostics, and Nonlinearity"
 
 <!-- Lecture b -->
 
-<!-- Lecture b -->
+## [09b] Piecewise and Spline Regression
 
-## [09b] Assumptions and Diagnostics II
+::: {.callout-note}
+## Under development
 
-### Topics
-- Constant Error Variance
-- Normal Residuals
-- Independent Residuals
-- Outliers
-
-### Files
-- [auto.csv](../../data/auto.csv){download="auto.csv"}
-- [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
-
-### Readings
-- *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.2--10.4
-- Pek, Wong, \& Wong (2018), [How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated](https://doi.org/10/gf9r69) --- *Frontiers in Psychology*
-- Leys et al. (2019), [How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration](https://doi.org/10/ghkz2s) --- *IRSP*
-
-### Slides
-
-```{=html}
-<iframe class="slide-deck" src="b_Slides.html" title="[09b] Slideshow">
-</iframe>
-```
-
-::: {.fs80}
-\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+This lecture is planned but not yet written. The outline below shows what it is
+intended to cover.
 :::
 
-### Assignment
-- [Lecture 09b Assignment](b_assignment.qmd)
-
-<!-- Lecture c -->
-
-## [09c] Polynomial Regression
-
 ### Topics
-- Polynomial Regression
-- Quadratic Regression
-- Adding Predictors
-- Closing Thoughts
+- Why a global polynomial is the wrong tool for a local bend
+- Piecewise regression: breakpoints as a dummy code and its interaction
+- Choosing and justifying a breakpoint
+- Splines as the smooth generalization
+- Interpreting and plotting a fit you cannot read off a coefficient
 
-### Files
-- [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
+Piecewise regression is built from machinery this course already teaches: a
+breakpoint is a dummy code, and letting the slope change at that point is the
+interaction from Chapter 08. Splines then generalize it, still as a single term
+inside `lm()`. The conceptual contrast with Chapter 09a is the point of the
+lecture --- a polynomial's shape near one end of `x` is constrained by data at
+the other end, and a spline's is not.
 
-### Readings
-- *Applied Multiple Regression/Correlation Analysis*, §6.1--6.2
+<!-- Unit C Translation -->
 
-### Slides
+## Unit C Translation Activity
 
-```{=html}
-<iframe class="slide-deck" src="c_Slides.html" title="[09c] Slideshow">
-</iframe>
-```
+A closing activity for the unit: studies described the way a researcher would describe them, for you to translate into data frames, models, and assumptions.
 
-::: {.fs80}
-\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
-:::
-
-### Assignment
-- [Lecture 09c Assignment](c_assignment.qmd)
+- [Unit C Translation Activity](translation.qmd)
 
 <!-- Bottom Nav -->
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
   <a href="../../C/08/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 08</a>
-  <a href="../../C/10/index.html" class="btn btn-primary" role="button">Chapter 10&nbsp;&nbsp;&raquo;</a>
+  <a href="../../D/10/index.html" class="btn btn-primary" role="button">Chapter 10&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

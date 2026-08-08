@@ -6,62 +6,45 @@ The page you requested cannot be found. It is likely still being developed!
 
 ### Update Progress
 
-Below, I will track my progress updating this website chapter-by-chapter.
+Below, I will track my progress writing this website chapter-by-chapter.
+Unchecked chapters are outlined but not yet written.
 
 :::{.columns}
 :::{.column width="25%"}
+**Unit A --- Foundations**
+
 - [x] Chapter 01
 - [x] Chapter 02
 - [x] Chapter 03
+
+**Unit B --- Inference**
+
 - [x] Chapter 04
-:::
-:::{.column width="25%"}
 - [x] Chapter 05
 - [x] Chapter 06
+:::
+:::{.column width="25%"}
+**Unit C --- The Linear Model**
+
 - [x] Chapter 07
 - [x] Chapter 08
+- [ ] Chapter 09
 :::
 :::{.column width="25%"}
-- [x] Chapter 09
+**Unit D --- Data Problems**
+
 - [x] Chapter 10
-- [x] Chapter 11
-- [x] Chapter 12
+- [ ] Chapter 11
+- [ ] Chapter 12
 :::
 :::{.column width="25%"}
-- [x] Chapter 13
+**Unit E --- Designing and Reporting**
+
+- [ ] Chapter 13
+- [x] Chapter 14
+- [ ] Chapter 15
 :::
 :::
-:::{.column width="25%"}
-- [x] Chapter 05
-- [x] Chapter 06
-- [x] Chapter 07
-- [x] Chapter 08
-:::
-:::{.column width="25%"}
-- [x] Chapter 09
-- [x] Chapter 10
-- [x] Chapter 11
-- [x] Chapter 12
-:::
-:::{.column width="25%"}
-- [x] Chapter 13
-:::
-:::
-:::{.column width="25%"}
-- [x] Chapter 05
-- [x] Chapter 06
-- [x] Chapter 07
-- [x] Chapter 08
-:::
-:::{.column width="25%"}
-- [x] Chapter 09
-- [x] Chapter 10
-- [x] Chapter 11
-- [x] Chapter 12
-:::
-:::{.column width="25%"}
-- [x] Chapter 13
-- [x] Chapter 15
-- [x] Chapter 16
-:::
-:::
+
+Chapter 09 has its first lecture written and its second outlined; chapter 15 is
+the reverse. Chapters 11, 12, and 13 are outlined in full but have no slides yet.

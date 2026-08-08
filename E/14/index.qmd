@@ -1,0 +1,65 @@
+---
+title: "Chapter 14: Power and Preregistration"
+---
+
+<!-- Lecture a -->
+
+<!-- Lecture b -->
+
+## [14a] Power Analysis
+
+### Topics
+- Power analysis and its relationship to effect size, *n*, and alpha
+- Types of power analysis
+- Power for *t*-tests, one-way ANOVA, and the linear model
+
+### Readings
+- [WebPower Manual](https://webpower.psychstat.org/wiki/) --- *WebPower*
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="a_Slides.html" title="[14a] Slideshow">
+</iframe>
+```
+
+### Assignment
+- [Lecture 14a Assignment](a_assignment.qmd)
+
+<!-- Lecture b -->
+
+## [14b] Researcher Degrees of Freedom
+
+### Topics
+- Bad Practices
+- Best Practices
+
+### Readings
+- Simmons, Nelson, \& Simonsohn (2011), [False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant](https://doi.org/10.1177/0956797611417632) --- *Psychological Science*
+- Bishop (2020), [The Psychology of Experimental Psychologists: Overcoming Cognitive Constraints to Improve Research](https://doi.org/10/gg7mkb) --- *QJEP*
+- Nosek \& Bar-Anan (2012), [Scientific Utopia: I. Opening Scientific Communication](https://doi.org/10.1080/1047840X.2012.692215) --- *Psychological Inquiry*
+- Nosek, Spies, \& Motyl (2012), [Scientific Utopia: II. Restructuring Incentives and Practices to Promote Truth Over Publishability](https://doi.org/10.1177/1745691612459058) --- *Perspectives on Psychological Science*
+- Nosek et al. (2018), [The Preregistration Revolution](https://doi.org/10.1073/pnas.1708274114) --- *PNAS*
+
+### Slides
+
+```{=html}
+<iframe class="slide-deck" src="b_Slides.html" title="[14b] Slideshow">
+</iframe>
+```
+
+::: {.fs80}
+\*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
+:::
+
+### Assignment
+- [Lecture 14b Assignment](b_assignment.qmd)
+
+<!-- Bottom Nav -->
+
+```{=html}
+<div style="display: flex; justify-content: space-between; margin-top: 3rem;">
+  <a href="../../E/13/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 13</a>
+  <a href="../../E/15/index.html" class="btn btn-primary" role="button">Chapter 15&nbsp;&nbsp;&raquo;</a>
+</div>
+```

@@ -1,0 +1,134 @@
+---
+unit: "E"
+chapter: "14"
+lecture: "14b"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Researcher Degrees of Freedom
+
+::: {.my-grey}
+[Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
+[Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/growth_curve_357EDD.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r setup}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(easystats)
+library(patchwork)
+mytheme <- function(sz = 30) {
+  theme_gray(base_size = sz) + 
+  theme(panel.grid.minor = element_blank())
+}
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
+```
+
+# Overview
+
+## Research practice continuum
+
+::: {.callout-important title="Scientific Misconduct"}
+Data Fabrication, Data Falsification, (Plagiarism), (Undisclosed COIs)
+:::
+
+::: {.callout-warning title="Questionable Practices"}
+Selective Reporting, *p*-hacking, HARKing, Data Peeking
+:::
+
+::: {.callout-tip title="Best Practices"}
+Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
+:::
+
+[Ordered from least to most likely to produce true, replicable findings]{.fs90}
+
+# Researcher Degrees of Freedom
+
+## Selective reporting {.fs90}
+
+- **Cherry picking** is only including or reporting a desired subset of information (intentionally or accidentally)
+    + e.g., cases, variables, studies, analyses, results, references
+    + It is problematic when the subset misrepresents the whole
+    + It is especially problematic when unreported (e.g., hidden)
+    
+::: {.fragment}
+- **Selective omission** is excluding or not reporting an undesired subset of information (intentionally or accidentally)
+    + This is essentially the other side of cherry picking
+    
+:::
+
+
+## HARKing {.fs90}
+
+- "Hypothesizing after the results are known"
+    + It is claiming to have predicted an unexpected result
+    + Changing your hypothesis to match whatever you found
+    + Going into research without any real expectations
+
+- Why it's problematic
+    + It falsely presents exploratory work as confirmatory
+    + The problem is the misrepresentation (not the exploration)
+    + It is more likely to capitalize on sampling error
+    + "The easiest person to fool is yourself"
+    
+## *p*-hacking {.fs90}
+
+- Making analysis decisions to optimize **significance** instead of rigor
+    + How to measure and represent variables
+    + Which observations to include or exclude
+    + When to stop data collection
+    + Which tests and formulas to use
+    + Which covariates to control for
+    + How to handle assumptions and outliers
+    
+- If you try lots of options, a few will be significant **by chance alone**
+
+- If you don't disclose all this trial-and-error, it is very misleading
+
+## Data peeking {.fs90}
+
+- **Data peeking** is a form of *p*-hacking related to data collection
+    + You collect some data, run analyses, and look at the *p*-value
+    + If your result is significant, then you stop and publish
+    + But if not, then you collect more data and try again...
+
+- This practice capitalizes on sampling error and is biased
+    + Your effect size will likely be inflated (too large)
+    + A correction for this is called "sequential analysis"
+
+- A better approach is to choose $n$ using power analysis
+
+
+# Constraining the Garden of Forking Paths
+
+## Preregistration {.fs90}
+
+- Presenting exploratory work as confirmatory is misleading
+
+- We can avoid this by "calling our shots" before data collection
+    + By preregistering our hypotheses, we avoid HARKing
+    + By preregistering our analyses, we avoid *p*-hacking
+    + It's okay to change things, but you have to disclose it
+    
+- Many journals now offer **registered reports**
+    + Reviewers evaluate and refine your preregistered plan
+    + The journal will publish your paper if you follow the plan

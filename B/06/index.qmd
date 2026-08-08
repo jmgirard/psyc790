@@ -93,6 +93,14 @@ title: "Chapter 06: Group Comparisons"
 ### Assignment
 - [Lecture 06c Assignment](c_assignment.qmd)
 
+<!-- Unit B Translation -->
+
+## Unit B Translation Activity
+
+A closing activity for the unit: studies described the way a researcher would describe them, for you to translate into data frames, models, and assumptions.
+
+- [Unit B Translation Activity](translation.qmd)
+
 <!-- Bottom Nav -->
 
 ```{=html}

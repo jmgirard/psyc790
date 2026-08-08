@@ -1,0 +1,52 @@
+---
+title: "Lecture 10a Assignment"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+## Instructions
+
+*Create a new Quarto document (HTML format), clear out the boilerplate code/text, and use this document to store your answers to each of the three questions below. Be sure to enable `embed-resources` using the header below. If your answer involves writing text, then use markdown to write 2--4 sentences per question; if you answer involves running code, then use one or more code chunks.*
+
+```markdown
+---
+title: "Lecture 10a Assignment"
+name: "Your Name"
+format: html
+embed-resources: true
+---
+```
+
+*Please clearly mark which part of your document is answering which question (e.g., using markdown headings) and remove any "scratch work" or failed attempts from your document before submitting it. Finally, note that many essay-style questions will require you to read between the lines and use your imagination (as opposed to just looking up the answer in the lecture).*
+
+*Questions 2 and 3 use the [`screentime.csv`](../../data/screentime.csv){download="screentime.csv"} dataset. This is a random subsample of 3,000 observations from <https://doi.org/10.1177/0956797616678438> (including all 100,000 observations might be tough on slower computers) and includes self-reported mental wellbeing and different forms of screen time during weekdays and weekends. Note that this is real data, but given the subsampling we should be cautious generalizing from it.*
+
+## Question 1 (Model Specification)
+
+a) In your own words, describe the three LM assumptions about the model formula/specification.{{< hp glyph="b" >}} What are they assuming, and what will the consequences be if they are violated?
+
+b) Of those three assumptions, which do you think is hardest to check in practice, and why?{{< hp glyph="b" >}}
+
+## Question 2 (Correct Form)
+
+Read in the `screentime` dataset and fit a multiple regression model predicting `mental_wellbeing` from `watch_wd`, `play_wd`, `compute_wd`, `phone_wd`, `gender`, `minority`, and `deprived_area`. To ease the comparison between slopes, standardize them using the "refit" method.
+
+a) Briefly report which partial effects are significant.
+
+b) Check the functional form assumption using the diagnostic(s) learned in lecture and interpret the results in terms of how reasonable vs. unreasonable the assumption is. (Note that you should explain *why* you think it is more or less reasonable and not just say "looks good" or "looks bad.")
+
+## Question 3 (No Collinearity)
+
+Read in the `screentime` dataset again for this question so that it can be answered on its own.
+
+a) Fit a model predicting `mental_wellbeing` from the four weekday screen-time variables (`watch_wd`, `play_wd`, `compute_wd`, `phone_wd`) plus `gender`, `minority`, and `deprived_area`. A reviewer is concerned that, because several predictors are all about "screen time," there may be multicollinearity. Check for this using the diagnostic(s) learned in lecture and interpret the results.
+
+b) Now fit a second model that adds the four weekend predictors (`watch_we`, `play_we`, `compute_we`, `phone_we`). Re-check for multicollinearity. Which predictors became problematic, and why would adding weekend versions of the same activities do that?{{< hp glyph="b" >}}
+
+---
+
+✅ Done! *Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).*

@@ -1,0 +1,58 @@
+---
+title: "Unit D Translation Activity"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/exams_2780E3.svg){width=300, height=300}
+
+*These activities are for practice only --- there is nothing to turn in.*
+
+Units B and C asked you to translate a study into a model. This one asks you to
+translate a *problem* into a diagnosis and a response. Each scenario below
+describes something that went wrong, or might have, in the words a collaborator
+would use.
+
+For each one, answer:
+
+1. Which assumption or data problem is being described?
+2. Which diagnostic would you run to confirm it, and what would confirming it
+   look like?
+3. What would you do about it --- and what would you have to report either way?
+
+## Example 1
+
+> My residual plot has a clear funnel shape: predictions are tight at the low
+> end and fan out badly at the high end. My supervisor says the *p*-values are
+> fine because the sample is large.
+
+## Example 2
+
+> I measured self-esteem with a three-item scale that turned out to have an
+> alpha of .55. My predictor barely reached significance and the effect looks
+> much smaller than the published literature suggests.
+
+## Example 3
+
+> About 18% of my participants skipped the income question. I dropped those rows
+> so the model would run. My reviewer wants to know whether that was defensible,
+> and I am not sure how to answer.
+
+## Example 4
+
+> My outcome is badly skewed and I have 40 participants. A colleague says to log
+> it, another says to run a nonparametric test, and a third says to bootstrap
+> the confidence intervals. They cannot all be right.
+
+## Example 5
+
+> Two observations have Cook's distance far above everything else. Removing them
+> flips my main effect from significant to not. I would rather not remove them,
+> but I also do not want to report a result that hangs on two people.
+
+## Bring your own
+
+Bring a diagnostic plot from your own data --- ideally one you were not sure how
+to read --- and work through the same three questions with someone else.

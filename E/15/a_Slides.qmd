@@ -1,0 +1,117 @@
+---
+unit: "E"
+chapter: "15"
+lecture: "15a"
+metadata-files:
+  - ../../_slide-settings.yml
+format:
+  revealjs:
+    theme: default
+---
+
+::: {.my-title}
+# [Statistical Methods]{.blue}
+Reporting Statistical Results
+
+::: {.my-grey}
+[Unit {{< meta unit >}} | Chapter {{< meta chapter >}}]{}<br />
+[Lecture {{< meta lecture >}}]{}
+:::
+
+::: {.my-attrib}
+{{< meta attribution >}}
+:::
+
+![](../../img/growth_curve_357EDD.png){.absolute bottom=30 right=0 width="400"}
+:::
+
+```{r setup}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(easystats)
+library(patchwork)
+mytheme <- function(sz = 30) {
+  theme_gray(base_size = sz) + 
+  theme(panel.grid.minor = element_blank())
+}
+# Make mytheme the default rather than relying on every plot remembering
+# `+ mytheme`. Plots built by other packages -- plot(), check_model(),
+# ggeffects -- never get a manual `+ mytheme` and were rendering at
+# ggplot's 11pt default, which reads as tiny next to the 40px slide text.
+theme_set(mytheme())
+```
+
+# Overview
+
+## Goals for each section {.fs70}
+
+::: {.footer}
+This chapter focuses on section 3. The other three are a research-writing topic, not a statistical one.
+:::
+
+<table class="table-top">
+  <tr>
+    <td>1. **Introduction**</td>
+    <td>
+      <ul>
+        <li>Motivate the research goals and questions</li>
+        <li>Contextualize the work in the literature</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>2. **Methods**</td>
+    <td>
+      <ul>
+        <li>Transparently describe the data and variables</li>
+        <li>Transparently describe and justify the analyses</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>3. **Results**</td>
+    <td>
+      <ul>
+        <li>Clearly, accurately, and fully report the results</li>
+        <li>Facilitate communication with nice tables and figures</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>4. **Discussion**</td>
+    <td>
+      <ul>
+        <li>Draw reasonable and justified conclusions</li>
+        <li>Contextualize the results regarding limitations</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+
+## Results section (part 1)
+
+*Concerns as a methodological reviewer / co-author*
+
+1. Did it report all model coefficients (in text or table)?
+
+2. Did it report effect sizes and confidence intervals?
+
+3. Did it clarify whether the coefficients are standardized?
+
+4. Did it describe the checking of model assumptions?
+
+
+## Results section (part 2)
+
+*Concerns as a methodological reviewer / co-author*
+
+5. Was the model appropriate given the assumption checks?
+
+6. Did it correctly interpret zero-order and partial effects?
+
+7. Did it correctly interpret interaction and simple effects?
+
+8. Did it plot the model's predictions and uncertainty?
