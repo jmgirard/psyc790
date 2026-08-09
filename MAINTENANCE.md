@@ -383,6 +383,13 @@ defaults to Type III).
 **`_brand.yml`.** `_quarto.yml` declares `theme: [cosmo, brand]` but no `_brand.yml` exists,
 here or in the other two repos. It renders fine; worth confirming it is intentional.
 
+**Possible overflow in `C/09/a`.** While measuring slide widths for the divider work, two
+section-opening slides in that deck — "Motivation" and "Power polynomials" — measured 844 and
+910px of content against the 700px canvas *at full width*, before any icon column was
+considered. Every other slide measured came in under 700. This was a side observation from a
+clone-based measurement, so treat the absolute numbers as approximate and re-check the deck
+directly rather than trusting them; but no other deck produced a number like it.
+
 **Section illustrations rollout.** The divider pattern (§1) is prototyped on `C/07/a` only.
 Rolling it out means one icon on each of ~102 `#` dividers, 2–6 per deck. Two loose ends:
 
