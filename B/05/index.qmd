@@ -14,9 +14,9 @@ title: "Chapter 05: Hypothesis Testing"
 :::
 
 ### Readings {.res-readings}
-- [Hypothesis Testing, §11.1--11.7](https://learningstatisticswithr.com/11-hypothesistesting.html) --- *Learning Statistics with R*
-- [Comparing Two Means, §13.1--13.2](https://learningstatisticswithr.com/13-ttest.html) --- *Learning Statistics with R*
-- Cassidy et al. (2019), [Failing Grade: 89% of Introduction-to-Psychology Textbooks That Define or Explain Statistical Significance Do So Incorrectly](https://doi.org/10.1177/2515245919858072) --- *AMPPS*
+- [Hypothesis Testing, §11.1--11.7](https://learningstatisticswithr.com/11-hypothesistesting.html), *Learning Statistics with R*
+- [Comparing Two Means, §13.1--13.2](https://learningstatisticswithr.com/13-ttest.html), *Learning Statistics with R*
+- Cassidy et al. (2019), [Failing Grade: 89% of Introduction-to-Psychology Textbooks That Define or Explain Statistical Significance Do So Incorrectly](https://doi.org/10.1177/2515245919858072), *AMPPS*
 
 ### Slides
 
@@ -47,7 +47,7 @@ title: "Chapter 05: Hypothesis Testing"
 - [cigarettes.csv](../../data/cigarettes.csv){download="cigarettes.csv"}
 
 ### Readings {.res-readings}
-- [Descriptive Statistics](https://learningstatisticswithr.com/05-descriptives.html) --- *Learning Statistics with R*
+- [Descriptive Statistics](https://learningstatisticswithr.com/05-descriptives.html), *Learning Statistics with R*
 - *Beyond Significance Testing*, pp. 126--128, 138--140
 
 ### Slides

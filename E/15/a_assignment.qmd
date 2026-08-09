@@ -35,7 +35,7 @@ Find a published research paper in your own area that used multiple regression, 
 
 a) Report what you found in the **introduction**. Are the research question and hypotheses stated clearly, and stated *before* the results? Does the literature justify those specific predictions? Is the study framed as confirmatory or exploratory, and is that framing credible?
 
-b) Report what you found in the **methods**. Pay particular attention to whether the sample size is justified (e.g., a power analysis), whether the measures and procedures are described well enough to reproduce, and how the regression was specified --- which predictors, why those, and how covariates, missing data, and outliers were handled.
+b) Report what you found in the **methods**. Pay particular attention to whether the sample size is justified (e.g., a power analysis), whether the measures and procedures are described well enough to reproduce, and how the regression was specified: which predictors, why those, and how covariates, missing data, and outliers were handled.
 
 ## Question 3 (Reviewing the Results and Discussion)
 

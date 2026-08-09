@@ -49,7 +49,7 @@ Using the `screentime` dataset, fit a linear model predicting `mental_wellbeing`
 
 a) Use `estimate_relation()` to plot the model's predictions, and use `estimate_slopes()` to report the slope of `phone_wd` separately for respondents in and not in a deprived area.
 
-b) Based on the interaction test and the two simple slopes, does living in a deprived area meaningfully moderate the relationship between `phone_wd` and `mental_wellbeing`? Note that "no" can be the correct answer — justify whichever conclusion you reach.
+b) Based on the interaction test and the two simple slopes, does living in a deprived area meaningfully moderate the relationship between `phone_wd` and `mental_wellbeing`? Note that "no" can be the correct answer; justify whichever conclusion you reach.
 
 ---
 

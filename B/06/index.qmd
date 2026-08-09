@@ -16,7 +16,7 @@ title: "Chapter 06: Group Comparisons"
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
 
 ### Readings {.res-readings}
-- [Comparing Two Means, §13.3--13.8](https://learningstatisticswithr.com/13-ttest.html) --- *Learning Statistics with R*
+- [Comparing Two Means, §13.3--13.8](https://learningstatisticswithr.com/13-ttest.html), *Learning Statistics with R*
 - *Beyond Significance Testing*, pp. 123--138
 
 ### Slides
@@ -48,8 +48,8 @@ title: "Chapter 06: Group Comparisons"
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
 
 ### Readings {.res-readings}
-- [Comparing Several Means, §14.1--14.5](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*
-- [Introduction to Probability, §9.6](https://learningstatisticswithr.com/09-probability.html) --- *Learning Statistics with R*
+- [Comparing Several Means, §14.1--14.5](https://learningstatisticswithr.com/14-anova.html), *Learning Statistics with R*
+- [Introduction to Probability, §9.6](https://learningstatisticswithr.com/09-probability.html), *Learning Statistics with R*
 
 ### Slides
 
@@ -80,7 +80,7 @@ title: "Chapter 06: Group Comparisons"
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
 
 ### Readings {.res-readings}
-- [Comparing Several Means, §14.6--14.11](https://learningstatisticswithr.com/14-anova.html) --- *Learning Statistics with R*
+- [Comparing Several Means, §14.6--14.11](https://learningstatisticswithr.com/14-anova.html), *Learning Statistics with R*
 
 ### Slides
 

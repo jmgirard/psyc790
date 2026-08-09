@@ -163,7 +163,7 @@ wp.t(
 )
 ```
 
-We would thus need 176 participants in each group (for 352 total) --- always round *up*
+We would thus need 176 participants in each group (for 352 total); always round *up*
 
 
 ## Example 2 {.fs90}

@@ -8,7 +8,7 @@ format:
 
 ![](../../img/exams_2780E3.svg){width=300, height=300}
 
-*These activities are for practice only --- there is nothing to turn in.*
+*These activities are for practice only; there is nothing to turn in.*
 
 Every question in Unit B told you which test to run. Research never does. This
 activity works the other direction: you are given a study in the words a
@@ -19,7 +19,7 @@ For each study below, answer:
 
 1. What might the data frame look like? Name the variables, give their types,
    and say what one row represents.
-2. Which procedure from Unit B fits --- a one-sample, independent-samples, or
+2. Which procedure from Unit B fits: a one-sample, independent-samples, or
    paired-samples $t$-test, a one-way ANOVA, or a correlation? Say why the
    others do not.
 3. What are the null and alternative hypotheses, in words and in symbols?
@@ -57,6 +57,6 @@ For each study below, answer:
 
 ## Bring your own
 
-Describe a study from your own area the same way --- a short paragraph, no
-statistical vocabulary --- and hand it to someone else to translate. Then
+Describe a study from your own area the same way (a short paragraph, no
+statistical vocabulary) and hand it to someone else to translate. Then
 compare what they wrote to the analysis you actually had in mind.

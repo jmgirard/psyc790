@@ -13,7 +13,7 @@ title: "Chapter 15: Reporting & Reviewing"
 :::
 
 ### Readings {.res-readings}
-- "Multiple Regression" --- *Reviewer's Guide to Quantitative Methods in the Social Sciences*
+- "Multiple Regression", *Reviewer's Guide to Quantitative Methods in the Social Sciences*
 
 ### Slides
 

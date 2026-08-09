@@ -610,7 +610,7 @@ plot(estimate_relation(fit6, by = c("duration", "sex", "program"))) + mytheme(20
 - Three-way interactions are [expensive]{.b .blue}
     + They need substantially more power than two-way terms
     + Cells get small quickly once you cross three variables
-    + Our example is *simulated*, with 150 per cell --- real data is rarely
+    + Our example is *simulated*, with 150 per cell; real data is rarely
       this generous
 
 ::: {.fragment .mt1}

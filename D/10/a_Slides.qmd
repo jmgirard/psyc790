@@ -139,7 +139,7 @@ ggplot(d1, aes(x =x , y = y_violated)) +
 :::
 
 ::: {.footer}
-With several predictors, a curve in one $x$ can be diluted here --- per-predictor residual plots help
+With several predictors, a curve in one $x$ can be diluted here; per-predictor residual plots help
 :::
 
 
@@ -231,7 +231,7 @@ Bias in the coefficients, and therefore in the tests and intervals built on them
     + Did we measure it?
 
 ::: {.tc}
-This is the assumption you cannot test --- only defend.
+This is the assumption you cannot test, only defend.
 :::
 
 
@@ -249,7 +249,7 @@ This is the assumption you cannot test --- only defend.
     + Describe effects as *adjusted for what you included*, not as causal
 
 ::: {.footer}
-Do not "control for everything" --- adjusting for a mediator removes the very pathway you are studying.
+Do not "control for everything": adjusting for a mediator removes the very pathway you are studying.
 :::
 
 
@@ -317,7 +317,7 @@ Coefficients stay **unbiased** but become unstable; standard errors become large
 :::
 
 ::: {.footer}
-*Unstable* means the estimate swings a lot from sample to sample --- not that it is systematically too high or too low.
+*Unstable* means the estimate swings a lot from sample to sample, not that it is systematically too high or too low.
 :::
 
 

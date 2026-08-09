@@ -56,7 +56,7 @@ Piecewise regression is built from machinery this course already teaches: a
 breakpoint is a dummy code, and letting the slope change at that point is the
 interaction from Chapter 08. Splines then generalize it, still as a single term
 inside `lm()`. The conceptual contrast with Chapter 09a is the point of the
-lecture --- a polynomial's shape near one end of `x` is constrained by data at
+lecture: a polynomial's shape near one end of `x` is constrained by data at
 the other end, and a spline's is not.
 
 <!-- Unit C Translation -->

@@ -14,7 +14,7 @@ title: "Chapter 10: Model Diagnostics"
 
 ### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.5--10.6
-- [Collinearity Isn't a Disease That Needs Curing](https://janhove.github.io/analysis/2019/09/11/collinearity) --- *Jan Vanhove*
+- [Collinearity Isn't a Disease That Needs Curing](https://janhove.github.io/analysis/2019/09/11/collinearity), *Jan Vanhove*
 
 ### Slides
 
@@ -49,8 +49,8 @@ title: "Chapter 10: Model Diagnostics"
 
 ### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.2--10.4
-- Pek, Wong, \& Wong (2018), [How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated](https://doi.org/10/gf9r69) --- *Frontiers in Psychology*
-- Leys et al. (2019), [How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration](https://doi.org/10/ghkz2s) --- *IRSP*
+- Pek, Wong, \& Wong (2018), [How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated](https://doi.org/10/gf9r69), *Frontiers in Psychology*
+- Leys et al. (2019), [How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration](https://doi.org/10/ghkz2s), *IRSP*
 
 ### Slides
 

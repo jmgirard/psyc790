@@ -8,7 +8,7 @@ format:
 
 ![](../../img/exams_2780E3.svg){width=300, height=300}
 
-*These activities are for practice only --- there is nothing to turn in.*
+*These activities are for practice only; there is nothing to turn in.*
 
 Every question so far has told you which model to fit. Research never does. This
 activity works the other direction: you are given a study in the words a
@@ -16,7 +16,7 @@ researcher would use to describe it, and you have to translate it into a data
 frame, a formula, and a set of assumptions worth worrying about.
 
 Work through each one in a small group if you can. There is usually more than
-one defensible answer --- being able to say *why* you chose yours is the skill
+one defensible answer; being able to say *why* you chose yours is the skill
 being practiced.
 
 For each study below, answer:
@@ -56,6 +56,6 @@ For each study below, answer:
 
 ## Bring your own
 
-Describe a study from your own area the same way --- a short paragraph, no
-statistical vocabulary --- and hand it to someone else to translate. Then
+Describe a study from your own area the same way (a short paragraph, no
+statistical vocabulary) and hand it to someone else to translate. Then
 compare what they wrote to the analysis you actually had in mind.

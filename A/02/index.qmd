@@ -13,10 +13,10 @@ title: "Chapter 02: Projects & Programming"
 :::
 
 ### Readings {.res-readings}
-- [Workflow: Projects](https://r4ds.hadley.nz/workflow-scripts#projects) --- *R for Data Science*
-- [Quarto](https://r4ds.hadley.nz/quarto) --- *R for Data Science*
-- [Getting Started with Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) --- *Quarto*
-- [Quarto Cheat Sheet](https://rstudio.github.io/cheatsheets/html/quarto.html) --- *Posit*
+- [Workflow: Projects](https://r4ds.hadley.nz/workflow-scripts#projects), *R for Data Science*
+- [Quarto](https://r4ds.hadley.nz/quarto), *R for Data Science*
+- [Getting Started with Quarto](https://quarto.org/docs/get-started/hello/rstudio.html), *Quarto*
+- [Quarto Cheat Sheet](https://rstudio.github.io/cheatsheets/html/quarto.html), *Posit*
 
 ### Slides
 
@@ -49,9 +49,9 @@ title: "Chapter 02: Projects & Programming"
 :::
 
 ### Readings {.res-readings}
-- [Workflow: Basics](https://r4ds.hadley.nz/workflow-basics) --- *R for Data Science*
-- [Functions](https://r4ds.hadley.nz/functions) --- *R for Data Science*
-- [Vectors](https://adv-r.hadley.nz/vectors-chap.html) --- *Advanced R*
+- [Workflow: Basics](https://r4ds.hadley.nz/workflow-basics), *R for Data Science*
+- [Functions](https://r4ds.hadley.nz/functions), *R for Data Science*
+- [Vectors](https://adv-r.hadley.nz/vectors-chap.html), *Advanced R*
 
 ### Slides
 

@@ -45,7 +45,7 @@ Read in the `depression` data file again for this question so that it can be ans
 
 a) Write a short results paragraph (4--6 sentences) reporting this analysis as it might appear in the results section of a journal article. Include the omnibus test, an effect size, the estimated means, and the pairwise comparisons.
 
-b) Now write two or three sentences aimed at a non-statistical audience — for example, a clinician deciding whether this treatment is worth using. What changes when you drop the technical vocabulary, and what is easy to accidentally overstate?
+b) Now write two or three sentences aimed at a non-statistical audience, for example a clinician deciding whether this treatment is worth using. What changes when you drop the technical vocabulary, and what is easy to accidentally overstate?
 
 ---
 

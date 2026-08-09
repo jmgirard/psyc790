@@ -15,7 +15,7 @@ title: "Chapter 14: Power & Preregistration"
 :::
 
 ### Readings {.res-readings}
-- [WebPower Manual](https://webpower.psychstat.org/wiki/) --- *WebPower*
+- [WebPower Manual](https://webpower.psychstat.org/wiki/), *WebPower*
 
 ### Slides
 
@@ -37,11 +37,11 @@ title: "Chapter 14: Power & Preregistration"
 :::
 
 ### Readings {.res-readings}
-- Simmons, Nelson, \& Simonsohn (2011), [False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant](https://doi.org/10.1177/0956797611417632) --- *Psychological Science*
-- Bishop (2020), [The Psychology of Experimental Psychologists: Overcoming Cognitive Constraints to Improve Research](https://doi.org/10/gg7mkb) --- *QJEP*
-- Nosek \& Bar-Anan (2012), [Scientific Utopia: I. Opening Scientific Communication](https://doi.org/10.1080/1047840X.2012.692215) --- *Psychological Inquiry*
-- Nosek, Spies, \& Motyl (2012), [Scientific Utopia: II. Restructuring Incentives and Practices to Promote Truth Over Publishability](https://doi.org/10.1177/1745691612459058) --- *Perspectives on Psychological Science*
-- Nosek et al. (2018), [The Preregistration Revolution](https://doi.org/10.1073/pnas.1708274114) --- *PNAS*
+- Simmons, Nelson, \& Simonsohn (2011), [False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant](https://doi.org/10.1177/0956797611417632), *Psychological Science*
+- Bishop (2020), [The Psychology of Experimental Psychologists: Overcoming Cognitive Constraints to Improve Research](https://doi.org/10/gg7mkb), *QJEP*
+- Nosek \& Bar-Anan (2012), [Scientific Utopia: I. Opening Scientific Communication](https://doi.org/10.1080/1047840X.2012.692215), *Psychological Inquiry*
+- Nosek, Spies, \& Motyl (2012), [Scientific Utopia: II. Restructuring Incentives and Practices to Promote Truth Over Publishability](https://doi.org/10.1177/1745691612459058), *Perspectives on Psychological Science*
+- Nosek et al. (2018), [The Preregistration Revolution](https://doi.org/10.1073/pnas.1708274114), *PNAS*
 
 ### Slides
 

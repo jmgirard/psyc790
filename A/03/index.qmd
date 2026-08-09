@@ -13,9 +13,9 @@ title: "Chapter 03: Data & Exploration"
 :::
 
 ### Readings {.res-readings}
-- [Strings](https://r4ds.hadley.nz/strings) --- *R for Data Science*
-- [Factors](https://r4ds.hadley.nz/factors) --- *R for Data Science*
-- [Prerequisites](https://r4ds.hadley.nz/intro#prerequisites) --- *R for Data Science*
+- [Strings](https://r4ds.hadley.nz/strings), *R for Data Science*
+- [Factors](https://r4ds.hadley.nz/factors), *R for Data Science*
+- [Prerequisites](https://r4ds.hadley.nz/intro#prerequisites), *R for Data Science*
 
 ### Slides
 
@@ -52,11 +52,11 @@ title: "Chapter 03: Data & Exploration"
 - [gradebook.csv](../../data/gradebook.csv){download="gradebook.csv"}
 
 ### Readings {.res-readings}
-- [Tidy Data](https://tidyr.tidyverse.org/articles/tidy-data.html) --- *tidyr*
-- [Data Import](https://r4ds.hadley.nz/data-import) --- *R for Data Science*
-- [Data Transformation](https://r4ds.hadley.nz/data-transform) --- *R for Data Science*
-- [Data Visualization](https://r4ds.hadley.nz/data-visualize) --- *R for Data Science*
-- [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) --- *Wickham et al.*
+- [Tidy Data](https://tidyr.tidyverse.org/articles/tidy-data.html), *tidyr*
+- [Data Import](https://r4ds.hadley.nz/data-import), *R for Data Science*
+- [Data Transformation](https://r4ds.hadley.nz/data-transform), *R for Data Science*
+- [Data Visualization](https://r4ds.hadley.nz/data-visualize), *R for Data Science*
+- [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/), *Wickham et al.*
 
 ### Slides
 

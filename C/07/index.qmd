@@ -17,7 +17,7 @@ title: "Chapter 07: Regression"
 - [water.csv](../../data/water.csv){download="water.csv"}
 
 ### Readings {.res-readings}
-- [Linear Regression, §15.1--15.2, 15.4--15.5, 15.7](https://learningstatisticswithr.com/15-regression.html) --- *Learning Statistics with R*
+- [Linear Regression, §15.1--15.2, 15.4--15.5, 15.7](https://learningstatisticswithr.com/15-regression.html), *Learning Statistics with R*
 - *Applied Multiple Regression/Correlation Analysis*, §2.4, 2.6--2.8
 
 ### Slides
@@ -80,8 +80,8 @@ title: "Chapter 07: Regression"
 
 ### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §3.2--3.3, 3.5--3.6
-- Rohrer (2018), [Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data](https://doi.org/10.1177/2515245917745629) --- *AMPPS*
-- Carlin \& Moreno-Betancur (2023), [On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching](https://arxiv.org/abs/2309.06668) --- *arXiv*
+- Rohrer (2018), [Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data](https://doi.org/10.1177/2515245917745629), *AMPPS*
+- Carlin \& Moreno-Betancur (2023), [On the Uses and Abuses of Regression Models: A Call for Reform of Statistical Practice and Teaching](https://arxiv.org/abs/2309.06668), *arXiv*
 
 ### Slides
 

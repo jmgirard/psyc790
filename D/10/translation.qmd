@@ -8,7 +8,7 @@ format:
 
 ![](../../img/exams_2780E3.svg){width=300, height=300}
 
-*These activities are for practice only --- there is nothing to turn in.*
+*These activities are for practice only; there is nothing to turn in.*
 
 Units B and C asked you to translate a study into a model. This one asks you to
 translate a *problem* into a diagnosis and a response. Each scenario below
@@ -20,7 +20,7 @@ For each one, answer:
 1. Which assumption or data problem is being described?
 2. Which diagnostic would you run to confirm it, and what would confirming it
    look like?
-3. What would you do about it --- and what would you have to report either way?
+3. What would you do about it, and what would you have to report either way?
 
 ## Example 1
 
@@ -54,5 +54,5 @@ For each one, answer:
 
 ## Bring your own
 
-Bring a diagnostic plot from your own data --- ideally one you were not sure how
-to read --- and work through the same three questions with someone else.
+Bring a diagnostic plot from your own data (ideally one you were not sure how
+to read) and work through the same three questions with someone else.

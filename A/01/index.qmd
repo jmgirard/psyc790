@@ -32,8 +32,8 @@ with it and nothing else breaks.
 
 You will need two free programs, installed in this order:
 
-1. [**R**](https://cran.r-project.org/) --- the language everything is written in
-2. [**RStudio Desktop**](https://posit.co/download/rstudio-desktop/) --- the
+1. [**R**](https://cran.r-project.org/), the language everything is written in
+2. [**RStudio Desktop**](https://posit.co/download/rstudio-desktop/), the
    environment you will actually work in
 
 Once both are installed, open RStudio and run the
@@ -70,10 +70,10 @@ follows.
 :::
 
 ### Readings {.res-readings}
-- [Coding Basics](https://r4ds.hadley.nz/workflow-basics#coding-basics) --- *R for Data Science*
-- [Comments](https://r4ds.hadley.nz/workflow-basics#comments) --- *R for Data Science*
-- [Scripts](https://r4ds.hadley.nz/workflow-scripts#scripts) --- *R for Data Science*
-- [RStudio IDE Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rstudio-ide.pdf) --- *Posit*
+- [Coding Basics](https://r4ds.hadley.nz/workflow-basics#coding-basics), *R for Data Science*
+- [Comments](https://r4ds.hadley.nz/workflow-basics#comments), *R for Data Science*
+- [Scripts](https://r4ds.hadley.nz/workflow-scripts#scripts), *R for Data Science*
+- [RStudio IDE Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rstudio-ide.pdf), *Posit*
 
 ### Slides
 

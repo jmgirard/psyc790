@@ -17,9 +17,9 @@ title: "Chapter 08: Moderation"
 
 ### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §7.1--7.5, 7.7
-- [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/) --- *UCLA OARC*
-- Finsaas \& Goldstein (2021), [Do Simple Slopes Follow-Up Tests Lead Us Astray? Advancements in the Visualization and Reporting of Interactions](https://doi.org/10/ggsng9) --- *Psychological Methods*
-- Rohrer \& Arslan (2021), [Precise Answers to Vague Questions: Issues With Interactions](https://doi.org/10/gk9zkd) --- *AMPPS*
+- [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/), *UCLA OARC*
+- Finsaas \& Goldstein (2021), [Do Simple Slopes Follow-Up Tests Lead Us Astray? Advancements in the Visualization and Reporting of Interactions](https://doi.org/10/ggsng9), *Psychological Methods*
+- Rohrer \& Arslan (2021), [Precise Answers to Vague Questions: Issues With Interactions](https://doi.org/10/gk9zkd), *AMPPS*
 
 ### Slides
 
@@ -53,7 +53,7 @@ title: "Chapter 08: Moderation"
 
 ### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §7.6, 7.8, 9.1--9.3
-- [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/) --- *UCLA OARC*
+- [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/), *UCLA OARC*
 
 ### Slides
 
