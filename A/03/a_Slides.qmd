@@ -178,9 +178,12 @@ anything for text. What a function accepts follows from its purpose.
 
 ## Factors {.fs80}
 
+::: {.columns .pv4}
+::: {.column width="60%"}
 -   [Factors]{.b .blue} represent categorical data
     -   Factors have multiple possible [levels]{.b .blue}
-    -   Levels are [discrete]{.b .green} and mutually-exclusive
+    -   Levels are [discrete]{.b .green} categories
+    -   Each case belongs to [exactly one]{.b .green}
 
 ::: {.fragment .mt1}
 -   Sometimes levels are numeric "codes"
@@ -188,6 +191,22 @@ anything for text. What a function accepts follows from its purpose.
     -   R needs to know these aren't numbers!
     -   We can give each level a [label]{.b .green}
     -   Or we can just store the levels as strings
+:::
+:::
+
+::: {.column .tc .pv5 width="40%"}
+::: {.fragment}
+::: {.syntax}
+[Form]{.lbl}
+
+`factor(values)`
+
+[Example]{.lbl}
+
+`factor(c(1, 2, 1))`
+:::
+:::
+:::
 :::
 
 ## From Numeric Codes to a Factor

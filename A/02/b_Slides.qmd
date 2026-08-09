@@ -60,7 +60,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ::: {.columns .pv4}
 ::: {.column width="60%"}
 -   It helps to store data in [named objects]{.b .green}
-    -   This makes the data easier to use and re-use
+    -   This makes data easier to use and re-use
     -   And the code easier to write and read
 
 ::: {.fragment .mt1}

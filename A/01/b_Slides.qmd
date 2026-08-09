@@ -59,11 +59,15 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 -   Programming is how we talk to and control computers
 
--   It gives us power and flexibility
+-   It gives us [power]{.b .blue} and [flexibility]{.b .green}
+    -   The same instruction runs on ten rows or ten million
+    -   We are not limited to what a menu anticipated
 
 -   Everything in this course is done via programming
 
--   Programming will leave a record of what we did (i.e., code), so we can later reuse, adapt, and share it
+-   Programming will leave a [record]{.b .blue} of what we did (i.e., code)
+    -   So we can reuse it, adapt it, and share it
+    -   And so someone else can check it
 
 
 ## R and Other Stats Software {.fs80}

@@ -429,6 +429,12 @@ Then we combine the vectors into a single tibble (or data frame) object.
 Now, as the tibble moves around, the variables always stay together.
 :::
 
+::: {.takeaway}
+**This drawing is transposed.** A train has to run lengthwise, so each variable
+is a row here. In a real tibble each [variable is a column]{.b .green} and each
+[observation is a row]{.b .green}, exactly as the tidy data rules said.
+:::
+
 
 ## Loading the tidyverse
 

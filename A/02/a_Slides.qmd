@@ -130,13 +130,16 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ## Quarto {.fs80}
 
 -   [Quarto](https://www.quarto.org) is a [technical publishing system]{.b .green}
+    -   One document holds the prose, the code, and its output
 
 ::: {.fragment .mt1}
 -   Create [dynamic content]{.b .blue} with R, Python, Julia, and Observable
+    -   Results are computed at render time, never pasted in
 :::
 
 ::: {.fragment .mt1}
 -   Articles, reports, slideshows, websites, blogs, and books in [HTML, PDF, MS Word, and ePub]{.b .blue} formats
+    -   *These slides are a Quarto document, and so is this whole site*
 :::
 
 ::: {.fragment .mt1}
