@@ -48,7 +48,7 @@ theme_set(mytheme())
 
 # Overview
 
-## Goals for each section {.fs70}
+## Goals for each section {.fs80}
 
 ::: {.footer}
 This chapter focuses on section 3. The other three are a research-writing topic, not a statistical one.

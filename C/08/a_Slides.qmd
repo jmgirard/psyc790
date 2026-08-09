@@ -105,7 +105,7 @@ p5 <- qplot(program, data = exercise, geom = "bar") + mytheme(24)
 Note that this is simulated (i.e., fake) data.
 :::
 
-## Moderation questions {.fs70}
+## Moderation questions {.fs80}
 
 **Continuous-by-Continuous Interaction**
 
@@ -143,7 +143,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 x_2$$
 
 - $b_1$ controls for $x_2$ but is the same across all values of $x_2$ and thus does not depend on it (and the same for $b_2$ and $x_1$)
 
-## Adding an interaction {.fs70}
+## Adding an interaction {.fs80}
 
 Interactions are formed by multiplying predictor variables
 
@@ -203,17 +203,17 @@ model_parameters(fit)
 We can also use the shortcut `duration * intensity`
 :::
 
-## Predicting energy expenditure {.fs70}
+## Predicting energy expenditure {.fs80}
 
 $$\hat{y} = 7.80 - 9.38 x_1 - 0.08 x_2 + 0.39 x_1 x_2$$
 
-- **Intercept:** A participant exercising at 0 duration and 0 intensity expends 7.8 units
+- **Intercept:** At 0 duration and 0 intensity, a participant expends 7.8 units
 
-- **Duration Simple Effect:** Each unit of duration will expend an additional -9.38 units of energy (at 0 intensity)
+- **Duration Simple Effect:** -9.38 units per duration unit (at 0 intensity)
 
-- **Intensity Simple Effect:** Each unit of intensity will expend an additional  -0.08 units of energy (at 0 duration)
+- **Intensity Simple Effect:** -0.08 units per intensity unit (at 0 duration)
 
-- **Interaction Effect:** The slope of duration will increase by 0.39 for each unit of intensity, and the slope of intensity will increase by 0.39 for each unit of duration
+- **Interaction Effect:** Each slope rises 0.39 per unit of the other
 
 ::: {.fragment}
 The average participant (2 duration, 30 intensity) expends 10.04 units of energy
@@ -221,7 +221,7 @@ The average participant (2 duration, 30 intensity) expends 10.04 units of energy
 $$\hat{y} = 7.80 - 9.38(2) - 0.08(30) + 0.39(2)(30) = 10.04$$
 :::
 
-## Spotlight analysis {.fs70}
+## Spotlight analysis {.fs80}
 
 - In order to plot the predictions, we can map one predictor to the $x$-axis
 

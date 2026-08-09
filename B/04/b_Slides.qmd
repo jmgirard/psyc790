@@ -61,7 +61,7 @@ theme_set(mytheme)
 
 # Types of Estimates
 
-## Point and Interval Estimates {.fs70}
+## Point and Interval Estimates {.fs80}
 
 
 In statistical inference, we will often want **two** types of estimates...
@@ -73,17 +73,17 @@ In statistical inference, we will often want **two** types of estimates...
 
 - This is usually the sample statistic
 
-- Does not say anything about uncertainty
+- Says nothing about uncertainty
 
-*e.g., I don't know for sure the average height of all adult men, but I will guess that it is equal to the average height in my sample*
+*e.g., I don't know the average height of all adult men, but I will guess it equals the average height in my sample*
 :::
 ::: {.column}
 #### [Interval Estimates]{.blue}
 - What is a ***range of reasonable guesses*** for the value of the population parameter?
 
-- Usually the statistic plus/minus some amount that is based on uncertainty
+- Usually the statistic plus/minus an amount reflecting uncertainty
 
-*e.g., Due to sampling error, any number within 2.9 cm of the average height in my sample is also a very reasonable guess*
+*e.g., Given sampling error, any number within 2.9 cm of my sample average is also a reasonable guess*
 :::
 :::
 
@@ -126,21 +126,20 @@ In statistical inference, we will often want **two** types of estimates...
 
 # The Normal Distribution
 
-## The normal distribution {.fs70}
+## The normal distribution {.fs80}
 
 
 ::: {.columns}
 ::: {.column}
-The Normal Distribution is also called the *Bell Curve* and the *Gaussian* distribution
+Also called the *Bell Curve* or the *Gaussian* distribution
 
-We say that $x$ is normally distributed with mean $\mu$ and standard deviation $\sigma$ as
+We write "$x$ is normal with mean $\mu$ and SD $\sigma$" as
 
 $$x \sim \text{Normal}(\mu, \sigma)\\x \sim \mathcal{N}(\mu,\sigma)$$
 
-- $\mu$ (mu) determines the mean
-- $\sigma$ (sigma) determines the SD
+- $\mu$ is the mean, $\sigma$ is the SD
 
-The $\mathcal{N}(0,1)$ distribution is called <br>the "Standard Normal Distribution"
+$\mathcal{N}(0,1)$ is the *standard normal*
 :::
 ::: {.column}
 ```{r}
@@ -272,10 +271,10 @@ qnorm(0.975)
 
 :::
 
-## Putting it all together {.fs70}
+## Putting it all together {.fs80}
 
 
-1. Our interval estimate should be the densest part of the sampling distribution
+1. Our interval should cover the densest part of the sampling distribution
 
 1. 95% of the density of a normal distribution is within ~1.96 SD of the mean
 
@@ -287,7 +286,7 @@ qnorm(0.975)
 
 $$\text{CI}_{95} = \bar{x} \pm (1.96 \times s_{\bar{x}})$$
 
-This is called the [95% Confidence Interval (CI)]{.b .blue} and we'll talk about it more soon
+This is the [95% Confidence Interval (CI)]{.b .blue}, and more on it soon
 
 But this parametric approach all hinges on the assumption of normality (#4)...
 
@@ -562,16 +561,16 @@ I will teach you easier ways to calculate CIs in R soon.
 
 # Practical Matters
 
-## Reporting a CI {.fs70}
+## Reporting a CI {.fs80}
 
 
 ::: {.columns}
 ::: {.column}
-- It is recommended to always report point and interval estimates together
+- Always report point and interval estimates together
 
-- Reporting in text often uses this format:
+- In text, use this format:
     + Statistic = Point Estimate, X% CI: [Lower Bound, Upper Bound]
-    + e.g., $\bar{x}=3.91$, 95% CI: $[3.81, 4.00]$
+    + $\bar{x}=3.91$, 95% CI $[3.81, 4.00]$
 
 - You can also put point and interval estimates in a table or a figure (though be sure to specify that they are X% CIs)
 :::
@@ -609,7 +608,7 @@ ggplot(
 
 :::
 
-## Comparing CIs {.fs90}
+## Comparing CIs {.fs80}
 
 
 - A *higher* confidence level will result in a *wider* interval

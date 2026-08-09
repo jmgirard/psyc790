@@ -280,22 +280,22 @@ We denote parameters using Greek letters $(\mu,\sigma)$ or uppercase English let
 Note we use lowercase $n$ to denote the sample size
 :::
 
-## Basics of statistical inference {.fs70}
+## Basics of statistical inference {.fs80}
 
 
 :::{.columns}
 
 :::{.column}
 
-- **Sampling** is drawing a subset of observations to represent a population
+- **Sampling** draws a subset to represent a population
 
 - **Inference** is learning about the population by studying a sample drawn from it
 
-- We first measure *in the sample* whatever we want to know about the population
+- We measure *in the sample* what we want to know
 
-- We call this measure the sample [statistic]{.b .blue}
+- This measure is the sample [statistic]{.b .blue}
 
-- We use the sample statistic to **estimate** (i.e., guess) the population parameter
+- The sample statistic **estimates** the population parameter
 
 :::
 
@@ -308,7 +308,7 @@ Note we use lowercase $n$ to denote the sample size
 
 :::
 
-## Sample example {.fs70}
+## Sample example {.fs80}
 
 
 ::: {.columns}
@@ -320,9 +320,9 @@ Note we use lowercase $n$ to denote the sample size
 :::
 
 ::: {.column .fragment}
-The `sample()` function will randomly draw a sample (of given size) from a vector
+`sample()` randomly draws a sample (of given size) from a vector
 
-*Note that, because sampling is random, we will each get a slightly different sample.*
+*Because sampling is random, we each get a different sample.*
 
 ```{r}
 #| echo: false
@@ -442,7 +442,7 @@ round(c(sigma, s, s - sigma), 2)
 
 :::
 
-## The law of large numbers {.fs70}
+## The law of large numbers
 
 
 ```{r}
@@ -476,7 +476,7 @@ lln_sample <- function(n, title) {
   lln_sample(10000, "n = 10,000")
 ```
 
-- Larger (random) samples will tend to better approximate the population
+- Larger random samples approximate the population better
 
 - Statistics from larger (random) samples will tend to better estimate the parameters
 
@@ -484,12 +484,12 @@ lln_sample <- function(n, title) {
 
 :::
 
-## Small population simulation {.fs70}
+## Small population simulation {.fs80}
 
 
-Let's take samples of different sizes from our population and calculate the sample mean
+Let's draw samples of different sizes and calculate the sample mean
 
-To show the influence of chance, we can repeat this 50 times for each sample size
+To show chance at work, we repeat this 50 times per sample size
 
 Let's plot each repetition's sample mean as a point (and the population mean as a line)
 
@@ -519,7 +519,7 @@ ggplot(res, aes(x = factor(n), y = mean)) +
 
 :::
 
-## Large population simulation {.fs70}
+## Large population simulation {.fs80}
 
 
 Do much larger populations require much larger samples? Let's find out...
@@ -597,14 +597,14 @@ ggplot(filter(res, n == 12), aes(x = mean)) +
 
 :::
 
-## Standard errors {.fs70}
+## Standard errors {.fs80}
 
 
 :::{.columns}
 :::{.column}
-We can rarely take many repeated samples, construct the sampling distribution, and calculate the SE directly
+We can rarely take repeated samples, build the sampling distribution, and read the SE off it
 
-So, instead, we typically *estimate* the SE from the data (just like a parameter)
+Instead we *estimate* the SE from the data, just like a parameter
 
 The estimate for the SE of the mean depends on two main things:
 

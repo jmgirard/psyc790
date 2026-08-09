@@ -1,5 +1,62 @@
 # Slide overflow — resolved
 
+## Two font sizes (current)
+
+Body text is **40px everywhere except dense slides, which are 32px (`.fs80`)**. Nine slides
+keep a smaller stop as documented exceptions. Measured at 1920×1080 over 676 slides:
+
+| body size | slides | |
+|---|---|---|
+| 40px (no stop) | 556 | |
+| 32px (`.fs80`) | 111 | |
+| 28px (`.fs70`) | 7 | exceptions, listed below |
+| 24px (`.fs60`) | 2 | exceptions, listed below |
+
+Before this pass the decks used five sizes: 516 slides at 40px, 83 at `.fs90`, 4 at
+`.fs80`, 70 at `.fs70`, 3 at `.fs60`. **`.fs90` and the old `.fs60` uses are gone.** The
+classes still exist in `styles.css` and are still correct to use; they are simply not the
+house sizes.
+
+Fifty-five of the scaled slides did not need scaling at all and went to full size. That was
+the largest single win, and it suggests the stops had accumulated from the modernization
+overflow described below and were never revisited after the stylesheet fixes removed the
+cause.
+
+**The exceptions**, all genuinely too dense for 32px:
+
+| deck | slide | stop |
+|---|---|---|
+| `A/01/b` | Communicating with R | `.fs70` |
+| `A/02/a` | File Management | `.fs70` |
+| `A/02/b` | Vectors | `.fs70` |
+| `A/03/a` | Strings | `.fs70` |
+| `A/03/a` | Packages | `.fs70` |
+| `A/03/b` | Data Visualization | `.fs70` |
+| `C/08/b` | Predicting energy expenditure | `.fs70` |
+| `C/08/b` | Interpreting coefficients | `.fs60` |
+| `C/08/b` | Proceed with caution | `.fs60` |
+
+Everything else that did not fit at 32px was reworded rather than shrunk, mostly by
+tightening bullets that wrapped a word or two onto a second line. Removing one such wrapped
+line frees about 46px at `.fs80`, which is usually the whole deficit.
+
+Two slides sit at **+1px**, `A/03/b` Tidy Data and Tidying Example 3. Both are image-driven
+and nothing is clipped. The sweep below used >10px as the bar for the same reason.
+
+⚠️ **Do not probe font stops by toggling the class in the DOM.** It reports slides as
+fitting that do not. Slides carrying a Lottie icon (`{{< lif ... >}}`) were the worst
+offenders: the component does not resize on a class change, so the measurement misses the
+height the real render produces. Thirteen slides passed a DOM probe and then overflowed by
+up to +457px once actually rendered. Change the source, render, and measure that.
+
+⚠️ **Index slides by their position among `## ` headings, not by title.** Several decks
+repeat a title, and reading the title out of the DOM also drags in KaTeX's duplicate math
+text and smart quotes. The rendered `section.level2` list is the right key, but a vertical
+**stack** is also `.level2` and owns no heading, so filter on a direct `h2` child or every
+slide after the stack is off by one.
+
+---
+
 **The original Fall 2025 decks did not have this problem.** The overflow was introduced by
 importing data2's configuration wholesale in Phase 1. It is now fixed.
 

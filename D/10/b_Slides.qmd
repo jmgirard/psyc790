@@ -58,7 +58,7 @@ set.seed(2021)
 
 # Overview
 
-## Assumptions Overview {.fs90}
+## Assumptions Overview
 
 - **Assumptions about the Formula**
     + Correct Functional Form
@@ -76,7 +76,7 @@ set.seed(2021)
 
 # Constant Error Variance
 
-## Assumption {.fs90}
+## Assumption {.fs80}
 
 - For any value of $x$, the residual variance are constant
     + The spread of points around the line must be consistent
@@ -137,7 +137,7 @@ ggplot(d1, aes(x = x, y = y_violated)) +
 :::
 
 
-## Example: Assumption Met {.fs90}
+## Example: Assumption Met
 
 ```{r}
 #| echo: false
@@ -177,7 +177,7 @@ see:::plot.see_check_model(check_model(fit_met, check = "homogeneity", panel = F
 :::
 
 
-## Example: Assumption Violated {.fs90}
+## Example: Assumption Violated
 
 ```{r}
 #| echo: true
@@ -223,7 +223,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "homogeneity", pane
 
 # Normal Residuals
 
-## Assumption {.fs90}
+## Assumption
 
 - The residuals are normally distributed around the line
     + The spread around the line is a bell curve
@@ -259,7 +259,7 @@ p2 <- ggplot(d4, aes(x = x, y = y_violated)) +
 (p1 | p2)
 ```
 
-## Diagnostics {.fs90}
+## Diagnostics {.fs80}
 
 1. Plot the residuals' distribution
     + Visually compare density plot to normal distribution
@@ -274,7 +274,7 @@ p2 <- ggplot(d4, aes(x = x, y = y_violated)) +
     + But this test gets more power with a larger sample...
     
 
-## Example: Residual Distribution {.fs90}
+## Example: Residual Distribution
 
 ```{r}
 fit_met <- lm(y_met ~ x, data = d4)
@@ -315,7 +315,7 @@ p2 <- see:::plot.see_check_model(check_model(fit_violated, check = "normality", 
 ```
 
 
-## Example: QQ Plot {.fs90}
+## Example: QQ Plot
 
 ::: {.columns}
 ::: {.column}
@@ -363,7 +363,7 @@ check_normality(fit_violated)
 ```
 
 
-## Solutions {.fs90}
+## Solutions
 
 1. Transform your outcome to be more normal
     + e.g., Box-Cox transformations
@@ -382,7 +382,7 @@ Note that addressing other issues may also help here.
 
 # Independent Residuals
 
-## Assumption {.fs90}
+## Assumption {.fs80}
 
 - The residuals must be independent of (not related to) one another
     + This will be met in any random sample from a population
@@ -515,7 +515,7 @@ check_autocorrelation(fit_violated2)
 ```
 
 
-## Solutions {.fs90}
+## Solutions {.fs80}
 
 1. Adjust the standard errors
     + e.g., cluster-robust standard errors
@@ -532,7 +532,7 @@ check_autocorrelation(fit_violated2)
 
 # Outliers
 
-## Definition {.fs90}
+## Definition {.fs80}
 
 - Outliers are **atypical observations** that do not fit the other data
     + They may represent data contaminated by errors
@@ -632,7 +632,7 @@ check_outliers(fit_with, method = c("cook", "mahalanobis"))
 ```
 
 
-## Solutions {.fs90}
+## Solutions {.fs80}
 
 1. **Fix** the outliers
     + If they are errors/contaminations, fix them

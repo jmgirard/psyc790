@@ -298,7 +298,7 @@ eta_squared(fit)
 ```
 :::
 
-## Post-hoc tests {.fs90}
+## Post-hoc tests {.fs80}
 
 - We can average pairwise time-contrasts over patients
 - e.g., what is the T1--T0 difference *for the average patient?*

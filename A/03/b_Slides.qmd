@@ -61,7 +61,7 @@ source("../../_common.R")
 
 # Data Frames
 
-## Tidy Data {.fs70}
+## Tidy Data {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -86,7 +86,7 @@ source("../../_common.R")
 :::
 :::
 
-## Other Data Advice {.fs70}
+## Other Data Advice {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -114,7 +114,7 @@ source("../../_common.R")
 :::
 :::
 
-## Tidying Example 1 {.fs70}
+## Tidying Example 1 {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="45%"}
@@ -193,7 +193,7 @@ source("../../_common.R")
 :::
 
 
-## Tidying Example 2 {.fs70}
+## Tidying Example 2 {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="45%"}
@@ -294,7 +294,7 @@ source("../../_common.R")
 :::
 
 
-## Tidying Example 3 {.fs70}
+## Tidying Example 3 {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="45%"}
@@ -394,13 +394,13 @@ source("../../_common.R")
   </tbody>
 </table>
 ::: {.pv4}
-✔️ Here, we have un-merged the countries and separated the cases and populations variables into columns.
+✔️ Here, the countries are un-merged and cases and population have their own columns.
 :::
 :::
 :::
 :::
 
-## Tibbles {.fs70}
+## Tibbles {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -413,11 +413,11 @@ source("../../_common.R")
 :::
 
 ::: {.fragment .mt1}
--   To use tibbles, we need the [tidyverse]{.b .blue} package
+-   Tibbles need the [tidyverse]{.b .blue} package
 :::
 
 ::: {.fragment .mt1}
--   Tibbles are constructed from one or more vectors
+-   Tibbles are built from vectors
     -   The vectors must have the [same length]{.b .green}
     -   They can contain [different types]{.b .green} of data
 :::
@@ -429,18 +429,18 @@ source("../../_common.R")
 :::
 
 
-## Parallel Vectors {.fs70}
+## Parallel Vectors {.fs80}
 
 ![](../../img/vectors.png)
 
 ::: {.tc .pv4}
 We start with three separate vector objects that all have the same length.
 
-We set it up so that the $n$-th car in each train corresponds to the same observation.
+The $n$-th car in each train is the same observation.
 :::
 
 
-## Tibble {.fs70}
+## Tibble {.fs80}
 
 ![](../../img/tibble.png)
 
@@ -583,7 +583,7 @@ Worth running on any dataset you did not build yourself, before you write code
 that assumes what is in it.
 :::
 
-## Data Files {.fs70}
+## Data Files {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -594,13 +594,13 @@ that assumes what is in it.
 ::: {.fragment .mt1}
 -   A convenient data file type is a CSV
     -   This stands for [comma-separated values]{.b .green}
-    -   A CSV file is easy to share with other people
+    -   CSV files are easy to share
 :::
 
 ::: {.fragment .mt1}
 -   The [tidyverse]{.b .green} package can read/write CSVs
-    -   Other packages can read/write other types
-        (e.g., *readxl*, *haven*, *rio*, *googlesheets4*)
+    -   Other packages read other types
+        (*readxl*, *haven*, *rio*, *googlesheets4*)
 :::
 :::
 
@@ -610,7 +610,7 @@ that assumes what is in it.
 :::
 
 
-## Getting a Data File {.fs70}
+## Getting a Data File
 
 -   Download [`gradebook.csv`]{.b .blue} from the course website into your project folder
 
@@ -652,7 +652,7 @@ you say so with `na = "?"` it stays a real value, and the whole column is read a
 text rather than numbers.
 :::
 
-## Other Kinds of Data File {.fs70}
+## Other Kinds of Data File
 
 -   [readxl]{.b .blue} and [googlesheets4]{.b .blue}: spreadsheets
 
@@ -667,14 +667,14 @@ text rather than numbers.
 
 # Data Exploration
 
-## Data Verification {.fs70}
+## Data Verification {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
--   It's always a good idea to start with [verification]{.b .blue}
+-   Always start with [verification]{.b .blue}
 
 ::: {.fragment .mt1}
--   Check that your variables are the [correct type]{.b .green}
+-   Check your variables are the [correct type]{.b .green}
     -   Configure your [factors]{.b .green}' levels and labels
     -   Establish ordinal factors' ordering
     -   Explicitly set your [missing values]{.b .green} to NA
@@ -683,7 +683,7 @@ text rather than numbers.
 ::: {.fragment .mt1}
 -   Check variables' [extrema]{.b .green} and [distributions]{.b .green}
     -   Check for erroneous and outlying values
-    -   Check the shape of continuous distributions
+    -   Check continuous variables' shapes
     -   Check the overlap of categorical levels
 :::
 :::

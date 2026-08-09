@@ -83,7 +83,7 @@ rsim <- function(r) {
 We will expand the idea of correlation into regression during Unit C.
 :::
 
-## Correlations {.fs90}
+## Correlations {.fs80}
 
 - A correlation $(\rho,r)$ quantifies the **direction** and **strength** of the *linear* relationships between two variables
     
@@ -503,7 +503,7 @@ p1 | p2 | p3 | p4
 ```
 
 
-## Another effect size {.fs90}
+## Another effect size {.fs80}
 
 - We can square $r$ to get the [coefficient of determination]{.b .blue} $(r^2)$
 
@@ -635,7 +635,7 @@ ggplot(tibble(r = seq(-1, 1, 0.0001), z = rtoz(r)), aes(x = r, y = z)) +
 :::
 :::
 
-## Confidence intervals {.fs70}
+## Confidence intervals {.fs80}
 
 ::: {.columns}
 ::: {.column width="33%"}

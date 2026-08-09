@@ -55,7 +55,7 @@ theme_set(mytheme())
 
 # Overview
 
-## Motivation {.fs90}
+## Motivation {.fs80}
 
 - So far, we have always fit [straight lines]{.b} between $y$ and $x$ variables
 
@@ -141,7 +141,7 @@ see:::plot.see_check_model(check_model(fit, check = "linearity", panel = FALSE))
   )
 ```
 
-## Conclusions {.fs90}
+## Conclusions
 
 - Linear regression did not work well for predicting $y_2$
 
@@ -159,7 +159,7 @@ see:::plot.see_check_model(check_model(fit, check = "linearity", panel = FALSE))
 
 # Polynomial Regression
 
-## Power polynomials {.fs70}
+## Power polynomials {.fs80}
 
 - LM can handle simple curves through **power polynomial** transformations!
 
@@ -174,7 +174,7 @@ $$\hat{y} = b_0 + b_1 \color{red}{x^1} + b_2 \color{red}{x^2} + \cdots + b_d \co
     + All other terms are referred to as the **lower degree terms**
 
 
-## Number of bends {.fs90}
+## Number of bends {.fs80}
 
 - The highest degree term determines the curve's overall shape
     + The number of bends is *at most* $(d-1)$
@@ -203,7 +203,7 @@ d3 <- tibble(x = seq(-3, 3, .1), y = -5*x + x^3) |>
 ```
     
 
-## Direction of curvature {.fs90}
+## Direction of curvature {.fs80}
 
 - The sign $(\pm)$ of the highest degree term's slope determines<br>whether the curve ultimately **rises** $(+)$ **or falls** $(-)$ as $x$ increases
 
@@ -238,7 +238,7 @@ cn <- tibble(x = seq(-10, 10, 1), y = -x^3) |>
 
 # Quadratic Regression
 
-## Expanding the equation {.fs90}
+## Expanding the equation {.fs80}
 
 - A quadratic relationship requires two predictors to represent $x$
 
@@ -413,7 +413,7 @@ $$\hat{y}_m = \frac{4 b_2 b_0 - b_1^2}{4 b_2}$$
 :::
 :::
 
-## Calculating extrema {.fs90}
+## Calculating extrema
 
 ```{r}
 #| echo: true
@@ -449,7 +449,7 @@ ggplot(df2, aes(x = x, y = y2)) +
 
 # Adding Predictors
 
-## Adding another predictor {.fs90}
+## Adding another predictor {.fs80}
 
 ```{r}
 #| echo: true
@@ -473,7 +473,7 @@ model_parameters(fit3)
 - The `sex` effect holds controlling for both `flipper_len` terms
 
 
-## Visualizing the model {.fs90}
+## Visualizing the model
 
 ```{r}
 #| echo: true
@@ -571,7 +571,7 @@ p6 <- tibble(x = seq(0, 10, 1), y = x^2) |>
 ((p1 | p2 | p3) / (p4 | p5 | p6)) + plot_annotation(theme = mytheme())
 ```
 
-## Advice {.fs90}
+## Advice {.fs80}
 
 - Models with higher degrees are more flexible
     + But they may overfit (fail to generalize)

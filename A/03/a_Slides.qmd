@@ -162,11 +162,11 @@ anything for text. What a function accepts follows from its purpose.
 
 # Factors
 
-## Factors {.fs70}
+## Factors {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
--   [Factors]{.b .blue} are used to represent categorical data
+-   [Factors]{.b .blue} represent categorical data
     -   Factors have multiple possible [levels]{.b .blue}
     -   Levels are [discrete]{.b .green} and mutually-exclusive
 
@@ -174,7 +174,7 @@ anything for text. What a function accepts follows from its purpose.
 -   Sometimes levels are numeric "codes"
     -   e.g., 1=Drama, 2=Action, 3=Comedy
     -   R needs to know these aren't numbers!
-    -   We can even give each level a descriptive [label]{.b .green}
+    -   We can give each level a [label]{.b .green}
     -   Or we can just store the levels as strings
 :::
 :::
@@ -323,7 +323,7 @@ find function" means R cannot find that **name**. Check the spelling first, then
 whether the function's package is installed and loaded.
 :::
 
-## Installing a Package {.fs70}
+## Installing a Package
 
 -   [RStudio > Extras pane > Packages tab > Install]{.b .blue} button
 
@@ -369,7 +369,7 @@ this session until you take it down with `library()`. Install once per computer
 (and again after upgrading R); load **once per session**.
 :::
 
-## Keeping Packages Updated {.fs70}
+## Keeping Packages Updated
 
 -   [RStudio > Extras pane > Packages tab > Update]{.b .blue} button
 

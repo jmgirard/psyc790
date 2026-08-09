@@ -66,7 +66,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 
 # Questionable Practices
 
-## Selective reporting {.fs90}
+## Selective reporting {.fs80}
 
 - **Cherry picking** is only including or reporting a desired subset of information (intentionally or accidentally)
     + e.g., cases, variables, studies, analyses, results, references
@@ -80,7 +80,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 :::
 
 
-## HARKing {.fs90}
+## HARKing {.fs80}
 
 - "Hypothesizing after the results are known"
     + It is claiming to have predicted an unexpected result
@@ -93,7 +93,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
     + It is more likely to capitalize on sampling error
     + "The easiest person to fool is yourself"
     
-## *p*-hacking {.fs90}
+## *p*-hacking {.fs80}
 
 - Making analysis decisions to optimize **significance** instead of rigor
     + How to measure and represent variables
@@ -107,7 +107,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 
 - If you don't disclose all this trial-and-error, it is very misleading
 
-## Data peeking {.fs90}
+## Data peeking {.fs80}
 
 - **Data peeking** is a form of *p*-hacking related to data collection
     + You collect some data, run analyses, and look at the *p*-value
@@ -123,7 +123,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 
 # Constraining the Garden of Forking Paths
 
-## Preregistration {.fs90}
+## Preregistration {.fs80}
 
 - Presenting exploratory work as confirmatory is misleading
 

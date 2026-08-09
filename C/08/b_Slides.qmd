@@ -67,7 +67,7 @@ theme_set(mytheme())
     + There were infinite slopes (one for each value of $x_2$)
     + So we chose to "spotlight" just a few possible slopes
 
-## Example moderation questions {.fs70}
+## Example moderation questions {.fs80}
 
 **Continuous-by-Continuous Interaction**
 
@@ -120,7 +120,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1$$
 `formula = expenditure ~ duration * sex`
 :::
 
-## Interpreting the Coefficients {.fs70}
+## Interpreting the Coefficients {.fs80}
 
 $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1$$
 
@@ -219,7 +219,7 @@ plot(estimate_relation(fit, by = c("duration", "sex"))) + mytheme(24) + labs(y =
 You can tell there is not a significant interaction because the lines could be parallel.
 :::
 
-## Plotting interaction effects {.fs90}
+## Plotting interaction effects
 
 ```{r}
 #| echo: true
@@ -316,7 +316,7 @@ $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2$$
     + difference in $b_1$ (effect of $x_1$) between reference and $c_2=1$ group
     + change in $b_3$ (effect of $c_2$) expected with change of +1 in $x_1$
 
-## Running the model {.fs90}
+## Running the model
 
 - Let's first pick a reference group for `program`
     + `"read"` may be a good choice as it is a "control" group
@@ -350,7 +350,7 @@ plot(estimate_relation(fit3, by = c("duration", "program")))
 plot(estimate_relation(fit3, by = c("duration", "program"))) + mytheme(24) + labs(y = "expenditure")
 ```
 
-## Plotting the interaction {.fs90}
+## Plotting the interaction
 
 ```{r}
 #| echo: true
@@ -366,7 +366,7 @@ plot(estimate_means(fit3, by = c("program", "duration=[sd]")), join_dots = TRUE)
 plot(estimate_means(fit3, by = c("program", "duration=[sd]")), join_dots = TRUE) + mytheme(24)
 ```
 
-## Centering {.fs90}
+## Centering
 
 - Do we really care about effects at zero duration?
     + If not, the simple effects' tests are not interesting
@@ -425,7 +425,7 @@ $$\hat{y} = b_0 + b_1 c_1 + b_2 d_1 + b_3 d_2 + b_4 c_1 d_1 + b_5 c_1 d_2$$
 `expenditure ~ sex + program + sex:program`
 :::
 
-## Simple and interaction effects {.fs70}
+## Simple and interaction effects {.fs80}
 
 ```{r}
 #| echo: true
@@ -455,7 +455,7 @@ Interaction terms are *differences of differences*: equivalently, Male x Jog is 
 estimate_means(fit5, by = c("sex", "program"))
 ```
 
-## Estimating contrasts {.fs90}
+## Estimating contrasts
 
 ```{r}
 #| echo: true
@@ -464,7 +464,7 @@ estimate_means(fit5, by = c("sex", "program"))
 estimate_contrasts(fit5, contrast = "sex", by = "program")
 ```
 
-## Estimating contrasts {.fs90}
+## Estimating contrasts
 
 ```{r}
 #| echo: true
@@ -473,7 +473,7 @@ estimate_contrasts(fit5, contrast = "sex", by = "program")
 estimate_contrasts(fit5, contrast = "program", by = "sex")
 ```
 
-## Plotting the interaction  {.fs90}
+## Plotting the interaction
 
 ```{r}
 #| echo: true
@@ -489,7 +489,7 @@ plot(estimate_means(fit5, by = c("sex", "program")), join_dots = TRUE)
 plot(estimate_means(fit5, by = c("sex", "program")), join_dots = TRUE) + mytheme()
 ```
 
-## Plotting the interaction {.fs90}
+## Plotting the interaction
 
 ```{r}
 #| echo: true
@@ -508,11 +508,11 @@ plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme
 
 # Three-Way Interactions
 
-## When two-way isn't enough {.fs70}
+## When two-way isn't enough {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
-- So far, *one* effect depended on *one* moderator
+- So far, *one* moderator per effect
 
 ::: {.fragment .mt1}
 - Interactions can depend on a third $x$
@@ -521,7 +521,8 @@ plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme
 :::
 
 ::: {.fragment .mt1}
-- A [three-way interaction]{.b .blue}: moderated moderation
+- A [three-way interaction]{.b .blue}
+    + Moderation of a moderation
 :::
 :::
 
@@ -530,7 +531,7 @@ plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme
 :::
 :::
 
-## Expanding the equation {.fs70}
+## Expanding the equation
 
 - With three predictors, every combination gets a term
 
@@ -538,13 +539,13 @@ plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme
 
 $$\hat{y} = b_0 + b_1 x + b_2 c_1 + b_3 d_1 + b_4 x c_1 + b_5 x d_1 + b_6 c_1 d_1 + b_7 x c_1 d_1$$
 
-- Three main effects, three two-way interactions, one three-way interaction
+- 3 main effects, 3 two-way terms, 1 three-way term
 
 ::: {.tc .fragment}
 `expenditure ~ duration * sex * program`
 :::
 
-## Fitting the model {.fs90}
+## Fitting the model
 
 ```{r}
 #| echo: true
@@ -554,14 +555,13 @@ fit6 <- lm(expenditure ~ duration * sex * program, data = exercise)
 model_parameters(fit6)
 ```
 
-## Reading the output {.fs70}
+## Reading the output {.fs80}
 
 - The coefficient table gets long fast (3 predictors gives 12 terms here)
 
 ::: {.fragment .mt1}
 - Read it [top-down]{.b .blue}, highest-order term first
-    + If the three-way term is significant, the two-way terms
-      are not *overall* effects
+    + A significant three-way term makes the two-way terms conditional
     + Each lower-order term is now conditional on the others being zero
 :::
 
@@ -570,7 +570,7 @@ model_parameters(fit6)
     + Probe it with estimated slopes and contrasts instead
 :::
 
-## Probing: slopes by both moderators {.fs90}
+## Probing: slopes by both moderators
 
 ```{r}
 #| echo: true
@@ -582,7 +582,7 @@ estimate_slopes(fit6, trend = "duration", by = c("sex", "program"))
 
 - One duration slope per sex-by-program cell
 
-## Does the sex gap shift with duration? {.fs90}
+## Does the sex gap shift with duration?
 
 ```{r}
 #| echo: true
@@ -593,7 +593,7 @@ estimate_contrasts(fit6, contrast = "sex", by = c("program", "duration = [sd]"),
                    p_adjust = "holm")
 ```
 
-## Plotting the interaction {.fs90}
+## Plotting the interaction
 
 ```{r}
 #| echo: true

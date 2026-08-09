@@ -245,7 +245,7 @@ model_parameters(fit2)
 
 > "The average body mass of female penguins was estimated to be 683.41 grams lower than that of male penguins, 95% CI: [--840.80, --526.02], *t* = --8.54, *p* < .001."
 
-## Relation to Student's t-test {.fs90}
+## Relation to Student's t-test {.fs80}
 
 ```{r}
 #| echo: true
@@ -548,7 +548,7 @@ model_parameters(fit5b)
 The linear model (lm) subsumes ANOVA as well!
 :::
 
-## Effect sizes {.fs90}
+## Effect sizes {.fs80}
 
 ```{r}
 #| echo: true

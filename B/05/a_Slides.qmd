@@ -47,7 +47,7 @@ theme_set(mytheme)
 
 # Statistical Hypotheses
 
-## What is a hypothesis? {.fs90}
+## What is a hypothesis? {.fs80}
 
 - A hypothesis is a **testable** prediction
     + It derives from a broader scientific theory
@@ -561,7 +561,7 @@ $|t_{\bar{x}}|>t_{crit}: \text{Reject }H_0$
 
 # $p$-values and <br>Pragmatics
 
-## The $p$-value of a test {.fs90}
+## The $p$-value of a test {.fs80}
 
 - But what if we had selected a different $\alpha$ level?
     + Some $\alpha$ values would yield a different decision

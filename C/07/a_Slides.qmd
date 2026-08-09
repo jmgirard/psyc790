@@ -555,7 +555,7 @@ model_parameters(fit2b)
 {{< lif "../../icons/rulers.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
-## Standardized Slopes {.fs90}
+## Standardized Slopes {.fs80}
 
 - It is common to standardize regression slopes (called $\beta$s)
 

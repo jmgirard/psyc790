@@ -51,13 +51,13 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 # Assignment
 
-## Assignment {.fs70}
+## Assignment {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
--   It is often useful to store data in [named objects]{.b .green}
+-   It helps to store data in [named objects]{.b .green}
     -   This makes the data easier to use and re-use
-    -   This makes the code easier to write and read
+    -   And the code easier to write and read
 
 ::: {.fragment .mt1}
 -   Which command is easier to follow?
@@ -66,7 +66,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 ::: {.fragment .mt1}
--   Named objects are created using [assignment]{.b .blue}
+-   Named objects come from [assignment]{.b .blue}
     -   Give a **name** then an **arrow** then the **data**
 :::
 :::
@@ -159,7 +159,7 @@ already exist. That is how a script builds up from one line to the next.
 
 # Naming
 
-## Naming {.fs70}
+## Naming {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -171,7 +171,7 @@ already exist. That is how a script builds up from one line to the next.
 
 ::: {.fragment .mt1}
 -   Additional Rules:
-    -   Must [start with a letter]{.b .blue} (or a period not followed by a number)
+    -   Must [start with a letter]{.b .blue} (or a period)
     -   Cannot contain spaces or dashes
     -   Cannot contain other symbols
     -   Names are case-sensitive (`age` ≠ `Age`)
@@ -314,7 +314,7 @@ has no way to know you meant the other one.
 
 # Functions
 
-## Functions {.fs70}
+## Functions {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
@@ -326,9 +326,9 @@ has no way to know you meant the other one.
 ::: {.fragment .mt1}
 -   [Functions]{.b .blue} are like *customizable* recipes
     -   Functions call for inputs ("arguments")
-    -   Functions involve one or more lines of code
+    -   Functions involve one or more lines
     -   Code transforms inputs into outputs
-    -   Using functions requires parentheses (usually)
+    -   Functions usually need parentheses
 :::
 :::
 

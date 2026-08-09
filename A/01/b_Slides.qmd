@@ -72,7 +72,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## R and Other Stats Software {.fs70}
+## R and Other Stats Software {.fs80}
 
 -   You may have met [SPSS]{.b .blue}, [SAS]{.b .blue}, [Stata]{.b .blue}, [Mplus]{.b .blue}, [JASP]{.b .blue}, or [jamovi]{.b .blue}
     -   All of them can run the analyses in this course
@@ -85,31 +85,30 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ::: {.fragment .mt1}
 -   R is a [real programming language]{.b .green}, not a menu with a syntax window
-    -   Which is why [data preparation]{.b .blue} is so much easier here
-    -   Cleaning, reshaping, and merging are the bulk of real analysis
+    -   Which is why [data preparation]{.b .blue} (cleaning, reshaping,
+        merging) is easier
 :::
 
 ::: {.fragment .mt1}
--   New methods arrive as [packages]{.b .blue}, written by the researchers who
-    developed them, often years before the commercial packages catch up
+-   New methods arrive as [packages]{.b .blue}, years before commercial tools do
 :::
 
 
-## The R Ecosystem {.fs70}
+## The R Ecosystem {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
-1.  Think of your [computer]{.b .blue} as the [engine]{.b .green} of a car
+1.  Your [computer]{.b .blue} is the [engine]{.b .green} of a car
     -   It provides raw power for computation
 
 ::: {.fragment .mt1}
-2.  The [R language]{.b .blue} is like the [controls]{.b .green} for the car
+2.  The [R language]{.b .blue} is the [controls]{.b .green}
     -   It lets you apply and direct that power
 :::
 
 ::: {.fragment .mt1}
 3.  [RStudio]{.b .blue} is like a fancy [dashboard]{.b .green} for the car
-    -   It adds extra information and convenience
+    -   It adds information and convenience
 :::
 
 ::: {.fragment .mt1}
@@ -124,7 +123,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## Installing R {.fs70}
+## Installing R {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column .pr4 width="50%"}
@@ -158,7 +157,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## Installing RStudio {.fs70}
+## Installing RStudio {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column .pr4 width="50%"}
@@ -192,7 +191,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## RStudio Window {.fs70}
+## RStudio Window
 
 ![](../../img/rstudio_labels.jpg)
 
@@ -204,11 +203,11 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 # Console
 
-## R will Grant your Wishes {.fs70}
+## R will Grant your Wishes {.fs80}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
--   R is like a [well-meaning]{.b .green} but [overly literal]{.b .green} genie
+-   R is a [well-meaning]{.b .green} but [overly literal]{.b .green} genie
 
     -   It has the power to grant almost any wish
     -   But we must phrase our wishes carefully!
@@ -221,7 +220,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
     -   How to properly phrase commands
     -   How to decipher error messages
     -   How to view code from R's perspective
-    -   How to detect and correct small mistakes
+    -   How to find and fix small mistakes
 :::
 :::
 
@@ -372,7 +371,7 @@ separators are for humans: type the digits and **nothing else**.
 
 # Scripts
 
-## Creating a New Script {.fs70}
+## Creating a New Script
 
 -   A script is just a [plain text file]{.b .blue} saved with a [`.R`]{.b .blue} extension
     -   Which makes it easy to [share your code]{.b .green} with other people
@@ -382,7 +381,7 @@ separators are for humans: type the digits and **nothing else**.
     -   <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> (Win) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> (Mac)
 
 ::: {.fragment .mt1}
--   A new pane appears in the RStudio window called the [Source Editor]{.b .green}
+-   A new pane appears, called the [Source Editor]{.b .green}
 :::
 
 ## Entering Commands into a Script
@@ -400,7 +399,7 @@ A script holds many lines at once. Think of it as drafting an email with several
 instructions rather than shouting one at a time.
 :::
 
-## Running One Line of Code {.fs70}
+## Running One Line of Code
 
 -   Hitting <kbd>Enter</kbd> or <kbd>Return</kbd> [does not run the code]{.b .blue}; it just adds a new line
 
@@ -414,7 +413,7 @@ instructions rather than shouting one at a time.
 -   The results appear down in the [Console]{.b .green}
 :::
 
-## Running Many Lines of Code {.fs70}
+## Running Many Lines of Code
 
 -   To run [several lines]{.b .blue} at once:
     -   Highlight them with the mouse, then click [Run]{.b .blue}
@@ -442,7 +441,7 @@ Anything after a `#` is ignored by R and exists only for human readers. A commen
 can sit on its own line or at the end of one; the code still runs.
 :::
 
-## Saving the Script File {.fs70}
+## Saving the Script File
 
 -   Any one of these will do it:
     -   [File > Save]{.b .blue}

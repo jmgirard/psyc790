@@ -246,7 +246,7 @@ $$
     + `data`: tibble containing *outcome* and *group*
     + `var.equal`: TRUE (Student's) or FALSE (Welch's)
 
-## Student's test results {.fs70}
+## Student's test results {.fs80}
 
 ```{r}
 #| echo: true
@@ -272,7 +272,7 @@ model_parameters(fit_s)
 Note that this result is *barely* significant.
 :::
 
-## Welch's approach in R {.fs70}
+## Welch's approach in R {.fs80}
 
 ```{r}
 #| echo: true
@@ -302,7 +302,7 @@ model_parameters(fit_w)
     + Our SE estimates will tend to be too high (when the pairing correlation is positive)
     + So our $p$-values and CIs are wrong, costing power
 
-## Paired samples $t$-test {.fs90}
+## Paired samples $t$-test {.fs80}
 
 - To fix this, we can calculate the paired differences
 

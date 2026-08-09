@@ -48,7 +48,7 @@ theme_set(mytheme())
 
 # Overview
 
-## Motivation {.fs90}
+## Motivation {.fs80}
 
 - The linear model makes certain assumptions about the data
 
@@ -64,7 +64,7 @@ theme_set(mytheme())
 - Thus, our conclusions and inferences may be incorrect!
 
 
-## Assumptions Overview {.fs90}
+## Assumptions Overview {.fs80}
 
 - **Assumptions about the Formula**
     + Correct Functional Form
@@ -125,7 +125,7 @@ ggplot(d1, aes(x =x , y = y_violated)) +
 :::
 
 
-## Diagnostics {.fs90}
+## Diagnostics
 
 - We can use scatterplots as a visual diagnostic
     + A simple approach would plot $y$ against each $x$
@@ -191,7 +191,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
   )
 ```
 
-## Solutions {.fs90}
+## Solutions
 
 1. Specify a more complex functional form
     + e.g., variable transformations
@@ -206,7 +206,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
 
 # No Omitted Confounders
 
-## Assumption {.fs90}
+## Assumption {.fs80}
 
 - Any cause of $y$ that correlates with an $x$ must be in the model
     + Such a variable is called a **confounder**
@@ -219,7 +219,7 @@ Bias in the coefficients, and therefore in the tests and intervals built on them
 :::
 
 
-## Diagnostics {.fs90}
+## Diagnostics {.fs80}
 
 - There is **no diagnostic plot for this one**
     + A confounded model can have perfect-looking residuals
@@ -235,7 +235,7 @@ This is the assumption you cannot test, only defend.
 :::
 
 
-## Solutions {.fs90}
+## Solutions {.fs80}
 
 1. Measure and include the confounder
     + Decided at **design** time, not analysis time
@@ -367,9 +367,9 @@ $$\text{VIF}_j = \frac{1}{1-R^2_j}$$
 :::
 
 
-## Example Data {.fs90}
+## Example Data {.fs80}
 
-Let's simulate some data with various collinearity-related issues
+Let's simulate data with collinearity problems
 
 ::: {.columns}
 ::: {.column}
@@ -426,7 +426,7 @@ round(cor(simdat), digits = 2)
 :::
 
 
-## Example with No Issues {.fs90}
+## Example with No Issues {.fs80}
 
 ```{r}
 #| echo: true
@@ -458,7 +458,7 @@ check_collinearity(fit_none)
 - The VIFs for both predictors are low (<5)
 
 
-## Example with Collinearity {.fs90}
+## Example with Collinearity {.fs80}
 
 ```{r}
 #| echo: true
@@ -490,7 +490,7 @@ check_collinearity(fit_co)
 - The VIFS for both height variables are very high (>10)
 
 
-## Example with Multicollinearity {.fs90}
+## Example with Multicollinearity {.fs80}
 
 ```{r}
 #| echo: true
@@ -539,7 +539,7 @@ model_parameters(fit_xc)
 - This is why we use $(g-1)$ dummy codes and not $g$
 
 
-## Solutions {.fs90}
+## Solutions
 
 1. Break the predictors' redundancy
     + e.g., drop one or more predictors
