@@ -388,10 +388,6 @@ separators are for humans --- type the digits and **nothing else**.
 
 ## Entering Commands into a Script
 
-A script holds many lines of code, which allows for longer and more complex work.
-Think of it like drafting an email with many instructions rather than shouting one
-at a time.
-
 ```{r}
 #| echo: true
 
@@ -399,6 +395,11 @@ at a time.
 
 30.1 - 24.7
 ```
+
+::: {.takeaway}
+A script holds many lines at once. Think of it as drafting an email with several
+instructions rather than shouting one at a time.
+:::
 
 ## Running One Line of Code {.fs70}
 

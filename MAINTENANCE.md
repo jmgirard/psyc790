@@ -112,6 +112,53 @@ the code. Three rules make this work here, and all three are easy to get wrong:
   `write_csv()` must stay `eval: false` or a render will install packages, open a browser,
   or write stray files into the chapter folder.
 
+### The anatomy of a Unit A code slide
+
+Unit A's code slides follow one shape. It was arrived at by measuring: 82 of them
+filled anywhere from 0.18 to 0.94 of the canvas, and three different conventions were
+in use for showing a failure.
+
+```
+## Title (≤ ~35 characters, or it wraps to two lines at 64px)
+
+  code card  →  output card        one or more, knitr emits one pair per statement
+
+::: {.takeaway}
+One or two sentences naming the lesson.
+:::
+```
+
+**Order is code, then result, then lesson.** The result is the punchline, so a lead-in
+sentence above the code gives it away. Both placements were tried in the browser before
+this was settled.
+
+**`.takeaway`, not `::: aside`.** An aside is absolutely positioned near the slide
+bottom, so the sentence explaining the code floated ~200px below it in grey small print
+while the middle of the slide stayed empty — and it was only present on some slides.
+`aside` is still right for a genuine footnote ("repeat this every 4–5 months"); it is
+not right for the point of the slide. Figure slides are exempt: they already fill their
+space, and a plot title carries the lesson.
+
+**One slide per *idea*, not per line.** The rule was over-applied — `10 ^ 2` had a slide
+to itself at 0.25 fill. Related variations belong on one slide as stacked cards; aim for
+0.5–0.9 fill. Unit A is 143 slides where it was 154, and no code slide is under 0.38.
+
+**Failures use one visual language.** Three treatments used to coexist:
+
+| kind | how | result |
+|---|---|---|
+| runtime error | `#| error: true` | R's own message, pink card — **correct** |
+| parse error | `#| error: true` | renders, but as knitr's `Error in parse(text = input): <text>:1:2:` wrapper, which no student ever sees |
+| parse error | `eval: false` + `# Error:` comment | no card at all, so a failing line looked exactly like working code that was not run |
+
+Runtime errors keep `error: true`. Parse errors use `eval: false` plus a `.r-error`
+block holding the **console-accurate** message (see the block comment in `styles.css`).
+Verify each message by running the line in a fresh R session — do not copy knitr's.
+
+Note that the old list of "parse errors" was partly wrong: `heart-rate <- 93` and
+`age@time2 <- 12` parse fine and fail at runtime with "object not found", so they are
+real executed errors. `_heart_rate` gives "unexpected symbol", not "unexpected input".
+
 Two things worth not undoing. `qplot()` is deprecated and warns, but it is kept because
 `A/03/b_assignment.qmd` instructs students to use it — replacing it is a teaching-content
 decision (§3). The warning fires once per session, so it appears on the first plot slide
@@ -268,6 +315,16 @@ Three traps:
 
 After a re-key, `git diff --numstat _freeze` should show exactly `2+ 2-` per deck (the hash
 line and the markdown line). Anything larger means something re-executed.
+
+### Drift met on 2026-08-09
+
+Installing the package list on a fresh machine and re-executing Unit A changed the
+figures: same pixel dimensions, but 3–6× the file size (`unnamed-chunk-28-1.png` went
+18,477 → 105,982 bytes). Cause is `ragg`, which arrives as a tidyverse dependency and
+which knitr then prefers over the default device — so the plots are redrawn with better
+antialiasing. Visually an improvement, and the dimensions are unchanged, but it touches
+every committed figure in a re-executed deck. Expect it the next time a deck with plots
+is genuinely re-run, and do not mistake it for a layout change.
 
 Known drift as of the last full re-render: `qplot()` is deprecated in ggplot2 (still
 functional, but it warns). It is used as a teaching section in `A/03/b_Slides.qmd`, and

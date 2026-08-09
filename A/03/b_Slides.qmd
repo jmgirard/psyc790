@@ -440,15 +440,18 @@ Now, as the tibble moves around, the variables always stay together.
 
 ## Loading the tidyverse
 
-Install it once via [Extras pane > Packages tab > Install]{.b .blue}, then load it
-each session.
-
 ```{r}
 #| echo: true
 #| message: false
 
 library(tidyverse)
 ```
+
+::: {.takeaway}
+Install it once via [Extras pane > Packages tab > Install]{.b .blue}, then load it
+each session. One `library()` call brings in the whole collection --- readr,
+dplyr, ggplot2 and the rest --- so this is the only line most scripts need.
+:::
 
 ## Creating a Tibble from Vectors
 
@@ -464,6 +467,11 @@ my_tibble <- tibble(x, y)
 my_tibble
 ```
 
+::: {.takeaway}
+`tibble()` lines vectors up as columns, using each vector's name as the column
+name. They must be the same length --- these are rows of one dataset.
+:::
+
 ## Tibbles Can Mix Types
 
 ```{r}
@@ -477,8 +485,9 @@ guests <- tibble(first_names, age_years)
 guests
 ```
 
-::: aside
-*Note.* Look at the `<chr>` and `<dbl>` labels --- the tibble tracks each column's type, and prints `NA` where a value is missing.
+::: {.takeaway}
+Look at the `<chr>` and `<dbl>` labels --- a tibble tracks each column's type, and
+prints `NA` where a value is missing rather than guessing at one.
 :::
 
 ## Building the Vectors Inline
@@ -493,7 +502,12 @@ gradebook <- tibble(
 gradebook
 ```
 
-## Pitfall: Columns Must Be the Same Length
+::: {.takeaway}
+Naming the columns inside `tibble()` skips the separate vectors entirely --- less
+to type, and nothing left lying around afterwards.
+:::
+
+## Pitfall: Unequal Column Lengths
 
 ```{r}
 #| echo: true
@@ -501,6 +515,12 @@ gradebook
 
 tibble(y = c(1, 2, 3), x = c("a", "b"))
 ```
+
+::: {.takeaway}
+Every column is one variable measured on the same rows, so they must all be the
+same length. R does make one exception: a column of length 1 is repeated down the
+whole tibble.
+:::
 
 ## Extracting a Column with $
 
@@ -514,8 +534,9 @@ mytibble$x
 mytibble$y
 ```
 
-::: aside
-*Note.* `y` was a single value, so it was recycled down the whole column. Length one is the one length that is allowed to differ.
+::: {.takeaway}
+`$` pulls one column out as a plain vector. Note `y`: a single value is recycled
+down the whole column --- length one is the one length allowed to differ.
 :::
 
 ## Pitfall: A Column That Does Not Exist
@@ -527,8 +548,9 @@ mytibble$y
 mytibble$z
 ```
 
-::: aside
-*Note.* This is [not]{.b} an error. You get `NULL` and a warning, so a typo in a column name can flow silently into the rest of your code.
+::: {.takeaway}
+This is [not]{.b} an error. You get `NULL` and a warning, so a typo in a column
+name can **flow silently** into the rest of your code.
 :::
 
 ## Getting Information About a Tibble
@@ -542,6 +564,11 @@ dim(gradebook)
 # Column names
 colnames(gradebook)
 ```
+
+::: {.takeaway}
+Worth running on any dataset you did not build yourself, before you write code
+that assumes what is in it.
+:::
 
 ## Data Files {.fs70}
 
@@ -590,14 +617,12 @@ old_gradebook <- read_csv("../../data/gradebook.csv")
 old_gradebook
 ```
 
-::: aside
-*Note.* `read_csv()` examines each column and guesses its type. You can state the types yourself, but that is more advanced.
+::: {.takeaway}
+`read_csv()` examines each column and guesses its type. You can state the types
+yourself, but the guess is usually right --- check it rather than assume it.
 :::
 
 ## Pitfall: Missing Values in Disguise
-
-One student's grade is recorded as `?`. R has no idea that means "missing" ---
-unless we say so with `na = "?"`, it stays a real value that pollutes the column.
 
 ```{r}
 #| echo: true
@@ -607,6 +632,12 @@ unless we say so with `na = "?"`, it stays a real value that pollutes the column
 old_gradebook <- read_csv("../../data/gradebook.csv", na = "?")
 old_gradebook
 ```
+
+::: {.takeaway}
+One grade was recorded as `?`. R has no way to know that means "missing" --- until
+you say so with `na = "?"` it stays a real value, and the whole column is read as
+text rather than numbers.
+:::
 
 ## Other Kinds of Data File {.fs70}
 
@@ -667,8 +698,8 @@ penguins <- read_csv("../../data/penguins0.csv")
 penguins
 ```
 
-::: aside
-*Note.* `species`, `island`, and `sex` arrived as numbers. They are categories, and R does not know that yet.
+::: {.takeaway}
+`species`, `island`, and `sex` arrived as numbers, not categories.
 :::
 
 ## Configuring the Factors
@@ -686,6 +717,11 @@ penguins$sex <- factor(penguins$sex, levels = c(1, 2),
                        labels = c("female", "male"))
 ```
 
+::: {.takeaway}
+The same `factor()` call as before, applied one column at a time with `$`. Tedious
+but explicit --- and exactly the work a cleaning script exists to hold.
+:::
+
 ## The Configured Data
 
 ```{r}
@@ -694,8 +730,9 @@ penguins$sex <- factor(penguins$sex, levels = c(1, 2),
 penguins
 ```
 
-::: aside
-*Note.* Those three columns now print as `<fct>` with readable values. Save the cleaned version with `write_csv(penguins, "penguins.csv")` so you never redo this.
+::: {.takeaway}
+Those three columns now print as `<fct>` with readable values. Save the cleaned
+version with `write_csv()` so this is done **once**, not every session.
 :::
 
 ## Checking the Summary for Problems
@@ -706,8 +743,9 @@ penguins
 summary(penguins)
 ```
 
-::: aside
-*Note.* Read the `NA` counts: 2 penguins were never measured and 11 (including those 2) were never sexed. Real data has holes, and this is where you find them.
+::: {.takeaway}
+Read the `NA` counts: 2 penguins were never measured and 11 (including those 2)
+were never sexed. Real data has holes, and this is where you find them.
 :::
 
 ## Describing One Continuous Variable
@@ -718,6 +756,11 @@ summary(penguins)
 describe_distribution(penguins, body_mass)
 ```
 
+::: {.takeaway}
+Mean, SD, range, and the count of missing values in one line --- the numbers you
+would otherwise ask for one function at a time.
+:::
+
 ## Describing All of Them at Once
 
 ```{r}
@@ -725,6 +768,11 @@ describe_distribution(penguins, body_mass)
 
 describe_distribution(penguins)
 ```
+
+::: {.takeaway}
+Name no column and it describes every continuous one, skipping the factors. A good
+first look at a dataset you have just read in.
+:::
 
 ## Tabulating One Factor
 
@@ -734,6 +782,11 @@ describe_distribution(penguins)
 data_tabulate(penguins, species)
 ```
 
+::: {.takeaway}
+The factor counterpart of `describe_distribution()`: counts and percentages, with
+missing values shown rather than dropped.
+:::
+
 ## Tabulating Every Factor
 
 ```{r}
@@ -741,6 +794,11 @@ data_tabulate(penguins, species)
 
 data_tabulate(penguins, is.factor)
 ```
+
+::: {.takeaway}
+Passing `is.factor` tabulates every factor at once --- the categorical half of the
+same first look.
+:::
 
 ## Data Visualization {.fs70}
 
@@ -773,6 +831,12 @@ data_tabulate(penguins, is.factor)
 
 penguins <- read_csv("../../data/penguins.csv")
 ```
+
+::: {.takeaway}
+This is the tidied version of the file we just walked through --- factors
+configured, missing values read correctly. Everything that follows uses it, and
+you will meet it again in later chapters.
+:::
 
 ## Variation of a Factor
 
@@ -841,7 +905,7 @@ qplot(x = body_mass, data = penguins, geom = "histogram")
 qplot(x = body_mass, data = penguins, geom = "boxplot")
 ```
 
-## Covariation of Two Continuous Variables
+## Two Continuous Variables
 
 ```{r}
 #| echo: true

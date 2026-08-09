@@ -96,6 +96,11 @@ my_color <- "red"
 my_color
 ```
 
+::: {.takeaway}
+Quotation marks are what separate a **value** from a **name**. Without them R
+goes looking for an object, which is why the error mentions one you never made.
+:::
+
 ## Strings Can Hold Any Symbol
 
 ```{r}
@@ -108,6 +113,11 @@ dye
 dyes <- c("red#40", "blue#02")
 dyes
 ```
+
+::: {.takeaway}
+Inside quotes the naming rules no longer apply --- spaces, `#`, and anything else
+are just characters. R only reads what is inside as text.
+:::
 
 ## Pitfall: Math Does Not Work on Strings
 
@@ -125,11 +135,12 @@ dyes + 1
 mean(dyes)
 ```
 
-::: aside
-*Note.* `mean()` does not stop with an error --- it warns and hands back `NA`. A result that looks like an answer is easier to miss than a failure.
+::: {.takeaway}
+`mean()` does not stop with an error --- it warns and hands back `NA`. A result
+that **looks like an answer** is easier to miss than a failure.
 :::
 
-## But Some Functions Work on Both
+## Functions That Do Work on Strings
 
 ```{r}
 #| echo: true
@@ -139,16 +150,15 @@ length(dyes)
 
 # How many characters are in each element?
 nchar(dyes)
+
+# Some functions only make sense for strings
+toupper(dyes)
 ```
 
-## And Some Work Only on Strings
-
-```{r}
-#| echo: true
-
-dyes2 <- toupper(dyes)
-dyes2
-```
+::: {.takeaway}
+`length()` counts elements whatever they are; `nchar()` and `toupper()` only mean
+anything for text. What a function accepts follows from what it is for.
+:::
 
 # Factors
 
@@ -174,36 +184,24 @@ dyes2
 :::
 :::
 
-## Starting with Numeric Codes
+## From Numeric Codes to a Factor
 
 ```{r}
 #| echo: true
 
 # Ask 10 kids to order 1: nuggets, 2: pizza, or 3: salad
 food <- c(2, 2, 1, 2, 1, 2, 1, 1, 2, 2)
-food
-```
-
-## Turning Codes into a Factor
-
-```{r}
-#| echo: true
 
 food2 <- factor(food)
 food2
-```
-
-::: aside
-*Note.* The `Levels:` line at the bottom is how a factor prints. R found only the values that actually occur.
-:::
-
-## Counting Levels with table()
-
-```{r}
-#| echo: true
 
 table(food2)
 ```
+
+::: {.takeaway}
+`factor()` tells R these numbers are labels, not quantities. The `Levels:` line is
+how a factor prints --- and R found only the values that **actually occur**.
+:::
 
 ## Declaring Levels That Did Not Occur
 
@@ -217,6 +215,11 @@ food3
 table(food3)
 ```
 
+::: {.takeaway}
+State the levels yourself and the count for salad is a meaningful `0` rather than
+a category that silently does not exist.
+:::
+
 ## Labelling the Levels
 
 ```{r}
@@ -229,6 +232,11 @@ food4
 table(food4)
 ```
 
+::: {.takeaway}
+`levels` are the values in your data; `labels` are what you want printed. Naming
+them here means never again looking up what `2` meant.
+:::
+
 ## Pitfall: Levels are Not Labels
 
 ```{r}
@@ -240,8 +248,9 @@ food5 <- factor(food, levels = c("nuggets", "pizza", "salad"),
 food5
 ```
 
-::: aside
-*Note.* All `<NA>`: R searched the data for the string `"nuggets"` and found only the number `2`. It does not error --- it quietly returns missing values.
+::: {.takeaway}
+All `<NA>`: R searched the data for the string `"nuggets"` and found only the
+number `2`. It does not error --- it **quietly returns missing values**.
 :::
 
 ## Levels Can Be Strings to Begin With
@@ -253,19 +262,14 @@ genre <- c("pop", "metal", "pop", "rock", "rap", "rap", "pop", "rock")
 
 genre2 <- factor(genre)
 genre2
-```
-
-::: aside
-*Note.* With no `levels` given, R sorts the observed values alphabetically --- which is rarely the order you want for a plot.
-:::
-
-## Counting the String Levels
-
-```{r}
-#| echo: true
 
 table(genre2)
 ```
+
+::: {.takeaway}
+With no `levels` given, R sorts the observed values alphabetically --- which is
+rarely the order you want in a table or a plot.
+:::
 
 # Packages
 
@@ -297,9 +301,7 @@ table(genre2)
 :::
 :::
 
-## A Function We Do Not Have Yet
-
-The stringr package has a function that fixes capitalization.
+## Pitfall: A Function R Cannot Find
 
 ```{r}
 #| echo: true
@@ -308,8 +310,6 @@ students <- c("mary anne", "BENjamin", "Lee")
 students
 ```
 
-## Pitfall: Not Installed Means Not Found
-
 ```{r}
 #| echo: true
 #| error: true
@@ -317,8 +317,10 @@ students
 str_to_title(students)
 ```
 
-::: aside
-*Note.* "could not find function" means R can't find that name: check the spelling first, then whether the function's package is installed and loaded.
+::: {.takeaway}
+The stringr package has a function that fixes capitalization --- but "could not
+find function" means R cannot find that **name**. Check the spelling first, then
+whether the function's package is installed and loaded.
 :::
 
 ## Installing a Package {.fs70}
@@ -345,17 +347,12 @@ Run this in the [Console]{.b}, never inside a Quarto document --- it would reins
 
 ## Installing is Not Loading
 
-Installed puts the package on your [library]{.b .green} shelf. It still is not in
-this R session.
-
 ```{r}
 #| echo: true
 #| error: true
 
 str_to_title(students)
 ```
-
-## Loading with library()
 
 ```{r}
 #| echo: true
@@ -366,8 +363,10 @@ library("stringr")
 str_to_title(students)
 ```
 
-::: aside
-*Note.* Install once per computer (and again after upgrading R); load once per session.
+::: {.takeaway}
+Installing puts the package on your [library]{.b .green} shelf; it is still not in
+this session until you take it down with `library()`. Install once per computer
+(and again after upgrading R); load **once per session**.
 :::
 
 ## Keeping Packages Updated {.fs70}
@@ -380,8 +379,6 @@ str_to_title(students)
 
 ## Learning More: Vignettes
 
-Many packages ship long-form articles showing how they are meant to be used.
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -390,6 +387,8 @@ Many packages ship long-form articles showing how they are meant to be used.
 browseVignettes("stringr")
 ```
 
-::: aside
-*Note.* This opens a browser window, so run it in the Console too.
+::: {.takeaway}
+Many packages ship long-form articles showing how they are meant to be used ---
+usually a better starting point than the help page for any one function. This
+opens a browser window, so run it in the Console too.
 :::
