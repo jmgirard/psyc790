@@ -436,11 +436,11 @@ is a row here. In a real tibble each [variable is a column]{.b .green} and each
 :::
 
 
-## Loading the tidyverse
+## Loading the tidyverse {.fs70}
 
 ```{r}
 #| echo: true
-#| message: false
+#| message: true
 
 library(tidyverse)
 ```
@@ -449,6 +449,12 @@ library(tidyverse)
 Install it once via [Extras pane > Packages tab > Install]{.b .blue}, then load it
 each session. One `library()` call brings in the whole collection: readr, dplyr,
 ggplot2 and the rest. That is the only line most scripts need.
+
+**None of this is an error**, even though RStudio prints it in red. The first
+block lists what got attached.
+[Conflicts]{.b .blue} means two packages export the same name and dplyr won this
+round, so plain `filter()` now means dplyr's. That is what you want here. Every
+later `library(tidyverse)` in these slides hides this message to save room.
 :::
 
 ## Creating a Tibble from Vectors
