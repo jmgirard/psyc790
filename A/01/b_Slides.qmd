@@ -57,23 +57,13 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ## Programming is a Superpower
 
-::: {.columns .pv4}
-
-::: {.column width="60%"}
--   Programming is how we talk to and control our amazing computers
+-   Programming is how we talk to and control computers
 
 -   It gives us power and flexibility
 
--   Everything we do in this course will be accomplished via programming
+-   Everything in this course is done via programming
 
 -   Programming will leave a record of what we did (i.e., code), so we can later reuse, adapt, and share it
-:::
-
-::: {.column .tc .pv4 width="40%"}
-{{< lif "../../icons/muscle.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
-
-:::
 
 
 ## R and Other Stats Software {.fs80}
@@ -100,8 +90,6 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ## The R Ecosystem {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 1.  Your [computer]{.b .blue} is the [engine]{.b .green} of a car
     -   It provides raw power for computation
 
@@ -118,12 +106,6 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ::: {.fragment .mt1}
 4.  An [R package]{.b .blue} is like an [add-on]{.b .green} for the car
     -   It adds new features and capabilities
-:::
-:::
-
-::: {.column .tc .pv5 .relative width="40%"}
-{{< lif "../../icons/car.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 
@@ -213,8 +195,6 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ## R will Grant your Wishes {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   R is a [well-meaning]{.b .green} but [overly literal]{.b .green} genie
 
     -   It has the power to grant almost any wish
@@ -230,18 +210,10 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
     -   How to view code from R's perspective
     -   How to find and fix small mistakes
 :::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/genie.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
-:::
 
 
 ## Communicating with R {.fs70}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   The [Console]{.b .blue} is like a [chat window]{.b .green} with R
     -   You send a command to R and get a response
     -   Neither side of the conversation is saved
@@ -256,12 +228,6 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 -   A [Quarto Document]{.b .blue} is like a [scrapbook]{.b .green} with R
     -   You can combine code and formatted text
     -   Both sides of the conversation are saved
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/converse.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 

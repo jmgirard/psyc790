@@ -73,8 +73,6 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 ::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/quotation.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-
 ::: {.fragment}
 `name <- "John Doe"`
 :::
@@ -172,8 +170,6 @@ anything for text. What a function accepts follows from its purpose.
 
 ## Factors {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   [Factors]{.b .blue} represent categorical data
     -   Factors have multiple possible [levels]{.b .blue}
     -   Levels are [discrete]{.b .green} and mutually-exclusive
@@ -184,12 +180,6 @@ anything for text. What a function accepts follows from its purpose.
     -   R needs to know these aren't numbers!
     -   We can give each level a [label]{.b .green}
     -   Or we can just store the levels as strings
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/theater.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 ## From Numeric Codes to a Factor
@@ -305,8 +295,6 @@ rarely the order you want in a table or a plot.
 :::
 
 ::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/books.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-
 ::: {.fragment}
 `library("pkg_name")`
 :::

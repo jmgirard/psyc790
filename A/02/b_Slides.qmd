@@ -76,8 +76,6 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 ::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/contacts.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-
 ::: {.fragment}
 `office <- 7858640841`
 :::
@@ -169,8 +167,6 @@ already exist. That is how a script builds up from one line to the next.
 
 ## Naming {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   Object names can [only include]{.b .blue}:
     -   Letters: `a-Z`
     -   Numbers: `0-9`
@@ -183,12 +179,6 @@ already exist. That is how a script builds up from one line to the next.
     -   Cannot contain spaces or dashes
     -   Cannot contain other symbols
     -   Names are case-sensitive (`age` ≠ `Age`)
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/business_card.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 ## Good Names are a Balancing Act
@@ -345,8 +335,6 @@ has no way to know you meant the other one.
 :::
 
 ::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/blender.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-
 ::: {.fragment}
 `out <- f(in1, in2)`
 :::
@@ -445,8 +433,6 @@ is what you get when you leave them out.
 :::
 
 ::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/old_train.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-
 ::: {.fragment}
 `v <- c(1, 2, 3)`
 :::

@@ -67,8 +67,6 @@ source("../../_common.R")
 
 ## Tidy Data {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   There are many ways to store data
 
 ::: {.fragment .mt1}
@@ -80,20 +78,11 @@ source("../../_common.R")
 :::
 
 ::: {.fragment .mt1}
-![](../../img/tidydata.png)
-:::
-
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/spreadsheet.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
+![](../../img/tidydata.png){width="60%"}
 :::
 
 ## Other Data Advice {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   [Name all variables]{.b .blue} in the first row
     -   This is called a [header row]{.b .green}
     
@@ -110,12 +99,6 @@ source("../../_common.R")
 ::: {.fragment .mt1}
 -   [Avoid formatting-as-data]{.b .blue} for storage
     -   e.g., non-redundant color-coding
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/light_bulb.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 ## Tidying Example 1 {.fs80}
@@ -406,8 +389,6 @@ source("../../_common.R")
 
 ## Tibbles {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   R works particularly well with [tidy data]{.b .green}
 
 ::: {.fragment .mt1}
@@ -424,12 +405,6 @@ source("../../_common.R")
 -   Tibbles are built from vectors
     -   The vectors must have the [same length]{.b .green}
     -   They can contain [different types]{.b .green} of data
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/new_train.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 
@@ -589,8 +564,6 @@ that assumes what is in it.
 
 ## Data Files {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   Data is usually stored in [data files]{.b .green}
     -   Importing files into R is called [reading]{.b .blue}
     -   Exporting files from R is called [writing]{.b .blue}
@@ -605,12 +578,6 @@ that assumes what is in it.
 -   The [tidyverse]{.b .green} package can read/write CSVs
     -   Other packages read other types
         (*readxl*, *haven*, *rio*, *googlesheets4*)
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/freight_ship.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 
@@ -677,8 +644,6 @@ text rather than numbers.
 
 ## Data Verification {.fs80}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   Always start with [verification]{.b .blue}
 
 ::: {.fragment .mt1}
@@ -693,12 +658,6 @@ text rather than numbers.
     -   Check for erroneous and outlying values
     -   Check continuous variables' shapes
     -   Check the overlap of categorical levels
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/avatar_search.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 ## Reading in the Raw Penguins Data
@@ -823,8 +782,6 @@ same first look.
 
 ## Data Visualization {.fs70}
 
-::: {.columns .pv4}
-::: {.column width="60%"}
 -   [Variable distributions]{.b .blue} are critical in data analysis
     -   What are the most and least [common values]{.b .green}?
     -   What are the [extrema]{.b .green} (min and max values)?
@@ -835,12 +792,6 @@ same first look.
 ::: {.fragment .mt1}
 -   Distributions describe a single variable's [variation]{.b .green}
     -   We also visualize many variables' [covariation]{.b .blue}
-:::
-:::
-
-::: {.column .tc .pv5 width="40%"}
-{{< lif "../../icons/dice.json" trigger=hover colors=secondary:#2a76dd class=rc >}}
-:::
 :::
 
 ## Loading the Cleaned Data
