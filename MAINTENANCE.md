@@ -346,6 +346,17 @@ defaults to Type III).
 **`_brand.yml`.** `_quarto.yml` declares `theme: [cosmo, brand]` but no `_brand.yml` exists,
 here or in the other two repos. It renders fine; worth confirming it is intentional.
 
+**Link beautification.** The chapter hub pages' Files / Readings / Practice / Assignments
+links are plain text links; style them (badges, icons, or cards) so the four kinds read
+apart at a glance.
+
+**Instructor prep notes.** Supplement the private answer keys with a per-lecture "notes"
+document — a prep sheet for whoever is teaching that lecture. Lives in
+`statistical-methods-keys` alongside the keys.
+
+**Readings audit.** Search for optimal readings that may improve upon or supplement the
+current ones, chapter by chapter.
+
 ---
 
 ## 8. Outbound links to other courses
