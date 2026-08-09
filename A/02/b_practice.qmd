@@ -110,7 +110,3 @@ sum(profits)
 ```
 
 {{< dstop >}}
-
----
-
-*Note that there is no need to turn in Activities. These are just for practice!*

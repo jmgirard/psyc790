@@ -105,7 +105,3 @@ browseVignettes("tidyverse")
 <https://tidyverse.tidyverse.org/articles/paper.html>
 
 {{< dstop >}}
-
----
-
-*Note that there is no need to turn in Activities. These are just for practice!*
