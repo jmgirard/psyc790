@@ -1070,3 +1070,35 @@ kbd {
 .reveal .gt_table {
   font-size: 24px !important;
 }
+
+/* ==========================================================================
+   404 PROGRESS GRID
+   --------------------------------------------------------------------------
+   The chapter-progress list on 404.qmd used Quarto's `.columns` with four
+   fixed `width="25%"` columns. Those do not wrap, so on a narrow window the
+   unit headings collided into each other ("Unit A -- Foundations Unit C -- The
+   Linear Model"), wrapped to two lines, and knocked each column's checkboxes
+   out of alignment with its neighbours. Units A and B also shared one column,
+   so that column ran twice as long as the rest.
+
+   A grid fixes all of it: one cell per unit, `auto-fit` so the number of
+   columns follows the available width, and `minmax` so a column never gets
+   narrower than a unit title needs. Five across on a wide screen, down to one
+   on a phone, with no breakpoints to maintain.
+   ========================================================================== */
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.75rem 2rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.progress-unit ul {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.progress-unit ul li {
+  list-style: none;
+}

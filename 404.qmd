@@ -9,36 +9,41 @@ The page you requested cannot be found. It is likely still being developed!
 Below, I will track my progress writing this website chapter-by-chapter.
 Unchecked chapters are outlined but not yet written.
 
-:::{.columns}
-:::{.column width="25%"}
-**Unit A --- Foundations**
+::: {.progress-grid}
+::: {.progress-unit}
+**Unit A: Foundations**
 
 - [x] Chapter 01
 - [x] Chapter 02
 - [x] Chapter 03
+:::
 
-**Unit B --- Inference**
+::: {.progress-unit}
+**Unit B: Inference**
 
 - [x] Chapter 04
 - [x] Chapter 05
 - [x] Chapter 06
 :::
-:::{.column width="25%"}
-**Unit C --- The Linear Model**
+
+::: {.progress-unit}
+**Unit C: The Linear Model**
 
 - [x] Chapter 07
 - [x] Chapter 08
 - [ ] Chapter 09
 :::
-:::{.column width="25%"}
-**Unit D --- Data Problems**
+
+::: {.progress-unit}
+**Unit D: Data Problems**
 
 - [x] Chapter 10
 - [ ] Chapter 11
 - [ ] Chapter 12
 :::
-:::{.column width="25%"}
-**Unit E --- Designing and Reporting**
+
+::: {.progress-unit}
+**Unit E: Designing and Reporting**
 
 - [ ] Chapter 13
 - [x] Chapter 14
