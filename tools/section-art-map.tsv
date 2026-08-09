@@ -43,11 +43,11 @@ A/01/b	3	Scripts	edit_doc	in-reveal	catalog	-	-	Document with a pencil: a file y
 A/02/a	1	Projects	folder	hover-adding-files	wired	folder	tsrgicte	The self-contained project directory. Its in-reveal and default states draw a closed folder with no accent; hover-adding-files is the one that colours, and files going into a folder says Projects better than a shut one.
 A/02/a	2	Quarto	render_doc	in-reveal	wired	file-text	hmpomorl	Source becoming a finished document.
 A/02/a	3	Markdown	text_format	in-reveal	wired	align-text-left	nqygtxpy	Plain text acquiring structure.
-A/02/b	1	Assignment	assignment	in-reveal	choose	box-arrow-up|file-plus|inbox-download	drlfxosw|avbhqgrw|gjoqsfnx	A value going into a named container. Nothing in the library draws this cleanly; pick by eye. CLASH: inbox-download is already assigned to A/03/a #3.
-A/02/b	2	Naming	name_tag	in-reveal	choose	badge-ribbon|price-tag-sale|hashtag	wjdlpfml|zblwmalr|dplhundz	Attaching a name to a thing. All three are compromises.
+A/02/b	1	Assignment	contacts	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Assignment section as a content slide, so it was already the author's pick for this exact concept.
+A/02/b	2	Naming	business_card	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Naming section as a content slide, so it was already the author's pick for this exact concept.
 A/02/b	3	Functions	gears	in-reveal	wired	cog-double	xnptalrm	Input in, work happens, output out.
 A/02/b	4	Vectors	stack_list	in-reveal	wired	layers	jectmwqf	Many elements held in order as one object.
-A/03/a	1	Strings	strings	in-reveal	choose	messages-text|align-text-justify|file-text	ejucmaaf|gaoeefkp|hmpomorl	Character data as distinct from object names. quotation.json is taken. CLASH: file-text is already assigned to A/02/a #2.
+A/03/a	1	Strings	quotation	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Strings section as a content slide, so it was already the author's pick for this exact concept. Renders dark navy with no accent: it is the single-colour icon ICONS.md documents, not a colour fault.
 A/03/a	2	Factors	factors	in-reveal	wired	bullet-list	jkavsxeh	A fixed, ordered set of levels.
 A/03/a	3	Packages	install	in-reveal	wired	inbox-download	gjoqsfnx	Installing rather than unpacking. box.json is taken.
 A/03/b	1	Data Frames	data_frame	in-reveal	wired	data	psrsekxp	Rectangular data. spreadsheet.json is taken.
@@ -111,7 +111,7 @@ D/10/b	2	Constant Error Variance	megaphone	in-reveal	wired	megaphone	jdnoclpe	Th
 D/10/b	3	Normal Residuals	distribution_check	in-reveal	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one.
 D/10/b	4	Independent Residuals	independence	in-reveal	choose	wifi-cross|arrows-right-left	bicbmczi|olfvnikl	Dependence between residuals. No broken-chain icon exists; both candidates are weak.
 D/10/b	5	Outliers	outlier	in-reveal	wired	sheep	pcjhygqv	The black sheep. One point unlike the rest.
-E/14/a	1	Power Analysis	power	in-reveal	new	bolt	vumnblwp	Power in the statistical sense via the obvious visual. muscle.json is taken.
+E/14/a	1	Power Analysis	muscle	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Power Analysis section as a content slide, so it was already the author's pick for this exact concept.
 E/14/b	1	Overview	warning	in-reveal	wired	warning-triangle	lltgvngb	The practices are the warning. caution.json is taken.
 E/14/b	2	Questionable Practices	mask	in-reveal	wired	anonymus-mask	zlrnrxmr	Analysis choices that hide what was actually done.
 E/14/b	3	Garden of Forking Paths	branching	in-reveal	wired	arrows-up-branches	gvmafqor	The metaphor, drawn literally.

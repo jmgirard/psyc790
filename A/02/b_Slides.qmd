@@ -52,7 +52,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 # Assignment
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/contacts.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assignment {.fs80}
@@ -162,7 +162,7 @@ already exist. That is how a script builds up from one line to the next.
 # Naming
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/business_card.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Naming {.fs80}
