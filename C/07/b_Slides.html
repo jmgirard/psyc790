@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -234,7 +250,7 @@
 <div class="fragment">
 <ul>
 <li><p>We use <code>factor()</code> to tell R that a variable is categorical</p></li>
-<li><p>Our factor puts each observation into one of <span class="math inline">\(g\)</span> groups</p></li>
+<li><p>Our factor puts each observation into one of <span class="math inline">g</span> groups</p></li>
 </ul>
 </div>
 <div class="fragment">
@@ -252,14 +268,14 @@
 <ul>
 <li><span class="b blue">Two groups</span>: “binary” or “dichotomous”
 <ul>
-<li>e.g., <span class="math inline">\(\text{Condition}\in\{\text{Control}, \text{Treatment}\}\)</span></li>
-<li>e.g., <span class="math inline">\(\text{Gender}\in\{\text{Man}, \text{Woman}\}\)</span></li>
+<li>e.g., <span class="math inline">\text{Condition}\in\{\text{Control}, \text{Treatment}\}</span></li>
+<li>e.g., <span class="math inline">\text{Gender}\in\{\text{Man}, \text{Woman}\}</span></li>
 </ul></li>
 <li><span class="b blue">Three or more groups</span>: “nominal” or “polytomous”
 <ul>
-<li>e.g., <span class="math inline">\(\text{Nation}\in\{\text{UK}, \text{Germany}, \text{Spain}, \text{France}\}\)</span></li>
-<li>e.g., <span class="math inline">\(\text{Sect}\in\{\text{Catholic}, \text{Protestant}, \text{Orthodox}\}\)</span></li>
-<li>e.g., <span class="math inline">\(\text{Time}\in\{\text{Baseline}, \text{Midpoint}, \text{Endpoint}\}\)</span>*</li>
+<li>e.g., <span class="math inline">\text{Nation}\in\{\text{UK}, \text{Germany}, \text{Spain}, \text{France}\}</span></li>
+<li>e.g., <span class="math inline">\text{Sect}\in\{\text{Catholic}, \text{Protestant}, \text{Orthodox}\}</span></li>
+<li>e.g., <span class="math inline">\text{Time}\in\{\text{Baseline}, \text{Midpoint}, \text{Endpoint}\}</span>*</li>
 </ul></li>
 </ul>
 <div class="footer">
@@ -285,7 +301,7 @@
 </div>
 <div class="fragment">
 <ul>
-<li>All coding systems turn a factor into <span class="math inline">\(g-1\)</span> code variables
+<li>All coding systems turn a factor into <span class="math inline">g-1</span> code variables
 <ul>
 <li>So if we have 6 groups, we need 5 code variables</li>
 </ul></li>
@@ -300,11 +316,11 @@
 <section class="slide level2">
 <h2>Coding two categories</h2>
 <ul>
-<li>Dummy coding uses a value of <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> for each code variable
+<li>Dummy coding uses a value of <span class="math inline">0</span> or <span class="math inline">1</span> for each code variable
 <ul>
-<li>With two categories, we only need one code variable: <span class="math inline">\(C_1\)</span></li>
-<li>One category gets <span class="math inline">\(C_1=0\)</span> and the other gets <span class="math inline">\(C_1=1\)</span></li>
-<li>The category assigned to <span class="math inline">\(0\)</span> is called the “reference group”</li>
+<li>With two categories, we only need one code variable: <span class="math inline">C_1</span></li>
+<li>One category gets <span class="math inline">C_1=0</span> and the other gets <span class="math inline">C_1=1</span></li>
+<li>The category assigned to <span class="math inline">0</span> is called the “reference group”</li>
 </ul></li>
 </ul>
 <div class="columns tc fs70">
@@ -414,15 +430,15 @@ Male*
 <section class="slide level2">
 <h2>Regression with a dummy code</h2>
 <ul>
-<li>We can regress <code>body_mass</code> on the numeric dummy code <span class="math inline">\(C_1\)</span></li>
+<li>We can regress <code>body_mass</code> on the numeric dummy code <span class="math inline">C_1</span></li>
 </ul>
-<p><span class="math display">\[\hat{y}_i = b_0 + b_1 C_{1i}\]</span></p>
+<p><span class="math display">\hat{y}_i = b_0 + b_1 C_{1i}</span></p>
 <ul>
-<li>The intercept <span class="math inline">\(b_0\)</span> is the value of <span class="math inline">\(\hat{y}\)</span> when <span class="math inline">\(C_1=0\)</span>
+<li>The intercept <span class="math inline">b_0</span> is the value of <span class="math inline">\hat{y}</span> when <span class="math inline">C_1=0</span>
 <ul>
 <li>i.e., the reference group’s average outcome value</li>
 </ul></li>
-<li>The slope <span class="math inline">\(b_1\)</span> is the change in <span class="math inline">\(\hat{y}\)</span> when <span class="math inline">\(C_1+1\)</span>
+<li>The slope <span class="math inline">b_1</span> is the change in <span class="math inline">\hat{y}</span> when <span class="math inline">C_1+1</span>
 <ul>
 <li>i.e., the group difference in average outcome values</li>
 </ul></li>
@@ -534,7 +550,7 @@ Male*
 <section class="slide level2">
 <h2>Effect sizes</h2>
 <ul>
-<li>The standardized slope is similar to Cohen’s <span class="math inline">\(d\)</span></li>
+<li>The standardized slope is similar to Cohen’s <span class="math inline">d</span></li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
@@ -549,13 +565,13 @@ Male*
 </blockquote>
 </div>
 <div class="footer">
-<p>Note that <span class="math inline">\(y\)</span> is standardized but the dummy code is left 0 or 1.</p>
+<p>Note that <span class="math inline">y</span> is standardized but the dummy code is left 0 or 1.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Effect sizes</h2>
 <ul>
-<li>We can also use <span class="math inline">\(R^2\)</span> or Adjusted <span class="math inline">\(R^2\)</span> as before</li>
+<li>We can also use <span class="math inline">R^2</span> or Adjusted <span class="math inline">R^2</span> as before</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit2, <span class="at">ci =</span> <span class="fl">0.95</span>)</span>
@@ -570,19 +586,19 @@ Male*
 </section>
 <section class="slide level2">
 <h2>Estimating means by hand</h2>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{align}
 \text{Model Equation: }&amp;\hat{y}=b_0 + b_1(C_1)\\
 &amp;\hat{y} = 4545.68 -683.41(C_1)\\ \\
 \text{Male penguins: }&amp;\hat{y} = 4545.68 -683.41(0)=4545.68 \\
 \text{Female penguins: }&amp;\hat{y} = 4545.68 -683.41(1)=3862.27
 \end{align}
-\]</span></p>
+</span></p>
 <div class="fragment">
 <ul>
-<li>Each penguin <span class="math inline">\(i\)</span> will have a residual <span class="math inline">\(e_i\)</span> that pushes its body mass above or below the mean for its group (i.e., sex)</li>
+<li>Each penguin <span class="math inline">i</span> will have a residual <span class="math inline">e_i</span> that pushes its body mass above or below the mean for its group (i.e., sex)</li>
 </ul>
-<p><span class="math display">\[y_i=4545.68-683.41(C_1)+e_i\]</span></p>
+<p><span class="math display">y_i=4545.68-683.41(C_1)+e_i</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -616,9 +632,9 @@ Male*
 <section class="slide level2">
 <h2>Coding many categories</h2>
 <ul>
-<li><p>With three categories, we need two code variables: <span class="math inline">\([C_1, C_2]\)</span></p></li>
-<li><p>The reference group will get <span class="math inline">\(0\)</span> on <strong>all</strong> code variables</p></li>
-<li><p>Each other group will get <span class="math inline">\(1\)</span> on a single code variable</p></li>
+<li><p>With three categories, we need two code variables: <span class="math inline">[C_1, C_2]</span></p></li>
+<li><p>The reference group will get <span class="math inline">0</span> on <strong>all</strong> code variables</p></li>
+<li><p>Each other group will get <span class="math inline">1</span> on a single code variable</p></li>
 </ul>
 <div class="columns fs70 tc">
 <div class="column" style="width:33%;">
@@ -816,11 +832,11 @@ Control*
 <li>Basically, we add another predictor and another slope</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1C_1 + b_2C_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1C_1 + b_2C_2</span></p>
 <ul>
-<li>The intercept <span class="math inline">\(b_0\)</span> is the mean of the reference group</li>
-<li>The slope <span class="math inline">\(b_1\)</span> is the reference vs.&nbsp;<span class="math inline">\(C_1=1\)</span> group difference</li>
-<li>The slope <span class="math inline">\(b_2\)</span> is the reference vs.&nbsp;<span class="math inline">\(C_2=1\)</span> group difference</li>
+<li>The intercept <span class="math inline">b_0</span> is the mean of the reference group</li>
+<li>The slope <span class="math inline">b_1</span> is the reference vs.&nbsp;<span class="math inline">C_1=1</span> group difference</li>
+<li>The slope <span class="math inline">b_2</span> is the reference vs.&nbsp;<span class="math inline">C_2=1</span> group difference</li>
 </ul>
 <div class="footer">
 <p>We will elaborate on multiple regression during the next lecture</p>
@@ -857,8 +873,8 @@ Control*
 </div>
 <ul>
 <li><p>Intercept: <em>Is the Adelie species body mass zero?</em></p></li>
-<li><p><span class="math inline">\(C_1\)</span> Slope: <em>Is the Chinstrap-Adelie group difference zero?</em></p></li>
-<li><p><span class="math inline">\(C_2\)</span> Slope: <em>Is the Gentoo-Adelie group difference zero?</em></p></li>
+<li><p><span class="math inline">C_1</span> Slope: <em>Is the Chinstrap-Adelie group difference zero?</em></p></li>
+<li><p><span class="math inline">C_2</span> Slope: <em>Is the Gentoo-Adelie group difference zero?</em></p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -922,7 +938,7 @@ Control*
 </section>
 <section class="slide level2">
 <h2>Estimating means by hand</h2>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{align}
 \text{Equation: }&amp;\hat{y} = b_0 + b_1(C_1) + b_2(C_2) \\
   &amp;\hat{y} = 3700.66 + 32.43(C_1) + 1375.35(C_2) \\ \\
@@ -930,7 +946,7 @@ Control*
 \text{Chinstrap: }&amp;\hat{y} = 3700.66 + 32.43(1) + 1375.35(0) = 3733.09 \\
 \text{Gentoo: }   &amp;\hat{y} = 3700.66 + 32.43(0) + 1375.35(1) = 5076.01
 \end{align}
-\]</span></p>
+</span></p>
 </section>
 <section class="slide level2">
 <h2>Estimating means in R</h2>
@@ -999,7 +1015,6 @@ Control*
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1167,27 +1182,9 @@ Control*
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1285,6 +1282,140 @@ Control*
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1434,7 +1565,7 @@ Control*
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

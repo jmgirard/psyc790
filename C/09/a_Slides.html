@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -228,7 +244,7 @@
 <section class="slide level2 fs90">
 <h2>Motivation</h2>
 <ul>
-<li><p>So far, we have always fit <span class="b">straight lines</span> between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> variables</p></li>
+<li><p>So far, we have always fit <span class="b">straight lines</span> between <span class="math inline">y</span> and <span class="math inline">x</span> variables</p></li>
 <li><p>But sometimes the correct functional form is <span class="b red">curved</span> in some way</p></li>
 <li><p>If we fit a straight line anyway, our results may be very biased</p></li>
 </ul>
@@ -269,9 +285,9 @@
 <section class="slide level2 fs90">
 <h2>Conclusions</h2>
 <ul>
-<li><p>Linear regression did not work well for predicting <span class="math inline">\(y_2\)</span></p></li>
+<li><p>Linear regression did not work well for predicting <span class="math inline">y_2</span></p></li>
 <li><p>The functional form diagnostic looked bad for the latter</p></li>
-<li><p>The <span class="math inline">\(R^2\)</span> for the latter was worse than we could do</p></li>
+<li><p>The <span class="math inline">R^2</span> for the latter was worse than we could do</p></li>
 </ul>
 <div class="fragment">
 <ul>
@@ -292,12 +308,12 @@
 <li><p>LM can handle simple curves through <strong>power polynomial</strong> transformations!</p></li>
 <li><p>We will add predictors that are <em>power transformations</em> of other predictors</p></li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 \color{red}{x^1} + b_2 \color{red}{x^2} + \cdots + b_d \color{red}{x^d}\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 \color{red}{x^1} + b_2 \color{red}{x^2} + \cdots + b_d \color{red}{x^d}</span></p>
 <ul>
 <li>Each term has a <strong>degree</strong> equal to its exponent
 <ul>
-<li>e.g., <span class="math inline">\(x^1\)</span> is the <em>first</em> degree term and <span class="math inline">\(x^2\)</span> is the <em>second</em> degree term</li>
-<li>Note that <span class="math inline">\(x^1=x\)</span> and <span class="math inline">\(x^0=1\)</span>, which can be thought of as the intercept</li>
+<li>e.g., <span class="math inline">x^1</span> is the <em>first</em> degree term and <span class="math inline">x^2</span> is the <em>second</em> degree term</li>
+<li>Note that <span class="math inline">x^1=x</span> and <span class="math inline">x^0=1</span>, which can be thought of as the intercept</li>
 <li>The term with the highest exponent is the <strong>highest degree term</strong></li>
 <li>All other terms are referred to as the <strong>lower degree terms</strong></li>
 </ul></li>
@@ -308,7 +324,7 @@
 <ul>
 <li>The highest degree term determines the curve’s overall shape
 <ul>
-<li>The number of bends is <em>at most</em> <span class="math inline">\((d-1)\)</span></li>
+<li>The number of bends is <em>at most</em> <span class="math inline">(d-1)</span></li>
 </ul></li>
 </ul>
 
@@ -316,7 +332,7 @@
 <section class="slide level2 fs90">
 <h2>Direction of curvature</h2>
 <ul>
-<li>The sign <span class="math inline">\((\pm)\)</span> of the highest degree term’s slope determines<br>whether the curve ultimately <strong>rises</strong> <span class="math inline">\((+)\)</span> <strong>or falls</strong> <span class="math inline">\((-)\)</span> as <span class="math inline">\(x\)</span> increases</li>
+<li>The sign <span class="math inline">(\pm)</span> of the highest degree term’s slope determines<br>whether the curve ultimately <strong>rises</strong> <span class="math inline">(+)</span> <strong>or falls</strong> <span class="math inline">(-)</span> as <span class="math inline">x</span> increases</li>
 </ul>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section></section>
@@ -328,21 +344,21 @@
 <section class="slide level2 fs90">
 <h2>Expanding the equation</h2>
 <ul>
-<li>A quadratic relationship requires two predictors to represent <span class="math inline">\(x\)</span></li>
+<li>A quadratic relationship requires two predictors to represent <span class="math inline">x</span></li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x^1 + b_2 x^2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x^1 + b_2 x^2</span></p>
 <ul>
 <li>The <strong>highest</strong> degree coefficient determines the overall shape
 <ul>
-<li><span class="math inline">\(b_2\)</span>: Does the curve bend up <span class="math inline">\((+)\)</span>, down <span class="math inline">\((-)\)</span>, or not at all <span class="math inline">\((0)\)</span>?</li>
+<li><span class="math inline">b_2</span>: Does the curve bend up <span class="math inline">(+)</span>, down <span class="math inline">(-)</span>, or not at all <span class="math inline">(0)</span>?</li>
 </ul></li>
 </ul>
 <div class="pv2">
 <ul>
 <li>The <strong>lower</strong> degree coefficients fine-tune the position and shape
 <ul>
-<li><span class="math inline">\(b_1\)</span>: What is the slope of the curve’s tangent line at <span class="math inline">\(x=0\)</span>?</li>
-<li><span class="math inline">\(b_0\)</span>: What is the intercept of the curve’s tangent line at <span class="math inline">\(x=0\)</span>?</li>
+<li><span class="math inline">b_1</span>: What is the slope of the curve’s tangent line at <span class="math inline">x=0</span>?</li>
+<li><span class="math inline">b_0</span>: What is the intercept of the curve’s tangent line at <span class="math inline">x=0</span>?</li>
 </ul></li>
 </ul>
 </div>
@@ -368,7 +384,7 @@
 <span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.906</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fs90">
-<p>The <span class="math inline">\(x^2\)</span> slope is NOT significant: no evidence the curve is needed, so we retain the simpler line</p>
+<p>The <span class="math inline">x^2</span> slope is NOT significant: no evidence the curve is needed, so we retain the simpler line</p>
 </div>
 </section>
 <section class="slide level2">
@@ -403,7 +419,7 @@
 <span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">##   adj. R2: 0.870</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li>The <span class="math inline">\(x^2\)</span> slope is significant, so the curve is needed!</li>
+<li>The <span class="math inline">x^2</span> slope is significant, so the curve is needed!</li>
 <li>Because the slope is negative, it will bend downward</li>
 </ul>
 </section>
@@ -432,11 +448,11 @@
 </ul>
 <div class="columns">
 <div class="column">
-<p>What value of <span class="math inline">\(x\)</span> gives the<br>most extreme value of <span class="math inline">\(y\)</span>?</p>
-<p><span class="math display">\[x_m = \frac{-b_1}{2b_2}\]</span></p>
+<p>What value of <span class="math inline">x</span> gives the<br>most extreme value of <span class="math inline">y</span>?</p>
+<p><span class="math display">x_m = \frac{-b_1}{2b_2}</span></p>
 </div><div class="column">
-<p>What is the most extreme value of <span class="math inline">\(y\)</span> in the function?</p>
-<p><span class="math display">\[\hat{y}_m = \frac{4 b_2 b_0 - b_1^2}{4 b_2}\]</span></p>
+<p>What is the most extreme value of <span class="math inline">y</span> in the function?</p>
+<p><span class="math display">\hat{y}_m = \frac{4 b_2 b_0 - b_1^2}{4 b_2}</span></p>
 </div></div>
 </section>
 <section class="slide level2 fs90">
@@ -566,7 +582,7 @@
 <li>Quadratics can model processes with best/worst regions</li>
 <li>Cubics can model opponent processes and regulation</li>
 </ul></li>
-<li>Centering your <span class="math inline">\(x\)</span> variable is very helpful here
+<li>Centering your <span class="math inline">x</span> variable is very helpful here
 <ul>
 <li>Also see <code>poly()</code> for orthogonal polynomials</li>
 </ul></li>
@@ -595,7 +611,6 @@
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -763,27 +778,9 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -881,6 +878,140 @@
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1030,7 +1161,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

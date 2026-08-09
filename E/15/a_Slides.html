@@ -279,7 +279,6 @@ Contextualize the results regarding limitations
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -447,27 +446,9 @@ Contextualize the results regarding limitations
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -565,6 +546,140 @@ Contextualize the results regarding limitations
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -714,7 +829,7 @@ Contextualize the results regarding limitations
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

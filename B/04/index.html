@@ -261,14 +261,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Estimation and Uncertainty</li>
 </ul>
 </div>
-<section id="files" class="level3">
-<h3 class="anchored" data-anchor-id="files">Files</h3>
+<section id="files" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files">Files</h3>
 <ul>
 <li><a href="../../data/sleep.csv" download="sleep.csv">sleep.csv</a></li>
 </ul>
 </section>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<section id="readings" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings">Readings</h3>
 <ul>
 <li><a href="https://learningstatisticswithr.com/10-estimation.html">Estimating Unknown Quantities, §10.1–10.2</a> — <em>Learning Statistics with R</em></li>
 </ul>
@@ -281,8 +281,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment" class="level3">
-<h3 class="anchored" data-anchor-id="assignment">Assignment</h3>
+<section id="assignment" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
 <ul>
 <li><a href="../../B/04/a_assignment.html">Lecture 04a Assignment</a></li>
 </ul>
@@ -301,15 +301,15 @@ ul.task-list li input[type="checkbox"] {
 <li>Practical Matters</li>
 </ul>
 </div>
-<section id="files-1" class="level3">
-<h3 class="anchored" data-anchor-id="files-1">Files</h3>
+<section id="files-1" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files-1">Files</h3>
 <ul>
 <li><a href="../../data/sleep.csv" download="sleep.csv">sleep.csv</a></li>
 <li><a href="../../data/teaching_ratings.csv" download="teaching_ratings.csv">teaching_ratings.csv</a></li>
 </ul>
 </section>
-<section id="readings-1" class="level3">
-<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
+<section id="readings-1" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
 <li><a href="https://learningstatisticswithr.com/09-probability.html">Introduction to Probability, §9.1–9.2, 9.5</a> — <em>Learning Statistics with R</em></li>
 <li><a href="https://learningstatisticswithr.com/10-estimation.html">Estimating Unknown Quantities, §10.3–10.6</a> — <em>Learning Statistics with R</em></li>
@@ -323,8 +323,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
+<section id="assignment-1" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment-1">Assignment</h3>
 <ul>
 <li><a href="../../B/04/b_assignment.html">Lecture 04b Assignment</a></li>
 </ul>
@@ -412,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -276,7 +292,7 @@
 <section class="slide level2">
 <h2>Assumption</h2>
 <ul>
-<li>The “form” of the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> relationship(s) must be correct
+<li>The “form” of the <span class="math inline">x</span>-<span class="math inline">y</span> relationship(s) must be correct
 <ul>
 <li>The methods we learned so far assume <strong>straight</strong> lines</li>
 <li>We will also learn about polynomials for <strong>curved</strong> lines</li>
@@ -330,10 +346,10 @@
 <ul>
 <li>We can use scatterplots as a visual diagnostic
 <ul>
-<li>A simple approach would plot <span class="math inline">\(y\)</span> against each <span class="math inline">\(x\)</span></li>
+<li>A simple approach would plot <span class="math inline">y</span> against each <span class="math inline">x</span></li>
 <li>But we can combine this into a single plot by…</li>
 </ul></li>
-<li>Plot the residuals <span class="math inline">\((y-\hat{y})\)</span> against the fitted values <span class="math inline">\(\hat{y}\)</span>
+<li>Plot the residuals <span class="math inline">(y-\hat{y})</span> against the fitted values <span class="math inline">\hat{y}</span>
 <ul>
 <li>We can also add a reference (LOESS) line to these plots</li>
 <li>We want to see a <em>flat</em> and <em>horizontal</em> reference line</li>
@@ -343,7 +359,7 @@
 <p><code>check_model(fit, check = "linearity")</code></p>
 </div>
 <div class="footer">
-<p>With several predictors, a curve in one <span class="math inline">\(x\)</span> can be diluted in this combined plot — per-predictor residual plots are a useful follow-up</p>
+<p>With several predictors, a curve in one <span class="math inline">x</span> can be diluted here — per-predictor residual plots help</p>
 </div>
 </section>
 <section class="slide level2">
@@ -387,7 +403,7 @@
 <section class="slide level2">
 <h2>Assumption</h2>
 <ul>
-<li>Every variable that affects <span class="math inline">\(y\)</span> <strong>and</strong> correlates with an <span class="math inline">\(x\)</span> must be in the model
+<li>Every variable that affects <span class="math inline">y</span> <strong>and</strong> correlates with an <span class="math inline">x</span> must be in the model
 <ul>
 <li>Such a variable is called a <strong>confounder</strong></li>
 <li>Its effect does not vanish; it is absorbed by the predictors we did include</li>
@@ -420,7 +436,7 @@
 </ul></li>
 <li>Instead, we argue from <strong>theory and design</strong>
 <ul>
-<li>What else plausibly causes <span class="math inline">\(y\)</span>?</li>
+<li>What else plausibly causes <span class="math inline">y</span>?</li>
 <li>Is it correlated with any predictor we care about?</li>
 <li>Did we measure it?</li>
 </ul></li>
@@ -459,7 +475,7 @@
 <section class="slide level2">
 <h2>Assumption</h2>
 <ul>
-<li>All predictors <span class="math inline">\((x)\)</span> must be measured without error
+<li>All predictors <span class="math inline">(x)</span> must be measured without error
 <ul>
 <li>With a single predictor, the slope will be underestimated</li>
 <li>With many predictors, slopes may be too low or high</li>
@@ -482,7 +498,7 @@
 </div>
 </div>
 <div class="footer">
-<p>Error in <span class="math inline">\(y\)</span> will bias standardized (but not unstandardized) coefficients.</p>
+<p>Error in <span class="math inline">y</span> will bias standardized (but not unstandardized) coefficients.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -534,7 +550,7 @@
 <ul>
 <li>Collinearity = 2 predictors, Multicollinearity = 3+</li>
 </ul></li>
-<li>If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> fully overlap, there are no partial effects left
+<li>If <span class="math inline">x_1</span> and <span class="math inline">x_2</span> fully overlap, there are no partial effects left
 <ul>
 <li>The model won’t fit (or drops one or more predictors)</li>
 </ul></li>
@@ -563,14 +579,14 @@
 <h2>Assumption</h2>
 <div class="columns">
 <div class="column">
-<p>If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> overlap to a<br><em>very</em> large degree, then…</p>
+<p>If <span class="math inline">x_1</span> and <span class="math inline">x_2</span> overlap to a<br><em>very</em> large degree, then…</p>
 <ul>
 <li><span class="b green">c</span> and/or <span class="b purple">d</span> are large</li>
 <li><span class="b green">b</span> and <span class="b green">f</span> are unstable</li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1x_1 + b_2x_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1x_1 + b_2x_2</span></p>
 <ul>
-<li>So <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> are unstable</li>
+<li>So <span class="math inline">b_1</span> and <span class="math inline">b_2</span> are unstable</li>
 </ul>
 </div><div class="column">
 <p><img data-src="../../img/venn/yx1x2.png"></p>
@@ -581,7 +597,7 @@
 <ol type="1">
 <li>Examine predictor correlations for collinearity
 <ul>
-<li><span class="math inline">\(r(x_1, x_2)\ge0.9\)</span> may be problematic</li>
+<li><span class="math inline">r(x_1, x_2)\ge0.9</span> may be problematic</li>
 <li>But no cutoff maps cleanly onto SE inflation</li>
 <li>It also doesn’t detect multicollinearity</li>
 </ul></li>
@@ -589,21 +605,21 @@
 <ul>
 <li>Look for evidence of inflated standard errors</li>
 <li>Each predictor will get its own VIF value</li>
-<li><span class="math inline">\(\text{VIF}&gt;5\)</span> is “moderate”, <span class="math inline">\(\text{VIF}&gt;10\)</span> is “high”</li>
+<li><span class="math inline">\text{VIF}&gt;5</span> is “moderate”, <span class="math inline">\text{VIF}&gt;10</span> is “high”</li>
 </ul></li>
 </ol>
 </section>
 <section class="slide level2">
 <h2>Variance Inflation Factors</h2>
 <ul>
-<li>To calculate the <span class="math inline">\(\text{VIF}\)</span> for predictor <span class="math inline">\(j\)</span>…
+<li>To calculate the <span class="math inline">\text{VIF}</span> for predictor <span class="math inline">j</span>…
 <ol type="1">
-<li>Regress <span class="math inline">\(x_j\)</span> on <em>all other</em> predictors</li>
-<li>Calculate <span class="math inline">\(R^2\)</span> from that model</li>
-<li>Calculate <span class="math inline">\(\text{VIF}\)</span> from that <span class="math inline">\(R^2\)</span></li>
+<li>Regress <span class="math inline">x_j</span> on <em>all other</em> predictors</li>
+<li>Calculate <span class="math inline">R^2</span> from that model</li>
+<li>Calculate <span class="math inline">\text{VIF}</span> from that <span class="math inline">R^2</span></li>
 </ol></li>
 </ul>
-<p><span class="math display">\[\text{VIF}_j = \frac{1}{1-R^2_j}\]</span></p>
+<p><span class="math display">\text{VIF}_j = \frac{1}{1-R^2_j}</span></p>
 <div class="tc">
 <p><code>check_collinearity(fit)</code></p>
 </div>
@@ -643,9 +659,9 @@
 </div>
 <div class="fs90">
 <ul>
-<li><p><code>height1</code> and <code>height2</code> are highly correlated <span class="math inline">\((r=.97)\)</span></p></li>
-<li><p><code>female</code> and <code>male</code> are perfectly correlated <span class="math inline">\((r=-1.00)\)</span></p></li>
-<li><p>However, <code>size</code> is not as correlated with <code>height1</code> <span class="math inline">\((r=.72)\)</span><br>or <code>weight</code> <span class="math inline">\((r=.72)\)</span> despite the three being multicollinear</p></li>
+<li><p><code>height1</code> and <code>height2</code> are highly correlated <span class="math inline">(r=.97)</span></p></li>
+<li><p><code>female</code> and <code>male</code> are perfectly correlated <span class="math inline">(r=-1.00)</span></p></li>
+<li><p>However, <code>size</code> is not as correlated with <code>height1</code> <span class="math inline">(r=.72)</span><br>or <code>weight</code> <span class="math inline">(r=.72)</span> despite the three being multicollinear</p></li>
 </ul>
 </div>
 </section>
@@ -669,7 +685,7 @@
 <ul>
 <li>Both slopes are significant</li>
 <li>The SE of both slopes is 0.04</li>
-<li>The <span class="math inline">\(R^2\)</span> is 0.567 (57%)</li>
+<li>The <span class="math inline">R^2</span> is 0.567 (57%)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -710,7 +726,7 @@
 <ul>
 <li>The <code>height1</code> slope is no longer significant</li>
 <li>The SE of the height slopes are both 0.15 (up from 0.04)</li>
-<li>Note that the <span class="math inline">\(R^2\)</span> is basically the same (57%)</li>
+<li>Note that the <span class="math inline">R^2</span> is basically the same (57%)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -756,7 +772,7 @@
 <ul>
 <li>None of the slopes are significant</li>
 <li>The SE of all slopes is now 0.18 (up from 0.04)</li>
-<li>Note that the <span class="math inline">\(R^2\)</span> is basically the same (57%)</li>
+<li>Note that the <span class="math inline">R^2</span> is basically the same (57%)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -795,7 +811,7 @@
 <ul>
 <li>Note the warning about the <code>male</code> parameter</li>
 <li>Note the absence of a <code>male</code> slope (it was dropped)</li>
-<li>This is why we use <span class="math inline">\((g-1)\)</span> dummy codes and not <span class="math inline">\(g\)</span></li>
+<li>This is why we use <span class="math inline">(g-1)</span> dummy codes and not <span class="math inline">g</span></li>
 </ul>
 </section>
 <section class="slide level2 fs90">
@@ -837,7 +853,6 @@
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1005,27 +1020,9 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1123,6 +1120,140 @@
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1272,7 +1403,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

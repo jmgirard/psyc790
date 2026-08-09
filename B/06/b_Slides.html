@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -228,7 +244,7 @@
 <section class="slide level2">
 <h2>Rationale</h2>
 <ul>
-<li><p>The <span class="math inline">\(t\)</span>-test compares two groups’ population means</p></li>
+<li><p>The <span class="math inline">t</span>-test compares two groups’ population means</p></li>
 <li><p>But sometimes we want to compare <strong>three or more</strong> groups</p></li>
 <li><p>This is what <span class="b blue">one-way analysis of variance</span> (ANOVA) does</p>
 <ul>
@@ -236,10 +252,10 @@
 <li>The one-way ANOVA is for <strong>independent samples</strong>/groups</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0: \text{it is true that } \mu_1=\mu_2=\mu_3 \cdots \\
 H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
-\]</span></p>
+</span></p>
 </section>
 <section class="slide level2">
 <h2>Example dataset</h2>
@@ -273,35 +289,35 @@ H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
 <section class="slide level2">
 <h2>Total variance</h2>
 <p><em>Across all observations (in all groups), what is the average squared difference between each observation and the global mean (calculated across all observations in all groups)?</em></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{Var}(y)=\frac{1}{n}\sum_{i=1}^n(y_i - \bar{y})^2
-\]</span></p>
-<p><span class="math inline">\(n\)</span> is the total sample size across all groups</p>
-<p><span class="math inline">\(\bar{y}\)</span> is the global mean of <span class="math inline">\(y\)</span> across all groups</p>
+</span></p>
+<p><span class="math inline">n</span> is the total sample size across all groups</p>
+<p><span class="math inline">\bar{y}</span> is the global mean of <span class="math inline">y</span> across all groups</p>
 </section>
 <section class="slide level2">
 <h2>Sums of squares</h2>
 <ul>
-<li>ANOVA uses <span class="b blue">sums of squares</span> (<span class="math inline">\(SS\)</span>) rather than variances
+<li>ANOVA uses <span class="b blue">sums of squares</span> (<span class="math inline">SS</span>) rather than variances
 <ul>
-<li><span class="math inline">\(SS\)</span> are the same as variances but don’t divide by <span class="math inline">\(n\)</span></li>
+<li><span class="math inline">SS</span> are the same as variances but don’t divide by <span class="math inline">n</span></li>
 <li>They are the <strong>sums</strong> of squared differences (not the means)</li>
 </ul></li>
 </ul>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[\color{blue}{\text{SS}_{tot}=\sum_{i=1}^n(y_{i}-\bar{y})^2}\]</span></p>
+<p><span class="math display">\color{blue}{\text{SS}_{tot}=\sum_{i=1}^n(y_{i}-\bar{y})^2}</span></p>
 </div><div class="column">
-<p><span class="math display">\[\text{Var}(y)=\frac{1}{n}\sum_{i=1}^n(y_{i} - \bar{y})^2\]</span></p>
+<p><span class="math display">\text{Var}(y)=\frac{1}{n}\sum_{i=1}^n(y_{i} - \bar{y})^2</span></p>
 </div></div>
 <div class="footer">
-<p>Using <span class="math inline">\(SS\)</span> yields a nicer interpretation and enables the use of the <span class="math inline">\(F\)</span> distribution</p>
+<p>Using <span class="math inline">SS</span> yields a nicer interpretation and enables the use of the <span class="math inline">F</span> distribution</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Between and within groups</h2>
 <ul>
-<li>The total variation (<span class="math inline">\(SS_{tot}\)</span>) contains two components</li>
+<li>The total variation (<span class="math inline">SS_{tot}</span>) contains two components</li>
 </ul>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="1152" class="r-stretch"><div class="columns">
@@ -319,31 +335,31 @@ H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
 <div class="columns">
 <div class="column">
 <p><strong>Between-group variation</strong></p>
-<p><span class="math display">\[\text{SS}_b = \sum_{k=1}^gn_k(\bar{y}_k - \bar{y})^2\]</span></p>
-<p><em>How far is each group mean <span class="math inline">\(\bar{y}_k\)</span> from the global mean <span class="math inline">\(\bar{y}\)</span>?</em></p>
+<p><span class="math display">\text{SS}_b = \sum_{k=1}^gn_k(\bar{y}_k - \bar{y})^2</span></p>
+<p><em>How far is each group mean <span class="math inline">\bar{y}_k</span> from the global mean <span class="math inline">\bar{y}</span>?</em></p>
 </div><div class="column">
 <p><strong>Within-group variation</strong></p>
-<p><span class="math display">\[\text{SS}_w = \sum_{k=1}^g\sum_{i=1}^{n_k}(y_{ik} - \bar{y}_k)^2\]</span></p>
-<p><em>How far is each observation <span class="math inline">\(y_{ik}\)</span> from its group mean <span class="math inline">\(\bar{y}_k\)</span>?</em></p>
+<p><span class="math display">\text{SS}_w = \sum_{k=1}^g\sum_{i=1}^{n_k}(y_{ik} - \bar{y}_k)^2</span></p>
+<p><em>How far is each observation <span class="math inline">y_{ik}</span> from its group mean <span class="math inline">\bar{y}_k</span>?</em></p>
 </div></div>
 <div class="footer">
-<p>Note that the decomposition ensures that <span class="math inline">\(SS_{tot}=SS_b + SS_w\)</span></p>
+<p>Note that the decomposition ensures that <span class="math inline">SS_{tot}=SS_b + SS_w</span></p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Testing for mean differences</h2>
 <ul>
-<li>If <span class="math inline">\(H_0\)</span> is true, the groups’ population means are the same
+<li>If <span class="math inline">H_0</span> is true, the groups’ population means are the same
 <ul>
-<li>Thus, between-group variation <span class="math inline">\((SS_b)\)</span> should be small</li>
+<li>Thus, between-group variation <span class="math inline">(SS_b)</span> should be small</li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
 <li>But how small is small enough? We need to contextualize it
 <ul>
-<li>ANOVA does so by comparing <span class="math inline">\(SS_b\)</span> to <span class="math inline">\(SS_w\)</span></li>
-<li>It focuses on the ratio of <span class="math inline">\(SS_b\)</span> to <span class="math inline">\(SS_w\)</span> (i.e., <span class="math inline">\(SS_b/SS_w\)</span>)</li>
+<li>ANOVA does so by comparing <span class="math inline">SS_b</span> to <span class="math inline">SS_w</span></li>
+<li>It focuses on the ratio of <span class="math inline">SS_b</span> to <span class="math inline">SS_w</span> (i.e., <span class="math inline">SS_b/SS_w</span>)</li>
 <li>But we need to build in the group and sample sizes</li>
 <li>Doing so will allow us to calibrate our uncertainty</li>
 </ul></li>
@@ -356,18 +372,18 @@ H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
 <div class="columns">
 <div class="column">
 <p><strong>Mean Squares Between</strong></p>
-<p><span class="math display">\[\textit{MS}_b = \frac{\textit{SS}_b}{g - 1}\]</span></p>
+<p><span class="math display">\textit{MS}_b = \frac{\textit{SS}_b}{g - 1}</span></p>
 </div><div class="column">
 <p><strong>Mean Squares Within</strong></p>
-<p><span class="math display">\[\textit{MS}_w = \frac{\textit{SS}_w}{n - g}\]</span></p>
+<p><span class="math display">\textit{MS}_w = \frac{\textit{SS}_w}{n - g}</span></p>
 </div></div>
-<p><span class="b">The One-way ANOVA Test Statistic</span> <span class="math display">\[
+<p><span class="b">The One-way ANOVA Test Statistic</span> <span class="math display">
 F_{obs} = \frac{\textit{MS}_b}{\textit{MS}_w}\\
 F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
-\]</span></p>
+</span></p>
 </div>
 <div class="footer">
-<p><span class="math inline">\(g\)</span> is the number of groups, <span class="math inline">\(n\)</span> is the total sample size</p>
+<p><span class="math inline">g</span> is the number of groups, <span class="math inline">n</span> is the total sample size</p>
 </div>
 </section>
 <section class="slide level2">
@@ -375,10 +391,10 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <div class="columns">
 <div class="column">
 <ul>
-<li><p>The sum of squared <em>standard</em> normal values will have a <span class="math inline">\(\chi^2\)</span> distribution</p></li>
-<li><p>The ratio of two independent <span class="math inline">\(\chi^2\)</span> variables, <em>each divided by its df</em>, will have an <span class="math inline">\(F\)</span> distribution (this is why <span class="math inline">\(F\)</span> uses <span class="math inline">\(MS = SS/\textit{df}\)</span>)</p></li>
+<li><p>The sum of squared <em>standard</em> normal values will have a <span class="math inline">\chi^2</span> distribution</p></li>
+<li><p>The ratio of two independent <span class="math inline">\chi^2</span> variables, <em>each divided by its df</em>, will have an <span class="math inline">F</span> distribution (this is why <span class="math inline">F</span> uses <span class="math inline">MS = SS/\textit{df}</span>)</p></li>
 </ul>
-<p><span class="math display">\[x \sim F(\textit{df}_1, \textit{df}_2)\]</span></p>
+<p><span class="math display">x \sim F(\textit{df}_1, \textit{df}_2)</span></p>
 </div><div class="column">
 <div class="cell">
 <div class="cell-output-display">
@@ -395,14 +411,14 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <h2>The df1 parameter</h2>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="1152" class="r-stretch"><ul>
-<li>Higher <span class="math inline">\(\textit{df}_1\)</span> has thinner tails (i.e., lower critical values)</li>
+<li>Higher <span class="math inline">\textit{df}_1</span> has thinner tails (i.e., lower critical values)</li>
 </ul>
 </section>
 <section class="slide level2">
 <h2>The df2 parameter</h2>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152" class="r-stretch"><ul>
-<li>Higher <span class="math inline">\(\textit{df}_2\)</span> has thinner tails (i.e., lower critical values)</li>
+<li>Higher <span class="math inline">\textit{df}_2</span> has thinner tails (i.e., lower critical values)</li>
 </ul>
 </section></section>
 <section>
@@ -452,7 +468,7 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Anova Table (Type 1 tests)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><em>We used a one-way ANOVA to compare the mean body masses of Adelie, Chinstrap, and Gentoo penguins and rejected the null hypothesis that these three groups have the same mean, <span class="math inline">\(F(2,339)=343.63\)</span>, <span class="math inline">\(p&lt;.001\)</span>.</em></p>
+<p><em>We used a one-way ANOVA to compare the mean body masses of Adelie, Chinstrap, and Gentoo penguins and rejected the null hypothesis that these three groups have the same mean, <span class="math inline">F(2,339)=343.63</span>, <span class="math inline">p&lt;.001</span>.</em></p>
 </section>
 <section class="slide level2">
 <h2>Estimating group means</h2>
@@ -487,13 +503,13 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <section class="slide level2">
 <h2>An effect size for One-way ANOVA</h2>
 <ul>
-<li><p>We conclude that <span class="math inline">\(H_0\)</span> is wrong, but <em>how wrong</em> was it?</p></li>
+<li><p>We conclude that <span class="math inline">H_0</span> is wrong, but <em>how wrong</em> was it?</p></li>
 <li><p><strong>How much of the total variation was between groups?</strong></p></li>
 </ul>
-<p><span class="math display">\[\eta^2 = \frac{SS_b}{SS_{tot}}\]</span></p>
+<p><span class="math display">\eta^2 = \frac{SS_b}{SS_{tot}}</span></p>
 <ul>
-<li><p>If <span class="math inline">\(\eta^2=0\)</span>, then none of the variation was between groups</p></li>
-<li><p>If <span class="math inline">\(\eta^2=1\)</span>, then all of the variation was between groups</p></li>
+<li><p>If <span class="math inline">\eta^2=0</span>, then none of the variation was between groups</p></li>
+<li><p>If <span class="math inline">\eta^2=1</span>, then all of the variation was between groups</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -530,7 +546,7 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <section class="slide level2">
 <h2>Many ways to reject the null</h2>
 <ul>
-<li>Recall that our null hypothesis is that <span class="math inline">\(\mu_1=\mu_2=\mu_3\)</span></li>
+<li>Recall that our null hypothesis is that <span class="math inline">\mu_1=\mu_2=\mu_3</span></li>
 </ul>
 <div class="fs60">
 <table class="caption-top">
@@ -544,9 +560,9 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <thead>
 <tr class="header">
 <th>Possibility</th>
-<th><span class="math inline">\(\mu_1=\mu_2\)</span></th>
-<th><span class="math inline">\(\mu_1=\mu_3\)</span></th>
-<th><span class="math inline">\(\mu_2=\mu_3\)</span></th>
+<th><span class="math inline">\mu_1=\mu_2</span></th>
+<th><span class="math inline">\mu_1=\mu_3</span></th>
+<th><span class="math inline">\mu_2=\mu_3</span></th>
 <th>Hypothesis</th>
 </tr>
 </thead>
@@ -590,25 +606,25 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 </table>
 </div>
 <div class="footer">
-<p>Because equality is transitive, no other combinations are possible (e.g., if <span class="math inline">\(\mu_1=\mu_3\)</span> and <span class="math inline">\(\mu_2=\mu_3\)</span>, then <span class="math inline">\(\mu_1=\mu_2\)</span>)</p>
+<p>Equality is transitive, so no other combinations are possible: if <span class="math inline">\mu_1=\mu_3</span> and <span class="math inline">\mu_2=\mu_3</span>, then <span class="math inline">\mu_1=\mu_2</span></p>
 </div>
 <ul>
 <li>Thus, if we reject the null, we don’t know exactly why…</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Pairwise <span class="math inline">\(t\)</span>-tests</h2>
+<h2>Pairwise <span class="math inline">t</span>-tests</h2>
 <ul>
-<li>To figure it out, we can run a <span class="math inline">\(t\)</span>-test for each pair of groups
+<li>To figure it out, we can run a <span class="math inline">t</span>-test for each pair of groups
 <ul>
 <li>These are called “post hoc” (Latin for “after that”) tests</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[\mu_1=\mu_2 \qquad \mu_1=\mu_3 \qquad \mu_2=\mu_3\]</span></p>
+<p><span class="math display">\mu_1=\mu_2 \qquad \mu_1=\mu_3 \qquad \mu_2=\mu_3</span></p>
 <ul>
 <li>There are two main challenges with this approach
 <ul>
-<li>It will be a hassle to run all these tests as <span class="math inline">\(g\)</span> increases</li>
+<li>It will be a hassle to run all these tests as <span class="math inline">g</span> increases</li>
 <li>Running many tests will increase the Type I Error rate</li>
 </ul></li>
 </ul>
@@ -623,9 +639,9 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <li>For the second challenge, we will use two approaches
 <ul>
 <li><strong>Gating:</strong> only run post-hoc tests if ANOVA is significant</li>
-<li><span class="math inline">\(p\)</span>-value adjustment: increase <span class="math inline">\(p\)</span> based on # of tests run</li>
+<li><span class="math inline">p</span>-value adjustment: increase <span class="math inline">p</span> based on # of tests run</li>
 </ul></li>
-<li>We want to keep the overall (“familywise”) error rate at <span class="math inline">\(\alpha\)</span>
+<li>We want to keep the overall (“familywise”) error rate at <span class="math inline">\alpha</span>
 <ul>
 <li>We will learn two common adjustment approaches</li>
 </ul></li>
@@ -637,16 +653,16 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <section class="slide level2">
 <h2>Bonferroni correction</h2>
 <ul>
-<li>Multiply each <span class="math inline">\(p\)</span> by the number of tests run (<span class="math inline">\(m\)</span>)</li>
+<li>Multiply each <span class="math inline">p</span> by the number of tests run (<span class="math inline">m</span>)</li>
 </ul>
-<p><span class="math display">\[p' = p \times m\]</span></p>
+<p><span class="math display">p' = p \times m</span></p>
 <div class="fs70">
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>raw <span class="math inline">\(p\)</span></th>
-<th><span class="math inline">\(m\)</span></th>
-<th>Bonferroni <span class="math inline">\(p'\)</span></th>
+<th>raw <span class="math inline">p</span></th>
+<th><span class="math inline">m</span></th>
+<th>Bonferroni <span class="math inline">p'</span></th>
 </tr>
 </thead>
 <tbody>
@@ -685,17 +701,17 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <section class="slide level2">
 <h2>Holm correction</h2>
 <ul>
-<li><p>Pretend you do the tests from smallest to largest <span class="math inline">\(p\)</span>-value</p></li>
-<li><p>Take the larger of <span class="math inline">\((p'_j=j\times p_j)\)</span> and <span class="math inline">\((p'_{j+1})\)</span></p></li>
+<li><p>Pretend you do the tests from smallest to largest <span class="math inline">p</span>-value</p></li>
+<li><p>Take the larger of <span class="math inline">(p'_j=j\times p_j)</span> and <span class="math inline">(p'_{j+1})</span></p></li>
 </ul>
 <div class="fs70">
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>raw <span class="math inline">\(p\)</span></th>
-<th>rank <span class="math inline">\(j\)</span></th>
-<th><span class="math inline">\(p\times j\)</span></th>
-<th>Holm <span class="math inline">\(p'\)</span></th>
+<th>raw <span class="math inline">p</span></th>
+<th>rank <span class="math inline">j</span></th>
+<th><span class="math inline">p\times j</span></th>
+<th>Holm <span class="math inline">p'</span></th>
 </tr>
 </thead>
 <tbody>
@@ -806,7 +822,6 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -974,27 +989,9 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1092,6 +1089,140 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1241,7 +1372,7 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

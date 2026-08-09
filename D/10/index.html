@@ -260,8 +260,8 @@ ul.task-list li input[type="checkbox"] {
 <li>No Collinearity</li>
 </ul>
 </div>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<section id="readings" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings">Readings</h3>
 <ul>
 <li><em>Applied Multiple Regression/Correlation Analysis</em>, §4.1, 4.3–4.5, 10.5–10.6</li>
 <li><a href="https://janhove.github.io/analysis/2019/09/11/collinearity">Collinearity Isn’t a Disease That Needs Curing</a> — <em>Jan Vanhove</em></li>
@@ -275,8 +275,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment" class="level3">
-<h3 class="anchored" data-anchor-id="assignment">Assignment</h3>
+<section id="assignment" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
 <ul>
 <li><a href="../../D/10/a_assignment.html">Lecture 10a Assignment</a></li>
 </ul>
@@ -294,15 +294,15 @@ ul.task-list li input[type="checkbox"] {
 <li>Outliers</li>
 </ul>
 </div>
-<section id="files" class="level3">
-<h3 class="anchored" data-anchor-id="files">Files</h3>
+<section id="files" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files">Files</h3>
 <ul>
 <li><a href="../../data/auto.csv" download="auto.csv">auto.csv</a></li>
 <li><a href="../../data/yearspubs.csv" download="yearspubs.csv">yearspubs.csv</a></li>
 </ul>
 </section>
-<section id="readings-1" class="level3">
-<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
+<section id="readings-1" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
 <li><em>Applied Multiple Regression/Correlation Analysis</em>, §4.1, 4.3–4.5, 10.2–10.4</li>
 <li>Pek, Wong, &amp; Wong (2018), <a href="https://doi.org/10/gf9r69">How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated</a> — <em>Frontiers in Psychology</em></li>
@@ -317,8 +317,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
+<section id="assignment-1" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment-1">Assignment</h3>
 <ul>
 <li><a href="../../D/10/b_assignment.html">Lecture 10b Assignment</a></li>
 </ul>
@@ -414,7 +414,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

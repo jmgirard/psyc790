@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -232,7 +248,7 @@
 <ul>
 <li><strong>Power</strong> is the probability of correctly rejecting the null hypothesis (given that it is false)
 <ul>
-<li>Power is closely related to<br>the effect size, <span class="math inline">\(n\)</span>, and <span class="math inline">\(\alpha\)</span></li>
+<li>Power is closely related to<br>the effect size, <span class="math inline">n</span>, and <span class="math inline">\alpha</span></li>
 <li>These quantities are so related that we can estimate any one from the other three</li>
 <li><strong>Power analysis</strong> is doing these kind of calculations</li>
 </ul></li>
@@ -255,21 +271,21 @@
 <section class="slide level2 fs90">
 <h2>Types of power analysis</h2>
 <ul>
-<li><span class="b red">A priori</span>: determine <span class="math inline">\(n\)</span> given others
+<li><span class="b red">A priori</span>: determine <span class="math inline">n</span> given others
 <ul>
 <li>Useful for planning before a new data collection (primary use)</li>
 </ul></li>
-<li><span class="b blue">Sensitivity</span>: determine minimum <span class="math inline">\(\text{ES}\)</span> given others
+<li><span class="b blue">Sensitivity</span>: determine minimum <span class="math inline">\text{ES}</span> given others
 <ul>
 <li>Useful when you are unsure of the effect size to expect</li>
 </ul></li>
-<li><span class="b gray">Post-hoc</span>: determine power <span class="math inline">\((1-\beta)\)</span> given others
+<li><span class="b gray">Post-hoc</span>: determine power <span class="math inline">(1-\beta)</span> given others
 <ul>
-<li>Not very useful in practice (since your <span class="math inline">\(\text{ES}\)</span> is based on the data)</li>
+<li>Not very useful in practice (since your <span class="math inline">\text{ES}</span> is based on the data)</li>
 </ul></li>
-<li><span class="b gray">Criterion</span>: determine <span class="math inline">\(\alpha\)</span> given others
+<li><span class="b gray">Criterion</span>: determine <span class="math inline">\alpha</span> given others
 <ul>
-<li>Not very useful in practice (since <span class="math inline">\(\alpha\)</span> is usually fixed anyway)</li>
+<li>Not very useful in practice (since <span class="math inline">\alpha</span> is usually fixed anyway)</li>
 </ul></li>
 </ul>
 </section>
@@ -295,14 +311,14 @@
 <section class="slide level2 fs90">
 <h2><em>t</em>-test power</h2>
 <ul>
-<li>A <span class="math inline">\(t\)</span>-test compares the means of two groups (independent or paired)</li>
+<li>A <span class="math inline">t</span>-test compares the means of two groups (independent or paired)</li>
 <li>To do a priori power analysis, we need an expected effect size</li>
-<li>The effect size that WebPower wants you to provide is Cohen’s <span class="math inline">\(d\)</span></li>
+<li>The effect size that WebPower wants you to provide is Cohen’s <span class="math inline">d</span></li>
 </ul>
-<p><span class="math display">\[d=\frac{\bar{x}_2 - \bar{x}_1}{s}\]</span></p>
+<p><span class="math display">d=\frac{\bar{x}_2 - \bar{x}_1}{s}</span></p>
 <ul>
-<li><strong>Best Approach:</strong> estimate <span class="math inline">\(d\)</span> from previous studies</li>
-<li><strong>Last Resort:</strong> plan to detect a “small” effect <span class="math inline">\((d=0.2)\)</span></li>
+<li><strong>Best Approach:</strong> estimate <span class="math inline">d</span> from previous studies</li>
+<li><strong>Last Resort:</strong> plan to detect a “small” effect <span class="math inline">(d=0.2)</span></li>
 </ul>
 </section>
 <section class="slide level2 fs90">
@@ -368,19 +384,19 @@
 </div>
 <p>We need <em>fewer</em> participants when each provides repeated measures</p>
 <div class="footer">
-<p>Careful: the paired <span class="math inline">\(d\)</span> is defined on the <em>difference scores</em>, so it is not interchangeable with the two-sample <span class="math inline">\(d\)</span></p>
+<p>Careful: the paired <span class="math inline">d</span> is defined on the <em>difference scores</em>, so it is not interchangeable with the two-sample <span class="math inline">d</span></p>
 </div>
 </section>
 <section class="slide level2 fs90">
 <h2>One-way ANOVA power</h2>
 <ul>
 <li>One-way ANOVA compares the means of multiple groups</li>
-<li>WebPower wants the <span class="math inline">\(f\)</span> effect size and <span class="math inline">\(k\)</span> (the number of groups)</li>
+<li>WebPower wants the <span class="math inline">f</span> effect size and <span class="math inline">k</span> (the number of groups)</li>
 </ul>
-<p><span class="math display">\[f=\frac{\sigma_b}{\sigma_w}\]</span></p>
+<p><span class="math display">f=\frac{\sigma_b}{\sigma_w}</span></p>
 <ul>
-<li><strong>Best Approach:</strong> estimate <span class="math inline">\(f\)</span> from previous studies</li>
-<li><strong>Last Resort:</strong> plan to detect a “small” effect <span class="math inline">\((f=0.10)\)</span></li>
+<li><strong>Best Approach:</strong> estimate <span class="math inline">f</span> from previous studies</li>
+<li><strong>Last Resort:</strong> plan to detect a “small” effect <span class="math inline">(f=0.10)</span></li>
 </ul>
 <div class="footer">
 <p>Check out <code>wp.rmanova()</code> for repeated measured ANOVA power analysis</p>
@@ -431,14 +447,14 @@
 <ul>
 <li>We technically have two types of power for LM
 <ul>
-<li>Both will compare the <span class="math inline">\(R^2\)</span> values of “full” and “reduced” models</li>
+<li>Both will compare the <span class="math inline">R^2</span> values of “full” and “reduced” models</li>
 </ul></li>
-<li><strong>Omnibus power</strong> (of the overall model’s <span class="math inline">\(F\)</span> test)
+<li><strong>Omnibus power</strong> (of the overall model’s <span class="math inline">F</span> test)
 <ul>
 <li>Full model: Includes all predictors</li>
 <li>Reduced model: Excludes all predictors</li>
 </ul></li>
-<li><strong>Targeted power</strong> (of specific slopes’ <span class="math inline">\(t\)</span> tests)
+<li><strong>Targeted power</strong> (of specific slopes’ <span class="math inline">t</span> tests)
 <ul>
 <li>Full model: Includes all predictors</li>
 <li>Reduced model: Excludes the targeted predictor(s)</li>
@@ -448,15 +464,15 @@
 <section class="slide level2 fs90">
 <h2>Linear model power</h2>
 <ul>
-<li>We will use the <span class="math inline">\(R^2\)</span> values to calculate the <span class="math inline">\(f^2\)</span> effect size</li>
+<li>We will use the <span class="math inline">R^2</span> values to calculate the <span class="math inline">f^2</span> effect size</li>
 </ul>
-<p><span class="math display">\[f^2=\frac{R_{\text{full}}^2 - R_{\text{reduced}}^2}{1-R_{\text{full}}^2}\]</span></p>
+<p><span class="math display">f^2=\frac{R_{\text{full}}^2 - R_{\text{reduced}}^2}{1-R_{\text{full}}^2}</span></p>
 <ul>
-<li><p><strong>Last Resort:</strong> plan to detect a “small” effect <span class="math inline">\((f^2=.02)\)</span></p></li>
+<li><p><strong>Last Resort:</strong> plan to detect a “small” effect <span class="math inline">(f^2=.02)</span></p></li>
 <li><p>WebPower also needs the number of predictors in each model</p>
 <ul>
-<li><span class="math inline">\(p_1\)</span> is the number of predictors in the full model</li>
-<li><span class="math inline">\(p_2\)</span> is the number of predictors in the reduced model</li>
+<li><span class="math inline">p_1</span> is the number of predictors in the full model</li>
+<li><span class="math inline">p_2</span> is the number of predictors in the reduced model</li>
 </ul></li>
 </ul>
 </section>
@@ -464,10 +480,10 @@
 <h2>Omnibus example 1</h2>
 <p>What sample size would provide 80% power to explain 10% of the variance in the outcome variable using 5 predictor variables?</p>
 <ul>
-<li>First, let’s calculate <span class="math inline">\(f^2\)</span> from the specified information
+<li>First, let’s calculate <span class="math inline">f^2</span> from the specified information
 <ul>
-<li>Full model has all predictors, so <span class="math inline">\(p_1=5\)</span> and <span class="math inline">\(R^2_{\text{full}}=0.10\)</span></li>
-<li>Reduced model has no predictors, so <span class="math inline">\(p_2=0\)</span> and <span class="math inline">\(R^2_{\text{red}}=0.0\)</span></li>
+<li>Full model has all predictors, so <span class="math inline">p_1=5</span> and <span class="math inline">R^2_{\text{full}}=0.10</span></li>
+<li>Reduced model has no predictors, so <span class="math inline">p_2=0</span> and <span class="math inline">R^2_{\text{red}}=0.0</span></li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -502,10 +518,10 @@
 <h2>Omnibus example 2</h2>
 <p>Now, what sample size would provide 80% power to explain 10% of the variance in the outcome variable using 7 predictor variables?</p>
 <ul>
-<li>First, let’s calculate <span class="math inline">\(f^2\)</span> from the specified information
+<li>First, let’s calculate <span class="math inline">f^2</span> from the specified information
 <ul>
-<li>Full model has all predictors, so <span class="math inline">\(p_1=7\)</span> and <span class="math inline">\(R^2_{\text{full}}=0.10\)</span></li>
-<li>Reduced model has no predictors, so <span class="math inline">\(p_2=0\)</span> and <span class="math inline">\(R^2_{\text{red}}=0.0\)</span></li>
+<li>Full model has all predictors, so <span class="math inline">p_1=7</span> and <span class="math inline">R^2_{\text{full}}=0.10</span></li>
+<li>Reduced model has no predictors, so <span class="math inline">p_2=0</span> and <span class="math inline">R^2_{\text{red}}=0.0</span></li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -534,14 +550,14 @@
 <span id="cb9-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb9-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## URL: http://psychstat.org/regression</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We need a larger sample with more predictors (but the same <span class="math inline">\(f^2\)</span>)</p>
+<p>We need a larger sample with more predictors (but the same <span class="math inline">f^2</span>)</p>
 </section>
 <section class="slide level2 fs90">
 <h2>Targeted example 1</h2>
 <p>If sex and age explain 20% of the variance in our outcome variable, what sample size would provide 80% power to detect the effect of a third predictor that explains an additional 5%?</p>
 <ul>
-<li>Full model has three predictors, so <span class="math inline">\(p_1=3\)</span> and <span class="math inline">\(R^2_{\text{full}}=0.25\)</span></li>
-<li>Reduced model has two predictors, so <span class="math inline">\(p_2=2\)</span> and <span class="math inline">\(R^2_{\text{red}}=0.20\)</span></li>
+<li>Full model has three predictors, so <span class="math inline">p_1=3</span> and <span class="math inline">R^2_{\text{full}}=0.25</span></li>
+<li>Reduced model has two predictors, so <span class="math inline">p_2=2</span> and <span class="math inline">R^2_{\text{red}}=0.20</span></li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>r2_full <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
@@ -575,8 +591,8 @@
 <h2>Targeted example 2</h2>
 <p>In the same example as the last one, what would change if sex and age had explained 40% of the variance instead of only 20%?</p>
 <ul>
-<li>Full model has three predictors, so <span class="math inline">\(p_1=3\)</span> and <span class="math inline">\(R^2_{\text{full}}=0.45\)</span></li>
-<li>Reduced model has two predictors, so <span class="math inline">\(p_2=2\)</span> and <span class="math inline">\(R^2_{\text{red}}=0.40\)</span></li>
+<li>Full model has three predictors, so <span class="math inline">p_1=3</span> and <span class="math inline">R^2_{\text{full}}=0.45</span></li>
+<li>Reduced model has two predictors, so <span class="math inline">p_2=2</span> and <span class="math inline">R^2_{\text{red}}=0.40</span></li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>r2_full <span class="ot">&lt;-</span> <span class="fl">0.45</span></span>
@@ -628,7 +644,6 @@
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -796,27 +811,9 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -914,6 +911,140 @@
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1063,7 +1194,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

@@ -261,8 +261,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Packages</li>
 </ul>
 </div>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<section id="readings" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings">Readings</h3>
 <ul>
 <li><a href="https://r4ds.hadley.nz/strings">Strings</a> — <em>R for Data Science</em></li>
 <li><a href="https://r4ds.hadley.nz/factors">Factors</a> — <em>R for Data Science</em></li>
@@ -277,14 +277,14 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="practice" class="level3">
-<h3 class="anchored" data-anchor-id="practice">Practice</h3>
+<section id="practice" class="level3 res-practice">
+<h3 class="res-practice anchored" data-anchor-id="practice">Practice</h3>
 <ul>
 <li><a href="../../A/03/a_practice.html">Lecture 03a Practice</a></li>
 </ul>
 </section>
-<section id="assignment" class="level3">
-<h3 class="anchored" data-anchor-id="assignment">Assignment</h3>
+<section id="assignment" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
 <ul>
 <li><a href="../../A/03/a_assignment.html">Lecture 03a Assignment</a></li>
 </ul>
@@ -301,16 +301,16 @@ ul.task-list li input[type="checkbox"] {
 <li>Data Exploration</li>
 </ul>
 </div>
-<section id="files" class="level3">
-<h3 class="anchored" data-anchor-id="files">Files</h3>
+<section id="files" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files">Files</h3>
 <ul>
 <li><a href="../../data/penguins.csv" download="penguins.csv">penguins.csv</a></li>
 <li><a href="../../data/penguins0.csv" download="penguins0.csv">penguins0.csv</a></li>
 <li><a href="../../data/gradebook.csv" download="gradebook.csv">gradebook.csv</a></li>
 </ul>
 </section>
-<section id="readings-1" class="level3">
-<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
+<section id="readings-1" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
 <li><a href="https://tidyr.tidyverse.org/articles/tidy-data.html">Tidy Data</a> — <em>tidyr</em></li>
 <li><a href="https://r4ds.hadley.nz/data-import">Data Import</a> — <em>R for Data Science</em></li>
@@ -327,14 +327,14 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="practice-1" class="level3">
-<h3 class="anchored" data-anchor-id="practice-1">Practice</h3>
+<section id="practice-1" class="level3 res-practice">
+<h3 class="res-practice anchored" data-anchor-id="practice-1">Practice</h3>
 <ul>
 <li><a href="../../A/03/b_practice.html">Lecture 03b Practice</a></li>
 </ul>
 </section>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
+<section id="assignment-1" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment-1">Assignment</h3>
 <ul>
 <li><a href="../../A/03/b_assignment.html">Lecture 03b Assignment</a></li>
 </ul>
@@ -422,7 +422,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

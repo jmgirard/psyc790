@@ -6,8 +6,7 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c22d5dff81f50d6ca627b6188dc743b9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/quarto-contrib/lordicon-bundle-1.9.0/bundle.js"></script><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c22d5dff81f50d6ca627b6188dc743b9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeffrey Girard">
@@ -102,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -228,9 +243,6 @@
 </section>
 <section class="slide level2 fs70">
 <h2>Point and Interval Estimates</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/target.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <p>In statistical inference, we will often want <strong>two</strong> types of estimates…</p>
 <div class="columns">
 <div class="column">
@@ -255,9 +267,6 @@
 </section>
 <section class="slide level2">
 <h2>Reasonable values</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/morale.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <ul>
 <li><p>Our uncertainty comes from the fact that sampling error causes different samples to yield different estimates</p></li>
 <li><p>The sampling distribution shows what statistic values would be more or less common across many such samples</p></li>
@@ -270,9 +279,6 @@
 </section>
 <section class="slide level2">
 <h2>Sampling distribution</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/equalizer.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <ul>
 <li>But we don’t have access to the sampling distribution!
 <ul>
@@ -299,19 +305,16 @@
 </section>
 <section class="slide level2 fs70">
 <h2>The normal distribution</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/bell.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <div class="columns">
 <div class="column">
 <p>The Normal Distribution is also called the <em>Bell Curve</em> and the <em>Gaussian</em> distribution</p>
-<p>We say that <span class="math inline">\(x\)</span> is normally distributed with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span> as</p>
-<p><span class="math display">\[x \sim \text{Normal}(\mu, \sigma)\\x \sim \mathcal{N}(\mu,\sigma)\]</span></p>
+<p>We say that <span class="math inline">x</span> is normally distributed with mean <span class="math inline">\mu</span> and standard deviation <span class="math inline">\sigma</span> as</p>
+<p><span class="math display">x \sim \text{Normal}(\mu, \sigma)\\x \sim \mathcal{N}(\mu,\sigma)</span></p>
 <ul>
-<li><span class="math inline">\(\mu\)</span> (mu) determines the mean</li>
-<li><span class="math inline">\(\sigma\)</span> (sigma) determines the SD</li>
+<li><span class="math inline">\mu</span> (mu) determines the mean</li>
+<li><span class="math inline">\sigma</span> (sigma) determines the SD</li>
 </ul>
-<p>The <span class="math inline">\(\mathcal{N}(0,1)\)</span> distribution is called <br>the “Standard Normal Distribution”</p>
+<p>The <span class="math inline">\mathcal{N}(0,1)</span> distribution is called <br>the “Standard Normal Distribution”</p>
 </div><div class="column">
 <div class="cell">
 <div class="cell-output-display">
@@ -329,10 +332,7 @@
 </section>
 <section class="slide level2">
 <h2>The mu parameter</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/location_pin.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
-<p>Changing <span class="math inline">\(\mu\)</span> shifts the distribution left (<span class="math inline">\(-\)</span>) or right (<span class="math inline">\(+\)</span>)</p>
+<p>Changing <span class="math inline">\mu</span> shifts the distribution left (<span class="math inline">-</span>) or right (<span class="math inline">+</span>)</p>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="1152" class="r-stretch"><div class="footer">
 
@@ -340,10 +340,7 @@
 </section>
 <section class="slide level2">
 <h2>The sigma parameter</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/mountains.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
-<p>Changing <span class="math inline">\(\sigma\)</span> expands (<span class="math inline">\(+\)</span>) or contracts (<span class="math inline">\(-\)</span>) the distribution</p>
+<p>Changing <span class="math inline">\sigma</span> expands (<span class="math inline">+</span>) or contracts (<span class="math inline">-</span>) the distribution</p>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="1152" class="r-stretch"><div class="footer">
 
@@ -351,9 +348,6 @@
 </section>
 <section class="slide level2">
 <h2>The empirical rule</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/beach.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="1152" class="r-stretch"><p>~68.3% of the Normal distribution falls within 1 SD of the mean<br> ~95.4% of the Normal distribution falls within 2 SD of the mean<br> ~99.7% of the Normal distribution falls within 3 SD of the mean</p>
 <div class="footer">
@@ -362,9 +356,6 @@
 </section>
 <section class="slide level2">
 <h2>Quantiles in R</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/caliper.json" colors="primary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <p>How many SDs contain a given percentage?</p>
 <ul>
 <li><p>We want the <em>middle</em> 95%, so we cut the 5% in half</p></li>
@@ -386,9 +377,6 @@
 </section>
 <section class="slide level2 fs70">
 <h2>Putting it all together</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/bricks.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <ol type="1">
 <li><p>Our interval estimate should be the densest part of the sampling distribution</p></li>
 <li><p>95% of the density of a normal distribution is within ~1.96 SD of the mean</p></li>
@@ -396,7 +384,7 @@
 <li><p>So, if we assume the sampling distribution is normally distributed, then…</p></li>
 <li><p>Our interval estimate is the sample statistic plus/minus 1.96 * SE</p></li>
 </ol>
-<p><span class="math display">\[\text{CI}_{95} = \bar{x} \pm (1.96 \times s_{\bar{x}})\]</span></p>
+<p><span class="math display">\text{CI}_{95} = \bar{x} \pm (1.96 \times s_{\bar{x}})</span></p>
 <p>This is called the <span class="b blue">95% Confidence Interval (CI)</span> and we’ll talk about it more soon</p>
 <p>But this parametric approach all hinges on the assumption of normality (#4)…</p>
 <div class="footer">
@@ -410,10 +398,7 @@
 </section>
 <section class="slide level2">
 <h2>Non-normally distributed data</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/magic_ball.json" colors="primary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
-<p>What happens to the sampling distribution of <span class="math inline">\(\bar{x}\)</span> <br>when <span class="math inline">\(x\)</span> itself is not normally distributed?</p>
+<p>What happens to the sampling distribution of <span class="math inline">\bar{x}</span> <br>when <span class="math inline">x</span> itself is not normally distributed?</p>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152" class="r-stretch"><div class="footer">
 
@@ -421,10 +406,7 @@
 </section>
 <section class="slide level2">
 <h2>Central limit theorem</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/magic_ball.json" colors="primary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
-<p>The sampling distribution of <span class="math inline">\(\bar{x}\)</span> will become more normal <br>as <span class="math inline">\(n\)</span> increases (even if <span class="math inline">\(x\)</span> itself is not normally distributed)</p>
+<p>The sampling distribution of <span class="math inline">\bar{x}</span> will become more normal <br>as <span class="math inline">n</span> increases (even if <span class="math inline">x</span> itself is not normally distributed)</p>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="1152" class="r-stretch"><div class="footer">
 
@@ -432,9 +414,6 @@
 </section>
 <section class="slide level2">
 <h2>Normal approximations</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/magic_ball.json" colors="primary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <ul>
 <li>The CLT <strong>applies to means, sums, and statistics built from them</strong>
 <ul>
@@ -448,7 +427,7 @@
 <ul>
 <li>Thus, we often assume a normal sampling distribution…
 <ul>
-<li>This becomes more reasonable as <span class="math inline">\(n\)</span> increases</li>
+<li>This becomes more reasonable as <span class="math inline">n</span> increases</li>
 </ul></li>
 </ul>
 </div>
@@ -463,17 +442,14 @@
 </section>
 <section class="slide level2">
 <h2>Calculations</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/calculator.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <ul>
 <li>To estimate the 95% Confidence Interval of the mean</li>
 </ul>
-<p><span class="math display">\[\text{CI}_{95}= \bar{x}\pm\left(1.96\times\frac{\sigma}{\sqrt{n}}\right)\]</span></p>
+<p><span class="math display">\text{CI}_{95}= \bar{x}\pm\left(1.96\times\frac{\sigma}{\sqrt{n}}\right)</span></p>
 <div class="fragment">
 <ul>
-<li><p>However, this requires that we know <span class="math inline">\(\sigma\)</span>, the population SD</p></li>
-<li><p>Usually we estimate <span class="math inline">\(\sigma\)</span> using <span class="math inline">\(s\)</span>, the sample SD</p></li>
+<li><p>However, this requires that we know <span class="math inline">\sigma</span>, the population SD</p></li>
+<li><p>Usually we estimate <span class="math inline">\sigma</span> using <span class="math inline">s</span>, the sample SD</p></li>
 <li><p>This estimation introduces a bit more uncertainty…</p></li>
 </ul>
 </div>
@@ -483,24 +459,21 @@
 </section>
 <section class="slide level2">
 <h2>A complication</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/beer.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <ul>
 <li>To account for this extra uncertainty, we need to…
 <ul>
 <li>Stop using the Normal distribution and <code>qnorm()</code></li>
-<li>Instead use the Student <span class="math inline">\(t\)</span> distribution and <code>qt()</code></li>
+<li>Instead use the Student <span class="math inline">t</span> distribution and <code>qt()</code></li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>The <span class="math inline">\(t\)</span> distribution has more uncertainty when <span class="math inline">\(n\)</span> is small
+<li>The <span class="math inline">t</span> distribution has more uncertainty when <span class="math inline">n</span> is small
 <ul>
-<li>It becomes increasingly normal as <span class="math inline">\(n\)</span> increases</li>
-<li>The <span class="math inline">\(t\)</span> distribution has the same <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> parameters</li>
-<li>But it also has “degrees of freedom” <span class="math inline">\((\textit{df}=n-1)\)</span></li>
-<li>As <span class="math inline">\(n\)</span> increases, <em>df</em> increases, and <span class="math inline">\(t\)</span> becomes more normal</li>
+<li>It becomes increasingly normal as <span class="math inline">n</span> increases</li>
+<li>The <span class="math inline">t</span> distribution has the same <span class="math inline">\mu</span> and <span class="math inline">\sigma</span> parameters</li>
+<li>But it also has “degrees of freedom” <span class="math inline">(\textit{df}=n-1)</span></li>
+<li>As <span class="math inline">n</span> increases, <em>df</em> increases, and <span class="math inline">t</span> becomes more normal</li>
 </ul></li>
 </ul>
 </div>
@@ -510,22 +483,16 @@
 </section>
 <section class="slide level2">
 <h2>The <em>df</em> parameter</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/beer.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
-<p>As <em>df</em> increases, <span class="math inline">\(t(\textit{df},\mu,\sigma)\)</span> becomes increasingly normal</p>
+<p>As <em>df</em> increases, <span class="math inline">t(\textit{df},\mu,\sigma)</span> becomes increasingly normal</p>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-9-1.png" width="1152" class="r-stretch"><div class="footer">
-<p>Sometimes you’ll also see <em>df</em> referred to as <span class="math inline">\(\nu\)</span></p>
+<p>Sometimes you’ll also see <em>df</em> referred to as <span class="math inline">\nu</span></p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Comparing multipliers</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/scales.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
-<p>When <span class="math inline">\(n\)</span> is small, the <span class="math inline">\(t\)</span> multiplier is higher (more uncertainty)</p>
-<p>As <span class="math inline">\(n\)</span> increases, the multipliers become increasingly similar</p>
+<p>When <span class="math inline">n</span> is small, the <span class="math inline">t</span> multiplier is higher (more uncertainty)</p>
+<p>As <span class="math inline">n</span> increases, the multipliers become increasingly similar</p>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="1152" class="r-stretch"><div class="footer">
 
@@ -533,13 +500,10 @@
 </section>
 <section class="slide level2">
 <h2>A correction to our formula</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/edit_doc.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <div class="columns">
 <div class="column">
 <h4>Population SD is known</h4>
-<p><span class="math display">\[\text{CI}_{\%}=\bar{x}\pm z \left(\frac{\sigma}{\sqrt{n}}\right)\]</span></p>
+<p><span class="math display">\text{CI}_{\%}=\bar{x}\pm z \left(\frac{\sigma}{\sqrt{n}}\right)</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># n = 20</span></span>
 <span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>(z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>))</span>
@@ -551,7 +515,7 @@
 </div>
 </div><div class="column">
 <h4>Population SD is estimated</h4>
-<p><span class="math display">\[\text{CI}_{\%}=\bar{x}\pm t \left(\frac{s}{\sqrt{n}}\right)\]</span></p>
+<p><span class="math display">\text{CI}_{\%}=\bar{x}\pm t \left(\frac{s}{\sqrt{n}}\right)</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># n = 20</span></span>
 <span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>(t <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">20</span> <span class="sc">-</span> <span class="dv">1</span>))</span>
@@ -568,9 +532,6 @@
 </section>
 <section class="slide level2">
 <h2>An example in R</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/review.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>tratings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/teaching_ratings.csv"</span>)</span>
 <span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tratings<span class="sc">$</span>eval)</span>
@@ -616,9 +577,6 @@
 </section>
 <section class="slide level2 fs70">
 <h2>Reporting a CI</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/candle.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <div class="columns">
 <div class="column">
 <ul>
@@ -626,7 +584,7 @@
 <li><p>Reporting in text often uses this format:</p>
 <ul>
 <li>Statistic = Point Estimate, X% CI: [Lower Bound, Upper Bound]</li>
-<li>e.g., <span class="math inline">\(\bar{x}=3.91\)</span>, 95% CI: <span class="math inline">\([3.81, 4.00]\)</span></li>
+<li>e.g., <span class="math inline">\bar{x}=3.91</span>, 95% CI: <span class="math inline">[3.81, 4.00]</span></li>
 </ul></li>
 <li><p>You can also put point and interval estimates in a table or a figure (though be sure to specify that they are X% CIs)</p></li>
 </ul>
@@ -669,9 +627,6 @@
 </section>
 <section class="slide level2">
 <h2>Comparing CIs</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/scales.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <ul>
 <li>A <em>higher</em> confidence level will result in a <em>wider</em> interval
 <ul>
@@ -712,9 +667,6 @@
 </section>
 <section class="slide level2">
 <h2>Interpreting CIs</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/newspaper.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <p>It is common to misinterpret what confidence intervals mean</p>
 <div title="Incorrect Interpretation">
 <div class="callout callout-important callout-titled callout-style-default">
@@ -738,9 +690,6 @@
 </section>
 <section class="slide level2">
 <h2>Interpreting CIs</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/newspaper.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <p>The correct frequentist interpretation is quite a mouthful</p>
 <div title="Correct Interpretation">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -780,9 +729,6 @@
 </section>
 <section class="slide level2">
 <h2>Another example</h2>
-<div class="absolute" style="top: -33px; right: 0px; width: 100px; height: 100px; ">
-<p><lord-icon src="../../icons/sleeping.json" colors="secondary:#2a76dd" trigger="hover" class="tr"></lord-icon></p>
-</div>
 <p>Let’s estimate the mean sleep satisfaction of all grad students</p>
 <p>We have a sample of 16 grad students that we can use</p>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
@@ -822,7 +768,6 @@
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -990,27 +935,9 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1108,6 +1035,140 @@
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1257,7 +1318,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

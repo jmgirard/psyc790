@@ -260,8 +260,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Markdown</li>
 </ul>
 </div>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<section id="readings" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings">Readings</h3>
 <ul>
 <li><a href="https://r4ds.hadley.nz/workflow-scripts#projects">Workflow: Projects</a> — <em>R for Data Science</em></li>
 <li><a href="https://r4ds.hadley.nz/quarto">Quarto</a> — <em>R for Data Science</em></li>
@@ -277,14 +277,14 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="practice" class="level3">
-<h3 class="anchored" data-anchor-id="practice">Practice</h3>
+<section id="practice" class="level3 res-practice">
+<h3 class="res-practice anchored" data-anchor-id="practice">Practice</h3>
 <ul>
 <li><a href="../../A/02/a_practice.html">Lecture 02a Practice</a></li>
 </ul>
 </section>
-<section id="assignment" class="level3">
-<h3 class="anchored" data-anchor-id="assignment">Assignment</h3>
+<section id="assignment" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
 <ul>
 <li><a href="../../A/02/a_assignment.html">Lecture 02a Assignment</a></li>
 </ul>
@@ -302,8 +302,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Vectors</li>
 </ul>
 </div>
-<section id="readings-1" class="level3">
-<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
+<section id="readings-1" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
 <li><a href="https://r4ds.hadley.nz/workflow-basics">Workflow: Basics</a> — <em>R for Data Science</em></li>
 <li><a href="https://r4ds.hadley.nz/functions">Functions</a> — <em>R for Data Science</em></li>
@@ -318,14 +318,14 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="practice-1" class="level3">
-<h3 class="anchored" data-anchor-id="practice-1">Practice</h3>
+<section id="practice-1" class="level3 res-practice">
+<h3 class="res-practice anchored" data-anchor-id="practice-1">Practice</h3>
 <ul>
 <li><a href="../../A/02/b_practice.html">Lecture 02b Practice</a></li>
 </ul>
 </section>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
+<section id="assignment-1" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment-1">Assignment</h3>
 <ul>
 <li><a href="../../A/02/b_assignment.html">Lecture 02b Assignment</a></li>
 </ul>
@@ -413,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

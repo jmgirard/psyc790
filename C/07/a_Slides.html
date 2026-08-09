@@ -6,7 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c22d5dff81f50d6ca627b6188dc743b9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c22d5dff81f50d6ca627b6188dc743b9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/lordicon-bundle-1.9.0/bundle.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeffrey Girard">
@@ -101,6 +102,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -227,7 +244,9 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Introduction</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/map.json" colors="secondary:#2a76dd" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Regression as Fancy Correlation</h2>
@@ -262,12 +281,12 @@
 <h2>Defining a Line in General</h2>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[y = \color{blue}{m}x + \color{blue}{b}\]</span></p>
-<p><span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> are variables</p>
-<p><span class="math inline">\(\color{blue}m\)</span> and <span class="math inline">\(\color{blue}b\)</span> are coefficients</p>
+<p><span class="math display">y = \color{blue}{m}x + \color{blue}{b}</span></p>
+<p><span class="math inline">y</span> and <span class="math inline">x</span> are variables</p>
+<p><span class="math inline">\color{blue}m</span> and <span class="math inline">\color{blue}b</span> are coefficients</p>
 <ul>
-<li><p><span class="math inline">\(\color{blue}m\)</span> is the <strong>slope</strong><br> Change in <span class="math inline">\(y\)</span> when <span class="math inline">\(x+1\)</span></p></li>
-<li><p><span class="math inline">\(\color{blue}b\)</span> is the <strong>intercept</strong><br> Value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x=0\)</span></p></li>
+<li><p><span class="math inline">\color{blue}m</span> is the <strong>slope</strong><br> Change in <span class="math inline">y</span> when <span class="math inline">x+1</span></p></li>
+<li><p><span class="math inline">\color{blue}b</span> is the <strong>intercept</strong><br> Value of <span class="math inline">y</span> when <span class="math inline">x=0</span></p></li>
 </ul>
 </div><div class="column">
 <div class="cell">
@@ -284,13 +303,13 @@
 <section class="slide level2">
 <h2>Defining a Regression Line</h2>
 <ul>
-<li><p>If <span class="math inline">\(y\)</span> is the outcome and <span class="math inline">\(x\)</span> is the predictor…</p></li>
+<li><p>If <span class="math inline">y</span> is the outcome and <span class="math inline">x</span> is the predictor…</p></li>
 <li><p>We can define the regression line in the same way</p></li>
 </ul>
-<p><span class="math display">\[\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i\]</span></p>
-<p><span class="math inline">\(\color{red}{\hat{y}_i}\)</span> is the model-predicted value of <span class="math inline">\(y\)</span> for observation <span class="math inline">\(i\)</span></p>
-<p><span class="math inline">\(\color{blue}{b_0}\)</span> is the intercept of the line (i.e., <span class="math inline">\(b\)</span> on the previous slide)</p>
-<p><span class="math inline">\(\color{blue}{b_1}\)</span> is the slope of the line (i.e., <span class="math inline">\(m\)</span> on the previous slide)</p>
+<p><span class="math display">\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i</span></p>
+<p><span class="math inline">\color{red}{\hat{y}_i}</span> is the model-predicted value of <span class="math inline">y</span> for observation <span class="math inline">i</span></p>
+<p><span class="math inline">\color{blue}{b_0}</span> is the intercept of the line (i.e., <span class="math inline">b</span> on the previous slide)</p>
+<p><span class="math inline">\color{blue}{b_1}</span> is the slope of the line (i.e., <span class="math inline">m</span> on the previous slide)</p>
 </section>
 <section class="slide level2">
 <h2>Defining Regression Residuals</h2>
@@ -299,7 +318,7 @@
 <ul>
 <li>Our regression line is defined by the formula:</li>
 </ul>
-<p><span class="math display">\[\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i\]</span></p>
+<p><span class="math display">\color{red}{\hat{y}_i} = \color{blue}{b_0} + \color{blue}{b_1}x_i</span></p>
 <ul>
 <li>But many points aren’t exactly on the line, so our predictions aren’t perfect</li>
 </ul>
@@ -318,16 +337,16 @@
 <section class="slide level2">
 <h2>Defining Regression Residuals</h2>
 <ul>
-<li><p>Thus, predictions <span class="math inline">\((\color{red}{\hat{y}_i})\)</span> differ from the observed values <span class="math inline">\((y_i)\)</span></p></li>
+<li><p>Thus, predictions <span class="math inline">(\color{red}{\hat{y}_i})</span> differ from the observed values <span class="math inline">(y_i)</span></p></li>
 <li><p>We refer to these differences as the model’s <span class="b pink">residuals</span></p></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{align}
 \color{red}{\hat{y}_i} &amp;= \color{blue}{b_0} + \color{blue}{b_1}x_i\\
 y_i &amp;= \color{blue}{b_0} + \color{blue}{b_1}x_i + \color{magenta}{e_i} \\
 \color{magenta}{e_i} &amp;= y_i - \color{red}{\hat{y}_i}
 \end{align}
-\]</span></p>
+</span></p>
 </section>
 <section class="slide level2">
 <h2>Visualizing Regression Residuals</h2>
@@ -336,7 +355,7 @@ y_i &amp;= \color{blue}{b_0} + \color{blue}{b_1}x_i + \color{magenta}{e_i} \\
 <section class="slide level2">
 <h2>Minimizing Regression Residuals</h2>
 <ul>
-<li>If we want the best possible estimates of <span class="math inline">\(y\)</span>, we should…</li>
+<li>If we want the best possible estimates of <span class="math inline">y</span>, we should…</li>
 <li>…look for the line that minimizes the prediction errors</li>
 <li>Residuals are the prediction errors</li>
 <li>We thus seek to minimize the residuals</li>
@@ -358,11 +377,11 @@ y_i &amp;= \color{blue}{b_0} + \color{blue}{b_1}x_i + \color{magenta}{e_i} \\
 </ul></li>
 <li>So what are the OLS formulas for the slope and intercept?</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 b_1 = r_{xy}\frac{s_y}{s_x}
 \qquad\quad
 b_0 = \bar{y} - b_1\bar{x}
-\]</span></p>
+</span></p>
 <ul>
 <li>Regression and correlation are thus integrally connected</li>
 </ul>
@@ -777,9 +796,9 @@ b_0 = \bar{y} - b_1\bar{x}
 <span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a>b0</span>
 <span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1676.356</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><span class="math display">\[
+<p><span class="math display">
 \hat{y}_i = 1676.356 - 3.226 x_i
-\]</span></p>
+</span></p>
 <div class="fragment fs70">
 <p>“We estimate that a town with a water hardness of zero would have a mortality of 1676.356. We estimate that towns with one more unit of water hardness have mortality that is <em>lower</em> by 3.226, on average.”</p>
 </div>
@@ -807,14 +826,16 @@ b_0 = \bar{y} - b_1\bar{x}
 </div>
 <ul>
 <li><p>Just like before, the formula is <code>outcome ~ predictor</code></p></li>
-<li><p>R refers to <span class="math inline">\(b_0\)</span> as <code>(Intercept)</code> and <span class="math inline">\(b_1\)</span> as <code>hardness</code></p></li>
+<li><p>R refers to <span class="math inline">b_0</span> as <code>(Intercept)</code> and <span class="math inline">b_1</span> as <code>hardness</code></p></li>
 <li><p>This will be helpful when we add multiple predictors</p></li>
 </ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Regression Inference</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/insights.json" colors="secondary:#2a76dd" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Uncertainty in the Population</h2>
@@ -831,29 +852,29 @@ b_0 = \bar{y} - b_1\bar{x}
 <div class="fragment">
 <ul>
 <li><p>As before, we can use NHST and/or estimation approaches</p></li>
-<li><p>Let’s calculate 95% CIs, test statistics, and <span class="math inline">\(p\)</span>-values</p></li>
+<li><p>Let’s calculate 95% CIs, test statistics, and <span class="math inline">p</span>-values</p></li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
 <h2>Slope Confidence Interval</h2>
-<p><span class="math display">\[
+<p><span class="math display">
 b_1 \pm \text{SE}(b_1)\times t_{crit}
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \text{SE}(b_1) = \frac{s_y}{s_x}\sqrt{\frac{1-r_{xy}^2}{n-2}}
-\]</span></p>
-<p><span class="math display">\[t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}\]</span></p>
+</span></p>
+<p><span class="math display">t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}</span></p>
 </section>
 <section class="slide level2">
 <h2>Intercept Confidence Interval</h2>
-<p><span class="math display">\[
+<p><span class="math display">
 b_0 \pm \text{SE}(b_0)\times t_{crit}
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \text{SE}(b_0) = \sqrt{\frac{\sum_i(y_i-\hat{y}_i)^2}{n-2}} \sqrt{\frac{1}{n} + \frac{\bar{x}^2}{(n-1)s_x^2}}
-\]</span></p>
-<p><span class="math display">\[t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}\]</span></p>
+</span></p>
+<p><span class="math display">t_{crit}\text{ comes from the } t(n-2, 0, 1)\text{ distribution}</span></p>
 </section>
 <section class="slide level2">
 <h2>Confidence Intervals in R</h2>
@@ -888,23 +909,23 @@ b_0 \pm \text{SE}(b_0)\times t_{crit}
 <section class="slide level2">
 <h2>Hypothesis Testing</h2>
 <p><strong>Null:</strong> The true coefficient (in the population) is zero</p>
-<p><span class="math display">\[H_0: b = 0\]</span></p>
+<p><span class="math display">H_0: b = 0</span></p>
 <p><strong>Alternative:</strong> The true coefficient (in the population) is <em>not</em> zero</p>
-<p><span class="math display">\[H_1: b \neq 0\]</span></p>
+<p><span class="math display">H_1: b \neq 0</span></p>
 <p>Note that this applies to both intercepts and slopes</p>
 </section>
 <section class="slide level2">
 <h2>Testing Individual Coefficients</h2>
 <ul>
-<li><p>We can re-use the logic/procedure of the one-sample <span class="math inline">\(t\)</span>-test</p></li>
-<li><p>We assume the null sampling distribution for <span class="math inline">\(\hat{b}\)</span> is normal</p></li>
+<li><p>We can re-use the logic/procedure of the one-sample <span class="math inline">t</span>-test</p></li>
+<li><p>We assume the null sampling distribution for <span class="math inline">\hat{b}</span> is normal</p></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 t_{obs} = \frac{b}{\text{SE}(b)}
-\]</span></p>
-<p><span class="math display">\[t_{obs} \sim t(\mathit{df}=n-k-1, \mu=0, \sigma=1)\]</span></p>
+</span></p>
+<p><span class="math display">t_{obs} \sim t(\mathit{df}=n-k-1, \mu=0, \sigma=1)</span></p>
 <div class="footer">
-<p>Note that <span class="math inline">\(k\)</span> is the number of predictors in the model (i.e., 1 for now).</p>
+<p>Note that <span class="math inline">k</span> is the number of predictors in the model (i.e., 1 for now).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -919,28 +940,30 @@ t_{obs} = \frac{b}{\text{SE}(b)}
 </div>
 <p>“A town with zero water hardness is expected to have a mortality rate of 1676.36, which is significantly different from zero, 95% CI: [1617.73, 1734.98], <em>p</em>&lt;.001. For each one-unit increase in water hardness, the model predicts a significant decrease in mortality of 3.23, 95% CI: [–4.20, –2.26], <em>p</em>&lt;.001.”</p>
 <div class="footer">
-<p>Note that the <span class="math inline">\(t\)</span> values equal Coefficient / SE (e.g., –3.23/0.48 ≈ –6.66).</p>
+<p>Note that the <span class="math inline">t</span> values equal Coefficient / SE (e.g., –3.23/0.48 ≈ –6.66).</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Centering</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/location_pin.json" colors="secondary:#2a76dd" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Centering a Predictor</h2>
 <ul>
-<li><p>The intercept <span class="math inline">\((b_0)\)</span> is the value of <span class="math inline">\(\hat{y}\)</span> when <span class="math inline">\(x=0\)</span></p></li>
-<li><p>This isn’t so useful if <span class="math inline">\(x\)</span> never equals <span class="math inline">\(0\)</span> in the sample</p></li>
+<li><p>The intercept <span class="math inline">(b_0)</span> is the value of <span class="math inline">\hat{y}</span> when <span class="math inline">x=0</span></p></li>
+<li><p>This isn’t so useful if <span class="math inline">x</span> never equals <span class="math inline">0</span> in the sample</p></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>In such cases, it can be useful to “center” <span class="math inline">\(x\)</span> before modeling</li>
+<li>In such cases, it can be useful to “center” <span class="math inline">x</span> before modeling</li>
 </ul>
-<p><span class="math display">\[x_i^c = x_i - \bar{x}\]</span></p>
+<p><span class="math display">x_i^c = x_i - \bar{x}</span></p>
 <ul>
 <li><p>The <strong>slope will stay the same</strong> but the intercept will change</p></li>
-<li><p>The intercept will become the value of <span class="math inline">\(\hat{y}\)</span> when <span class="math inline">\(x=\bar{x}\)</span></p></li>
+<li><p>The intercept will become the value of <span class="math inline">\hat{y}</span> when <span class="math inline">x=\bar{x}</span></p></li>
 </ul>
 </div>
 </section>
@@ -957,7 +980,7 @@ t_{obs} = \frac{b}{\text{SE}(b)}
 </div>
 </div>
 </div>
-<p><span class="math display">\[b_0 = 1676.356\]</span></p>
+<p><span class="math display">b_0 = 1676.356</span></p>
 <p><span class="fs70">“A town with <em>zero</em> water hardness<br>would have 1676.356 mortality.”</span></p>
 </div><div class="column tc">
 <div class="cell">
@@ -969,7 +992,7 @@ t_{obs} = \frac{b}{\text{SE}(b)}
 </div>
 </div>
 </div>
-<p><span class="math display">\[b_0 = 1524.148\]</span></p>
+<p><span class="math display">b_0 = 1524.148</span></p>
 <p><span class="fs70">“A town with <em>average</em> water hardness<br>would have 1524.148 mortality.”</span></p>
 </div></div>
 </section>
@@ -1001,19 +1024,21 @@ t_{obs} = \frac{b}{\text{SE}(b)}
 <section>
 <section class="title-slide slide level1 center">
 <h1>Regression Effect Sizes</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/rulers.json" colors="secondary:#2a76dd" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Standardized Slopes</h2>
 <ul>
-<li><p>It is common to standardize regression slopes (called <span class="math inline">\(\beta\)</span>s)</p></li>
-<li><p>We can do this by standardizing both <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> and refitting</p></li>
+<li><p>It is common to standardize regression slopes (called <span class="math inline">\beta</span>s)</p></li>
+<li><p>We can do this by standardizing both <span class="math inline">y</span> and <span class="math inline">x</span> and refitting</p></li>
 </ul>
-<p><span class="math display">\[x_i^z = \frac{x_i - \bar{x}}{s_x} \qquad \quad y_i^z = \frac{y_i - \bar{y}}{s_y}\]</span></p>
-<p><span class="math display">\[\hat{y}_i^z = \beta_0 + \beta_1x_i^z\]</span></p>
+<p><span class="math display">x_i^z = \frac{x_i - \bar{x}}{s_x} \qquad \quad y_i^z = \frac{y_i - \bar{y}}{s_y}</span></p>
+<p><span class="math display">\hat{y}_i^z = \beta_0 + \beta_1x_i^z</span></p>
 <ul>
-<li>The standardized slope <span class="math inline">\((\beta_1)\)</span> is interpreted in SD units</li>
-<li>The standardized intercept <span class="math inline">\((\beta_0)\)</span> will equal/approach zero</li>
+<li>The standardized slope <span class="math inline">(\beta_1)</span> is interpreted in SD units</li>
+<li>The standardized intercept <span class="math inline">(\beta_0)</span> will equal/approach zero</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1036,34 +1061,34 @@ t_{obs} = \frac{b}{\text{SE}(b)}
 <span id="cb10-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## hardness    |       -0.65 | 0.10 | [-0.85, -0.46] |     -6.66 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment fs70 tc">
-<p>“For each one SD increase in water hardness, we would expect a 0.65 SD<br><em>decrease</em> in mortality, <span class="math inline">\(\beta=-0.65\)</span>, 95% CI: <span class="math inline">\([-0.85, -0.46]\)</span>, <span class="math inline">\(p&lt;.001\)</span>.”</p>
+<p>“For each one SD increase in water hardness, we would expect a 0.65 SD<br><em>decrease</em> in mortality, <span class="math inline">\beta=-0.65</span>, 95% CI: <span class="math inline">[-0.85, -0.46]</span>, <span class="math inline">p&lt;.001</span>.”</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>R-Squared</h2>
 <ul>
-<li><span class="math inline">\(R^2\)</span> is the variance in <span class="math inline">\(y\)</span> explained by the regression model
+<li><span class="math inline">R^2</span> is the variance in <span class="math inline">y</span> explained by the regression model
 <ul>
 <li>Ranges from 0.0 (0% explained) to 1.0 (100% explained)</li>
-<li>It is equivalent to squaring the correlation of <span class="math inline">\(y\)</span> and <span class="math inline">\(\hat{y}\)</span></li>
+<li>It is equivalent to squaring the correlation of <span class="math inline">y</span> and <span class="math inline">\hat{y}</span></li>
 <li>It is also called the “coefficient of determination”</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 R^2 = 1 - \frac{\text{SS}_{res}}{\text{SS}_{tot}} = 1 - \frac{\sum_i(y_i - \hat{y}_i)^2}{\sum_i(y_i - \bar{y})^2}
-\]</span></p>
+</span></p>
 </section>
 <section class="slide level2">
 <h2>Adjusted R-Squared</h2>
 <ul>
-<li><p><span class="math inline">\(R^2\)</span> will never decrease when adding more predictors</p></li>
+<li><p><span class="math inline">R^2</span> will never decrease when adding more predictors</p></li>
 <li><p>So we often adjust it to penalize adding more predictors</p></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1}{n - k - 1}\right)
-\]</span></p>
+</span></p>
 <ul>
-<li><p>Negative values of <span class="math inline">\(R_{adj}^2\)</span> are possible</p></li>
+<li><p>Negative values of <span class="math inline">R_{adj}^2</span> are possible</p></li>
 <li><p>Its interpretation is less straightforward</p></li>
 </ul>
 </section>
@@ -1105,7 +1130,6 @@ R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1273,27 +1297,9 @@ R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1391,6 +1397,140 @@ R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1540,7 +1680,7 @@ R_{adj}^2 = 1 - \left(\frac{\text{SS}_{res}}{\text{SS}_{tot}} \times \frac{n - 1
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

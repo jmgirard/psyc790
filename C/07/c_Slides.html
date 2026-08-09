@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -229,7 +245,7 @@
 <h2>Multiple regression</h2>
 <p>We often predict outcome variables using <span class="b blue">multiple predictors</span></p>
 <ol type="1">
-<li><p>This will usually yield <span class="b green">better predictions</span> and higher <span class="math inline">\(R^2\)</span></p></li>
+<li><p>This will usually yield <span class="b green">better predictions</span> and higher <span class="math inline">R^2</span></p></li>
 <li><p>It will also let us isolate the predictors’ <span class="b green">unique contributions</span></p>
 <ul>
 <li>When predictors are correlated, they have redundancy</li>
@@ -249,17 +265,17 @@
 <section class="slide level2">
 <h2>Multiple regression</h2>
 <ul>
-<li><p>Let’s say we want to predict <span class="math inline">\(y\)</span> from <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span></p></li>
+<li><p>Let’s say we want to predict <span class="math inline">y</span> from <span class="math inline">x_1</span> and <span class="math inline">x_2</span></p></li>
 <li><p>We can extend our regression equation with another slope</p></li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1x_1 + b_2x_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1x_1 + b_2x_2</span></p>
 <ul>
-<li><p><span class="math inline">\(b_1\)</span> is related to the correlation between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y\)</span></p></li>
-<li><p><span class="math inline">\(b_2\)</span> is related to the correlation between <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y\)</span></p></li>
+<li><p><span class="math inline">b_1</span> is related to the correlation between <span class="math inline">x_1</span> and <span class="math inline">y</span></p></li>
+<li><p><span class="math inline">b_2</span> is related to the correlation between <span class="math inline">x_2</span> and <span class="math inline">y</span></p></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>We must account for any correlation between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>!</li>
+<li>We must account for any correlation between <span class="math inline">x_1</span> and <span class="math inline">x_2</span>!</li>
 </ul>
 </div>
 </section>
@@ -269,10 +285,10 @@
 <ul>
 <li>Fit a separate simple regression model for each predictor</li>
 </ul>
-<p><span class="math display">\[\text{M1: }\hat{y} = b_0 + b_1x_1 \qquad\quad \text{M2: }\hat{y} = b_0 + b_1x_2\]</span></p>
+<p><span class="math display">\text{M1: }\hat{y} = b_0 + b_1x_1 \qquad\quad \text{M2: }\hat{y} = b_0 + b_1x_2</span></p>
 <ul>
-<li><p>Interpretation of the <span class="math inline">\(b_1\)</span> slope from <span class="math inline">\(\text{M1}\)</span>:<br> the <em>total</em> relationship between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y\)</span> (ignoring <span class="math inline">\(x_2\)</span>)</p></li>
-<li><p>Interpretation of the <span class="math inline">\(b_1\)</span> slope from <span class="math inline">\(\text{M2}\)</span>:<br> the <em>total</em> relationship between <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y\)</span> (ignoring <span class="math inline">\(x_1\)</span>)</p></li>
+<li><p>Interpretation of the <span class="math inline">b_1</span> slope from <span class="math inline">\text{M1}</span>:<br> the <em>total</em> relationship between <span class="math inline">x_1</span> and <span class="math inline">y</span> (ignoring <span class="math inline">x_2</span>)</p></li>
+<li><p>Interpretation of the <span class="math inline">b_1</span> slope from <span class="math inline">\text{M2}</span>:<br> the <em>total</em> relationship between <span class="math inline">x_2</span> and <span class="math inline">y</span> (ignoring <span class="math inline">x_1</span>)</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -281,10 +297,10 @@
 <ul>
 <li>Fit a single multiple regression model with all predictors:</li>
 </ul>
-<p><span class="math display">\[\text{M3: }\hat{y} = b_0 + b_1x_1 + b_2x_2\]</span></p>
+<p><span class="math display">\text{M3: }\hat{y} = b_0 + b_1x_1 + b_2x_2</span></p>
 <ul>
-<li>Interpretation of the <span class="math inline">\(b_1\)</span> slope from <span class="math inline">\(\text{M3}\)</span>:<br> the <em>unique</em> relationship between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y\)</span> (controlling <span class="math inline">\(x_2\)</span>)</li>
-<li>Interpretation of the <span class="math inline">\(b_2\)</span> slope from <span class="math inline">\(\text{M3}\)</span>:<br> the <em>unique</em> relationship between <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y\)</span> (controlling <span class="math inline">\(x_1\)</span>)</li>
+<li>Interpretation of the <span class="math inline">b_1</span> slope from <span class="math inline">\text{M3}</span>:<br> the <em>unique</em> relationship between <span class="math inline">x_1</span> and <span class="math inline">y</span> (controlling <span class="math inline">x_2</span>)</li>
+<li>Interpretation of the <span class="math inline">b_2</span> slope from <span class="math inline">\text{M3}</span>:<br> the <em>unique</em> relationship between <span class="math inline">x_2</span> and <span class="math inline">y</span> (controlling <span class="math inline">x_1</span>)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -294,12 +310,12 @@
 </ul>
 <div class="fragment">
 <ul>
-<li><strong>What is the relationship between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y\)</span> if we hold <span class="math inline">\(x_2\)</span> at a constant value?</strong> <em>e.g., What is the body mass difference between penguin A (40 mm bill, 190 mm flipper) and penguin B (40 mm bill, 191 mm flipper)?</em></li>
+<li><strong>What is the relationship between <span class="math inline">x_1</span> and <span class="math inline">y</span> if we hold <span class="math inline">x_2</span> at a constant value?</strong> <em>e.g., What is the body mass difference between penguin A (40 mm bill, 190 mm flipper) and penguin B (40 mm bill, 191 mm flipper)?</em></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li><strong>If we already know <span class="math inline">\(x_2\)</span>, how much does learning <span class="math inline">\(x_1\)</span> change our prediction of <span class="math inline">\(y\)</span>?</strong> <em>e.g., how much does learning that penguin C has a 45 mm bill change our prediction of its body mass if we already knew its flippers are 200 mm?</em></li>
+<li><strong>If we already know <span class="math inline">x_2</span>, how much does learning <span class="math inline">x_1</span> change our prediction of <span class="math inline">y</span>?</strong> <em>e.g., how much does learning that penguin C has a 45 mm bill change our prediction of its body mass if we already knew its flippers are 200 mm?</em></li>
 </ul>
 </div>
 </section>
@@ -307,17 +323,17 @@
 <h2>Venn diagram for simple regression</h2>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[y_i = b_0 + b_1x_i + e_i\]</span></p>
+<p><span class="math display">y_i = b_0 + b_1x_i + e_i</span></p>
 <p>Each oval is one variable’s <strong>variance</strong></p>
 <p>Two oval’s overlap is their <strong>covariance</strong></p>
 <div class="pv2">
-<p><span style="color:#7570b3;font-weight:bold;">a</span> is the variance in <span class="math inline">\(x\)</span> unrelated to <span class="math inline">\(y\)</span></p>
-<p><span style="color:#1b9e77;font-weight:bold;">b</span> is the variance shared by <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p>
-<p><span style="color:#d95f02;font-weight:bold;">e</span> is the variance in <span class="math inline">\(y\)</span> unrelated to <span class="math inline">\(x\)</span></p>
+<p><span style="color:#7570b3;font-weight:bold;">a</span> is the variance in <span class="math inline">x</span> unrelated to <span class="math inline">y</span></p>
+<p><span style="color:#1b9e77;font-weight:bold;">b</span> is the variance shared by <span class="math inline">x</span> and <span class="math inline">y</span></p>
+<p><span style="color:#d95f02;font-weight:bold;">e</span> is the variance in <span class="math inline">y</span> unrelated to <span class="math inline">x</span></p>
 </div>
 <div class="fragment pv2">
-<p><span class="math inline">\(b_1\)</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span></p>
-<p><span class="math inline">\(R^2\)</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span> / (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#d95f02;font-weight:bold;">e</span>)</p>
+<p><span class="math inline">b_1</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span></p>
+<p><span class="math inline">R^2</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span> / (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#d95f02;font-weight:bold;">e</span>)</p>
 </div>
 </div><div class="column">
 <p><img data-src="../../img/venn/yx.png"></p>
@@ -327,79 +343,79 @@
 <h2>Venn diagram for two predictors</h2>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i\]</span></p>
+<p><span class="math display">y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i</span></p>
 <div class="pv2">
-<p><span style="color:#7570b3;font-weight:bold;">a</span> is the var in <span class="math inline">\(x_1\)</span> unrelated to <span class="math inline">\(y\)</span> or <span class="math inline">\(x_2\)</span></p>
-<p><span style="color:#1b9e77;font-weight:bold;">b</span> is the var shared by <span class="math inline">\(x1\)</span> and <span class="math inline">\(y\)</span> (not <span class="math inline">\(x_2\)</span>)</p>
-<p><span style="color:#1b9e77;font-weight:bold;">c</span> is the var shared by <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, and <span class="math inline">\(y\)</span></p>
-<p><span style="color:#7570b3;font-weight:bold;">d</span> is the var shared by <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> (not <span class="math inline">\(y\)</span>)</p>
-<p><span style="color:#d95f02;font-weight:bold;">e</span> is the var in <span class="math inline">\(y\)</span> unrelated to <span class="math inline">\(x_1\)</span> or <span class="math inline">\(x_2\)</span></p>
-<p><span style="color:#1b9e77;font-weight:bold;">f</span> is the var shared by <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y\)</span> (not <span class="math inline">\(x_1\)</span>)</p>
-<p><span style="color:#7570b3;font-weight:bold;">g</span> is the var in <span class="math inline">\(x_2\)</span> unrelated to <span class="math inline">\(x_1\)</span> or <span class="math inline">\(y\)</span></p>
+<p><span style="color:#7570b3;font-weight:bold;">a</span> is the var in <span class="math inline">x_1</span> unrelated to <span class="math inline">y</span> or <span class="math inline">x_2</span></p>
+<p><span style="color:#1b9e77;font-weight:bold;">b</span> is the var shared by <span class="math inline">x1</span> and <span class="math inline">y</span> (not <span class="math inline">x_2</span>)</p>
+<p><span style="color:#1b9e77;font-weight:bold;">c</span> is the var shared by <span class="math inline">x_1</span>, <span class="math inline">x_2</span>, and <span class="math inline">y</span></p>
+<p><span style="color:#7570b3;font-weight:bold;">d</span> is the var shared by <span class="math inline">x_1</span> and <span class="math inline">x_2</span> (not <span class="math inline">y</span>)</p>
+<p><span style="color:#d95f02;font-weight:bold;">e</span> is the var in <span class="math inline">y</span> unrelated to <span class="math inline">x_1</span> or <span class="math inline">x_2</span></p>
+<p><span style="color:#1b9e77;font-weight:bold;">f</span> is the var shared by <span class="math inline">x_2</span> and <span class="math inline">y</span> (not <span class="math inline">x_1</span>)</p>
+<p><span style="color:#7570b3;font-weight:bold;">g</span> is the var in <span class="math inline">x_2</span> unrelated to <span class="math inline">x_1</span> or <span class="math inline">y</span></p>
 </div>
 </div><div class="column">
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 </section>
 <section class="slide level2 fs70">
-<h2>Zero-order effect of <span class="math inline">\(x_1\)</span></h2>
+<h2>Zero-order effect of <span class="math inline">x_1</span></h2>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[y_i = b_0 + b_1x_{1i} + e_i\]</span></p>
+<p><span class="math display">y_i = b_0 + b_1x_{1i} + e_i</span></p>
 <div class="pv2">
-<p>If we regress <span class="math inline">\(y\)</span> on <span class="math inline">\(x_1\)</span> only, we get the zero-order (i.e., total) effect of <span class="math inline">\(x_1\)</span></p>
-<p><span class="math inline">\(b_1\)</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span></p>
-<p><span class="math inline">\(e_i\)</span> represents <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">f</span></p>
-<p><span class="math inline">\(R^2\)</span> represents (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span>) / (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">f</span>)</p>
+<p>If we regress <span class="math inline">y</span> on <span class="math inline">x_1</span> only, we get the zero-order (i.e., total) effect of <span class="math inline">x_1</span></p>
+<p><span class="math inline">b_1</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span></p>
+<p><span class="math inline">e_i</span> represents <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">f</span></p>
+<p><span class="math inline">R^2</span> represents (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span>) / (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">f</span>)</p>
 </div>
 </div><div class="column">
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 </section>
 <section class="slide level2 fs70">
-<h2>Zero-order effect of <span class="math inline">\(x_2\)</span></h2>
+<h2>Zero-order effect of <span class="math inline">x_2</span></h2>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[y_i = b_0 + b_1x_{2i} + e_i\]</span></p>
+<p><span class="math display">y_i = b_0 + b_1x_{2i} + e_i</span></p>
 <div class="pv2">
-<p>If we regress <span class="math inline">\(y\)</span> on <span class="math inline">\(x_2\)</span> only, we get the zero-order (i.e., total) effect of <span class="math inline">\(x_2\)</span></p>
-<p><span class="math inline">\(b_1\)</span> represents <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span></p>
-<p><span class="math inline">\(e_i\)</span> represents <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">b</span></p>
-<p><span class="math inline">\(R^2\)</span> represents (<span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span>) / (<span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span> + <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">b</span>)</p>
+<p>If we regress <span class="math inline">y</span> on <span class="math inline">x_2</span> only, we get the zero-order (i.e., total) effect of <span class="math inline">x_2</span></p>
+<p><span class="math inline">b_1</span> represents <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span></p>
+<p><span class="math inline">e_i</span> represents <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">b</span></p>
+<p><span class="math inline">R^2</span> represents (<span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span>) / (<span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span> + <span style="color:#d95f02;font-weight:bold;">e</span> + <span style="color:#1b9e77;font-weight:bold;">b</span>)</p>
 </div>
 </div><div class="column">
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 </section>
 <section class="slide level2 fs70">
-<h2>Partial effects of <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span></h2>
+<h2>Partial effects of <span class="math inline">x_1</span> and <span class="math inline">x_2</span></h2>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i\]</span></p>
+<p><span class="math display">y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i</span></p>
 <div class="pv2">
-<p>If we regress <span class="math inline">\(y\)</span> on both <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, we get their partial (i.e., unique) effects</p>
-<p><span class="math inline">\(b_1\)</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span> only</p>
-<p><span class="math inline">\(b_2\)</span> represents <span style="color:#1b9e77;font-weight:bold;">f</span> only</p>
-<p><span class="math inline">\(e_i\)</span> represents <span style="color:#d95f02;font-weight:bold;">e</span> only</p>
-<p><span class="math inline">\(R^2\)</span> represents (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span>) / (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span> + <span style="color:#d95f02;font-weight:bold;">e</span>)</p>
-<p><span style="color:#1b9e77;font-weight:bold;">c</span> is included in <span class="math inline">\(R^2\)</span> but neither slope</p>
+<p>If we regress <span class="math inline">y</span> on both <span class="math inline">x_1</span> and <span class="math inline">x_2</span>, we get their partial (i.e., unique) effects</p>
+<p><span class="math inline">b_1</span> represents <span style="color:#1b9e77;font-weight:bold;">b</span> only</p>
+<p><span class="math inline">b_2</span> represents <span style="color:#1b9e77;font-weight:bold;">f</span> only</p>
+<p><span class="math inline">e_i</span> represents <span style="color:#d95f02;font-weight:bold;">e</span> only</p>
+<p><span class="math inline">R^2</span> represents (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span>) / (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span style="color:#1b9e77;font-weight:bold;">c</span> + <span style="color:#1b9e77;font-weight:bold;">f</span> + <span style="color:#d95f02;font-weight:bold;">e</span>)</p>
+<p><span style="color:#1b9e77;font-weight:bold;">c</span> is included in <span class="math inline">R^2</span> but neither slope</p>
 </div>
 </div><div class="column">
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 <div class="footer">
-<p>These diagrams are a helpful picture, not an exact rule — a partial effect can occasionally be <em>larger</em> than its zero-order effect, which no overlap diagram can draw</p>
+<p>A helpful picture, not an exact rule — a partial effect can occasionally be <em>larger</em> than its zero-order effect</p>
 </div>
 </section>
 <section class="slide level2 fs70">
 <h2>Collinearity</h2>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i\]</span></p>
+<p><span class="math display">y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i</span></p>
 <div class="pv2">
-<p>If <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are highly correlated, then <span style="color:#1b9e77;font-weight:bold;">c</span> will be large and <span style="color:#1b9e77;font-weight:bold;">b</span> and <span style="color:#1b9e77;font-weight:bold;">f</span> may be small</p>
-<p>Small slopes may lead you to conclude that <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are not related to <span class="math inline">\(y\)</span></p>
-<p>But this isn’t quite right… it’s just that they don’t <em>uniquely</em> explain <span class="math inline">\(y\)</span> (rather, it is their overlap/shared variance that does)</p>
+<p>If <span class="math inline">x_1</span> and <span class="math inline">x_2</span> are highly correlated, then <span style="color:#1b9e77;font-weight:bold;">c</span> will be large and <span style="color:#1b9e77;font-weight:bold;">b</span> and <span style="color:#1b9e77;font-weight:bold;">f</span> may be small</p>
+<p>Small slopes may lead you to conclude that <span class="math inline">x_1</span> and <span class="math inline">x_2</span> are not related to <span class="math inline">y</span></p>
+<p>But this isn’t quite right… it’s just that they don’t <em>uniquely</em> explain <span class="math inline">y</span> (rather, it is their overlap/shared variance that does)</p>
 <p>So check zero-order <em>and</em> partial effects</p>
 </div>
 </div><div class="column">
@@ -419,21 +435,21 @@
 <ul>
 <li>The relationships are clearer if we start with <em>standardized</em> slopes first</li>
 </ul>
-<p><span class="math display">\[\hat{y}_i^{(z)} = \beta_1x_{1i}^{(z)} + \beta_2x_{2i}^{(z)}\]</span></p>
+<p><span class="math display">\hat{y}_i^{(z)} = \beta_1x_{1i}^{(z)} + \beta_2x_{2i}^{(z)}</span></p>
 <ul>
-<li>We want to find the <span class="math inline">\(\beta\)</span> values that minimize the squared residuals</li>
+<li>We want to find the <span class="math inline">\beta</span> values that minimize the squared residuals</li>
 </ul>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[\beta_1 = \frac{r(y,x_1)-r(y,x_2)r(x_1,x_2)}{1-r(x_1,x_2)^2}\]</span></p>
+<p><span class="math display">\beta_1 = \frac{r(y,x_1)-r(y,x_2)r(x_1,x_2)}{1-r(x_1,x_2)^2}</span></p>
 </div><div class="column">
-<p><span class="math display">\[\beta_2 = \frac{r(y,x_2)-r(y,x_1)r(x_1,x_2)}{1-r(x_1,x_2)^2}\]</span></p>
+<p><span class="math display">\beta_2 = \frac{r(y,x_2)-r(y,x_1)r(x_1,x_2)}{1-r(x_1,x_2)^2}</span></p>
 </div></div>
 <ul>
 <li>We start with the zero-order correlation we want to partialize (i.e., that between the predictor and outcome) and then remove the redundant/shared variance</li>
 </ul>
 <div class="footer">
-<p>Note that we omit <span class="math inline">\(\beta_0\)</span> because it is always zero.</p>
+<p>Note that we omit <span class="math inline">\beta_0</span> because it is always zero.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -443,14 +459,14 @@
 </ul>
 <div class="columns">
 <div class="column">
-<p><span class="math display">\[b_1 = \beta_1\frac{s_y}{s_{x1}}\]</span></p>
+<p><span class="math display">b_1 = \beta_1\frac{s_y}{s_{x1}}</span></p>
 </div><div class="column">
-<p><span class="math display">\[b_2 = \beta_2\frac{s_y}{s_{x2}}\]</span></p>
+<p><span class="math display">b_2 = \beta_2\frac{s_y}{s_{x2}}</span></p>
 </div></div>
 <ul>
 <li>To calculate the unstandardized intercept, we can do…</li>
 </ul>
-<p><span class="math display">\[b_0 = \bar{y} - b_1\bar{x}_1 - b_2\bar{x}_2\]</span></p>
+<p><span class="math display">b_0 = \bar{y} - b_1\bar{x}_1 - b_2\bar{x}_2</span></p>
 </section>
 <section class="slide level2">
 <h2>Example data</h2>
@@ -564,7 +580,7 @@
 <ul>
 <li><p>When we remove this shared variance, the partial effects become smaller</p></li>
 <li><p>This is a very common pattern for correlated predictors in a multiple regression</p></li>
-<li><p><span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are thus “partially redundant” due to their shared variance</p></li>
+<li><p><span class="math inline">x_1</span> and <span class="math inline">x_2</span> are thus “partially redundant” due to their shared variance</p></li>
 <li><p>However, this is not <em>always</em> the pattern (e.g., in <a href="https://en.wikipedia.org/wiki/Suppressor_variable">suppression effects</a>)</p></li>
 </ul>
 </div>
@@ -581,7 +597,7 @@
 <span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## fit2 |    lm | 0.759</span></span>
 <span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## fit3 |    lm | 0.760</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Moving from model <code>fit1</code> to <code>fit3</code> (i.e., learning <code>flipper_len</code>) improves <span class="math inline">\(R^2\)</span> far more <span class="math inline">\((\Delta R^2=.406)\)</span> than moving from model <code>fit2</code> to <code>fit3</code> (i.e., learning <code>bill_len</code>) does <span class="math inline">\((\Delta R^2=.001)\)</span>.</p>
+<p>Moving from model <code>fit1</code> to <code>fit3</code> (i.e., learning <code>flipper_len</code>) improves <span class="math inline">R^2</span> far more <span class="math inline">(\Delta R^2=.406)</span> than moving from model <code>fit2</code> to <code>fit3</code> (i.e., learning <code>bill_len</code>) does <span class="math inline">(\Delta R^2=.001)</span>.</p>
 </section>
 <section class="slide level2">
 <h2>Plotting marginal effects</h2>
@@ -677,15 +693,15 @@
 <section class="slide level2">
 <h2>Extended regression equation</h2>
 <ul>
-<li>If we have <span class="math inline">\(k\)</span> predictors, we can add a slope for each one</li>
+<li>If we have <span class="math inline">k</span> predictors, we can add a slope for each one</li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1x_1 + b_2x_2 + \cdots + b_kx_k\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1x_1 + b_2x_2 + \cdots + b_kx_k</span></p>
 <ul>
-<li>We still find <span class="math inline">\(b\)</span> values that minimize the squared residuals</li>
+<li>We still find <span class="math inline">b</span> values that minimize the squared residuals</li>
 </ul>
 <div class="fragment">
 <ul>
-<li><p>The intercept is the value of <span class="math inline">\(\hat{y}\)</span> when <em>all</em> predictors equal 0</p></li>
+<li><p>The intercept is the value of <span class="math inline">\hat{y}</span> when <em>all</em> predictors equal 0</p></li>
 <li><p>Each slope is partial (i.e., controls for <em>all</em> other predictors)</p></li>
 <li><p>We can combine continuous and categorical predictors!</p></li>
 </ul>
@@ -806,7 +822,6 @@
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -974,27 +989,9 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1092,6 +1089,140 @@
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1241,7 +1372,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -260,15 +276,15 @@
 <p><span class="b blue">Significance Testing</span></p>
 <ul>
 <li><p>Is the difference between the two group means zero?</p></li>
-<li><p>The result is a test statistic, <br><span class="math inline">\(p\)</span>-value, and decision to retain or reject the null</p></li>
-<li><p><em>Adults watch significantly more TV than do children, <span class="math inline">\(t(99)=20.14, p&lt;.001\)</span></em></p></li>
+<li><p>The result is a test statistic, <br><span class="math inline">p</span>-value, and decision to retain or reject the null</p></li>
+<li><p><em>Adults watch significantly more TV than do children, <span class="math inline">t(99)=20.14, p&lt;.001</span></em></p></li>
 </ul>
 </div><div class="column fragment">
 <p><span class="b blue">Estimation</span></p>
 <ul>
 <li><p>What are reasonable values for the difference between the two group means?</p></li>
 <li><p>The result is a point estimate and interval estimate (CI)</p></li>
-<li><p><em>Adults watch <span class="math inline">\(3.2\)</span> more hours of TV per day than do children, 95% CI: <span class="math inline">\([1.8, 4.6]\)</span></em></p></li>
+<li><p><em>Adults watch <span class="math inline">3.2</span> more hours of TV per day than do children, 95% CI: <span class="math inline">[1.8, 4.6]</span></em></p></li>
 </ul>
 </div></div>
 </section></section>
@@ -280,16 +296,16 @@
 <section class="slide level2">
 <h2>Recap of Steps in NHST</h2>
 <ol type="1">
-<li><p>Set <strong>null and alternative hypotheses</strong>, Type I Error Rate <span class="math inline">\((\alpha)\)</span></p></li>
+<li><p>Set <strong>null and alternative hypotheses</strong>, Type I Error Rate <span class="math inline">(\alpha)</span></p></li>
 <li><p>Choose an appropriate test and calculate its <strong>test statistic</strong></p></li>
 <li><p>Estimate <strong>null sampling distribution</strong> for test statistic</p></li>
 <li><p>Calculate <strong>critical values</strong> from null sampling distribution</p></li>
 <li><p>Compare the observed test statistic to these critical values</p></li>
-<li><p>Calculate <span class="math inline">\(\boldsymbol{p}\)</span><strong>-value</strong> and decide to <strong>retain or reject</strong> the null</p></li>
+<li><p>Calculate <span class="math inline">\boldsymbol{p}</span><strong>-value</strong> and decide to <strong>retain or reject</strong> the null</p></li>
 </ol>
 </section>
 <section class="slide level2">
-<h2>Independent Samples <span class="math inline">\(t\)</span>-test</h2>
+<h2>Independent Samples <span class="math inline">t</span>-test</h2>
 <ul>
 <li><p><strong>Research Question:</strong> Do tenure track (G1) or non-tenure track (G2) professors receive better teaching evals, on average?</p></li>
 <li><p>Each professor is G1 or G2, so these are <em>independent</em> groups</p></li>
@@ -298,10 +314,10 @@
 <ul>
 <li>Are the G1 and G2 samples drawn from populations with <br>the same mean (null) or different means (alternative)?</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0: \mu_1=\mu_2\\
 H_1: \mu_1\neq\mu_2
-\]</span></p>
+</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -333,11 +349,11 @@ H_1: \mu_1\neq\mu_2
 <section class="slide level2">
 <h2>Test Statistic</h2>
 <ul>
-<li><p>If the null is true and <span class="math inline">\(\mu_1 = \mu_2\)</span>, then <span class="math inline">\(\mu_1 - \mu_2 = 0\)</span></p></li>
+<li><p>If the null is true and <span class="math inline">\mu_1 = \mu_2</span>, then <span class="math inline">\mu_1 - \mu_2 = 0</span></p></li>
 <li><p>We can use this as the basis of our test statistic</p></li>
 <li><p>But again, the math is easier if we standardize it</p></li>
 </ul>
-<p><span class="math display">\[t_{diff}=\frac{\bar{x}_1 - \bar{x}_2}{SE_{diff}}\]</span></p>
+<p><span class="math display">t_{diff}=\frac{\bar{x}_1 - \bar{x}_2}{SE_{diff}}</span></p>
 <ul>
 <li>So now we just need to estimate the SE of the difference</li>
 </ul>
@@ -345,11 +361,11 @@ H_1: \mu_1\neq\mu_2
 <section class="slide level2">
 <h2>Two approaches</h2>
 <ul>
-<li><p>There are two main approaches to estimating <span class="math inline">\(SE_{diff}\)</span></p></li>
+<li><p>There are two main approaches to estimating <span class="math inline">SE_{diff}</span></p></li>
 <li><p><span class="b blue">Student’s approach</span> assumes “equal variance”</p>
 <ul>
 <li>It assumes that both populations have the same SD</li>
-<li>In parameter terms, it assumes that <span class="math inline">\(\sigma_1 = \sigma_2\)</span></li>
+<li>In parameter terms, it assumes that <span class="math inline">\sigma_1 = \sigma_2</span></li>
 <li>This approach simplifies the math, so we start here</li>
 </ul></li>
 <li><p><span class="b blue">Welch’s approach</span> does not make this assumption</p>
@@ -362,16 +378,16 @@ H_1: \mu_1\neq\mu_2
 <section class="slide level2">
 <h2>Student’s approach</h2>
 <ul>
-<li>We can estimate <span class="math inline">\(\sigma\)</span> by “pooling” <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span></li>
+<li>We can estimate <span class="math inline">\sigma</span> by “pooling” <span class="math inline">s_1</span> and <span class="math inline">s_2</span></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 s_p = \sqrt{\frac{s_1^2(n_1-1) + s_2^2(n_2-1)}{n_1+n_2-2}}
-\]</span></p>
+</span></p>
 <div class="fragment">
 <ul>
-<li>We can now use <span class="math inline">\(s_p\)</span> to estimate <span class="math inline">\(SE_{diff}\)</span></li>
+<li>We can now use <span class="math inline">s_p</span> to estimate <span class="math inline">SE_{diff}</span></li>
 </ul>
-<p><span class="math display">\[SE_{diff} = s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\]</span></p>
+<p><span class="math display">SE_{diff} = s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}</span></p>
 </div>
 <div class="footer">
 <p>Pooling is taking a weighted average (weighted by sample size minus 1).</p>
@@ -382,22 +398,22 @@ s_p = \sqrt{\frac{s_1^2(n_1-1) + s_2^2(n_2-1)}{n_1+n_2-2}}
 <ul>
 <li>Our test statistic for Student’s approach is:</li>
 </ul>
-<p><span class="math display">\[t_{diff} = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}\]</span></p>
+<p><span class="math display">t_{diff} = \frac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}</span></p>
 <ul>
 <li>The null sampling distribution is assumed to be:</li>
 </ul>
-<p><span class="math display">\[t_{diff} \sim t(\textit{df}=n_1+n_2-2, \mu=0, \sigma=1)\]</span></p>
+<p><span class="math display">t_{diff} \sim t(\textit{df}=n_1+n_2-2, \mu=0, \sigma=1)</span></p>
 </section>
 <section class="slide level2">
 <h2>Welch’s approach</h2>
-<p><span class="math display">\[SE_{diff} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\]</span></p>
-<p><span class="math display">\[
+<p><span class="math display">SE_{diff} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}</span></p>
+<p><span class="math display">
 t_{diff} \sim t\left(
 \textit{df}=\frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}
 {\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1} + \frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}},
 \mu=0,
 \sigma=1\right)
-\]</span></p>
+</span></p>
 </section>
 <section class="slide level2">
 <h2>Both approaches in R</h2>
@@ -489,21 +505,21 @@ t_{diff} \sim t\left(
 <li>If we ignore these relationships in our modeling…
 <ul>
 <li>Our SE estimates will tend to be too high (when the pairing correlation is positive)</li>
-<li>Therefore, our <span class="math inline">\(p\)</span>-values and CIs will be incorrect, costing power</li>
+<li>Therefore, our <span class="math inline">p</span>-values and CIs will be incorrect, costing power</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Paired samples <span class="math inline">\(t\)</span>-test</h2>
+<h2>Paired samples <span class="math inline">t</span>-test</h2>
 <ul>
 <li>To fix this, we can calculate the paired differences</li>
 </ul>
-<p><span class="math display">\[\Delta_i = x_{1i} - x_{2i}\]</span></p>
+<p><span class="math display">\Delta_i = x_{1i} - x_{2i}</span></p>
 <ul>
-<li>Then we do a one-sample <span class="math inline">\(t\)</span>-test on the differences</li>
+<li>Then we do a one-sample <span class="math inline">t</span>-test on the differences</li>
 </ul>
-<p><span class="math display">\[t_\Delta = \frac{\bar{\Delta}}{SE_{\bar{\Delta}}} = \frac{\bar{\Delta}}{s_{\Delta}/\sqrt{n}}\]</span></p>
-<p><span class="math display">\[t_\Delta \sim t(\textit{df}=n-1, \mu=0, \sigma=1)\]</span></p>
+<p><span class="math display">t_\Delta = \frac{\bar{\Delta}}{SE_{\bar{\Delta}}} = \frac{\bar{\Delta}}{s_{\Delta}/\sqrt{n}}</span></p>
+<p><span class="math display">t_\Delta \sim t(\textit{df}=n-1, \mu=0, \sigma=1)</span></p>
 </section>
 <section class="slide level2">
 <h2>Example data</h2>
@@ -527,7 +543,7 @@ t_{diff} \sim t\left(
 </div>
 </section>
 <section class="slide level2">
-<h2>Paired <span class="math inline">\(t\)</span>-test in R</h2>
+<h2>Paired <span class="math inline">t</span>-test in R</h2>
 <ul>
 <li>We can use <code>t.test()</code> again but our formula changes</li>
 </ul>
@@ -547,11 +563,11 @@ t_{diff} \sim t\left(
 <span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Alternative hypothesis: true mean difference is not equal to 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="footer">
-<p>Note that <span class="math inline">\(\textit{df}=33\)</span> (not <span class="math inline">\(66\)</span>, as two independent samples would give) because we count each pair only once.</p>
+<p>Note that <span class="math inline">\textit{df}=33</span> (not <span class="math inline">66</span>, as two independent samples would give) because we count each pair only once.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>One-sample <span class="math inline">\(t\)</span>-test equivalence</h2>
+<h2>One-sample <span class="math inline">t</span>-test equivalence</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate paired differences</span></span>
 <span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>social<span class="sc">$</span>change <span class="ot">&lt;-</span> social<span class="sc">$</span>endpoint <span class="sc">-</span> social<span class="sc">$</span>baseline</span>
@@ -578,7 +594,7 @@ t_{diff} \sim t\left(
 <section class="slide level2">
 <h2>Effect sizes</h2>
 <ul>
-<li><p>The <span class="math inline">\(p\)</span> value combines the effect size and uncertainty</p></li>
+<li><p>The <span class="math inline">p</span> value combines the effect size and uncertainty</p></li>
 <li><p>But sometimes we want to separate these quantities out</p></li>
 <li><p>A <em>pure</em> measure of effect size would be nice sometimes</p></li>
 <li><p>In the current case of group comparisons…</p>
@@ -592,7 +608,7 @@ t_{diff} \sim t\left(
 <section class="slide level2">
 <h2>Group difference effect sizes</h2>
 <ul>
-<li>The difference in means <span class="math inline">\((\bar{x}_1 - \bar{x}_2)\)</span> is a simple effect size
+<li>The difference in means <span class="math inline">(\bar{x}_1 - \bar{x}_2)</span> is a simple effect size
 <ul>
 <li>This is an “unstandardized” effect size (in original units)</li>
 <li>If the original units are intuitive, this might work well</li>
@@ -602,7 +618,7 @@ t_{diff} \sim t\left(
 <li>The difference is now in <em>standard deviation</em> units</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[ES = \frac{\bar{x}_1 - \bar{x}_2}{SD}\]</span></p>
+<p><span class="math display">ES = \frac{\bar{x}_1 - \bar{x}_2}{SD}</span></p>
 <div class="footer">
 <p>The question now becomes… which SD to use for standardization?</p>
 </div>
@@ -615,13 +631,13 @@ t_{diff} \sim t\left(
 <li>We can use the pooled SD in the denominator</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[d = \frac{\bar{x}_1 - \bar{x}_2}{s_p} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{(n_1 - 1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}}\]</span></p>
+<p><span class="math display">d = \frac{\bar{x}_1 - \bar{x}_2}{s_p} = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{(n_1 - 1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}}}</span></p>
 <ul>
-<li><p>This effect size measure is often referred to as Cohen’s <span class="math inline">\(d\)</span></p></li>
-<li><p>Other options include Hedge’s <span class="math inline">\(g\)</span> and Glass’ <span class="math inline">\(\Delta\)</span></p></li>
+<li><p>This effect size measure is often referred to as Cohen’s <span class="math inline">d</span></p></li>
+<li><p>Other options include Hedge’s <span class="math inline">g</span> and Glass’ <span class="math inline">\Delta</span></p></li>
 </ul>
 <div class="footer">
-<p><span class="math inline">\(g\)</span> corrects for small sample sizes and <span class="math inline">\(\Delta\)</span> uses the SD from one group only</p>
+<p><span class="math inline">g</span> corrects for small sample sizes and <span class="math inline">\Delta</span> uses the SD from one group only</p>
 </div>
 </section>
 <section class="slide level2">
@@ -641,7 +657,7 @@ t_{diff} \sim t\left(
 </div>
 </section>
 <section class="slide level2">
-<h2>Cohen’s <span class="math inline">\(d\)</span></h2>
+<h2>Cohen’s <span class="math inline">d</span></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">cohens_d</span>(eval <span class="sc">~</span> track, <span class="at">data =</span> tratings)</span>
 <span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Cohen's d |         95% CI</span></span>
@@ -662,12 +678,12 @@ t_{diff} \sim t\left(
 <li>We use the SD of the paired differences in the denominator</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}\]</span></p>
+<p><span class="math display">ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}</span></p>
 <ul>
-<li>This is often referred to as a paired Cohen’s <span class="math inline">\(d\)</span></li>
+<li>This is often referred to as a paired Cohen’s <span class="math inline">d</span></li>
 </ul>
 <div class="footer">
-<p>Because it standardizes by the SD of the <em>differences</em>, paired <span class="math inline">\(d\)</span> is not directly comparable to independent-samples <span class="math inline">\(d\)</span></p>
+<p>Because it standardizes by the SD of the <em>differences</em>, paired <span class="math inline">d</span> is not directly comparable to independent-samples <span class="math inline">d</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -711,7 +727,6 @@ t_{diff} \sim t\left(
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -879,27 +894,9 @@ t_{diff} \sim t\left(
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -997,6 +994,140 @@ t_{diff} \sim t\left(
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1146,7 +1277,7 @@ t_{diff} \sim t\left(
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

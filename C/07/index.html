@@ -267,15 +267,15 @@ ul.task-list li input[type="checkbox"] {
 <li>Regression Effect Sizes</li>
 </ul>
 </div>
-<section id="files" class="level3">
-<h3 class="anchored" data-anchor-id="files">Files</h3>
+<section id="files" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files">Files</h3>
 <ul>
 <li><a href="../../data/parenthood.csv" download="parenthood.csv">parenthood.csv</a></li>
 <li><a href="../../data/water.csv" download="water.csv">water.csv</a></li>
 </ul>
 </section>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<section id="readings" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings">Readings</h3>
 <ul>
 <li><a href="https://learningstatisticswithr.com/15-regression.html">Linear Regression, §15.1–15.2, 15.4–15.5, 15.7</a> — <em>Learning Statistics with R</em></li>
 <li><em>Applied Multiple Regression/Correlation Analysis</em>, §2.4, 2.6–2.8</li>
@@ -289,8 +289,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment" class="level3">
-<h3 class="anchored" data-anchor-id="assignment">Assignment</h3>
+<section id="assignment" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
 <ul>
 <li><a href="../../C/07/a_assignment.html">Lecture 07a Assignment</a></li>
 </ul>
@@ -305,14 +305,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Polytomous Dummy Coding</li>
 </ul>
 </div>
-<section id="files-1" class="level3">
-<h3 class="anchored" data-anchor-id="files-1">Files</h3>
+<section id="files-1" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files-1">Files</h3>
 <ul>
 <li><a href="../../data/penguins.csv" download="penguins.csv">penguins.csv</a></li>
 </ul>
 </section>
-<section id="readings-1" class="level3">
-<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
+<section id="readings-1" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
 <li><em>Applied Multiple Regression/Correlation Analysis</em>, §8.1–8.2</li>
 </ul>
@@ -325,8 +325,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
+<section id="assignment-1" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment-1">Assignment</h3>
 <ul>
 <li><a href="../../C/07/b_assignment.html">Lecture 07b Assignment</a></li>
 </ul>
@@ -343,14 +343,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Many Predictors</li>
 </ul>
 </div>
-<section id="files-2" class="level3">
-<h3 class="anchored" data-anchor-id="files-2">Files</h3>
+<section id="files-2" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files-2">Files</h3>
 <ul>
 <li><a href="../../data/penguins.csv" download="penguins.csv">penguins.csv</a></li>
 </ul>
 </section>
-<section id="readings-2" class="level3">
-<h3 class="anchored" data-anchor-id="readings-2">Readings</h3>
+<section id="readings-2" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings-2">Readings</h3>
 <ul>
 <li><em>Applied Multiple Regression/Correlation Analysis</em>, §3.2–3.3, 3.5–3.6</li>
 <li>Rohrer (2018), <a href="https://doi.org/10.1177/2515245917745629">Thinking Clearly About Correlations and Causation: Graphical Causal Models for Observational Data</a> — <em>AMPPS</em></li>
@@ -365,8 +365,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment-2" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-2">Assignment</h3>
+<section id="assignment-2" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment-2">Assignment</h3>
 <ul>
 <li><a href="../../C/07/c_assignment.html">Lecture 07c Assignment</a></li>
 </ul>
@@ -454,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

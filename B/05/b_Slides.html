@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -248,16 +264,16 @@
 <section class="slide level2">
 <h2>Correlations</h2>
 <ul>
-<li><p>A correlation <span class="math inline">\((\rho,r)\)</span> quantifies the <strong>direction</strong> and <strong>strength</strong> of the <em>linear</em> relationships between two variables</p></li>
+<li><p>A correlation <span class="math inline">(\rho,r)</span> quantifies the <strong>direction</strong> and <strong>strength</strong> of the <em>linear</em> relationships between two variables</p></li>
 <li><p><span class="b blue">Direction</span>: do the variables change together or opposing?</p>
 <ul>
-<li><span class="math inline">\(\rho&gt;0\)</span>: the variables change together</li>
-<li><span class="math inline">\(\rho&lt;0\)</span>: the variables change in opposition</li>
+<li><span class="math inline">\rho&gt;0</span>: the variables change together</li>
+<li><span class="math inline">\rho&lt;0</span>: the variables change in opposition</li>
 </ul></li>
 <li><p><span class="b blue">Strength</span>: how well does one variable predict the other?</p>
 <ul>
-<li><span class="math inline">\(\rho \to 0\)</span>: no linear relationship (a nonlinear one may still exist)</li>
-<li><span class="math inline">\(\rho \to \pm1\)</span>: perfect (positive or negative) relationship</li>
+<li><span class="math inline">\rho \to 0</span>: no linear relationship (a nonlinear one may still exist)</li>
+<li><span class="math inline">\rho \to \pm1</span>: perfect (positive or negative) relationship</li>
 </ul></li>
 </ul>
 <div class="footer">
@@ -311,12 +327,12 @@
 <ul>
 <li>A single variable’s <strong>variance</strong> measures its spread/changes</li>
 </ul>
-<p><span class="math display">\[\text{Var}(x) = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(x_i - \bar{x})\]</span></p>
+<p><span class="math display">\text{Var}(x) = \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(x_i - \bar{x})</span></p>
 <div class="fragment">
 <ul>
 <li>Two variables’ <span class="b blue">covariance</span> measures their <em>linked</em> changes</li>
 </ul>
-<p><span class="math display">\[\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})\]</span></p>
+<p><span class="math display">\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})</span></p>
 </div>
 <div class="footer">
 <p>A variable’s variance is equal to its covariance with itself</p>
@@ -324,11 +340,11 @@
 </section>
 <section class="slide level2">
 <h2>More on covariance</h2>
-<p><span class="math display">\[\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})\]</span></p>
+<p><span class="math display">\text{Cov}(x,y) = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})</span></p>
 <ul>
-<li><p><span class="math inline">\(\text{Cov}\)</span> is positive when <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> vary together</p></li>
-<li><p><span class="math inline">\(\text{Cov}\)</span> is negative when <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> vary in opposition</p></li>
-<li><p>The <span class="math inline">\(\text{Cov}\)</span> thus quantifies linear relationships…</p>
+<li><p><span class="math inline">\text{Cov}</span> is positive when <span class="math inline">x</span> and <span class="math inline">y</span> vary together</p></li>
+<li><p><span class="math inline">\text{Cov}</span> is negative when <span class="math inline">x</span> and <span class="math inline">y</span> vary in opposition</p></li>
+<li><p>The <span class="math inline">\text{Cov}</span> thus quantifies linear relationships…</p>
 <ul>
 <li>But it has weird units and an unbounded range</li>
 <li>So we standardize it to create the correlation</li>
@@ -339,14 +355,14 @@
 <h2>Pearson’s correlation</h2>
 <ul>
 <li><p>In general, we standardize something by dividing it by its SD</p></li>
-<li><p>Here we need to divide by the product of the SDs of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p></li>
+<li><p>Here we need to divide by the product of the SDs of <span class="math inline">x</span> and <span class="math inline">y</span></p></li>
 </ul>
-<p><span class="math display">\[r_{xy} = \frac{\text{Cov}(x,y)}{s_x s_y}\]</span></p>
+<p><span class="math display">r_{xy} = \frac{\text{Cov}(x,y)}{s_x s_y}</span></p>
 <ul>
 <li>This is called the Pearson Correlation Coefficient (or PCC)
 <ul>
 <li>Also called the product-moment or inter-class correlation</li>
-<li>The population parameter is <span class="math inline">\(\rho\)</span>, the sample statistic is <span class="math inline">\(r\)</span></li>
+<li>The population parameter is <span class="math inline">\rho</span>, the sample statistic is <span class="math inline">r</span></li>
 </ul></li>
 </ul>
 </section>
@@ -702,18 +718,18 @@
 <section class="slide level2">
 <h2>Interpretation</h2>
 <ul>
-<li><p><span class="math inline">\(r=0\)</span> is no relationship, <span class="math inline">\(r=\pm1\)</span> is a perfect relationship</p></li>
-<li><p>How should we interpret correlations between <span class="math inline">\(0\)</span> and <span class="math inline">\(\pm1\)</span>?</p></li>
+<li><p><span class="math inline">r=0</span> is no relationship, <span class="math inline">r=\pm1</span> is a perfect relationship</p></li>
+<li><p>How should we interpret correlations between <span class="math inline">0</span> and <span class="math inline">\pm1</span>?</p></li>
 <li><p>It depends on the context (what is common in your field?)</p></li>
 <li><p>But here are some heuristics to use as a starting place</p></li>
 </ul>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">\((0.0,0.1)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\([0.1,0.3)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\([0.3,0.5)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\([0.5,1.0)\)</span></th>
+<th style="text-align: center;"><span class="math inline">(0.0,0.1)</span></th>
+<th style="text-align: center;"><span class="math inline">[0.1,0.3)</span></th>
+<th style="text-align: center;"><span class="math inline">[0.3,0.5)</span></th>
+<th style="text-align: center;"><span class="math inline">[0.5,1.0)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -732,7 +748,7 @@
 <section class="slide level2">
 <h2>Ansombe’s quartet</h2>
 <ul>
-<li><p>All four data sets have the same correlation <span class="math inline">\((r=.816)\)</span></p></li>
+<li><p>All four data sets have the same correlation <span class="math inline">(r=.816)</span></p></li>
 <li><p>But they show very different relationships qualitatively!</p></li>
 </ul>
 
@@ -740,7 +756,7 @@
 <section class="slide level2">
 <h2>Another effect size</h2>
 <ul>
-<li><p>We can square <span class="math inline">\(r\)</span> to get the <span class="b blue">coefficient of determination</span> <span class="math inline">\((r^2)\)</span></p></li>
+<li><p>We can square <span class="math inline">r</span> to get the <span class="b blue">coefficient of determination</span> <span class="math inline">(r^2)</span></p></li>
 <li><p>How much variability is explained by the linear relationship?</p></li>
 </ul>
 <div class="columns">
@@ -748,8 +764,8 @@
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(r^2\)</span></th>
+<th style="text-align: center;"><span class="math inline">r</span></th>
+<th style="text-align: center;"><span class="math inline">r^2</span></th>
 <th style="text-align: center;">Explained</th>
 </tr>
 </thead>
@@ -797,12 +813,12 @@
 <h2>Obligatory PSA</h2>
 <ul>
 <li><p>Finding a correlation <strong>does not</strong> prove any causal story</p></li>
-<li><p>There are many ways for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> to become correlated</p>
+<li><p>There are many ways for <span class="math inline">x</span> and <span class="math inline">y</span> to become correlated</p>
 <ul>
-<li>Maybe <span class="math inline">\(x\)</span> causes <span class="math inline">\(y\)</span> (theorized model)</li>
-<li>Maybe <span class="math inline">\(y\)</span> causes <span class="math inline">\(x\)</span> (reverse causation)</li>
-<li>Maybe <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> cause each other (bidirectional)</li>
-<li>Maybe <span class="math inline">\(z\)</span> causes both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (third variable)</li>
+<li>Maybe <span class="math inline">x</span> causes <span class="math inline">y</span> (theorized model)</li>
+<li>Maybe <span class="math inline">y</span> causes <span class="math inline">x</span> (reverse causation)</li>
+<li>Maybe <span class="math inline">x</span> and <span class="math inline">y</span> cause each other (bidirectional)</li>
+<li>Maybe <span class="math inline">z</span> causes both <span class="math inline">x</span> and <span class="math inline">y</span> (third variable)</li>
 <li>Maybe it is just sampling error (spurious)</li>
 </ul></li>
 </ul>
@@ -816,15 +832,15 @@
 <h2>Sampling error simulation</h2>
 <div class="columns">
 <div class="column">
-<p>Samples from <span class="math inline">\(\rho=0.0\)</span> <img data-src="../../img/nocorr.gif"></p>
+<p>Samples from <span class="math inline">\rho=0.0</span> <img data-src="../../img/nocorr.gif"></p>
 </div><div class="column fragment">
-<p>Samples from <span class="math inline">\(\rho=0.7\)</span> <img data-src="../../img/poscorr.gif"></p>
+<p>Samples from <span class="math inline">\rho=0.7</span> <img data-src="../../img/poscorr.gif"></p>
 </div></div>
 </section>
 <section class="slide level2">
 <h2>Statistical inference</h2>
 <ul>
-<li>I tend to treat <span class="math inline">\(r\)</span> as a descriptive summary statistic
+<li>I tend to treat <span class="math inline">r</span> as a descriptive summary statistic
 <ul>
 <li>I estimate it and maybe its CI but don’t use NHST</li>
 <li>I use more sophisticated methods to test relationships</li>
@@ -834,24 +850,24 @@
 <li>Usually the null hypothesis is that it equals zero</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0: \rho=0\\
 H_1: \rho\neq0
-\]</span></p>
+</span></p>
 </section>
 <section class="slide level2">
 <h2>Test statistic</h2>
 <ul>
 <li>Test statistics incorporate the effect size and sample size</li>
 </ul>
-<p><span class="math display">\[t_{obs}=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}\]</span></p>
+<p><span class="math display">t_{obs}=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}</span></p>
 <ul>
 <li>What is its sampling distribution under the null?
 <ul>
 <li>The frequentist parameteric approach assumes:</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[t_{obs} \sim t(\textit{df}=n-2, \mu=0, \sigma=1)\]</span></p>
+<p><span class="math display">t_{obs} \sim t(\textit{df}=n-2, \mu=0, \sigma=1)</span></p>
 </section>
 <section class="slide level2">
 <h2>Significance testing</h2>
@@ -868,22 +884,22 @@ H_1: \rho\neq0
 <span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -2.015368  2.015368</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p>Because <span class="math inline">\(t_{obs}\)</span> is more extreme than <span class="math inline">\(t_{crit}\)</span>, we reject <span class="math inline">\(H_0\)</span></p></li>
-<li><p>Thus, we conclude that <span class="math inline">\(\rho\neq0\)</span> and specifically that <span class="math inline">\(\rho&lt;0\)</span></p></li>
+<li><p>Because <span class="math inline">t_{obs}</span> is more extreme than <span class="math inline">t_{crit}</span>, we reject <span class="math inline">H_0</span></p></li>
+<li><p>Thus, we conclude that <span class="math inline">\rho\neq0</span> and specifically that <span class="math inline">\rho&lt;0</span></p></li>
 </ul>
 </section>
 <section class="slide level2">
 <h2>Confidence intervals</h2>
 <ul>
-<li><p>Because <span class="math inline">\(r\)</span> is bounded <span class="math inline">\([-1,1]\)</span>, its CI is often asymmetrical</p></li>
+<li><p>Because <span class="math inline">r</span> is bounded <span class="math inline">[-1,1]</span>, its CI is often asymmetrical</p></li>
 <li><p>So we need a more complicated procedure to estimate its CI</p></li>
 </ul>
 <div class="columns">
 <div class="column">
 <ol type="1">
-<li><p>Transform <span class="math inline">\(r\)</span> to <span class="math inline">\(z\)</span>,<br>which is unbounded</p></li>
-<li><p>Calculate a CI around <span class="math inline">\(z\)</span>,<br>which is symmetrical</p></li>
-<li><p>Transform the bounds<br>of the <span class="math inline">\(z\)</span> CI back to <span class="math inline">\(r\)</span></p></li>
+<li><p>Transform <span class="math inline">r</span> to <span class="math inline">z</span>,<br>which is unbounded</p></li>
+<li><p>Calculate a CI around <span class="math inline">z</span>,<br>which is symmetrical</p></li>
+<li><p>Transform the bounds<br>of the <span class="math inline">z</span> CI back to <span class="math inline">r</span></p></li>
 </ol>
 </div><div class="column">
 <div class="cell">
@@ -902,16 +918,16 @@ H_1: \rho\neq0
 <div class="columns">
 <div class="column" style="width:33%;">
 <h4>Step 1</h4>
-<p>Transform <span class="math inline">\(r\)</span> to <span class="math inline">\(z\)</span></p>
-<p><span class="math inline">\(z = \frac{1}{2}\ln\left(\frac{1+r}{1-r}\right)\)</span></p>
+<p>Transform <span class="math inline">r</span> to <span class="math inline">z</span></p>
+<p><span class="math inline">z = \frac{1}{2}\ln\left(\frac{1+r}{1-r}\right)</span></p>
 </div><div class="column" style="width:33%;">
 <h4>Step 2</h4>
-<p>Estimate <span class="math inline">\(z\)</span> CI</p>
-<p><span class="math inline">\(z \pm \sqrt{\frac{1}{n-3}} \times 1.96\)</span></p>
+<p>Estimate <span class="math inline">z</span> CI</p>
+<p><span class="math inline">z \pm \sqrt{\frac{1}{n-3}} \times 1.96</span></p>
 </div><div class="column" style="width:33%;">
 <h4>Step 3</h4>
-<p>Transform CI to <span class="math inline">\(r\)</span></p>
-<p><span class="math inline">\(r=\frac{e^{2z}-1}{e^{2z}+1}\)</span></p>
+<p>Transform CI to <span class="math inline">r</span></p>
+<p><span class="math inline">r=\frac{e^{2z}-1}{e^{2z}+1}</span></p>
 </div></div>
 <div class="fragment">
 <div class="cell">
@@ -993,7 +1009,7 @@ H_1: \rho\neq0
 <span id="cb10-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations: 46</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li>This also applies the Holm method to adjust the <span class="math inline">\(p\)</span>-values
+<li>This also applies the Holm method to adjust the <span class="math inline">p</span>-values
 <ul>
 <li>We will talk more about this in a future lecture</li>
 </ul></li>
@@ -1043,7 +1059,6 @@ H_1: \rho\neq0
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1211,27 +1226,9 @@ H_1: \rho\neq0
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1329,6 +1326,140 @@ H_1: \rho\neq0
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1478,7 +1609,7 @@ H_1: \rho\neq0
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

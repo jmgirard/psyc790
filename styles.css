@@ -33,8 +33,21 @@
    ~50% of the affected slides. Left at the reveal default here.
    See SLIDE-OVERFLOW.md. */
 
+/* Slide footer.
+   Reveal lays slides out on a fixed 1050x700 canvas and scales that canvas to
+   the window, but Quarto's footer is a child of `.reveal` rather than of
+   `.slides` -- so it sits OUTSIDE the transform and keeps whatever absolute
+   size it is given. At a flat 0.5em (20px) it therefore stayed 20px while the
+   slide text around it shrank with the deck, and in the embedded chapter-page
+   iframe (scale ~0.45) the footnote ended up rendering LARGER than the body
+   text it annotates.
+
+   `--deck-scale` is reveal's current scale factor, published by the observer in
+   format-outputs.html. Multiplying by it puts the footer back in proportion at
+   every size; the fallback of 1 keeps this at the old 20px if that script is
+   ever missing. */
 .reveal .footer {
-  font-size: 0.5em !important;
+  font-size: calc(0.5em * var(--deck-scale, 1)) !important;
 }
 
 .canvas_ss img {
@@ -61,6 +74,16 @@ lord-icon.rc {
   width: 300px;
   height: 300px;
 }
+
+/* There is deliberately no rule here for icons inside `.absolute` blocks.
+   Chapter 04 used to open all 45 of its slides with a 100x100 corner icon in
+   one, and needed sizing rules because <lord-icon> defaults to 32x32 and does
+   not inherit its container's box. Those icons were removed in favour of the
+   per-section divider illustrations below, and `.absolute` no longer wraps an
+   icon anywhere on the site. The `> p` half of that fix is worth NOT leaving
+   behind speculatively: it forced a height on every paragraph in an absolutely
+   positioned block, which is wrong for the text callouts `.absolute` is
+   otherwise for. */
 
 .mytable td {
   border: none !important;
@@ -133,6 +156,96 @@ lord-icon.rc {
   width: 1.05em;
   text-indent: 0;
   color: #2780e3;
+}
+
+/* ---------------------------------------------------------------------------
+   Resource lists (chapter pages)
+   ---------------------------------------------------------------------------
+   Every lecture section on a chapter page offers up to four kinds of resource,
+   each as a plain bullet list under an h3: Files (datasets to download),
+   Readings (off-site chapters and papers), Practice (an ungraded activity), and
+   Assignment (the graded one). As plain bullets they were four identical grey
+   lists and a reader had to consult the heading to tell which was which.
+
+   Each list is opted in from the .qmd with a heading attribute --
+   `### Files {.res-files}` -- rather than being matched on heading text or on
+   Quarto's auto-generated ids, which repeat as `#files-1`, `#files-2` down a
+   three-lecture page. Pandoc's section-divs move the class from the h3 onto the
+   wrapping <section>, so the selectors below hang off the section.
+
+   The icon glyphs come from Bootstrap Icons, which Quarto already loads on
+   every page of this site because the navbar uses `icon: list-ul`. No new
+   dependency, no web font of our own.
+   -------------------------------------------------------------------------- */
+section.res-files > ul,
+section.res-readings > ul,
+section.res-practice > ul,
+section.res-assignment > ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.35rem 0 1.35rem;
+}
+
+section.res-files > ul > li,
+section.res-readings > ul > li,
+section.res-practice > ul > li,
+section.res-assignment > ul > li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin: 0.3rem 0;
+  line-height: 1.5;
+}
+
+section.res-files > ul > li::before,
+section.res-readings > ul > li::before,
+section.res-practice > ul > li::before,
+section.res-assignment > ul > li::before {
+  font-family: "bootstrap-icons";
+  font-style: normal;
+  font-weight: normal;
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 1.75rem;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* Files: a dataset to download. Monospace, because the visible text is always
+   a filename the reader will go on to type in a read_csv() call. */
+section.res-files > ul > li::before {
+  content: "\f356";
+  color: #198754;
+}
+
+section.res-files > ul > li > a {
+  font-family: var(--bs-font-monospace, monospace);
+  font-size: 0.92em;
+}
+
+/* Readings: off-site. Note that not every entry is a link -- printed textbook
+   chapters are plain text on purpose (see MAINTENANCE.md on why paywalled
+   readings are the LMS's job), so this must look right without an <a>. */
+section.res-readings > ul > li::before {
+  content: "\f194";
+  color: #6f42c1;
+}
+
+/* Practice: ungraded, has an answer key. Unit A only. */
+section.res-practice > ul > li::before {
+  content: "\f4ca";
+  color: #d9822b;
+}
+
+/* Assignment: the graded one, and the only resource a student must act on --
+   the one kind that gets weight as well as a colour. */
+section.res-assignment > ul > li::before {
+  content: "\f28b";
+  color: #2780e3;
+}
+
+section.res-assignment > ul > li > a {
+  font-weight: 600;
 }
 
 /* Embedded deck. Reveal lays slides out on a fixed 1050x700 canvas and scales
@@ -265,6 +378,66 @@ iframe.slide-deck {
   border: none;
   box-shadow: none;
   margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Section divider slides
+   ---------------------------------------------------------------------------
+   Every `# Heading` in a deck renders as its own slide carrying nothing but the
+   section name -- measured across three decks, 8 to 25 characters of text, no
+   other element on the slide. That empty right half is where the section
+   illustration goes.
+
+   This is deliberately NOT data2's placement. There the `rc` icon sits in a 40%
+   column beside 60% of content on the first *content* slide of a section, which
+   works because those decks are sparse. Measured here across 28 section-opening
+   content slides in Units B/C/D, narrowing to 60% grew content height by a
+   median of 46% and only 6 of 28 still fit the 700px canvas -- these decks carry
+   too much code and output to give up the width. Moving the icon one slide
+   earlier, onto the divider, keeps data2's icon size and its one-per-section
+   cadence while needing no room from any content slide.
+
+   The composition mirrors `.t-title` above -- headline left, art right, art
+   vertically centred -- so a divider reads as the deck title slide at section
+   scale rather than as a new layout.
+
+   The shortcodes carry NO `trigger`, which leaves the icon static; playback is
+   driven from reveal's slide events in format-outputs.html. Lordicon's own
+   `trigger="in"` fires off an IntersectionObserver and is measurably wrong here
+   -- see the comment on that script for what it actually does inside reveal.
+   -------------------------------------------------------------------------- */
+.reveal .section-art {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 300px;
+  margin: 0;
+}
+
+/* Reserve the illustration column so a long section name cannot run underneath
+   the icon. Keyed on the presence of `.section-art`, NOT on `section:has(> h1)`:
+   `#` forces a slide break at slide-level 2, which splits the `.t-title` block
+   on every deck's title slide and leaves that h1 a direct child of its section
+   too. Matching on h1 therefore also padded all 23 title slides, which already
+   reserve their own art column via `.t-title`. Keying on the icon means a
+   divider with no icon is left exactly as it was. */
+.reveal section:has(> .section-art) > h1 {
+  padding-right: 360px;
+}
+
+/* Same `<p>` wrapper trap as the corner icons above: Pandoc wraps the shortcode
+   output in a paragraph, and a percentage height against it resolves to zero. */
+.reveal .section-art > p {
+  height: 100%;
+  margin: 0;
+}
+
+.reveal .section-art lord-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .table-bad td {

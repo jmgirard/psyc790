@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -229,13 +245,13 @@
 <h2>Motivation</h2>
 <ul>
 <li><p>In the previous chapter, we learned about multiple regression</p></li>
-<li><p>We used this to predict <span class="math inline">\(y\)</span> from multiple <span class="math inline">\(x\)</span> variables</p></li>
-<li><p>We accounted for the shared variance among <span class="math inline">\(x\)</span> variables</p></li>
+<li><p>We used this to predict <span class="math inline">y</span> from multiple <span class="math inline">x</span> variables</p></li>
+<li><p>We accounted for the shared variance among <span class="math inline">x</span> variables</p></li>
 </ul>
 <div class="fragment">
 <ul>
 <li><p>We will now learn <span class="b blue">moderation</span> (i.e., interaction effects)</p></li>
-<li><p>The effect of one <span class="math inline">\(x\)</span> <strong><em>depends on</em></strong> the value of another <span class="math inline">\(x\)</span></p></li>
+<li><p>The effect of one <span class="math inline">x</span> <strong><em>depends on</em></strong> the value of another <span class="math inline">x</span></p></li>
 <li><p>This adds complexity and “contextualization” to models</p></li>
 </ul>
 </div>
@@ -300,44 +316,44 @@
 </section>
 <section class="slide level2">
 <h2>Multiple regression recap</h2>
-<p>Let’s regress a continuous <span class="math inline">\(y\)</span> on two continuous <span class="math inline">\(x\)</span> variables</p>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 x_2\]</span></p>
+<p>Let’s regress a continuous <span class="math inline">y</span> on two continuous <span class="math inline">x</span> variables</p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 x_2</span></p>
 <ul>
-<li><p><span class="math inline">\(b_0\)</span> (intercept): the predicted <span class="math inline">\(y\)</span> when <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(x_2=0\)</span></p></li>
-<li><p><span class="math inline">\(b_1\)</span> (partial): the change in <span class="math inline">\(y\)</span> for a change of +1 in <span class="math inline">\(x_1\)</span></p></li>
-<li><p><span class="math inline">\(b_2\)</span> (partial): the change in <span class="math inline">\(y\)</span> for a change of +1 in <span class="math inline">\(x_2\)</span></p></li>
-<li><p><span class="math inline">\(b_1\)</span> controls for <span class="math inline">\(x_2\)</span> but is the same across all values of <span class="math inline">\(x_2\)</span> and thus does not depend on it (and the same for <span class="math inline">\(b_2\)</span> and <span class="math inline">\(x_1\)</span>)</p></li>
+<li><p><span class="math inline">b_0</span> (intercept): the predicted <span class="math inline">y</span> when <span class="math inline">x_1=0</span> and <span class="math inline">x_2=0</span></p></li>
+<li><p><span class="math inline">b_1</span> (partial): the change in <span class="math inline">y</span> for a change of +1 in <span class="math inline">x_1</span></p></li>
+<li><p><span class="math inline">b_2</span> (partial): the change in <span class="math inline">y</span> for a change of +1 in <span class="math inline">x_2</span></p></li>
+<li><p><span class="math inline">b_1</span> controls for <span class="math inline">x_2</span> but is the same across all values of <span class="math inline">x_2</span> and thus does not depend on it (and the same for <span class="math inline">b_2</span> and <span class="math inline">x_1</span>)</p></li>
 </ul>
 </section>
 <section class="slide level2 fs70">
 <h2>Adding an interaction</h2>
 <p>Interactions are formed by multiplying predictor variables</p>
 <p>The product becomes another predictor with its own slope</p>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + b_3 \color{red}{x_1 x_2}\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + b_3 \color{red}{x_1 x_2}</span></p>
 <ul>
-<li><p><span class="math inline">\(b_0\)</span> (intercept): the predicted <span class="math inline">\(y\)</span> when <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(x_2=0\)</span></p></li>
-<li><p><span class="math inline">\(b_1\)</span> (simple): the change in <span class="math inline">\(y\)</span> for a change of +1 in <span class="math inline">\(x_1\)</span> (specifically at <span class="math inline">\(x_2=0\)</span>)</p></li>
-<li><p><span class="math inline">\(b_2\)</span> (simple): the change in <span class="math inline">\(y\)</span> for a change of +1 in <span class="math inline">\(x_2\)</span> (specifically at <span class="math inline">\(x_1=0\)</span>)</p></li>
-<li><p><span class="math inline">\(b_3\)</span> (interaction): two equivalent definitions</p>
+<li><p><span class="math inline">b_0</span> (intercept): the predicted <span class="math inline">y</span> when <span class="math inline">x_1=0</span> and <span class="math inline">x_2=0</span></p></li>
+<li><p><span class="math inline">b_1</span> (simple): the change in <span class="math inline">y</span> for a change of +1 in <span class="math inline">x_1</span> (specifically at <span class="math inline">x_2=0</span>)</p></li>
+<li><p><span class="math inline">b_2</span> (simple): the change in <span class="math inline">y</span> for a change of +1 in <span class="math inline">x_2</span> (specifically at <span class="math inline">x_1=0</span>)</p></li>
+<li><p><span class="math inline">b_3</span> (interaction): two equivalent definitions</p>
 <ul>
-<li>the change in <span class="math inline">\(b_1\)</span> (i.e., the slope of <span class="math inline">\(x_1\)</span>) for a change of +1 in <span class="math inline">\(x_2\)</span></li>
-<li>the change in <span class="math inline">\(b_2\)</span> (i.e., the slope of <span class="math inline">\(x_2\)</span>) for a change of +1 in <span class="math inline">\(x_1\)</span></li>
+<li>the change in <span class="math inline">b_1</span> (i.e., the slope of <span class="math inline">x_1</span>) for a change of +1 in <span class="math inline">x_2</span></li>
+<li>the change in <span class="math inline">b_2</span> (i.e., the slope of <span class="math inline">x_2</span>) for a change of +1 in <span class="math inline">x_1</span></li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 <h2>Rearranging the formula</h2>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + b_3 x_1 x_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + b_3 x_1 x_2</span></p>
 <div class="fragment">
-<p><span class="math display">\[\hat{y} = b_0 + (b_1 + b_3 x_2) x_1 + b_2 x_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + (b_1 + b_3 x_2) x_1 + b_2 x_2</span></p>
 </div>
 <div class="fragment">
-<p>Thus, the slope of <span class="math inline">\(x_1\)</span> (its multiplier) <em>depends on</em> the value of <span class="math inline">\(x_2\)</span></p>
-<p>Also, if there is no interaction (<span class="math inline">\(b_3=0\)</span>), then <span class="math inline">\(b_1\)</span> is unchanged</p>
+<p>Thus, the slope of <span class="math inline">x_1</span> (its multiplier) <em>depends on</em> the value of <span class="math inline">x_2</span></p>
+<p>Also, if there is no interaction (<span class="math inline">b_3=0</span>), then <span class="math inline">b_1</span> is unchanged</p>
 </div>
 <div class="fragment pv2">
-<p>The same is true for the slope of <span class="math inline">\(x_2\)</span> if we rearrange again</p>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + (b_2 + b_3 x_1) x_2\]</span></p>
+<p>The same is true for the slope of <span class="math inline">x_2</span> if we rearrange again</p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + (b_2 + b_3 x_1) x_2</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -353,7 +369,7 @@
 <span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## duration × intensity |        0.39 |  0.19 | [  0.03,  0.76] |   2.10 | 0.036</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p>The interaction effect (duration <span class="math inline">\(\times\)</span> intensity) is significant</p></li>
+<li><p>The interaction effect (duration <span class="math inline">\times</span> intensity) is significant</p></li>
 <li><p>Thus, the effect of <code>duration</code> does depend on <code>intensity</code></p></li>
 </ul>
 <div class="footer">
@@ -362,7 +378,7 @@
 </section>
 <section class="slide level2 fs70">
 <h2>Predicting energy expenditure</h2>
-<p><span class="math display">\[\hat{y} = 7.80 - 9.38 x_1 - 0.08 x_2 + 0.39 x_1 x_2\]</span></p>
+<p><span class="math display">\hat{y} = 7.80 - 9.38 x_1 - 0.08 x_2 + 0.39 x_1 x_2</span></p>
 <ul>
 <li><p><strong>Intercept:</strong> A participant exercising at 0 duration and 0 intensity expends 7.8 units</p></li>
 <li><p><strong>Duration Simple Effect:</strong> Each unit of duration will expend an additional -9.38 units of energy (at 0 intensity)</p></li>
@@ -371,28 +387,28 @@
 </ul>
 <div class="fragment">
 <p>The average participant (2 duration, 30 intensity) expends 10.04 units of energy</p>
-<p><span class="math display">\[\hat{y} = 7.80 - 9.38(2) - 0.08(30) + 0.39(2)(30) = 10.04\]</span></p>
+<p><span class="math display">\hat{y} = 7.80 - 9.38(2) - 0.08(30) + 0.39(2)(30) = 10.04</span></p>
 </div>
 </section>
 <section class="slide level2 fs70">
 <h2>Spotlight analysis</h2>
 <ul>
-<li><p>In order to plot the predictions, we can map one predictor to the <span class="math inline">\(x\)</span>-axis</p></li>
+<li><p>In order to plot the predictions, we can map one predictor to the <span class="math inline">x</span>-axis</p></li>
 <li><p>But representing the other predictor continuously is challenging in 2D</p></li>
 </ul>
 <div class="fragment">
 <ul>
 <li>Instead of trying to use a 3D plot, we usually “spotlight” a few values, e.g.,
 <ul>
-<li>One SD below the mean <span class="math inline">\((\bar{x} - s_x)\)</span></li>
-<li>The mean value <span class="math inline">\((\bar{x})\)</span></li>
-<li>One SD above the mean <span class="math inline">\((\bar{x} + s_x)\)</span></li>
+<li>One SD below the mean <span class="math inline">(\bar{x} - s_x)</span></li>
+<li>The mean value <span class="math inline">(\bar{x})</span></li>
+<li>One SD above the mean <span class="math inline">(\bar{x} + s_x)</span></li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>We plot the effect of one <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span> conditional on these values of the other <span class="math inline">\(x\)</span>
+<li>We plot the effect of one <span class="math inline">x</span> on <span class="math inline">y</span> conditional on these values of the other <span class="math inline">x</span>
 <ul>
 <li>Thus, these are often called “conditional effects plots”</li>
 <li>You can think of “conditional on” as “depending on”</li>
@@ -408,7 +424,7 @@
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><div class="footer">
-<p>The <code>=[sd]</code> shortcut spotlights intensity at Mean <span class="math inline">\(\pm\)</span> SD. The lines aren’t parallel, so the interaction is non-zero.</p>
+<p>The <code>=[sd]</code> shortcut spotlights intensity at Mean <span class="math inline">\pm</span> SD. The lines aren’t parallel, so the interaction is non-zero.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -447,7 +463,7 @@
 <span id="cb5-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Type of slope was dY/dX</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="footer">
-<p>We could also use the shortcut <code>"intensity=[sd]"</code> to specify Mean <span class="math inline">\(\pm\)</span> SD</p>
+<p>We could also use the shortcut <code>"intensity=[sd]"</code> to specify Mean <span class="math inline">\pm</span> SD</p>
 </div>
 </section>
 <section class="slide level2">
@@ -520,7 +536,7 @@
 <div class="columns">
 <div class="column tc fs70" style="width:33%;">
 <p><strong>Potentiation</strong></p>
-<p>As one <span class="math inline">\(x\)</span> increases, the slope of the other increases</p>
+<p>As one <span class="math inline">x</span> increases, the slope of the other increases</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -532,7 +548,7 @@
 </div>
 </div><div class="column tc fs70" style="width:33%;">
 <p><strong>Attenuation</strong></p>
-<p>As one <span class="math inline">\(x\)</span> increases, the slope of the other decreases</p>
+<p>As one <span class="math inline">x</span> increases, the slope of the other decreases</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -544,7 +560,7 @@
 </div>
 </div><div class="column tc fs70" style="width:33%;">
 <p><strong>Crossover</strong></p>
-<p>As one <span class="math inline">\(x\)</span> increases, the ranking of the other reverses</p>
+<p>As one <span class="math inline">x</span> increases, the ranking of the other reverses</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -564,13 +580,13 @@
 <section class="slide level2">
 <h2>Centering interactions</h2>
 <ul>
-<li>Recall that the simple effects are when the other <span class="math inline">\(x=0\)</span>
+<li>Recall that the simple effects are when the other <span class="math inline">x=0</span>
 <ul>
-<li>This means that their <span class="math inline">\(p\)</span> values only apply in that region</li>
+<li>This means that their <span class="math inline">p</span> values only apply in that region</li>
 </ul></li>
-<li>So, if <span class="math inline">\(x=0\)</span> isn’t meaningful, we can use centering
+<li>So, if <span class="math inline">x=0</span> isn’t meaningful, we can use centering
 <ul>
-<li>Now they are the slopes when the other <span class="math inline">\(x=\bar{x}\)</span></li>
+<li>Now they are the slopes when the other <span class="math inline">x=\bar{x}</span></li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -667,7 +683,6 @@
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -835,27 +850,9 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -953,6 +950,140 @@
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1102,7 +1233,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

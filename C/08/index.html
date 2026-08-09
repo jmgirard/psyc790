@@ -260,14 +260,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Centering with Interactions</li>
 </ul>
 </div>
-<section id="files" class="level3">
-<h3 class="anchored" data-anchor-id="files">Files</h3>
+<section id="files" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files">Files</h3>
 <ul>
 <li><a href="../../data/exercise.csv" download="exercise.csv">exercise.csv</a></li>
 </ul>
 </section>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings">Readings</h3>
+<section id="readings" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings">Readings</h3>
 <ul>
 <li><em>Applied Multiple Regression/Correlation Analysis</em>, §7.1–7.5, 7.7</li>
 <li><a href="https://stats.idre.ucla.edu/r/seminars/interactions-r/">Interactions in R</a> — <em>UCLA OARC</em></li>
@@ -283,8 +283,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment" class="level3">
-<h3 class="anchored" data-anchor-id="assignment">Assignment</h3>
+<section id="assignment" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
 <ul>
 <li><a href="../../C/08/a_assignment.html">Lecture 08a Assignment</a></li>
 </ul>
@@ -302,14 +302,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Three-Way Interactions</li>
 </ul>
 </div>
-<section id="files-1" class="level3">
-<h3 class="anchored" data-anchor-id="files-1">Files</h3>
+<section id="files-1" class="level3 res-files">
+<h3 class="res-files anchored" data-anchor-id="files-1">Files</h3>
 <ul>
 <li><a href="../../data/exercise.csv" download="exercise.csv">exercise.csv</a></li>
 </ul>
 </section>
-<section id="readings-1" class="level3">
-<h3 class="anchored" data-anchor-id="readings-1">Readings</h3>
+<section id="readings-1" class="level3 res-readings">
+<h3 class="res-readings anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
 <li><em>Applied Multiple Regression/Correlation Analysis</em>, §7.6, 7.8, 9.1–9.3</li>
 <li><a href="https://stats.idre.ucla.edu/r/seminars/interactions-r/">Interactions in R</a> — <em>UCLA OARC</em></li>
@@ -323,8 +323,8 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
-<section id="assignment-1" class="level3">
-<h3 class="anchored" data-anchor-id="assignment-1">Assignment</h3>
+<section id="assignment-1" class="level3 res-assignment">
+<h3 class="res-assignment anchored" data-anchor-id="assignment-1">Assignment</h3>
 <ul>
 <li><a href="../../C/08/b_assignment.html">Lecture 08b Assignment</a></li>
 </ul>
@@ -412,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

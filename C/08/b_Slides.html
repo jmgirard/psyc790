@@ -102,6 +102,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -230,14 +246,14 @@
 <h2>Review of Last Lecture</h2>
 <ul>
 <li><p>We learned about <strong>moderation</strong> via <strong>interaction terms</strong></p></li>
-<li><p>The interaction effect is the slope of the product <span class="math inline">\(x_1 x_2\)</span></p>
+<li><p>The interaction effect is the slope of the product <span class="math inline">x_1 x_2</span></p>
 <ul>
-<li>This allows the slope of <span class="math inline">\(x_1\)</span> to <em>depend on</em> the value of <span class="math inline">\(x_2\)</span></li>
-<li>(and vice versa, slope of <span class="math inline">\(x_2\)</span> on value of <span class="math inline">\(x_1\)</span>)</li>
+<li>This allows the slope of <span class="math inline">x_1</span> to <em>depend on</em> the value of <span class="math inline">x_2</span></li>
+<li>(and vice versa, slope of <span class="math inline">x_2</span> on value of <span class="math inline">x_1</span>)</li>
 </ul></li>
 <li><p>We focused on interactions between <em>continuous</em> variables</p>
 <ul>
-<li>There were infinite slopes (one for each value of <span class="math inline">\(x_2\)</span>)</li>
+<li>There were infinite slopes (one for each value of <span class="math inline">x_2</span>)</li>
 <li>So we chose to “spotlight” just a few possible slopes</li>
 </ul></li>
 </ul>
@@ -294,45 +310,45 @@
 <section class="slide level2">
 <h2>Adding Interaction Term</h2>
 <ul>
-<li>If <span class="math inline">\(x_1\)</span> is continuous and <span class="math inline">\(x_2\)</span> is binary, we can dummy code <span class="math inline">\(x_2\)</span>
+<li>If <span class="math inline">x_1</span> is continuous and <span class="math inline">x_2</span> is binary, we can dummy code <span class="math inline">x_2</span>
 <ul>
-<li><span class="math inline">\(c_1=0\)</span> for the reference group (<span class="math inline">\(x_2=\)</span> female)</li>
-<li><span class="math inline">\(c_1=1\)</span> for the non-reference group (<span class="math inline">\(x_2=\)</span> male)</li>
+<li><span class="math inline">c_1=0</span> for the reference group (<span class="math inline">x_2=</span> female)</li>
+<li><span class="math inline">c_1=1</span> for the non-reference group (<span class="math inline">x_2=</span> male)</li>
 </ul></li>
-<li>We will then add an interaction term <span class="math inline">\(x_1 c_1\)</span> with its own slope</li>
+<li>We will then add an interaction term <span class="math inline">x_1 c_1</span> with its own slope</li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1</span></p>
 <div class="fragment tc">
 <p><code>formula = expenditure ~ duration * sex</code></p>
 </div>
 </section>
 <section class="slide level2 fs70">
 <h2>Interpreting the Coefficients</h2>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1</span></p>
 <ul>
-<li><p><span class="math inline">\(b_0\)</span> (intercept): the predicted value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(c_1=0\)</span></p></li>
-<li><p><span class="math inline">\(b_1\)</span> (simple): the change in <span class="math inline">\(y\)</span> expected for a change of +1 in <span class="math inline">\(x_1\)</span> (at <span class="math inline">\(c_1=0\)</span>)</p></li>
-<li><p><span class="math inline">\(b_2\)</span> (simple): the difference in <span class="math inline">\(y\)</span> between the two <span class="math inline">\(x_2\)</span> groups (at <span class="math inline">\(x_1=0\)</span>)</p></li>
-<li><p><span class="math inline">\(b_3\)</span> (interaction): two equivalent definitions</p>
+<li><p><span class="math inline">b_0</span> (intercept): the predicted value of <span class="math inline">y</span> when <span class="math inline">x_1=0</span> and <span class="math inline">c_1=0</span></p></li>
+<li><p><span class="math inline">b_1</span> (simple): the change in <span class="math inline">y</span> expected for a change of +1 in <span class="math inline">x_1</span> (at <span class="math inline">c_1=0</span>)</p></li>
+<li><p><span class="math inline">b_2</span> (simple): the difference in <span class="math inline">y</span> between the two <span class="math inline">x_2</span> groups (at <span class="math inline">x_1=0</span>)</p></li>
+<li><p><span class="math inline">b_3</span> (interaction): two equivalent definitions</p>
 <ul>
-<li>the difference in <span class="math inline">\(b_1\)</span> (i.e., the slope of <span class="math inline">\(x_1\)</span>) between the two <span class="math inline">\(x_2\)</span> groups</li>
-<li>the difference in <span class="math inline">\(b_2\)</span> (i.e., the difference between the two <span class="math inline">\(x_2\)</span> groups) expected for a change of +1 in <span class="math inline">\(x_1\)</span></li>
+<li>the difference in <span class="math inline">b_1</span> (i.e., the slope of <span class="math inline">x_1</span>) between the two <span class="math inline">x_2</span> groups</li>
+<li>the difference in <span class="math inline">b_2</span> (i.e., the difference between the two <span class="math inline">x_2</span> groups) expected for a change of +1 in <span class="math inline">x_1</span></li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 <h2>Rearranging the Formula</h2>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1</span></p>
 <div class="fragment">
-<p><span class="math display">\[\hat{y} = b_0 + (b_1 + b_3 c_1) x_1 + b_2 c_1\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + (b_1 + b_3 c_1) x_1 + b_2 c_1</span></p>
 </div>
 <div class="fragment">
-<p>Thus, the slope of <span class="math inline">\(x_1\)</span> (its multiplier) <em>depends on</em> the <span class="math inline">\(x_2\)</span> group</p>
-<p>Also, if there is no interaction (<span class="math inline">\(b_3=0\)</span>), then <span class="math inline">\(b_1\)</span> is unchanged</p>
+<p>Thus, the slope of <span class="math inline">x_1</span> (its multiplier) <em>depends on</em> the <span class="math inline">x_2</span> group</p>
+<p>Also, if there is no interaction (<span class="math inline">b_3=0</span>), then <span class="math inline">b_1</span> is unchanged</p>
 </div>
 <div class="fragment pv2">
-<p>The same is true for the slope of <span class="math inline">\(c_1\)</span> if we rearrange again</p>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + (b_2 + b_3 x_1) c_1\]</span></p>
+<p>The same is true for the slope of <span class="math inline">c_1</span> if we rearrange again</p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + (b_2 + b_3 x_1) c_1</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -351,13 +367,13 @@
 <span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## duration × sex [male] |       -1.72 | 1.90 | [-5.45,  2.00] |  -0.91 | 0.364</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li><p>The interaction effect (duration <span class="math inline">\(\times\)</span> sex) is NOT significant</p></li>
+<li><p>The interaction effect (duration <span class="math inline">\times</span> sex) is NOT significant</p></li>
 <li><p>Thus, we have no evidence that the effect of <code>duration</code> depends on <code>sex</code></p></li>
 </ul>
 </section>
 <section class="slide level2 fs70">
 <h2>Predicting energy expenditure</h2>
-<p><span class="math display">\[\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 c_1\]</span></p>
+<p><span class="math display">\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 c_1</span></p>
 <ul>
 <li><p><strong>Intercept:</strong> A female participant exercising at 0 duration expends 3.33 units</p></li>
 <li><p><strong>Duration Simple Effect:</strong> Each unit of duration will expend another 3.32 units (for females)</p></li>
@@ -366,7 +382,7 @@
 </ul>
 <div class="fragment">
 <p>The average participant (2 duration) expends 9.97 units (female) or 10.1 units (male)</p>
-<p><span class="math display">\[\text{Female: }\hat{y} = 3.33 + 3.32(2) + 3.57(0) - 1.72(2)(0) = 9.97\]</span> <span class="math display">\[\text{Male: }\hat{y} = 3.33 + 3.32(2) + 3.57(1) - 1.72(2)(1) = 10.10\]</span></p>
+<p><span class="math display">\text{Female: }\hat{y} = 3.33 + 3.32(2) + 3.57(0) - 1.72(2)(0) = 9.97</span> <span class="math display">\text{Male: }\hat{y} = 3.33 + 3.32(2) + 3.57(1) - 1.72(2)(1) = 10.10</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -467,29 +483,29 @@
 <li>But needs multiple dummy codes and interaction terms</li>
 </ul></li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2</span></p>
 <div class="tc fragment">
 <p><code>formula = expenditure ~ duration * program</code></p>
-<p>(<code>program</code> <span class="math inline">\(\in\{\text{jog, swim, read}\}\)</span> needs 2 dummy codes)</p>
+<p>(<code>program</code> <span class="math inline">\in\{\text{jog, swim, read}\}</span> needs 2 dummy codes)</p>
 </div>
 </section>
 <section class="slide level2 fs60">
 <h2>Interpreting coefficients</h2>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 c_2 + b_4 x_1 c_1 + b_5 x_1 c_2</span></p>
 <ul>
-<li><p><span class="math inline">\(b_0\)</span> (intercept): expected <span class="math inline">\(y\)</span> at <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(c_1=c_2=0\)</span> (i.e., reference group)</p></li>
-<li><p><span class="math inline">\(b_1\)</span> (simple): change in <span class="math inline">\(y\)</span> expected with change of +1 in <span class="math inline">\(x_1\)</span> (in reference group)</p></li>
-<li><p><span class="math inline">\(b_2\)</span> (simple): difference in <span class="math inline">\(y\)</span> between reference and <span class="math inline">\(c_1=1\)</span> group (at <span class="math inline">\(x_1=0\)</span>)</p></li>
-<li><p><span class="math inline">\(b_3\)</span> (simple): difference in <span class="math inline">\(y\)</span> between reference and <span class="math inline">\(c_2=1\)</span> group (at <span class="math inline">\(x_1=0\)</span>)</p></li>
-<li><p><span class="math inline">\(b_4\)</span> (interaction): two equivalent definitions</p>
+<li><p><span class="math inline">b_0</span> (intercept): expected <span class="math inline">y</span> at <span class="math inline">x_1=0</span> and <span class="math inline">c_1=c_2=0</span> (i.e., reference group)</p></li>
+<li><p><span class="math inline">b_1</span> (simple): change in <span class="math inline">y</span> expected with change of +1 in <span class="math inline">x_1</span> (in reference group)</p></li>
+<li><p><span class="math inline">b_2</span> (simple): difference in <span class="math inline">y</span> between reference and <span class="math inline">c_1=1</span> group (at <span class="math inline">x_1=0</span>)</p></li>
+<li><p><span class="math inline">b_3</span> (simple): difference in <span class="math inline">y</span> between reference and <span class="math inline">c_2=1</span> group (at <span class="math inline">x_1=0</span>)</p></li>
+<li><p><span class="math inline">b_4</span> (interaction): two equivalent definitions</p>
 <ul>
-<li>difference in <span class="math inline">\(b_1\)</span> (effect of <span class="math inline">\(x_1\)</span>) between reference and <span class="math inline">\(c_1=1\)</span> group</li>
-<li>change in <span class="math inline">\(b_2\)</span> (effect of <span class="math inline">\(c_1\)</span>) expected with change of +1 in <span class="math inline">\(x_1\)</span></li>
+<li>difference in <span class="math inline">b_1</span> (effect of <span class="math inline">x_1</span>) between reference and <span class="math inline">c_1=1</span> group</li>
+<li>change in <span class="math inline">b_2</span> (effect of <span class="math inline">c_1</span>) expected with change of +1 in <span class="math inline">x_1</span></li>
 </ul></li>
-<li><p><span class="math inline">\(b_5\)</span> (interaction): two equivalent definitions</p>
+<li><p><span class="math inline">b_5</span> (interaction): two equivalent definitions</p>
 <ul>
-<li>difference in <span class="math inline">\(b_1\)</span> (effect of <span class="math inline">\(x_1\)</span>) between reference and <span class="math inline">\(c_2=1\)</span> group</li>
-<li>change in <span class="math inline">\(b_3\)</span> (effect of <span class="math inline">\(c_2\)</span>) expected with change of +1 in <span class="math inline">\(x_1\)</span></li>
+<li>difference in <span class="math inline">b_1</span> (effect of <span class="math inline">x_1</span>) between reference and <span class="math inline">c_2=1</span> group</li>
+<li>change in <span class="math inline">b_3</span> (effect of <span class="math inline">c_2</span>) expected with change of +1 in <span class="math inline">x_1</span></li>
 </ul></li>
 </ul>
 </section>
@@ -608,9 +624,9 @@
 <h2>Expanding the equation</h2>
 <ul>
 <li><p>We can also interact two categorical variables</p></li>
-<li><p>We need two sets of dummy codes (e.g., <span class="math inline">\([c_1]\)</span> and <span class="math inline">\([d_1,d_2]\)</span>)</p></li>
+<li><p>We need two sets of dummy codes (e.g., <span class="math inline">[c_1]</span> and <span class="math inline">[d_1,d_2]</span>)</p></li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 c_1 + b_2 d_1 + b_3 d_2 + b_4 c_1 d_1 + b_5 c_1 d_2\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 c_1 + b_2 d_1 + b_3 d_2 + b_4 c_1 d_1 + b_5 c_1 d_2</span></p>
 <div class="tc fragment">
 <p><code>expenditure ~ sex + program + sex:program</code></p>
 </div>
@@ -745,9 +761,9 @@
 <h2>Expanding the equation</h2>
 <ul>
 <li><p>With three predictors, every combination gets a term</p></li>
-<li><p>For a continuous <span class="math inline">\(x\)</span> and two dummy codes <span class="math inline">\(c_1\)</span> and <span class="math inline">\(d_1\)</span>:</p></li>
+<li><p>For a continuous <span class="math inline">x</span> and two dummy codes <span class="math inline">c_1</span> and <span class="math inline">d_1</span>:</p></li>
 </ul>
-<p><span class="math display">\[\hat{y} = b_0 + b_1 x + b_2 c_1 + b_3 d_1 + b_4 x c_1 + b_5 x d_1 + b_6 c_1 d_1 + b_7 x c_1 d_1\]</span></p>
+<p><span class="math display">\hat{y} = b_0 + b_1 x + b_2 c_1 + b_3 d_1 + b_4 x c_1 + b_5 x d_1 + b_6 c_1 d_1 + b_7 x c_1 d_1</span></p>
 <ul>
 <li>Three main effects, three two-way interactions, one three-way interaction</li>
 </ul>
@@ -904,7 +920,6 @@
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1072,27 +1087,9 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -1190,6 +1187,140 @@
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1339,7 +1470,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

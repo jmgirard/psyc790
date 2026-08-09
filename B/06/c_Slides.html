@@ -101,6 +101,22 @@
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-53e3d2ac1773787e2a3f577cd3a68c1f.css">
   <link rel="stylesheet" href="../../styles.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -233,7 +249,7 @@
 <ul>
 <li>The ANOVA we learned in the previous lecture used Student’s approach
 <ul>
-<li>It simplifies the math by assuming all <span class="math inline">\(\sigma\)</span> are equal</li>
+<li>It simplifies the math by assuming all <span class="math inline">\sigma</span> are equal</li>
 <li>The “homogeneity of variance” assumption</li>
 </ul></li>
 <li>But we can extend Welch’s approach to ANOVA as well
@@ -298,12 +314,12 @@
 <ul>
 <li>To compare <em>independent</em> groups, we can use…
 <ul>
-<li>Independent samples <span class="math inline">\(t\)</span>-test (for exactly 2 groups)</li>
+<li>Independent samples <span class="math inline">t</span>-test (for exactly 2 groups)</li>
 <li>One-way ANOVA (for 3+ groups)</li>
 </ul></li>
 <li>To compare dependent/paired groups, we can use…
 <ul>
-<li>Paired samples <span class="math inline">\(t\)</span>-test</li>
+<li>Paired samples <span class="math inline">t</span>-test</li>
 <li><span class="b blue">One-way Repeated Measures ANOVA</span></li>
 </ul></li>
 </ul>
@@ -336,21 +352,21 @@ flowchart LR
 </div>
 <div class="columns pv2">
 <div class="column tc">
-<p><strong>Independent Samples</strong> <span class="math display">\[F_{obs} = \frac{MS_b}{MS_w}\]</span></p>
+<p><strong>Independent Samples</strong> <span class="math display">F_{obs} = \frac{MS_b}{MS_w}</span></p>
 </div><div class="column tc">
-<p><strong>Dependent Samples</strong> <span class="math display">\[F_{obs} = \frac{MS_b}{MS_e}\]</span></p>
+<p><strong>Dependent Samples</strong> <span class="math display">F_{obs} = \frac{MS_b}{MS_e}</span></p>
 </div></div>
 </section>
 <section class="slide level2">
 <h2>Partitioning the variation</h2>
-<p><span class="math display">\[\text{SS}_b = \sum_{k=1}^g n_k(\bar{y}_k - \bar{y})^2 \qquad \text{SS}_w = \sum_{k=1}^g\sum_{i=1}^{n_k}(y_{ik} - \bar{y}_k)^2\]</span></p>
+<p><span class="math display">\text{SS}_b = \sum_{k=1}^g n_k(\bar{y}_k - \bar{y})^2 \qquad \text{SS}_w = \sum_{k=1}^g\sum_{i=1}^{n_k}(y_{ik} - \bar{y}_k)^2</span></p>
 <div class="columns fs60">
 <div class="column">
 <p><em>How far are group means from the grand mean?</em></p>
 </div><div class="column">
 <p><em>How far are scores from their group means?</em></p>
 </div></div>
-<p><span class="math display">\[\quad \color{red}{\text{SS}_s = g \sum_{i=1}^{n} (\bar{y}_i - \bar{y})^2 \qquad \quad \text{SS}_e = \text{SS}_w - \text{SS}_s} \qquad \qquad\]</span></p>
+<p><span class="math display">\quad \color{red}{\text{SS}_s = g \sum_{i=1}^{n} (\bar{y}_i - \bar{y})^2 \qquad \quad \text{SS}_e = \text{SS}_w - \text{SS}_s} \qquad \qquad</span></p>
 <div class="columns fs60">
 <div class="column">
 <p><em>How far are subject means from the grand mean?</em></p>
@@ -363,14 +379,14 @@ flowchart LR
 <div class="tc b">
 <p>Mean Squares and Degrees of Freedom</p>
 </div>
-<p><span class="math display">\[\text{MS}_b = \frac{\text{SS}_b}{g - 1} \qquad \text{MS}_e = \frac{\text{SS}_e}{(n-1)(g-1)}\]</span></p>
+<p><span class="math display">\text{MS}_b = \frac{\text{SS}_b}{g - 1} \qquad \text{MS}_e = \frac{\text{SS}_e}{(n-1)(g-1)}</span></p>
 <div class="tc b">
 <p>Test Statistic and Null Sampling Distribution</p>
 </div>
-<p><span class="math display">\[
+<p><span class="math display">
 F_{obs} = \frac{\text{MS}_b}{\text{MS}_e} \\
 F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
-\]</span></p>
+</span></p>
 </section>
 <section class="slide level2">
 <h2>Example data</h2>
@@ -456,7 +472,7 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
 <ul>
 <li>How much of the <em>non-subject</em> variation is between groups?</li>
 </ul>
-<p><span class="math display">\[\eta_{partial}^2 = \frac{\text{SS}_b}{\text{SS}_b + \text{SS}_e}\]</span></p>
+<p><span class="math display">\eta_{partial}^2 = \frac{\text{SS}_b}{\text{SS}_b + \text{SS}_e}</span></p>
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(fit)</span>
@@ -505,7 +521,7 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
 <h2>Example 1 (Social Psych)</h2>
 <div class="fs70">
 <blockquote>
-<p>I read about a theory that says that a common enemy can unite political rivals. To test this, I have 200 American participants first complete a measure of hostility toward members of the opposing political party. They then read a news article that describes a foreign government threatening the USA. After answering some basic questions about the article, the participants complete another measure of hostility toward members of the opposing political party. Both measures of hostility are continuous and range from <span class="math inline">\(-5\)</span> to <span class="math inline">\(5\)</span>.</p>
+<p>I read about a theory that says that a common enemy can unite political rivals. To test this, I have 200 American participants first complete a measure of hostility toward members of the opposing political party. They then read a news article that describes a foreign government threatening the USA. After answering some basic questions about the article, the participants complete another measure of hostility toward members of the opposing political party. Both measures of hostility are continuous and range from <span class="math inline">-5</span> to <span class="math inline">5</span>.</p>
 </blockquote>
 </div>
 <ol type="1">
@@ -518,7 +534,7 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
 <h2>Example 2 (Clinical Psych)</h2>
 <div class="fs70">
 <blockquote>
-<p>I read about a theory that says that the personality trait of “Openness to Experience” (from the Big 5) is related to psychosis such that people with higher levels of this personality trait experience more symptoms of psychosis (e.g., hallucinations, delusions, and disorganized thinking) on average. To explore this idea, I collect data from 150 members of my local community, including self-report measures of the Big 5 personality traits and psychotic symptoms. All these measures are continuous and range from <span class="math inline">\(0\)</span> to <span class="math inline">\(100\)</span>.</p>
+<p>I read about a theory that says that the personality trait of “Openness to Experience” (from the Big 5) is related to psychosis such that people with higher levels of this personality trait experience more symptoms of psychosis (e.g., hallucinations, delusions, and disorganized thinking) on average. To explore this idea, I collect data from 150 members of my local community, including self-report measures of the Big 5 personality traits and psychotic symptoms. All these measures are continuous and range from <span class="math inline">0</span> to <span class="math inline">100</span>.</p>
 </blockquote>
 </div>
 <ol type="1">
@@ -531,7 +547,7 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
 <h2>Example 3 (Sports Science)</h2>
 <div class="fs70">
 <blockquote>
-<p>I read about a new pre-workout stretching technique that is supposed to dramatically reduce cramping. To see if it really works, I instruct one-third of the players on the soccer team I coach to use the new technique at the start of practice, another third to use a traditional stretching technique, and the final third to not stretch at all. After practice, I collect reports from each player on how much cramping they experienced during practice (on a scale from <span class="math inline">\(1\)</span> to <span class="math inline">\(10\)</span>).</p>
+<p>I read about a new pre-workout stretching technique that is supposed to dramatically reduce cramping. To see if it really works, I instruct one-third of the players on the soccer team I coach to use the new technique at the start of practice, another third to use a traditional stretching technique, and the final third to not stretch at all. After practice, I collect reports from each player on how much cramping they experienced during practice (on a scale from <span class="math inline">1</span> to <span class="math inline">10</span>).</p>
 </blockquote>
 </div>
 <ol type="1">
@@ -542,7 +558,7 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
 </section>
 <section class="slide level2">
 <h2>Small-Group Activity</h2>
-<p><strong>Step 1.</strong> Write down a few of your own examples (e.g., 2 to 4). The hypotheses should be testable using one-sample <span class="math inline">\(t\)</span>-tests, two-sample <span class="math inline">\(t\)</span>-tests, one-way tests, or correlations.</p>
+<p><strong>Step 1.</strong> Write down a few of your own examples (e.g., 2 to 4). The hypotheses should be testable using one-sample <span class="math inline">t</span>-tests, two-sample <span class="math inline">t</span>-tests, one-way tests, or correlations.</p>
 <p><strong>Step 2.</strong> Form small groups of two to three students and take turns reading each others’ examples. Discuss the answers to our three questions and brainstorm together.</p>
 <ol type="1">
 <li><p>What might the data frame look like for this study?</p></li>
@@ -572,7 +588,6 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
   <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
   <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
   <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -740,27 +755,9 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
@@ -858,6 +855,140 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
       });
 
     });
+
+    
+
+    // 3. Publish reveal's canvas scale as --deck-scale.
+
+    //
+
+    // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
+
+    // outside that transform, so anything sized in px there ignores the deck size
+
+    // entirely. Mirroring the scale onto a custom property lets styles.css keep the
+
+    // footer proportional to the slide text (see `.reveal .footer`).
+
+    //
+
+    // Read off the inline transform rather than Reveal's API on purpose: this file
+
+    // is included after the body but before Reveal.initialize() resolves, so there
+
+    // is no Reveal object to attach a 'resize' listener to yet. Watching the style
+
+    // attribute catches the initial layout and every resize with no ordering
+
+    // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
+
+    // no .reveal .slides at all.
+
+    (function () {
+
+      const slides = document.querySelector(".reveal .slides");
+
+      if (!slides) return;
+
+    
+
+      function publishScale() {
+
+        const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
+
+        document.documentElement.style.setProperty(
+
+          "--deck-scale",
+
+          match ? match[1] : "1"
+
+        );
+
+      }
+
+    
+
+      new MutationObserver(publishScale).observe(slides, {
+
+        attributes: true,
+
+        attributeFilter: ["style"],
+
+      });
+
+      publishScale();
+
+    })();
+
+    
+
+    // 4. Play each section-divider icon once, when its slide is reached.
+
+    //
+
+    // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
+
+    // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
+
+    // (display:block, translated out of view) so the observer fires for the wrong
+
+    // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
+
+    // section's icon, arriving at "Regression Inference" played the fifth, and the
+
+    // icons on the slides actually being shown never played at all.
+
+    //
+
+    // So the shortcodes carry no `trigger` -- which leaves them static -- and
+
+    // playback is driven from reveal's own slide events, which know exactly which
+
+    // slide is being entered. `slidechanged` covers navigation; `ready` covers a
+
+    // deck opened directly on a divider by URL hash. Both bubble to document, which
+
+    // matters because this file runs before Reveal.initialize() resolves and there
+
+    // is no Reveal object yet to attach a listener to.
+
+    (function () {
+
+      function playIcons(slide) {
+
+        if (!slide) return;
+
+        slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+
+          // The player is created asynchronously, so on a fast first navigation it
+
+          // may not exist yet; wait for its ready event in that case.
+
+          if (el.playerInstance && el.playerInstance.isReady) {
+
+            el.playerInstance.playFromBeginning();
+
+          } else {
+
+            el.addEventListener("ready", function () {
+
+              el.playerInstance.playFromBeginning();
+
+            }, { once: true });
+
+          }
+
+        });
+
+      }
+
+    
+
+      document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
+
+      document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
+
+    })();
 
     </script>
 
@@ -1007,7 +1138,7 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
