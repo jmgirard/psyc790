@@ -457,7 +457,7 @@ round, so plain `filter()` now means dplyr's. That is what you want here. Every
 later `library(tidyverse)` in these slides hides this message to save room.
 :::
 
-## Creating a Tibble from Vectors
+## A Tibble is Vectors Side by Side
 
 ```{r}
 #| echo: true
@@ -472,8 +472,8 @@ my_tibble
 ```
 
 ::: {.takeaway}
-`tibble()` lines vectors up as columns, using each vector's name as the column
-name. They must be equal length: these are rows of one table.
+A column *is* a vector: `tibble()` stands them side by side, naming each column
+after its vector. That shape is what everything later assumes.
 :::
 
 ## Tibbles Can Mix Types
@@ -492,23 +492,6 @@ guests
 ::: {.takeaway}
 Look at the `<chr>` and `<dbl>` labels: a tibble tracks each column's type, and
 prints `NA` where a value is missing rather than guessing at one.
-:::
-
-## Building the Vectors Inline
-
-```{r}
-#| echo: true
-
-gradebook <- tibble(
-  grade = c(95, 83, 90, 76),
-  letter = c("a", "b", "a-", "c")
-)
-gradebook
-```
-
-::: {.takeaway}
-Naming the columns inside `tibble()` skips the separate vectors entirely: less
-to type, and nothing left lying around afterwards.
 :::
 
 ## Pitfall: Unequal Column Lengths
@@ -563,10 +546,10 @@ name can **flow silently** into the rest of your code.
 #| echo: true
 
 # Rows and columns
-dim(gradebook)
+dim(guests)
 
 # Column names
-colnames(gradebook)
+colnames(guests)
 ```
 
 ::: {.takeaway}
