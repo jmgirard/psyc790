@@ -352,12 +352,12 @@
 </div>
 <ul>
 <li><p>The interaction effect (duration <span class="math inline">\(\times\)</span> sex) is NOT significant</p></li>
-<li><p>Thus, the effect of <code>duration</code> does NOT depend on <code>sex</code></p></li>
+<li><p>Thus, we have no evidence that the effect of <code>duration</code> depends on <code>sex</code></p></li>
 </ul>
 </section>
 <section class="slide level2 fs70">
 <h2>Predicting energy expenditure</h2>
-<p><span class="math display">\[\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 x_2\]</span></p>
+<p><span class="math display">\[\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 c_1\]</span></p>
 <ul>
 <li><p><strong>Intercept:</strong> A female participant exercising at 0 duration expends 3.33 units</p></li>
 <li><p><strong>Duration Simple Effect:</strong> Each unit of duration will expend another 3.32 units (for females)</p></li>
@@ -634,9 +634,12 @@
 <li><strong>Male:</strong> male – female in read</li>
 <li><strong>Jog:</strong> jog – read for females</li>
 <li><strong>Swim:</strong> swim – read for females</li>
-<li><strong>Male x Jog:</strong> (a) male – female in jog, (b) jog – read for males</li>
-<li><strong>Male x Swim:</strong> (a) male – female in swim, (b) swim – read for males</li>
+<li><strong>Male x Jog:</strong> (male – female in jog) minus (male – female in read)</li>
+<li><strong>Male x Swim:</strong> (male – female in swim) minus (male – female in read)</li>
 </ul>
+<div class="footer">
+<p>Interaction terms are <em>differences of differences</em>: equivalently, Male x Jog is (jog – read for males) minus (jog – read for females)</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Estimating means</h2>

@@ -1045,7 +1045,7 @@ China
 </div></aside></section>
 <section class="slide level2">
 <h2>Pitfall: Missing Values in Disguise</h2>
-<p>The grade column came in as <code>&lt;chr&gt;</code>, not because grades are letters, but because one cell holds a <code>?</code>. R has no idea that means “missing.”</p>
+<p>One student’s grade is recorded as <code>?</code>. R has no idea that means “missing” — unless we say so with <code>na = "?"</code>, it stays a real value that pollutes the column.</p>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/gradebook.csv"</span>, <span class="at">na =</span> <span class="st">"?"</span>)</span>
 <span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>old_gradebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1203,7 +1203,7 @@ China
 </div>
 
 <aside><div>
-<p><em>Note.</em> Read the <code>NA</code> counts: 2 penguins were never measured and 11 more were never sexed. Real data has holes, and this is where you find them.</p>
+<p><em>Note.</em> Read the <code>NA</code> counts: 2 penguins were never measured and 11 (including those 2) were never sexed. Real data has holes, and this is where you find them.</p>
 </div></aside></section>
 <section class="slide level2">
 <h2>Describing One Continuous Variable</h2>

@@ -342,6 +342,9 @@
 <div class="tc">
 <p><code>check_model(fit, check = "linearity")</code></p>
 </div>
+<div class="footer">
+<p>With several predictors, a curve in one <span class="math inline">\(x\)</span> can be diluted in this combined plot — per-predictor residual plots are a useful follow-up</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Example: Assumption Met</h2>
@@ -547,7 +550,7 @@
 <p><strong>Consequences of Violating</strong></p>
 </div>
 <div class="callout-content">
-<p>Coefficients stay <strong>unbiased</strong> but become unstable; standard errors are upwardly biased (i.e., inflated).</p>
+<p>Coefficients stay <strong>unbiased</strong> but become unstable; standard errors become larger, honestly reflecting that instability.</p>
 </div>
 </div>
 </div>
@@ -579,7 +582,7 @@
 <li>Examine predictor correlations for collinearity
 <ul>
 <li><span class="math inline">\(r(x_1, x_2)\ge0.9\)</span> may be problematic</li>
-<li>But this captures <span class="b green">c</span> and <span class="b purple">d</span>, whereas only <span class="b green">c</span> is an issue</li>
+<li>But no cutoff maps cleanly onto SE inflation</li>
 <li>It also doesn’t detect multicollinearity</li>
 </ul></li>
 <li>Calculate variance inflation factors (VIFs)

@@ -375,8 +375,8 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <div class="columns">
 <div class="column">
 <ul>
-<li><p>The sum of squared normally distributed values will have a <span class="math inline">\(\chi^2\)</span> distribution</p></li>
-<li><p>The ratio of two <span class="math inline">\(\chi^2\)</span> distributed variables will have an <span class="math inline">\(F\)</span> distribution</p></li>
+<li><p>The sum of squared <em>standard</em> normal values will have a <span class="math inline">\(\chi^2\)</span> distribution</p></li>
+<li><p>The ratio of two independent <span class="math inline">\(\chi^2\)</span> variables, <em>each divided by its df</em>, will have an <span class="math inline">\(F\)</span> distribution (this is why <span class="math inline">\(F\)</span> uses <span class="math inline">\(MS = SS/\textit{df}\)</span>)</p></li>
 </ul>
 <p><span class="math display">\[x \sim F(\textit{df}_1, \textit{df}_2)\]</span></p>
 </div><div class="column">
@@ -435,8 +435,8 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Critical value (to compare to F_obs = 343.6)</span></span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(.<span class="dv">975</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">339</span>)</span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.729313</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(.<span class="dv">95</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">339</span>)</span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.022362</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -560,48 +560,27 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 </tr>
 <tr class="even">
 <td>2</td>
+<td>TRUE</td>
 <td>-</td>
-<td>TRUE</td>
-<td>TRUE</td>
+<td>-</td>
 <td>alternative</td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>TRUE</td>
 <td>-</td>
 <td>TRUE</td>
+<td>-</td>
 <td>alternative</td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>TRUE</td>
-<td>TRUE</td>
 <td>-</td>
+<td>-</td>
+<td>TRUE</td>
 <td>alternative</td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>TRUE</td>
-<td>-</td>
-<td>-</td>
-<td>alternative</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>-</td>
-<td>TRUE</td>
-<td>-</td>
-<td>alternative</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>-</td>
-<td>-</td>
-<td>TRUE</td>
-<td>alternative</td>
-</tr>
-<tr class="even">
-<td>8</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
@@ -609,6 +588,9 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 </tr>
 </tbody>
 </table>
+</div>
+<div class="footer">
+<p>Because equality is transitive, no other combinations are possible (e.g., if <span class="math inline">\(\mu_1=\mu_3\)</span> and <span class="math inline">\(\mu_2=\mu_3\)</span>, then <span class="math inline">\(\mu_1=\mu_2\)</span>)</p>
 </div>
 <ul>
 <li>Thus, if we reject the null, we don’t know exactly why…</li>
@@ -648,6 +630,9 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <li>We will learn two common adjustment approaches</li>
 </ul></li>
 </ul>
+<div class="footer">
+<p>Gating is a common convention (adjustment alone also controls the familywise rate); we will follow it in this course</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Bonferroni correction</h2>
