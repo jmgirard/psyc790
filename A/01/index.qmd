@@ -41,6 +41,23 @@ Once both are installed, open RStudio and run the
 every package used anywhere in these materials and skips anything you already
 have.
 
+Two collections of packages do most of the work, and both are loaded in almost
+every analysis you will see:
+
+- [**tidyverse**](https://www.tidyverse.org/) for reading, reshaping, and
+  plotting data, introduced across Unit A.
+- [**easystats**](https://easystats.github.io/easystats/) for everything done
+  *to* a fitted model. `model_parameters()` reports estimates with their
+  uncertainty, `estimate_means()` and `estimate_relation()` turn a model back
+  into predictions you can read and plot, `check_model()` produces the
+  diagnostic panels used throughout Unit D, and `correlation()`, `r2()`, and
+  `cohens_d()` cover the effect sizes.
+
+easystats is doing more than saving typing here: its output is built around
+estimates and intervals rather than around a significance verdict, which is the
+same emphasis the course takes. It is introduced properly when the first models
+are fitted, so there is nothing to learn about it yet.
+
 The first two chapters walk through RStudio, projects, and Quarto in detail, so
 there is no need to understand any of it yet.
 
