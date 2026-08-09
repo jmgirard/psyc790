@@ -72,28 +72,26 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## Common Data Science Languages {.fs70}
+## R and Other Stats Software {.fs70}
 
-#### General Purpose
+-   You may have met [SPSS]{.b .blue}, [SAS]{.b .blue}, [Stata]{.b .blue}, [Mplus]{.b .blue}, [JASP]{.b .blue}, or [jamovi]{.b .blue}
+    -   All of them can run the analyses in this course
 
--   [R]{.b .blue} (interactive, welcoming)
-    -   *Strengths:* statistics, data wrangling, data visualization
-    -   *Weaknesses:* relatively slow, not security-focused
-
-::: {.fragment}
--   [Python]{.b .blue} (popular, versatile)
-    -   *Strengths:* automation, machine learning, data wrangling
-    -   *Weaknesses:* relatively slow
-:::  
-  
-::: {.fragment}
--   [Java]{.b .green} / [C++]{.b .green} / [Scala]{.b .green} / [Julia]{.b .green} (faster but older and harder or newer and smaller)
+::: {.fragment .mt1}
+-   R is [free]{.b .green}, on every computer you will ever use
+    -   No licence to buy, renew, or lose when you change institution
+    -   JASP and jamovi are free too --- and both are built on R
 :::
 
-::: {.fragment}
-#### Special Purpose
+::: {.fragment .mt1}
+-   R is a [real programming language]{.b .green}, not a menu with a syntax window
+    -   Which is why [data preparation]{.b .blue} is so much easier here
+    -   Cleaning, reshaping, and merging are the bulk of real analysis
+:::
 
--   JavaScript (web), SQL (databases), Swift (mobile), MATLAB (neuroscience), etc.
+::: {.fragment .mt1}
+-   New methods arrive as [packages]{.b .blue}, written by the researchers who
+    developed them --- often years before the commercial packages catch up
 :::
 
 
