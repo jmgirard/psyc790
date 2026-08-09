@@ -44,8 +44,15 @@ cran_packages <- c(
   "WebPower",
 
   # Tables / rendering
+  #
+  # kableExtra was removed. It was doing two things: one `kable_styling(font_size)`
+  # call, and two `scroll_box()` tables that were hiding most of their rows inside a
+  # child scroller (4 of 61 rows on one slide, 5 of 46 on the other) where no overflow
+  # sweep could see them and no audience could scroll them. Its `kePrint.js` also
+  # threw "$ is not defined" on every deck that loaded it, since revealjs has no
+  # jQuery. Tibble printing covers the data slides and a plain markdown table covers
+  # the other. Do not add it back without checking whether the same is true again.
   "knitr",
-  "kableExtra",
 
   # Misc
   "praise"

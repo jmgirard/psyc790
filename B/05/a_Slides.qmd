@@ -601,17 +601,14 @@ The $p$-value is the probability that the null hypothesis is true.
 
 ## Reporting a significance test
 
-```{r}
-tribble(
-  ~Notation, ~Stars, ~Translation, ~Decision,
-  "p ≥ .05", "", "Test was NOT significant at α=.05", "Retain Null",
-  "p < .05", "*", "Test was significant at α=.05", "REJECT Null",
-  "p < .01", "**", "Test was significant at α=.01", "REJECT Null",
-  "p < .001", "***", "Test was significant at α=.001", "REJECT Null"
-) |>  
-  knitr::kable() |> 
-  kableExtra::kable_styling(font_size = 32)
-```
+::: {.fs70}
+| Notation | Stars | Translation | Decision |
+|:---------|:----:|:------------|:---------|
+| p ≥ .05  |      | Test was NOT significant at α=.05 | Retain Null |
+| p < .05  | \*    | Test was significant at α=.05     | REJECT Null |
+| p < .01  | \*\*   | Test was significant at α=.01     | REJECT Null |
+| p < .001 | \*\*\*  | Test was significant at α=.001    | REJECT Null |
+:::
 
 - Report your exact $p$-value (unless less than .001)
     + Saying $p<.05$ or $p\ge.05$ discards useful information

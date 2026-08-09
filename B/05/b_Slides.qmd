@@ -331,18 +331,12 @@ $$r_{xy} = \frac{\text{Cov}(x,y)}{s_x s_y}$$
 
 ```{r}
 #| echo: true
-#| collapse: true
 #| message: false
 #| replace_path: ["../../data/", ""]
 
 library(tidyverse)
 cigarettes <- read_csv("../../data/cigarettes.csv")
-```
-
-```{r}
-#| echo: false
-
-knitr::kable(cigarettes) |> kableExtra::scroll_box(height = "500px")
+cigarettes
 ```
 
 

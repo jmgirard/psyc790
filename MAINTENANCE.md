@@ -162,9 +162,18 @@ real executed errors. `_heart_rate` gives "unexpected symbol", not "unexpected i
 Two things worth not undoing. `qplot()` is deprecated and warns, but it is kept because
 `A/03/b_assignment.qmd` instructs students to use it — replacing it is a teaching-content
 decision (§3). The warning fires once per session, so it appears on the first plot slide
-only, which is exactly what a student sees in their own console. And chunks that read data
-carry `#| replace_path: ["../../data/", ""]` so the slide shows `read_csv("penguins0.csv")`
-while the render reads the real path; keep it on any data-reading chunk you add.
+only, which is exactly what a student sees in their own console. Chunks that read data carry
+`#| replace_path: ["../../data/", ""]`, which is *supposed* to make the slide show
+`read_csv("penguins0.csv")` while the render reads the real path.
+
+> ⚠️ **`replace_path` does not currently work.** The hook that implements it lives in
+> `_common.R`, and **nothing sources `_common.R`** — grep the repo and its only mention is
+> itself. Quarto does not pick it up automatically. So all 23 `replace_path` options are
+> silent no-ops and every data slide shows the full `../../data/...` path. This is the same
+> failure mode as the `.f4`/`.f5` font utilities and the `.instructions` class: an option
+> that looks applied, changes nothing, and is invisible unless you compare the rendered
+> output against what you expected. Fixing it means giving each deck that reads data a
+> setup chunk that sources `../../_common.R`, and re-executing those decks.
 
 `A/02/a`'s three "Live Coding" slides are now gone too, and no deck has one. They had been
 left alone on the theory that a UI walkthrough has no code to run and no output to show, so

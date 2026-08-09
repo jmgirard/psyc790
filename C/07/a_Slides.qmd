@@ -256,19 +256,11 @@ The `water` dataset has information about mortality and water hardness in 61 UK 
 
 ```{r}
 #| echo: true
-#| eval: false
+#| message: false
 #| replace_path: ["../../data/", ""]
 
 water <- read_csv("../../data/water.csv")
 water
-```
-
-
-```{r}
-#| echo: false
-#| replace_path: ["../../data/", ""]
-water <- read_csv("../../data/water.csv")
-knitr::kable(water) |> kableExtra::scroll_box(height="400px")
 ```
 
 
