@@ -566,7 +566,7 @@ m_sex <- lm(body_mass ~ sex, data = penguins)
 compare_parameters(m_bil, m_fli, m_dep, m_sex, standardize = "refit")
 ```
 
-- All zero-order effects are significant (we can tell this from above because none of the slopes' 95% CIs contain zero)
+- All zero-order effects are significant (none of the slopes' 95% CIs contain zero)
 
 ## Example partial effects
 

@@ -112,7 +112,7 @@ theme_set(mytheme())
     + $c_1=0$ for the reference group ($x_2=$ female)
     + $c_1=1$ for the non-reference group ($x_2=$ male)
 
-- We will then add an interaction term $x_1 c_1$ with its own slope
+- We then add an interaction term $x_1 c_1$ with its own slope
 
 $$\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1$$
 
@@ -182,7 +182,7 @@ $$\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 c_1$$
 
 - **Intercept:** A female participant exercising at 0 duration expends 3.33 units
 
-- **Duration Simple Effect:** Each unit of duration will expend another 3.32 units (for females)
+- **Duration Simple Effect:** Each unit of duration expends 3.32 units more (for females)
 
 - **Sex Simple Effect:** Males will expend 3.57 units more than females (at 0 duration)
 
@@ -512,16 +512,16 @@ plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
-- So far, each interaction has let *one* effect depend on *one* moderator
+- So far, *one* effect depended on *one* moderator
 
 ::: {.fragment .mt1}
-- But a two-way interaction can itself depend on a third variable
+- Interactions can depend on a third $x$
     + Does the sex-by-program difference hold at every exercise duration?
-    + Perhaps program matters more for men only in longer sessions
+    + Maybe it only holds in long sessions
 :::
 
 ::: {.fragment .mt1}
-- This is a [three-way interaction]{.b .blue}: moderation of a moderation
+- A [three-way interaction]{.b .blue}: moderated moderation
 :::
 :::
 
@@ -560,8 +560,8 @@ model_parameters(fit6)
 
 ::: {.fragment .mt1}
 - Read it [top-down]{.b .blue}, highest-order term first
-    + If the three-way term is significant, the two-way interactions
-      should not be read as *overall* effects
+    + If the three-way term is significant, the two-way terms
+      are not *overall* effects
     + Each lower-order term is now conditional on the others being zero
 :::
 
@@ -614,14 +614,14 @@ plot(estimate_relation(fit6, by = c("duration", "sex", "program"))) + mytheme(20
 ::: {.columns .pv4}
 ::: {.column width="60%"}
 - Three-way interactions are [expensive]{.b .blue}
-    + They need substantially more power than two-way terms
+    + They need far more power than two-way terms
     + Cells get small quickly once you cross three variables
     + Our example is *simulated*, with 150 per cell; real data is rarely
       this generous
 
 ::: {.fragment .mt1}
 - They are also easy to over-read
-    + A significant three-way term found post hoc is a prime HARKing risk
+    + A three-way term found post hoc is a HARKing risk
     + Prefer to predict them in advance and preregister
 :::
 

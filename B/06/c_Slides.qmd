@@ -56,7 +56,7 @@ theme_set(mytheme)
 
 ## Welch's one-way test
 
-- The ANOVA we learned in the previous lecture used Student's approach
+- The ANOVA from last lecture used Student's approach
     + It simplifies the math by assuming all $\sigma$ are equal
     + The "homogeneity of variance" assumption
     

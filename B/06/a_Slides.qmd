@@ -300,7 +300,7 @@ model_parameters(fit_w)
     
 - If we ignore these relationships in our modeling...
     + Our SE estimates will tend to be too high (when the pairing correlation is positive)
-    + Therefore, our $p$-values and CIs will be incorrect, costing power
+    + So our $p$-values and CIs are wrong, costing power
 
 ## Paired samples $t$-test {.fs90}
 
@@ -437,7 +437,7 @@ Tenure track professors' average teaching evaluations were 0.56 standard deviati
 ## Dependent samples
 
 - When comparing the means of dependent/paired samples...
-    + We use the SD of the paired differences in the denominator
+    + The denominator uses the SD of the paired differences
     
 $$ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}$$
 
@@ -458,4 +458,4 @@ model_parameters(fit_p)
 cohens_d(Pair(endpoint, baseline) ~ 1, data = social)
 ```
 
-Patients' social problems were 0.42 units (or 0.66 change-score standard deviations) lower at the endpoint compared to baseline.
+Patients' social problems were 0.42 units (0.66 change-score SDs) lower at the endpoint than at baseline.

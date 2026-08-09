@@ -482,7 +482,7 @@ my_tibble
 
 ::: {.takeaway}
 `tibble()` lines vectors up as columns, using each vector's name as the column
-name. They must be the same length, since these are rows of one dataset.
+name. They must be equal length: these are rows of one table.
 :::
 
 ## Tibbles Can Mix Types
@@ -549,7 +549,7 @@ mytibble$y
 
 ::: {.takeaway}
 `$` pulls one column out as a plain vector. Note `y`: a single value is recycled
-down the whole column, because length one is the one length allowed to differ.
+down the column, because length one is the one length allowed to differ.
 :::
 
 ## Pitfall: A Column That Does Not Exist

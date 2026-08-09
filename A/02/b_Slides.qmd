@@ -250,7 +250,7 @@ age_time2
 
 ::: {.takeaway}
 `@` already means something else in R, so it reads `age@time2` as an operation on
-an object called `age`. Letters, numbers, `_` and `.` are all a name may contain.
+an object called `age`. Letters, numbers, `_` and `.` are all a name may hold.
 :::
 
 ## Pitfall: Names Must Start with a Letter
@@ -520,8 +520,7 @@ log(x)
 ```
 
 ::: {.takeaway}
-These return a vector the same length as the one you gave them: one answer per
-element.
+These return a vector as long as the input: one answer per element.
 :::
 
 ## Functions That Summarize
@@ -564,6 +563,6 @@ mean(scores, na.rm = TRUE)
 
 ::: {.takeaway}
 `NA` means "we do not know", so any answer depending on it is also unknown. That
-is a feature, not a bug. `na.rm = TRUE` says to answer from what you do have.
+is a feature, not a bug. `na.rm = TRUE` answers from what you have.
 :::
 

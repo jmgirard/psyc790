@@ -264,9 +264,9 @@ $g$ is the number of groups, $n$ is the total sample size
 
 ::: {.column}
 
-- The sum of squared *standard* normal values will have a $\chi^2$ distribution
+- The sum of squared *standard* normals has a $\chi^2$ distribution
 
-- The ratio of two independent $\chi^2$ variables, *each divided by its df*, will have an $F$ distribution (this is why $F$ uses $MS = SS/\textit{df}$)
+- The ratio of two independent $\chi^2$ variables, *each divided by its df*, has an $F$ distribution (hence $F$ uses $MS = SS/\textit{df}$)
 
 $$x \sim F(\textit{df}_1, \textit{df}_2)$$
 

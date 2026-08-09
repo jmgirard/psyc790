@@ -358,7 +358,8 @@ clt_plot(c(4, 8))
 ## Normal approximations
 
 
-- The CLT **applies to means, sums, and statistics built from them**
+- The CLT **applies to means and sums**
+    + And to statistics built from them
     + Why? A mean sums many independent observations
     + Some values will be higher and others will be lower
     + These deviations will tend to cancel each other out

@@ -157,7 +157,7 @@ toupper(dyes)
 
 ::: {.takeaway}
 `length()` counts elements whatever they are; `nchar()` and `toupper()` only mean
-anything for text. What a function accepts follows from what it is for.
+anything for text. What a function accepts follows from its purpose.
 :::
 
 # Factors

@@ -166,7 +166,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 1.  Open a web browser
 2.  Visit [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/){preview-link="false"}
-3.  Scroll down to the "**RStudio IDE**" download table
+3.  Scroll down to the **RStudio IDE** table
 4.  Find the row for "Windows"
 5.  Click "RStudio-2026.XX.X-XXX.exe"
 6.  Run the downloaded .exe file
@@ -179,7 +179,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 1.  Open a web browser
 2.  Visit [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/){preview-link="false"}
-3.  Scroll down to the "**RStudio IDE**" download table
+3.  Scroll down to the **RStudio IDE** table
 4.  Find the row for "macOS 13+"
 5.  Click "RStudio-2026.XX.X-XXX.dmg"
 6.  Run the downloaded .dmg file
@@ -321,7 +321,7 @@ the other way. R reads `\` as the start of something else entirely.
 
 ::: {.takeaway}
 Multiplication happens before addition, exactly as in algebra. Parentheses
-override that, and are worth adding whenever the order is not obvious at a glance.
+override that, and are worth adding whenever the order is not obvious.
 :::
 
 ## Decimals and Negative Numbers
@@ -337,8 +337,8 @@ override that, and are worth adding whenever the order is not obvious at a glanc
 ```
 
 ::: {.takeaway}
-Negative numbers need no special treatment, and division gives a decimal rather
-than a fraction. R prints as many digits as it thinks you need, not all of them.
+Negative numbers need no special treatment, and division gives a decimal, not a
+fraction. R prints as many digits as it thinks you need, not all it has.
 :::
 
 ## How R Prints Numbers
@@ -439,7 +439,7 @@ instructions rather than shouting one at a time.
 
 ::: {.takeaway}
 Anything after a `#` is ignored by R and exists only for human readers. A comment
-can have a line to itself or sit at the end of one; the code before it still runs.
+can sit on its own line or at the end of one; the code still runs.
 :::
 
 ## Saving the Script File {.fs70}

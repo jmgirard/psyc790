@@ -57,7 +57,7 @@ theme_set(mytheme())
 
 ## Motivation
 
-- In the previous chapter, we learned about multiple regression
+- Last chapter, we learned about multiple regression
 
 - We used this to predict $y$ from multiple $x$ variables
 

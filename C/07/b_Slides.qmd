@@ -176,7 +176,7 @@ penguins
 
 ## Regression with a dummy code
 
-- We can regress `body_mass` on the numeric dummy code $C_1$
+- We can regress `body_mass` on the dummy code $C_1$
     
 $$\hat{y}_i = b_0 + b_1 C_{1i}$$
 

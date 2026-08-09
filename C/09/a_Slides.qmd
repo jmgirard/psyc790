@@ -470,7 +470,7 @@ model_parameters(fit3)
 
 - The effects of `flipper_len` are significant controlling for sex
 
-- The effect of `sex` is significant controlling for `flipper_len` and its square
+- The `sex` effect holds controlling for both `flipper_len` terms
 
 
 ## Visualizing the model {.fs90}

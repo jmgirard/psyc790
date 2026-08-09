@@ -100,13 +100,13 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 -   The [Files]{.b .blue} tab (Extras pane) shows the project folder
 
 ::: {.fragment .mt1}
--   Make a new file (a script, say) and RStudio puts it [in the project folder]{.b .green}
+-   Make a new script and RStudio puts it [in the project folder]{.b .green}
     -   Add a line of text, such as `# Hello World`
-    -   Save it, and note that the dialog already points at the project folder
+    -   Save it; the dialog already points at the project folder
 :::
 
 ::: {.fragment .mt1}
--   Close the script with the [x]{.b .blue} icon, then reopen it from the [Files]{.b .blue} tab
+-   Close the script with the [x]{.b .blue} icon, then reopen it from [Files]{.b .blue}
 :::
 
 ## Closing and Reopening a Project
@@ -155,7 +155,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ## Creating a Quarto Document
 
 -   [File > New File > Quarto Document...]{.b .blue}
-    -   Keep the defaults (HTML) and click [Create Empty Document]{.b .blue}
+    -   Keep the defaults, then [Create Empty Document]{.b .blue}
 
 ::: {.fragment .mt1}
 -   [File > Save]{.b .blue}
@@ -183,7 +183,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 ::: {.fragment .mt1}
--   Chunk [options]{.b .blue} control how each chunk behaves; more on those later
+-   Chunk [options]{.b .blue} control how each chunk behaves; more later
 :::
 
 
@@ -231,7 +231,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ::: {.fragment .mt1}
 -   Links come in two forms:
     -   `<https://quarto.org>` shows the [bare URL]{.b .green}
-    -   `[Quarto](https://quarto.org)` shows [text you choose]{.b .green}
+    -   `[Quarto](https://quarto.org)` shows [text you pick]{.b .green}
 :::
 
 ## Images and Lists

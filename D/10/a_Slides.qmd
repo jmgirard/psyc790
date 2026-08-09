@@ -208,9 +208,9 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
 
 ## Assumption {.fs90}
 
-- Every variable that affects $y$ **and** correlates with an $x$ must be in the model
+- Any cause of $y$ that correlates with an $x$ must be in the model
     + Such a variable is called a **confounder**
-    + Its effect does not vanish; it is absorbed by the predictors we did include
+    + Its effect does not vanish; the predictors you kept absorb it
 
 - We saw this in Chapter 07c: leaving `education` out made White Collar look *more* prestigious than Blue Collar, and putting it back reversed the sign
 
@@ -399,11 +399,11 @@ simdat <- tibble(
 ::: {.column}
 #### Simulated Issues
 
-- `height2` is collinear with `height1`
+- `height2` mirrors `height1`
 
 - `size` is multicollinear with `height1` and `weight`
 
-- `female` and `male` are fully redundant
+- `male` duplicates `female`
 
 :::
 :::
