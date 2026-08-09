@@ -66,6 +66,14 @@ bakes in Lordicon's green with no way to recolour it at runtime -- see
 `ICONS.md`, which is where that was learned the expensive way. Save it into
 `icons/` under the row's `icon` name and add its code to `icon-map.json`.
 
+`make-icon-picker.py` renders every candidate next to the section it would open
+and writes `_site/icon-picker.html`, which is how the `choose` rows are meant to
+be settled: 21 open rows is about 50 tabs in the Lordicon UI otherwise.
+
+```bash
+python3 tools/make-icon-picker.py     # then open /icon-picker.html
+```
+
 The names and codes were read from `lordicon.com/api/library/icons?family=wired&style=outline`,
 which is the same 3,676-icon list the site's own grid renders from. Searching it
 offline beat searching the UI one concept at a time.
