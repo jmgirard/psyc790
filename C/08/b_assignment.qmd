@@ -29,7 +29,7 @@ embed-resources: true
 
 Using the `screentime` dataset, fit a linear model predicting `mental_wellbeing` from `phone_wd`, `gender`, and their interaction.
 
-a) Report the estimated interaction coefficient and whether it is significant. Which gender shows the steeper relationship between `phone_wd` and `mental_wellbeing`?
+a) Report the estimated interaction coefficient and whether it is significant. Which gender shows the steeper relationship between `phone_wd` and `mental_wellbeing`? (By steeper, I mean the slope that is further from zero, ignoring its sign.)
 
 b) Use `estimate_slopes()` to report the slope of `phone_wd` separately for girls and boys. Is each slope significantly different from zero, and does that match your answer to part (a)?
 

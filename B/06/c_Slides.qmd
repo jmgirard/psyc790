@@ -225,12 +225,18 @@ ggplot(depression, aes(x = time, y = hrsd)) +
 #| message: false
 
 library(afex)
-fit <- aov_4(
-  formula = hrsd ~ (time | patient),
-  data = depression
+fit <- aov_ez(
+  id = "patient",
+  dv = "hrsd",
+  data = depression,
+  within = "time"
 )
 model_parameters(fit)
 ```
+:::
+
+::: aside
+*Note.* `id` names the column identifying who each row came from. A factor goes in `within` when everyone is measured at every level, and in `between` when each person appears at only one.
 :::
 
 ## Estimating means

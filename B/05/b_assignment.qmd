@@ -88,7 +88,7 @@ Read in the `factbook1M` dataset again for this question so that it can be answe
 
 a) Test whether the correlation between `life_exp` and `birth_rate` is significantly different from zero at $\alpha=.05$. Report the test statistic, $p$-value, and confidence interval.
 
-b) Calculate the correlations among these four variables: `life_exp`, `birth_rate`, `infant_mortality`, and `death_rate`. Which pair is most strongly related and which pair is most weakly related? Give a verbal interpretation of the strongest relationship.
+b) Calculate the correlations among these four variables: `life_exp`, `birth_rate`, `infant_mortality`, and `death_rate`. Which pair is most strongly related and which pair is most weakly related? (By strength, I mean how far the correlation is from zero, ignoring its sign.) Give a verbal interpretation of the strongest relationship.
 
 ---
 

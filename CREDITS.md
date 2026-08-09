@@ -17,7 +17,8 @@ blue `#2780E3`, which is what the filename suffix records.
 | File | Used for | unDraw slug |
 |---|---|---|
 | `statistics_2780E3.svg` | site front page | `statistics_z6y6` |
-| `exams_2780E3.svg` | assignment and practice pages | `exams` |
+| `exams_2780E3.svg` | assignment pages | `exams` |
+| `studying_2780E3.svg` | practice pages | `studying_n5uj` |
 | `unit-a_2780E3.svg` | Unit A title slides | `source-code_m0vh` |
 | `unit-b_2780E3.svg` | Unit B title slides | `percentages_wi9e` |
 | `unit-c_2780E3.svg` | Unit C title slides | `growth-curve_kzjb` |

@@ -29,7 +29,7 @@ embed-resources: true
 |-------|-----|---------|
 |Earth  |1    |FALSE    |
 |Mars   |2    |FALSE    |
-|Jupiter|95   |TRUE     |
+|Jupiter|97   |TRUE     |
 |Saturn |274  |TRUE     |
 
 a) Create three vectors from the columns of the table above and combine them into a tibble named `planets`. Print the tibble.

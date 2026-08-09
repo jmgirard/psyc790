@@ -25,7 +25,7 @@ embed-resources: true
 
 ## Question 1 (NHST Logic)
 
-a) If my test has 70% power and an $\alpha$ of .01, what are my chances of making a Type I Error and a Type II Error?
+a) If my test has 70% power and an $\alpha$ of .01, what is my Type I Error rate and what is my Type II Error rate? For each rate, state the circumstance under which it applies.
 
 b) If I wanted to reduce my chances of making each type of error, what could I change about my study/analysis?
 

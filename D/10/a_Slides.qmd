@@ -68,6 +68,7 @@ theme_set(mytheme())
 
 - **Assumptions about the Formula**
     + Correct Functional Form
+    + No Omitted Confounders
     + Perfectly Measured Predictors
     + No Collinearity/Multicollinearity
 
@@ -199,6 +200,55 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
     + e.g., supervised machine learning (ML)
 
 
+# No Omitted Confounders
+
+## Assumption
+
+- Every variable that affects $y$ **and** correlates with an $x$ must be in the model
+    + Such a variable is called a **confounder**
+    + Its effect does not vanish; it is absorbed by the predictors we did include
+
+- We saw this in Chapter 07c: leaving `education` out made White Collar look *more* prestigious than Blue Collar, and putting it back reversed the sign
+
+::: {.callout-important title="Consequences of Violating"}
+Bias in the coefficients, and therefore in the tests and intervals built on them!
+:::
+
+
+## Diagnostics {.fs90}
+
+- There is **no diagnostic plot for this one**
+    + A confounded model can have perfect-looking residuals
+    + Nothing in the data can reveal a variable that is not in the data
+
+- Instead, we argue from **theory and design**
+    + What else plausibly causes $y$?
+    + Is it correlated with any predictor we care about?
+    + Did we measure it?
+
+::: {.tc}
+This is the assumption you cannot test --- only defend.
+:::
+
+
+## Solutions {.fs90}
+
+1. Measure and include the confounder
+    + Decided at **design** time, not analysis time
+
+2. Remove the confounding by design
+    + e.g., random assignment to conditions
+    + e.g., matching or restriction
+
+3. Be honest about what is left
+    + Report plausible confounders you could not measure
+    + Describe effects as *adjusted for what you included*, not as causal
+
+::: {.footer}
+Do not "control for everything" --- adjusting for a mediator removes the very pathway you are studying.
+:::
+
+
 # Perfect Predictors
 
 ## Assumption
@@ -259,7 +309,11 @@ Calculate predictors' **reliability** (the opposite of error)
 - If they *almost* fully overlap, the estimates become unstable
 
 ::: {.callout-important title="Consequences of Violating"}
-Coefficients are biased and standard errors are upwardly biased (i.e., inflated).
+Coefficients stay **unbiased** but become unstable; standard errors are upwardly biased (i.e., inflated).
+:::
+
+::: {.footer}
+*Unstable* means the estimate swings a lot from sample to sample --- not that it is systematically too high or too low.
 :::
 
 

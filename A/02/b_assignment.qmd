@@ -27,7 +27,7 @@ embed-resources: true
 
 a) Why is it important to give your objects in R good names? When might poorly thought-out names cause problems for a programmer?
 
-b) Sam is designing a treehouse. The plan is basically a big rectangular box with a wall that is 5.32 ft wide and 4.74 ft long (Sam is very precise). Using R, calculate the area of the treehouse and save that value to an object named `area`. Then use that object to calculate the `volume` of the treehouse, assuming the walls are 5.61 ft tall. Print the `volume` object.
+b) Sam is designing a treehouse. The plan is basically a big rectangular box with a floor that is 5.32 ft wide and 4.74 ft long (Sam is very precise). Using R, calculate the area of the treehouse and save that value to an object named `area`. Then use that object to calculate the `volume` of the treehouse, assuming the walls are 5.61 ft tall. Print the `volume` object.
 
 $$Area = Length \times Width$$
 
@@ -71,7 +71,7 @@ round(1 / 16; places = 3)
 
 a) What did I mean when I said that "functions typically either transform each element in a vector or summarize all elements in a vector"? In your answer, provide an example (in text) of when each of these behaviors might be useful.
 
-b) Below is a table of the top 5 countries' production (i.e., [GDP Per Capita at PPP](https://www.worldometers.info/gdp/gdp-by-country/)) in 2017. Save the numbers only to a vector and then use R to create a new vector that contains the log-transformed versions of each number. Print that new vector.
+b) Below is a table of the top 5 countries' production (i.e., [total GDP](https://www.worldometers.info/gdp/gdp-by-country/), in trillions of US dollars) in 2017. Save the numbers only to a vector and then use R to create a new vector that contains the log-transformed versions of each number. Print that new vector.
 
 {{< dstart summary="Hint" >}}
 Your output should look like this:

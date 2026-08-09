@@ -27,15 +27,15 @@ embed-resources: true
 
 ## Question 1 (Model Specification)
 
-a) In your own words, describe the three LM assumptions about the model formula/specification. What are they assuming, and what will the consequences be if they are violated?
+a) In your own words, describe the four LM assumptions about the model formula/specification. What are they assuming, and what will the consequences be if they are violated?
 
-b) Of those three assumptions, which do you think is hardest to check in practice, and why?
+b) Of those four assumptions, which do you think is hardest to check in practice, and why?
 
 ## Question 2 (Correct Form)
 
 Read in the `screentime` dataset and fit a multiple regression model predicting `mental_wellbeing` from `watch_wd`, `play_wd`, `compute_wd`, `phone_wd`, `gender`, `minority`, and `deprived_area`. To ease the comparison between slopes, standardize them using the "refit" method.
 
-a) Briefly report which partial effects are significant.
+a) Briefly report, for each predictor in the model, whether its partial effect is significant.
 
 b) Check the functional form assumption using the diagnostic(s) learned in lecture and interpret the results in terms of how reasonable vs. unreasonable the assumption is. (Note that you should explain *why* you think it is more or less reasonable and not just say "looks good" or "looks bad.")
 

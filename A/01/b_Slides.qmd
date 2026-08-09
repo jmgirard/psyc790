@@ -148,7 +148,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 1.  Open a web browser
 2.  Visit [cloud.r-project.org](https://cloud.r-project.org)
 3.  Click "Download R for macOS"
-4.  Click "R-4.X.X.pkg" (e.g., 4.6.1)
+4.  Click "R-4.X.X-arm64.pkg" (Apple silicon) or "R-4.X.X-x86_64.pkg" (older Intel Macs)
 5.  Run the downloaded .pkg file
 6.  Select all the default options
 7.  Complete the installation wizard
@@ -167,9 +167,9 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 #### Windows
 
 1.  Open a web browser
-2.  Visit [rstudio.com/download](https://posit.co/download/rstudio-desktop/){preview-link="false"}
-3.  Scroll down until you find the table under the "**All Installers**" section
-4.  Find the row for "Windows 10/11"
+2.  Visit [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/){preview-link="false"}
+3.  Scroll down to the "**RStudio IDE**" download table
+4.  Find the row for "Windows"
 5.  Click "RStudio-2026.XX.X-XXX.exe"
 6.  Run the downloaded .exe file
 7.  Select all the default options
@@ -180,8 +180,8 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 #### Mac OS
 
 1.  Open a web browser
-2.  Visit [rstudio.com/download](https://www.rstudio.com/products/rstudio/download/){preview-link="false"}
-3.  Scroll down until you find the table under the "**All Installers**" section
+2.  Visit [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/){preview-link="false"}
+3.  Scroll down to the "**RStudio IDE**" download table
 4.  Find the row for "macOS 13+"
 5.  Click "RStudio-2026.XX.X-XXX.dmg"
 6.  Run the downloaded .dmg file
@@ -267,10 +267,14 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 10+3
 
-10 + 3 # spaces are optional but recommended
+10 + 3
 
 10 - 3
 ```
+
+::: aside
+*Note.* Spaces around an operator are optional, but they make code easier to read.
+:::
 
 ## Multiplication
 
@@ -282,11 +286,15 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ```{r}
 #| echo: true
-#| eval: false
+#| error: true
 #| code-line-numbers: false
 
-10 x 3 # Error: R has no x operator; use *
+10 x 3
 ```
+
+::: aside
+*Note.* R has no `x` operator, so use `*` instead.
+:::
 
 ## Division
 
@@ -298,11 +306,15 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ```{r}
 #| echo: true
-#| eval: false
+#| error: true
 #| code-line-numbers: false
 
-10 \ 3 # Error: the slash leans the other way
+10 \ 3
 ```
+
+::: aside
+*Note.* The division slash leans the other way; `\` means something else entirely.
+:::
 
 ## Exponentiation
 
@@ -317,12 +329,14 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ```{r}
 #| echo: true
 
-# Multiplication happens before addition
 10 + 3 * 2
 
-# Parentheses change the order
 (10 + 3) * 2
 ```
+
+::: aside
+*Note.* Multiplication happens before addition; parentheses change the order.
+:::
 
 ## Negative Numbers
 
@@ -347,9 +361,12 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ```{r}
 #| echo: true
 
-# R drops zeros that carry no information
 09.870
 ```
+
+::: aside
+*Note.* R drops leading and trailing zeros that carry no information.
+:::
 
 ## Large Numbers
 
@@ -361,23 +378,22 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ```{r}
 #| echo: true
-#| eval: false
+#| error: true
 #| code-line-numbers: false
 
-9,876,543 # Error: no commas
-
-9 876 543 # Error: no spaces either
+9,876,543
 ```
 
 ::: aside
-*Note.* Separators are for humans reading a page, not for R. Type the digits and nothing else.
+*Note.* Separators are for humans, not for R — type the digits and nothing else.
 :::
 
 # Scripts
 
 ## Creating a New Script {.fs70}
 
--   Any one of these will do it:
+-   A script is just a [plain text file]{.b .blue} saved with a [`.R`]{.b .blue} extension
+-   Any one of these will create one:
     -   [File > New File > R Script]{.b .blue}
     -   Top bar: the [white square with a green plus]{.b .blue} icon
     -   <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> (Win) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> (Mac)

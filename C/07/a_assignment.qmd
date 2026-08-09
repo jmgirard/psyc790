@@ -31,7 +31,7 @@ Read in the `fatalism` dataset and fit a simple linear regression predicting `de
 
 a) Report the estimated intercept and slope. For each one, state whether it is significantly different from zero and explain in plain language what the estimate means.
 
-b) The intercept is the predicted value of `depression` when `fatalism` equals zero. Look at the range of the `fatalism` variable and comment on whether that intercept describes anyone who was actually measured.
+b) The intercept is the predicted value of `depression` when `fatalism` equals zero. Look at the range of the `fatalism` variable and comment on whether zero falls inside that range, and on how well the intercept describes a typical participant.
 
 ## Question 2 (Centering)
 
