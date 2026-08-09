@@ -231,7 +231,7 @@
 <h1>Questionable Practices</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Selective reporting</h2>
 <ul>
 <li><strong>Cherry picking</strong> is only including or reporting a desired subset of information (intentionally or accidentally)
@@ -250,7 +250,7 @@
 </ul>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>HARKing</h2>
 <ul>
 <li>“Hypothesizing after the results are known”
@@ -268,7 +268,7 @@
 </ul></li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2><em>p</em>-hacking</h2>
 <ul>
 <li><p>Making analysis decisions to optimize <strong>significance</strong> instead of rigor</p>
@@ -284,7 +284,7 @@
 <li><p>If you don’t disclose all this trial-and-error, it is very misleading</p></li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Data peeking</h2>
 <ul>
 <li><strong>Data peeking</strong> is a form of <em>p</em>-hacking related to data collection
@@ -306,7 +306,7 @@
 <h1>Constraining the Garden of Forking Paths</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Preregistration</h2>
 <ul>
 <li><p>Presenting exploratory work as confirmatory is misleading</p></li>
@@ -743,7 +743,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

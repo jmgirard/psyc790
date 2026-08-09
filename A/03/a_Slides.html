@@ -358,7 +358,7 @@
 </div>
 </div>
 <div class="takeaway">
-<p><code>length()</code> counts elements whatever they are; <code>nchar()</code> and <code>toupper()</code> only mean anything for text. What a function accepts follows from what it is for.</p>
+<p><code>length()</code> counts elements whatever they are; <code>nchar()</code> and <code>toupper()</code> only mean anything for text. What a function accepts follows from its purpose.</p>
 </div>
 </section></section>
 <section>
@@ -366,12 +366,12 @@
 <h1>Factors</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Factors</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li><span class="b blue">Factors</span> are used to represent categorical data
+<li><span class="b blue">Factors</span> represent categorical data
 <ul>
 <li>Factors have multiple possible <span class="b blue">levels</span></li>
 <li>Levels are <span class="b green">discrete</span> and mutually-exclusive</li>
@@ -383,7 +383,7 @@
 <ul>
 <li>e.g., 1=Drama, 2=Action, 3=Comedy</li>
 <li>R needs to know these aren’t numbers!</li>
-<li>We can even give each level a descriptive <span class="b green">label</span></li>
+<li>We can give each level a <span class="b green">label</span></li>
 <li>Or we can just store the levels as strings</li>
 </ul></li>
 </ul>
@@ -552,7 +552,7 @@ metal   pop   rap  rock
 <p>The stringr package has a function that fixes capitalization, but “could not find function” means R cannot find that <strong>name</strong>. Check the spelling first, then whether the function’s package is installed and loaded.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Installing a Package</h2>
 <ul>
 <li><span class="b blue">RStudio &gt; Extras pane &gt; Packages tab &gt; Install</span> button</li>
@@ -602,7 +602,7 @@ metal   pop   rap  rock
 <p>Installing puts the package on your <span class="b green">library</span> shelf; it is still not in this session until you take it down with <code>library()</code>. Install once per computer (and again after upgrading R); load <strong>once per session</strong>.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Keeping Packages Updated</h2>
 <ul>
 <li><span class="b blue">RStudio &gt; Extras pane &gt; Packages tab &gt; Update</span> button</li>
@@ -1042,7 +1042,7 @@ metal   pop   rap  rock
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

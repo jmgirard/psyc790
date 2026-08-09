@@ -244,7 +244,7 @@
 <section class="slide level2">
 <h2>Motivation</h2>
 <ul>
-<li><p>In the previous chapter, we learned about multiple regression</p></li>
+<li><p>Last chapter, we learned about multiple regression</p></li>
 <li><p>We used this to predict <span class="math inline">y</span> from multiple <span class="math inline">x</span> variables</p></li>
 <li><p>We accounted for the shared variance among <span class="math inline">x</span> variables</p></li>
 </ul>
@@ -287,7 +287,7 @@
 <p>Note that this is simulated (i.e., fake) data.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Moderation questions</h2>
 <p><strong>Continuous-by-Continuous Interaction</strong></p>
 <ul>
@@ -325,7 +325,7 @@
 <li><p><span class="math inline">b_1</span> controls for <span class="math inline">x_2</span> but is the same across all values of <span class="math inline">x_2</span> and thus does not depend on it (and the same for <span class="math inline">b_2</span> and <span class="math inline">x_1</span>)</p></li>
 </ul>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Adding an interaction</h2>
 <p>Interactions are formed by multiplying predictor variables</p>
 <p>The product becomes another predictor with its own slope</p>
@@ -376,21 +376,21 @@
 <p>We can also use the shortcut <code>duration * intensity</code></p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Predicting energy expenditure</h2>
 <p><span class="math display">\hat{y} = 7.80 - 9.38 x_1 - 0.08 x_2 + 0.39 x_1 x_2</span></p>
 <ul>
-<li><p><strong>Intercept:</strong> A participant exercising at 0 duration and 0 intensity expends 7.8 units</p></li>
-<li><p><strong>Duration Simple Effect:</strong> Each unit of duration will expend an additional -9.38 units of energy (at 0 intensity)</p></li>
-<li><p><strong>Intensity Simple Effect:</strong> Each unit of intensity will expend an additional -0.08 units of energy (at 0 duration)</p></li>
-<li><p><strong>Interaction Effect:</strong> The slope of duration will increase by 0.39 for each unit of intensity, and the slope of intensity will increase by 0.39 for each unit of duration</p></li>
+<li><p><strong>Intercept:</strong> At 0 duration and 0 intensity, a participant expends 7.8 units</p></li>
+<li><p><strong>Duration Simple Effect:</strong> -9.38 units per duration unit (at 0 intensity)</p></li>
+<li><p><strong>Intensity Simple Effect:</strong> -0.08 units per intensity unit (at 0 duration)</p></li>
+<li><p><strong>Interaction Effect:</strong> Each slope rises 0.39 per unit of the other</p></li>
 </ul>
 <div class="fragment">
 <p>The average participant (2 duration, 30 intensity) expends 10.04 units of energy</p>
 <p><span class="math display">\hat{y} = 7.80 - 9.38(2) - 0.08(30) + 0.39(2)(30) = 10.04</span></p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Spotlight analysis</h2>
 <ul>
 <li><p>In order to plot the predictions, we can map one predictor to the <span class="math inline">x</span>-axis</p></li>
@@ -1081,7 +1081,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

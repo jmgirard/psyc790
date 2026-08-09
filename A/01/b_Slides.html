@@ -254,7 +254,7 @@
 <p><lord-icon src="../../icons/muscle.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>R and Other Stats Software</h2>
 <ul>
 <li>You may have met <span class="b blue">SPSS</span>, <span class="b blue">SAS</span>, <span class="b blue">Stata</span>, <span class="b blue">Mplus</span>, <span class="b blue">JASP</span>, or <span class="b blue">jamovi</span>
@@ -275,30 +275,29 @@
 <ul>
 <li>R is a <span class="b green">real programming language</span>, not a menu with a syntax window
 <ul>
-<li>Which is why <span class="b blue">data preparation</span> is so much easier here</li>
-<li>Cleaning, reshaping, and merging are the bulk of real analysis</li>
+<li>Which is why <span class="b blue">data preparation</span> (cleaning, reshaping, merging) is easier</li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>New methods arrive as <span class="b blue">packages</span>, written by the researchers who developed them, often years before the commercial packages catch up</li>
+<li>New methods arrive as <span class="b blue">packages</span>, years before commercial tools do</li>
 </ul>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>The R Ecosystem</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ol type="1">
-<li>Think of your <span class="b blue">computer</span> as the <span class="b green">engine</span> of a car
+<li>Your <span class="b blue">computer</span> is the <span class="b green">engine</span> of a car
 <ul>
 <li>It provides raw power for computation</li>
 </ul></li>
 </ol>
 <div class="fragment mt1">
 <ol start="2" type="1">
-<li>The <span class="b blue">R language</span> is like the <span class="b green">controls</span> for the car
+<li>The <span class="b blue">R language</span> is the <span class="b green">controls</span>
 <ul>
 <li>It lets you apply and direct that power</li>
 </ul></li>
@@ -308,7 +307,7 @@
 <ol start="3" type="1">
 <li><span class="b blue">RStudio</span> is like a fancy <span class="b green">dashboard</span> for the car
 <ul>
-<li>It adds extra information and convenience</li>
+<li>It adds information and convenience</li>
 </ul></li>
 </ol>
 </div>
@@ -324,7 +323,7 @@
 <p><lord-icon src="../../icons/car.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Installing R</h2>
 <div class="columns pv4">
 <div class="column pr4" style="width:50%;">
@@ -355,7 +354,7 @@
 <aside><div>
 <p><em>Note.</em> You will need to repeat this process every time a new version of R is released (every 4–5 months).</p>
 </div></aside></section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Installing RStudio</h2>
 <div class="columns pv4">
 <div class="column pr4" style="width:50%;">
@@ -363,7 +362,7 @@
 <ol type="1">
 <li>Open a web browser</li>
 <li>Visit <a href="https://posit.co/download/rstudio-desktop/" data-preview-link="false">posit.co/download/rstudio-desktop</a></li>
-<li>Scroll down to the “<strong>RStudio IDE</strong>” download table</li>
+<li>Scroll down to the <strong>RStudio IDE</strong> table</li>
 <li>Find the row for “Windows”</li>
 <li>Click “RStudio-2026.XX.X-XXX.exe”</li>
 <li>Run the downloaded .exe file</li>
@@ -375,7 +374,7 @@
 <ol type="1">
 <li>Open a web browser</li>
 <li>Visit <a href="https://posit.co/download/rstudio-desktop/" data-preview-link="false">posit.co/download/rstudio-desktop</a></li>
-<li>Scroll down to the “<strong>RStudio IDE</strong>” download table</li>
+<li>Scroll down to the <strong>RStudio IDE</strong> table</li>
 <li>Find the row for “macOS 13+”</li>
 <li>Click “RStudio-2026.XX.X-XXX.dmg”</li>
 <li>Run the downloaded .dmg file</li>
@@ -386,7 +385,7 @@
 <aside><div>
 <p><em>Note.</em> You will need to repeat this process every time a new version of RStudio is released (every 2–4 months).</p>
 </div></aside></section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>RStudio Window</h2>
 <p><img data-src="../../img/rstudio_labels.jpg"></p>
 
@@ -398,12 +397,12 @@
 <h1>Console</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>R will Grant your Wishes</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li><p>R is like a <span class="b green">well-meaning</span> but <span class="b green">overly literal</span> genie</p>
+<li><p>R is a <span class="b green">well-meaning</span> but <span class="b green">overly literal</span> genie</p>
 <ul>
 <li>It has the power to grant almost any wish</li>
 <li>But we must phrase our wishes carefully!</li>
@@ -418,7 +417,7 @@
 <li>How to properly phrase commands</li>
 <li>How to decipher error messages</li>
 <li>How to view code from R’s perspective</li>
-<li>How to detect and correct small mistakes</li>
+<li>How to find and fix small mistakes</li>
 </ul></li>
 </ul>
 </div>
@@ -518,7 +517,7 @@
 </div>
 </div>
 <div class="takeaway">
-<p>Multiplication happens before addition, exactly as in algebra. Parentheses override that, and are worth adding whenever the order is not obvious at a glance.</p>
+<p>Multiplication happens before addition, exactly as in algebra. Parentheses override that, and are worth adding whenever the order is not obvious.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -538,7 +537,7 @@
 </div>
 </div>
 <div class="takeaway">
-<p>Negative numbers need no special treatment, and division gives a decimal rather than a fraction. R prints as many digits as it thinks you need, not all of them.</p>
+<p>Negative numbers need no special treatment, and division gives a decimal, not a fraction. R prints as many digits as it thinks you need, not all it has.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -568,7 +567,7 @@
 <h1>Scripts</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Creating a New Script</h2>
 <ul>
 <li>A script is just a <span class="b blue">plain text file</span> saved with a <span class="b blue"><code>.R</code></span> extension
@@ -584,7 +583,7 @@
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>A new pane appears in the RStudio window called the <span class="b green">Source Editor</span></li>
+<li>A new pane appears, called the <span class="b green">Source Editor</span></li>
 </ul>
 </div>
 </section>
@@ -604,7 +603,7 @@
 <p>A script holds many lines at once. Think of it as drafting an email with several instructions rather than shouting one at a time.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Running One Line of Code</h2>
 <ul>
 <li>Hitting <kbd>Enter</kbd> or <kbd>Return</kbd> <span class="b blue">does not run the code</span>; it just adds a new line</li>
@@ -624,7 +623,7 @@
 </ul>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Running Many Lines of Code</h2>
 <ul>
 <li>To run <span class="b blue">several lines</span> at once:
@@ -657,10 +656,10 @@
 </div>
 </div>
 <div class="takeaway">
-<p>Anything after a <code>#</code> is ignored by R and exists only for human readers. A comment can have a line to itself or sit at the end of one; the code before it still runs.</p>
+<p>Anything after a <code>#</code> is ignored by R and exists only for human readers. A comment can sit on its own line or at the end of one; the code still runs.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Saving the Script File</h2>
 <ul>
 <li>Any one of these will do it:
@@ -1104,7 +1103,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

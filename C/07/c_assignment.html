@@ -318,7 +318,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="question-2-shared-variance">Question 2 (Shared Variance)</h2>
 <p>Read in <code>prestige.csv</code> and fit <strong>two</strong> models: one regressing <code>prestige</code> on <code>type</code> alone, and one regressing <code>prestige</code> on both <code>type</code> and <code>education</code>.</p>
 <ol type="a">
-<li><p>The <code>type</code> coefficients differ between the two models – one of them even changes sign. Explain why. Which set are zero-order effects and which are partial effects, and how does that change how you would describe them?</p></li>
+<li><p>The <code>type</code> coefficients differ between the two models; one of them even changes sign. Explain why. Which set are zero-order effects and which are partial effects, and how does that change how you would describe them?</p></li>
 <li><p>Report the <span class="math inline">\(R^2\)</span> of both models. How much additional variance in <code>prestige</code> is explained by adding <code>education</code>, and what does that tell you about the two predictors?</p></li>
 </ol>
 </section>
@@ -409,7 +409,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

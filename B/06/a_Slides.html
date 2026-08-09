@@ -426,7 +426,7 @@ t_{diff} \sim t\left(
 </ul></li>
 </ul>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Student’s test results</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>fit_s <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
@@ -460,7 +460,7 @@ t_{diff} \sim t\left(
 <p>Note that this result is <em>barely</em> significant.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Welch’s approach in R</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>fit_w <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
@@ -505,11 +505,11 @@ t_{diff} \sim t\left(
 <li>If we ignore these relationships in our modeling…
 <ul>
 <li>Our SE estimates will tend to be too high (when the pairing correlation is positive)</li>
-<li>Therefore, our <span class="math inline">p</span>-values and CIs will be incorrect, costing power</li>
+<li>So our <span class="math inline">p</span>-values and CIs are wrong, costing power</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Paired samples <span class="math inline">t</span>-test</h2>
 <ul>
 <li>To fix this, we can calculate the paired differences</li>
@@ -675,7 +675,7 @@ t_{diff} \sim t\left(
 <ul>
 <li>When comparing the means of dependent/paired samples…
 <ul>
-<li>We use the SD of the paired differences in the denominator</li>
+<li>The denominator uses the SD of the paired differences</li>
 </ul></li>
 </ul>
 <p><span class="math display">ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}</span></p>
@@ -703,7 +703,7 @@ t_{diff} \sim t\left(
 <span id="cb7-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------</span></span>
 <span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.66     | [-1.03, -0.29]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Patients’ social problems were 0.42 units (or 0.66 change-score standard deviations) lower at the endpoint compared to baseline.</p>
+<p>Patients’ social problems were 0.42 units (0.66 change-score SDs) lower at the endpoint than at baseline.</p>
 
 
 </section></section>
@@ -1125,7 +1125,7 @@ t_{diff} \sim t\left(
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

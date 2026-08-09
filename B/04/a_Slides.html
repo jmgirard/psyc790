@@ -447,16 +447,16 @@
 <p>Note we use lowercase <span class="math inline">n</span> to denote the sample size</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Basics of statistical inference</h2>
 <div class="columns">
 <div class="column">
 <ul>
-<li><p><strong>Sampling</strong> is drawing a subset of observations to represent a population</p></li>
+<li><p><strong>Sampling</strong> draws a subset to represent a population</p></li>
 <li><p><strong>Inference</strong> is learning about the population by studying a sample drawn from it</p></li>
-<li><p>We first measure <em>in the sample</em> whatever we want to know about the population</p></li>
-<li><p>We call this measure the sample <span class="b blue">statistic</span></p></li>
-<li><p>We use the sample statistic to <strong>estimate</strong> (i.e., guess) the population parameter</p></li>
+<li><p>We measure <em>in the sample</em> what we want to know</p></li>
+<li><p>This measure is the sample <span class="b blue">statistic</span></p></li>
+<li><p>The sample statistic <strong>estimates</strong> the population parameter</p></li>
 </ul>
 </div><div class="column">
 <p><img data-src="../../img/inference.png"></p>
@@ -465,7 +465,7 @@
 
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Sample example</h2>
 <div class="columns">
 <div class="column">
@@ -474,8 +474,8 @@
 <li><p>But imagine it is not feasible or possible to survey the entire population… so we randomly select six students to survey</p></li>
 </ul>
 </div><div class="column fragment">
-<p>The <code>sample()</code> function will randomly draw a sample (of given size) from a vector</p>
-<p><em>Note that, because sampling is random, we will each get a slightly different sample.</em></p>
+<p><code>sample()</code> randomly draws a sample (of given size) from a vector</p>
+<p><em>Because sampling is random, we each get a different sample.</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>xs <span class="ot">&lt;-</span> <span class="fu">sample</span>(sleep<span class="sc">$</span>total, <span class="at">size=</span><span class="dv">6</span>)</span>
 <span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>xs</span>
@@ -500,7 +500,7 @@
 </div>
 </div><div class="column fragment">
 <h4>Sample Std. Deviation</h4>
-<p>But the SD formulas are a bit different (we subtract 1 to correct for bias in small samples)</p>
+<p>But the SD formulas differ a little (we subtract 1 to correct for small-sample bias)</p>
 <p><span class="math display">s=\sqrt{\frac{1}{\color{red}{n-1}}\sum_{i=1}^{n}(x_i-\bar{x})^2}</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(xs)</span>
@@ -570,28 +570,28 @@
 
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>The law of large numbers</h2>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="1152" class="r-stretch"><ul>
-<li><p>Larger (random) samples will tend to better approximate the population</p></li>
+<li><p>Larger random samples approximate the population better</p></li>
 <li><p>Statistics from larger (random) samples will tend to better estimate the parameters</p></li>
 </ul>
 <div class="footer">
 
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Small population simulation</h2>
-<p>Let’s take samples of different sizes from our population and calculate the sample mean</p>
-<p>To show the influence of chance, we can repeat this 50 times for each sample size</p>
+<p>Let’s draw samples of different sizes and calculate the sample mean</p>
+<p>To show chance at work, we repeat this 50 times per sample size</p>
 <p>Let’s plot each repetition’s sample mean as a point (and the population mean as a line)</p>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"><div class="footer">
 
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Large population simulation</h2>
 <p>Do much larger populations require much larger samples? Let’s find out…</p>
 <p>Here is a simulation of sampling from a population <span class="math inline">N=1000000, \mu=100, \sigma=15</span></p>
@@ -620,7 +620,7 @@
 <ul>
 <li><p>The <strong>sampling distribution</strong> contains the statistic values from repeated samples</p></li>
 <li><p>The wider the sampling distribution, the more uncertainty there is</p></li>
-<li><p>The SD of the sampling distribution is called the <strong>standard error</strong></p></li>
+<li><p>Its SD has its own name: the <strong>standard error</strong></p></li>
 </ul>
 </div><div class="column">
 <div class="cell">
@@ -644,12 +644,12 @@
 
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Standard errors</h2>
 <div class="columns">
 <div class="column">
-<p>We can rarely take many repeated samples, construct the sampling distribution, and calculate the SE directly</p>
-<p>So, instead, we typically <em>estimate</em> the SE from the data (just like a parameter)</p>
+<p>We can rarely take repeated samples, build the sampling distribution, and read the SE off it</p>
+<p>Instead we <em>estimate</em> the SE from the data, just like a parameter</p>
 <p>The estimate for the SE of the mean depends on two main things:</p>
 <ol type="1">
 <li><p>How large the sample is <span class="math inline">(n)</span></p></li>
@@ -1120,7 +1120,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

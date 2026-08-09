@@ -240,15 +240,15 @@
 <h1>Assignment</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Assignment</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li>It is often useful to store data in <span class="b green">named objects</span>
+<li>It helps to store data in <span class="b green">named objects</span>
 <ul>
 <li>This makes the data easier to use and re-use</li>
-<li>This makes the code easier to write and read</li>
+<li>And the code easier to write and read</li>
 </ul></li>
 </ul>
 <div class="fragment mt1">
@@ -262,7 +262,7 @@
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Named objects are created using <span class="b blue">assignment</span>
+<li>Named objects come from <span class="b blue">assignment</span>
 <ul>
 <li>Give a <strong>name</strong> then an <strong>arrow</strong> then the <strong>data</strong></li>
 </ul></li>
@@ -359,7 +359,7 @@
 <h1>Naming</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Naming</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
@@ -376,7 +376,7 @@
 <ul>
 <li>Additional Rules:
 <ul>
-<li>Must <span class="b blue">start with a letter</span> (or a period not followed by a number)</li>
+<li>Must <span class="b blue">start with a letter</span> (or a period)</li>
 <li>Cannot contain spaces or dashes</li>
 <li>Cannot contain other symbols</li>
 <li>Names are case-sensitive (<code>age</code> ≠ <code>Age</code>)</li>
@@ -438,7 +438,7 @@
 </div>
 </div>
 <div class="takeaway">
-<p><code>@</code> already means something else in R, so it reads <code>age@time2</code> as an operation on an object called <code>age</code>. Letters, numbers, <code>_</code> and <code>.</code> are all a name may contain.</p>
+<p><code>@</code> already means something else in R, so it reads <code>age@time2</code> as an operation on an object called <code>age</code>. Letters, numbers, <code>_</code> and <code>.</code> are all a name may hold.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -491,7 +491,7 @@
 <h1>Functions</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Functions</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
@@ -508,9 +508,9 @@
 <li><span class="b blue">Functions</span> are like <em>customizable</em> recipes
 <ul>
 <li>Functions call for inputs (“arguments”)</li>
-<li>Functions involve one or more lines of code</li>
+<li>Functions involve one or more lines</li>
 <li>Code transforms inputs into outputs</li>
-<li>Using functions requires parentheses (usually)</li>
+<li>Functions usually need parentheses</li>
 </ul></li>
 </ul>
 </div>
@@ -707,7 +707,7 @@
 </div>
 </div>
 <div class="takeaway">
-<p>These return a vector the same length as the one you gave them: one answer per element.</p>
+<p>These return a vector as long as the input: one answer per element.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -754,7 +754,7 @@
 </div>
 </div>
 <div class="takeaway">
-<p><code>NA</code> means “we do not know”, so any answer depending on it is also unknown. That is a feature, not a bug. <code>na.rm = TRUE</code> says to answer from what you do have.</p>
+<p><code>NA</code> means “we do not know”, so any answer depending on it is also unknown. That is a feature, not a bug. <code>na.rm = TRUE</code> answers from what you have.</p>
 </div>
 
 
@@ -1177,7 +1177,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

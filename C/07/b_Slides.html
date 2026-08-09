@@ -430,7 +430,7 @@ Male*
 <section class="slide level2">
 <h2>Regression with a dummy code</h2>
 <ul>
-<li>We can regress <code>body_mass</code> on the numeric dummy code <span class="math inline">C_1</span></li>
+<li>We can regress <code>body_mass</code> on the dummy code <span class="math inline">C_1</span></li>
 </ul>
 <p><span class="math display">\hat{y}_i = b_0 + b_1 C_{1i}</span></p>
 <ul>
@@ -522,7 +522,7 @@ Male*
 <p>“The average body mass of female penguins was estimated to be 683.41 grams lower than that of male penguins, 95% CI: [–840.80, –526.02], <em>t</em> = –8.54, <em>p</em> &lt; .001.”</p>
 </blockquote>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Relation to Student’s t-test</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>fit2b <span class="ot">&lt;-</span> <span class="fu">t.test</span>(body_mass <span class="sc">~</span> sex, <span class="at">data =</span> penguins, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
@@ -916,7 +916,7 @@ Control*
 <p>The linear model (lm) subsumes ANOVA as well!</p>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Effect sizes</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit5, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
@@ -1413,7 +1413,7 @@ Control*
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

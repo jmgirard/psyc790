@@ -241,7 +241,7 @@
 <h1>Overview</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Motivation</h2>
 <ul>
 <li><p>The linear model makes certain assumptions about the data</p></li>
@@ -262,7 +262,7 @@
 <li>Thus, our conclusions and inferences may be incorrect!</li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Assumptions Overview</h2>
 <ul>
 <li><strong>Assumptions about the Formula</strong>
@@ -341,7 +341,7 @@
 </div>
 </div></div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Diagnostics</h2>
 <ul>
 <li>We can use scatterplots as a visual diagnostic
@@ -378,7 +378,7 @@
 </div>
 
 <img data-src="a_Slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Solutions</h2>
 <ol type="1">
 <li>Specify a more complex functional form
@@ -400,13 +400,13 @@
 <h1>No Omitted Confounders</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Assumption</h2>
 <ul>
-<li>Every variable that affects <span class="math inline">y</span> <strong>and</strong> correlates with an <span class="math inline">x</span> must be in the model
+<li>Any cause of <span class="math inline">y</span> that correlates with an <span class="math inline">x</span> must be in the model
 <ul>
 <li>Such a variable is called a <strong>confounder</strong></li>
-<li>Its effect does not vanish; it is absorbed by the predictors we did include</li>
+<li>Its effect does not vanish; the predictors you kept absorb it</li>
 </ul></li>
 <li>We saw this in Chapter 07c: leaving <code>education</code> out made White Collar look <em>more</em> prestigious than Blue Collar, and putting it back reversed the sign</li>
 </ul>
@@ -426,7 +426,7 @@
 </div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Diagnostics</h2>
 <ul>
 <li>There is <strong>no diagnostic plot for this one</strong>
@@ -445,7 +445,7 @@
 <p>This is the assumption you cannot test, only defend.</p>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Solutions</h2>
 <ol type="1">
 <li>Measure and include the confounder
@@ -624,9 +624,9 @@
 <p><code>check_collinearity(fit)</code></p>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Example Data</h2>
-<p>Let’s simulate some data with various collinearity-related issues</p>
+<p>Let’s simulate data with collinearity problems</p>
 <div class="columns">
 <div class="column">
 <h4>Simulated Data</h4>
@@ -638,9 +638,9 @@
 </div><div class="column">
 <h4>Simulated Issues</h4>
 <ul>
-<li><p><code>height2</code> is collinear with <code>height1</code></p></li>
+<li><p><code>height2</code> mirrors <code>height1</code></p></li>
 <li><p><code>size</code> is multicollinear with <code>height1</code> and <code>weight</code></p></li>
-<li><p><code>female</code> and <code>male</code> are fully redundant</p></li>
+<li><p><code>male</code> duplicates <code>female</code></p></li>
 </ul>
 </div></div>
 </section>
@@ -665,7 +665,7 @@
 </ul>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Example with No Issues</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>fit_none <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight, <span class="at">data =</span> simdat)</span>
@@ -705,7 +705,7 @@
 <li>The VIFs for both predictors are low (&lt;5)</li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Example with Collinearity</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>fit_co <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight <span class="sc">+</span> height2, <span class="at">data =</span> simdat)</span>
@@ -751,7 +751,7 @@
 <li>The VIFS for both height variables are very high (&gt;10)</li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Example with Multicollinearity</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>fit_mc <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> height1 <span class="sc">+</span> weight <span class="sc">+</span> size, <span class="at">data =</span> simdat)</span>
@@ -814,7 +814,7 @@
 <li>This is why we use <span class="math inline">(g-1)</span> dummy codes and not <span class="math inline">g</span></li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Solutions</h2>
 <ol type="1">
 <li>Break the predictors’ redundancy
@@ -1251,7 +1251,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

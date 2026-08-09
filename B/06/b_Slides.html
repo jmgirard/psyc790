@@ -257,7 +257,7 @@ H_0: \text{it is true that } \mu_1=\mu_2=\mu_3 \cdots \\
 H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
 </span></p>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Example dataset</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -386,13 +386,14 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <p><span class="math inline">g</span> is the number of groups, <span class="math inline">n</span> is the total sample size</p>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>The F distribution</h2>
 <div class="columns">
 <div class="column">
 <ul>
-<li><p>The sum of squared <em>standard</em> normal values will have a <span class="math inline">\chi^2</span> distribution</p></li>
-<li><p>The ratio of two independent <span class="math inline">\chi^2</span> variables, <em>each divided by its df</em>, will have an <span class="math inline">F</span> distribution (this is why <span class="math inline">F</span> uses <span class="math inline">MS = SS/\textit{df}</span>)</p></li>
+<li><p>The sum of squared <em>standard</em> normals has a <span class="math inline">\chi^2</span> distribution</p></li>
+<li><p>The ratio of two independent <span class="math inline">\chi^2</span> variables, <em>each divided by its df</em>, is <span class="math inline">F</span>-distributed</p></li>
+<li><p>This is why <span class="math inline">F</span> uses <span class="math inline">MS = SS/\textit{df}</span></p></li>
 </ul>
 <p><span class="math display">x \sim F(\textit{df}_1, \textit{df}_2)</span></p>
 </div><div class="column">
@@ -512,7 +513,7 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <li><p>If <span class="math inline">\eta^2=1</span>, then all of the variation was between groups</p></li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Application and interpretation</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>ss_b <span class="ot">&lt;-</span> <span class="dv">146864214</span></span>
@@ -1220,7 +1221,7 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

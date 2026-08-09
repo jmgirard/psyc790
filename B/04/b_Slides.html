@@ -241,7 +241,7 @@
 <h1>Types of Estimates</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Point and Interval Estimates</h2>
 <p>In statistical inference, we will often want <strong>two</strong> types of estimates…</p>
 <div class="columns">
@@ -250,16 +250,16 @@
 <ul>
 <li><p>What is our <strong><em>single best guess</em></strong> for the <br>value of the population parameter?</p></li>
 <li><p>This is usually the sample statistic</p></li>
-<li><p>Does not say anything about uncertainty</p></li>
+<li><p>Says nothing about uncertainty</p></li>
 </ul>
-<p><em>e.g., I don’t know for sure the average height of all adult men, but I will guess that it is equal to the average height in my sample</em></p>
+<p><em>e.g., I don’t know the average height of all adult men, but I will guess it equals the average height in my sample</em></p>
 </div><div class="column">
 <h4><span class="blue">Interval Estimates</span></h4>
 <ul>
 <li><p>What is a <strong><em>range of reasonable guesses</em></strong> for the value of the population parameter?</p></li>
-<li><p>Usually the statistic plus/minus some amount that is based on uncertainty</p></li>
+<li><p>Usually the statistic plus/minus an amount reflecting uncertainty</p></li>
 </ul>
-<p><em>e.g., Due to sampling error, any number within 2.9 cm of the average height in my sample is also a very reasonable guess</em></p>
+<p><em>e.g., Given sampling error, any number within 2.9 cm of my sample average is also a reasonable guess</em></p>
 </div></div>
 <div class="footer">
 
@@ -303,18 +303,17 @@
 <h1>The Normal Distribution</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>The normal distribution</h2>
 <div class="columns">
 <div class="column">
-<p>The Normal Distribution is also called the <em>Bell Curve</em> and the <em>Gaussian</em> distribution</p>
-<p>We say that <span class="math inline">x</span> is normally distributed with mean <span class="math inline">\mu</span> and standard deviation <span class="math inline">\sigma</span> as</p>
+<p>Also called the <em>Bell Curve</em> or the <em>Gaussian</em> distribution</p>
+<p>We write “<span class="math inline">x</span> is normal with mean <span class="math inline">\mu</span> and SD <span class="math inline">\sigma</span>” as</p>
 <p><span class="math display">x \sim \text{Normal}(\mu, \sigma)\\x \sim \mathcal{N}(\mu,\sigma)</span></p>
 <ul>
-<li><span class="math inline">\mu</span> (mu) determines the mean</li>
-<li><span class="math inline">\sigma</span> (sigma) determines the SD</li>
+<li><span class="math inline">\mu</span> is the mean, <span class="math inline">\sigma</span> is the SD</li>
 </ul>
-<p>The <span class="math inline">\mathcal{N}(0,1)</span> distribution is called <br>the “Standard Normal Distribution”</p>
+<p><span class="math inline">\mathcal{N}(0,1)</span> is the <em>standard normal</em></p>
 </div><div class="column">
 <div class="cell">
 <div class="cell-output-display">
@@ -375,17 +374,17 @@
 
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Putting it all together</h2>
 <ol type="1">
-<li><p>Our interval estimate should be the densest part of the sampling distribution</p></li>
+<li><p>Our interval should cover the densest part of the sampling distribution</p></li>
 <li><p>95% of the density of a normal distribution is within ~1.96 SD of the mean</p></li>
 <li><p>The SD of the sampling distribution is the standard error (SE) of the statistic</p></li>
 <li><p>So, if we assume the sampling distribution is normally distributed, then…</p></li>
 <li><p>Our interval estimate is the sample statistic plus/minus 1.96 * SE</p></li>
 </ol>
 <p><span class="math display">\text{CI}_{95} = \bar{x} \pm (1.96 \times s_{\bar{x}})</span></p>
-<p>This is called the <span class="b blue">95% Confidence Interval (CI)</span> and we’ll talk about it more soon</p>
+<p>This is the <span class="b blue">95% Confidence Interval (CI)</span>, and more on it soon</p>
 <p>But this parametric approach all hinges on the assumption of normality (#4)…</p>
 <div class="footer">
 
@@ -415,8 +414,9 @@
 <section class="slide level2">
 <h2>Normal approximations</h2>
 <ul>
-<li>The CLT <strong>applies to means, sums, and statistics built from them</strong>
+<li>The CLT <strong>applies to means and sums</strong>
 <ul>
+<li>And to statistics built from them</li>
 <li>Why? A mean sums many independent observations</li>
 <li>Some values will be higher and others will be lower</li>
 <li>These deviations will tend to cancel each other out</li>
@@ -575,16 +575,16 @@
 <h1>Practical Matters</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Reporting a CI</h2>
 <div class="columns">
 <div class="column">
 <ul>
-<li><p>It is recommended to always report point and interval estimates together</p></li>
-<li><p>Reporting in text often uses this format:</p>
+<li><p>Always report point and interval estimates together</p></li>
+<li><p>In text, use this format:</p>
 <ul>
 <li>Statistic = Point Estimate, X% CI: [Lower Bound, Upper Bound]</li>
-<li>e.g., <span class="math inline">\bar{x}=3.91</span>, 95% CI: <span class="math inline">[3.81, 4.00]</span></li>
+<li><span class="math inline">\bar{x}=3.91</span>, 95% CI <span class="math inline">[3.81, 4.00]</span></li>
 </ul></li>
 <li><p>You can also put point and interval estimates in a table or a figure (though be sure to specify that they are X% CIs)</p></li>
 </ul>
@@ -625,7 +625,7 @@
 
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Comparing CIs</h2>
 <ul>
 <li>A <em>higher</em> confidence level will result in a <em>wider</em> interval
@@ -1166,7 +1166,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

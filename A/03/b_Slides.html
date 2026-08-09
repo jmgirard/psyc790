@@ -255,7 +255,7 @@
 <h1>Data Frames</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Tidy Data</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
@@ -280,7 +280,7 @@
 <p><lord-icon src="../../icons/spreadsheet.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Other Data Advice</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
@@ -318,7 +318,7 @@
 <p><lord-icon src="../../icons/light_bulb.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Tidying Example 1</h2>
 <div class="columns pv4">
 <div class="column" style="width:45%;">
@@ -451,7 +451,7 @@ Dom
 </div>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Tidying Example 2</h2>
 <div class="columns pv4">
 <div class="column" style="width:45%;">
@@ -620,7 +620,7 @@ Dom
 </div>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Tidying Example 3</h2>
 <div class="columns pv4">
 <div class="column" style="width:45%;">
@@ -808,12 +808,12 @@ China
 </tbody>
 </table>
 <div class="pv4">
-<p>✔️ Here, we have un-merged the countries and separated the cases and populations variables into columns.</p>
+<p>✔️ Here, the countries are un-merged and cases and population have their own columns.</p>
 </div>
 </div>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Tibbles</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
@@ -830,12 +830,12 @@ China
 </div>
 <div class="fragment mt1">
 <ul>
-<li>To use tibbles, we need the <span class="b blue">tidyverse</span> package</li>
+<li>Tibbles need the <span class="b blue">tidyverse</span> package</li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Tibbles are constructed from one or more vectors
+<li>Tibbles are built from vectors
 <ul>
 <li>The vectors must have the <span class="b green">same length</span></li>
 <li>They can contain <span class="b green">different types</span> of data</li>
@@ -846,15 +846,15 @@ China
 <p><lord-icon src="../../icons/new_train.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Parallel Vectors</h2>
 
 <img data-src="../../img/vectors.png" class="r-stretch"><div class="tc pv4">
 <p>We start with three separate vector objects that all have the same length.</p>
-<p>We set it up so that the <span class="math inline">n</span>-th car in each train corresponds to the same observation.</p>
+<p>The <span class="math inline">n</span>-th car in each train is the same observation.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Tibble</h2>
 
 <img data-src="../../img/tibble.png" class="r-stretch"><div class="tc pv4">
@@ -894,7 +894,7 @@ China
 </div>
 </div>
 <div class="takeaway">
-<p><code>tibble()</code> lines vectors up as columns, using each vector’s name as the column name. They must be the same length, since these are rows of one dataset.</p>
+<p><code>tibble()</code> lines vectors up as columns, using each vector’s name as the column name. They must be equal length: these are rows of one table.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -973,7 +973,7 @@ China
 </div>
 </div>
 <div class="takeaway">
-<p><code>$</code> pulls one column out as a plain vector. Note <code>y</code>: a single value is recycled down the whole column, because length one is the one length allowed to differ.</p>
+<p><code>$</code> pulls one column out as a plain vector. Note <code>y</code>: a single value is recycled down the column, because length one is the one length allowed to differ.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1009,7 +1009,7 @@ China
 <p>Worth running on any dataset you did not build yourself, before you write code that assumes what is in it.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Data Files</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
@@ -1025,7 +1025,7 @@ China
 <li>A convenient data file type is a CSV
 <ul>
 <li>This stands for <span class="b green">comma-separated values</span></li>
-<li>A CSV file is easy to share with other people</li>
+<li>CSV files are easy to share</li>
 </ul></li>
 </ul>
 </div>
@@ -1033,7 +1033,7 @@ China
 <ul>
 <li>The <span class="b green">tidyverse</span> package can read/write CSVs
 <ul>
-<li>Other packages can read/write other types (e.g., <em>readxl</em>, <em>haven</em>, <em>rio</em>, <em>googlesheets4</em>)</li>
+<li>Other packages read other types (<em>readxl</em>, <em>haven</em>, <em>rio</em>, <em>googlesheets4</em>)</li>
 </ul></li>
 </ul>
 </div>
@@ -1041,7 +1041,7 @@ China
 <p><lord-icon src="../../icons/freight_ship.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Getting a Data File</h2>
 <ul>
 <li>Download <span class="b blue"><code>gradebook.csv</code></span> from the course website into your project folder</li>
@@ -1091,7 +1091,7 @@ China
 <p>One grade was recorded as <code>?</code>. R has no way to know that means “missing”. Until you say so with <code>na = "?"</code> it stays a real value, and the whole column is read as text rather than numbers.</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Other Kinds of Data File</h2>
 <ul>
 <li><span class="b blue">readxl</span> and <span class="b blue">googlesheets4</span>: spreadsheets</li>
@@ -1112,16 +1112,16 @@ China
 <h1>Data Exploration</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Data Verification</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li>It’s always a good idea to start with <span class="b blue">verification</span></li>
+<li>Always start with <span class="b blue">verification</span></li>
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>Check that your variables are the <span class="b green">correct type</span>
+<li>Check your variables are the <span class="b green">correct type</span>
 <ul>
 <li>Configure your <span class="b green">factors</span>’ levels and labels</li>
 <li>Establish ordinal factors’ ordering</li>
@@ -1134,7 +1134,7 @@ China
 <li>Check variables’ <span class="b green">extrema</span> and <span class="b green">distributions</span>
 <ul>
 <li>Check for erroneous and outlying values</li>
-<li>Check the shape of continuous distributions</li>
+<li>Check continuous variables’ shapes</li>
 <li>Check the overlap of categorical levels</li>
 </ul></li>
 </ul>
@@ -1887,7 +1887,7 @@ male   | 168 | 48.84 |   50.45 |       100.00
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

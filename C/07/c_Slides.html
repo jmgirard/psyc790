@@ -303,7 +303,7 @@
 <li>Interpretation of the <span class="math inline">b_2</span> slope from <span class="math inline">\text{M3}</span>:<br> the <em>unique</em> relationship between <span class="math inline">x_2</span> and <span class="math inline">y</span> (controlling <span class="math inline">x_1</span>)</li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Controlling predictors</h2>
 <ul>
 <li>What does it mean to statistically “control” (for) a predictor?</li>
@@ -319,7 +319,7 @@
 </ul>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Venn diagram for simple regression</h2>
 <div class="columns">
 <div class="column">
@@ -339,25 +339,25 @@
 <p><img data-src="../../img/venn/yx.png"></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Venn diagram for two predictors</h2>
 <div class="columns">
 <div class="column">
 <p><span class="math display">y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i</span></p>
 <div class="pv2">
-<p><span style="color:#7570b3;font-weight:bold;">a</span> is the var in <span class="math inline">x_1</span> unrelated to <span class="math inline">y</span> or <span class="math inline">x_2</span></p>
-<p><span style="color:#1b9e77;font-weight:bold;">b</span> is the var shared by <span class="math inline">x1</span> and <span class="math inline">y</span> (not <span class="math inline">x_2</span>)</p>
-<p><span style="color:#1b9e77;font-weight:bold;">c</span> is the var shared by <span class="math inline">x_1</span>, <span class="math inline">x_2</span>, and <span class="math inline">y</span></p>
-<p><span style="color:#7570b3;font-weight:bold;">d</span> is the var shared by <span class="math inline">x_1</span> and <span class="math inline">x_2</span> (not <span class="math inline">y</span>)</p>
-<p><span style="color:#d95f02;font-weight:bold;">e</span> is the var in <span class="math inline">y</span> unrelated to <span class="math inline">x_1</span> or <span class="math inline">x_2</span></p>
-<p><span style="color:#1b9e77;font-weight:bold;">f</span> is the var shared by <span class="math inline">x_2</span> and <span class="math inline">y</span> (not <span class="math inline">x_1</span>)</p>
-<p><span style="color:#7570b3;font-weight:bold;">g</span> is the var in <span class="math inline">x_2</span> unrelated to <span class="math inline">x_1</span> or <span class="math inline">y</span></p>
+<p><span style="color:#7570b3;font-weight:bold;">a</span> is variance in <span class="math inline">x_1</span> alone</p>
+<p><span style="color:#1b9e77;font-weight:bold;">b</span> is shared by <span class="math inline">x_1</span> and <span class="math inline">y</span> only</p>
+<p><span style="color:#1b9e77;font-weight:bold;">c</span> is shared by <span class="math inline">x_1</span>, <span class="math inline">x_2</span>, and <span class="math inline">y</span></p>
+<p><span style="color:#7570b3;font-weight:bold;">d</span> is shared by <span class="math inline">x_1</span> and <span class="math inline">x_2</span> only</p>
+<p><span style="color:#d95f02;font-weight:bold;">e</span> is variance in <span class="math inline">y</span> alone</p>
+<p><span style="color:#1b9e77;font-weight:bold;">f</span> is shared by <span class="math inline">x_2</span> and <span class="math inline">y</span> only</p>
+<p><span style="color:#7570b3;font-weight:bold;">g</span> is variance in <span class="math inline">x_2</span> alone</p>
 </div>
 </div><div class="column">
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Zero-order effect of <span class="math inline">x_1</span></h2>
 <div class="columns">
 <div class="column">
@@ -372,7 +372,7 @@
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Zero-order effect of <span class="math inline">x_2</span></h2>
 <div class="columns">
 <div class="column">
@@ -387,7 +387,7 @@
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Partial effects of <span class="math inline">x_1</span> and <span class="math inline">x_2</span></h2>
 <div class="columns">
 <div class="column">
@@ -407,15 +407,15 @@
 <p>A helpful picture, not an exact rule: a partial effect can occasionally be <em>larger</em> than its zero-order effect</p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Collinearity</h2>
 <div class="columns">
 <div class="column">
 <p><span class="math display">y_i = b_0 + b_1x_{1i} + b_2x_{2i} + e_i</span></p>
 <div class="pv2">
-<p>If <span class="math inline">x_1</span> and <span class="math inline">x_2</span> are highly correlated, then <span style="color:#1b9e77;font-weight:bold;">c</span> will be large and <span style="color:#1b9e77;font-weight:bold;">b</span> and <span style="color:#1b9e77;font-weight:bold;">f</span> may be small</p>
+<p>If <span class="math inline">x_1</span> and <span class="math inline">x_2</span> are highly correlated, <span style="color:#1b9e77;font-weight:bold;">c</span> will be large and <span style="color:#1b9e77;font-weight:bold;">b</span> and <span style="color:#1b9e77;font-weight:bold;">f</span> small</p>
 <p>Small slopes may lead you to conclude that <span class="math inline">x_1</span> and <span class="math inline">x_2</span> are not related to <span class="math inline">y</span></p>
-<p>But this isn’t quite right… it’s just that they don’t <em>uniquely</em> explain <span class="math inline">y</span> (rather, it is their overlap/shared variance that does)</p>
+<p>Not quite right: they don’t <em>uniquely</em> explain <span class="math inline">y</span> (their overlap does)</p>
 <p>So check zero-order <em>and</em> partial effects</p>
 </div>
 </div><div class="column">
@@ -430,7 +430,7 @@
 <h1>Multiple Regression</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Standardized partial effects</h2>
 <ul>
 <li>The relationships are clearer if we start with <em>standardized</em> slopes first</li>
@@ -446,7 +446,7 @@
 <p><span class="math display">\beta_2 = \frac{r(y,x_2)-r(y,x_1)r(x_1,x_2)}{1-r(x_1,x_2)^2}</span></p>
 </div></div>
 <ul>
-<li>We start with the zero-order correlation we want to partialize (i.e., that between the predictor and outcome) and then remove the redundant/shared variance</li>
+<li>We start from the zero-order correlation (predictor with outcome) and remove the shared variance</li>
 </ul>
 <div class="footer">
 <p>Note that we omit <span class="math inline">\beta_0</span> because it is always zero.</p>
@@ -556,7 +556,7 @@
 <span id="cb4-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## flipper len |        0.84 | 0.04 | [ 0.77, 0.91] |    23.94 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Coefficient interpretation</h2>
 <blockquote>
 <p>The intercept is the estimated body mass for a penguin with a zero-millimetre bill and zero-millimetre flippers: −5736.90 g, 95% CI: [−6342.65, −5131.15]. This is of course impossible, which is exactly why the intercept is often not worth interpreting.</p>
@@ -568,7 +568,7 @@
 <p>The partial effect of <em>flipper length</em> was significantly different from zero at 48.14 g. Thus, when controlling for bill length, each additional millimetre of flipper was associated with an additional 44.19 to 52.10 g.</p>
 </blockquote>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Coefficient comparison</h2>
 <p>Note that the partial effects were <em>smaller</em> than the zero-order effects</p>
 <ul>
@@ -576,10 +576,10 @@
 <li><p>The slope for <code>flipper_len</code> went from 49.69 (<em>p</em>&lt;.001) to 48.14 (<em>p</em>&lt;.001)</p></li>
 </ul>
 <div class="fragment">
-<p>This suggests that the <em>shared variance</em> is doing a lot of work (especially for <code>bill_len</code>)</p>
+<p>The <em>shared variance</em> is doing a lot of work here (especially for <code>bill_len</code>)</p>
 <ul>
 <li><p>When we remove this shared variance, the partial effects become smaller</p></li>
-<li><p>This is a very common pattern for correlated predictors in a multiple regression</p></li>
+<li><p>This is a common pattern for correlated predictors in regression</p></li>
 <li><p><span class="math inline">x_1</span> and <span class="math inline">x_2</span> are thus “partially redundant” due to their shared variance</p></li>
 <li><p>However, this is not <em>always</em> the pattern (e.g., in <a href="https://en.wikipedia.org/wiki/Suppressor_variable">suppression effects</a>)</p></li>
 </ul>
@@ -707,7 +707,7 @@
 </ul>
 </div>
 </section>
-<section class="slide level2 fs60">
+<section class="slide level2 fs80">
 <h2>Example zero-order effects</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>m_bil <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass <span class="sc">~</span> bill_len, <span class="at">data =</span> penguins)</span>
@@ -737,7 +737,7 @@
 <span id="cb11-25"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations |                     342 |                  333</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li>All zero-order effects are significant (we can tell this from above because none of the slopes’ 95% CIs contain zero)</li>
+<li>All zero-order effects are significant (no 95% CI contains zero)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1220,7 +1220,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

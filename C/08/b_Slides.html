@@ -258,7 +258,7 @@
 </ul></li>
 </ul>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Example moderation questions</h2>
 <p><strong>Continuous-by-Continuous Interaction</strong></p>
 <ul>
@@ -315,14 +315,14 @@
 <li><span class="math inline">c_1=0</span> for the reference group (<span class="math inline">x_2=</span> female)</li>
 <li><span class="math inline">c_1=1</span> for the non-reference group (<span class="math inline">x_2=</span> male)</li>
 </ul></li>
-<li>We will then add an interaction term <span class="math inline">x_1 c_1</span> with its own slope</li>
+<li>We then add an interaction term <span class="math inline">x_1 c_1</span> with its own slope</li>
 </ul>
 <p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1</span></p>
 <div class="fragment tc">
 <p><code>formula = expenditure ~ duration * sex</code></p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Interpreting the Coefficients</h2>
 <p><span class="math display">\hat{y} = b_0 + b_1 x_1 + b_2 c_1 + b_3 x_1 c_1</span></p>
 <ul>
@@ -376,7 +376,7 @@
 <p><span class="math display">\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 c_1</span></p>
 <ul>
 <li><p><strong>Intercept:</strong> A female participant exercising at 0 duration expends 3.33 units</p></li>
-<li><p><strong>Duration Simple Effect:</strong> Each unit of duration will expend another 3.32 units (for females)</p></li>
+<li><p><strong>Duration Simple Effect:</strong> Each unit of duration expends 3.32 units more (for females)</p></li>
 <li><p><strong>Sex Simple Effect:</strong> Males will expend 3.57 units more than females (at 0 duration)</p></li>
 <li><p><strong>Interaction Effect:</strong> The slope of duration will decrease by 1.72 for males, and the male–female difference will decrease by 1.72 for each added unit of duration</p></li>
 </ul>
@@ -397,7 +397,7 @@
 <p>You can tell there is not a significant interaction because the lines could be parallel.</p>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Plotting interaction effects</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_means</span>(fit, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sex"</span>, <span class="st">"duration=[sd]"</span>)), <span class="at">join_dots =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -509,7 +509,7 @@
 </ul></li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Running the model</h2>
 <ul>
 <li>Let’s first pick a reference group for <code>program</code>
@@ -541,14 +541,14 @@
 </div>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Plotting the interaction</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_means</span>(fit3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"program"</span>, <span class="st">"duration=[sd]"</span>)), <span class="at">join_dots =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Centering</h2>
 <ul>
 <li>Do we really care about effects at zero duration?
@@ -631,7 +631,7 @@
 <p><code>expenditure ~ sex + program + sex:program</code></p>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Simple and interaction effects</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>fit5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(expenditure <span class="sc">~</span> sex <span class="sc">*</span> program, <span class="at">data =</span> exercise)</span>
@@ -676,7 +676,7 @@
 <span id="cb14-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Predictors modulated: sex, program</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Estimating contrasts</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(fit5, <span class="at">contrast =</span> <span class="st">"sex"</span>, <span class="at">by =</span> <span class="st">"program"</span>)</span>
@@ -693,7 +693,7 @@
 <span id="cb15-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-values are uncorrected.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Estimating contrasts</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(fit5, <span class="at">contrast =</span> <span class="st">"program"</span>, <span class="at">by =</span> <span class="st">"sex"</span>)</span>
@@ -713,14 +713,14 @@
 <span id="cb16-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-values are uncorrected.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Plotting the interaction</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_means</span>(fit5, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sex"</span>, <span class="st">"program"</span>)), <span class="at">join_dots =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Plotting the interaction</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_means</span>(fit5, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"program"</span>, <span class="st">"sex"</span>)), <span class="at">join_dots =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -732,32 +732,35 @@
 <h1>Three-Way Interactions</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>When two-way isn’t enough</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li>So far, each interaction has let <em>one</em> effect depend on <em>one</em> moderator</li>
+<li>So far, <em>one</em> moderator per effect</li>
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>But a two-way interaction can itself depend on a third variable
+<li>Interactions can depend on a third <span class="math inline">x</span>
 <ul>
 <li>Does the sex-by-program difference hold at every exercise duration?</li>
-<li>Perhaps program matters more for men only in longer sessions</li>
+<li>Maybe it only holds in long sessions</li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>This is a <span class="b blue">three-way interaction</span>: moderation of a moderation</li>
+<li>A <span class="b blue">three-way interaction</span>
+<ul>
+<li>Moderation of a moderation</li>
+</ul></li>
 </ul>
 </div>
 </div><div class="column tc pv4" style="width:40%;">
 <p><lord-icon src="../../icons/funnel.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2">
 <h2>Expanding the equation</h2>
 <ul>
 <li><p>With three predictors, every combination gets a term</p></li>
@@ -765,13 +768,13 @@
 </ul>
 <p><span class="math display">\hat{y} = b_0 + b_1 x + b_2 c_1 + b_3 d_1 + b_4 x c_1 + b_5 x d_1 + b_6 c_1 d_1 + b_7 x c_1 d_1</span></p>
 <ul>
-<li>Three main effects, three two-way interactions, one three-way interaction</li>
+<li>3 main effects, 3 two-way terms, 1 three-way term</li>
 </ul>
 <div class="tc fragment">
 <p><code>expenditure ~ duration * sex * program</code></p>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Fitting the model</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>fit6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(expenditure <span class="sc">~</span> duration <span class="sc">*</span> sex <span class="sc">*</span> program, <span class="at">data =</span> exercise)</span>
@@ -792,7 +795,7 @@
 <span id="cb19-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (duration × sex [male]) × program [swim] |        6.23 | 1.88 | [  2.54,   9.93] |   3.31 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Reading the output</h2>
 <ul>
 <li>The coefficient table gets long fast (3 predictors gives 12 terms here)</li>
@@ -801,7 +804,7 @@
 <ul>
 <li>Read it <span class="b blue">top-down</span>, highest-order term first
 <ul>
-<li>If the three-way term is significant, the two-way interactions should not be read as <em>overall</em> effects</li>
+<li>A significant three-way term makes the two-way terms conditional</li>
 <li>Each lower-order term is now conditional on the others being zero</li>
 </ul></li>
 </ul>
@@ -815,7 +818,7 @@
 </ul>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Probing: slopes by both moderators</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_slopes</span>(fit6, <span class="at">trend =</span> <span class="st">"duration"</span>, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sex"</span>, <span class="st">"program"</span>))</span>
@@ -837,7 +840,7 @@
 <li>One duration slope per sex-by-program cell</li>
 </ul>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Does the sex gap shift with duration?</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(fit6, <span class="at">contrast =</span> <span class="st">"sex"</span>, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"program"</span>, <span class="st">"duration = [sd]"</span>),</span>
@@ -861,7 +864,7 @@
 <span id="cb21-19"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Plotting the interaction</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit6, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"duration"</span>, <span class="st">"sex"</span>, <span class="st">"program"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -875,7 +878,7 @@
 <ul>
 <li>Three-way interactions are <span class="b blue">expensive</span>
 <ul>
-<li>They need substantially more power than two-way terms</li>
+<li>They need far more power than two-way terms</li>
 <li>Cells get small quickly once you cross three variables</li>
 <li>Our example is <em>simulated</em>, with 150 per cell; real data is rarely this generous</li>
 </ul></li>
@@ -884,7 +887,7 @@
 <ul>
 <li>They are also easy to over-read
 <ul>
-<li>A significant three-way term found post hoc is a prime HARKing risk</li>
+<li>A three-way term found post hoc is a HARKing risk</li>
 <li>Prefer to predict them in advance and preregister</li>
 </ul></li>
 </ul>
@@ -1318,7 +1321,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

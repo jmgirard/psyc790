@@ -241,7 +241,7 @@
 <h1>Overview</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Assumptions Overview</h2>
 <ul>
 <li><strong>Assumptions about the Formula</strong>
@@ -267,7 +267,7 @@
 <h1>Constant Error Variance</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Assumption</h2>
 <ul>
 <li>For any value of <span class="math inline">x</span>, the residual variance are constant
@@ -343,7 +343,7 @@
 <p><code>check_model(fit, check = "homogeneity")</code></p>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Example: Assumption Met</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
@@ -365,7 +365,7 @@
 </div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Example: Assumption Violated</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(fit_violated)</span>
@@ -409,7 +409,7 @@
 <h1>Normal Residuals</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Assumption</h2>
 <ul>
 <li>The residuals are normally distributed around the line
@@ -439,7 +439,7 @@
 <h2>Examples</h2>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Diagnostics</h2>
 <ol type="1">
 <li>Plot the residuals’ distribution
@@ -459,7 +459,7 @@
 </ul></li>
 </ol>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Example: Residual Distribution</h2>
 <div class="columns">
 <div class="column">
@@ -475,7 +475,7 @@
 </div></div>
 
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Example: QQ Plot</h2>
 <div class="columns">
 <div class="column">
@@ -501,7 +501,7 @@
 <span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Non-normality of residuals detected (p &lt; .001).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2">
 <h2>Solutions</h2>
 <ol type="1">
 <li>Transform your outcome to be more normal
@@ -528,7 +528,7 @@
 <h1>Independent Residuals</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Assumption</h2>
 <ul>
 <li>The residuals must be independent of (not related to) one another
@@ -605,7 +605,7 @@
 <span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Autocorrelated residuals detected (p &lt; .001).</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Solutions</h2>
 <ol type="1">
 <li>Adjust the standard errors
@@ -630,7 +630,7 @@
 <h1>Outliers</h1>
 
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Definition</h2>
 <ul>
 <li>Outliers are <strong>atypical observations</strong> that do not fit the other data
@@ -730,7 +730,7 @@
 <span id="cb14-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 1   2 (Multivariate) (Multivariate)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section class="slide level2 fs90">
+<section class="slide level2 fs80">
 <h2>Solutions</h2>
 <ol type="1">
 <li><strong>Fix</strong> the outliers
@@ -1190,7 +1190,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

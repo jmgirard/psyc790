@@ -238,16 +238,16 @@
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>Make a new file (a script, say) and RStudio puts it <span class="b green">in the project folder</span>
+<li>Make a new script and RStudio puts it <span class="b green">in the project folder</span>
 <ul>
 <li>Add a line of text, such as <code># Hello World</code></li>
-<li>Save it, and note that the dialog already points at the project folder</li>
+<li>Save it; the dialog already points at the project folder</li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Close the script with the <span class="b blue">x</span> icon, then reopen it from the <span class="b blue">Files</span> tab</li>
+<li>Close the script with the <span class="b blue">x</span> icon, then reopen it from <span class="b blue">Files</span></li>
 </ul>
 </div>
 </section>
@@ -279,16 +279,16 @@
 <h1>Quarto</h1>
 
 </section>
-<section class="slide level2 fs70">
+<section class="slide level2 fs80">
 <h2>Quarto</h2>
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li><a href="https://www.quarto.org">Quarto</a> is a scientific/technical <span class="b green">publishing system</span></li>
+<li><a href="https://www.quarto.org">Quarto</a> is a <span class="b green">technical publishing system</span></li>
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>Create <span class="b blue">dynamic content</span> (e.g., code, output, and markdown) with R, Python, Julia, and Observable</li>
+<li>Create <span class="b blue">dynamic content</span> with R, Python, Julia, and Observable</li>
 </ul>
 </div>
 <div class="fragment mt1">
@@ -298,7 +298,7 @@
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Include <span class="b blue">equations, citations, crossrefs</span>, figure panels, callouts, advanced layouts, etc.</li>
+<li>Include <span class="b blue">equations, citations, crossrefs</span>, panels, callouts, advanced layouts, etc.</li>
 </ul>
 </div>
 </div><div class="column tc pv5" style="width:40%;">
@@ -310,7 +310,7 @@
 <ul>
 <li><span class="b blue">File &gt; New File &gt; Quarto Document…</span>
 <ul>
-<li>Keep the defaults (HTML) and click <span class="b blue">Create Empty Document</span></li>
+<li>Keep the defaults, then <span class="b blue">Create Empty Document</span></li>
 </ul></li>
 </ul>
 <div class="fragment mt1">
@@ -351,7 +351,7 @@
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Chunk <span class="b blue">options</span> control how each chunk behaves; more on those later</li>
+<li>Chunk <span class="b blue">options</span> control how each chunk behaves; more later</li>
 </ul>
 </div>
 </section></section>
@@ -436,7 +436,7 @@
 <li>Links come in two forms:
 <ul>
 <li><code>&lt;https://quarto.org&gt;</code> shows the <span class="b green">bare URL</span></li>
-<li><code>[Quarto](https://quarto.org)</code> shows <span class="b green">text you choose</span></li>
+<li><code>[Quarto](https://quarto.org)</code> shows <span class="b green">text you pick</span></li>
 </ul></li>
 </ul>
 </div>
@@ -840,7 +840,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
+            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
