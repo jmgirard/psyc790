@@ -15,12 +15,12 @@ Companion files: [`ICONS.md`](ICONS.md) (Lordicon workflow), [`SLIDE-OVERFLOW.md
 _quarto.yml            website project; navbar with one dropdown per unit
 _slide-settings.yml    shared revealjs metadata; `filters: [jmgirard/lordicon]`
 _common.R              knitr source hook (replace_path)
-_extensions/jmgirard/  details, honeypot, lordicon
+_extensions/jmgirard/  details, lordicon
 _freeze/               COMMITTED (freeze: auto) -- this is the reproducibility mechanism
 .nojekyll              committed
 CNAME                  stats.jmgirard.com
 install-packages.R     unpinned CRAN list + standist from GitHub
-index.qmd              front door; schedule.qmd is the chapter index; 404.qmd
+index.qmd              front door; contents.qmd is the chapter index; 404.qmd
 styles.css             single shared stylesheet, root only
 icons/ img/ data/
 A/ ... E/              one folder per unit
@@ -189,26 +189,53 @@ a teaching-content decision, not a mechanical fix.
 
 ## 4. Answer keys stay off GitHub
 
-The graded keys are **not in this repo and must never be.** They are handled privately;
-[`index.qmd`](index.qmd) tells instructors to email for them.
+The graded keys are **not in this repo and must never be.** They live in a private
+companion repo, `statistical-methods-keys`, cloned as a *sibling* directory:
+
+```
+F:\GitHub\teaching\statistical-methods         (this repo, public)
+F:\GitHub\teaching\statistical-methods-keys    (private: keys, rubrics, semester scaffolding)
+```
+
+Sibling rather than nested, deliberately. A Quarto website project renders **every** `.qmd`
+below its root, and `git add -A` does not distinguish sensitive files from the rest — nesting
+would leave `.gitignore` as the only barrier, which is exactly the barrier that failed (see
+below). A separate directory removes both failure modes structurally instead of by rule. The
+keys repo is its own Quarto project, so its `_freeze/` and `_site/` stay inside the private
+repo where they are as protected as the source.
 
 Two different things get called an answer key, and only one is sensitive:
 
 - **Practice answers** — the `{{< dstart summary="Answer key" >}}` blocks inside
   `*_practice.qmd`. These are public on purpose.
-- **Graded keys** — assignment answers. These must not be published. They also **leak the
-  honeypot design**: each key opens with a line naming the trap it uses (e.g. a homoglyph
-  mid-dot), which documents exactly how the `{{< hp >}}` LLM traps work across all three
-  courses.
+- **Graded keys** — assignment answers. These must not be published.
+  [`index.qmd`](index.qmd) tells instructors to email for them.
 
-`.gitignore` blocks them, and the rules cover **derived artifacts, not just sources**
-(`*_key.*`, `_freeze/archive/`, …). The source-only rule was not enough: rendered keys —
-honeypot markers and all — once landed in `_freeze/` and were committed across 16 commits
-before being caught. Nothing had been pushed, so history was rewritten and the artifacts
-purged.
+`.gitignore` still blocks `*_key.*` and `**/keys/` here as a backstop, and the rules cover
+**derived artifacts, not just sources**. The source-only rule was not enough: rendered keys
+once landed in `_freeze/` and were committed across 16 commits before being caught. Nothing
+had been pushed, so history was rewritten and the artifacts purged.
 
 If keys are ever rendered anywhere, their `_freeze` output is exactly as sensitive as the
 source.
+
+### Removed: the LLM honeypot
+
+Assignments used to carry a `{{< hp >}}` shortcode that injected invisible text
+(`font-size: 0.1px; color: transparent`) instructing an LLM to substitute a homoglyph into
+its answer, so pasted-in work could be spotted. It was removed in full — 83 calls across the
+22 assignments, the `_extensions/jmgirard/honeypot` filter, and the `.tiny-text` rule in
+`styles.css`. Reasons, so it is not reintroduced:
+
+- **Accessibility.** The span was hidden visually but not from assistive technology, and had
+  no `aria-hidden`. A screen-reader user heard the trap text read aloud in every question.
+- **It did not settle cases.** It caught students, who denied it anyway. A covert signal you
+  cannot explain without burning it is weak evidence in an integrity hearing, and the marker
+  transfers innocently from permitted LLM use.
+- **Silent decay.** Models are increasingly trained to ignore instructions embedded in
+  pasted content, and nothing distinguishes "nobody cheated" from "the trap stopped working."
+
+It is still deployed in `data2` and `psyc894`; removing it there is a separate change.
 
 ---
 
@@ -291,7 +318,7 @@ here or in the other two repos. It renders fine; worth confirming it is intentio
 
 ## 8. Outbound links to other courses
 
-[`schedule.qmd`](schedule.qmd) is the only page that links off this site to other course
+[`contents.qmd`](contents.qmd) is the only page that links off this site to other course
 materials, in the `↳` line under a unit:
 
 | Unit | Links to | URL |

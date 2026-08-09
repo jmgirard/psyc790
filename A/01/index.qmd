@@ -93,7 +93,7 @@ follows.
 
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
-  <a href="../../schedule.html" class="btn btn-outline-secondary" role="button">Contents</a>
+  <a href="../../contents.html" class="btn btn-outline-secondary" role="button">Contents</a>
   <a href="../../A/02/index.html" class="btn btn-primary" role="button">Chapter 02&nbsp;&nbsp;&raquo;</a>
 </div>
 ```

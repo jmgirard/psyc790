@@ -1,0 +1,351 @@
+---
+# Renamed from `schedule.qmd` once weeks became chapters: "schedule" asserted a
+# calendar, which is exactly what this site does not own. The chapter-to-date
+# mapping lives in whatever LMS is pointing here, which owns anything with a
+# date on it.
+title: "Contents"
+toc: false
+# Full width so the three cards in a unit each get room for a one-line title.
+# In the default article column they are 257px wide whatever the screen size.
+page-layout: full
+---
+
+```{=html}
+<style>
+/* Unit heading: the letter carries the unit, so it gets the weight and the
+   name sits next to it as plain text rather than competing for it. */
+.unit-letter {
+  display: inline-block;
+  background-color: #2780e3;
+  color: #fff;
+  border-radius: 0.35rem;
+  padding: 0.02em 0.45em;
+  margin-right: 0.15em;
+  font-weight: 700;
+}
+
+h2:has(.unit-letter) {
+  border-bottom: none;
+  margin-top: 2.75rem;
+  margin-bottom: 0.35rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.unit-desc {
+  color: #6c757d;
+  margin: 0 0 1.1rem;
+  max-width: 46rem;
+}
+
+/* Chapter cards. auto-fit rather than auto-fill so a unit's three chapters
+   spread across the row instead of leaving a phantom fourth column. */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.85rem;
+  /* Full-page layout has no column of its own, so cap the run here rather than
+     letting three cards stretch across a very wide monitor. */
+  max-width: 76rem;
+}
+
+/* The whole card is the link, so the click target is the card and not just
+   the title. Nothing else inside it may be an anchor. */
+a.chapter-card {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.chapter-card:hover,
+a.chapter-card:focus-visible {
+  border-color: #2780e3;
+  box-shadow: 0 2px 8px rgba(39, 128, 227, 0.12);
+}
+
+.chapter-num {
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #c9dcf5;
+}
+
+a.chapter-card:hover .chapter-num {
+  color: #2780e3;
+}
+
+.chapter-title {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+a.chapter-card:hover .chapter-title {
+  color: #2780e3;
+}
+
+/* Hanging indent so a wrapped lecture title lines up under its own text
+   rather than sliding back under the a/b/c letter. */
+.lec {
+  display: block;
+  font-size: 0.88rem;
+  color: #6c757d;
+  line-height: 1.45;
+  padding-left: 1.05em;
+  text-indent: -1.05em;
+}
+
+.lec b {
+  display: inline-block;
+  width: 1.05em;
+  text-indent: 0;
+  color: #adb5bd;
+  font-weight: 600;
+}
+
+/* Chapters that are outline-only: same card, less ink, so the unit still
+   reads as a whole rather than having holes in it. */
+a.chapter-card.pending {
+  background-color: #fbfcfd;
+  border-style: dashed;
+}
+
+/* Unit-closing translation activity. Set apart from the grid because it
+   belongs to the unit rather than to any one chapter. */
+.unit-extra {
+  margin-top: 0.7rem;
+  font-size: 0.92rem;
+}
+
+/* The marker goes on the paragraph, not the wrapping div: a ::before on the
+   div lands in block context and takes a line of its own. */
+.unit-extra p {
+  margin: 0;
+}
+
+.unit-extra p::before {
+  content: "\21B3";
+  color: #adb5bd;
+  margin-right: 0.45em;
+}
+</style>
+```
+
+Fifteen chapters across five units. Each chapter runs two or three lectures of
+about 75 to 90 minutes, and almost every lecture carries its own assignment. Unit A
+also includes in-class practice activities with published answers.
+
+## [A]{.unit-letter} Foundations
+
+::: {.unit-desc}
+Getting R running, then writing code and handling data well enough to start
+asking questions of it.
+:::
+
+```{=html}
+<div class="chapter-grid">
+  <a class="chapter-card" href="A/01/index.html">
+    <span class="chapter-num">01</span>
+    <span>
+      <span class="chapter-title">Getting Started</span>
+      <span class="lec"><b>a</b>Introduction</span>
+      <span class="lec"><b>b</b>Working in RStudio</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="A/02/index.html">
+    <span class="chapter-num">02</span>
+    <span>
+      <span class="chapter-title">Projects & Programming</span>
+      <span class="lec"><b>a</b>Reproducible Workflows</span>
+      <span class="lec"><b>b</b>Writing R Code</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="A/03/index.html">
+    <span class="chapter-num">03</span>
+    <span>
+      <span class="chapter-title">Data & Exploration</span>
+      <span class="lec"><b>a</b>Data Types & Packages</span>
+      <span class="lec"><b>b</b>Importing & Exploring</span>
+    </span>
+  </a>
+</div>
+```
+
+::: {.unit-extra}
+Alongside this unit: [Foundations of Data Science](https://jmgirard.github.io/data2/){target="_blank"}, a full course on R and the tidyverse
+:::
+
+## [B]{.unit-letter} Inference
+
+::: {.unit-desc}
+Where an estimate comes from, how much of it to believe, and how to compare
+two or more groups.
+:::
+
+```{=html}
+<div class="chapter-grid">
+  <a class="chapter-card" href="B/04/index.html">
+    <span class="chapter-num">04</span>
+    <span>
+      <span class="chapter-title">Sampling & Estimation</span>
+      <span class="lec"><b>a</b>Populations & Samples</span>
+      <span class="lec"><b>b</b>Confidence Intervals</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="B/05/index.html">
+    <span class="chapter-num">05</span>
+    <span>
+      <span class="chapter-title">Hypothesis Testing</span>
+      <span class="lec"><b>a</b>NHST & p-values</span>
+      <span class="lec"><b>b</b>Correlation & Inference</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="B/06/index.html">
+    <span class="chapter-num">06</span>
+    <span>
+      <span class="chapter-title">Group Comparisons</span>
+      <span class="lec"><b>a</b>Comparing Two Groups</span>
+      <span class="lec"><b>b</b>Comparing Many Groups</span>
+      <span class="lec"><b>c</b>ANOVA Extensions</span>
+    </span>
+  </a>
+</div>
+```
+
+::: {.unit-extra}
+[Unit B Translation Activity](B/06/translation.qmd)
+:::
+
+## [C]{.unit-letter} The Linear Model
+
+::: {.unit-desc}
+One framework, regression, stretched to cover categorical predictors,
+interactions, and curves.
+:::
+
+```{=html}
+<div class="chapter-grid">
+  <a class="chapter-card" href="C/07/index.html">
+    <span class="chapter-num">07</span>
+    <span>
+      <span class="chapter-title">Regression</span>
+      <span class="lec"><b>a</b>Simple Regression</span>
+      <span class="lec"><b>b</b>Categorical Predictors</span>
+      <span class="lec"><b>c</b>Multiple Regression</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="C/08/index.html">
+    <span class="chapter-num">08</span>
+    <span>
+      <span class="chapter-title">Moderation</span>
+      <span class="lec"><b>a</b>Continuous Moderation</span>
+      <span class="lec"><b>b</b>Categorical Moderation</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="C/09/index.html">
+    <span class="chapter-num">09</span>
+    <span>
+      <span class="chapter-title">Nonlinearity</span>
+      <span class="lec"><b>a</b>Polynomial Regression</span>
+      <span class="lec"><b>b</b>Piecewise & Splines
+        <span class="soon">(coming soon)</span></span>
+    </span>
+  </a>
+</div>
+```
+
+::: {.unit-extra}
+[Unit C Translation Activity](C/09/translation.qmd)
+:::
+
+## [D]{.unit-letter} Data Problems and Robust Inference
+
+::: {.unit-desc}
+What to do when the assumptions those models rest on do not hold, and how to
+tell that they do not.
+:::
+
+```{=html}
+<div class="chapter-grid">
+  <a class="chapter-card" href="D/10/index.html">
+    <span class="chapter-num">10</span>
+    <span>
+      <span class="chapter-title">Model Diagnostics</span>
+      <span class="lec"><b>a</b>Form & Collinearity</span>
+      <span class="lec"><b>b</b>Residuals & Outliers</span>
+    </span>
+  </a>
+  <a class="chapter-card pending" href="D/11/index.html">
+    <span class="chapter-num">11</span>
+    <span>
+      <span class="chapter-title">Bootstrap & Robustness
+        <span class="soon">(coming soon)</span></span>
+      <span class="lec"><b>a</b>The Bootstrap</span>
+      <span class="lec"><b>b</b>Robust Inference</span>
+    </span>
+  </a>
+  <a class="chapter-card pending" href="D/12/index.html">
+    <span class="chapter-num">12</span>
+    <span>
+      <span class="chapter-title">Missing Data
+        <span class="soon">(coming soon)</span></span>
+      <span class="lec"><b>a</b>Missing Data Theory</span>
+      <span class="lec"><b>b</b>Imputation & FIML</span>
+    </span>
+  </a>
+</div>
+```
+
+::: {.unit-extra}
+[Unit D Translation Activity](D/10/translation.qmd)
+:::
+
+## [E]{.unit-letter} Designing and Reporting Studies
+
+::: {.unit-desc}
+Measuring well, planning a study large enough to answer its question, and
+reporting what came back.
+:::
+
+```{=html}
+<div class="chapter-grid">
+  <a class="chapter-card pending" href="E/13/index.html">
+    <span class="chapter-num">13</span>
+    <span>
+      <span class="chapter-title">Reliability
+        <span class="soon">(coming soon)</span></span>
+      <span class="lec"><b>a</b>Internal Consistency</span>
+      <span class="lec"><b>b</b>Raters & Attenuation</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="E/14/index.html">
+    <span class="chapter-num">14</span>
+    <span>
+      <span class="chapter-title">Power & Preregistration</span>
+      <span class="lec"><b>a</b>Power Analysis</span>
+      <span class="lec"><b>b</b>Questionable Practices</span>
+    </span>
+  </a>
+  <a class="chapter-card" href="E/15/index.html">
+    <span class="chapter-num">15</span>
+    <span>
+      <span class="chapter-title">Reporting & Reviewing</span>
+      <span class="lec"><b>a</b>Reporting Results</span>
+      <span class="lec"><b>b</b>Reviewing Claims
+        <span class="soon">(coming soon)</span></span>
+    </span>
+  </a>
+</div>
+```
+
+::: {.unit-extra}
+After this course: Generalized Linear Models [(coming soon)]{.soon}, then
+[Multilevel Modeling](https://jmgirard.github.io/psyc894/){target="_blank"}
+:::

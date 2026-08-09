@@ -57,6 +57,6 @@ numbers a paper already reports, without access to the data.
 ```{=html}
 <div style="display: flex; justify-content: space-between; margin-top: 3rem;">
   <a href="../../E/14/index.html" class="btn btn-outline-primary" role="button">&laquo;&nbsp;&nbsp;Chapter 14</a>
-  <a href="../../schedule.html" class="btn btn-outline-secondary" role="button">Contents</a>
+  <a href="../../contents.html" class="btn btn-outline-secondary" role="button">Contents</a>
 </div>
 ```

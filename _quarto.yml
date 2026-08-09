@@ -40,7 +40,7 @@ website:
     background: primary
     search: true
     right:
-      - href: schedule.qmd
+      - href: contents.qmd
         icon: list-ul
         text: "Contents"
       - text: "Unit A"
