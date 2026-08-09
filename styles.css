@@ -873,6 +873,117 @@ iframe.slide-deck {
   margin-bottom: 0 !important;
 }
 
+/* --------------------------------------------------------------------------
+   AUTHORED ERROR CARD (.r-error)
+   --------------------------------------------------------------------------
+   Some failures cannot be produced by executing the chunk, so the error card
+   has to be written by hand. This rule makes a hand-written one identical to
+   the `.cell-output-error` card knitr emits, so a student sees one visual
+   language for "this fails" regardless of which kind of failure it is.
+
+   Use it for PARSE errors. Three treatments used to coexist here, and only the
+   first was right:
+
+     runtime error (`average(x)`)  -> `#| error: true`; R's own message. Keep.
+     parse error + `error: true`   -> renders, but knitr reports it through its
+                                      own parse() wrapper: "Error in parse(text
+                                      = input): <text>:1:2: unexpected ','".
+                                      A student's console says "Error:
+                                      unexpected ',' in "9,"". Do not use.
+     parse error + `eval: false`   -> no card at all, so a failing line looked
+                                      exactly like working code that was simply
+                                      not run. This is what .r-error replaces.
+
+   Keep the chunk `eval: false` and put the console-accurate message here. The
+   message must be what RStudio prints, not what knitr prints -- verify it by
+   running the line in a fresh R session rather than copying knitr's output.
+
+   Markup: the div must be the immediate next sibling of the chunk's `.cell`,
+   which is what joins the two into one card.
+
+     ```{r}
+     #| echo: true
+     #| eval: false
+     #| code-line-numbers: false
+
+     1_heart_rate <- 93
+     ```
+
+     ::: {.r-error}
+     ```
+     Error: unexpected input in "1_"
+     ```
+     :::
+   -------------------------------------------------------------------------- */
+
+.reveal .r-error pre {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.reveal .r-error pre code {
+  color: #5c0000 !important;
+  background-color: #eec5c5;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  padding: 10px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Square off the code block above so the two read as one card, mirroring
+   what `.cell:has(.cell-output)` does for a real executed chunk. */
+.reveal .cell:has(+ .r-error) div.sourceCode {
+  margin-bottom: 0 !important;
+}
+
+.reveal .cell:has(+ .r-error) div.sourceCode,
+.reveal .cell:has(+ .r-error) div.sourceCode pre,
+.reveal .cell:has(+ .r-error) div.sourceCode code {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   TAKEAWAY (.takeaway)
+   --------------------------------------------------------------------------
+   The one-line lesson under a code slide's last card.
+
+   This replaces `::: aside` for that job. An aside is *absolutely positioned
+   near the slide bottom*, so on a sparse slide the sentence explaining the
+   code floated ~200px below it as grey small print, detached from the thing it
+   explains, while the middle of the slide stayed empty. It also only appeared
+   on some slides, so the lesson was stated on one slide and left implicit on
+   the next.
+
+   A takeaway is in normal flow immediately after the last `.cell`, so it stays
+   attached to the code and fills the space that was empty. Order on the slide
+   is deliberate: code, then result, then the lesson -- the result is the
+   punchline, so a lead-in sentence above the code gives it away.
+
+   `aside` is still right for a genuine footnote (a caveat, a source, a "we
+   will come back to this"). It is not right for the point of the slide.
+
+   Figure slides are exempt: they already fill their space, and a good plot
+   title carries the lesson.
+   -------------------------------------------------------------------------- */
+
+.reveal .takeaway {
+  margin-top: 0.9rem;
+  font-size: 0.8em;
+  line-height: 1.35;
+  color: #3f3f3f;
+}
+
+.reveal .takeaway b,
+.reveal .takeaway strong {
+  color: #111;
+}
+
 kbd {
   font-size: 0.8em;
 }

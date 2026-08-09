@@ -260,69 +260,56 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## Addition and Subtraction
+## Arithmetic
 
 ```{r}
 #| echo: true
-
-10+3
 
 10 + 3
-
 10 - 3
+10 * 3
+10 / 3
+10 ^ 2
 ```
 
-::: aside
-*Note.* Spaces around an operator are optional, but they make code easier to read.
+::: {.takeaway}
+The four operators you already know, plus `^` for powers. Spaces are optional.
 :::
 
-## Multiplication
+## Pitfall: Notation R Does Not Accept
 
 ```{r}
 #| echo: true
-
-10 * 3
-```
-
-```{r}
-#| echo: true
-#| error: true
+#| eval: false
 #| code-line-numbers: false
 
 10 x 3
 ```
 
-::: aside
-*Note.* R has no `x` operator, so use `*` instead.
+::: {.r-error}
+```
+Error: unexpected symbol in "10 x"
+```
 :::
 
-## Division
-
 ```{r}
 #| echo: true
-
-10 / 3
-```
-
-```{r}
-#| echo: true
-#| error: true
+#| eval: false
 #| code-line-numbers: false
 
 10 \ 3
 ```
 
-::: aside
-*Note.* The division slash leans the other way; `\` means something else entirely.
+::: {.r-error}
+```
+Error: unexpected '\' in "10 \"
+```
 :::
 
-## Exponentiation
-
-```{r}
-#| echo: true
-
-10 ^ 2
-```
+::: {.takeaway}
+Multiplication is `*`, never `x`, and division is `/` --- the slash that leans
+the other way. R reads `\` as the start of something else entirely.
+:::
 
 ## Order of Operations
 
@@ -334,58 +321,55 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 (10 + 3) * 2
 ```
 
-::: aside
-*Note.* Multiplication happens before addition; parentheses change the order.
+::: {.takeaway}
+Multiplication happens before addition, exactly as in algebra. Parentheses
+override that, and are worth adding whenever the order is not obvious at a glance.
 :::
 
-## Negative Numbers
+## Decimals and Negative Numbers
 
 ```{r}
 #| echo: true
 
 10 + -30
-```
-
-## Decimals and Fractions
-
-```{r}
-#| echo: true
 
 1.234
 
-(1 / 3)
+1 / 3
 ```
 
-## Leading and Trailing Zeros
+::: {.takeaway}
+Negative numbers need no special treatment, and division gives a decimal rather
+than a fraction --- R prints as many digits as it thinks you need, not all of them.
+:::
+
+## How R Prints Numbers
 
 ```{r}
 #| echo: true
 
 09.870
-```
-
-::: aside
-*Note.* R drops leading and trailing zeros that carry no information.
-:::
-
-## Large Numbers
-
-```{r}
-#| echo: true
 
 9876543
 ```
 
 ```{r}
 #| echo: true
-#| error: true
+#| eval: false
 #| code-line-numbers: false
 
 9,876,543
 ```
 
-::: aside
-*Note.* Separators are for humans, not for R — type the digits and nothing else.
+::: {.r-error}
+```
+Error: unexpected ',' in "9,"
+```
+:::
+
+::: {.takeaway}
+R drops leading and trailing zeros that carry no information. Thousands
+separators are for humans --- type the digits and **nothing else**.
 :::
 
 # Scripts
@@ -444,26 +428,19 @@ at a time.
 
 ## Adding Comments to Scripts
 
-Comments are ignored by R and exist only for human readers. Start one with a hash
-symbol.
-
 ```{r}
 #| echo: true
 
 # Calculate the average score on the quiz
 (1.4 + 2.8 + 9.3) / 3
 
-# Calculate the difference between exam 1 and exam 2
-30.1 - 24.7
+100 / 9 # a comment can also end a line
 ```
 
-## Comments Can Also End a Line
-
-```{r}
-#| echo: true
-
-100 / 9 # the start of the line still runs
-```
+::: {.takeaway}
+Anything after a `#` is ignored by R and exists only for human readers. A comment
+can have a line to itself or sit at the end of one --- the code before it still runs.
+:::
 
 ## Saving the Script File {.fs70}
 
