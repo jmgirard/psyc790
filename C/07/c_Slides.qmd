@@ -544,7 +544,7 @@ plot(estimate_relation(fit3, by = c("flipper_len", "bill_len=[sd]"))) + mytheme(
 # Many Predictors
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/equalizer.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Extended regression equation

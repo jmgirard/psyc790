@@ -1,0 +1,98 @@
+# Divider icon assignments. One row per section-divider slide, in deck order.
+#
+# `n` is the 1-based divider index within the deck, counting only section
+# dividers -- the deck title slide is not one. Keying on the index rather than
+# on the heading text keeps this stable when a section gets reworded, and the
+# wiring script checks the recorded title against the file so a drift is an
+# error rather than a silently misplaced icon.
+#
+# source=catalog  the file is already in icons/ and unused elsewhere
+# source=pilot    already wired on the C/07/a pilot, kept as-is
+# source=new      needs exporting from Lordicon. Set secondary to #2a76dd in the
+#                 customizer BEFORE exporting or the icon bakes in Lordicon's
+#                 green -- see ICONS.md. `search` is the term to start from;
+#                 `icon` is the filename to save it as.
+#
+# Reserved and deliberately not reused: map.json (the roadmap slide's recurring
+# motif) and the 25 other icons already carrying meaning on a content slide.
+#
+# deck	n	section	icon	source	search	note
+A/01/b	1	R and RStudio	code_window	new	code editor window, IDE, workspace	The pane layout is the thing being introduced.
+A/01/b	2	Console	terminal	new	terminal, command prompt, command line	A prompt awaiting a line, not a whole editor.
+A/01/b	3	Scripts	edit_doc	catalog	-	Document with a pencil: a file you write and keep.
+A/02/a	1	Projects	folder	new	folder, project folder, directory	The self-contained directory is the whole point.
+A/02/a	2	Quarto	publish_doc	new	publish document, export, render	Source going out as a finished artifact.
+A/02/a	3	Markdown	text_format	new	text formatting, bold italic, rich text	Plain text acquiring formatting.
+A/02/b	1	Assignment	arrow_into_box	new	arrow into box, insert, store	A value going into a named container.
+A/02/b	2	Naming	name_tag	new	name tag, label, badge	Attaching a name to a thing.
+A/02/b	3	Functions	gears	new	gears, machine, cogs	Input in, work happens, output out.
+A/02/b	4	Vectors	stack_list	new	list, stack, queue	Many elements held in order as one object.
+A/03/a	1	Strings	text_cursor	new	text cursor, typing, abc	Character data as distinct from names.
+A/03/a	2	Factors	sort_bins	new	sort into bins, categories, group	Values dropping into a fixed set of levels.
+A/03/a	3	Packages	parcel	new	parcel, package delivery, shipping box	Something installed and unpacked. box.json is taken.
+A/03/b	1	Data Frames	table_grid	new	table, grid, rows and columns	Rectangular data. spreadsheet.json is taken.
+A/03/b	2	Data Exploration	explore_chart	new	magnifying glass chart, explore data, inspect	Looking at data before modelling it.
+B/04/a	1	Research Methods	test_tubes	catalog	-	The apparatus of doing a study.
+B/04/a	2	Populations and Parameters	people	catalog	-	The whole crowd, which is what a population is.
+B/04/a	3	Samples and Statistics	counter	catalog	-	A tally counter: counting a subset by hand.
+B/04/a	4	Estimation and Uncertainty	target	catalog	-	Aiming at a true value you cannot see.
+B/04/b	1	Types of Estimates	point_vs_range	new	bracket, range, min max	A point estimate against an interval.
+B/04/b	2	The Normal Distribution	bell_curve	new	bell curve, gaussian, normal distribution	NOT bell.json, which is a notification bell: the pun reads as a mistake at 300px.
+B/04/b	3	Central Limit Theorem	converge	new	converge, funnel to center, average	Many samples collapsing toward one shape.
+B/04/b	4	Confidence Intervals	error_bar	new	error bar, confidence interval, range chart	The interval itself.
+B/04/b	5	Practical Matters	toolbox	new	toolbox, tools, practical	The housekeeping at the end of the lecture.
+B/05/a	1	Statistical Hypotheses	scales	catalog	-	A balance: H0 against H1, before any evidence.
+B/05/a	2	NHST Logic	flowchart	new	flowchart, decision tree, process	The chain of reasoning, which is the section.
+B/05/a	3	NHST Nuts and Bolts	wrench	new	wrench, nuts and bolts, spanner	Literal, and the title already invites it.
+B/05/a	4	$p$-values and <br>Pragmatics	threshold	new	threshold, gauge, traffic light	A cutoff being applied, and its awkwardness.
+B/05/b	1	Introductions	link	new	link, chain link, connection	Two variables related, which is all correlation claims.
+B/05/b	2	Calculating <br>Correlations	calculator	catalog	-	The arithmetic section.
+B/05/b	3	Statistical Inference	telescope	new	telescope, far away, extrapolate	Reasoning past the sample to what you cannot observe. Deliberately not magic_ball.json, which frames inference as fortune telling.
+B/06/a	1	Introductions	two_people	new	two people, versus, pair	Exactly two groups.
+B/06/a	2	NHST Approaches	fork_road	new	fork in the road, two routes, choice	Different routes to the same comparison.
+B/06/a	3	Effect Sizes	caliper	catalog	-	Measuring how big, not whether. The best fit in the catalog.
+B/06/b	1	Introduction	cluster	new	cluster, groups, multiple groups	More than two groups at once.
+B/06/b	2	One-way ANOVA in R	run_code	new	run code, play code, brackets	The section where it becomes R.
+B/06/b	3	Post-hoc Tests	pairwise_check	new	compare pairs, checklist, after the fact	Which pair differs, asked after the omnibus test.
+B/06/c	1	Unequal Variances	uneven_scales	new	unbalanced, uneven bars, tilt	The assumption failing, visibly.
+B/06/c	2	Repeated Measures	repeat_loop	new	repeat, loop arrows, cycle	The same people measured again.
+B/06/c	3	Translation Activity	translate	new	translate, language, speech to text	The unit-closing activity, which is literally translation.
+C/07/a	1	Introduction	trend_line	new	trend line, scatter with line, linear	REPLACES the pilot's map.json, which is the roadmap slide's motif site-wide.
+C/07/a	2	Regression Inference	insights	pilot	-	Kept from the pilot.
+C/07/a	3	Centering	crosshair	new	crosshair, center, align center	REPLACES the pilot's location_pin.json: centering is about moving the origin, not about a place.
+C/07/a	4	Regression Effect Sizes	rulers	pilot	-	Kept from the pilot.
+C/07/b	1	Introduction	shapes_sort	new	shapes, categories, sorting	Predictors that are kinds rather than amounts.
+C/07/b	2	Dichotomous <br>Dummy Coding	toggle	new	toggle switch, on off, binary	One switch, two states.
+C/07/b	3	Polytomous <br>Dummy Coding	radio_buttons	new	radio buttons, multiple choice, options	Several levels, one reference.
+C/07/c	1	Shared Variance	venn	new	venn diagram, overlap, intersection	Overlap is the whole idea.
+C/07/c	2	Multiple Regression	merge_arrows	new	merge arrows, converge, combine	Several predictors into one outcome.
+C/07/c	3	Many Predictors	equalizer	catalog	-	A bank of sliders: many inputs tuned at once.
+C/08/a	1	Overview	mountains	catalog	-	A vista. The overview of the moderation material.
+C/08/a	2	Continuous-by-Continuous	surface_3d	new	3d surface, mesh, warp grid	A response surface, which is what two continuous predictors give.
+C/08/a	3	Interaction Patterns	crossing_lines	new	crossing lines, x shape, intersect	Non-parallel slopes, which is the pattern.
+C/08/a	4	Centering with Interactions	center_align	new	center align, align, origin	Re-centering when a product term is in the model.
+C/08/b	1	Review	rewind	new	rewind, recap, history	Looking back at the previous lecture. review.json is taken.
+C/08/b	2	Binary-by-Continuous	switch_slider	new	switch and slider, mixed controls	One of each kind of predictor.
+C/08/b	3	Nominal-by-Continuous	multi_line_chart	new	multi line chart, several lines	One line per level.
+C/08/b	4	Categorical-by-Categorical	matrix_grid	new	matrix, grid of cells, table cells	A cell per combination.
+C/08/b	5	Three-Way Interactions	cube	new	cube, 3d axes, three dimensions	Three factors, three axes.
+C/09/a	1	Overview	curve	new	curve, wave, bend	Straight lines stop being enough here.
+C/09/a	2	Polynomial Regression	curved_trend	new	curved trend line, polynomial	The curved fit itself.
+C/09/a	3	Quadratic Regression	parabola	new	parabola, u curve, arc	One bend, which is what quadratic buys.
+C/09/a	4	Adding Predictors	plus_stack	new	add, plus, stack up	Terms accumulating in the model.
+C/09/a	5	Closing Thoughts	finish_flag	new	finish flag, checkered flag, wrap up	End of the section and of the unit.
+D/10/a	1	Overview	blueprint	new	blueprint, plan, specification	The assumptions listed before they are checked.
+D/10/a	2	Correct Form	puzzle_fit	new	puzzle piece, fit, shape match	The model shape matching the data shape.
+D/10/a	3	No Omitted Confounders	hidden_eye	new	hidden, eye off, unseen	A cause you did not measure.
+D/10/a	4	Perfect Predictors	mirror	new	mirror, duplicate, clone	A predictor that is the outcome again.
+D/10/a	5	No Collinearity	parallel_lines	new	parallel lines, twins, duplicate	Predictors that say the same thing.
+D/10/b	1	Overview	scatter_plot	new	scatter plot, dots chart	Residual plots, which is what the lecture reads.
+D/10/b	2	Constant Error Variance	megaphone	new	megaphone, cone, fan out	The fanning shape heteroscedasticity makes.
+D/10/b	3	Normal Residuals	qq_plot	new	qq plot, histogram, distribution check	Checking a distribution rather than assuming one.
+D/10/b	4	Independent Residuals	broken_chain	new	broken chain, unlink, independent	Dependence between residuals, and its absence.
+D/10/b	5	Outliers	odd_one_out	new	odd one out, different, stands out	One point unlike the rest.
+E/14/a	1	Power Analysis	battery	new	battery, lightning, power	Power in the statistical sense, via the obvious visual. muscle.json is taken.
+E/14/b	1	Overview	alert_triangle	new	warning triangle, alert	The practices are the warning. caution.json is taken.
+E/14/b	2	Questionable Practices	mask	new	mask, disguise, sneaky	Analysis choices that hide what was done.
+E/14/b	3	Garden of Forking Paths	branching_path	new	branching path, tree branches, maze	The metaphor, drawn literally.
+E/15/a	1	Overview	newspaper	catalog	-	Results as something published and read.

@@ -374,7 +374,7 @@ Note that these results are identical
 # Effect Sizes
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/caliper.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Effect sizes

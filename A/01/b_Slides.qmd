@@ -380,7 +380,7 @@ separators are for humans: type the digits and **nothing else**.
 # Scripts
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/edit_doc.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Creating a New Script

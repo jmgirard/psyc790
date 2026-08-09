@@ -56,7 +56,7 @@ theme_set(mytheme())
 # Overview
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/mountains.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Motivation

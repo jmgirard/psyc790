@@ -40,6 +40,31 @@ usually the whole deficit, and the house sizes are 40px body text with 32px
 32px. It steps the stop down one notch on everything currently overflowing;
 record the result in `SLIDE-OVERFLOW.md`'s exceptions table.
 
+## `section-art-map.tsv`
+
+Not a measurement. It records which Lordicon illustration belongs on each of the
+79 section-divider slides, one row per divider, and it is the checklist for
+finishing that rollout.
+
+Rows are keyed by deck and by the divider's 1-based index within that deck,
+**not** by heading text, so a reworded section does not orphan its assignment.
+The recorded title is carried anyway and checked against the deck, so a drift is
+an error rather than a silently misplaced icon.
+
+`source=catalog` rows are already wired. `source=new` rows are still on the
+`question.json` placeholder and are waiting on an export from Lordicon; `icon`
+is the filename to save it as and `search` is the term to start from. **Set
+secondary to `#2a76dd` in the customizer before exporting** or the icon bakes in
+Lordicon's green with no way to recolour it at runtime -- see `ICONS.md`, which
+is where that was learned the expensive way.
+
+Two rows deliberately supersede the C/07/a pilot's choices: `map.json` is the
+roadmap slide's recurring motif and should not also open a section, and
+`location_pin.json` reads as a place rather than as re-centering an origin.
+
+Adding an icon to `icons/` is all that a `new` row needs; nothing here has to be
+edited to mark it done.
+
 ## Three ways the measurement lies
 
 All three are written up at length in `SLIDE-OVERFLOW.md`. Briefly:

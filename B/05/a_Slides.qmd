@@ -48,7 +48,7 @@ theme_set(mytheme)
 # Statistical Hypotheses
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/scales.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## What is a hypothesis? {.fs80}

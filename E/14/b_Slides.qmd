@@ -129,7 +129,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 - A better approach is to choose $n$ using power analysis
 
 
-# Constraining the Garden of Forking Paths
+# Garden of Forking Paths
 
 ::: {.section-art}
 {{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
