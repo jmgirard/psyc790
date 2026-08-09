@@ -29,9 +29,9 @@ embed-resources: true
 
 Read in the `fatalism` dataset and fit a simple linear regression predicting `depression` from `fatalism`.
 
-a) Report the estimated intercept and slope. For each one, state whether it is significantly different from zero and explain in plain language what the estimate means.{{< hp glyph="b" >}}
+a) Report the estimated intercept and slope. For each one, state whether it is significantly different from zero and explain in plain language what the estimate means.
 
-b) The intercept is the predicted value of `depression` when `fatalism` equals zero. Look at the range of the `fatalism` variable and comment on whether that intercept describes anyone who was actually measured.{{< hp glyph="b" >}}
+b) The intercept is the predicted value of `depression` when `fatalism` equals zero. Look at the range of the `fatalism` variable and comment on whether that intercept describes anyone who was actually measured.
 
 ## Question 2 (Centering)
 
@@ -39,15 +39,15 @@ Read in the `fatalism` dataset again, create a centered version of the `fatalism
 
 a) Report the intercept and slope of this model alongside those from the uncentered model. Which changed and which did not?
 
-b) Compare the new intercept to the mean of the `depression` variable, and explain why centering produced that particular value.{{< hp glyph="b" >}}
+b) Compare the new intercept to the mean of the `depression` variable, and explain why centering produced that particular value.
 
 ## Question 3 (Regression Effect Sizes)
 
 Read in the `fatalism` dataset again and fit the simple linear regression predicting `depression` from `fatalism`.
 
-a) Report the $R^2$ of this model and the standardized slope. Explain in plain language what each one tells you.{{< hp glyph="b" >}}
+a) Report the $R^2$ of this model and the standardized slope. Explain in plain language what each one tells you.
 
-b) Calculate the correlation between `fatalism` and `depression`. Compare it to the standardized slope, and compare its square to the $R^2$. Explain why these relationships hold for a model with a single predictor, and say whether you would expect them to still hold if a second predictor were added.{{< hp glyph="b" >}}
+b) Calculate the correlation between `fatalism` and `depression`. Compare it to the standardized slope, and compare its square to the $R^2$. Explain why these relationships hold for a model with a single predictor, and say whether you would expect them to still hold if a second predictor were added.
 
 ---
 

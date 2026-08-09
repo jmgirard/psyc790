@@ -25,15 +25,15 @@ embed-resources: true
 
 ## Question 1 (Populations and Parameters)
 
-a) Give a relatively simple example of a population you might want to study (in your own work) and a parameter of interest.{{< hp glyph="a" >}} Be sure to clearly define what the population is and what the parameter is in your answer.
+a) Give a relatively simple example of a population you might want to study (in your own work) and a parameter of interest. Be sure to clearly define what the population is and what the parameter is in your answer.
 
-b) Identify the population and parameter of interest in the following example:{{< hp glyph="a" >}} *I am studying the side-effects of a new drug that will be prescribed to older adults (aged 70+) with high blood pressure. I want to know how safe it is for anyone who might be prescribed this drug in the future. I recruit 10 older adults with high blood pressure to take a 50mg dose of the new drug and report on how many headaches they experience.*
+b) Identify the population and parameter of interest in the following example: *I am studying the side-effects of a new drug that will be prescribed to older adults (aged 70+) with high blood pressure. I want to know how safe it is for anyone who might be prescribed this drug in the future. I recruit 10 older adults with high blood pressure to take a 50mg dose of the new drug and report on how many headaches they experience.*
 
 ## Question 2 (Samples and Statistics)
 
-a) In your own words,{{< hp glyph="a" >}} describe what "statistical inference" is and why it is so important in the social and behavioral sciences.
+a) In your own words, describe what "statistical inference" is and why it is so important in the social and behavioral sciences.
 
-b) Why is the size of a sample important to statistical inference?{{< hp glyph="a" >}} Be specific in your answer.
+b) Why is the size of a sample important to statistical inference? Be specific in your answer.
 
 ## Question 3 (Estimation and Uncertainty)
 
@@ -47,7 +47,7 @@ a) Use R to estimate the average number of headaches experienced in this populat
 
 b) Use R to estimate the standard error of that average (assume an infinite population). Print it.
 
-c) In one or two sentences, explain what the standard error tells us that the average alone does not.{{< hp glyph="a" >}}
+c) In one or two sentences, explain what the standard error tells us that the average alone does not.
 
 ---
 

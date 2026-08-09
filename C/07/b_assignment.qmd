@@ -25,15 +25,15 @@ embed-resources: true
 
 ## Question 1 (Dummy Coding)
 
-a) Provide a list of at least three categorical variables that would be relevant to your research.{{< hp glyph="b" >}} For each variable, include what its levels/categories would be and whether it would be considered dichotomous or polytomous.
+a) Provide a list of at least three categorical variables that would be relevant to your research. For each variable, include what its levels/categories would be and whether it would be considered dichotomous or polytomous.
 
-b) Select one dichotomous and one polytomous variable from your answer to part (a).{{< hp glyph="b" >}} For each, provide the dummy codes that would be generated when using that variable as a predictor in a linear model. (Note that I want you to indicate what the value of each code variable would be for each level/category. To do so, you will need to select a level as the reference group.)
+b) Select one dichotomous and one polytomous variable from your answer to part (a). For each, provide the dummy codes that would be generated when using that variable as a predictor in a linear model. (Note that I want you to indicate what the value of each code variable would be for each level/category. To do so, you will need to select a level as the reference group.)
 
 ## Question 2 (Nominal Predictor)
 
 Read in the [`prestige.csv`](../../data/prestige.csv){download="prestige.csv"} dataset, which records the education, income, percentage of women, and Pineo-Porter `prestige` score of 98 Canadian occupations.
 
-a) Imagine that you want to use dummy coding to regress the `prestige` variable on the categorical `type` variable (Blue Collar, White Collar, Professional).{{< hp glyph="b" >}} Select a reference group for the `type` variable and briefly justify your choice (i.e., explain why you selected that group).
+a) Imagine that you want to use dummy coding to regress the `prestige` variable on the categorical `type` variable (Blue Collar, White Collar, Professional). Select a reference group for the `type` variable and briefly justify your choice (i.e., explain why you selected that group).
 
 b) Run the regression model described in part (a) in R using the factor shortcut (so *no need* to calculate the dummy codes by hand using `recode()`). Be sure to tell R to use the reference group you selected. *Optional challenge: Conduct an $F$ test on the results of your linear model to see if the overall effect of the `type` variable is significant.*
 
@@ -41,9 +41,9 @@ b) Run the regression model described in part (a) in R using the factor shortcut
 
 Read in the `prestige.csv` dataset again for this question, and regress `prestige` on the categorical `type` variable using `"Professional"` as the reference group.
 
-a) Report the estimated value of each regression coefficient and explain what it means (e.g., this coefficient is the mean of X or the difference between X and Y).{{< hp glyph="b" >}} Include the intercept, as that is also a regression coefficient.
+a) Report the estimated value of each regression coefficient and explain what it means (e.g., this coefficient is the mean of X or the difference between X and Y). Include the intercept, as that is also a regression coefficient.
 
-b) Calculate the standardized coefficients for this model. How are they different from your answers to part (a), and why does standardizing leave the dummy codes themselves untouched?{{< hp glyph="b" >}}
+b) Calculate the standardized coefficients for this model. How are they different from your answers to part (a), and why does standardizing leave the dummy codes themselves untouched?
 
 ---
 

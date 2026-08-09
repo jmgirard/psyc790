@@ -9,10 +9,9 @@
 .positai
 
 # ---------------------------------------------------------------------------
-# Answer keys must NEVER be committed. See MAINTENANCE.md section 4.
-# These files contain graded assignment answers AND document the honeypot
-# design used across this course, data2, and psyc894 -- publishing them would
-# defeat that mechanism for all three courses.
+# Answer keys must NEVER be committed. See MAINTENANCE.md section 4. Keys live
+# in the private companion repo; these rules are a backstop for the case where
+# one is drafted or rendered inside this working copy by mistake.
 # ---------------------------------------------------------------------------
 # Source files...
 *_key.qmd
@@ -20,8 +19,8 @@
 **/keys/
 
 # ...and every rendered artifact derived from them. The .qmd rule alone is NOT
-# enough: quarto writes the fully rendered answers (and the honeypot markers)
-# into _freeze/ and _site/, which would otherwise be committed.
+# enough: quarto writes the fully rendered answers into _freeze/ and _site/,
+# which would otherwise be committed.
 *_key.*
 *_Key.*
 *_key/

@@ -40,14 +40,14 @@ b) Use a function in R to calculate the average number of characters across the 
 
 ## Question 2 (Factors)
 
-a) When would you want to convert a variable into a factor in R, and when would you not want to? {{< hp glyph="." >}}What problems could be avoided, and what problems could be caused, by using factors?
+a) When would you want to convert a variable into a factor in R, and when would you not want to? What problems could be avoided, and what problems could be caused, by using factors?
 
 b) Download the [`water0.csv`](../../data/water0.csv){download="water0.csv"} file and load it into R. Then convert the `region` variable to a factor such that 1=North and 2=South. Finally, tabulate the `region` variable to count how many towns are in each region in this dataset.
 
 
 ## Question 3 (Packages)
 
-a) R packages can be found in a repository (e.g., CRAN), in a user library, or loaded into an R session. {{< hp glyph="." >}}When would you want an R package to be in each of these places?
+a) R packages can be found in a repository (e.g., CRAN), in a user library, or loaded into an R session. When would you want an R package to be in each of these places?
 
 b) Install the `praise` package (don't put the `install.packages()` code in your Quarto document as that often causes problems, so either do that in your console or use the RStudio button). Then load the installed package in your Quarto document and experiment with the `praise()` function by running it several times with no arguments. What does the function seem to do?
 

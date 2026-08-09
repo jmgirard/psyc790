@@ -27,9 +27,9 @@ embed-resources: true
 
 ## Question 1 (Model Specification)
 
-a) In your own words, describe the three LM assumptions about the model formula/specification.{{< hp glyph="b" >}} What are they assuming, and what will the consequences be if they are violated?
+a) In your own words, describe the three LM assumptions about the model formula/specification. What are they assuming, and what will the consequences be if they are violated?
 
-b) Of those three assumptions, which do you think is hardest to check in practice, and why?{{< hp glyph="b" >}}
+b) Of those three assumptions, which do you think is hardest to check in practice, and why?
 
 ## Question 2 (Correct Form)
 
@@ -45,7 +45,7 @@ Read in the `screentime` dataset again for this question so that it can be answe
 
 a) Fit a model predicting `mental_wellbeing` from the four weekday screen-time variables (`watch_wd`, `play_wd`, `compute_wd`, `phone_wd`) plus `gender`, `minority`, and `deprived_area`. A reviewer is concerned that, because several predictors are all about "screen time," there may be multicollinearity. Check for this using the diagnostic(s) learned in lecture and interpret the results.
 
-b) Now fit a second model that adds the four weekend predictors (`watch_we`, `play_we`, `compute_we`, `phone_we`). Re-check for multicollinearity. Which predictors became problematic, and why would adding weekend versions of the same activities do that?{{< hp glyph="b" >}}
+b) Now fit a second model that adds the four weekend predictors (`watch_we`, `play_we`, `compute_we`, `phone_we`). Re-check for multicollinearity. Which predictors became problematic, and why would adding weekend versions of the same activities do that?
 
 ---
 

@@ -25,9 +25,9 @@ embed-resources: true
 
 ## Question 1 (NHST Approaches)
 
-a) Provide an example of independent samples/groups{{< hp glyph="a" >}} that you might want to study and an example of dependent samples/groups that you might want to study.
+a) Provide an example of independent samples/groups that you might want to study and an example of dependent samples/groups that you might want to study.
 
-b) Why is it important for us to distinguish between{{< hp glyph="a" >}} independent and dependent samples when comparing group means?
+b) Why is it important for us to distinguish between independent and dependent samples when comparing group means?
 
 ## Question 2 (Independent Samples)
 
@@ -43,7 +43,7 @@ Download the [`sleep.csv`](../../data/sleep.csv){download="sleep.csv"} file. It 
 
 a) Because both ratings come from the same 16 people, these are dependent samples. Conduct the appropriate $t$-test of whether people rate the importance of sleep differently from their satisfaction with it, and calculate a standardized effect size.
 
-b) Report the results verbally, and explain why treating these two ratings as *independent* samples would be a mistake.{{< hp glyph="a" >}}
+b) Report the results verbally, and explain why treating these two ratings as *independent* samples would be a mistake.
 
 ---
 

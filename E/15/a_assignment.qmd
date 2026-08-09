@@ -25,21 +25,21 @@ embed-resources: true
 
 ## Question 1 (Reporting)
 
-a) For each of the four main sections of an empirical paper (introduction, methods, results, discussion), state in one or two sentences what that section is supposed to accomplish for the reader.{{< hp glyph="i" >}}
+a) For each of the four main sections of an empirical paper (introduction, methods, results, discussion), state in one or two sentences what that section is supposed to accomplish for the reader.
 
-b) Pick one specific piece of information that authors frequently put in the wrong section (for example, an interpretation that belongs in the discussion but appears in the results). Explain where it belongs and why placing it correctly matters to the reader.{{< hp glyph="i" >}}
+b) Pick one specific piece of information that authors frequently put in the wrong section (for example, an interpretation that belongs in the discussion but appears in the results). Explain where it belongs and why placing it correctly matters to the reader.
 
 ## Question 2 (Reviewing the Introduction and Methods)
 
-During the Lecture [13a] methodological review activity, you found a research paper in your area that used multiple regression and evaluated it from the perspective of a methodological reviewer. Write up a summary of what you found regarding the **introduction and methods** sections. (You are welcome to select a different paper if you missed the activity or if the paper you selected in class was not ideal.)
+Find a published research paper in your own area that used multiple regression, and evaluate it from the perspective of a methodological reviewer rather than as an ordinary reader. Write up a summary of what you found regarding the **introduction and methods** sections. (Pick a paper you can access in full, including its tables.)
 
 ## Question 3 (Reviewing the Results and Discussion)
 
-Using the same paper you evaluated during the methodological review activity, write a summary of what you found regarding the **results and discussion** sections.
+Using the same paper you evaluated in Question 2, write a summary of what you found regarding the **results and discussion** sections.
 
 a) Report what you found, paying particular attention to whether the statistical claims are supported by the analyses actually conducted.
 
-b) Include a few sentences about what you learned from reviewing a paper this way, and one thing you will do differently in your own writing as a result.{{< hp glyph="i" >}}
+b) Include a few sentences about what you learned from reviewing a paper this way, and one thing you will do differently in your own writing as a result.
 
 ---
 

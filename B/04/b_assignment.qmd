@@ -27,13 +27,13 @@ embed-resources: true
 
 a) If I want to contain the middle 80% of the density of a normal distribution, how many SDs do I need to move above and below the mean? Include your R code and output.
 
-b) Repeat part (a) for the middle 95% and the middle 99%. Arrange your three answers in a short table or list, and describe in a sentence what happens to the required distance as the percentage increases.{{< hp glyph="a" >}}
+b) Repeat part (a) for the middle 95% and the middle 99%. Arrange your three answers in a short table or list, and describe in a sentence what happens to the required distance as the percentage increases.
 
 ## Question 2 (Types of Estimates)
 
-a) What are the main differences between the Normal distribution and the Student $t$ distribution?{{< hp glyph="a" >}} Why do we tend to use the latter when calculating confidence intervals?
+a) What are the main differences between the Normal distribution and the Student $t$ distribution? Why do we tend to use the latter when calculating confidence intervals?
 
-b) In your own words, describe what the Central Limit Theorem says about the sampling distribution of the mean.{{< hp glyph="a" >}} Why is it useful that this holds even when the variable itself is not normally distributed in the population?
+b) In your own words, describe what the Central Limit Theorem says about the sampling distribution of the mean. Why is it useful that this holds even when the variable itself is not normally distributed in the population?
 
 ## Question 3 (Confidence Intervals)
 
@@ -43,9 +43,9 @@ Use this information to answer the following questions.
 
 a) Use R to estimate a 95% confidence interval for the mean number of headaches.
 
-b) Write one or more sentences to report (i.e., describe in text) and correctly interpret this interval.{{< hp glyph="a" >}}
+b) Write one or more sentences to report (i.e., describe in text) and correctly interpret this interval.
 
-c) A colleague looks at your interval and says "so there is a 95% chance the true mean is inside it." Is that a correct interpretation? Explain why or why not.{{< hp glyph="a" >}}
+c) A colleague looks at your interval and says "so there is a 95% chance the true mean is inside it." Is that a correct interpretation? Explain why or why not.
 
 ---
 

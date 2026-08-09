@@ -34,7 +34,7 @@ embed-resources: true
 
 a) Create three vectors from the columns of the table above and combine them into a tibble named `planets`. Print the tibble.
 
-b) Look at the short type abbreviation printed under each column name. Report what type R gave each of the three columns, and explain in a sentence or two why it is useful that a tibble keeps track of the type of each column. {{< hp glyph="." >}}
+b) Look at the short type abbreviation printed under each column name. Report what type R gave each of the three columns, and explain in a sentence or two why it is useful that a tibble keeps track of the type of each column.
 
 
 ## Question 2 (Data Files)
@@ -50,7 +50,7 @@ Read the "factbook.csv" file into R again for this question (remembering to trea
 
 a) Use `qplot()` to plot the distribution/variation of the `birth_rate` variable. Which values are the most common for this variable?
 
-b) Use `qplot()` to visualize the covariation of the `life_exp` and `net_migration_rate` variables. Do any points seem unusual on one or both variables? {{< hp glyph="." >}}
+b) Use `qplot()` to visualize the covariation of the `life_exp` and `net_migration_rate` variables. Do any points seem unusual on one or both variables?
 
 ---
 

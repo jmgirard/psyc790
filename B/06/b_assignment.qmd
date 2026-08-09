@@ -29,7 +29,7 @@ embed-resources: true
 
 Read in `prestige.csv` and set `type` to a factor.
 
-a) I want to test whether the three types of occupation (`type`, i.e., Blue Collar, White Collar, and Professional) have different mean `prestige` scores.{{< hp glyph="a" >}} What should my null and alternative hypotheses be? What are the two components of variation in this data (give the technical names and describe what they are verbally)?
+a) I want to test whether the three types of occupation (`type`, i.e., Blue Collar, White Collar, and Professional) have different mean `prestige` scores. What should my null and alternative hypotheses be? What are the two components of variation in this data (give the technical names and describe what they are verbally)?
 
 b) Test my hypothesis from part (a) in R. Include your results table and write a sentence (or several) that reports the results verbally. What can we conclude?
 
@@ -39,7 +39,7 @@ Read in `prestige.csv` and set `type` to a factor, then fit the same one-way ANO
 
 a) Calculate a standardized effect size for this ANOVA (e.g., $\eta^2$) and report it with its confidence interval.
 
-b) A significant $p$-value and a large effect size tell you different things. Explain what the effect size adds here that the $p$-value alone does not.{{< hp glyph="a" >}}
+b) A significant $p$-value and a large effect size tell you different things. Explain what the effect size adds here that the $p$-value alone does not.
 
 ## Question 3 (Post-hoc Tests)
 
@@ -47,7 +47,7 @@ Read in `prestige.csv` and set `type` to a factor, then fit the same one-way ANO
 
 a) Estimate the mean and 95% CI of each occupation type's prestige score. *Optional challenge: create a plot showing these means.*
 
-b) Would it be appropriate to run a post-hoc test here?{{< hp glyph="a" >}} Why or why not? If appropriate, conduct pairwise comparisons and adjust the $p$-values using Holm's method. What can we conclude, and why does the adjustment matter?
+b) Would it be appropriate to run a post-hoc test here? Why or why not? If appropriate, conduct pairwise comparisons and adjust the $p$-values using Holm's method. What can we conclude, and why does the adjustment matter?
 
 ---
 

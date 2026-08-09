@@ -25,15 +25,15 @@ embed-resources: true
 
 ## Question 1 (Projects)
 
-a) What is the purpose of a Project in RStudio? {{< hp glyph="." >}}Why do I recommend creating a project rather than simply saving all your course stuff in a normal computer folder?
+a) What is the purpose of a Project in RStudio? Why do I recommend creating a project rather than simply saving all your course stuff in a normal computer folder?
 
-b) What are some benefits of having a consistent naming convention for the files in your project? {{< hp glyph="." >}}What kinds of tasks might be easier if you stick with a convention?
+b) What are some benefits of having a consistent naming convention for the files in your project? What kinds of tasks might be easier if you stick with a convention?
 
 ## Question 2 (Quarto)
 
-a) What is the difference between a .qmd file and a .html file created by Quarto? {{< hp glyph="." >}}When would you send the .qmd file to a collaborator and when would you send the .html file?
+a) What is the difference between a .qmd file and a .html file created by Quarto? When would you send the .qmd file to a collaborator and when would you send the .html file?
 
-b) Quarto lets you include many code chunks in the same document. {{< hp glyph="." >}}When would you want to put all your code in a single chunk and when would you want to break it up across multiple chunks?
+b) Quarto lets you include many code chunks in the same document. When would you want to put all your code in a single chunk and when would you want to break it up across multiple chunks?
 
 ## Question 3 (Markdown)
 
@@ -41,7 +41,7 @@ a) Use markdown headings to break this document into sections: one per question.
 
 b) Write a short paragraph (2--4 sentences) about anything you like that demonstrates each of the following markdown features: **bold** text, *italic* text, a bulleted list of at least three items, and a hyperlink to a website.
 
-c) Explain why using a markdown heading is more useful than simply bolding a line of text to mark a new section. {{< hp glyph="." >}}
+c) Explain why using a markdown heading is more useful than simply bolding a line of text to mark a new section.
 
 ---
 

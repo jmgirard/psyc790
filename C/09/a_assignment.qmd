@@ -1,5 +1,5 @@
 ---
-title: "Lecture 09c Assignment"
+title: "Lecture 09a Assignment"
 format:
   html:
     css: ../../styles.css
@@ -31,7 +31,7 @@ Read in `factbook1M` and fit **two** models predicting a country's `death_rate`:
 
 a) Report the $R^2$ of each model and whether the squared term is significant. Then compare the two models formally (e.g., with an $F$ test) and state which one you would keep.
 
-b) The linear model on its own finds almost nothing. Explain how a relationship can be strong and yet nearly invisible to a model that only allows a straight line.{{< hp glyph="b" >}}
+b) The linear model on its own finds almost nothing. Explain how a relationship can be strong and yet nearly invisible to a model that only allows a straight line.
 
 ## Question 2 (Quadratic Regression)
 
@@ -39,7 +39,7 @@ Read in `factbook1M` again and fit the model predicting `death_rate` from `birth
 
 a) Plot the model's predictions across the observed range of `birth_rate`. Describe the shape of the curve in words.
 
-b) The squared term is positive, so the curve has a minimum rather than a maximum. Estimate roughly where along `birth_rate` that minimum falls, and give a substantive interpretation of why countries at both low *and* high birth rates might have higher death rates than those in the middle.{{< hp glyph="b" >}}
+b) The squared term is positive, so the curve has a minimum rather than a maximum. Estimate roughly where along `birth_rate` that minimum falls, and give a substantive interpretation of why countries at both low *and* high birth rates might have higher death rates than those in the middle.
 
 ## Question 3 (Adding Predictors)
 
@@ -47,7 +47,7 @@ Read in `factbook1M` again and fit **two** models: one predicting `death_rate` f
 
 a) Report the coefficients and the $R^2$ of the larger model. How much did adding `life_exp` improve the $R^2$ over the model without it?
 
-b) The squared `birth_rate` term is still significant after controlling for `life_exp`. Explain what that tells you, and why you should be cautious about interpreting the `birth_rate` coefficient on its own in a model that also contains `birth_rate` squared.{{< hp glyph="b" >}}
+b) The squared `birth_rate` term is still significant after controlling for `life_exp`. Explain what that tells you, and why you should be cautious about interpreting the `birth_rate` coefficient on its own in a model that also contains `birth_rate` squared.
 
 ---
 

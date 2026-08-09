@@ -25,9 +25,9 @@ embed-resources: true
 
 ## Question 1 (Residual Assumptions)
 
-a) In your own words, describe the three LM assumptions about the model residuals.{{< hp glyph="b" >}} What are they assuming, and what will the consequences be if they are violated?
+a) In your own words, describe the three LM assumptions about the model residuals. What are they assuming, and what will the consequences be if they are violated?
 
-b) Violating an assumption about the residuals does not bias the estimated slopes in the way that misspecifying the model does. Explain what it *does* affect, and why that still matters.{{< hp glyph="b" >}}
+b) Violating an assumption about the residuals does not bias the estimated slopes in the way that misspecifying the model does. Explain what it *does* affect, and why that still matters.
 
 ## Question 2 (Error Variance and Normality)
 
@@ -39,11 +39,11 @@ b) Check the normality assumption for the same model using the diagnostic(s) lea
 
 ## Question 3 (Independence and Outliers)
 
-a) Describe an example study/model from your field that would violate the assumption of independent residuals due to **clustering**.{{< hp glyph="b" >}} Be sure to explain what the main variables are and why the assumption would be violated.
+a) Describe an example study/model from your field that would violate the assumption of independent residuals due to **clustering**. Be sure to explain what the main variables are and why the assumption would be violated.
 
-b) Describe an example study/model from your field that would violate the assumption of independent residuals due to **autocorrelation**.{{< hp glyph="b" >}} Be sure to explain what the main variables are and why the assumption would be violated.
+b) Describe an example study/model from your field that would violate the assumption of independent residuals due to **autocorrelation**. Be sure to explain what the main variables are and why the assumption would be violated.
 
-c) An outlier and an influential observation are not the same thing. Explain the difference, and describe how you would decide whether a given unusual data point was actually a problem for your model.{{< hp glyph="b" >}}
+c) An outlier and an influential observation are not the same thing. Explain the difference, and describe how you would decide whether a given unusual data point was actually a problem for your model.
 
 ---
 

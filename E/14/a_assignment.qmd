@@ -29,7 +29,7 @@ embed-resources: true
 
 a) For a two-group comparison with 80% power and $\alpha=.05$, use \{WebPower\} to determine the sample size needed *per group* to detect a small ($d=0.2$), medium ($d=0.5$), and large ($d=0.8$) effect. Report all three.
 
-b) Now hold the effect size at $d=0.5$ and 80% power, and compare the sample size needed at $\alpha=.05$ against $\alpha=.01$. Using both sets of numbers, describe in your own words how required sample size responds to effect size and to alpha.{{< hp glyph="i" >}} Which of the two had the larger influence here?
+b) Now hold the effect size at $d=0.5$ and 80% power, and compare the sample size needed at $\alpha=.05$ against $\alpha=.01$. Using both sets of numbers, describe in your own words how required sample size responds to effect size and to alpha. Which of the two had the larger influence here?
 
 ## Question 2 (Power for *t*-tests)
 
@@ -37,7 +37,7 @@ Imagine I want to run a study comparing the spatial recognition memory of curren
 
 a) Use \{WebPower\} to determine how many participants I should recruit *in each group* in order to have 80% power to detect an effect of this size with α=.05. (*Hint:* What test did we learn to compare the means of two separate groups?)
 
-b) My study measures memory in a new way that has never been used before. Explain why borrowing an effect size from a meta-analysis of traditional methods might make this power analysis optimistic, and what I could do instead.{{< hp glyph="i" >}}
+b) My study measures memory in a new way that has never been used before. Explain why borrowing an effect size from a meta-analysis of traditional methods might make this power analysis optimistic, and what I could do instead.
 
 ## Question 3 (Power for the Linear Model)
 
@@ -45,7 +45,7 @@ In a recent study, my colleagues and I were able to explain 14.3% of the varianc
 
 a) Report the $f^2$ value implied by that $R^2$, and the sample size required. (*Hint:* Be careful not to confuse $R^2$ and $f^2$; you will have to do some conversion.)
 
-b) "Omnibus power" here refers to detecting the overall model, not any individual predictor. Explain why a study powered to detect the overall model may still be badly underpowered for the individual slopes.{{< hp glyph="i" >}}
+b) "Omnibus power" here refers to detecting the overall model, not any individual predictor. Explain why a study powered to detect the overall model may still be badly underpowered for the individual slopes.
 
 ---
 

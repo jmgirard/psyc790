@@ -31,7 +31,7 @@ Using the `screentime` dataset, fit a linear model predicting `mental_wellbeing`
 
 a) Report the estimated interaction coefficient and whether it is significant. Which gender shows the steeper relationship between `phone_wd` and `mental_wellbeing`?
 
-b) Use `estimate_slopes()` to report the slope of `phone_wd` separately for girls and boys. Is each slope significantly different from zero, and does that match your answer to part (a)?{{< hp glyph="b" >}}
+b) Use `estimate_slopes()` to report the slope of `phone_wd` separately for girls and boys. Is each slope significantly different from zero, and does that match your answer to part (a)?
 
 
 ## Question 2 (Categorical-by-Categorical)
@@ -40,7 +40,7 @@ Using the `screentime` dataset, fit a linear model predicting `mental_wellbeing`
 
 a) Use `estimate_means()` to report the predicted mean `mental_wellbeing` for all four combinations of `minority` and `gender`.
 
-b) Report the estimated interaction coefficient and whether it is significant. Is the wellbeing difference between minority and non-minority respondents the same size for girls and boys?{{< hp glyph="b" >}}
+b) Report the estimated interaction coefficient and whether it is significant. Is the wellbeing difference between minority and non-minority respondents the same size for girls and boys?
 
 
 ## Question 3 (Probing a Categorical Interaction)
@@ -49,7 +49,7 @@ Using the `screentime` dataset, fit a linear model predicting `mental_wellbeing`
 
 a) Use `estimate_relation()` to plot the model's predictions, and use `estimate_slopes()` to report the slope of `phone_wd` separately for respondents in and not in a deprived area.
 
-b) Based on the interaction test and the two simple slopes, does living in a deprived area meaningfully moderate the relationship between `phone_wd` and `mental_wellbeing`?{{< hp glyph="b" >}} Note that "no" can be the correct answer — justify whichever conclusion you reach.
+b) Based on the interaction test and the two simple slopes, does living in a deprived area meaningfully moderate the relationship between `phone_wd` and `mental_wellbeing`? Note that "no" can be the correct answer — justify whichever conclusion you reach.
 
 ---
 

@@ -29,9 +29,9 @@ embed-resources: true
 
 Using the `fatalism` dataset, fit a linear model predicting `depression` from `fatalism`, `simplicity`, and their interaction.
 
-a) Report the estimated interaction coefficient and whether it is significant. In your own words, describe what this coefficient says about how the relationship between `fatalism` and `depression` changes as `simplicity` increases.{{< hp glyph="b" >}}
+a) Report the estimated interaction coefficient and whether it is significant. In your own words, describe what this coefficient says about how the relationship between `fatalism` and `depression` changes as `simplicity` increases.
 
-b) Explain why the `fatalism` coefficient in this model should **not** be described as "the effect of `fatalism`."{{< hp glyph="b" >}} What value of `simplicity` does it correspond to, and is that value plausible for anyone in this dataset?
+b) Explain why the `fatalism` coefficient in this model should **not** be described as "the effect of `fatalism`." What value of `simplicity` does it correspond to, and is that value plausible for anyone in this dataset?
 
 
 ## Question 2 (Interaction Patterns)
@@ -40,7 +40,7 @@ Using the `fatalism` dataset, fit a linear model predicting `depression` from `f
 
 a) Use `estimate_relation()` to plot the model's predictions with `fatalism` on the x-axis, spotlighting `simplicity` at the mean and one SD above and below (use `"simplicity=[sd]"` as the second term in `by`). Include the plot in your document.
 
-b) Using your plot, classify this interaction as potentiation, attenuation, or crossover, and justify your choice in two or three sentences.{{< hp glyph="b" >}}
+b) Using your plot, classify this interaction as potentiation, attenuation, or crossover, and justify your choice in two or three sentences.
 
 
 ## Question 3 (Centering with Interactions)
@@ -49,7 +49,7 @@ Using the `fatalism` dataset, fit the model predicting `depression` from `fatali
 
 a) Show the coefficients from both models. Which coefficients changed and which stayed essentially the same?
 
-b) Explain why centering changed the coefficients that it did.{{< hp glyph="b" >}} In the centered model, what does the `fatalism` coefficient now represent?
+b) Explain why centering changed the coefficients that it did. In the centered model, what does the `fatalism` coefficient now represent?
 
 ---
 
