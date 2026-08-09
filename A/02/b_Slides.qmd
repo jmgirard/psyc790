@@ -80,57 +80,69 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 :::
 
-## Assignment Live Coding
+## Assigning and Printing
 
 ```{r}
 #| echo: true
-#| eval: false
-#| error: true
-#| code-line-numbers: false
 
-# LESSON: Assigning and printing
-
+# Store the value 2 under the name x
 x <- 2
+
+# Typing the name on its own prints the value
 x
+```
 
-# ==============================================================================
+## Using an Object in Math
 
-# USECASE: Using an object in math (a la algebra) 
+```{r}
+#| echo: true
 
+# Once x exists, it stands in for its value
 x * 4
 
+# Which is the same as writing it out
 2 * 4
+```
 
-# ==============================================================================
+## Updating Requires Assignment
 
-# LESSON: You must use assignment to update an object
+```{r}
+#| echo: true
 
-x
-
+# Using x does not change it
 x + 1
 
-x # still 2
+# x is still 2
+x
+```
 
+```{r}
+#| echo: true
+
+# To update it, assign the result back to the name
 x <- x + 1
-x # updated to 3
+x
+```
 
-# ==============================================================================
+## Using an Object More Than Once
 
-# USECASE: We can use the same object multiple times in a line
+```{r}
+#| echo: true
 
+# x can appear as many times as you like in one line
 (10 + x - 1) / x
+```
 
-# ==============================================================================
+## Objects Can Create Other Objects
 
-# USECASE: We can also use an object to create another object
+```{r}
+#| echo: true
 
+# The right-hand side can use objects that already exist
 y <- 10 + x
 y
 
-# ==============================================================================
-
-# USECASE: We can also use multiple objects in a line
-
+# And a line can use several objects at once
 y / x
 ```
 
@@ -160,61 +172,83 @@ y / x
 :::
 :::
 
-## Naming Live Coding
+## Good Names are a Balancing Act
+
+```{r}
+#| echo: true
+
+x <- 93 # legal, but what is it?
+
+rate <- 93 # too short to be clear
+
+heart_rate_in_beats_per_minute <- 93 # too long to type
+
+heart_rate_bpm <- 93 # just right
+```
+
+## Pitfall: No Spaces or Dashes
 
 ```{r}
 #| echo: true
 #| eval: false
-#| error: true
 #| code-line-numbers: false
 
-# LESSON: Good names are a balancing act
+heart rate <- 93 # Error: unexpected symbol
 
-x <- 93 # what is it?
+heart-rate <- 93 # R reads this as heart - rate, not a name
+```
 
-rate <- 93 # too short
+::: aside
+*Note.* These will not even run --- R cannot make sense of the line at all. Use an underscore instead: `heart_rate`.
+:::
 
-heart_rate_in_beats_per_minute <- 93 # too long
+## Pitfall: No Special Symbols
 
-heart_rate_bpm <- 93 # just right
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
 
-# ==============================================================================
+age@time2 <- 12 # Error: @ means something else in R
+```
 
-# PITFALL: Don't try to include spaces or dashes in names
-
-heart rate <- 93 # error
-
-heart-rate <- 93 # error
-
-# ==============================================================================
-
-# PITFALL: Don't try to include special symbols
-
-age@time2 <- 12 # error
+```{r}
+#| echo: true
 
 age_time2 <- 12 # correct
+age_time2
+```
 
-# ==============================================================================
+## Pitfall: Cannot Start with a Number or Underscore
 
-# PITFALL: Don't try to put a number or underscore first
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
 
-heart_rate_1 <- 93 # correct
+1_heart_rate <- 93 # Error: unexpected input
 
-1_heart_rate <- 93 # error
+_heart_rate <- 93 # Error: unexpected input
+```
 
-_heart_rate <- 93 # error
+```{r}
+#| echo: true
 
-# ==============================================================================
+heart_rate_1 <- 93 # correct: the digit comes last
+heart_rate_1
+```
 
-# LESSON: Object names are case-sensitive
+## Names are Case-Sensitive
+
+```{r}
+#| echo: true
 
 heart_rate <- 93
-
 Heart_rate <- 88
 
-heart_rate # still 93
-
-Heart_rate # a new object
+# These are two entirely different objects
+heart_rate
+Heart_rate
 ```
 
 # Functions
@@ -246,54 +280,68 @@ Heart_rate # a new object
 :::
 :::
 
-## Functions Live Coding
+## Functions Do a Task More Readably
+
+::: {.f5}
+`output <- function_name(input)`
+:::
 
 ```{r}
 #| echo: true
-#| eval: false
-#| code-line-numbers: false
 
-# USECASE: Function can perform a task more easily and readably
-
-# TEMPLATE: output <- function_name(input)
-
+# The hard way
 9 ^ (1 / 2)
 
+# The readable way
 x <- sqrt(9)
 x
+```
 
-# ==============================================================================
+## Functions Can Transform Objects
 
-# LESSON: We can also use functions to transform objects
+```{r}
+#| echo: true
 
 y <- 9
 
+# The input can be an object rather than a literal value
 sqrt(y)
+```
 
-# ==============================================================================
+## Functions Can Transform Calculations
 
-# LESSON: We can even use functions to transform the result of calculations
+```{r}
+#| echo: true
 
 2 / 3
 
+# The input can also be the result of a calculation
 round(2 / 3)
+```
 
-# ==============================================================================
+## Arguments Customize a Function
 
-# LESSON: We can customize what a function does using arguments
+::: {.f5}
+`output <- function_name(argument, argument_name = argument_value)`
+:::
 
-# TEMPLATE: output <- function_name(argument, argument_name = argument_value)
+```{r}
+#| echo: true
 
 round(2 / 3, digits = 2)
 
 round(2 / 3, digits = 3)
+```
 
-# ==============================================================================
+## Some Arguments Have Defaults
 
-# LESSON: Some arguments are optional because they have default values
+```{r}
+#| echo: true
 
-round(2 / 3) # the default value for digits is 0
+# digits has a default value of 0, so this...
+round(2 / 3)
 
+# ...means exactly the same thing as this
 round(2 / 3, digits = 0)
 ```
 
@@ -331,70 +379,95 @@ round(2 / 3, digits = 0)
 :::
 
 
-## Vectors Live Coding
+## Combining Elements into a Vector
+
+::: {.f5}
+`vector_name <- c(element1, element2, element3)`
+:::
 
 ```{r}
 #| echo: true
 #| eval: false
-#| error: true
 #| code-line-numbers: false
 
-# LESSON: We can combine multiple elements into a vector
+x <- 4 9 16 25 # Error: you must separate elements with commas
+```
 
-# TEMPLATE: vector_name <- c(element1, element2, element3)
-
-x <- 4 9 16 25 # error
+```{r}
+#| echo: true
 
 x <- c(4, 9, 16, 25)
 x
 
 y <- c(2, 3)
 y
+```
 
-# ==============================================================================
+## Combining Vectors and Elements
 
-# LESSON: We can also combine multiple vectors and elements
+```{r}
+#| echo: true
 
+# c() also joins whole vectors together
 c(x, y)
 
+# And vectors and single elements
 c(x, y, 20)
+```
 
-# ==============================================================================
+## Math Transforms Each Element
 
-# USECASE: Math operators will transform each element individually
+```{r}
+#| echo: true
 
 x + 1
 
 x * 3
 
-x # but again, this won't be saved unless you use assignment
+# But as before, nothing is saved without assignment
+x
+```
 
-# ==============================================================================
+## Some Functions Transform Each Element
 
-# USECASE: Some functions will also transform each element individually
+```{r}
+#| echo: true
 
 sqrt(x)
 
 log(x)
+```
 
-# ==============================================================================
+## Other Functions Summarize the Whole Vector
 
-# USECASE: Other functions will summarize the vector with a single number
+```{r}
+#| echo: true
 
 length(x)
 
 sum(x)
 
 mean(x)
+```
 
-average(x) # error
+```{r}
+#| echo: true
+#| error: true
 
-# ==============================================================================
+average(x)
+```
 
-# PITFALL: Missing values (NAs) are contagious
+## Pitfall: Missing Values are Contagious
+
+```{r}
+#| echo: true
 
 scores <- c(10, 12, 20, NA, 8)
-mean(scores) # returns NA because the mean depends on the missing value
-mean(scores, na.rm = TRUE) # returns mean of non-missing values
+
+# NA spreads: the mean depends on the value we do not have
+mean(scores)
+
+# Ask for the mean of the non-missing values instead
+mean(scores, na.rm = TRUE)
 ```
 

@@ -136,7 +136,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 2.  Visit [cloud.r-project.org](https://cloud.r-project.org)
 3.  Click "Download R for Windows"
 4.  Click the "base" subdirectory link
-5.  Click "Download R-4.X.X" (e.g., 4.5.1)
+5.  Click "Download R-4.X.X" (e.g., 4.6.1)
 6.  Run the downloaded .exe file
 7.  Select all the default options
 8.  Complete the installation wizard
@@ -148,7 +148,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 1.  Open a web browser
 2.  Visit [cloud.r-project.org](https://cloud.r-project.org)
 3.  Click "Download R for macOS"
-4.  Click "R-4.X.X.pkg" (e.g., 4.5.1)
+4.  Click "R-4.X.X.pkg" (e.g., 4.6.1)
 5.  Run the downloaded .pkg file
 6.  Select all the default options
 7.  Complete the installation wizard
@@ -170,7 +170,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 2.  Visit [rstudio.com/download](https://posit.co/download/rstudio-desktop/){preview-link="false"}
 3.  Scroll down until you find the table under the "**All Installers**" section
 4.  Find the row for "Windows 10/11"
-5.  Click "RStudio-2025.XX.X-XXX.exe"
+5.  Click "RStudio-2026.XX.X-XXX.exe"
 6.  Run the downloaded .exe file
 7.  Select all the default options
 8.  Complete the installation wizard
@@ -183,7 +183,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 2.  Visit [rstudio.com/download](https://www.rstudio.com/products/rstudio/download/){preview-link="false"}
 3.  Scroll down until you find the table under the "**All Installers**" section
 4.  Find the row for "macOS 13+"
-5.  Click "RStudio-2025.XX.X-XXX.dmg"
+5.  Click "RStudio-2026.XX.X-XXX.dmg"
 6.  Run the downloaded .dmg file
 7.  Drag the RStudio icon to your Applications folder (if you want)
 :::
