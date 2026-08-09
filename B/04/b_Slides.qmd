@@ -382,7 +382,7 @@ $$\text{CI}_{95}= \bar{x}\pm\left(1.96\times\frac{\sigma}{\sqrt{n}}\right)$$
 
 :::
 
-## A complication
+## A complication {.fs80}
 
 
 - To account for this extra uncertainty, we need to...
@@ -595,7 +595,7 @@ ggplot(
 
 :::
 
-## Comparing CIs
+## Comparing CIs {.fs90}
 
 
 - A *higher* confidence level will result in a *wider* interval

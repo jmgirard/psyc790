@@ -18,34 +18,53 @@ a line or two each. 20 of 24 decks are completely clean.
 Unit → Chapter → Lecture renumbering has since replaced. Treat them as historical labels; the
 counts above have not been re-measured against the current chapters.
 
-## Re-measured: all 23 decks, current numbering
+## Resolved: 0 overflowing slides in all 23 decks
 
-Full sweep at 1920×1080, 750 slides. **18 slides overflow, in 11 decks.** The other 12 decks
-are clean. No slide anywhere still clips content inside a `<pre>`.
+Swept at 1920×1080, 743 slides, **0 overflowing and 0 wrapping titles.** The old
+"remaining 4" list below is superseded: it used pre-restructure week ids and was measured
+in a small window.
 
-| deck | slide | over |
-|---|---|---|
-| `B/04/b` | A complication | +43 |
-| `B/04/b` | Comparing CIs | +28 |
-| `B/05/a` | What is a hypothesis? | +42 |
-| `B/05/a` | The *p*-value of a test | +56 |
-| `B/05/b` | Correlations | +44 |
-| `B/05/b` | Another effect size | +45 |
-| `B/06/a` | Paired samples *t*-test | +15 |
-| `B/06/b` | Example dataset | +40 |
-| `B/06/b` | The F distribution | +105 |
-| `B/06/b` | Application and interpretation | +34 |
-| `B/06/c` | Further partitioning | +49 (mermaid; scale-dependent, see above) |
-| `C/07/a` | Standardized Slopes | +42 |
-| `C/07/b` | Estimating means by hand | +68 |
-| `C/07/b` | Effect sizes | +31 |
-| `C/07/c` | Multiple regression | +101 |
-| `C/07/c` | Controlling predictors | +22 |
-| `C/08/b` | Proceed with caution | +56 |
-| `D/10/a` | Assumption | +54 |
+Eighteen slides were over. Seventeen were fixed with a **font stop**, chosen per slide as
+the largest stop that reaches 0 rather than the smallest that looked safe:
 
-The old "remaining 4" list below is superseded — it used pre-restructure week ids and was
-measured in a small window. Unit B and the first half of Unit C hold all but two of these.
+| deck | slide | was | stop |
+|---|---|---|---|
+| `B/04/b` | A complication | +43 | `.fs80` |
+| `B/04/b` | Comparing CIs | +28 | `.fs90` |
+| `B/05/a` | What is a hypothesis? | +42 | `.fs90` |
+| `B/05/a` | The *p*-value of a test | +56 | `.fs90` |
+| `B/05/b` | Correlations | +44 | `.fs90` |
+| `B/05/b` | Another effect size | +45 | `.fs90` |
+| `B/06/a` | Paired samples *t*-test | +15 | `.fs90` |
+| `B/06/b` | Example dataset | +40 | `.fs90` |
+| `B/06/b` | The F distribution | +105 | `.fs90` |
+| `B/06/b` | Application and interpretation | +34 | `.fs90` |
+| `C/07/a` | Standardized Slopes | +42 | `.fs90` |
+| `C/07/b` | Estimating means by hand | +68 | `.fs80` |
+| `C/07/b` | Effect sizes | +31 | `.fs90` |
+| `C/07/c` | Multiple regression | +101 | `.fs80` |
+| `C/07/c` | Controlling predictors | +22 | `.fs90` |
+| `C/08/b` | Proceed with caution | +56 | `.fs60` (was already `.fs70`) |
+| `D/10/a` | Assumption | +54 | `.fs90` |
+
+The two worst, at +105 and +101, had been expected to need splitting. They did not: both
+clear at `.fs80`. Measuring every stop before choosing beat guessing from the size of the
+overflow.
+
+**`B/06/c` "Further partitioning" (+49) is the exception** and got a CSS fix instead,
+because a font stop would not have held. Its overflow comes from the mermaid diagram, whose
+height is scale-dependent (see above), not from the text a font stop shrinks. `styles.css`
+now caps `svg.mermaid-js` at 210 slide-px with `width: auto`, which pins it at that height
+from 1050×700 through 2560×1440. Verified at four viewports.
+
+Three titles are ambiguous in source and must be located by **ordinal**, not by text:
+`C/07/b` has two "Estimating means by hand" and three "Effect sizes"; `D/10/a` has five
+"Assumption". Only one of each was over.
+
+⚠️ **Hard-won: the browser caches `styles.css` across iframe loads.** After a stylesheet
+change the sweep reported `B/06/c` still at +49 while the rule was present in `_site` and
+worked when injected live. Append a cache-busting query when re-measuring after a CSS edit,
+or the result is stale and looks like the fix failed.
 
 ### Titles that wrap to two lines — none
 

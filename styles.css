@@ -984,6 +984,35 @@ iframe.slide-deck {
   color: #111;
 }
 
+/* --------------------------------------------------------------------------
+   MERMAID DIAGRAMS ON SLIDES
+   --------------------------------------------------------------------------
+   Mermaid is the one thing on these slides whose height is not fixed by the
+   revealjs canvas. It lays itself out from *unscaled device text metrics*
+   while sitting inside reveal's CSS transform, so the viewBox aspect ratio it
+   computes changes with the deck scale: B/06/c's "Further partitioning"
+   diagram measured 566x216 in a small window and 955x274 at 1920x1080. With
+   `width: 100%` the rendered height follows that aspect, so the same slide
+   overflowed by 0px in a narrow pane and 49px on a projector -- invisible to
+   any sweep run in a small window.
+
+   Capping the height in slide pixels makes it scale-independent: the diagram
+   is 210px tall at every deck scale, and the viewBox letterboxes itself inside
+   that. `width: auto` is required with it, or the 100% width wins and the
+   cap does nothing.
+
+   Only B/06/c has a mermaid diagram today. This rule exists so the next one
+   does not reintroduce the same bug. See SLIDE-OVERFLOW.md.
+   -------------------------------------------------------------------------- */
+
+.reveal .slides svg.mermaid-js {
+  max-height: 210px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  display: block;
+  margin: 0 auto;
+}
+
 kbd {
   font-size: 0.8em;
 }

@@ -64,7 +64,7 @@ H_1: \text{it is NOT true that } \mu_1=\mu_2=\mu_3 \cdots
 $$
 
 
-## Example dataset
+## Example dataset {.fs90}
 
 ```{r}
 #| echo: true
@@ -245,7 +245,7 @@ $$
 $g$ is the number of groups, $n$ is the total sample size
 :::
 
-## The F distribution
+## The F distribution {.fs90}
 
 ::: {.columns}
 
@@ -425,7 +425,7 @@ $$\eta^2 = \frac{SS_b}{SS_{tot}}$$
 
 - If $\eta^2=1$, then all of the variation was between groups
 
-## Application and interpretation
+## Application and interpretation {.fs90}
 
 ```{r}
 #| echo: true

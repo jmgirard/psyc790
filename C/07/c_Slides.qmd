@@ -49,7 +49,7 @@ theme_set(mytheme())
 
 # Shared Variance
 
-## Multiple regression
+## Multiple regression {.fs80}
 
 We often predict outcome variables using [multiple predictors]{.b .blue}
 
@@ -110,7 +110,7 @@ the *unique* relationship between $x_1$ and $y$ (controlling $x_2$)
 the *unique* relationship between $x_2$ and $y$ (controlling $x_1$)
 
 
-## Controlling predictors
+## Controlling predictors {.fs90}
 
 - What does it mean to statistically "control" (for) a predictor?
 

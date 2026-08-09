@@ -70,7 +70,7 @@ rsim <- function(r) {
 We will expand the idea of correlation into regression during Unit C.
 :::
 
-## Correlations
+## Correlations {.fs90}
 
 - A correlation $(\rho,r)$ quantifies the **direction** and **strength** of the *linear* relationships between two variables
     
@@ -496,7 +496,7 @@ p1 | p2 | p3 | p4
 ```
 
 
-## Another effect size
+## Another effect size {.fs90}
 
 - We can square $r$ to get the [coefficient of determination]{.b .blue} $(r^2)$
 

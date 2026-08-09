@@ -603,7 +603,7 @@ plot(estimate_relation(fit6, by = c("duration", "sex", "program")))
 plot(estimate_relation(fit6, by = c("duration", "sex", "program"))) + mytheme(20)
 ```
 
-## Proceed with caution {.fs70}
+## Proceed with caution {.fs60}
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}

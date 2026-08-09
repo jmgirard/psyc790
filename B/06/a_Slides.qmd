@@ -289,7 +289,7 @@ model_parameters(fit_w)
     + Our SE estimates will tend to be too high (when the pairing correlation is positive)
     + Therefore, our $p$-values and CIs will be incorrect, costing power
 
-## Paired samples $t$-test
+## Paired samples $t$-test {.fs90}
 
 - To fix this, we can calculate the paired differences
 

@@ -206,7 +206,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
 
 # No Omitted Confounders
 
-## Assumption
+## Assumption {.fs90}
 
 - Every variable that affects $y$ **and** correlates with an $x$ must be in the model
     + Such a variable is called a **confounder**

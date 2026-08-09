@@ -287,7 +287,7 @@ r2(fit2, ci = 0.95)
 
 :::
 
-## Estimating means by hand
+## Estimating means by hand {.fs80}
 
 $$
 \begin{align}
@@ -542,7 +542,7 @@ model_parameters(fit5b)
 The linear model (lm) subsumes ANOVA as well!
 :::
 
-## Effect sizes
+## Effect sizes {.fs90}
 
 ```{r}
 #| echo: true
