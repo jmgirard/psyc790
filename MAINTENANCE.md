@@ -337,9 +337,12 @@ Three traps:
   Quarto reads.** Re-keying a front-matter edit takes two edits, not one. Fixing only the
   hash renders silently from the stale front matter — a `{{< meta >}}` field keeps its old
   value with no error anywhere. Edits that stay out of the front matter avoid this.
-- **Line endings.** Most sources here are LF, but `C/07/c_Slides.qmd`, `E/14/b_Slides.qmd`,
-  and `E/15/a_Slides.qmd` are CRLF. Hash the LF-normalized text, and read and write the
-  `.qmd` with `newline=''` so a CRLF file is not silently rewritten as LF.
+- **Line endings.** Every source here is LF today. `C/07/c_Slides.qmd`, `E/14/b_Slides.qmd`
+  and `E/15/a_Slides.qmd` were CRLF when this section was written and have since been
+  normalized, so do not write code that special-cases them. Keep the general precaution
+  though, since one CRLF file re-entering the repo is enough to matter: hash the
+  LF-normalized text, and read and write the `.qmd` with `newline=''` so a CRLF file is
+  never silently rewritten as LF.
 - **Guard the rewrite.** Check that HEAD plus the same transform reproduces the working tree
   byte-for-byte. If it does not, that file changed some other way too and genuinely needs a
   real render.

@@ -462,7 +462,7 @@ ggplot(df2, aes(x = x, y = y2)) +
 # Adding Predictors
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/add_terms.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Adding another predictor {.fs80}

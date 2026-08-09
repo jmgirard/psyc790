@@ -52,7 +52,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 # Assignment
 
 ::: {.section-art}
-{{< lif "../../icons/contacts.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/assignment.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assignment {.fs80}

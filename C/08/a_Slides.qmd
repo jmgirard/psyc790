@@ -134,7 +134,7 @@ Note that this is simulated (i.e., fake) data.
 # Continuous-by-Continuous
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/surface_3d.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Multiple regression recap
@@ -382,7 +382,7 @@ estimate_slopes(fit2, trend = "duration", by = "intensity=[sd]")
 # Interaction Patterns
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/crossing.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## CxC Patterns

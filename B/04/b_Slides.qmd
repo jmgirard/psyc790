@@ -131,7 +131,7 @@ In statistical inference, we will often want **two** types of estimates...
 # The Normal Distribution
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/normal_curve.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## The normal distribution {.fs80}

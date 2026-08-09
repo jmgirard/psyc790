@@ -43,21 +43,21 @@ A/01/b	3	Scripts	edit_doc	in-reveal	catalog	-	-	Document with a pencil: a file y
 A/02/a	1	Projects	folder	hover-adding-files	wired	folder	tsrgicte	The self-contained project directory. Its in-reveal and default states draw a closed folder with no accent; hover-adding-files is the one that colours, and files going into a folder says Projects better than a shut one.
 A/02/a	2	Quarto	render_doc	in-reveal	wired	file-text	hmpomorl	Source becoming a finished document.
 A/02/a	3	Markdown	text_format	in-reveal	wired	align-text-left	nqygtxpy	Plain text acquiring structure.
-A/02/b	1	Assignment	contacts	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Assignment section as a content slide, so it was already the author's pick for this exact concept.
+A/02/b	1	Assignment	assignment	in-reveal	wired	phone-book	jopgqciw	A book of name-to-number lookups is what assignment does, and the slide's example stores a phone number under a name.
 A/02/b	2	Naming	business_card	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Naming section as a content slide, so it was already the author's pick for this exact concept.
 A/02/b	3	Functions	gears	in-reveal	wired	cog-double	xnptalrm	Input in, work happens, output out.
 A/02/b	4	Vectors	stack_list	in-reveal	wired	layers	jectmwqf	Many elements held in order as one object.
-A/03/a	1	Strings	quotation	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Strings section as a content slide, so it was already the author's pick for this exact concept. Renders dark navy with no accent: it is the single-colour icon ICONS.md documents, not a colour fault.
+A/03/a	1	Strings	strings	in-reveal	wired	text-box	zzcpieew	Replaces `quotation`, which renders monochrome. A text object with handles, and it recolours.
 A/03/a	2	Factors	factors	in-reveal	wired	bullet-list	jkavsxeh	A fixed, ordered set of levels.
 A/03/a	3	Packages	install	in-reveal	wired	inbox-download	gjoqsfnx	Installing rather than unpacking. box.json is taken.
-A/03/b	1	Data Frames	data_frame	in-reveal	wired	data	psrsekxp	Rectangular data. spreadsheet.json is taken.
+A/03/b	1	Data Frames	data_frame	in-reveal	wired	browser-spreadsheet	wfjtyzqa	A literal grid of rows and columns. The earlier pick was the abstract `data` glyph, chosen only because spreadsheet.json was in use on a Unit A content slide; retiring those icons freed the concept.
 A/03/b	2	Data Exploration	explore	in-reveal	wired	magnifier	wjyqkiew	Looking at data before modelling it.
 B/04/a	1	Research Methods	test_tubes	in-reveal	catalog	-	-	The apparatus of running a study.
 B/04/a	2	Populations and Parameters	people	in-reveal	catalog	-	-	The whole crowd, which is what a population is.
 B/04/a	3	Samples and Statistics	counter	in-reveal	catalog	-	-	A tally counter: counting a subset by hand.
 B/04/a	4	Estimation and Uncertainty	target	in-reveal	catalog	-	-	Aiming at a true value you cannot see.
 B/04/b	1	Types of Estimates	point_vs_range	in-reveal	new	plus-minus-alt	zuoqzhmn	A point estimate against an interval.
-B/04/b	2	The Normal Distribution	normal_curve	in-reveal	choose	wave-chart|radial-histogram|bar-chart-vertical-grow	rxpexbfb|kpeygrgr|lbcxnxti	The library has NO bell curve. bell.json is a notification bell and the pun reads as a mistake at 300px. CLASH: wave-chart is already assigned to C/09/a #1.
+B/04/b	2	The Normal Distribution	normal_curve	in-reveal	wired	bitrate	yjeedmbu	The library DOES have a bell curve, filed under `bitrate`. A curve over a histogram, which is the picture this section draws.
 B/04/b	3	Central Limit Theorem	converge	in-reveal	wired	sales-leads-funnel	txiulgfs	Many samples collapsing toward one shape. Check sales-leads-funnel against the bound funnel.json first.
 B/04/b	4	Confidence Intervals	interval	in-reveal	choose	plus-minus|line-chart-markers|arrows-right-left	idohldqs|gyvwavwk|olfvnikl	The interval itself. No error-bar icon exists. CLASH: line-chart-markers is already assigned to C/07/a #1.
 B/04/b	5	Practical Matters	toolbox	in-reveal	wired	toolbox	fvoudkri	The housekeeping at the end of the lecture.
@@ -68,7 +68,7 @@ B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	
 B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related, which is all a correlation claims.
 B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
 B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
-B/06/a	1	Introductions	two_people	in-reveal	new	avatars-men	vaqsenjk	Exactly two groups.
+B/06/a	1	Introductions	two_people	in-reveal	wired	avatars-woman-man	lxdzeulj	Exactly two people, for exactly two groups.
 B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	two-way-traffic-sign	pepvasng	Different routes to the same comparison.
 B/06/a	3	Effect Sizes	caliper	in-reveal	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
 B/06/b	1	Introduction	many_groups	in-reveal	wired	avatars-group	rigpimbi	More than two groups at once.
@@ -88,8 +88,8 @@ C/07/c	1	Shared Variance	venn	in-reveal	wired	diagram-venn-double	wisxrkfy	Overl
 C/07/c	2	Multiple Regression	many_to_one	in-reveal	wired	sitemap	cuauhrxy	Several predictors into one outcome. sitemap points the wrong way; check it renders as convergence.
 C/07/c	3	Many Predictors	equalizer	in-reveal	catalog	-	-	A bank of sliders: many inputs tuned at once.
 C/08/a	1	Overview	mountains	in-reveal	catalog	-	-	A vista, for the overview of the moderation material.
-C/08/a	2	Continuous-by-Continuous	surface_3d	in-reveal	new	3-d	oajcrtsi	A response surface, which is what two continuous predictors give.
-C/08/a	3	Interaction Patterns	crossing	in-reveal	choose	squares-intersect|intersection-side-roads-sign	adbkylwa|jcmhwgqz	Non-parallel slopes, which is the pattern.
+C/08/a	2	Continuous-by-Continuous	surface_3d	in-reveal	wired	coordinate-system-3-d	irumlfqj	Replaces `3-d`, whose colour slots are swapped so it renders green. Labelled X/Y/Z axes, which is the response surface itself.
+C/08/a	3	Interaction Patterns	crossing	in-reveal	wired	arrows-crossed-right	nuaqitea	Two arrows crossing: non-parallel slopes, drawn literally.
 C/08/a	4	Centering with Interactions	compass	in-reveal	wired	drawing-compass	pnlowkpv	Re-centering with a product term in the model. Not crosshair: C/07/a has that and two would read as one.
 C/08/b	1	Review	rewind	in-reveal	wired	rewind-circle	vclpgzfa	Looking back at the previous lecture. review.json is taken.
 C/08/b	2	Binary-by-Continuous	switch_slider	in-reveal	wired	sliders-vertical	eskivvxw	One categorical and one continuous predictor. Check sliders-vertical against the bound equalizer.
@@ -99,11 +99,11 @@ C/08/b	5	Three-Way Interactions	cube	in-reveal	wired	cube-side	zrgyoifm	Three fa
 C/09/a	1	Overview	curve	in-reveal	wired	wave-chart	rxpexbfb	Straight lines stop being enough here.
 C/09/a	2	Polynomial Regression	curved_trend	in-reveal	wired	curve-right-sign	maucqrsy	The curved fit itself.
 C/09/a	3	Quadratic Regression	parabola	morph-squared	wired	square-root	wwbjufzq	The library has no parabola. Both candidates are approximations of a single bend.
-C/09/a	4	Adding Predictors	add_terms	in-reveal	choose	file-plus|plus-minus	avbhqgrw|idohldqs	Terms accumulating in the model.
+C/09/a	4	Adding Predictors	add_terms	in-reveal	wired	widgets-plus	dvnhetou	Blocks with a plus: another term added to the ones already in the model.
 C/09/a	5	Closing Thoughts	finish	in-reveal	wired	finish-line	yfbsycer	End of the section and of the unit.
 D/10/a	1	Overview	blueprint	in-reveal	wired	blueprint	nmrhyntp	The assumptions listed before any of them is checked.
 D/10/a	2	Correct Form	puzzle_fit	in-reveal	wired	puzzle-piece	tsbosomu	The model's shape matching the data's shape.
-D/10/a	3	No Omitted Confounders	unseen	in-reveal	choose	eye-close|anonymus-mask	tsgbzisa|zlrnrxmr	A cause you did not measure. anonymus-mask is also a candidate for E/14/b #2; they cannot both have it. CLASH: anonymus-mask is already assigned to E/14/b #2.
+D/10/a	3	No Omitted Confounders	unseen	in-reveal	wired	box-lost-and-found	ldohbfuu	A lost-and-found box: the cause that was there and never got measured.
 D/10/a	4	Perfect Predictors	mirror	in-reveal	wired	makeup-mirror	zogqzryv	A predictor that is the outcome again. Neither candidate is good; this one may be worth a wider search.
 D/10/a	5	No Collinearity	parallel	in-reveal	wired	road-narrows-sign	xyoobaio	Predictors that say the same thing.
 D/10/b	1	Overview	scatter	in-reveal	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.

@@ -215,7 +215,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
 # No Omitted Confounders
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/unseen.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumption {.fs80}
