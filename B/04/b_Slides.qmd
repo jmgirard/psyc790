@@ -389,7 +389,7 @@ clt_plot(c(4, 8))
 # Confidence Intervals
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/interval.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Calculations

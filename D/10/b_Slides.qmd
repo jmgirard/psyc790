@@ -395,7 +395,7 @@ Note that addressing other issues may also help here.
 # Independent Residuals
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/independence.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumption {.fs80}

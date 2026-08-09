@@ -137,7 +137,10 @@ consider making it here, where everyone gets it.
 ### About the Course
 
 A graduate introduction to statistical methods for the behavioral and social
-sciences, taught entirely in R.
+sciences, taught entirely in R, using
+[tidyverse](https://www.tidyverse.org/) for handling data and
+[easystats](https://easystats.github.io/easystats/) for fitting, checking, and
+reporting models.
 
 The course opens with the R ecosystem itself: projects, Quarto, and the data
 wrangling and exploration needed to get real data ready to analyze. It then

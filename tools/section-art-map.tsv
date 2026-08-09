@@ -49,7 +49,7 @@ A/02/b	3	Functions	gears	in-reveal	wired	cog-double	xnptalrm	Input in, work happ
 A/02/b	4	Vectors	stack_list	in-reveal	wired	layers	jectmwqf	Many elements held in order as one object.
 A/03/a	1	Strings	strings	in-reveal	wired	text-box	zzcpieew	Replaces `quotation`, which renders monochrome. A text object with handles, and it recolours.
 A/03/a	2	Factors	factors	in-reveal	wired	bullet-list	jkavsxeh	A fixed, ordered set of levels.
-A/03/a	3	Packages	install	in-reveal	wired	inbox-download	gjoqsfnx	Installing rather than unpacking. box.json is taken.
+A/03/a	3	Packages	install	in-reveal	wired	box-plus	okzvfdcb	A package with a plus on it. Replaces inbox-download, which read as a generic download rather than as adding a package.
 A/03/b	1	Data Frames	data_frame	in-reveal	wired	browser-spreadsheet	wfjtyzqa	A literal grid of rows and columns. The earlier pick was the abstract `data` glyph, chosen only because spreadsheet.json was in use on a Unit A content slide; retiring those icons freed the concept.
 A/03/b	2	Data Exploration	explore	in-reveal	wired	magnifier	wjyqkiew	Looking at data before modelling it.
 B/04/a	1	Research Methods	test_tubes	in-reveal	catalog	-	-	The apparatus of running a study.
@@ -59,7 +59,7 @@ B/04/a	4	Estimation and Uncertainty	target	in-reveal	catalog	-	-	Aiming at a tru
 B/04/b	1	Types of Estimates	point_vs_range	in-reveal	new	plus-minus-alt	zuoqzhmn	A point estimate against an interval.
 B/04/b	2	The Normal Distribution	normal_curve	in-reveal	wired	bitrate	yjeedmbu	The library DOES have a bell curve, filed under `bitrate`. A curve over a histogram, which is the picture this section draws.
 B/04/b	3	Central Limit Theorem	converge	in-reveal	wired	sales-leads-funnel	txiulgfs	Many samples collapsing toward one shape. Check sales-leads-funnel against the bound funnel.json first.
-B/04/b	4	Confidence Intervals	interval	in-reveal	choose	plus-minus|line-chart-markers|arrows-right-left	idohldqs|gyvwavwk|olfvnikl	The interval itself. No error-bar icon exists. CLASH: line-chart-markers is already assigned to C/07/a #1.
+B/04/b	4	Confidence Intervals	interval	in-reveal	wired	elastic-material	vcismmve	A square stretching outward: a range rather than a point. The family has no error bar, and this is the nearest thing to one.
 B/04/b	5	Practical Matters	toolbox	in-reveal	wired	toolbox	fvoudkri	The housekeeping at the end of the lecture.
 B/05/a	1	Statistical Hypotheses	scales	in-reveal	catalog	-	-	A balance: H0 against H1, before any evidence.
 B/05/a	2	NHST Logic	flowchart	in-reveal	wired	diagram-flow	ygqtedpk	The chain of reasoning, which is the section.
@@ -68,7 +68,7 @@ B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	
 B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related, which is all a correlation claims.
 B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
 B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
-B/06/a	1	Introductions	two_people	in-reveal	wired	avatars-woman-man	lxdzeulj	Exactly two people, for exactly two groups.
+B/06/a	1	Introductions	two_people	in-reveal	wired	-	-	Two masks, which is a contrasting pair. Freed when Unit A retired its slide icons; it took avatars-woman-man's place when that went to dummy coding, where it is more specific.
 B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	two-way-traffic-sign	pepvasng	Different routes to the same comparison.
 B/06/a	3	Effect Sizes	caliper	in-reveal	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
 B/06/b	1	Introduction	many_groups	in-reveal	wired	avatars-group	rigpimbi	More than two groups at once.
@@ -82,7 +82,7 @@ C/07/a	2	Regression Inference	insights	in-reveal	pilot	-	-	Kept from the pilot.
 C/07/a	3	Centering	crosshair	in-reveal	wired	crosshair-alt	mdpzmxaq	REPLACES the pilot's location_pin.json: centering moves an origin, it is not a place.
 C/07/a	4	Regression Effect Sizes	rulers	in-reveal	pilot	-	-	Kept from the pilot.
 C/07/b	1	Introduction	categories	in-reveal	choose	puzzle-piece|grid-squares	tsbosomu|ervhjijl	Predictors that are kinds rather than amounts. CLASH: puzzle-piece is already assigned to D/10/a #2.
-C/07/b	2	Dichotomous <br>Dummy Coding	switch_binary	in-reveal	wired	light-switch	kvcwpecu	One switch, two states.
+C/07/b	2	Dichotomous <br>Dummy Coding	switch_binary	in-reveal	wired	avatars-woman-man	lxdzeulj	The deck's own dichotomous example is penguins$sex with levels male and female, so the icon shows the variable being coded rather than a generic on/off.
 C/07/b	3	Polytomous <br>Dummy Coding	radio_buttons	in-reveal	wired	toggle-on-off	suadrppo	Several levels, one reference.
 C/07/c	1	Shared Variance	venn	in-reveal	wired	diagram-venn-double	wisxrkfy	Overlap is the whole idea.
 C/07/c	2	Multiple Regression	many_to_one	in-reveal	wired	sitemap	cuauhrxy	Several predictors into one outcome. sitemap points the wrong way; check it renders as convergence.
@@ -109,7 +109,7 @@ D/10/a	5	No Collinearity	parallel	in-reveal	wired	road-narrows-sign	xyoobaio	Pre
 D/10/b	1	Overview	scatter	in-reveal	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
 D/10/b	2	Constant Error Variance	megaphone	in-reveal	wired	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
 D/10/b	3	Normal Residuals	distribution_check	in-reveal	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one.
-D/10/b	4	Independent Residuals	independence	in-reveal	choose	wifi-cross|arrows-right-left	bicbmczi|olfvnikl	Dependence between residuals. No broken-chain icon exists; both candidates are weak.
+D/10/b	4	Independent Residuals	independence	in-reveal	wired	family	theqdcco	A family is a cluster of related observations, which is exactly what breaks independence. The icon draws the violation rather than the assumption.
 D/10/b	5	Outliers	outlier	in-reveal	wired	sheep	pcjhygqv	The black sheep. One point unlike the rest.
 E/14/a	1	Power Analysis	muscle	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Power Analysis section as a content slide, so it was already the author's pick for this exact concept.
 E/14/b	1	Overview	warning	in-reveal	wired	warning-triangle	lltgvngb	The practices are the warning. caution.json is taken.
