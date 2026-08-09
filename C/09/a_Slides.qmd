@@ -480,7 +480,7 @@ plot(estimate_relation(fit3, by = c("flipper_len", "sex")), show_data = TRUE)
 plot(estimate_relation(fit3, by = c("flipper_len", "sex")), show_data = TRUE) + mytheme() + labs(y = "body_mass")
 ```
 
-## Adding moderation {.fs90}
+## Adding moderation {.fs80}
 
 ```{r}
 #| echo: true

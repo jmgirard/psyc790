@@ -18,6 +18,15 @@ a line or two each. 20 of 24 decks are completely clean.
 Unit → Chapter → Lecture renumbering has since replaced. Treat them as historical labels; the
 counts above have not been re-measured against the current chapters.
 
+## Re-measured decks
+
+`C/09/a` — **clean**, 0 of 32 slides overflowing. It was carried in `MAINTENANCE.md` §7 as a
+suspected two-slide overflow ("Motivation" +144, "Power polynomials" +210), from a clone-based
+side measurement during the divider work. Measured directly with the script below, both slides
+fit exactly; the clone numbers were an artifact. What the direct measurement *did* find was one
+real overflow the clone had missed — "Adding moderation", +38px — fixed by moving that slide
+from `.fs90` to `.fs80` (`.fs70` was not needed; either stop brings it to 0).
+
 ## What went wrong
 
 data2's config is written for a coding course with sparse slides. This is a stats course with

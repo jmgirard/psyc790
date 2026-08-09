@@ -218,6 +218,14 @@ rm -rf _freeze && quarto render
 Worth doing once before each offering, so drift is met deliberately rather than by a student
 mid-semester.
 
+**Freeze applies to project renders only.** `quarto render C/09/a_Slides.qmd` and
+`quarto render C/09` both ignore `_freeze/` and execute the chunks, even when the stored hash
+matches the source exactly. Only a bare `quarto render` from the project root consults the
+cache. This matters because the committed freeze is often the *only* way these pages can be
+built — a machine without the full package set (`tidyverse` and friends) fails immediately on
+a single-file render while the whole-project render succeeds in seconds. Render the project,
+not the file.
+
 **Freeze also caches config, not just code.** The cache keys on source hash, so editing
 `_quarto.yml`, `_slide-settings.yml`, or `_common.R` has *no effect* on already-frozen pages
 until the cache is cleared. Changes to those files have appeared to do nothing for exactly
@@ -382,13 +390,6 @@ defaults to Type III).
 
 **`_brand.yml`.** `_quarto.yml` declares `theme: [cosmo, brand]` but no `_brand.yml` exists,
 here or in the other two repos. It renders fine; worth confirming it is intentional.
-
-**Possible overflow in `C/09/a`.** While measuring slide widths for the divider work, two
-section-opening slides in that deck — "Motivation" and "Power polynomials" — measured 844 and
-910px of content against the 700px canvas *at full width*, before any icon column was
-considered. Every other slide measured came in under 700. This was a side observation from a
-clone-based measurement, so treat the absolute numbers as approximate and re-check the deck
-directly rather than trusting them; but no other deck produced a number like it.
 
 **Section illustrations rollout.** The divider pattern (§1) is prototyped on `C/07/a` only.
 Rolling it out means one icon on each of ~102 `#` dividers, 2–6 per deck. Two loose ends:

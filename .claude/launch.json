@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "statistical-methods-site",
-      "runtimeExecutable": "python",
+      "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "4200", "--directory", "_site"],
       "port": 4200
     }
