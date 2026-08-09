@@ -449,8 +449,8 @@ library(tidyverse)
 
 ::: {.takeaway}
 Install it once via [Extras pane > Packages tab > Install]{.b .blue}, then load it
-each session. One `library()` call brings in the whole collection --- readr,
-dplyr, ggplot2 and the rest --- so this is the only line most scripts need.
+each session. One `library()` call brings in the whole collection: readr, dplyr,
+ggplot2 and the rest. That is the only line most scripts need.
 :::
 
 ## Creating a Tibble from Vectors
@@ -469,7 +469,7 @@ my_tibble
 
 ::: {.takeaway}
 `tibble()` lines vectors up as columns, using each vector's name as the column
-name. They must be the same length --- these are rows of one dataset.
+name. They must be the same length, since these are rows of one dataset.
 :::
 
 ## Tibbles Can Mix Types
@@ -486,7 +486,7 @@ guests
 ```
 
 ::: {.takeaway}
-Look at the `<chr>` and `<dbl>` labels --- a tibble tracks each column's type, and
+Look at the `<chr>` and `<dbl>` labels: a tibble tracks each column's type, and
 prints `NA` where a value is missing rather than guessing at one.
 :::
 
@@ -503,7 +503,7 @@ gradebook
 ```
 
 ::: {.takeaway}
-Naming the columns inside `tibble()` skips the separate vectors entirely --- less
+Naming the columns inside `tibble()` skips the separate vectors entirely: less
 to type, and nothing left lying around afterwards.
 :::
 
@@ -536,7 +536,7 @@ mytibble$y
 
 ::: {.takeaway}
 `$` pulls one column out as a plain vector. Note `y`: a single value is recycled
-down the whole column --- length one is the one length allowed to differ.
+down the whole column, because length one is the one length allowed to differ.
 :::
 
 ## Pitfall: A Column That Does Not Exist
@@ -619,7 +619,7 @@ old_gradebook
 
 ::: {.takeaway}
 `read_csv()` examines each column and guesses its type. You can state the types
-yourself, but the guess is usually right --- check it rather than assume it.
+yourself, but the guess is usually right. Check it rather than assume it.
 :::
 
 ## Pitfall: Missing Values in Disguise
@@ -634,21 +634,21 @@ old_gradebook
 ```
 
 ::: {.takeaway}
-One grade was recorded as `?`. R has no way to know that means "missing" --- until
+One grade was recorded as `?`. R has no way to know that means "missing". Until
 you say so with `na = "?"` it stays a real value, and the whole column is read as
 text rather than numbers.
 :::
 
 ## Other Kinds of Data File {.fs70}
 
--   [readxl]{.b .blue} and [googlesheets4]{.b .blue} --- spreadsheets
+-   [readxl]{.b .blue} and [googlesheets4]{.b .blue}: spreadsheets
 
 ::: {.fragment .mt1}
--   [haven]{.b .blue} --- files from SPSS, SAS, and STATA
+-   [haven]{.b .blue}: files from SPSS, SAS, and STATA
 :::
 
 ::: {.fragment .mt1}
--   [rio]{.b .blue} --- tries to detect the type and read in anything
+-   [rio]{.b .blue}: tries to detect the type and read in anything
 :::
 
 
@@ -719,7 +719,7 @@ penguins$sex <- factor(penguins$sex, levels = c(1, 2),
 
 ::: {.takeaway}
 The same `factor()` call as before, applied one column at a time with `$`. Tedious
-but explicit --- and exactly the work a cleaning script exists to hold.
+but explicit, and exactly the work a cleaning script exists to hold.
 :::
 
 ## The Configured Data
@@ -757,7 +757,7 @@ describe_distribution(penguins, body_mass)
 ```
 
 ::: {.takeaway}
-Mean, SD, range, and the count of missing values in one line --- the numbers you
+Mean, SD, range, and the count of missing values in one line: the numbers you
 would otherwise ask for one function at a time.
 :::
 
@@ -796,7 +796,7 @@ data_tabulate(penguins, is.factor)
 ```
 
 ::: {.takeaway}
-Passing `is.factor` tabulates every factor at once --- the categorical half of the
+Passing `is.factor` tabulates every factor at once: the categorical half of the
 same first look.
 :::
 
@@ -833,7 +833,7 @@ penguins <- read_csv("../../data/penguins.csv")
 ```
 
 ::: {.takeaway}
-This is the tidied version of the file we just walked through --- factors
+This is the tidied version of the file we just walked through: factors
 configured, missing values read correctly. Everything that follows uses it, and
 you will meet it again in later chapters.
 :::

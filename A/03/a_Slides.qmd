@@ -115,7 +115,7 @@ dyes
 ```
 
 ::: {.takeaway}
-Inside quotes the naming rules no longer apply --- spaces, `#`, and anything else
+Inside quotes the naming rules no longer apply: spaces, `#`, and anything else
 are just characters. R only reads what is inside as text.
 :::
 
@@ -136,7 +136,7 @@ mean(dyes)
 ```
 
 ::: {.takeaway}
-`mean()` does not stop with an error --- it warns and hands back `NA`. A result
+`mean()` does not stop with an error; it warns and hands back `NA`. A result
 that **looks like an answer** is easier to miss than a failure.
 :::
 
@@ -200,7 +200,7 @@ table(food2)
 
 ::: {.takeaway}
 `factor()` tells R these numbers are labels, not quantities. The `Levels:` line is
-how a factor prints --- and R found only the values that **actually occur**.
+how a factor prints, and R found only the values that **actually occur**.
 :::
 
 ## Declaring Levels That Did Not Occur
@@ -250,7 +250,7 @@ food5
 
 ::: {.takeaway}
 All `<NA>`: R searched the data for the string `"nuggets"` and found only the
-number `2`. It does not error --- it **quietly returns missing values**.
+number `2`. It does not error; it **quietly returns missing values**.
 :::
 
 ## Levels Can Be Strings to Begin With
@@ -267,7 +267,7 @@ table(genre2)
 ```
 
 ::: {.takeaway}
-With no `levels` given, R sorts the observed values alphabetically --- which is
+With no `levels` given, R sorts the observed values alphabetically, which is
 rarely the order you want in a table or a plot.
 :::
 
@@ -318,7 +318,7 @@ str_to_title(students)
 ```
 
 ::: {.takeaway}
-The stringr package has a function that fixes capitalization --- but "could not
+The stringr package has a function that fixes capitalization, but "could not
 find function" means R cannot find that **name**. Check the spelling first, then
 whether the function's package is installed and loaded.
 :::
@@ -341,7 +341,7 @@ install.packages("stringr")
 
 ::: {.fragment}
 ::: {.callout-warning}
-Run this in the [Console]{.b}, never inside a Quarto document --- it would reinstall the package every time you render.
+Run this in the [Console]{.b}, never inside a Quarto document, since it would reinstall the package every time you render.
 :::
 :::
 
@@ -374,7 +374,7 @@ this session until you take it down with `library()`. Install once per computer
 -   [RStudio > Extras pane > Packages tab > Update]{.b .blue} button
 
 ::: {.fragment .mt1}
--   Worth doing occasionally, but [not]{.b .blue} in the middle of an analysis --- a package update can change results
+-   Worth doing occasionally, but [not]{.b .blue} in the middle of an analysis, since a package update can change results
 :::
 
 ## Learning More: Vignettes
@@ -388,7 +388,7 @@ browseVignettes("stringr")
 ```
 
 ::: {.takeaway}
-Many packages ship long-form articles showing how they are meant to be used ---
+Many packages ship long-form articles showing how they are meant to be used,
 usually a better starting point than the help page for any one function. This
 opens a browser window, so run it in the Console too.
 :::

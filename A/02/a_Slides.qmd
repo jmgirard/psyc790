@@ -100,7 +100,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 -   The [Files]{.b .blue} tab (Extras pane) shows the project folder
 
 ::: {.fragment .mt1}
--   Make a new file --- a script, say --- and RStudio puts it [in the project folder]{.b .green}
+-   Make a new file (a script, say) and RStudio puts it [in the project folder]{.b .green}
     -   Add a line of text, such as `# Hello World`
     -   Save it, and note that the dialog already points at the project folder
 :::
@@ -183,7 +183,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 ::: {.fragment .mt1}
--   Chunk [options]{.b .blue} control how each chunk behaves --- more on those later
+-   Chunk [options]{.b .blue} control how each chunk behaves; more on those later
 :::
 
 

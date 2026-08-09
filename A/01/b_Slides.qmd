@@ -80,7 +80,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ::: {.fragment .mt1}
 -   R is [free]{.b .green}, on every computer you will ever use
     -   No licence to buy, renew, or lose when you change institution
-    -   JASP and jamovi are free too --- and both are built on R
+    -   JASP and jamovi are free too, and both are built on R
 :::
 
 ::: {.fragment .mt1}
@@ -91,7 +91,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ::: {.fragment .mt1}
 -   New methods arrive as [packages]{.b .blue}, written by the researchers who
-    developed them --- often years before the commercial packages catch up
+    developed them, often years before the commercial packages catch up
 :::
 
 
@@ -305,7 +305,7 @@ Error: unexpected '\' in "10 \"
 :::
 
 ::: {.takeaway}
-Multiplication is `*`, never `x`, and division is `/` --- the slash that leans
+Multiplication is `*`, never `x`, and division is `/`, the slash that leans
 the other way. R reads `\` as the start of something else entirely.
 :::
 
@@ -338,7 +338,7 @@ override that, and are worth adding whenever the order is not obvious at a glanc
 
 ::: {.takeaway}
 Negative numbers need no special treatment, and division gives a decimal rather
-than a fraction --- R prints as many digits as it thinks you need, not all of them.
+than a fraction. R prints as many digits as it thinks you need, not all of them.
 :::
 
 ## How R Prints Numbers
@@ -367,7 +367,7 @@ Error: unexpected ',' in "9,"
 
 ::: {.takeaway}
 R drops leading and trailing zeros that carry no information. Thousands
-separators are for humans --- type the digits and **nothing else**.
+separators are for humans: type the digits and **nothing else**.
 :::
 
 # Scripts
@@ -402,7 +402,7 @@ instructions rather than shouting one at a time.
 
 ## Running One Line of Code {.fs70}
 
--   Hitting <kbd>Enter</kbd> or <kbd>Return</kbd> [does not run the code]{.b .blue} --- it just adds a new line
+-   Hitting <kbd>Enter</kbd> or <kbd>Return</kbd> [does not run the code]{.b .blue}; it just adds a new line
 
 ::: {.fragment .mt1}
 -   To run the line your cursor is on:
@@ -439,7 +439,7 @@ instructions rather than shouting one at a time.
 
 ::: {.takeaway}
 Anything after a `#` is ignored by R and exists only for human readers. A comment
-can have a line to itself or sit at the end of one --- the code before it still runs.
+can have a line to itself or sit at the end of one; the code before it still runs.
 :::
 
 ## Saving the Script File {.fs70}

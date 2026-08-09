@@ -110,7 +110,7 @@ x * 4
 ```
 
 ::: {.takeaway}
-Wherever a value could go, a name holding that value can go instead --- as often
+Wherever a value could go, a name holding that value can go instead, as often
 as you need it.
 :::
 
@@ -154,7 +154,7 @@ y / x
 
 ::: {.takeaway}
 The right-hand side of `<-` is just an expression, so it can use any objects that
-already exist --- which is how a script builds up from one line to the next.
+already exist. That is how a script builds up from one line to the next.
 :::
 
 # Naming
@@ -308,7 +308,7 @@ Heart_rate
 ```
 
 ::: {.takeaway}
-One capital letter makes an entirely different object. R will not warn you --- it
+One capital letter makes an entirely different object. R will not warn you, because it
 has no way to know you meant the other one.
 :::
 
@@ -359,7 +359,7 @@ x
 ```
 
 ::: {.takeaway}
-A function gives a name to something you would otherwise have to spell out ---
+A function gives a name to something you would otherwise have to spell out. It is
 easier to write, and far easier to read back.
 :::
 
@@ -470,7 +470,7 @@ y
 ```
 
 ::: {.takeaway}
-Elements must be separated by commas and wrapped in `c()` --- without it R sees
+Elements must be separated by commas and wrapped in `c()`. Without it R sees
 several values where it expected one.
 :::
 
@@ -487,7 +487,7 @@ c(x, y, 20)
 ```
 
 ::: {.takeaway}
-`c()` flattens whatever you give it into one vector --- there is no such thing as
+`c()` flattens whatever you give it into one vector, so there is no such thing as
 a vector nested inside another.
 :::
 
@@ -520,7 +520,7 @@ log(x)
 ```
 
 ::: {.takeaway}
-These return a vector the same length as the one you gave them --- one answer per
+These return a vector the same length as the one you gave them: one answer per
 element.
 :::
 
@@ -563,7 +563,7 @@ mean(scores, na.rm = TRUE)
 ```
 
 ::: {.takeaway}
-`NA` means "we do not know", so any answer depending on it is also unknown ---
-that is a feature, not a bug. `na.rm = TRUE` says to answer from what you do have.
+`NA` means "we do not know", so any answer depending on it is also unknown. That
+is a feature, not a bug. `na.rm = TRUE` says to answer from what you do have.
 :::
 
