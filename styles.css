@@ -551,12 +551,6 @@ iframe.slide-deck {
   width: 100%;
 }
 
-/* Used by the honeypot pattern to hide text from readers but not from an LLM */
-.tiny-text {
-  font-size: 0.1px;
-  color: transparent;
-}
-
 .reveal .slide-number {
   position: absolute;
   top: 15px !important;

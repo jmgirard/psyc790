@@ -276,52 +276,80 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Assignment Live Coding</h2>
+<h2>Assigning and Printing</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Assigning and printing</span></span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Using an object in math (a la algebra) </span></span>
-<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">4</span></span>
-<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: You must use assignment to update an object</span></span>
-<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb1-19"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1-21"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a aria-hidden="true" tabindex="-1"></a>x <span class="co"># still 2</span></span>
-<span id="cb1-23"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1-25"><a aria-hidden="true" tabindex="-1"></a>x <span class="co"># updated to 3</span></span>
-<span id="cb1-26"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: We can use the same object multiple times in a line</span></span>
-<span id="cb1-30"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> x <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> x</span>
-<span id="cb1-32"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-34"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: We can also use an object to create another object</span></span>
-<span id="cb1-36"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> x</span>
-<span id="cb1-38"><a aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb1-39"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-41"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: We can also use multiple objects in a line</span></span>
-<span id="cb1-43"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a aria-hidden="true" tabindex="-1"></a>y <span class="sc">/</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Store the value 2 under the name x</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Typing the name on its own prints the value</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Using an Object in Math</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Once x exists, it stands in for its value</span></span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Which is the same as writing it out</span></span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Updating Requires Assignment</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Using x does not change it</span></span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># x is still 2</span></span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># To update it, assign the result back to the name</span></span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Using an Object More Than Once</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># x can appear as many times as you like in one line</span></span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> x <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Objects Can Create Other Objects</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The right-hand side can use objects that already exist</span></span>
+<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">+</span> x</span>
+<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># And a line can use several objects at once</span></span>
+<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>y <span class="sc">/</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.333333</code></pre>
+</div>
 </div>
 </section></section>
 <section>
@@ -358,55 +386,71 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Naming Live Coding</h2>
+<h2>Good Names are a Balancing Act</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Good names are a balancing act</span></span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># what is it?</span></span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># too short</span></span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a>heart_rate_in_beats_per_minute <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># too long</span></span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a>heart_rate_bpm <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># just right</span></span>
-<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a><span class="co"># PITFALL: Don't try to include spaces or dashes in names</span></span>
-<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a aria-hidden="true" tabindex="-1"></a>heart rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># error</span></span>
-<span id="cb2-16"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a aria-hidden="true" tabindex="-1"></a>heart<span class="sc">-</span>rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># error</span></span>
-<span id="cb2-18"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-20"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a aria-hidden="true" tabindex="-1"></a><span class="co"># PITFALL: Don't try to include special symbols</span></span>
-<span id="cb2-22"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a aria-hidden="true" tabindex="-1"></a>age<span class="sc">@</span>time2 <span class="ot">&lt;-</span> <span class="dv">12</span> <span class="co"># error</span></span>
-<span id="cb2-24"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a aria-hidden="true" tabindex="-1"></a>age_time2 <span class="ot">&lt;-</span> <span class="dv">12</span> <span class="co"># correct</span></span>
-<span id="cb2-26"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a aria-hidden="true" tabindex="-1"></a><span class="co"># PITFALL: Don't try to put a number or underscore first</span></span>
-<span id="cb2-30"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a aria-hidden="true" tabindex="-1"></a>heart_rate_1 <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># correct</span></span>
-<span id="cb2-32"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>_heart_rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># error</span></span>
-<span id="cb2-34"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a aria-hidden="true" tabindex="-1"></a>_heart_rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># error</span></span>
-<span id="cb2-36"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-38"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Object names are case-sensitive</span></span>
-<span id="cb2-40"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a aria-hidden="true" tabindex="-1"></a>heart_rate <span class="ot">&lt;-</span> <span class="dv">93</span></span>
-<span id="cb2-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a aria-hidden="true" tabindex="-1"></a>Heart_rate <span class="ot">&lt;-</span> <span class="dv">88</span></span>
-<span id="cb2-44"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a aria-hidden="true" tabindex="-1"></a>heart_rate <span class="co"># still 93</span></span>
-<span id="cb2-46"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a aria-hidden="true" tabindex="-1"></a>Heart_rate <span class="co"># a new object</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># legal, but what is it?</span></span>
+<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># too short to be clear</span></span>
+<span id="cb19-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a aria-hidden="true" tabindex="-1"></a>heart_rate_in_beats_per_minute <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># too long to type</span></span>
+<span id="cb19-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a aria-hidden="true" tabindex="-1"></a>heart_rate_bpm <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># just right</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Pitfall: No Spaces or Dashes</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>heart rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># Error: unexpected symbol</span></span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a>heart<span class="sc">-</span>rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># R reads this as heart - rate, not a name</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> These will not even run — R cannot make sense of the line at all. Use an underscore instead: <code>heart_rate</code>.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Pitfall: No Special Symbols</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>age<span class="sc">@</span>time2 <span class="ot">&lt;-</span> <span class="dv">12</span> <span class="co"># Error: @ means something else in R</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>age_time2 <span class="ot">&lt;-</span> <span class="dv">12</span> <span class="co"># correct</span></span>
+<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>age_time2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Pitfall: Cannot Start with a Number or Underscore</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>_heart_rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># Error: unexpected input</span></span>
+<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>_heart_rate <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># Error: unexpected input</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>heart_rate_1 <span class="ot">&lt;-</span> <span class="dv">93</span> <span class="co"># correct: the digit comes last</span></span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>heart_rate_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 93</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Names are Case-Sensitive</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>heart_rate <span class="ot">&lt;-</span> <span class="dv">93</span></span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a>Heart_rate <span class="ot">&lt;-</span> <span class="dv">88</span></span>
+<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a><span class="co"># These are two entirely different objects</span></span>
+<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>heart_rate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 93</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>Heart_rate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 88</code></pre>
+</div>
 </div>
 </section></section>
 <section>
@@ -445,50 +489,79 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Functions Live Coding</h2>
+<h2>Functions Do a Task More Readably</h2>
+<div class="f5">
+<p><code>output &lt;- function_name(input)</code></p>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Function can perform a task more easily and readably</span></span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># TEMPLATE: output &lt;- function_name(input)</span></span>
-<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="sc">^</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">9</span>)</span>
-<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-11"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: We can also use functions to transform objects</span></span>
-<span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">9</span></span>
-<span id="cb3-15"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(y)</span>
-<span id="cb3-17"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-19"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: We can even use functions to transform the result of calculations</span></span>
-<span id="cb3-21"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span></span>
-<span id="cb3-23"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
-<span id="cb3-25"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-27"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: We can customize what a function does using arguments</span></span>
-<span id="cb3-29"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a aria-hidden="true" tabindex="-1"></a><span class="co"># TEMPLATE: output &lt;- function_name(argument, argument_name = argument_value)</span></span>
-<span id="cb3-31"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb3-33"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb3-35"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-37"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Some arguments are optional because they have default values</span></span>
-<span id="cb3-39"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="co"># the default value for digits is 0</span></span>
-<span id="cb3-41"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The hard way</span></span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="sc">^</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The readable way</span></span>
+<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">9</span>)</span>
+<span id="cb33-3"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Functions Can Transform Objects</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The input can be an object rather than a literal value</span></span>
+<span id="cb35-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Functions Can Transform Calculations</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6666667</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The input can also be the result of a calculation</span></span>
+<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Arguments Customize a Function</h2>
+<div class="f5">
+<p><code>output &lt;- function_name(argument, argument_name = argument_value)</code></p>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.67</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.667</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Some Arguments Have Defaults</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># digits has a default value of 0, so this...</span></span>
+<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ...means exactly the same thing as this</span></span>
+<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="at">digits =</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
 </div>
 </section></section>
 <section>
@@ -532,65 +605,111 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Vectors Live Coding</h2>
+<h2>Combining Elements into a Vector</h2>
+<div class="f5">
+<p><code>vector_name &lt;- c(element1, element2, element3)</code></p>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: We can combine multiple elements into a vector</span></span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># TEMPLATE: vector_name &lt;- c(element1, element2, element3)</span></span>
-<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="dv">9</span> <span class="dv">16</span> <span class="dv">25</span> <span class="co"># error</span></span>
-<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">25</span>)</span>
-<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: We can also combine multiple vectors and elements</span></span>
-<span id="cb4-16"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(x, y)</span>
-<span id="cb4-18"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(x, y, <span class="dv">20</span>)</span>
-<span id="cb4-20"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-22"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Math operators will transform each element individually</span></span>
-<span id="cb4-24"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb4-26"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> <span class="dv">3</span></span>
-<span id="cb4-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a aria-hidden="true" tabindex="-1"></a>x <span class="co"># but again, this won't be saved unless you use assignment</span></span>
-<span id="cb4-30"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-32"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-33"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Some functions will also transform each element individually</span></span>
-<span id="cb4-34"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb4-36"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-37"><a aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span>
-<span id="cb4-38"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-39"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-40"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-41"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Other functions will summarize the vector with a single number</span></span>
-<span id="cb4-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-43"><a aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span>
-<span id="cb4-44"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-45"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)</span>
-<span id="cb4-46"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-47"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
-<span id="cb4-48"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-49"><a aria-hidden="true" tabindex="-1"></a><span class="fu">average</span>(x) <span class="co"># error</span></span>
-<span id="cb4-50"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-51"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-52"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-53"><a aria-hidden="true" tabindex="-1"></a><span class="co"># PITFALL: Missing values (NAs) are contagious</span></span>
-<span id="cb4-54"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-55"><a aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="cn">NA</span>, <span class="dv">8</span>)</span>
-<span id="cb4-56"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(scores) <span class="co"># returns NA because the mean depends on the missing value</span></span>
-<span id="cb4-57"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># returns mean of non-missing values</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="dv">9</span> <span class="dv">16</span> <span class="dv">25</span> <span class="co"># Error: you must separate elements with commas</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">25</span>)</span>
+<span id="cb50-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  4  9 16 25</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb52-2"><a aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 3</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Combining Vectors and Elements</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># c() also joins whole vectors together</span></span>
+<span id="cb54-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  4  9 16 25  2  3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># And vectors and single elements</span></span>
+<span id="cb56-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(x, y, <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  4  9 16 25  2  3 20</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Math Transforms Each Element</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  5 10 17 26</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12 27 48 75</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># But as before, nothing is saved without assignment</span></span>
+<span id="cb62-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  4  9 16 25</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Some Functions Transform Each Element</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 3 4 5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.386294 2.197225 2.772589 3.218876</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Other Functions Summarize the Whole Vector</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 54</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">average</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `average()`:
+! could not find function "average"</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Pitfall: Missing Values are Contagious</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="cn">NA</span>, <span class="dv">8</span>)</span>
+<span id="cb76-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># NA spreads: the mean depends on the value we do not have</span></span>
+<span id="cb76-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(scores)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Ask for the mean of the non-missing values instead</span></span>
+<span id="cb78-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.5</code></pre>
+</div>
 </div>
 
 

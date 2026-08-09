@@ -847,80 +847,136 @@ China
 </div>
 </section>
 <section class="slide level2">
-<h2>Tibbles Live Coding</h2>
+<h2>Loading the tidyverse</h2>
+<p>Install it once via <span class="b blue">Extras pane &gt; Packages tab &gt; Install</span>, then load it each session.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># SETUP: Install and load the tidyverse package</span></span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Extras pane &gt; Packages tab &gt; Install</span></span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Create a tibble from vectors</span></span>
-<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)</span>
-<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a>x</span>
-<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span></span>
-<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a>y</span>
-<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a>my_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(x, y)</span>
-<span id="cb1-18"><a aria-hidden="true" tabindex="-1"></a>my_tibble</span>
-<span id="cb1-19"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-21"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: You can mix different types of vectors in a single tibble</span></span>
-<span id="cb1-23"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a aria-hidden="true" tabindex="-1"></a>first_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Adam"</span>, <span class="st">"Billy"</span>, <span class="st">"Caitlyn"</span>, <span class="st">"Debra"</span>)</span>
-<span id="cb1-25"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a aria-hidden="true" tabindex="-1"></a>age_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="cn">NA</span>)</span>
-<span id="cb1-27"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a aria-hidden="true" tabindex="-1"></a>guests <span class="ot">&lt;-</span> <span class="fu">tibble</span>(first_names, age_years)</span>
-<span id="cb1-29"><a aria-hidden="true" tabindex="-1"></a>guests</span>
-<span id="cb1-30"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-32"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a aria-hidden="true" tabindex="-1"></a><span class="co"># TIP: To save time, you can also create the vectors in the tibble call</span></span>
-<span id="cb1-34"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a aria-hidden="true" tabindex="-1"></a>gradebook <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-36"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">grade =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">83</span>, <span class="dv">90</span>, <span class="dv">76</span>),</span>
-<span id="cb1-37"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">letter =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"a-"</span>, <span class="st">"c"</span>)</span>
-<span id="cb1-38"><a aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-39"><a aria-hidden="true" tabindex="-1"></a>gradebook</span>
-<span id="cb1-40"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a aria-hidden="true" tabindex="-1"></a><span class="co"># PITFALL: Don't try to combine tibbles with different lengths</span></span>
-<span id="cb1-44"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb1-46"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>)</span>
-<span id="cb1-47"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(y, x) <span class="co">#error</span></span>
-<span id="cb1-49"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-51"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: You can "extract" a vector from a tibble using $</span></span>
-<span id="cb1-53"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a aria-hidden="true" tabindex="-1"></a>mytibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">y =</span> <span class="st">"test"</span>)</span>
-<span id="cb1-55"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a aria-hidden="true" tabindex="-1"></a>mytibble<span class="sc">$</span>x</span>
-<span id="cb1-57"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a aria-hidden="true" tabindex="-1"></a>mytibble<span class="sc">$</span>y</span>
-<span id="cb1-59"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-61"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a aria-hidden="true" tabindex="-1"></a><span class="co"># PITFALL: Don't try to extract a vector that doesn't exist</span></span>
-<span id="cb1-63"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a aria-hidden="true" tabindex="-1"></a>mytibble<span class="sc">$</span>z <span class="co">#error</span></span>
-<span id="cb1-65"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb1-67"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Get information about a tibble</span></span>
-<span id="cb1-69"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gradebook)</span>
-<span id="cb1-71"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gradebook)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Creating a Tibble from Vectors</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">4</span></span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16 36 56 76</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>my_tibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(x, y)</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>my_tibble</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+      x     y
+  &lt;dbl&gt; &lt;dbl&gt;
+1    10    16
+2    20    36
+3    30    56
+4    40    76</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Tibbles Can Mix Types</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>first_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Adam"</span>, <span class="st">"Billy"</span>, <span class="st">"Caitlyn"</span>, <span class="st">"Debra"</span>)</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a>age_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="cn">NA</span>)</span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>guests <span class="ot">&lt;-</span> <span class="fu">tibble</span>(first_names, age_years)</span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a>guests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  first_names age_years
+  &lt;chr&gt;           &lt;dbl&gt;
+1 Adam               12
+2 Billy              13
+3 Caitlyn            10
+4 Debra              NA</code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> Look at the <code>&lt;chr&gt;</code> and <code>&lt;dbl&gt;</code> labels — the tibble tracks each column’s type, and prints <code>NA</code> where a value is missing.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Building the Vectors Inline</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>gradebook <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">grade =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">83</span>, <span class="dv">90</span>, <span class="dv">76</span>),</span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">letter =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"a-"</span>, <span class="st">"c"</span>)</span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a>gradebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  grade letter
+  &lt;dbl&gt; &lt;chr&gt; 
+1    95 a     
+2    83 b     
+3    90 a-    
+4    76 c     </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Pitfall: Columns Must Be the Same Length</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `tibble()`:
+! Tibble columns must have compatible sizes.
+• Size 3: Existing data.
+• Size 2: Column `x`.
+ℹ Only values of size one are recycled.</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Extracting a Column with $</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>mytibble <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">y =</span> <span class="st">"test"</span>)</span>
+<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>mytibble<span class="sc">$</span>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>mytibble<span class="sc">$</span>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "test" "test" "test" "test" "test"</code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> <code>y</code> was a single value, so it was recycled down the whole column. Length one is the one length that is allowed to differ.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Pitfall: A Column That Does Not Exist</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>mytibble<span class="sc">$</span>z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `z`.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> This is <span class="b">not</span> an error. You get <code>NULL</code> and a warning, so a typo in a column name can flow silently into the rest of your code.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Getting Information About a Tibble</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Rows and columns</span></span>
+<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gradebook)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4 2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
+<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gradebook)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "grade"  "letter"</code></pre>
+</div>
 </div>
 </section>
 <section class="slide level2 fs70">
@@ -955,44 +1011,68 @@ China
 <p><lord-icon src="../../icons/freight_ship.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 </div></div>
 </section>
+<section class="slide level2 fs70">
+<h2>Getting a Data File</h2>
+<ul>
+<li>Download <span class="b blue"><code>gradebook.csv</code></span> from the course website into your project folder</li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>You can see it in the <span class="b green">Extras pane &gt; Files tab</span>
+<ul>
+<li>And open it in another program, such as Excel</li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section class="slide level2">
-<h2>Data Files Live Coding</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># SETUP: Load the tidyverse package (if you haven't yet)</span></span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a><span class="co"># SETUP: Download gradebook.csv from the course website into your project folder</span></span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: You can see the file in Extras pane &gt; Files tab.</span></span>
-<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a><span class="co"># You can open it in another program (e.g., Microsoft Excel).</span></span>
-<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Read in a file containing data</span></span>
-<span id="cb2-15"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"gradebook.csv"</span>)</span>
-<span id="cb2-17"><a aria-hidden="true" tabindex="-1"></a>old_gradebook</span>
-<span id="cb2-18"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: read_csv() will examine and guess the data type of each variable.</span></span>
-<span id="cb2-20"><a aria-hidden="true" tabindex="-1"></a><span class="co"># You can tell it the data type of each variable, but that is more advanced.</span></span>
-<span id="cb2-21"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-23"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Tell R which codes were used to denote missing values</span></span>
-<span id="cb2-25"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"gradebook.csv"</span>, <span class="at">na =</span> <span class="st">"?"</span>)</span>
-<span id="cb2-27"><a aria-hidden="true" tabindex="-1"></a>old_gradebook</span>
-<span id="cb2-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb2-30"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USE CASE: Reading in other types of data</span></span>
-<span id="cb2-32"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The readxl and googlesheets4 packages work with spreadsheets</span></span>
-<span id="cb2-34"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The haven package works with files from SPSS, SAS, and STATA</span></span>
-<span id="cb2-35"><a aria-hidden="true" tabindex="-1"></a><span class="co"># The rio package tries to detect the type and read in anything</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h2>Reading in a Data File</h2>
+<div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/gradebook.csv"</span>)</span>
+<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>old_gradebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+     id grade
+  &lt;dbl&gt; &lt;chr&gt;
+1   123 A    
+2   456 B    
+3   789 ?    </code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> <code>read_csv()</code> examines each column and guesses its type. You can state the types yourself, but that is more advanced.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Pitfall: Missing Values in Disguise</h2>
+<p>The grade column came in as <code>&lt;chr&gt;</code>, not because grades are letters, but because one cell holds a <code>?</code>. R has no idea that means “missing.”</p>
+<div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/gradebook.csv"</span>, <span class="at">na =</span> <span class="st">"?"</span>)</span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>old_gradebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+     id grade
+  &lt;dbl&gt; &lt;chr&gt;
+1   123 A    
+2   456 B    
+3   789 &lt;NA&gt; </code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 fs70">
+<h2>Other Kinds of Data File</h2>
+<ul>
+<li><span class="b blue">readxl</span> and <span class="b blue">googlesheets4</span> — spreadsheets</li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li><span class="b blue">haven</span> — files from SPSS, SAS, and STATA</li>
+</ul>
+</div>
+<div class="fragment mt1">
+<ul>
+<li><span class="b blue">rio</span> — tries to detect the type and read in anything</li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -1032,54 +1112,188 @@ China
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Data Verification Live Coding</h2>
+<h2>Reading in the Raw Penguins Data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># SETUP: We will use the tidyverse and easystats packages</span></span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="co"># SETUP: We will use the penguins data and configure its factors</span></span>
-<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins0.csv"</span>)</span>
-<span id="cb3-11"><a aria-hidden="true" tabindex="-1"></a>penguins</span>
-<span id="cb3-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>species <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>species, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb3-14"><a aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>, <span class="st">"Gentoo"</span>))</span>
-<span id="cb3-15"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>island <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>island, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb3-17"><a aria-hidden="true" tabindex="-1"></a>                          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>, <span class="st">"Torgersen"</span>))</span>
-<span id="cb3-18"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb3-20"><a aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>))</span>
-<span id="cb3-21"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a aria-hidden="true" tabindex="-1"></a>penguins</span>
-<span id="cb3-23"><a aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(penguins, <span class="st">"penguins.csv"</span>)</span>
-<span id="cb3-24"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-26"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Then check the summary statistics for problems</span></span>
-<span id="cb3-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Note the NA counts: 2 penguins were never measured and 11 more were never</span></span>
-<span id="cb3-30"><a aria-hidden="true" tabindex="-1"></a><span class="co"># sexed. Real data has holes, and summary() is where you find them.</span></span>
-<span id="cb3-31"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins)</span>
-<span id="cb3-33"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-35"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Describe the distribution of continuous variables</span></span>
-<span id="cb3-37"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a aria-hidden="true" tabindex="-1"></a><span class="fu">describe_distribution</span>(penguins, body_mass)</span>
-<span id="cb3-39"><a aria-hidden="true" tabindex="-1"></a><span class="fu">describe_distribution</span>(penguins)</span>
-<span id="cb3-40"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb3-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-43"><a aria-hidden="true" tabindex="-1"></a><span class="co"># LESSON: Describe the distributions of discrete variables / factors</span></span>
-<span id="cb3-44"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-45"><a aria-hidden="true" tabindex="-1"></a><span class="fu">data_tabulate</span>(penguins, species)</span>
-<span id="cb3-46"><a aria-hidden="true" tabindex="-1"></a><span class="fu">data_tabulate</span>(penguins, is.factor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins0.csv"</span>)</span>
+<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island bill_len bill_dep flipper_len body_mass   sex  year
+     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1       1      3     39.1     18.7         181      3750     2  2007
+ 2       1      3     39.5     17.4         186      3800     1  2007
+ 3       1      3     40.3     18           195      3250     1  2007
+ 4       1      3     NA       NA            NA        NA    NA  2007
+ 5       1      3     36.7     19.3         193      3450     1  2007
+ 6       1      3     39.3     20.6         190      3650     2  2007
+ 7       1      3     38.9     17.8         181      3625     1  2007
+ 8       1      3     39.2     19.6         195      4675     2  2007
+ 9       1      3     34.1     18.1         193      3475    NA  2007
+10       1      3     42       20.2         190      4250    NA  2007
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> <code>species</code>, <code>island</code>, and <code>sex</code> arrived as numbers. They are categories, and R does not know that yet.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Configuring the Factors</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>species <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>species, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>, <span class="st">"Gentoo"</span>))</span>
+<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>island <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>island, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb30-5"><a aria-hidden="true" tabindex="-1"></a>                          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>, <span class="st">"Torgersen"</span>))</span>
+<span id="cb30-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb30-8"><a aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Configured Data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_len bill_dep flipper_len body_mass sex     year
+   &lt;fct&gt;   &lt;fct&gt;        &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;dbl&gt;
+ 1 Adelie  Torgersen     39.1     18.7         181      3750 male    2007
+ 2 Adelie  Torgersen     39.5     17.4         186      3800 female  2007
+ 3 Adelie  Torgersen     40.3     18           195      3250 female  2007
+ 4 Adelie  Torgersen     NA       NA            NA        NA &lt;NA&gt;    2007
+ 5 Adelie  Torgersen     36.7     19.3         193      3450 female  2007
+ 6 Adelie  Torgersen     39.3     20.6         190      3650 male    2007
+ 7 Adelie  Torgersen     38.9     17.8         181      3625 female  2007
+ 8 Adelie  Torgersen     39.2     19.6         195      4675 male    2007
+ 9 Adelie  Torgersen     34.1     18.1         193      3475 &lt;NA&gt;    2007
+10 Adelie  Torgersen     42       20.2         190      4250 &lt;NA&gt;    2007
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> Those three columns now print as <code>&lt;fct&gt;</code> with readable values. Save the cleaned version with <code>write_csv(penguins, "penguins.csv")</code> so you never redo this.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Checking the Summary for Problems</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      species          island       bill_len        bill_dep    
+ Adelie   :152   Biscoe   :168   Min.   :32.10   Min.   :13.10  
+ Chinstrap: 68   Dream    :124   1st Qu.:39.23   1st Qu.:15.60  
+ Gentoo   :124   Torgersen: 52   Median :44.45   Median :17.30  
+                                 Mean   :43.92   Mean   :17.15  
+                                 3rd Qu.:48.50   3rd Qu.:18.70  
+                                 Max.   :59.60   Max.   :21.50  
+                                 NAs    :2       NAs    :2      
+  flipper_len      body_mass        sex           year     
+ Min.   :172.0   Min.   :2700   female:165   Min.   :2007  
+ 1st Qu.:190.0   1st Qu.:3550   male  :168   1st Qu.:2007  
+ Median :197.0   Median :4050   NAs   : 11   Median :2008  
+ Mean   :200.9   Mean   :4202                Mean   :2008  
+ 3rd Qu.:213.0   3rd Qu.:4750                3rd Qu.:2009  
+ Max.   :231.0   Max.   :6300                Max.   :2009  
+ NAs    :2       NAs    :2                                 </code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> Read the <code>NA</code> counts: 2 penguins were never measured and 11 more were never sexed. Real data has holes, and this is where you find them.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Describing One Continuous Variable</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">describe_distribution</span>(penguins, body_mass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variable  |    Mean |     SD |     IQR |              Range | Skewness
+----------------------------------------------------------------------
+body_mass | 4201.75 | 801.95 | 1206.25 | [2700.00, 6300.00] |     0.47
+
+Variable  | Kurtosis |   n | n_Missing
+--------------------------------------
+body_mass |    -0.72 | 342 |         2</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Describing All of Them at Once</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">describe_distribution</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Variable    |    Mean |     SD |     IQR |              Range | Skewness
+------------------------------------------------------------------------
+bill_len    |   43.92 |   5.46 |    9.30 |     [32.10, 59.60] |     0.05
+bill_dep    |   17.15 |   1.97 |    3.12 |     [13.10, 21.50] |    -0.14
+flipper_len |  200.92 |  14.06 |   23.25 |   [172.00, 231.00] |     0.35
+body_mass   | 4201.75 | 801.95 | 1206.25 | [2700.00, 6300.00] |     0.47
+year        | 2008.03 |   0.82 |    2.00 | [2007.00, 2009.00] |    -0.05
+
+Variable    | Kurtosis |   n | n_Missing
+----------------------------------------
+bill_len    |    -0.88 | 342 |         2
+bill_dep    |    -0.91 | 342 |         2
+flipper_len |    -0.98 | 342 |         2
+body_mass   |    -0.72 | 342 |         2
+year        |    -1.50 | 344 |         0</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Tabulating One Factor</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">data_tabulate</span>(penguins, species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>species (species) &lt;categorical&gt;
+# total N=344 valid N=344
+
+Value     |   N | Raw % | Valid % | Cumulative %
+----------+-----+-------+---------+-------------
+Adelie    | 152 | 44.19 |   44.19 |        44.19
+Chinstrap |  68 | 19.77 |   19.77 |        63.95
+Gentoo    | 124 | 36.05 |   36.05 |       100.00
+&lt;NA&gt;      |   0 |  0.00 |    &lt;NA&gt; |         &lt;NA&gt;</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Tabulating Every Factor</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">data_tabulate</span>(penguins, is.factor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>species (species) &lt;categorical&gt;
+# total N=344 valid N=344
+
+Value     |   N | Raw % | Valid % | Cumulative %
+----------+-----+-------+---------+-------------
+Adelie    | 152 | 44.19 |   44.19 |        44.19
+Chinstrap |  68 | 19.77 |   19.77 |        63.95
+Gentoo    | 124 | 36.05 |   36.05 |       100.00
+&lt;NA&gt;      |   0 |  0.00 |    &lt;NA&gt; |         &lt;NA&gt;
+
+island (island) &lt;categorical&gt;
+# total N=344 valid N=344
+
+Value     |   N | Raw % | Valid % | Cumulative %
+----------+-----+-------+---------+-------------
+Biscoe    | 168 | 48.84 |   48.84 |        48.84
+Dream     | 124 | 36.05 |   36.05 |        84.88
+Torgersen |  52 | 15.12 |   15.12 |       100.00
+&lt;NA&gt;      |   0 |  0.00 |    &lt;NA&gt; |         &lt;NA&gt;
+
+sex (sex) &lt;categorical&gt;
+# total N=344 valid N=333
+
+Value  |   N | Raw % | Valid % | Cumulative %
+-------+-----+-------+---------+-------------
+female | 165 | 47.97 |   49.55 |        49.55
+male   | 168 | 48.84 |   50.45 |       100.00
+&lt;NA&gt;   |  11 |  3.20 |    &lt;NA&gt; |         &lt;NA&gt;</code></pre>
+</div>
 </div>
 </section>
 <section class="slide level2 fs70">
@@ -1109,59 +1323,102 @@ China
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Data Visualization Live Coding</h2>
+<h2>Loading the Cleaned Data</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># PREP: We will need the tidyverse package and some example data</span></span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins.csv"</span>)</span>
-<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Visualize the variation of a discrete variable / factor</span></span>
-<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> species, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"bar"</span>)</span>
-<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> island, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"bar"</span>)</span>
-<span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-16"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Visualize the variation of a continuous variable</span></span>
-<span id="cb4-18"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> flipper_len, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"histogram"</span>)</span>
-<span id="cb4-20"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> flipper_len, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span>
-<span id="cb4-22"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"histogram"</span>)</span>
-<span id="cb4-24"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span>
-<span id="cb4-26"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Visualize the covariation of two continuous variables</span></span>
-<span id="cb4-30"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> flipper_len, <span class="at">y =</span> body_mass, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"point"</span>)</span>
-<span id="cb4-32"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-33"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-34"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Visualize the covariation of two discrete variables</span></span>
-<span id="cb4-36"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-37"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> species, <span class="at">y =</span> island, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"jitter"</span>)</span>
-<span id="cb4-38"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-39"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> species, <span class="at">fill =</span> island, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"bar"</span>)</span>
-<span id="cb4-40"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-41"><a aria-hidden="true" tabindex="-1"></a><span class="co"># ==============================================================================</span></span>
-<span id="cb4-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-43"><a aria-hidden="true" tabindex="-1"></a><span class="co"># USECASE: Visualize the covariation of a discrete and a continuous variable</span></span>
-<span id="cb4-44"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-45"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> species, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span>
-<span id="cb4-46"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-47"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> species, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"violin"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Variation of a Factor</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> species, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"bar"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `qplot()` was deprecated in ggplot2 3.4.0.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> <code>qplot()</code> warns that it is deprecated. It still works and we will keep using it here; the warning appears once per session, not once per plot.</p>
+</div></aside></section>
+<section class="slide level2">
+<h2>Variation of Another Factor</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> island, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"bar"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-22-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Variation of a Continuous Variable</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> flipper_len, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"histogram"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-23-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>The Same Variable as a Boxplot</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> flipper_len, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-24-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Body Mass as a Histogram</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"histogram"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-25-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Body Mass as a Boxplot</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-26-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Covariation of Two Continuous Variables</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> flipper_len, <span class="at">y =</span> body_mass, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"point"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-27-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>Covariation of Two Factors</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> species, <span class="at">y =</span> island, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"jitter"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-28-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>The Same Pair as Stacked Bars</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> species, <span class="at">fill =</span> island, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"bar"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-29-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>A Factor and a Continuous Variable</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> species, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"boxplot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-30-1.png" width="672" class="r-stretch"></section>
+<section class="slide level2">
+<h2>The Same Pair as Violins</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> species, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"violin"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
 </div>
 
 
-</section></section>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-31-1.png" width="672" class="r-stretch"></section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

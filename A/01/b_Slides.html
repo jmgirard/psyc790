@@ -333,7 +333,7 @@
 <li>Visit <a href="https://cloud.r-project.org">cloud.r-project.org</a></li>
 <li>Click “Download R for Windows”</li>
 <li>Click the “base” subdirectory link</li>
-<li>Click “Download R-4.X.X” (e.g., 4.5.1)</li>
+<li>Click “Download R-4.X.X” (e.g., 4.6.1)</li>
 <li>Run the downloaded .exe file</li>
 <li>Select all the default options</li>
 <li>Complete the installation wizard</li>
@@ -344,7 +344,7 @@
 <li>Open a web browser</li>
 <li>Visit <a href="https://cloud.r-project.org">cloud.r-project.org</a></li>
 <li>Click “Download R for macOS”</li>
-<li>Click “R-4.X.X.pkg” (e.g., 4.5.1)</li>
+<li>Click “R-4.X.X.pkg” (e.g., 4.6.1)</li>
 <li>Run the downloaded .pkg file</li>
 <li>Select all the default options</li>
 <li>Complete the installation wizard</li>
@@ -364,7 +364,7 @@
 <li>Visit <a href="https://posit.co/download/rstudio-desktop/" data-preview-link="false">rstudio.com/download</a></li>
 <li>Scroll down until you find the table under the “<strong>All Installers</strong>” section</li>
 <li>Find the row for “Windows 10/11”</li>
-<li>Click “RStudio-2025.XX.X-XXX.exe”</li>
+<li>Click “RStudio-2026.XX.X-XXX.exe”</li>
 <li>Run the downloaded .exe file</li>
 <li>Select all the default options</li>
 <li>Complete the installation wizard</li>
@@ -376,7 +376,7 @@
 <li>Visit <a href="https://www.rstudio.com/products/rstudio/download/" data-preview-link="false">rstudio.com/download</a></li>
 <li>Scroll down until you find the table under the “<strong>All Installers</strong>” section</li>
 <li>Find the row for “macOS 13+”</li>
-<li>Click “RStudio-2025.XX.X-XXX.dmg”</li>
+<li>Click “RStudio-2026.XX.X-XXX.dmg”</li>
 <li>Run the downloaded .dmg file</li>
 <li>Drag the RStudio icon to your Applications folder (if you want)</li>
 </ol>
@@ -459,132 +459,240 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Console Live Coding</h2>
+<h2>Addition and Subtraction</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Addition</span></span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">+</span><span class="dv">3</span></span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co"># spaces are optional but recommended</span></span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Subtraction</span></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">3</span></span>
-<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplication</span></span>
-<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">3</span> <span class="co"># correct</span></span>
-<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> x <span class="dv">3</span> <span class="co"># error</span></span>
-<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Division</span></span>
-<span id="cb1-19"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">3</span> <span class="co"># correct</span></span>
-<span id="cb1-21"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> \ <span class="dv">3</span> <span class="co"># error</span></span>
-<span id="cb1-22"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Exponentiation</span></span>
-<span id="cb1-25"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">^</span> <span class="dv">2</span></span>
-<span id="cb1-27"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Order of Operations</span></span>
-<span id="cb1-30"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb1-32"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb1-33"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Negative Numbers</span></span>
-<span id="cb1-36"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="sc">-</span><span class="dv">30</span></span>
-<span id="cb1-38"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Decimals and Fractions</span></span>
-<span id="cb1-41"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a aria-hidden="true" tabindex="-1"></a><span class="fl">1.234</span></span>
-<span id="cb1-43"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
-<span id="cb1-44"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Leading and Trailing Zeros</span></span>
-<span id="cb1-47"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a aria-hidden="true" tabindex="-1"></a><span class="fl">09.870</span></span>
-<span id="cb1-49"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Large Numbers</span></span>
-<span id="cb1-52"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9876543</span> <span class="co"># correct</span></span>
-<span id="cb1-54"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>,<span class="dv">876</span>,<span class="dv">543</span> <span class="co"># error</span></span>
-<span id="cb1-55"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="dv">876</span> <span class="dv">543</span> <span class="co"># error</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
 </div>
-</section></section>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co"># spaces are optional but recommended</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Multiplication</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> x <span class="dv">3</span> <span class="co"># Error: R has no x operator; use *</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Division</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.333333</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> \ <span class="dv">3</span> <span class="co"># Error: the slash leans the other way</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exponentiation</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Order of Operations</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplication happens before addition</span></span>
+<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Parentheses change the order</span></span>
+<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Negative Numbers</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="sc">-</span><span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -20</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Decimals and Fractions</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">1.234</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.234</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3333333</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Leading and Trailing Zeros</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># R drops zeros that carry no information</span></span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a><span class="fl">09.870</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.87</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Large Numbers</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9876543</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9876543</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>,<span class="dv">876</span>,<span class="dv">543</span> <span class="co"># Error: no commas</span></span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="dv">876</span> <span class="dv">543</span> <span class="co"># Error: no spaces either</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<aside><div>
+<p><em>Note.</em> Separators are for humans reading a page, not for R. Type the digits and nothing else.</p>
+</div></aside></section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Scripts</h1>
 
 </section>
+<section class="slide level2 fs70">
+<h2>Creating a New Script</h2>
+<ul>
+<li>Any one of these will do it:
+<ul>
+<li><span class="b blue">File &gt; New File &gt; R Script</span></li>
+<li>Top bar: the <span class="b blue">white square with a green plus</span> icon</li>
+<li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> (Win) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> (Mac)</li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>A new pane appears in the RStudio window called the <span class="b green">Source Editor</span></li>
+</ul>
+</div>
+</section>
 <section class="slide level2">
-<h2>Script Live Coding</h2>
+<h2>Entering Commands into a Script</h2>
+<p>A script holds many lines of code, which allows for longer and more complex work. Think of it like drafting an email with many instructions rather than shouting one at a time.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a new script</span></span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 1: File &gt; New File &gt; R Script</span></span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 2: Top bar: white square with green plus icon</span></span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 3: Ctrl+Shift+N (Win) Cmd+Shift+N (Mac)</span></span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## A new pane will be added to the RStudio window called the Source Editor</span></span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Entering commands into script</span></span>
-<span id="cb2-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## In the Source Editor, we can add many lines of code to a script</span></span>
-<span id="cb2-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## This allows for longer and more complex operations</span></span>
-<span id="cb2-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Think of it like drafting an email with many instructions</span></span>
-<span id="cb2-14"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span>
-<span id="cb2-15"><a aria-hidden="true" tabindex="-1"></a><span class="fl">30.1</span> <span class="sc">-</span> <span class="fl">24.7</span></span>
-<span id="cb2-16"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Running one line of code</span></span>
-<span id="cb2-19"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Hitting Enter (Win) or Return (Mac) does not run the code</span></span>
-<span id="cb2-21"><a aria-hidden="true" tabindex="-1"></a><span class="do">## We can run one line of code at a time to see its results in console</span></span>
-<span id="cb2-22"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 1: With cursor on a line, click the Run button (top-right)</span></span>
-<span id="cb2-23"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 2: With cursor on a line, Ctrl+Enter (Win) or Cmd+Return (Mac)</span></span>
-<span id="cb2-24"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Running many lines of code</span></span>
-<span id="cb2-27"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a aria-hidden="true" tabindex="-1"></a><span class="do">## We can run multiple lines of code at once to see results in console</span></span>
-<span id="cb2-29"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 1: Highlight lines with mouse, click the Run button (top-right)</span></span>
-<span id="cb2-30"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 2: Highlight lines with mouse, Ctrl+Enter (Win) or Cmd+Return (Mac)</span></span>
-<span id="cb2-31"><a aria-hidden="true" tabindex="-1"></a><span class="do">## We can even run all lines of code in a script at once</span></span>
-<span id="cb2-32"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 1: Click the Source button (top-right)</span></span>
-<span id="cb2-33"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 2: Ctrl+Shift+Enter (Win) or Cmd+Shift+Return (Mac)</span></span>
-<span id="cb2-34"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Adding comments to scripts</span></span>
-<span id="cb2-37"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a aria-hidden="true" tabindex="-1"></a><span class="do">## To help communicate the purpose of our code, we can add comments</span></span>
-<span id="cb2-39"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Comments will be ignored by R and are only there for human readers</span></span>
-<span id="cb2-40"><a aria-hidden="true" tabindex="-1"></a><span class="do">## We always start a comment in an R script with a hash symbol: #</span></span>
-<span id="cb2-41"><a aria-hidden="true" tabindex="-1"></a><span class="do">## I have been using comments in this very section you are reading!</span></span>
-<span id="cb2-42"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average score on the quiz</span></span>
-<span id="cb2-44"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span>
-<span id="cb2-45"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the difference between exam 1 and exam 2</span></span>
-<span id="cb2-47"><a aria-hidden="true" tabindex="-1"></a><span class="fl">30.1</span> <span class="sc">-</span> <span class="fl">24.7</span></span>
-<span id="cb2-48"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">/</span> <span class="dv">9</span> <span class="co"># we can even have comments at the end of line (start will still run)</span></span>
-<span id="cb2-50"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-52"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Saving the script file</span></span>
-<span id="cb2-53"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 1: File &gt; Save</span></span>
-<span id="cb2-55"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 2: Source bar: blue and white disk icon</span></span>
-<span id="cb2-56"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Option 3: Ctrl+S (Win) Cmd+S (Mac)</span></span>
-<span id="cb2-57"><a aria-hidden="true" tabindex="-1"></a><span class="do">## For now, save it wherever; we'll learn about Projects soon</span></span>
-<span id="cb2-58"><a aria-hidden="true" tabindex="-1"></a><span class="do">## You will now have a .R file that you can keep and/or transfer</span></span>
-<span id="cb2-59"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Only the code/input is saved in the script, not the results/output</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">30.1</span> <span class="sc">-</span> <span class="fl">24.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.4</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 fs70">
+<h2>Running One Line of Code</h2>
+<ul>
+<li>Hitting <kbd>Enter</kbd> or <kbd>Return</kbd> <span class="b blue">does not run the code</span> — it just adds a new line</li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>To run the line your cursor is on:
+<ul>
+<li>Click the <span class="b blue">Run</span> button (top-right of the Source Editor)</li>
+<li>Or press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Win) / <kbd>Cmd</kbd>+<kbd>Return</kbd> (Mac)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment mt1">
+<ul>
+<li>The results appear down in the <span class="b green">Console</span></li>
+</ul>
+</div>
+</section>
+<section class="slide level2 fs70">
+<h2>Running Many Lines of Code</h2>
+<ul>
+<li>To run <span class="b blue">several lines</span> at once:
+<ul>
+<li>Highlight them with the mouse, then click <span class="b blue">Run</span></li>
+<li>Or highlight them and press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> / <kbd>Cmd</kbd>+<kbd>Return</kbd></li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>To run <span class="b blue">the whole script</span> at once:
+<ul>
+<li>Click the <span class="b blue">Source</span> button (top-right)</li>
+<li>Or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> / <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Return</kbd></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Adding Comments to Scripts</h2>
+<p>Comments are ignored by R and exist only for human readers. Start one with a hash symbol.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average score on the quiz</span></span>
+<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the difference between exam 1 and exam 2</span></span>
+<span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a><span class="fl">30.1</span> <span class="sc">-</span> <span class="fl">24.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.4</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Comments Can Also End a Line</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">/</span> <span class="dv">9</span> <span class="co"># the start of the line still runs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11.11111</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 fs70">
+<h2>Saving the Script File</h2>
+<ul>
+<li>Any one of these will do it:
+<ul>
+<li><span class="b blue">File &gt; Save</span></li>
+<li>Source bar: the <span class="b blue">blue and white disk</span> icon</li>
+<li><kbd>Ctrl</kbd>+<kbd>S</kbd> (Win) or <kbd>Cmd</kbd>+<kbd>S</kbd> (Mac)</li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>For now, save it wherever; we will learn about <span class="b green">Projects</span> soon</li>
+</ul>
+</div>
+<div class="fragment mt1">
+<ul>
+<li>You now have a <span class="b blue">.R file</span> you can keep or transfer
+<ul>
+<li>Only the <span class="b green">code</span> is saved, not the results</li>
+</ul></li>
+</ul>
 </div>
 
 
