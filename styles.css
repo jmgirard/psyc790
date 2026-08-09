@@ -985,6 +985,68 @@ iframe.slide-deck {
 }
 
 /* --------------------------------------------------------------------------
+   SYNTAX CARD (.syntax)
+   --------------------------------------------------------------------------
+   Fills the 40% column on the slides that introduce a piece of R syntax.
+
+   Those slides used to carry a 300px Lordicon there with a single line of code
+   revealed under it. When the icon went (the illustration now opens the section
+   from its divider) the lone code line was left floating at the top of a mostly
+   empty column and read as a leftover.
+
+   A card instead, and it earns the space rather than filling it: the general
+   FORM above the concrete EXAMPLE is the pairing those slides were teaching
+   implicitly anyway, and seeing `name <- value` next to `office <- 7858640841`
+   is what makes the pattern legible.
+
+   Left-aligned inside a centred column on purpose: code is read from the left
+   edge, and two centred code lines of different lengths do not line up as a
+   pattern and its instance.
+   -------------------------------------------------------------------------- */
+
+.reveal .syntax {
+  text-align: left;
+  border: 1px solid #dfe3e8;
+  border-left: 3px solid #2780e3;
+  border-radius: 6px;
+  background: #f8f9fb;
+  padding: 0.75em 0.85em;
+}
+
+.reveal .syntax .lbl {
+  display: block;
+  font-size: 0.45em;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 0.35em;
+}
+
+/* Space BEFORE a label, not after every child, so a one-pair card carries no
+   trailing gap. Keyed on the paragraph rather than on `.lbl` itself: pandoc
+   wraps each `[Form]{.lbl}` in its own `<p>`, which makes the span a
+   first-child every time and `.lbl:not(:first-child)` match nothing. */
+.reveal .syntax p:has(.lbl) + p {
+  margin-top: 0.3em;
+}
+
+.reveal .syntax p + p:has(.lbl) {
+  margin-top: 0.9em;
+}
+
+/* Slightly tighter than the slide's default inline code: two of these stack in
+   a narrow column and the default 9px side padding pushes them to wrap. */
+.reveal .syntax p {
+  margin: 0;
+}
+
+.reveal .syntax code {
+  font-size: 0.62em;
+  padding: 3px 7px;
+}
+
+/* --------------------------------------------------------------------------
    MERMAID DIAGRAMS ON SLIDES
    --------------------------------------------------------------------------
    Mermaid is the one thing on these slides whose height is not fixed by the

@@ -77,7 +77,15 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ::: {.column .tc .pv5 width="40%"}
 ::: {.fragment}
+::: {.syntax}
+[Form]{.lbl}
+
+`name <- value`
+
+[Example]{.lbl}
+
 `office <- 7858640841`
+:::
 :::
 :::
 :::
@@ -336,7 +344,15 @@ has no way to know you meant the other one.
 
 ::: {.column .tc .pv5 width="40%"}
 ::: {.fragment}
+::: {.syntax}
+[Form]{.lbl}
+
+`output <- fn(input)`
+
+[Example]{.lbl}
+
 `out <- f(in1, in2)`
+:::
 :::
 :::
 :::
@@ -434,7 +450,15 @@ is what you get when you leave them out.
 
 ::: {.column .tc .pv5 width="40%"}
 ::: {.fragment}
+::: {.syntax}
+[Form]{.lbl}
+
+`name <- c(value, value)`
+
+[Example]{.lbl}
+
 `v <- c(1, 2, 3)`
+:::
 :::
 
 :::

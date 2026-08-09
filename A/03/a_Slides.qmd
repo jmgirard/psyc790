@@ -74,7 +74,15 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ::: {.column .tc .pv5 width="40%"}
 ::: {.fragment}
+::: {.syntax}
+[Form]{.lbl}
+
+`name <- "text in quotes"`
+
+[Example]{.lbl}
+
 `name <- "John Doe"`
+:::
 :::
 
 :::
@@ -296,7 +304,15 @@ rarely the order you want in a table or a plot.
 
 ::: {.column .tc .pv5 width="40%"}
 ::: {.fragment}
-`library("pkg_name")`
+::: {.syntax}
+[Form]{.lbl}
+
+`library("package")`
+
+[Example]{.lbl}
+
+`library("tidyverse")`
+:::
 :::
 :::
 :::
