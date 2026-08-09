@@ -873,6 +873,146 @@ iframe.slide-deck {
   margin-bottom: 0 !important;
 }
 
+/* --------------------------------------------------------------------------
+   AUTHORED ERROR CARD (.r-error)
+   --------------------------------------------------------------------------
+   Some failures cannot be produced by executing the chunk, so the error card
+   has to be written by hand. This rule makes a hand-written one identical to
+   the `.cell-output-error` card knitr emits, so a student sees one visual
+   language for "this fails" regardless of which kind of failure it is.
+
+   Use it for PARSE errors. Three treatments used to coexist here, and only the
+   first was right:
+
+     runtime error (`average(x)`)  -> `#| error: true`; R's own message. Keep.
+     parse error + `error: true`   -> renders, but knitr reports it through its
+                                      own parse() wrapper: "Error in parse(text
+                                      = input): <text>:1:2: unexpected ','".
+                                      A student's console says "Error:
+                                      unexpected ',' in "9,"". Do not use.
+     parse error + `eval: false`   -> no card at all, so a failing line looked
+                                      exactly like working code that was simply
+                                      not run. This is what .r-error replaces.
+
+   Keep the chunk `eval: false` and put the console-accurate message here. The
+   message must be what RStudio prints, not what knitr prints -- verify it by
+   running the line in a fresh R session rather than copying knitr's output.
+
+   Markup: the div must be the immediate next sibling of the chunk's `.cell`,
+   which is what joins the two into one card.
+
+     ```{r}
+     #| echo: true
+     #| eval: false
+     #| code-line-numbers: false
+
+     1_heart_rate <- 93
+     ```
+
+     ::: {.r-error}
+     ```
+     Error: unexpected input in "1_"
+     ```
+     :::
+   -------------------------------------------------------------------------- */
+
+.reveal .r-error pre {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.reveal .r-error pre code {
+  color: #5c0000 !important;
+  background-color: #eec5c5;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  padding: 10px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Square off the code block above so the two read as one card, mirroring
+   what `.cell:has(.cell-output)` does for a real executed chunk. */
+.reveal .cell:has(+ .r-error) div.sourceCode {
+  margin-bottom: 0 !important;
+}
+
+.reveal .cell:has(+ .r-error) div.sourceCode,
+.reveal .cell:has(+ .r-error) div.sourceCode pre,
+.reveal .cell:has(+ .r-error) div.sourceCode code {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   TAKEAWAY (.takeaway)
+   --------------------------------------------------------------------------
+   The one-line lesson under a code slide's last card.
+
+   This replaces `::: aside` for that job. An aside is *absolutely positioned
+   near the slide bottom*, so on a sparse slide the sentence explaining the
+   code floated ~200px below it as grey small print, detached from the thing it
+   explains, while the middle of the slide stayed empty. It also only appeared
+   on some slides, so the lesson was stated on one slide and left implicit on
+   the next.
+
+   A takeaway is in normal flow immediately after the last `.cell`, so it stays
+   attached to the code and fills the space that was empty. Order on the slide
+   is deliberate: code, then result, then the lesson -- the result is the
+   punchline, so a lead-in sentence above the code gives it away.
+
+   `aside` is still right for a genuine footnote (a caveat, a source, a "we
+   will come back to this"). It is not right for the point of the slide.
+
+   Figure slides are exempt: they already fill their space, and a good plot
+   title carries the lesson.
+   -------------------------------------------------------------------------- */
+
+.reveal .takeaway {
+  margin-top: 0.9rem;
+  font-size: 0.8em;
+  line-height: 1.35;
+  color: #3f3f3f;
+}
+
+.reveal .takeaway b,
+.reveal .takeaway strong {
+  color: #111;
+}
+
+/* --------------------------------------------------------------------------
+   MERMAID DIAGRAMS ON SLIDES
+   --------------------------------------------------------------------------
+   Mermaid is the one thing on these slides whose height is not fixed by the
+   revealjs canvas. It lays itself out from *unscaled device text metrics*
+   while sitting inside reveal's CSS transform, so the viewBox aspect ratio it
+   computes changes with the deck scale: B/06/c's "Further partitioning"
+   diagram measured 566x216 in a small window and 955x274 at 1920x1080. With
+   `width: 100%` the rendered height follows that aspect, so the same slide
+   overflowed by 0px in a narrow pane and 49px on a projector -- invisible to
+   any sweep run in a small window.
+
+   Capping the height in slide pixels makes it scale-independent: the diagram
+   is 210px tall at every deck scale, and the viewBox letterboxes itself inside
+   that. `width: auto` is required with it, or the 100% width wins and the
+   cap does nothing.
+
+   Only B/06/c has a mermaid diagram today. This rule exists so the next one
+   does not reintroduce the same bug. See SLIDE-OVERFLOW.md.
+   -------------------------------------------------------------------------- */
+
+.reveal .slides svg.mermaid-js {
+  max-height: 210px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  display: block;
+  margin: 0 auto;
+}
+
 kbd {
   font-size: 0.8em;
 }
@@ -929,4 +1069,36 @@ kbd {
 
 .reveal .gt_table {
   font-size: 24px !important;
+}
+
+/* ==========================================================================
+   404 PROGRESS GRID
+   --------------------------------------------------------------------------
+   The chapter-progress list on 404.qmd used Quarto's `.columns` with four
+   fixed `width="25%"` columns. Those do not wrap, so on a narrow window the
+   unit headings collided into each other ("Unit A -- Foundations Unit C -- The
+   Linear Model"), wrapped to two lines, and knocked each column's checkboxes
+   out of alignment with its neighbours. Units A and B also shared one column,
+   so that column ran twice as long as the rest.
+
+   A grid fixes all of it: one cell per unit, `auto-fit` so the number of
+   columns follows the available width, and `minmax` so a column never gets
+   narrower than a unit title needs. Five across on a wide screen, down to one
+   on a phone, with no breakpoints to maintain.
+   ========================================================================== */
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.75rem 2rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.progress-unit ul {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.progress-unit ul li {
+  list-style: none;
 }

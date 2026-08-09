@@ -293,6 +293,9 @@
 <pre><code>[1] "red"</code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p>Quotation marks are what separate a <strong>value</strong> from a <strong>name</strong>. Without them R goes looking for an object, which is why the error mentions one you never made.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Strings Can Hold Any Symbol</h2>
@@ -308,6 +311,9 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "red#40"  "blue#02"</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>Inside quotes the naming rules no longer apply: spaces, <code>#</code>, and anything else are just characters. R only reads what is inside as text.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -328,12 +334,12 @@
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> <code>mean()</code> does not stop with an error — it warns and hands back <code>NA</code>. A result that looks like an answer is easier to miss than a failure.</p>
-</div></aside></section>
+<div class="takeaway">
+<p><code>mean()</code> does not stop with an error; it warns and hands back <code>NA</code>. A result that <strong>looks like an answer</strong> is easier to miss than a failure.</p>
+</div>
+</section>
 <section class="slide level2">
-<h2>But Some Functions Work on Both</h2>
+<h2>Functions That Do Work on Strings</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># How many elements are in the vector?</span></span>
 <span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(dyes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -345,16 +351,14 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6 7</code></pre>
 </div>
-</div>
-</section>
-<section class="slide level2">
-<h2>And Some Work Only on Strings</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>dyes2 <span class="ot">&lt;-</span> <span class="fu">toupper</span>(dyes)</span>
-<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>dyes2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Some functions only make sense for strings</span></span>
+<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">toupper</span>(dyes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "RED#40"  "BLUE#02"</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p><code>length()</code> counts elements whatever they are; <code>nchar()</code> and <code>toupper()</code> only mean anything for text. What a function accepts follows from what it is for.</p>
 </div>
 </section></section>
 <section>
@@ -389,119 +393,107 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Starting with Numeric Codes</h2>
+<h2>From Numeric Codes to a Factor</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Ask 10 kids to order 1: nuggets, 2: pizza, or 3: salad</span></span>
 <span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>food <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a>food</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 2 2 1 2 1 2 1 1 2 2</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Turning Codes into a Factor</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>food2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food)</span>
-<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>food2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>food2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food)</span>
+<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a>food2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 2 2 1 2 1 2 1 1 2 2
 Levels: 1 2</code></pre>
 </div>
-</div>
-
-<aside><div>
-<p><em>Note.</em> The <code>Levels:</code> line at the bottom is how a factor prints. R found only the values that actually occur.</p>
-</div></aside></section>
-<section class="slide level2">
-<h2>Counting Levels with table()</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(food2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(food2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>food2
 1 2 
 4 6 </code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p><code>factor()</code> tells R these numbers are labels, not quantities. The <code>Levels:</code> line is how a factor prints, and R found only the values that <strong>actually occur</strong>.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Declaring Levels That Did Not Occur</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Nobody ordered salad, but 3 was always a possible answer</span></span>
-<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>food3 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>food3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Nobody ordered salad, but 3 was always a possible answer</span></span>
+<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a>food3 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>food3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 2 2 1 2 1 2 1 1 2 2
 Levels: 1 2 3</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(food3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(food3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>food3
 1 2 3 
 4 6 0 </code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p>State the levels yourself and the count for salad is a meaningful <code>0</code> rather than a category that silently does not exist.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Labelling the Levels</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>food4 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"nuggets"</span>, <span class="st">"pizza"</span>, <span class="st">"salad"</span>))</span>
-<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a>food4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>food4 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"nuggets"</span>, <span class="st">"pizza"</span>, <span class="st">"salad"</span>))</span>
+<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a>food4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] pizza   pizza   nuggets pizza   nuggets pizza   nuggets nuggets pizza  
 [10] pizza  
 Levels: nuggets pizza salad</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(food4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(food4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>food4
 nuggets   pizza   salad 
       4       6       0 </code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p><code>levels</code> are the values in your data; <code>labels</code> are what you want printed. Naming them here means never again looking up what <code>2</code> meant.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Pitfall: Levels are Not Labels</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># levels must match what is IN the data; labels are what you want printed</span></span>
-<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>food5 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"nuggets"</span>, <span class="st">"pizza"</span>, <span class="st">"salad"</span>),</span>
-<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb34-4"><a aria-hidden="true" tabindex="-1"></a>food5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># levels must match what is IN the data; labels are what you want printed</span></span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>food5 <span class="ot">&lt;-</span> <span class="fu">factor</span>(food, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"nuggets"</span>, <span class="st">"pizza"</span>, <span class="st">"salad"</span>),</span>
+<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>food5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
 Levels: 1 2 3</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> All <code>&lt;NA&gt;</code>: R searched the data for the string <code>"nuggets"</code> and found only the number <code>2</code>. It does not error — it quietly returns missing values.</p>
-</div></aside></section>
+<div class="takeaway">
+<p>All <code>&lt;NA&gt;</code>: R searched the data for the string <code>"nuggets"</code> and found only the number <code>2</code>. It does not error; it <strong>quietly returns missing values</strong>.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Levels Can Be Strings to Begin With</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>genre <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pop"</span>, <span class="st">"metal"</span>, <span class="st">"pop"</span>, <span class="st">"rock"</span>, <span class="st">"rap"</span>, <span class="st">"rap"</span>, <span class="st">"pop"</span>, <span class="st">"rock"</span>)</span>
-<span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a aria-hidden="true" tabindex="-1"></a>genre2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(genre)</span>
-<span id="cb36-4"><a aria-hidden="true" tabindex="-1"></a>genre2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>genre <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pop"</span>, <span class="st">"metal"</span>, <span class="st">"pop"</span>, <span class="st">"rock"</span>, <span class="st">"rap"</span>, <span class="st">"rap"</span>, <span class="st">"pop"</span>, <span class="st">"rock"</span>)</span>
+<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>genre2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(genre)</span>
+<span id="cb34-4"><a aria-hidden="true" tabindex="-1"></a>genre2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] pop   metal pop   rock  rap   rap   pop   rock 
 Levels: metal pop rap rock</code></pre>
 </div>
-</div>
-
-<aside><div>
-<p><em>Note.</em> With no <code>levels</code> given, R sorts the observed values alphabetically — which is rarely the order you want for a plot.</p>
-</div></aside></section>
-<section class="slide level2">
-<h2>Counting the String Levels</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(genre2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(genre2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>genre2
 metal   pop   rap  rock 
     1     3     2     2 </code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>With no <code>levels</code> given, R sorts the observed values alphabetically, which is rarely the order you want in a table or a plot.</p>
 </div>
 </section></section>
 <section>
@@ -541,29 +533,25 @@ metal   pop   rap  rock
 </div></div>
 </section>
 <section class="slide level2">
-<h2>A Function We Do Not Have Yet</h2>
-<p>The stringr package has a function that fixes capitalization.</p>
+<h2>Pitfall: A Function R Cannot Find</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mary anne"</span>, <span class="st">"BENjamin"</span>, <span class="st">"Lee"</span>)</span>
-<span id="cb40-2"><a aria-hidden="true" tabindex="-1"></a>students</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mary anne"</span>, <span class="st">"BENjamin"</span>, <span class="st">"Lee"</span>)</span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>students</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "mary anne" "BENjamin"  "Lee"      </code></pre>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>Pitfall: Not Installed Means Not Found</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `str_to_title()`:
 ! could not find function "str_to_title"</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> “could not find function” means R can’t find that name: check the spelling first, then whether the function’s package is installed and loaded.</p>
-</div></aside></section>
+<div class="takeaway">
+<p>The stringr package has a function that fixes capitalization, but “could not find function” means R cannot find that <strong>name</strong>. Check the spelling first, then whether the function’s package is installed and loaded.</p>
+</div>
+</section>
 <section class="slide level2 fs70">
 <h2>Installing a Package</h2>
 <ul>
@@ -575,7 +563,7 @@ metal   pop   rap  rock
 </ul>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="callout callout-warning callout-titled callout-style-default">
@@ -587,7 +575,7 @@ metal   pop   rap  rock
 <p><strong>Warning</strong></p>
 </div>
 <div class="callout-content">
-<p>Run this in the <span class="b">Console</span>, never inside a Quarto document — it would reinstall the package every time you render.</p>
+<p>Run this in the <span class="b">Console</span>, never inside a Quarto document, since it would reinstall the package every time you render.</p>
 </div>
 </div>
 </div>
@@ -595,29 +583,25 @@ metal   pop   rap  rock
 </section>
 <section class="slide level2">
 <h2>Installing is Not Loading</h2>
-<p>Installed puts the package on your <span class="b green">library</span> shelf. It still is not in this R session.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `str_to_title()`:
 ! could not find function "str_to_title"</code></pre>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>Loading with library()</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"stringr"</span>)</span>
-<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Mary Anne" "Benjamin"  "Lee"      </code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> Install once per computer (and again after upgrading R); load once per session.</p>
-</div></aside></section>
+<div class="takeaway">
+<p>Installing puts the package on your <span class="b green">library</span> shelf; it is still not in this session until you take it down with <code>library()</code>. Install once per computer (and again after upgrading R); load <strong>once per session</strong>.</p>
+</div>
+</section>
 <section class="slide level2 fs70">
 <h2>Keeping Packages Updated</h2>
 <ul>
@@ -625,22 +609,21 @@ metal   pop   rap  rock
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>Worth doing occasionally, but <span class="b blue">not</span> in the middle of an analysis — a package update can change results</li>
+<li>Worth doing occasionally, but <span class="b blue">not</span> in the middle of an analysis, since a package update can change results</li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
 <h2>Learning More: Vignettes</h2>
-<p>Many packages ship long-form articles showing how they are meant to be used.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">"stringr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">"stringr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="takeaway">
+<p>Many packages ship long-form articles showing how they are meant to be used, usually a better starting point than the help page for any one function. This opens a browser window, so run it in the Console too.</p>
 </div>
 
 
-
-<aside><div>
-<p><em>Note.</em> This opens a browser window, so run it in the Console too.</p>
-</div></aside></section></section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -838,308 +821,156 @@ metal   pop   rap  rock
       });
     </script>
     <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       // 1. Re-classify stderr to warnings and messages and strip empty lines
-
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
-
         // Strip invisible zero-width spaces Quarto sometimes inserts
-
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-
     
-
         // Remove completely empty blocks to fix the gaps
-
         if (text === '') {
-
           output.remove();
-
           return;
-
         }
-
     
-
         if (output.textContent.includes('Warning:')) {
-
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
-
         } else {
-
           output.classList.replace('cell-output-stderr', 'cell-output-message');
-
         }
-
       });
-
     
-
       // 2. Physically merge adjacent blocks into one seamless block
-
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
-
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(function(current) {
-
           if (!current.parentNode) return; // Skip if it was already merged and removed
-
     
-
           let next = current.nextElementSibling;
-
           while (next && next.classList.contains(selector.substring(1))) {
-
             let currentCode = current.querySelector('pre code');
-
             let nextCode = next.querySelector('pre code');
-
     
-
             if (currentCode && nextCode) {
-
                // Clean up formatting and append to the primary block
-
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
-
                if (appendText !== '') {
-
                  currentCode.innerHTML += '\n' + appendText;
-
                }
-
             }
-
     
-
             let toRemove = next;
-
             next = next.nextElementSibling;
-
             toRemove.remove();
-
           }
-
         });
-
       });
-
     });
-
     
-
     // 3. Publish reveal's canvas scale as --deck-scale.
-
     //
-
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
-
     // outside that transform, so anything sized in px there ignores the deck size
-
     // entirely. Mirroring the scale onto a custom property lets styles.css keep the
-
     // footer proportional to the slide text (see `.reveal .footer`).
-
     //
-
     // Read off the inline transform rather than Reveal's API on purpose: this file
-
     // is included after the body but before Reveal.initialize() resolves, so there
-
     // is no Reveal object to attach a 'resize' listener to yet. Watching the style
-
     // attribute catches the initial layout and every resize with no ordering
-
     // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
-
     // no .reveal .slides at all.
-
     (function () {
-
       const slides = document.querySelector(".reveal .slides");
-
       if (!slides) return;
-
     
-
       function publishScale() {
-
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
-
         document.documentElement.style.setProperty(
-
           "--deck-scale",
-
           match ? match[1] : "1"
-
         );
-
       }
-
     
-
       new MutationObserver(publishScale).observe(slides, {
-
         attributes: true,
-
         attributeFilter: ["style"],
-
       });
-
       publishScale();
-
     })();
-
     
-
     // 4. Play each section-divider icon once, when its slide is reached.
-
     //
-
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
-
     // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
-
     // (display:block, translated out of view) so the observer fires for the wrong
-
     // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
-
     // section's icon, arriving at "Regression Inference" played the fifth, and the
-
     // icons on the slides actually being shown never played at all.
-
     //
-
     // So the shortcodes carry no `trigger` -- which leaves them static -- and
-
     // playback is driven from reveal's own slide events, which know exactly which
-
     // slide is being entered. `slidechanged` covers navigation; `ready` covers a
-
     // deck opened directly on a divider by URL hash. Both bubble to document, which
-
     // matters because this file runs before Reveal.initialize() resolves and there
-
     // is no Reveal object yet to attach a listener to.
-
     (function () {
-
       function playIcons(slide) {
-
         if (!slide) return;
-
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-
           // The player is created asynchronously, so on a fast first navigation it
-
           // may not exist yet; wait for its ready event in that case.
-
           if (el.playerInstance && el.playerInstance.isReady) {
-
             el.playerInstance.playFromBeginning();
-
           } else {
-
             el.addEventListener("ready", function () {
-
               el.playerInstance.playFromBeginning();
-
             }, { once: true });
-
           }
-
         });
-
       }
-
     
-
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
-
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
-
     })();
-
     </script>
-
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1211,7 +1042,7 @@ metal   pop   rap  rock
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

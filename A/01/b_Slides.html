@@ -255,33 +255,34 @@
 </div></div>
 </section>
 <section class="slide level2 fs70">
-<h2>Common Data Science Languages</h2>
-<h4>General Purpose</h4>
+<h2>R and Other Stats Software</h2>
 <ul>
-<li><span class="b blue">R</span> (interactive, welcoming)
+<li>You may have met <span class="b blue">SPSS</span>, <span class="b blue">SAS</span>, <span class="b blue">Stata</span>, <span class="b blue">Mplus</span>, <span class="b blue">JASP</span>, or <span class="b blue">jamovi</span>
 <ul>
-<li><em>Strengths:</em> statistics, data wrangling, data visualization</li>
-<li><em>Weaknesses:</em> relatively slow, not security-focused</li>
+<li>All of them can run the analyses in this course</li>
 </ul></li>
 </ul>
-<div class="fragment">
+<div class="fragment mt1">
 <ul>
-<li><span class="b blue">Python</span> (popular, versatile)
+<li>R is <span class="b green">free</span>, on every computer you will ever use
 <ul>
-<li><em>Strengths:</em> automation, machine learning, data wrangling</li>
-<li><em>Weaknesses:</em> relatively slow</li>
+<li>No licence to buy, renew, or lose when you change institution</li>
+<li>JASP and jamovi are free too, and both are built on R</li>
 </ul></li>
 </ul>
 </div>
-<div class="fragment">
+<div class="fragment mt1">
 <ul>
-<li><span class="b green">Java</span> / <span class="b green">C++</span> / <span class="b green">Scala</span> / <span class="b green">Julia</span> (faster but older and harder or newer and smaller)</li>
+<li>R is a <span class="b green">real programming language</span>, not a menu with a syntax window
+<ul>
+<li>Which is why <span class="b blue">data preparation</span> is so much easier here</li>
+<li>Cleaning, reshaping, and merging are the bulk of real analysis</li>
+</ul></li>
 </ul>
 </div>
-<div class="fragment">
-<h4>Special Purpose</h4>
+<div class="fragment mt1">
 <ul>
-<li>JavaScript (web), SQL (databases), Swift (mobile), MATLAB (neuroscience), etc.</li>
+<li>New methods arrive as <span class="b blue">packages</span>, written by the researchers who developed them, often years before the commercial packages catch up</li>
 </ul>
 </div>
 </section>
@@ -459,144 +460,109 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Addition and Subtraction</h2>
+<h2>Arithmetic</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 13</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
-</div>
-
-<aside><div>
-<p><em>Note.</em> Spaces around an operator are optional, but they make code easier to read.</p>
-</div></aside></section>
-<section class="slide level2">
-<h2>Multiplication</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30</code></pre>
 </div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> x <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:1:4: unexpected symbol
-1: 10 x
-       ^</code></pre>
-</div>
-</div>
-
-<aside><div>
-<p><em>Note.</em> R has no <code>x</code> operator, so use <code>*</code> instead.</p>
-</div></aside></section>
-<section class="slide level2">
-<h2>Division</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.333333</code></pre>
 </div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> \ <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:1:4: unexpected '\\'
-1: 10 \
-       ^</code></pre>
-</div>
-</div>
-
-<aside><div>
-<p><em>Note.</em> The division slash leans the other way; <code>\</code> means something else entirely.</p>
-</div></aside></section>
-<section class="slide level2">
-<h2>Exponentiation</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>The four operators you already know, plus <code>^</code> for powers. Spaces are optional.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Pitfall: Notation R Does Not Accept</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> x <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="r-error">
+<pre><code>Error: unexpected symbol in "10 x"</code></pre>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> \ <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="r-error">
+<pre><code>Error: unexpected '\' in "10 \"</code></pre>
+</div>
+<div class="takeaway">
+<p>Multiplication is <code>*</code>, never <code>x</code>, and division is <code>/</code>, the slash that leans the other way. R reads <code>\</code> as the start of something else entirely.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Order of Operations</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 26</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> Multiplication happens before addition; parentheses change the order.</p>
-</div></aside></section>
-<section class="slide level2">
-<h2>Negative Numbers</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="sc">-</span><span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -20</code></pre>
-</div>
+<div class="takeaway">
+<p>Multiplication happens before addition, exactly as in algebra. Parentheses override that, and are worth adding whenever the order is not obvious at a glance.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Decimals and Fractions</h2>
+<h2>Decimals and Negative Numbers</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">1.234</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="sc">-</span><span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -20</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">1.234</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.234</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3333333</code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p>Negative numbers need no special treatment, and division gives a decimal rather than a fraction. R prints as many digits as it thinks you need, not all of them.</p>
+</div>
 </section>
 <section class="slide level2">
-<h2>Leading and Trailing Zeros</h2>
+<h2>How R Prints Numbers</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">09.870</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">09.870</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9.87</code></pre>
 </div>
-</div>
-
-<aside><div>
-<p><em>Note.</em> R drops leading and trailing zeros that carry no information.</p>
-</div></aside></section>
-<section class="slide level2">
-<h2>Large Numbers</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9876543</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9876543</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9876543</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>,<span class="dv">876</span>,<span class="dv">543</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:1:2: unexpected ','
-1: 9,
-     ^</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>,<span class="dv">876</span>,<span class="dv">543</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="r-error">
+<pre><code>Error: unexpected ',' in "9,"</code></pre>
 </div>
-
-<aside><div>
-<p><em>Note.</em> Separators are for humans, not for R — type the digits and nothing else.</p>
-</div></aside></section></section>
+<div class="takeaway">
+<p>R drops leading and trailing zeros that carry no information. Thousands separators are for humans: type the digits and <strong>nothing else</strong>.</p>
+</div>
+</section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Scripts</h1>
@@ -605,7 +571,10 @@
 <section class="slide level2 fs70">
 <h2>Creating a New Script</h2>
 <ul>
-<li>A script is just a <span class="b blue">plain text file</span> saved with a <span class="b blue"><code>.R</code></span> extension</li>
+<li>A script is just a <span class="b blue">plain text file</span> saved with a <span class="b blue"><code>.R</code></span> extension
+<ul>
+<li>Which makes it easy to <span class="b green">share your code</span> with other people</li>
+</ul></li>
 <li>Any one of these will create one:
 <ul>
 <li><span class="b blue">File &gt; New File &gt; R Script</span></li>
@@ -621,22 +590,24 @@
 </section>
 <section class="slide level2">
 <h2>Entering Commands into a Script</h2>
-<p>A script holds many lines of code, which allows for longer and more complex work. Think of it like drafting an email with many instructions rather than shouting one at a time.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.5</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">30.1</span> <span class="sc">-</span> <span class="fl">24.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="fl">30.1</span> <span class="sc">-</span> <span class="fl">24.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.4</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>A script holds many lines at once. Think of it as drafting an email with several instructions rather than shouting one at a time.</p>
 </div>
 </section>
 <section class="slide level2 fs70">
 <h2>Running One Line of Code</h2>
 <ul>
-<li>Hitting <kbd>Enter</kbd> or <kbd>Return</kbd> <span class="b blue">does not run the code</span> — it just adds a new line</li>
+<li>Hitting <kbd>Enter</kbd> or <kbd>Return</kbd> <span class="b blue">does not run the code</span>; it just adds a new line</li>
 </ul>
 <div class="fragment mt1">
 <ul>
@@ -674,27 +645,19 @@
 </section>
 <section class="slide level2">
 <h2>Adding Comments to Scripts</h2>
-<p>Comments are ignored by R and exist only for human readers. Start one with a hash symbol.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average score on the quiz</span></span>
-<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average score on the quiz</span></span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.4</span> <span class="sc">+</span> <span class="fl">2.8</span> <span class="sc">+</span> <span class="fl">9.3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.5</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the difference between exam 1 and exam 2</span></span>
-<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a><span class="fl">30.1</span> <span class="sc">-</span> <span class="fl">24.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.4</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Comments Can Also End a Line</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">/</span> <span class="dv">9</span> <span class="co"># the start of the line still runs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">/</span> <span class="dv">9</span> <span class="co"># a comment can also end a line</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11.11111</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>Anything after a <code>#</code> is ignored by R and exists only for human readers. A comment can have a line to itself or sit at the end of one; the code before it still runs.</p>
 </div>
 </section>
 <section class="slide level2 fs70">
@@ -920,308 +883,156 @@
       });
     </script>
     <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       // 1. Re-classify stderr to warnings and messages and strip empty lines
-
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
-
         // Strip invisible zero-width spaces Quarto sometimes inserts
-
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-
     
-
         // Remove completely empty blocks to fix the gaps
-
         if (text === '') {
-
           output.remove();
-
           return;
-
         }
-
     
-
         if (output.textContent.includes('Warning:')) {
-
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
-
         } else {
-
           output.classList.replace('cell-output-stderr', 'cell-output-message');
-
         }
-
       });
-
     
-
       // 2. Physically merge adjacent blocks into one seamless block
-
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
-
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(function(current) {
-
           if (!current.parentNode) return; // Skip if it was already merged and removed
-
     
-
           let next = current.nextElementSibling;
-
           while (next && next.classList.contains(selector.substring(1))) {
-
             let currentCode = current.querySelector('pre code');
-
             let nextCode = next.querySelector('pre code');
-
     
-
             if (currentCode && nextCode) {
-
                // Clean up formatting and append to the primary block
-
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
-
                if (appendText !== '') {
-
                  currentCode.innerHTML += '\n' + appendText;
-
                }
-
             }
-
     
-
             let toRemove = next;
-
             next = next.nextElementSibling;
-
             toRemove.remove();
-
           }
-
         });
-
       });
-
     });
-
     
-
     // 3. Publish reveal's canvas scale as --deck-scale.
-
     //
-
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
-
     // outside that transform, so anything sized in px there ignores the deck size
-
     // entirely. Mirroring the scale onto a custom property lets styles.css keep the
-
     // footer proportional to the slide text (see `.reveal .footer`).
-
     //
-
     // Read off the inline transform rather than Reveal's API on purpose: this file
-
     // is included after the body but before Reveal.initialize() resolves, so there
-
     // is no Reveal object to attach a 'resize' listener to yet. Watching the style
-
     // attribute catches the initial layout and every resize with no ordering
-
     // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
-
     // no .reveal .slides at all.
-
     (function () {
-
       const slides = document.querySelector(".reveal .slides");
-
       if (!slides) return;
-
     
-
       function publishScale() {
-
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
-
         document.documentElement.style.setProperty(
-
           "--deck-scale",
-
           match ? match[1] : "1"
-
         );
-
       }
-
     
-
       new MutationObserver(publishScale).observe(slides, {
-
         attributes: true,
-
         attributeFilter: ["style"],
-
       });
-
       publishScale();
-
     })();
-
     
-
     // 4. Play each section-divider icon once, when its slide is reached.
-
     //
-
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
-
     // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
-
     // (display:block, translated out of view) so the observer fires for the wrong
-
     // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
-
     // section's icon, arriving at "Regression Inference" played the fifth, and the
-
     // icons on the slides actually being shown never played at all.
-
     //
-
     // So the shortcodes carry no `trigger` -- which leaves them static -- and
-
     // playback is driven from reveal's own slide events, which know exactly which
-
     // slide is being entered. `slidechanged` covers navigation; `ready` covers a
-
     // deck opened directly on a divider by URL hash. Both bubble to document, which
-
     // matters because this file runs before Reveal.initialize() resolves and there
-
     // is no Reveal object yet to attach a listener to.
-
     (function () {
-
       function playIcons(slide) {
-
         if (!slide) return;
-
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-
           // The player is created asynchronously, so on a fast first navigation it
-
           // may not exist yet; wait for its ready event in that case.
-
           if (el.playerInstance && el.playerInstance.isReady) {
-
             el.playerInstance.playFromBeginning();
-
           } else {
-
             el.addEventListener("ready", function () {
-
               el.playerInstance.playFromBeginning();
-
             }, { once: true });
-
           }
-
         });
-
       }
-
     
-
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
-
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
-
     })();
-
     </script>
-
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1293,7 +1104,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

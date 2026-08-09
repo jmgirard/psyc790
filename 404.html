@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="/site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="/site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="/site_libs/bootstrap/bootstrap-221fb94c3ec07aa7e68c2d5abc4fc18e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="/site_libs/bootstrap/bootstrap-6191c8c4c757b97205a8995aa6c30869.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -241,36 +241,41 @@ ul.task-list li input[type="checkbox"] {
 <section id="update-progress" class="level3">
 <h3 class="anchored" data-anchor-id="update-progress">Update Progress</h3>
 <p>Below, I will track my progress writing this website chapter-by-chapter. Unchecked chapters are outlined but not yet written.</p>
-<div class="columns">
-<div class="column" style="width:25%;">
-<p><strong>Unit A — Foundations</strong></p>
+<div class="progress-grid">
+<div class="progress-unit">
+<p><strong>Unit A: Foundations</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">Chapter 01</label></li>
 <li><label><input type="checkbox" checked="">Chapter 02</label></li>
 <li><label><input type="checkbox" checked="">Chapter 03</label></li>
 </ul>
-<p><strong>Unit B — Inference</strong></p>
+</div>
+<div class="progress-unit">
+<p><strong>Unit B: Inference</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">Chapter 04</label></li>
 <li><label><input type="checkbox" checked="">Chapter 05</label></li>
 <li><label><input type="checkbox" checked="">Chapter 06</label></li>
 </ul>
-</div><div class="column" style="width:25%;">
-<p><strong>Unit C — The Linear Model</strong></p>
+</div>
+<div class="progress-unit">
+<p><strong>Unit C: The Linear Model</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">Chapter 07</label></li>
 <li><label><input type="checkbox" checked="">Chapter 08</label></li>
 <li><label><input type="checkbox">Chapter 09</label></li>
 </ul>
-</div><div class="column" style="width:25%;">
-<p><strong>Unit D — Data Problems</strong></p>
+</div>
+<div class="progress-unit">
+<p><strong>Unit D: Data Problems</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">Chapter 10</label></li>
 <li><label><input type="checkbox">Chapter 11</label></li>
 <li><label><input type="checkbox">Chapter 12</label></li>
 </ul>
-</div><div class="column" style="width:25%;">
-<p><strong>Unit E — Designing and Reporting</strong></p>
+</div>
+<div class="progress-unit">
+<p><strong>Unit E: Designing and Reporting</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Chapter 13</label></li>
 <li><label><input type="checkbox" checked="">Chapter 14</label></li>
@@ -357,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

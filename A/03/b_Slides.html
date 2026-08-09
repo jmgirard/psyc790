@@ -864,9 +864,11 @@ China
 </section>
 <section class="slide level2">
 <h2>Loading the tidyverse</h2>
-<p>Install it once via <span class="b blue">Extras pane &gt; Packages tab &gt; Install</span>, then load it each session.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="takeaway">
+<p>Install it once via <span class="b blue">Extras pane &gt; Packages tab &gt; Install</span>, then load it each session. One <code>library()</code> call brings in the whole collection: readr, dplyr, ggplot2 and the rest. That is the only line most scripts need.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -891,6 +893,9 @@ China
 4    40    76</code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p><code>tibble()</code> lines vectors up as columns, using each vector’s name as the column name. They must be the same length, since these are rows of one dataset.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Tibbles Can Mix Types</h2>
@@ -911,10 +916,10 @@ China
 4 Debra              NA</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> Look at the <code>&lt;chr&gt;</code> and <code>&lt;dbl&gt;</code> labels — the tibble tracks each column’s type, and prints <code>NA</code> where a value is missing.</p>
-</div></aside></section>
+<div class="takeaway">
+<p>Look at the <code>&lt;chr&gt;</code> and <code>&lt;dbl&gt;</code> labels: a tibble tracks each column’s type, and prints <code>NA</code> where a value is missing rather than guessing at one.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Building the Vectors Inline</h2>
 <div class="cell">
@@ -933,9 +938,12 @@ China
 4    76 c     </code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p>Naming the columns inside <code>tibble()</code> skips the separate vectors entirely: less to type, and nothing left lying around afterwards.</p>
+</div>
 </section>
 <section class="slide level2">
-<h2>Pitfall: Columns Must Be the Same Length</h2>
+<h2>Pitfall: Unequal Column Lengths</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
@@ -945,6 +953,9 @@ China
 • Size 2: Column `x`.
 ℹ Only values of size one are recycled.</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>Every column is one variable measured on the same rows, so they must all be the same length. R does make one exception: a column of length 1 is repeated down the whole tibble.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -961,10 +972,10 @@ China
 <pre><code>[1] "test" "test" "test" "test" "test"</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> <code>y</code> was a single value, so it was recycled down the whole column. Length one is the one length that is allowed to differ.</p>
-</div></aside></section>
+<div class="takeaway">
+<p><code>$</code> pulls one column out as a plain vector. Note <code>y</code>: a single value is recycled down the whole column, because length one is the one length allowed to differ.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Pitfall: A Column That Does Not Exist</h2>
 <div class="cell">
@@ -976,10 +987,10 @@ China
 <pre><code>NULL</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> This is <span class="b">not</span> an error. You get <code>NULL</code> and a warning, so a typo in a column name can flow silently into the rest of your code.</p>
-</div></aside></section>
+<div class="takeaway">
+<p>This is <span class="b">not</span> an error. You get <code>NULL</code> and a warning, so a typo in a column name can <strong>flow silently</strong> into the rest of your code.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Getting Information About a Tibble</h2>
 <div class="cell">
@@ -993,6 +1004,9 @@ China
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "grade"  "letter"</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>Worth running on any dataset you did not build yourself, before you write code that assumes what is in it.</p>
 </div>
 </section>
 <section class="slide level2 fs70">
@@ -1044,7 +1058,7 @@ China
 <section class="slide level2">
 <h2>Reading in a Data File</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/gradebook.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"gradebook.csv"</span>)</span>
 <span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>old_gradebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1055,15 +1069,14 @@ China
 3   789 ?    </code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> <code>read_csv()</code> examines each column and guesses its type. You can state the types yourself, but that is more advanced.</p>
-</div></aside></section>
+<div class="takeaway">
+<p><code>read_csv()</code> examines each column and guesses its type. You can state the types yourself, but the guess is usually right. Check it rather than assume it.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Pitfall: Missing Values in Disguise</h2>
-<p>One student’s grade is recorded as <code>?</code>. R has no idea that means “missing” — unless we say so with <code>na = "?"</code>, it stays a real value that pollutes the column.</p>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/gradebook.csv"</span>, <span class="at">na =</span> <span class="st">"?"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>old_gradebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"gradebook.csv"</span>, <span class="at">na =</span> <span class="st">"?"</span>)</span>
 <span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>old_gradebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -1074,20 +1087,23 @@ China
 3   789 &lt;NA&gt; </code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p>One grade was recorded as <code>?</code>. R has no way to know that means “missing”. Until you say so with <code>na = "?"</code> it stays a real value, and the whole column is read as text rather than numbers.</p>
+</div>
 </section>
 <section class="slide level2 fs70">
 <h2>Other Kinds of Data File</h2>
 <ul>
-<li><span class="b blue">readxl</span> and <span class="b blue">googlesheets4</span> — spreadsheets</li>
+<li><span class="b blue">readxl</span> and <span class="b blue">googlesheets4</span>: spreadsheets</li>
 </ul>
 <div class="fragment mt1">
 <ul>
-<li><span class="b blue">haven</span> — files from SPSS, SAS, and STATA</li>
+<li><span class="b blue">haven</span>: files from SPSS, SAS, and STATA</li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li><span class="b blue">rio</span> — tries to detect the type and read in anything</li>
+<li><span class="b blue">rio</span>: tries to detect the type and read in anything</li>
 </ul>
 </div>
 </section></section>
@@ -1133,7 +1149,7 @@ China
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins0.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"penguins0.csv"</span>)</span>
 <span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
@@ -1152,10 +1168,10 @@ China
 # ℹ 334 more rows</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> <code>species</code>, <code>island</code>, and <code>sex</code> arrived as numbers. They are categories, and R does not know that yet.</p>
-</div></aside></section>
+<div class="takeaway">
+<p><code>species</code>, <code>island</code>, and <code>sex</code> arrived as numbers, not categories.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Configuring the Factors</h2>
 <div class="cell">
@@ -1167,6 +1183,9 @@ China
 <span id="cb30-6"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-7"><a aria-hidden="true" tabindex="-1"></a>penguins<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(penguins<span class="sc">$</span>sex, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
 <span id="cb30-8"><a aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"male"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="takeaway">
+<p>The same <code>factor()</code> call as before, applied one column at a time with <code>$</code>. Tedious but explicit, and exactly the work a cleaning script exists to hold.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1190,10 +1209,10 @@ China
 # ℹ 334 more rows</code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> Those three columns now print as <code>&lt;fct&gt;</code> with readable values. Save the cleaned version with <code>write_csv(penguins, "penguins.csv")</code> so you never redo this.</p>
-</div></aside></section>
+<div class="takeaway">
+<p>Those three columns now print as <code>&lt;fct&gt;</code> with readable values. Save the cleaned version with <code>write_csv()</code> so this is done <strong>once</strong>, not every session.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Checking the Summary for Problems</h2>
 <div class="cell">
@@ -1217,10 +1236,10 @@ China
  NAs    :2       NAs    :2                                 </code></pre>
 </div>
 </div>
-
-<aside><div>
-<p><em>Note.</em> Read the <code>NA</code> counts: 2 penguins were never measured and 11 (including those 2) were never sexed. Real data has holes, and this is where you find them.</p>
-</div></aside></section>
+<div class="takeaway">
+<p>Read the <code>NA</code> counts: 2 penguins were never measured and 11 (including those 2) were never sexed. Real data has holes, and this is where you find them.</p>
+</div>
+</section>
 <section class="slide level2">
 <h2>Describing One Continuous Variable</h2>
 <div class="cell">
@@ -1234,6 +1253,9 @@ Variable  | Kurtosis |   n | n_Missing
 --------------------------------------
 body_mass |    -0.72 | 342 |         2</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>Mean, SD, range, and the count of missing values in one line: the numbers you would otherwise ask for one function at a time.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1258,6 +1280,9 @@ body_mass   |    -0.72 | 342 |         2
 year        |    -1.50 | 344 |         0</code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p>Name no column and it describes every continuous one, skipping the factors. A good first look at a dataset you have just read in.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Tabulating One Factor</h2>
@@ -1274,6 +1299,9 @@ Chinstrap |  68 | 19.77 |   19.77 |        63.95
 Gentoo    | 124 | 36.05 |   36.05 |       100.00
 &lt;NA&gt;      |   0 |  0.00 |    &lt;NA&gt; |         &lt;NA&gt;</code></pre>
 </div>
+</div>
+<div class="takeaway">
+<p>The factor counterpart of <code>describe_distribution()</code>: counts and percentages, with missing values shown rather than dropped.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1311,6 +1339,9 @@ male   | 168 | 48.84 |   50.45 |       100.00
 &lt;NA&gt;   |  11 |  3.20 |    &lt;NA&gt; |         &lt;NA&gt;</code></pre>
 </div>
 </div>
+<div class="takeaway">
+<p>Passing <code>is.factor</code> tabulates every factor at once: the categorical half of the same first look.</p>
+</div>
 </section>
 <section class="slide level2 fs70">
 <h2>Data Visualization</h2>
@@ -1341,7 +1372,10 @@ male   | 168 | 48.84 |   50.45 |       100.00
 <section class="slide level2">
 <h2>Loading the Cleaned Data</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"penguins.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="takeaway">
+<p>This is the tidied version of the file we just walked through: factors configured, missing values read correctly. Everything that follows uses it, and you will meet it again in later chapters.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1399,7 +1433,7 @@ male   | 168 | 48.84 |   50.45 |       100.00
 </div>
 <img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-26-1.png" width="672" class="r-stretch"></section>
 <section class="slide level2">
-<h2>Covariation of Two Continuous Variables</h2>
+<h2>Two Continuous Variables</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> flipper_len, <span class="at">y =</span> body_mass, <span class="at">data =</span> penguins, <span class="at">geom =</span> <span class="st">"point"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
@@ -1632,308 +1666,156 @@ male   | 168 | 48.84 |   50.45 |       100.00
       });
     </script>
     <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       // 1. Re-classify stderr to warnings and messages and strip empty lines
-
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
-
         // Strip invisible zero-width spaces Quarto sometimes inserts
-
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-
     
-
         // Remove completely empty blocks to fix the gaps
-
         if (text === '') {
-
           output.remove();
-
           return;
-
         }
-
     
-
         if (output.textContent.includes('Warning:')) {
-
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
-
         } else {
-
           output.classList.replace('cell-output-stderr', 'cell-output-message');
-
         }
-
       });
-
     
-
       // 2. Physically merge adjacent blocks into one seamless block
-
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
-
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(function(current) {
-
           if (!current.parentNode) return; // Skip if it was already merged and removed
-
     
-
           let next = current.nextElementSibling;
-
           while (next && next.classList.contains(selector.substring(1))) {
-
             let currentCode = current.querySelector('pre code');
-
             let nextCode = next.querySelector('pre code');
-
     
-
             if (currentCode && nextCode) {
-
                // Clean up formatting and append to the primary block
-
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
-
                if (appendText !== '') {
-
                  currentCode.innerHTML += '\n' + appendText;
-
                }
-
             }
-
     
-
             let toRemove = next;
-
             next = next.nextElementSibling;
-
             toRemove.remove();
-
           }
-
         });
-
       });
-
     });
-
     
-
     // 3. Publish reveal's canvas scale as --deck-scale.
-
     //
-
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
-
     // outside that transform, so anything sized in px there ignores the deck size
-
     // entirely. Mirroring the scale onto a custom property lets styles.css keep the
-
     // footer proportional to the slide text (see `.reveal .footer`).
-
     //
-
     // Read off the inline transform rather than Reveal's API on purpose: this file
-
     // is included after the body but before Reveal.initialize() resolves, so there
-
     // is no Reveal object to attach a 'resize' listener to yet. Watching the style
-
     // attribute catches the initial layout and every resize with no ordering
-
     // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
-
     // no .reveal .slides at all.
-
     (function () {
-
       const slides = document.querySelector(".reveal .slides");
-
       if (!slides) return;
-
     
-
       function publishScale() {
-
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
-
         document.documentElement.style.setProperty(
-
           "--deck-scale",
-
           match ? match[1] : "1"
-
         );
-
       }
-
     
-
       new MutationObserver(publishScale).observe(slides, {
-
         attributes: true,
-
         attributeFilter: ["style"],
-
       });
-
       publishScale();
-
     })();
-
     
-
     // 4. Play each section-divider icon once, when its slide is reached.
-
     //
-
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
-
     // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
-
     // (display:block, translated out of view) so the observer fires for the wrong
-
     // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
-
     // section's icon, arriving at "Regression Inference" played the fifth, and the
-
     // icons on the slides actually being shown never played at all.
-
     //
-
     // So the shortcodes carry no `trigger` -- which leaves them static -- and
-
     // playback is driven from reveal's own slide events, which know exactly which
-
     // slide is being entered. `slidechanged` covers navigation; `ready` covers a
-
     // deck opened directly on a divider by URL hash. Both bubble to document, which
-
     // matters because this file runs before Reveal.initialize() resolves and there
-
     // is no Reveal object yet to attach a listener to.
-
     (function () {
-
       function playIcons(slide) {
-
         if (!slide) return;
-
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-
           // The player is created asynchronously, so on a fast first navigation it
-
           // may not exist yet; wait for its ready event in that case.
-
           if (el.playerInstance && el.playerInstance.isReady) {
-
             el.playerInstance.playFromBeginning();
-
           } else {
-
             el.addEventListener("ready", function () {
-
               el.playerInstance.playFromBeginning();
-
             }, { once: true });
-
           }
-
         });
-
       }
-
     
-
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
-
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
-
     })();
-
     </script>
-
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2005,7 +1887,7 @@ male   | 168 | 48.84 |   50.45 |       100.00
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

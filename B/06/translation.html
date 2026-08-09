@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-221fb94c3ec07aa7e68c2d5abc4fc18e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6191c8c4c757b97205a8995aa6c30869.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -259,12 +259,12 @@ window.Quarto = {
 
 
 <p><img src="../../img/exams_2780E3.svg" height="300"></p>
-<p><em>These activities are for practice only — there is nothing to turn in.</em></p>
+<p><em>These activities are for practice only; there is nothing to turn in.</em></p>
 <p>Every question in Unit B told you which test to run. Research never does. This activity works the other direction: you are given a study in the words a researcher would use to describe it, and you have to work out what comparison is actually being asked for.</p>
 <p>For each study below, answer:</p>
 <ol type="1">
 <li>What might the data frame look like? Name the variables, give their types, and say what one row represents.</li>
-<li>Which procedure from Unit B fits — a one-sample, independent-samples, or paired-samples <span class="math inline">\(t\)</span>-test, a one-way ANOVA, or a correlation? Say why the others do not.</li>
+<li>Which procedure from Unit B fits: a one-sample, independent-samples, or paired-samples <span class="math inline">\(t\)</span>-test, a one-way ANOVA, or a correlation? Say why the others do not.</li>
 <li>What are the null and alternative hypotheses, in words and in symbols?</li>
 <li>Is there anything about the design that should make you hesitate before trusting the default version of that test?</li>
 </ol>
@@ -294,7 +294,7 @@ window.Quarto = {
 </section>
 <section id="bring-your-own" class="level2">
 <h2 class="anchored" data-anchor-id="bring-your-own">Bring your own</h2>
-<p>Describe a study from your own area the same way — a short paragraph, no statistical vocabulary — and hand it to someone else to translate. Then compare what they wrote to the analysis you actually had in mind.</p>
+<p>Describe a study from your own area the same way (a short paragraph, no statistical vocabulary) and hand it to someone else to translate. Then compare what they wrote to the analysis you actually had in mind.</p>
 
 
 </section>
@@ -373,7 +373,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

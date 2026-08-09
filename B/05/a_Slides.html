@@ -208,10 +208,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -245,7 +241,7 @@
 <h1>Statistical Hypotheses</h1>
 
 </section>
-<section class="slide level2">
+<section class="slide level2 fs90">
 <h2>What is a hypothesis?</h2>
 <ul>
 <li>A hypothesis is a <strong>testable</strong> prediction
@@ -770,7 +766,7 @@ t_{\bar{x}} \sim t(n-1, 0, 1)
 <h1><span class="math inline">p</span>-values and <br>Pragmatics</h1>
 
 </section>
-<section class="slide level2">
+<section class="slide level2 fs90">
 <h2>The <span class="math inline">p</span>-value of a test</h2>
 <ul>
 <li>But what if we had selected a different <span class="math inline">\alpha</span> level?
@@ -836,45 +832,43 @@ t_{\bar{x}} \sim t(n-1, 0, 1)
 </section>
 <section class="slide level2">
 <h2>Reporting a significance test</h2>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table caption-top" style="font-size: 32px; margin-left: auto; margin-right: auto;">
+<div class="fs70">
+<table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Notation</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Stars</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Translation</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Decision</th>
+<th style="text-align: left;">Notation</th>
+<th style="text-align: center;">Stars</th>
+<th style="text-align: left;">Translation</th>
+<th style="text-align: left;">Decision</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">p ≥ .05</td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
 <td style="text-align: left;">Test was NOT significant at α=.05</td>
 <td style="text-align: left;">Retain Null</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">p &lt; .05</td>
-<td style="text-align: left;">*</td>
+<td style="text-align: center;">*</td>
 <td style="text-align: left;">Test was significant at α=.05</td>
 <td style="text-align: left;">REJECT Null</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">p &lt; .01</td>
-<td style="text-align: left;">**</td>
+<td style="text-align: center;">**</td>
 <td style="text-align: left;">Test was significant at α=.01</td>
 <td style="text-align: left;">REJECT Null</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">p &lt; .001</td>
-<td style="text-align: left;">***</td>
+<td style="text-align: center;">***</td>
 <td style="text-align: left;">Test was significant at α=.001</td>
 <td style="text-align: left;">REJECT Null</td>
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <ul>
 <li>Report your exact <span class="math inline">p</span>-value (unless less than .001)
@@ -1164,308 +1158,156 @@ Alternative hypothesis: true mean is not equal to 3</code></pre>
       });
     </script>
     <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       // 1. Re-classify stderr to warnings and messages and strip empty lines
-
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
-
         // Strip invisible zero-width spaces Quarto sometimes inserts
-
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-
     
-
         // Remove completely empty blocks to fix the gaps
-
         if (text === '') {
-
           output.remove();
-
           return;
-
         }
-
     
-
         if (output.textContent.includes('Warning:')) {
-
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
-
         } else {
-
           output.classList.replace('cell-output-stderr', 'cell-output-message');
-
         }
-
       });
-
     
-
       // 2. Physically merge adjacent blocks into one seamless block
-
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
-
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(function(current) {
-
           if (!current.parentNode) return; // Skip if it was already merged and removed
-
     
-
           let next = current.nextElementSibling;
-
           while (next && next.classList.contains(selector.substring(1))) {
-
             let currentCode = current.querySelector('pre code');
-
             let nextCode = next.querySelector('pre code');
-
     
-
             if (currentCode && nextCode) {
-
                // Clean up formatting and append to the primary block
-
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
-
                if (appendText !== '') {
-
                  currentCode.innerHTML += '\n' + appendText;
-
                }
-
             }
-
     
-
             let toRemove = next;
-
             next = next.nextElementSibling;
-
             toRemove.remove();
-
           }
-
         });
-
       });
-
     });
-
     
-
     // 3. Publish reveal's canvas scale as --deck-scale.
-
     //
-
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
-
     // outside that transform, so anything sized in px there ignores the deck size
-
     // entirely. Mirroring the scale onto a custom property lets styles.css keep the
-
     // footer proportional to the slide text (see `.reveal .footer`).
-
     //
-
     // Read off the inline transform rather than Reveal's API on purpose: this file
-
     // is included after the body but before Reveal.initialize() resolves, so there
-
     // is no Reveal object to attach a 'resize' listener to yet. Watching the style
-
     // attribute catches the initial layout and every resize with no ordering
-
     // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
-
     // no .reveal .slides at all.
-
     (function () {
-
       const slides = document.querySelector(".reveal .slides");
-
       if (!slides) return;
-
     
-
       function publishScale() {
-
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
-
         document.documentElement.style.setProperty(
-
           "--deck-scale",
-
           match ? match[1] : "1"
-
         );
-
       }
-
     
-
       new MutationObserver(publishScale).observe(slides, {
-
         attributes: true,
-
         attributeFilter: ["style"],
-
       });
-
       publishScale();
-
     })();
-
     
-
     // 4. Play each section-divider icon once, when its slide is reached.
-
     //
-
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
-
     // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
-
     // (display:block, translated out of view) so the observer fires for the wrong
-
     // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
-
     // section's icon, arriving at "Regression Inference" played the fifth, and the
-
     // icons on the slides actually being shown never played at all.
-
     //
-
     // So the shortcodes carry no `trigger` -- which leaves them static -- and
-
     // playback is driven from reveal's own slide events, which know exactly which
-
     // slide is being entered. `slidechanged` covers navigation; `ready` covers a
-
     // deck opened directly on a divider by URL hash. Both bubble to document, which
-
     // matters because this file runs before Reveal.initialize() resolves and there
-
     // is no Reveal object yet to attach a listener to.
-
     (function () {
-
       function playIcons(slide) {
-
         if (!slide) return;
-
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-
           // The player is created asynchronously, so on a fast first navigation it
-
           // may not exist yet; wait for its ready event in that case.
-
           if (el.playerInstance && el.playerInstance.isReady) {
-
             el.playerInstance.playFromBeginning();
-
           } else {
-
             el.addEventListener("ready", function () {
-
               el.playerInstance.playFromBeginning();
-
             }, { once: true });
-
           }
-
         });
-
       }
-
     
-
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
-
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
-
     })();
-
     </script>
-
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1537,7 +1379,7 @@ Alternative hypothesis: true mean is not equal to 3</code></pre>
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

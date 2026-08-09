@@ -208,10 +208,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -261,7 +257,7 @@
 <p>We will expand the idea of correlation into regression during Unit C.</p>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level2 fs90">
 <h2>Correlations</h2>
 <ul>
 <li><p>A correlation <span class="math inline">(\rho,r)</span> quantifies the <strong>direction</strong> and <strong>strength</strong> of the <em>linear</em> relationships between two variables</p></li>
@@ -370,331 +366,54 @@
 <h2>Example dataset</h2>
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>cigarettes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/cigarettes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; ">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">state</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">log_packs</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">log_price</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">log_income</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">AL</td>
-<td style="text-align: right;">4.96213</td>
-<td style="text-align: right;">0.20487</td>
-<td style="text-align: right;">4.64039</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AZ</td>
-<td style="text-align: right;">4.66312</td>
-<td style="text-align: right;">0.16640</td>
-<td style="text-align: right;">4.68389</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">AR</td>
-<td style="text-align: right;">5.10709</td>
-<td style="text-align: right;">0.23406</td>
-<td style="text-align: right;">4.59435</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CA</td>
-<td style="text-align: right;">4.50449</td>
-<td style="text-align: right;">0.36399</td>
-<td style="text-align: right;">4.88147</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CT</td>
-<td style="text-align: right;">4.66983</td>
-<td style="text-align: right;">0.32149</td>
-<td style="text-align: right;">5.09472</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">DE</td>
-<td style="text-align: right;">5.04705</td>
-<td style="text-align: right;">0.21929</td>
-<td style="text-align: right;">4.87087</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">DC</td>
-<td style="text-align: right;">4.65637</td>
-<td style="text-align: right;">0.28946</td>
-<td style="text-align: right;">5.05960</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">FL</td>
-<td style="text-align: right;">4.80081</td>
-<td style="text-align: right;">0.28733</td>
-<td style="text-align: right;">4.81155</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GA</td>
-<td style="text-align: right;">4.97974</td>
-<td style="text-align: right;">0.12826</td>
-<td style="text-align: right;">4.73299</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ID</td>
-<td style="text-align: right;">4.74902</td>
-<td style="text-align: right;">0.17541</td>
-<td style="text-align: right;">4.64307</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">IL</td>
-<td style="text-align: right;">4.81445</td>
-<td style="text-align: right;">0.24806</td>
-<td style="text-align: right;">4.90387</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">IN</td>
-<td style="text-align: right;">5.11129</td>
-<td style="text-align: right;">0.08992</td>
-<td style="text-align: right;">4.72916</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">IA</td>
-<td style="text-align: right;">4.80857</td>
-<td style="text-align: right;">0.24081</td>
-<td style="text-align: right;">4.74211</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">KS</td>
-<td style="text-align: right;">4.79263</td>
-<td style="text-align: right;">0.21642</td>
-<td style="text-align: right;">4.79613</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">KY</td>
-<td style="text-align: right;">5.37906</td>
-<td style="text-align: right;">-0.03260</td>
-<td style="text-align: right;">4.64937</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">LA</td>
-<td style="text-align: right;">4.98602</td>
-<td style="text-align: right;">0.23856</td>
-<td style="text-align: right;">4.61461</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ME</td>
-<td style="text-align: right;">4.98722</td>
-<td style="text-align: right;">0.29106</td>
-<td style="text-align: right;">4.75501</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MD</td>
-<td style="text-align: right;">4.77751</td>
-<td style="text-align: right;">0.12575</td>
-<td style="text-align: right;">4.94692</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MA</td>
-<td style="text-align: right;">4.73877</td>
-<td style="text-align: right;">0.22613</td>
-<td style="text-align: right;">4.99998</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MI</td>
-<td style="text-align: right;">4.94744</td>
-<td style="text-align: right;">0.23067</td>
-<td style="text-align: right;">4.80620</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MN</td>
-<td style="text-align: right;">4.69589</td>
-<td style="text-align: right;">0.34297</td>
-<td style="text-align: right;">4.81207</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MS</td>
-<td style="text-align: right;">4.93990</td>
-<td style="text-align: right;">0.13638</td>
-<td style="text-align: right;">4.52938</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MO</td>
-<td style="text-align: right;">5.06430</td>
-<td style="text-align: right;">0.08731</td>
-<td style="text-align: right;">4.78189</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MT</td>
-<td style="text-align: right;">4.73313</td>
-<td style="text-align: right;">0.15303</td>
-<td style="text-align: right;">4.70417</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NE</td>
-<td style="text-align: right;">4.77558</td>
-<td style="text-align: right;">0.18907</td>
-<td style="text-align: right;">4.79671</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NV</td>
-<td style="text-align: right;">4.96642</td>
-<td style="text-align: right;">0.32304</td>
-<td style="text-align: right;">4.83816</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NH</td>
-<td style="text-align: right;">5.10990</td>
-<td style="text-align: right;">0.15852</td>
-<td style="text-align: right;">5.00319</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NJ</td>
-<td style="text-align: right;">4.70633</td>
-<td style="text-align: right;">0.30901</td>
-<td style="text-align: right;">5.10268</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NM</td>
-<td style="text-align: right;">4.58107</td>
-<td style="text-align: right;">0.16458</td>
-<td style="text-align: right;">4.58202</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NY</td>
-<td style="text-align: right;">4.66496</td>
-<td style="text-align: right;">0.34701</td>
-<td style="text-align: right;">4.96075</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ND</td>
-<td style="text-align: right;">4.58237</td>
-<td style="text-align: right;">0.18197</td>
-<td style="text-align: right;">4.69163</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">OH</td>
-<td style="text-align: right;">4.97952</td>
-<td style="text-align: right;">0.12889</td>
-<td style="text-align: right;">4.75875</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">OK</td>
-<td style="text-align: right;">4.72720</td>
-<td style="text-align: right;">0.19554</td>
-<td style="text-align: right;">4.62730</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">PA</td>
-<td style="text-align: right;">4.80363</td>
-<td style="text-align: right;">0.22784</td>
-<td style="text-align: right;">4.83516</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RI</td>
-<td style="text-align: right;">4.84693</td>
-<td style="text-align: right;">0.30324</td>
-<td style="text-align: right;">4.84670</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SC</td>
-<td style="text-align: right;">5.07801</td>
-<td style="text-align: right;">0.07944</td>
-<td style="text-align: right;">4.62549</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SD</td>
-<td style="text-align: right;">4.81545</td>
-<td style="text-align: right;">0.13139</td>
-<td style="text-align: right;">4.67747</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">TN</td>
-<td style="text-align: right;">5.04939</td>
-<td style="text-align: right;">0.15547</td>
-<td style="text-align: right;">4.72525</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">TX</td>
-<td style="text-align: right;">4.65398</td>
-<td style="text-align: right;">0.28196</td>
-<td style="text-align: right;">4.73437</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">UT</td>
-<td style="text-align: right;">4.40859</td>
-<td style="text-align: right;">0.19260</td>
-<td style="text-align: right;">4.55586</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">VT</td>
-<td style="text-align: right;">5.08799</td>
-<td style="text-align: right;">0.18018</td>
-<td style="text-align: right;">4.77578</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">VA</td>
-<td style="text-align: right;">4.93065</td>
-<td style="text-align: right;">0.11818</td>
-<td style="text-align: right;">4.85490</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">WA</td>
-<td style="text-align: right;">4.66134</td>
-<td style="text-align: right;">0.35053</td>
-<td style="text-align: right;">4.85645</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">WV</td>
-<td style="text-align: right;">4.82454</td>
-<td style="text-align: right;">0.12008</td>
-<td style="text-align: right;">4.56859</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">WI</td>
-<td style="text-align: right;">4.83026</td>
-<td style="text-align: right;">0.22954</td>
-<td style="text-align: right;">4.75826</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">WY</td>
-<td style="text-align: right;">5.00087</td>
-<td style="text-align: right;">0.10029</td>
-<td style="text-align: right;">4.71169</td>
-</tr>
-</tbody>
-</table>
-</div>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>cigarettes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"cigarettes.csv"</span>)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>cigarettes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 46 × 4
+   state log_packs log_price log_income
+   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+ 1 AL         4.96     0.205       4.64
+ 2 AZ         4.66     0.166       4.68
+ 3 AR         5.11     0.234       4.59
+ 4 CA         4.50     0.364       4.88
+ 5 CT         4.67     0.321       5.09
+ 6 DE         5.05     0.219       4.87
+ 7 DC         4.66     0.289       5.06
+ 8 FL         4.80     0.287       4.81
+ 9 GA         4.98     0.128       4.73
+10 ID         4.75     0.175       4.64
+# ℹ 36 more rows</code></pre>
 </div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Scatterplots</h2>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="1152" class="r-stretch"></section>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="1152" class="r-stretch"></section>
 <section class="slide level2">
 <h2>Estimation in R</h2>
 <div class="columns">
 <div class="column">
 <p>Covariance</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> cigarettes<span class="sc">$</span>log_packs</span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> cigarettes<span class="sc">$</span>log_price</span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cigarettes)</span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>cov_xy <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sum</span>(</span>
-<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">*</span> (y <span class="sc">-</span> <span class="fu">mean</span>(y)))</span>
-<span id="cb2-7"><a aria-hidden="true" tabindex="-1"></a>cov_xy</span>
-<span id="cb2-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.008910294</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> cigarettes<span class="sc">$</span>log_packs</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> cigarettes<span class="sc">$</span>log_price</span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cigarettes)</span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>cov_xy <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">sum</span>(</span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">*</span> (y <span class="sc">-</span> <span class="fu">mean</span>(y)))</span>
+<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a>cov_xy</span>
+<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.008910294</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column">
 <p>Correlation</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)</span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(y)</span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>r_xy <span class="ot">&lt;-</span> cov_xy <span class="sc">/</span> (s_x <span class="sc">*</span> s_y)</span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(y)</span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>r_xy <span class="ot">&lt;-</span> cov_xy <span class="sc">/</span> (s_x <span class="sc">*</span> s_y)</span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <div class="fragment">
@@ -702,15 +421,15 @@
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>cov_xy <span class="ot">&lt;-</span> <span class="fu">cov</span>(x, y)</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>cov_xy</span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.008910294</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>cov_xy <span class="ot">&lt;-</span> <span class="fu">cov</span>(x, y)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>cov_xy</span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.008910294</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>r_xy <span class="ot">&lt;-</span> <span class="fu">cor</span>(x, y)</span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>r_xy <span class="ot">&lt;-</span> <span class="fu">cor</span>(x, y)</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </div>
@@ -752,8 +471,8 @@
 <li><p>But they show very different relationships qualitatively!</p></li>
 </ul>
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="1440" class="r-stretch"></section>
-<section class="slide level2">
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="1440" class="r-stretch"></section>
+<section class="slide level2 fs90">
 <h2>Another effect size</h2>
 <ul>
 <li><p>We can square <span class="math inline">r</span> to get the <span class="b blue">coefficient of determination</span> <span class="math inline">(r^2)</span></p></li>
@@ -802,7 +521,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="480"></p>
+<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -872,16 +591,16 @@ H_1: \rho\neq0
 <section class="slide level2">
 <h2>Significance testing</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span>
-<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a>t_obs <span class="ot">&lt;-</span> (r_xy <span class="sc">*</span> <span class="fu">sqrt</span>(n <span class="sc">-</span> <span class="dv">2</span>)) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> r_xy<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>t_obs</span>
-<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -4.252537</span></span>
-<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a>t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">2</span>)</span>
-<span id="cb6-9"><a aria-hidden="true" tabindex="-1"></a>t_crit</span>
-<span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -2.015368  2.015368</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>t_obs <span class="ot">&lt;-</span> (r_xy <span class="sc">*</span> <span class="fu">sqrt</span>(n <span class="sc">-</span> <span class="dv">2</span>)) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> r_xy<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a>t_obs</span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -4.252537</span></span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a>t_crit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">2</span>)</span>
+<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a>t_crit</span>
+<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -2.015368  2.015368</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>Because <span class="math inline">t_{obs}</span> is more extreme than <span class="math inline">t_{crit}</span>, we reject <span class="math inline">H_0</span></p></li>
@@ -906,7 +625,7 @@ H_1: \rho\neq0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-19-1.png" width="480"></p>
+<p><img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -931,23 +650,23 @@ H_1: \rho\neq0
 </div></div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
-<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span>
-<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span>  (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="fu">log</span>((<span class="dv">1</span> <span class="sc">+</span> r_xy) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r_xy), <span class="at">base =</span> <span class="fu">exp</span>(<span class="dv">1</span>))</span>
-<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a>z</span>
-<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.603742</span></span>
-<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a>zmult <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span>
-<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a>ci_z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">lo =</span> z <span class="sc">-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">3</span>)) <span class="sc">*</span> zmult, <span class="at">hi =</span> z <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">3</span>)) <span class="sc">*</span> zmult)</span>
-<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a>ci_z</span>
-<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         lo         hi </span></span>
-<span id="cb7-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.9026337 -0.3048503</span></span>
-<span id="cb7-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a aria-hidden="true" tabindex="-1"></a>ci_r <span class="ot">&lt;-</span> (<span class="fu">exp</span>(<span class="dv">2</span> <span class="sc">*</span> ci_z) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> (<span class="fu">exp</span>(<span class="dv">2</span> <span class="sc">*</span> ci_z) <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb7-15"><a aria-hidden="true" tabindex="-1"></a>ci_r</span>
-<span id="cb7-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         lo         hi </span></span>
-<span id="cb7-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.7175778 -0.2957450</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>r_xy</span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.5397069</span></span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span>  (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="fu">log</span>((<span class="dv">1</span> <span class="sc">+</span> r_xy) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> r_xy), <span class="at">base =</span> <span class="fu">exp</span>(<span class="dv">1</span>))</span>
+<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a>z</span>
+<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.603742</span></span>
+<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a>zmult <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span>
+<span id="cb8-9"><a aria-hidden="true" tabindex="-1"></a>ci_z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">lo =</span> z <span class="sc">-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">3</span>)) <span class="sc">*</span> zmult, <span class="at">hi =</span> z <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">3</span>)) <span class="sc">*</span> zmult)</span>
+<span id="cb8-10"><a aria-hidden="true" tabindex="-1"></a>ci_z</span>
+<span id="cb8-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         lo         hi </span></span>
+<span id="cb8-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.9026337 -0.3048503</span></span>
+<span id="cb8-13"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a aria-hidden="true" tabindex="-1"></a>ci_r <span class="ot">&lt;-</span> (<span class="fu">exp</span>(<span class="dv">2</span> <span class="sc">*</span> ci_z) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> (<span class="fu">exp</span>(<span class="dv">2</span> <span class="sc">*</span> ci_z) <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb8-15"><a aria-hidden="true" tabindex="-1"></a>ci_r</span>
+<span id="cb8-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">##         lo         hi </span></span>
+<span id="cb8-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.7175778 -0.2957450</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -960,18 +679,18 @@ H_1: \rho\neq0
 </ul></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  Pearson's product-moment correlation</span></span>
-<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## data:  x and y</span></span>
-<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## t = -4.2525, df = 44, p-value = 0.0001085</span></span>
-<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## alternative hypothesis: true correlation is not equal to 0</span></span>
-<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb8-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  -0.7175778 -0.2957450</span></span>
-<span id="cb8-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb8-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        cor </span></span>
-<span id="cb8-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  Pearson's product-moment correlation</span></span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## data:  x and y</span></span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## t = -4.2525, df = 44, p-value = 0.0001085</span></span>
+<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## alternative hypothesis: true correlation is not equal to 0</span></span>
+<span id="cb9-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb9-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">##  -0.7175778 -0.2957450</span></span>
+<span id="cb9-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb9-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">##        cor </span></span>
+<span id="cb9-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -0.5397069</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -980,33 +699,33 @@ H_1: \rho\neq0
 <li>The <code>correlation()</code> function is more convenient</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">correlation</span>(cigarettes, <span class="at">select =</span> <span class="st">"log_packs"</span>, <span class="at">select2 =</span> <span class="st">"log_price"</span>)</span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
-<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter1 | Parameter2 |     r |         95% CI | t(44) |         p</span></span>
-<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------</span></span>
-<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  |  log_price | -0.54 | [-0.72, -0.30] | -4.25 | &lt; .001***</span></span>
-<span id="cb9-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb9-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span>
-<span id="cb9-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations: 46</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Many correlations</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>r_all <span class="ot">&lt;-</span> <span class="fu">correlation</span>(cigarettes)</span>
-<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>r_all</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">correlation</span>(cigarettes, <span class="at">select =</span> <span class="st">"log_packs"</span>, <span class="at">select2 =</span> <span class="st">"log_price"</span>)</span>
 <span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
 <span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter1 | Parameter2 |     r |         95% CI | t(44) |         p</span></span>
 <span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------</span></span>
 <span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  |  log_price | -0.54 | [-0.72, -0.30] | -4.25 | &lt; .001***</span></span>
-<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  | log_income | -0.17 | [-0.44,  0.13] | -1.14 | 0.262    </span></span>
-<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_price  | log_income |  0.49 | [ 0.24,  0.68] |  3.75 | 0.001**  </span></span>
-<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span>
-<span id="cb10-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations: 46</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span>
+<span id="cb10-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations: 46</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Many correlations</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>r_all <span class="ot">&lt;-</span> <span class="fu">correlation</span>(cigarettes)</span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>r_all</span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter1 | Parameter2 |     r |         95% CI | t(44) |         p</span></span>
+<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------</span></span>
+<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  |  log_price | -0.54 | [-0.72, -0.30] | -4.25 | &lt; .001***</span></span>
+<span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs  | log_income | -0.17 | [-0.44,  0.13] | -1.14 | 0.262    </span></span>
+<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_price  | log_income |  0.49 | [ 0.24,  0.68] |  3.75 | 0.001**  </span></span>
+<span id="cb11-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb11-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span>
+<span id="cb11-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Observations: 46</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>This also applies the Holm method to adjust the <span class="math inline">p</span>-values
@@ -1018,27 +737,27 @@ H_1: \rho\neq0
 <section class="slide level2">
 <h2>Correlation matrix</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>r_mat <span class="ot">&lt;-</span> <span class="fu">summary</span>(r_all)</span>
-<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>r_mat</span>
-<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
-<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | log_income | log_price</span></span>
-<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------</span></span>
-<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs |      -0.17 |  -0.54***</span></span>
-<span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_price |     0.49** |          </span></span>
-<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb11-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>r_mat <span class="ot">&lt;-</span> <span class="fu">summary</span>(r_all)</span>
+<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>r_mat</span>
+<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # Correlation Matrix (pearson-method)</span></span>
+<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | log_income | log_price</span></span>
+<span id="cb12-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ----------------------------------</span></span>
+<span id="cb12-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_packs |      -0.17 |  -0.54***</span></span>
+<span id="cb12-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## log_price |     0.49** |          </span></span>
+<span id="cb12-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## p-value adjustment method: Holm (1979)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Plotting a matrix</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r_mat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r_mat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 
 
-<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="b_Slides_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -1236,308 +955,156 @@ H_1: \rho\neq0
       });
     </script>
     <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       // 1. Re-classify stderr to warnings and messages and strip empty lines
-
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
-
         // Strip invisible zero-width spaces Quarto sometimes inserts
-
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-
     
-
         // Remove completely empty blocks to fix the gaps
-
         if (text === '') {
-
           output.remove();
-
           return;
-
         }
-
     
-
         if (output.textContent.includes('Warning:')) {
-
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
-
         } else {
-
           output.classList.replace('cell-output-stderr', 'cell-output-message');
-
         }
-
       });
-
     
-
       // 2. Physically merge adjacent blocks into one seamless block
-
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
-
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(function(current) {
-
           if (!current.parentNode) return; // Skip if it was already merged and removed
-
     
-
           let next = current.nextElementSibling;
-
           while (next && next.classList.contains(selector.substring(1))) {
-
             let currentCode = current.querySelector('pre code');
-
             let nextCode = next.querySelector('pre code');
-
     
-
             if (currentCode && nextCode) {
-
                // Clean up formatting and append to the primary block
-
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
-
                if (appendText !== '') {
-
                  currentCode.innerHTML += '\n' + appendText;
-
                }
-
             }
-
     
-
             let toRemove = next;
-
             next = next.nextElementSibling;
-
             toRemove.remove();
-
           }
-
         });
-
       });
-
     });
-
     
-
     // 3. Publish reveal's canvas scale as --deck-scale.
-
     //
-
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
-
     // outside that transform, so anything sized in px there ignores the deck size
-
     // entirely. Mirroring the scale onto a custom property lets styles.css keep the
-
     // footer proportional to the slide text (see `.reveal .footer`).
-
     //
-
     // Read off the inline transform rather than Reveal's API on purpose: this file
-
     // is included after the body but before Reveal.initialize() resolves, so there
-
     // is no Reveal object to attach a 'resize' listener to yet. Watching the style
-
     // attribute catches the initial layout and every resize with no ordering
-
     // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
-
     // no .reveal .slides at all.
-
     (function () {
-
       const slides = document.querySelector(".reveal .slides");
-
       if (!slides) return;
-
     
-
       function publishScale() {
-
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
-
         document.documentElement.style.setProperty(
-
           "--deck-scale",
-
           match ? match[1] : "1"
-
         );
-
       }
-
     
-
       new MutationObserver(publishScale).observe(slides, {
-
         attributes: true,
-
         attributeFilter: ["style"],
-
       });
-
       publishScale();
-
     })();
-
     
-
     // 4. Play each section-divider icon once, when its slide is reached.
-
     //
-
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
-
     // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
-
     // (display:block, translated out of view) so the observer fires for the wrong
-
     // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
-
     // section's icon, arriving at "Regression Inference" played the fifth, and the
-
     // icons on the slides actually being shown never played at all.
-
     //
-
     // So the shortcodes carry no `trigger` -- which leaves them static -- and
-
     // playback is driven from reveal's own slide events, which know exactly which
-
     // slide is being entered. `slidechanged` covers navigation; `ready` covers a
-
     // deck opened directly on a divider by URL hash. Both bubble to document, which
-
     // matters because this file runs before Reveal.initialize() resolves and there
-
     // is no Reveal object yet to attach a listener to.
-
     (function () {
-
       function playIcons(slide) {
-
         if (!slide) return;
-
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-
           // The player is created asynchronously, so on a fast first navigation it
-
           // may not exist yet; wait for its ready event in that case.
-
           if (el.playerInstance && el.playerInstance.isReady) {
-
             el.playerInstance.playFromBeginning();
-
           } else {
-
             el.addEventListener("ready", function () {
-
               el.playerInstance.playFromBeginning();
-
             }, { once: true });
-
           }
-
         });
-
       }
-
     
-
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
-
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
-
     })();
-
     </script>
-
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1609,7 +1176,7 @@ H_1: \rho\neq0
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

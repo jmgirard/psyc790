@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-221fb94c3ec07aa7e68c2d5abc4fc18e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6191c8c4c757b97205a8995aa6c30869.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -326,7 +326,7 @@ window.Quarto = {
 <p>Read in the <code>depression</code> data file again for this question so that it can be answered on its own, and fit the same repeated-measures analysis of <code>hrsd</code> across <code>time</code>.</p>
 <ol type="a">
 <li><p>Write a short results paragraph (4–6 sentences) reporting this analysis as it might appear in the results section of a journal article. Include the omnibus test, an effect size, the estimated means, and the pairwise comparisons.</p></li>
-<li><p>Now write two or three sentences aimed at a non-statistical audience — for example, a clinician deciding whether this treatment is worth using. What changes when you drop the technical vocabulary, and what is easy to accidentally overstate?</p></li>
+<li><p>Now write two or three sentences aimed at a non-statistical audience, for example a clinician deciding whether this treatment is worth using. What changes when you drop the technical vocabulary, and what is easy to accidentally overstate?</p></li>
 </ol>
 <hr>
 <p>✅ Done! <em>Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important).</em></p>
@@ -408,7 +408,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

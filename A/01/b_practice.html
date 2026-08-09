@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-221fb94c3ec07aa7e68c2d5abc4fc18e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6191c8c4c757b97205a8995aa6c30869.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><img src="../../img/studying_2780E3.svg" height="300"></p>
-<p><em>These activities are for practice only — there is nothing to turn in. Answer keys are included, so try each question yourself before opening them.</em></p>
+<p><em>These activities are for practice only; there is nothing to turn in. Answer keys are included, so try each question yourself before opening them.</em></p>
 <section id="question-1-r-and-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="question-1-r-and-rstudio">Question 1 (R and RStudio)</h2>
 <p>There are many ways to customize the RStudio interface. To explore the possibilities, go to <strong>Tools</strong> &gt; <strong>Global Options</strong>. The most noticeable things you can change are aspects of RStudio’s appearance. If you click on the <em>Appearance</em> section, you can select a different zoom level, editor font, font size, and editor theme. I usually teach with the default settings and you can keep everything the same if you want your computer to match the one I teach from, but for my own work I use the “Tomorrow Night 80s” theme and a custom font called <a href="https://affcom.ku.edu/posts/firacode/">Fira Code</a>. I also make slight changes to the <em>Pane Layout</em> section that I’d be happy to describe to you in class if you’re interested.</p>
@@ -406,7 +406,7 @@ Click here for the answer key
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

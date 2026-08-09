@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-221fb94c3ec07aa7e68c2d5abc4fc18e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6191c8c4c757b97205a8995aa6c30869.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -298,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Using the <code>screentime</code> dataset, fit a linear model predicting <code>mental_wellbeing</code> from <code>phone_wd</code>, <code>deprived_area</code>, and their interaction.</p>
 <ol type="a">
 <li><p>Use <code>estimate_relation()</code> to plot the model’s predictions, and use <code>estimate_slopes()</code> to report the slope of <code>phone_wd</code> separately for respondents in and not in a deprived area.</p></li>
-<li><p>Based on the interaction test and the two simple slopes, does living in a deprived area meaningfully moderate the relationship between <code>phone_wd</code> and <code>mental_wellbeing</code>? Note that “no” can be the correct answer — justify whichever conclusion you reach.</p></li>
+<li><p>Based on the interaction test and the two simple slopes, does living in a deprived area meaningfully moderate the relationship between <code>phone_wd</code> and <code>mental_wellbeing</code>? Note that “no” can be the correct answer; justify whichever conclusion you reach.</p></li>
 </ol>
 <hr>
 <p>✅ Done! <em>Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important). If you receive an error message upon clicking “Render” about a missing file, this actually means that there is an error in one of your chunks.</em></p>
@@ -380,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

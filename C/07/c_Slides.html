@@ -241,7 +241,7 @@
 <h1>Shared Variance</h1>
 
 </section>
-<section class="slide level2">
+<section class="slide level2 fs80">
 <h2>Multiple regression</h2>
 <p>We often predict outcome variables using <span class="b blue">multiple predictors</span></p>
 <ol type="1">
@@ -303,7 +303,7 @@
 <li>Interpretation of the <span class="math inline">b_2</span> slope from <span class="math inline">\text{M3}</span>:<br> the <em>unique</em> relationship between <span class="math inline">x_2</span> and <span class="math inline">y</span> (controlling <span class="math inline">x_1</span>)</li>
 </ul>
 </section>
-<section class="slide level2">
+<section class="slide level2 fs90">
 <h2>Controlling predictors</h2>
 <ul>
 <li>What does it mean to statistically “control” (for) a predictor?</li>
@@ -404,7 +404,7 @@
 <p><img data-src="../../img/venn/yx1x2.png"></p>
 </div></div>
 <div class="footer">
-<p>A helpful picture, not an exact rule — a partial effect can occasionally be <em>larger</em> than its zero-order effect</p>
+<p>A helpful picture, not an exact rule: a partial effect can occasionally be <em>larger</em> than its zero-order effect</p>
 </div>
 </section>
 <section class="slide level2 fs70">
@@ -473,7 +473,7 @@
 <div class="cell" data-replace_path="[&quot;../../data/&quot;,&quot;&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/penguins.csv"</span>)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"penguins.csv"</span>)</span>
 <span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>penguins</span>
 <span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 344 × 8</span></span>
 <span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="do">##    species island    bill_len bill_dep flipper_len body_mass sex     year</span></span>
@@ -529,7 +529,7 @@
 <span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a><span class="fu">compare_parameters</span>(fit1, fit2, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
 <span id="cb3-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter    |                   fit1 |                   fit2</span></span>
 <span id="cb3-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------</span></span>
-<span id="cb3-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  | 3.79e-16 (-0.09, 0.09) | 1.02e-15 (-0.05, 0.05)</span></span>
+<span id="cb3-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  | 2.23e-15 (-0.09, 0.09) | 1.35e-15 (-0.05, 0.05)</span></span>
 <span id="cb3-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## bill len     |     0.60 ( 0.51, 0.68) |                       </span></span>
 <span id="cb3-18"><a aria-hidden="true" tabindex="-1"></a><span class="do">## flipper len  |                        |     0.87 ( 0.82, 0.92)</span></span>
 <span id="cb3-19"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------</span></span>
@@ -551,7 +551,7 @@
 <span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit3, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
 <span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter   | Coefficient |   SE |        95% CI |   t(339) |      p</span></span>
 <span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------------</span></span>
-<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |    1.00e-15 | 0.03 | [-0.05, 0.05] | 3.78e-14 | &gt; .999</span></span>
+<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept) |    1.37e-15 | 0.03 | [-0.05, 0.05] | 5.16e-14 | &gt; .999</span></span>
 <span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## bill len    |        0.04 | 0.04 | [-0.03, 0.11] |     1.17 | 0.244 </span></span>
 <span id="cb4-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## flipper len |        0.84 | 0.04 | [ 0.77, 0.91] |    23.94 | &lt; .001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -718,7 +718,7 @@
 <span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a><span class="fu">compare_parameters</span>(m_bil, m_fli, m_dep, m_sex, <span class="at">standardize =</span> <span class="st">"refit"</span>)</span>
 <span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter    |                  m_bil |                  m_fli</span></span>
 <span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------</span></span>
-<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  | 3.79e-16 (-0.09, 0.09) | 1.02e-15 (-0.05, 0.05)</span></span>
+<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  | 2.23e-15 (-0.09, 0.09) | 1.35e-15 (-0.05, 0.05)</span></span>
 <span id="cb11-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## bill len     |     0.60 ( 0.51, 0.68) |                       </span></span>
 <span id="cb11-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## flipper len  |                        |     0.87 ( 0.82, 0.92)</span></span>
 <span id="cb11-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## bill dep     |                        |                       </span></span>
@@ -728,7 +728,7 @@
 <span id="cb11-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb11-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter    |                   m_dep |                m_sex</span></span>
 <span id="cb11-18"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -------------------------------------------------------------</span></span>
-<span id="cb11-19"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  | 5.68e-16 (-0.09,  0.09) | -0.43 (-0.57, -0.29)</span></span>
+<span id="cb11-19"><a aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  | 2.53e-15 (-0.09,  0.09) | -0.43 (-0.57, -0.29)</span></span>
 <span id="cb11-20"><a aria-hidden="true" tabindex="-1"></a><span class="do">## bill len     |                         |                     </span></span>
 <span id="cb11-21"><a aria-hidden="true" tabindex="-1"></a><span class="do">## flipper len  |                         |                     </span></span>
 <span id="cb11-22"><a aria-hidden="true" tabindex="-1"></a><span class="do">## bill dep     |    -0.47 (-0.57, -0.38) |                     </span></span>
@@ -999,308 +999,156 @@
       });
     </script>
     <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       // 1. Re-classify stderr to warnings and messages and strip empty lines
-
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
-
         // Strip invisible zero-width spaces Quarto sometimes inserts
-
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-
     
-
         // Remove completely empty blocks to fix the gaps
-
         if (text === '') {
-
           output.remove();
-
           return;
-
         }
-
     
-
         if (output.textContent.includes('Warning:')) {
-
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
-
         } else {
-
           output.classList.replace('cell-output-stderr', 'cell-output-message');
-
         }
-
       });
-
     
-
       // 2. Physically merge adjacent blocks into one seamless block
-
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
-
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(function(current) {
-
           if (!current.parentNode) return; // Skip if it was already merged and removed
-
     
-
           let next = current.nextElementSibling;
-
           while (next && next.classList.contains(selector.substring(1))) {
-
             let currentCode = current.querySelector('pre code');
-
             let nextCode = next.querySelector('pre code');
-
     
-
             if (currentCode && nextCode) {
-
                // Clean up formatting and append to the primary block
-
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
-
                if (appendText !== '') {
-
                  currentCode.innerHTML += '\n' + appendText;
-
                }
-
             }
-
     
-
             let toRemove = next;
-
             next = next.nextElementSibling;
-
             toRemove.remove();
-
           }
-
         });
-
       });
-
     });
-
     
-
     // 3. Publish reveal's canvas scale as --deck-scale.
-
     //
-
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
-
     // outside that transform, so anything sized in px there ignores the deck size
-
     // entirely. Mirroring the scale onto a custom property lets styles.css keep the
-
     // footer proportional to the slide text (see `.reveal .footer`).
-
     //
-
     // Read off the inline transform rather than Reveal's API on purpose: this file
-
     // is included after the body but before Reveal.initialize() resolves, so there
-
     // is no Reveal object to attach a 'resize' listener to yet. Watching the style
-
     // attribute catches the initial layout and every resize with no ordering
-
     // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
-
     // no .reveal .slides at all.
-
     (function () {
-
       const slides = document.querySelector(".reveal .slides");
-
       if (!slides) return;
-
     
-
       function publishScale() {
-
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
-
         document.documentElement.style.setProperty(
-
           "--deck-scale",
-
           match ? match[1] : "1"
-
         );
-
       }
-
     
-
       new MutationObserver(publishScale).observe(slides, {
-
         attributes: true,
-
         attributeFilter: ["style"],
-
       });
-
       publishScale();
-
     })();
-
     
-
     // 4. Play each section-divider icon once, when its slide is reached.
-
     //
-
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
-
     // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
-
     // (display:block, translated out of view) so the observer fires for the wrong
-
     // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
-
     // section's icon, arriving at "Regression Inference" played the fifth, and the
-
     // icons on the slides actually being shown never played at all.
-
     //
-
     // So the shortcodes carry no `trigger` -- which leaves them static -- and
-
     // playback is driven from reveal's own slide events, which know exactly which
-
     // slide is being entered. `slidechanged` covers navigation; `ready` covers a
-
     // deck opened directly on a divider by URL hash. Both bubble to document, which
-
     // matters because this file runs before Reveal.initialize() resolves and there
-
     // is no Reveal object yet to attach a listener to.
-
     (function () {
-
       function playIcons(slide) {
-
         if (!slide) return;
-
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-
           // The player is created asynchronously, so on a fast first navigation it
-
           // may not exist yet; wait for its ready event in that case.
-
           if (el.playerInstance && el.playerInstance.isReady) {
-
             el.playerInstance.playFromBeginning();
-
           } else {
-
             el.addEventListener("ready", function () {
-
               el.playerInstance.playFromBeginning();
-
             }, { once: true });
-
           }
-
         });
-
       }
-
     
-
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
-
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
-
     })();
-
     </script>
-
     
-
     <script>
-
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
       // slide changes (different for each slide format).
-
       (function () {
-
         // dispatch for htmlwidgets
-
         function fireSlideEnter() {
-
           const event = window.document.createEvent("Event");
-
           event.initEvent("slideenter", true, true);
-
           window.document.dispatchEvent(event);
-
         }
-
-    
 
         function fireSlideChanged(previousSlide, currentSlide) {
-
           fireSlideEnter();
 
-    
-
           // dispatch for shiny
-
           if (window.jQuery) {
-
             if (previousSlide) {
-
               window.jQuery(previousSlide).trigger("hidden");
-
             }
-
             if (currentSlide) {
-
               window.jQuery(currentSlide).trigger("shown");
-
             }
-
           }
-
         }
-
-    
 
         // hookup for slidy
-
         if (window.w3c_slidy) {
-
           window.w3c_slidy.add_observer(function (slide_num) {
-
             // slide_num starts at position 1
-
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
           });
-
         }
 
-    
-
       })();
-
     </script>
-
-    
 
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1372,7 +1220,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

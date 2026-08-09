@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-221fb94c3ec07aa7e68c2d5abc4fc18e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6191c8c4c757b97205a8995aa6c30869.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -262,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="readings" class="level3 res-readings">
 <h3 class="res-readings anchored" data-anchor-id="readings">Readings</h3>
 <ul>
-<li><a href="https://webpower.psychstat.org/wiki/">WebPower Manual</a> — <em>WebPower</em></li>
+<li><a href="https://webpower.psychstat.org/wiki/">WebPower Manual</a>, <em>WebPower</em></li>
 </ul>
 </section>
 <section id="slides" class="level3">
@@ -289,11 +289,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="readings-1" class="level3 res-readings">
 <h3 class="res-readings anchored" data-anchor-id="readings-1">Readings</h3>
 <ul>
-<li>Simmons, Nelson, &amp; Simonsohn (2011), <a href="https://doi.org/10.1177/0956797611417632">False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant</a> — <em>Psychological Science</em></li>
-<li>Bishop (2020), <a href="https://doi.org/10/gg7mkb">The Psychology of Experimental Psychologists: Overcoming Cognitive Constraints to Improve Research</a> — <em>QJEP</em></li>
-<li>Nosek &amp; Bar-Anan (2012), <a href="https://doi.org/10.1080/1047840X.2012.692215">Scientific Utopia: I. Opening Scientific Communication</a> — <em>Psychological Inquiry</em></li>
-<li>Nosek, Spies, &amp; Motyl (2012), <a href="https://doi.org/10.1177/1745691612459058">Scientific Utopia: II. Restructuring Incentives and Practices to Promote Truth Over Publishability</a> — <em>Perspectives on Psychological Science</em></li>
-<li>Nosek et al.&nbsp;(2018), <a href="https://doi.org/10.1073/pnas.1708274114">The Preregistration Revolution</a> — <em>PNAS</em></li>
+<li>Simmons, Nelson, &amp; Simonsohn (2011), <a href="https://doi.org/10.1177/0956797611417632">False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant</a>, <em>Psychological Science</em></li>
+<li>Bishop (2020), <a href="https://doi.org/10/gg7mkb">The Psychology of Experimental Psychologists: Overcoming Cognitive Constraints to Improve Research</a>, <em>QJEP</em></li>
+<li>Nosek &amp; Bar-Anan (2012), <a href="https://doi.org/10.1080/1047840X.2012.692215">Scientific Utopia: I. Opening Scientific Communication</a>, <em>Psychological Inquiry</em></li>
+<li>Nosek, Spies, &amp; Motyl (2012), <a href="https://doi.org/10.1177/1745691612459058">Scientific Utopia: II. Restructuring Incentives and Practices to Promote Truth Over Publishability</a>, <em>Perspectives on Psychological Science</em></li>
+<li>Nosek et al.&nbsp;(2018), <a href="https://doi.org/10.1073/pnas.1708274114">The Preregistration Revolution</a>, <em>PNAS</em></li>
 </ul>
 </section>
 <section id="slides-1" class="level3">
@@ -393,7 +393,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

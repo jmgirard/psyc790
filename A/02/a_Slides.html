@@ -213,34 +213,65 @@
 <p><em>Note.</em> Save your project in a cloud service folder (e.g., Box, Dropbox, Google Drive, OneDrive) to backup and sync it.</p>
 </div></aside></section>
 <section class="slide level2">
-<h2>Projects Live Coding</h2>
-<div class="instructions">
-<pre><code># Create a new Project
-- Open the "File" menu in RStudio
-- Select the "New Project..." option
-- Select the "New Directory" option
-- Select the "New Project" option
-- Name the directory "PSYC 399" or "PSYC 800" (or whatever)
-- Browse to where to create your Project folder
-
-# Create a new File
-- Explore the Files tab in the Extras pane
-- Create a New File (e.g., a script) as an example
-- RStudio will automatically create it in your project folder
-- Add some text to the example file (e.g., "# Hello World")
-- Save the file and note that it defaults to your project folder
-- Close the script with the "x" icon
-- Reopen the script from the Files tab
-
-# Close and Open Project
-- Open the "File" menu in RStudio
-- Select the "Close Project" option
-- Notice that your work is now gone
-- Open the "File" menu in RStudio
-- Select the "Open Project" option
-- Browse to your project folder
-- Open the .Rproj file (e.g., PSYC 399.Rproj)
-- Notice that your work is now back!</code></pre>
+<h2>Creating a Project</h2>
+<ul>
+<li><span class="b blue">File &gt; New Project…</span>
+<ul>
+<li>Choose <span class="b blue">New Directory</span>, then <span class="b blue">New Project</span></li>
+<li>Name the directory after the course or the task</li>
+<li>Browse to where the folder should live</li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>RStudio makes the folder and puts an <span class="b green">.Rproj file</span> inside it
+<ul>
+<li>That file <em>is</em> the project; opening it opens the project</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Working Inside a Project</h2>
+<ul>
+<li>The <span class="b blue">Files</span> tab (Extras pane) shows the project folder</li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>Make a new file (a script, say) and RStudio puts it <span class="b green">in the project folder</span>
+<ul>
+<li>Add a line of text, such as <code># Hello World</code></li>
+<li>Save it, and note that the dialog already points at the project folder</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment mt1">
+<ul>
+<li>Close the script with the <span class="b blue">x</span> icon, then reopen it from the <span class="b blue">Files</span> tab</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Closing and Reopening a Project</h2>
+<ul>
+<li><span class="b blue">File &gt; Close Project</span>
+<ul>
+<li>The Source Editor empties and the Console resets</li>
+<li>It looks like your work is <span class="b red">gone</span></li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li><span class="b blue">File &gt; Open Project</span>, then pick the <span class="b blue">.Rproj</span> file in your folder</li>
+</ul>
+</div>
+<div class="fragment mt1">
+<ul>
+<li>Everything comes <span class="b green">back exactly where you left it</span>
+<ul>
+<li>Open files, working directory, and history are all restored</li>
+</ul></li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -253,21 +284,21 @@
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li><a href="https://www.quarto.org">Quarto</a> is a scientific/technical publishing system</li>
+<li><a href="https://www.quarto.org">Quarto</a> is a scientific/technical <span class="b green">publishing system</span></li>
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>Create dynamic content (e.g., code, output, and markdown) with R, Python, Julia, and Observable</li>
-</ul>
-</div>
-<div class="fragment mt1">
-<ul>
-<li>Articles, reports, slideshows, websites, blogs, and books in HTML, PDF, MS Word, and ePub formats</li>
+<li>Create <span class="b blue">dynamic content</span> (e.g., code, output, and markdown) with R, Python, Julia, and Observable</li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Include equations, citations, crossrefs, figure panels, callouts, advanced layouts, etc.</li>
+<li>Articles, reports, slideshows, websites, blogs, and books in <span class="b blue">HTML, PDF, MS Word, and ePub</span> formats</li>
+</ul>
+</div>
+<div class="fragment mt1">
+<ul>
+<li>Include <span class="b blue">equations, citations, crossrefs</span>, figure panels, callouts, advanced layouts, etc.</li>
 </ul>
 </div>
 </div><div class="column tc pv5" style="width:40%;">
@@ -275,31 +306,53 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Quarto Live Coding</h2>
-<div class="instructions">
-<pre><code># Create an Quarto Document
-- Open the "File" menu in RStudio
-- Select the "New File" option
-- Select the "Quarto Document..." option
-- Keep the defaults (HTML) and hit "Create Empty Document"
-- Open the "File" menu
-- Select the "Save" option
-- Note that it defaults to the project folder
-- Give it a name like "Lecture 02b" (or whatever)
-- Note that the file extension is .qmd
-
-# Add an R Chunk
-- Option 1: Click the green box with C and a plus sign icon (top-right)
-- Option 2: Ctrl+Alt+I (Win) or Cmd+Option+I (Mac)
-- Option 3: Type out ```{r} then new line and ``` yourself
-
-# Adding code to the chunk
-- Anything you put inside the "fences" (i.e., ```) will be treated as R code
-- The chunk operates like a mini console
-- Try doing some calculations in the chunk and hit the green arrow
-- The answer appears right below the chunk!
-- If we save and render the document, it appears in the output too
-- We can also add options to the chunk to control how it behaves</code></pre>
+<h2>Creating a Quarto Document</h2>
+<ul>
+<li><span class="b blue">File &gt; New File &gt; Quarto Document…</span>
+<ul>
+<li>Keep the defaults (HTML) and click <span class="b blue">Create Empty Document</span></li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li><span class="b blue">File &gt; Save</span>
+<ul>
+<li>The dialog defaults to the project folder</li>
+<li>Give it a name and note the <span class="b green">.qmd</span> extension</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Adding an R Chunk</h2>
+<ul>
+<li>A <span class="b blue">chunk</span> is a block of R code sitting inside the document</li>
+<li>Any one of these will insert one:
+<ul>
+<li>Click the <span class="b blue">green box with a C and a plus sign</span> (top-right)</li>
+<li><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Win) or <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> (Mac)</li>
+<li>Type the <span class="b blue">fences</span> yourself: three backticks and <code>{r}</code>, then a closing line of three backticks</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Running Code in a Chunk</h2>
+<ul>
+<li>A chunk works like a <span class="b green">mini console</span>
+<ul>
+<li>Do a calculation inside it, then click the <span class="b blue">green arrow</span></li>
+<li>The answer appears <span class="b green">right below the chunk</span></li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>Save and <span class="b blue">render</span> the document and the answer appears in the output too</li>
+</ul>
+</div>
+<div class="fragment mt1">
+<ul>
+<li>Chunk <span class="b blue">options</span> control how each chunk behaves; more on those later</li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -312,16 +365,16 @@
 <div class="columns pv4">
 <div class="column" style="width:60%;">
 <ul>
-<li><a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown</a> is a simple text-to-HTML conversion language used by Quarto, GitHub, Obsidian, etc.</li>
+<li><a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown</a> is a simple <span class="b green">text-to-HTML</span> conversion language used by Quarto, GitHub, Obsidian, etc.</li>
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>It will allow us to add formatted text, images, links, lists, etc. to our Quarto documents</li>
+<li>It will allow us to add <span class="b blue">formatted text, images, links, lists</span>, etc. to our Quarto documents</li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Quarto will treat all text that is not in a code chunk as markdown</li>
+<li>Quarto will treat all text that is <span class="b green">not in a code chunk</span> as markdown</li>
 </ul>
 </div>
 </div><div class="column tc pv5" style="width:40%;">
@@ -329,32 +382,80 @@
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Markdown Live Coding</h2>
-<div class="instructions">
-<pre><code># Formatting
-- *italics* and **bold** and ***italics and bold***
-- superscript^2^ and subscript~2~
-- ~~strikethrough~~
-- `verbatim code`
-
-# Headings
-- # Header 1
-- ## Header 2
-- ### Header 3
-
-# Links
-- &lt;https://quarto.org&gt;
-- [Quarto](https://quarto.org)
-
-# Images
-- ![Caption](https://quarto.org/docs/authoring/elephant.png)
-
-# Lists
-- * Unordered list
--   + sub-item
--   + sub-item
-- 1. Ordered list
-- 2. Item 2</code></pre>
+<h2>Formatting Text</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type this</th>
+<th style="text-align: left;">Get this</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>*italics*</code></td>
+<td style="text-align: left;"><em>italics</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>**bold**</code></td>
+<td style="text-align: left;"><strong>bold</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>***italics and bold***</code></td>
+<td style="text-align: left;"><strong><em>italics and bold</em></strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>superscript^2^</code></td>
+<td style="text-align: left;">superscript<sup>2</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>subscript~2~</code></td>
+<td style="text-align: left;">subscript<sub>2</sub></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>~~strikethrough~~</code></td>
+<td style="text-align: left;"><del>strikethrough</del></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>`verbatim code`</code></td>
+<td style="text-align: left;"><code>verbatim code</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Headings and Links</h2>
+<ul>
+<li>A heading is one or more <span class="b blue"><code>#</code></span> at the start of a line
+<ul>
+<li><code># Header 1</code>, then <code>## Header 2</code>, then <code>### Header 3</code></li>
+<li>More hashes means a <span class="b green">smaller, deeper</span> heading</li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>Links come in two forms:
+<ul>
+<li><code>&lt;https://quarto.org&gt;</code> shows the <span class="b green">bare URL</span></li>
+<li><code>[Quarto](https://quarto.org)</code> shows <span class="b green">text you choose</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Images and Lists</h2>
+<ul>
+<li>An image is a link with a <span class="b blue"><code>!</code></span> in front of it
+<ul>
+<li><code>![Caption](elephant.png)</code></li>
+</ul></li>
+</ul>
+<div class="fragment mt1">
+<ul>
+<li>Lists are <code>*</code> or <code>-</code> for <span class="b blue">unordered</span>, numbers for <span class="b blue">ordered</span>
+<ul>
+<li>Indent by four spaces to make a <span class="b green">sub-item</span></li>
+</ul></li>
+</ul>
 </div>
 
 
@@ -556,233 +657,119 @@
       });
     </script>
     <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       // 1. Re-classify stderr to warnings and messages and strip empty lines
-
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
-
         // Strip invisible zero-width spaces Quarto sometimes inserts
-
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-
     
-
         // Remove completely empty blocks to fix the gaps
-
         if (text === '') {
-
           output.remove();
-
           return;
-
         }
-
     
-
         if (output.textContent.includes('Warning:')) {
-
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
-
         } else {
-
           output.classList.replace('cell-output-stderr', 'cell-output-message');
-
         }
-
       });
-
     
-
       // 2. Physically merge adjacent blocks into one seamless block
-
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
-
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(function(current) {
-
           if (!current.parentNode) return; // Skip if it was already merged and removed
-
     
-
           let next = current.nextElementSibling;
-
           while (next && next.classList.contains(selector.substring(1))) {
-
             let currentCode = current.querySelector('pre code');
-
             let nextCode = next.querySelector('pre code');
-
     
-
             if (currentCode && nextCode) {
-
                // Clean up formatting and append to the primary block
-
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
-
                if (appendText !== '') {
-
                  currentCode.innerHTML += '\n' + appendText;
-
                }
-
             }
-
     
-
             let toRemove = next;
-
             next = next.nextElementSibling;
-
             toRemove.remove();
-
           }
-
         });
-
       });
-
     });
-
     
-
     // 3. Publish reveal's canvas scale as --deck-scale.
-
     //
-
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
-
     // outside that transform, so anything sized in px there ignores the deck size
-
     // entirely. Mirroring the scale onto a custom property lets styles.css keep the
-
     // footer proportional to the slide text (see `.reveal .footer`).
-
     //
-
     // Read off the inline transform rather than Reveal's API on purpose: this file
-
     // is included after the body but before Reveal.initialize() resolves, so there
-
     // is no Reveal object to attach a 'resize' listener to yet. Watching the style
-
     // attribute catches the initial layout and every resize with no ordering
-
     // assumptions -- and no-ops harmlessly on the non-reveal HTML pages, which have
-
     // no .reveal .slides at all.
-
     (function () {
-
       const slides = document.querySelector(".reveal .slides");
-
       if (!slides) return;
-
     
-
       function publishScale() {
-
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
-
         document.documentElement.style.setProperty(
-
           "--deck-scale",
-
           match ? match[1] : "1"
-
         );
-
       }
-
     
-
       new MutationObserver(publishScale).observe(slides, {
-
         attributes: true,
-
         attributeFilter: ["style"],
-
       });
-
       publishScale();
-
     })();
-
     
-
     // 4. Play each section-divider icon once, when its slide is reached.
-
     //
-
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
-
     // IntersectionObserver, and reveal keeps the adjacent stacks in the layout
-
     // (display:block, translated out of view) so the observer fires for the wrong
-
     // elements: measured on C/07/a, arriving at "Introduction" played the *fourth*
-
     // section's icon, arriving at "Regression Inference" played the fifth, and the
-
     // icons on the slides actually being shown never played at all.
-
     //
-
     // So the shortcodes carry no `trigger` -- which leaves them static -- and
-
     // playback is driven from reveal's own slide events, which know exactly which
-
     // slide is being entered. `slidechanged` covers navigation; `ready` covers a
-
     // deck opened directly on a divider by URL hash. Both bubble to document, which
-
     // matters because this file runs before Reveal.initialize() resolves and there
-
     // is no Reveal object yet to attach a listener to.
-
     (function () {
-
       function playIcons(slide) {
-
         if (!slide) return;
-
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-
           // The player is created asynchronously, so on a fast first navigation it
-
           // may not exist yet; wait for its ready event in that case.
-
           if (el.playerInstance && el.playerInstance.isReady) {
-
             el.playerInstance.playFromBeginning();
-
           } else {
-
             el.addEventListener("ready", function () {
-
               el.playerInstance.playFromBeginning();
-
             }, { once: true });
-
           }
-
         });
-
       }
-
     
-
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
-
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
-
     })();
-
     </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
@@ -853,7 +840,7 @@
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+            var filterRegex = new RegExp('/' + window.location.host + '/');
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
