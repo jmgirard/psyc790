@@ -251,9 +251,9 @@ $g$ is the number of groups, $n$ is the total sample size
 
 ::: {.column}
 
-- The sum of squared normally distributed values will have a $\chi^2$ distribution
+- The sum of squared *standard* normal values will have a $\chi^2$ distribution
 
-- The ratio of two $\chi^2$ distributed variables will have an $F$ distribution
+- The ratio of two independent $\chi^2$ variables, *each divided by its df*, will have an $F$ distribution (this is why $F$ uses $MS = SS/\textit{df}$)
 
 $$x \sim F(\textit{df}_1, \textit{df}_2)$$
 
@@ -354,7 +354,7 @@ summary(fit)
 #| collapse: true
 
 # Critical value (to compare to F_obs = 343.6)
-qf(.975, df1 = 2, df2 = 339)
+qf(.95, df1 = 2, df2 = 339)
 ```
 
 :::
@@ -459,13 +459,14 @@ eta_squared(fit)
 | Possibility | $\mu_1=\mu_2$ | $\mu_1=\mu_3$ | $\mu_2=\mu_3$ | Hypothesis  |
 | ----------- | ------------- | ------------- | ------------- | ----------- |
 | 1           | TRUE          | TRUE          | TRUE          | null        |
-| 2           | -             | TRUE          | TRUE          | alternative |
-| 3           | TRUE          | -             | TRUE          | alternative |
-| 4           | TRUE          | TRUE          | -             | alternative |
-| 5           | TRUE          | -             | -             | alternative |
-| 6           | -             | TRUE          | -             | alternative |
-| 7           | -             | -             | TRUE          | alternative |
-| 8           | -             | -             | -             | alternative |
+| 2           | TRUE          | -             | -             | alternative |
+| 3           | -             | TRUE          | -             | alternative |
+| 4           | -             | -             | TRUE          | alternative |
+| 5           | -             | -             | -             | alternative |
+:::
+
+::: {.footer}
+Because equality is transitive, no other combinations are possible (e.g., if $\mu_1=\mu_3$ and $\mu_2=\mu_3$, then $\mu_1=\mu_2$)
 :::
 
 - Thus, if we reject the null, we don't know exactly why...
@@ -489,9 +490,13 @@ $$\mu_1=\mu_2 \qquad \mu_1=\mu_3 \qquad \mu_2=\mu_3$$
 - For the second challenge, we will use two approaches
     + **Gating:** only run post-hoc tests if ANOVA is significant
     + $p$-value adjustment: increase $p$ based on \# of tests run
-    
+
 - We want to keep the overall ("familywise") error rate at $\alpha$
     + We will learn two common adjustment approaches
+
+::: {.footer}
+Gating is a common convention (adjustment alone also controls the familywise rate); we will follow it in this course
+:::
 
 ## Bonferroni correction
 

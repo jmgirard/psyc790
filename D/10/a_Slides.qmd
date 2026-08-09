@@ -138,6 +138,10 @@ ggplot(d1, aes(x =x , y = y_violated)) +
 `check_model(fit, check = "linearity")`
 :::
 
+::: {.footer}
+With several predictors, a curve in one $x$ can be diluted in this combined plot --- per-predictor residual plots are a useful follow-up
+:::
+
 
 ## Example: Assumption Met
 
@@ -309,7 +313,7 @@ Calculate predictors' **reliability** (the opposite of error)
 - If they *almost* fully overlap, the estimates become unstable
 
 ::: {.callout-important title="Consequences of Violating"}
-Coefficients stay **unbiased** but become unstable; standard errors are upwardly biased (i.e., inflated).
+Coefficients stay **unbiased** but become unstable; standard errors become larger, honestly reflecting that instability.
 :::
 
 ::: {.footer}
@@ -340,7 +344,7 @@ $$\hat{y} = b_0 + b_1x_1 + b_2x_2$$
 
 1. Examine predictor correlations for collinearity
     + $r(x_1, x_2)\ge0.9$ may be problematic
-    + But this captures [c]{.b .green} and [d]{.b .purple}, whereas only [c]{.b .green} is an issue
+    + But no cutoff maps cleanly onto SE inflation
     + It also doesn't detect multicollinearity
     
 2. Calculate variance inflation factors (VIFs)

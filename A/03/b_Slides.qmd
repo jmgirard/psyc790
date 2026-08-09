@@ -596,8 +596,8 @@ old_gradebook
 
 ## Pitfall: Missing Values in Disguise
 
-The grade column came in as `<chr>`, not because grades are letters, but because
-one cell holds a `?`. R has no idea that means "missing."
+One student's grade is recorded as `?`. R has no idea that means "missing" ---
+unless we say so with `na = "?"`, it stays a real value that pollutes the column.
 
 ```{r}
 #| echo: true
@@ -707,7 +707,7 @@ summary(penguins)
 ```
 
 ::: aside
-*Note.* Read the `NA` counts: 2 penguins were never measured and 11 more were never sexed. Real data has holes, and this is where you find them.
+*Note.* Read the `NA` counts: 2 penguins were never measured and 11 (including those 2) were never sexed. Real data has holes, and this is where you find them.
 :::
 
 ## Describing One Continuous Variable

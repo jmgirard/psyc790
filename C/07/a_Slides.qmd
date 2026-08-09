@@ -302,7 +302,7 @@ $$
 
 
 ::: {.fragment .fs70}
-"We estimate that a town with a water hardness of zero would have a mortality of 1676.356. For every one-unit increase in a town's water hardness, we estimate that its mortality would *decrease* by 3.226."
+"We estimate that a town with a water hardness of zero would have a mortality of 1676.356. We estimate that towns with one more unit of water hardness have mortality that is *lower* by 3.226, on average."
 :::
 
 ## Visualizing our Result

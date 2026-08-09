@@ -262,6 +262,10 @@ $R^2$ represents (<span style="color:#1b9e77;font-weight:bold;">b</span> + <span
 :::
 :::
 
+::: {.footer}
+These diagrams are a helpful picture, not an exact rule --- a partial effect can occasionally be *larger* than its zero-order effect, which no overlap diagram can draw
+:::
+
 ## Collinearity {.fs70}
 
 ::: {.columns}

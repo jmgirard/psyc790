@@ -361,7 +361,7 @@ clt_plot(c(1, 2))
 {{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
 :::
 
-The sampling distribution of $x$ will become more normal <br>as $n$ increases (even if $x$ itself is not normally distributed)
+The sampling distribution of $\bar{x}$ will become more normal <br>as $n$ increases (even if $x$ itself is not normally distributed)
 
 ```{r}
 #| echo: false
@@ -381,8 +381,8 @@ clt_plot(c(4, 8))
 {{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
 :::
 
-- The central limit theorem **applies for *almost* all statistics**
-    + Why? Normal distributions come from summing up many random processes (e.g., genetic, environmental, social)
+- The CLT **applies to means, sums, and statistics built from them**
+    + Why? A mean sums many independent observations
     + Some values will be higher and others will be lower
     + These deviations will tend to cancel each other out
     + Central values are common and extreme values are rarer
@@ -659,7 +659,7 @@ ggplot(
 :::
 
 - A *higher* confidence level will result in a *wider* interval
-   + It is actually a riskier guess to be more confident
+   + To claim more confidence, the interval must "pay" with width
    
 ::: {.columns}
 ::: {.column}

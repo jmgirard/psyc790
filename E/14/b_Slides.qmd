@@ -85,7 +85,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 - "Hypothesizing after the results are known"
     + It is claiming to have predicted an unexpected result
     + Changing your hypothesis to match whatever you found
-    + Going into research without any real expectations
+    + Doing exploration but writing it up as if planned all along
 
 - Why it's problematic
     + It falsely presents exploratory work as confirmatory
@@ -116,7 +116,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 
 - This practice capitalizes on sampling error and is biased
     + Your effect size will likely be inflated (too large)
-    + A correction for this is called "sequential analysis"
+    + Interim looks are only okay if *planned in advance* with special stopping rules ("sequential analysis")
 
 - A better approach is to choose $n$ using power analysis
 
@@ -128,8 +128,8 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 - Presenting exploratory work as confirmatory is misleading
 
 - We can avoid this by "calling our shots" before data collection
-    + By preregistering our hypotheses, we avoid HARKing
-    + By preregistering our analyses, we avoid *p*-hacking
+    + Preregistering our hypotheses makes HARKing visible
+    + Preregistering our analyses makes *p*-hacking visible
     + It's okay to change things, but you have to disclose it
     
 - Many journals now offer **registered reports**

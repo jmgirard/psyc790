@@ -79,7 +79,7 @@ We will expand the idea of correlation into regression during Unit C.
     + $\rho<0$: the variables change in opposition
 
 - [Strength]{.b .blue}: how well does one variable predict the other?
-    + $\rho \to 0$: no linear (or nonlinear) relationship
+    + $\rho \to 0$: no linear relationship (a nonlinear one may still exist)
     + $\rho \to \pm1$: perfect (positive or negative) relationship
 
 ::: {.footer}
@@ -594,11 +594,11 @@ t_crit
 
 - Because $t_{obs}$ is more extreme than $t_{crit}$, we reject $H_0$
 
-- Thus, we conclude that $r\neq0$ and specifically that $r<0$
+- Thus, we conclude that $\rho\neq0$ and specifically that $\rho<0$
 
 ## Confidence intervals
 
-- Because $r$ is bounded $[0,1]$, its CI is often asymmetrical
+- Because $r$ is bounded $[-1,1]$, its CI is often asymmetrical
 
 - So we need a more complicated procedure to estimate its CI
 

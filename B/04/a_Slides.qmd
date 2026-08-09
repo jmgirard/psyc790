@@ -563,7 +563,7 @@ ggplot(res, aes(x = factor(n), y = mean)) +
 {{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
 :::
 
-With larger populations, we need larger samples to get good estimates
+Do much larger populations require much larger samples? Let's find out...
 
 Here is a simulation of sampling from a population $N=1000000, \mu=100, \sigma=15$
 
@@ -599,7 +599,7 @@ ggplot(res2, aes(x = factor(n), y = mean)) +
 
 1. Larger samples tend to decrease this uncertainty and "stabilize" our estimates (reducing sampling error)
 
-1. However, larger populations require larger samples to achieve this benefit 
+1. Perhaps surprisingly, this depends on the sample's *size*, not on the *fraction* of the population sampled
 
 ::: {.footer}
 

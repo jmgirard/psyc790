@@ -168,11 +168,11 @@ model_parameters(fit)
 
 - The interaction effect (duration $\times$ sex) is NOT significant
 
-- Thus, the effect of `duration` does NOT depend on `sex`
+- Thus, we have no evidence that the effect of `duration` depends on `sex`
 
 ## Predicting energy expenditure {.fs70}
 
-$$\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 x_2$$
+$$\hat{y} = 3.33 + 3.32 x_1 + 3.57 c_1 - 1.72 x_1 c_1$$
 
 - **Intercept:** A female participant exercising at 0 duration expends 3.33 units
 
@@ -433,8 +433,12 @@ model_parameters(fit5)
 - **Male:** male -- female in read
 - **Jog:** jog -- read for females
 - **Swim:** swim -- read for females
-- **Male x Jog:** (a) male -- female in jog, (b) jog -- read for males
-- **Male x Swim:** (a) male -- female in swim, (b) swim -- read for males
+- **Male x Jog:** (male -- female in jog) minus (male -- female in read)
+- **Male x Swim:** (male -- female in swim) minus (male -- female in read)
+
+::: {.footer}
+Interaction terms are *differences of differences*: equivalently, Male x Jog is (jog -- read for males) minus (jog -- read for females)
+:::
 
 ## Estimating means
 

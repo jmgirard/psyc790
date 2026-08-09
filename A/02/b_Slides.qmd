@@ -160,7 +160,7 @@ y / x
 
 ::: {.fragment .mt1}
 -   Additional Rules:
-    -   Must [start with a letter or period]{.b .blue}
+    -   Must [start with a letter]{.b .blue} (or a period not followed by a number)
     -   Cannot contain spaces or dashes
     -   Cannot contain other symbols
     -   Names are case-sensitive (`age` ≠ `Age`)

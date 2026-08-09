@@ -171,7 +171,7 @@ $$\hat{y} = b_0 + b_1 \color{red}{x^1} + b_2 \color{red}{x^2} + \cdots + b_d \co
 ## Number of bends {.fs90}
 
 - The highest degree term determines the curve's overall shape
-    + The number of bends is equal to $(d-1)$
+    + The number of bends is *at most* $(d-1)$
 
 ```{r, fig.width=10, fig.height=4}
 d1 <- tibble(x = seq(-3, 3, .1), y = x^1) |> 
@@ -199,7 +199,7 @@ d3 <- tibble(x = seq(-3, 3, .1), y = -5*x + x^3) |>
 
 ## Direction of curvature {.fs90}
 
-- The sign $(\pm)$ of the curve's highest degree term's slope<br>determines its **direction of curvature** (i.e., up or down)
+- The sign $(\pm)$ of the highest degree term's slope determines<br>whether the curve ultimately **rises** $(+)$ **or falls** $(-)$ as $x$ increases
 
 ```{r, fig.width=10, fig.height=4}
 qp <- tibble(x = seq(-10, 10, 1), y = x^2) |> 
@@ -264,7 +264,7 @@ r2(fit1b)
 ```
 
 ::: {.fs90}
-The $x^2$ slope is NOT significant, so the curve is NOT needed
+The $x^2$ slope is NOT significant: no evidence the curve is needed, so we retain the simpler line
 :::
 
 
@@ -496,7 +496,7 @@ fit4 <- lm(
 model_parameters(fit4)
 ```
 
-- The effects of `flipper_len` are not moderated by sex
+- No evidence that the effects of `flipper_len` are moderated by sex
 
 ## Visualizing the model
 

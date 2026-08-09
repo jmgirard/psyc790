@@ -13,7 +13,7 @@ keys are included, so try each question yourself before opening them.*
 
 ## Question 1
 
-The following table summarizes the season information for the eight seasons of AMC's *Breaking Bad* show. 
+The following table summarizes the season information for the five seasons of AMC's *Breaking Bad* show (the last split into two parts). 
 
 a) Tidy up this data and save it to a tibble. Decide for yourself how to handle season 5 (should it be a single observation or two?). For the first and last aired dates, just store the year as a number.
 
@@ -138,7 +138,3 @@ qplot(x = calories, y = rating, data = cereal, geom = "jitter")
 
 
 {{< dstop >}}
-
----
-
-*Note that there is no need to turn in Activities. These are just for practice!*

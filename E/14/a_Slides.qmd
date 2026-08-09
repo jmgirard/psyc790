@@ -72,10 +72,14 @@ pwr_cfg <- tibble(
   alpha = c(0.05, 0.005, 0.05, 0.05),
   se    = c(1, 1, 1, 0.65)
 ) |>
-  mutate(cv = qnorm(1 - alpha), panel = factor(panel, levels = c("A", "B", "C", "D")))
+  # A larger N shrinks the SE of *both* sampling distributions, and the
+  # decision criterion (a multiple of the SE) moves inward with them.
+  mutate(cv = qnorm(1 - alpha) * se, panel = factor(panel, levels = c("A", "B", "C", "D")))
 
 pwr_grid <- expand_grid(pwr_cfg, x = seq(-4, 8, length.out = 800)) |>
-  mutate(h0 = dnorm(x, 0, 1), h1 = dnorm(x, d, se))
+  # The `* se` rescales each curve to the same peak height so the four panels
+  # share a y-axis; within a panel the relative areas are unaffected.
+  mutate(h0 = dnorm(x, 0, se) * se, h1 = dnorm(x, d, se) * se)
 
 # This figure sits in a narrow column, so it needs a smaller base size than the
 # deck default: on-screen text is base_size/72 * displayed_px / fig_width_in.
@@ -159,7 +163,7 @@ wp.t(
 )
 ```
 
-We would thus need 175 participants in each group (for 350 total)
+We would thus need 176 participants in each group (for 352 total) --- always round *up*
 
 
 ## Example 2 {.fs90}
@@ -203,6 +207,10 @@ wp.t(
 
 We need *fewer* participants when each provides repeated measures
 
+::: {.footer}
+Careful: the paired $d$ is defined on the *difference scores*, so it is not interchangeable with the two-sample $d$
+:::
+
 ## One-way ANOVA power {.fs90}
 
 - One-way ANOVA compares the means of multiple groups
@@ -234,7 +242,7 @@ wp.anova(
 )
 ```
 
-We need 178 participants total (45 per group)
+We need 180 participants total (45 per group), rounding 178.4 up to a whole number per group
 
 ## Example 2 {.fs90}
 
@@ -253,7 +261,7 @@ wp.anova(
 )
 ```
 
-With more groups, we need fewer participants per group (39)
+With more groups, we need fewer participants per group (40, rounding up 39.2)
 
 
 ## Linear model power {.fs90}
@@ -317,7 +325,7 @@ wp.regression(
 )
 ```
 
-We would need around 121 total participants
+We would need 122 total participants (rounding up 121.2)
 
 ## Omnibus example 2 {.fs90}
 
@@ -392,7 +400,7 @@ wp.regression(
 )
 ```
 
-We need around 119 total participants
+We need 120 total participants (rounding up 119.1)
 
 
 ## Targeted example 2 {.fs90}

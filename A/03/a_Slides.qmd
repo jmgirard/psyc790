@@ -318,7 +318,7 @@ str_to_title(students)
 ```
 
 ::: aside
-*Note.* "could not find function" almost always means a package is missing or not yet loaded --- not that you mistyped.
+*Note.* "could not find function" means R can't find that name: check the spelling first, then whether the function's package is installed and loaded.
 :::
 
 ## Installing a Package {.fs70}
@@ -367,7 +367,7 @@ str_to_title(students)
 ```
 
 ::: aside
-*Note.* Install once per computer; load once per session.
+*Note.* Install once per computer (and again after upgrading R); load once per session.
 :::
 
 ## Keeping Packages Updated {.fs70}

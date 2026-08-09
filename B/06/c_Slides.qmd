@@ -52,7 +52,7 @@ theme_set(mytheme)
 
 - The ANOVA we learned in the previous lecture used Student's approach
     + It simplifies the math by assuming all $\sigma$ are equal
-    + The "homogeneity of variance" or "sphericity" assumption
+    + The "homogeneity of variance" assumption
     
 - But we can extend Welch's approach to ANOVA as well
     + This will let us relax this assumption

@@ -226,7 +226,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "homogeneity", pane
 
 
 ::: {.callout-important title="Consequences of Violating"}
-Standard errors will be biased
+$p$-values and confidence intervals may be inaccurate (especially in small samples)
 :::
 
 ## Examples
@@ -385,7 +385,7 @@ Note that addressing other issues may also help here.
     + Autocorrelated data has many observations close in time
 
 ::: {.callout-important title="Consequences of Violating"}
-Standard errors will be downwardly biased (i.e., deflated)
+Standard errors will usually be downwardly biased (i.e., deflated)
 :::
 
 

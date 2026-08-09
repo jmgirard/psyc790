@@ -547,8 +547,8 @@ $|t_{\bar{x}}|>t_{crit}: \text{Reject }H_0$
 ## Making decisions
 
 - Critical values let us decide and control $\alpha$
-    + $t_{obs} < t_{crit}$ = Retain the null
-    + $t_{obs} \ge t_{crit}$ = Reject the null
+    + $|t_{obs}| < t_{crit}$ = Retain the null
+    + $|t_{obs}| \ge t_{crit}$ = Reject the null
 
 - When we reject the null, the test was "significant"
     + Remember that not all rejections are correct
@@ -570,7 +570,7 @@ $|t_{\bar{x}}|>t_{crit}: \text{Reject }H_0$
 
 ::: {.callout-note title="Correct p-value Definitions"}
 The $p$-value is the smallest $\alpha$ value that would reject the null hypothesis.<br />
-The $p$-value is the probability of observing a test statistic *at least* as extreme as ours.
+The $p$-value is the probability of observing a test statistic *at least* as extreme as ours, *if the null hypothesis were true*.
 :::
 
 ::: {.callout-important title="Wrong p-value Definition"}

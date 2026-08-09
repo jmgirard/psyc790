@@ -286,8 +286,8 @@ model_parameters(fit_w)
     + e.g., repeated measures of the same person or thing
     
 - If we ignore these relationships in our modeling...
-    + Our SE estimates will tend to be too low
-    + Therefore, our $p$-values and CIs will be incorrect
+    + Our SE estimates will tend to be too high (when the pairing correlation is positive)
+    + Therefore, our $p$-values and CIs will be incorrect, costing power
 
 ## Paired samples $t$-test
 
@@ -330,7 +330,7 @@ model_parameters(fit_p)
 ```
 
 ::: {.footer}
-Note that $\textit{df}=33$ (not $67$) because we count each pair only once.
+Note that $\textit{df}=33$ (not $66$, as two independent samples would give) because we count each pair only once.
 :::
 
 ## One-sample $t$-test equivalence
@@ -430,6 +430,10 @@ $$ES = \frac{\bar{x}_1 - \bar{x}_2}{s_{\Delta}}$$
 
 - This is often referred to as a paired Cohen's $d$
 
+::: {.footer}
+Because it standardizes by the SD of the *differences*, paired $d$ is not directly comparable to independent-samples $d$
+:::
+
 ## Example
 
 ```{r}
@@ -441,4 +445,4 @@ model_parameters(fit_p)
 cohens_d(Pair(endpoint, baseline) ~ 1, data = social)
 ```
 
-Patients' social problems were 0.42 units (or 0.66 standard deviations) lower at the endpoint compared to baseline.
+Patients' social problems were 0.42 units (or 0.66 change-score standard deviations) lower at the endpoint compared to baseline.
