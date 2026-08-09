@@ -16,7 +16,8 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MAP = ROOT / "tools" / "section-art-map.tsv"
-LIF = '{{< lif "../../icons/%s.json" colors=secondary:#2a76dd class=rc >}}'
+LIF = ('{{< lif "../../icons/%s.json" state=%s colors=secondary:#2a76dd '
+       'class=rc >}}')
 
 
 def divider_indexes(lines):
@@ -51,8 +52,8 @@ rows = [l.split("\t") for l in MAP.read_text().split("\n")
 
 have = {p.stem for p in (ROOT / "icons").glob("*.json")}
 by_deck = {}
-for deck, n, title, icon, source, _lordicon, _key, _note in rows:
-    by_deck.setdefault(deck, []).append((int(n), title, icon, source))
+for deck, n, title, icon, state, source, _lordicon, _key, _note in rows:
+    by_deck.setdefault(deck, []).append((int(n), title, icon, state, source))
 
 wired = waiting = 0
 for deck, entries in sorted(by_deck.items()):
@@ -63,8 +64,8 @@ for deck, entries in sorted(by_deck.items()):
     lines = text.split(nl)
     idx = divider_indexes(lines)
 
-    changes = []          # (heading line index, old icon, new icon)
-    for n, title, icon, source in sorted(entries):
+    changes = []          # (heading line index, old line, new line)
+    for n, title, icon, state, source in sorted(entries):
         if lines[idx[n - 1]].strip()[2:] != title:
             sys.exit(f"{deck} #{n}: expected '{title}', found "
                      f"'{lines[idx[n - 1]].strip()[2:]}'. Map is out of date.")
@@ -77,18 +78,19 @@ for deck, entries in sorted(by_deck.items()):
         if not m:
             sys.exit(f"{deck} #{n}: no shortcode where one was expected "
                      f"(line {line_no + 1}).")
-        if m.group(1) != icon:
-            changes.append((line_no, m.group(1), icon))
+        want = LIF % (icon, state)
+        if lines[line_no] != want:
+            changes.append((line_no, m.group(1), icon, state))
 
     if not changes:
         continue
 
-    for line_no, _old, icon in changes:
-        lines[line_no] = LIF % icon
+    for line_no, _old, icon, state in changes:
+        lines[line_no] = LIF % (icon, state)
     new_text = nl.join(lines)
     qmd.write_text(new_text, newline="")
     wired += len(changes)
-    print(f"  {deck}: " + ", ".join(f"{o} -> {i}" for _, o, i in changes))
+    print(f"  {deck}: " + ", ".join(f"{o} -> {i}" for _, o, i, _s in changes))
 
     # Re-key the freeze with the same substitutions.
     frz = ROOT / "_freeze" / u / c / f"{lec}_Slides" / "execute-results" / "html.json"
@@ -104,14 +106,14 @@ for deck, entries in sorted(by_deck.items()):
     if len(md_idx) != len(idx):
         sys.exit(f"{deck}: {len(idx)} dividers in source but {len(md_idx)} in "
                  "result.markdown.")
-    for n, _title, icon, _source in sorted(entries):
+    for n, _title, icon, state, _source in sorted(entries):
         if icon not in have:
             continue
         line_no = md_idx[n - 1] + 3
-        if f"icons/" not in md_lines[line_no]:
+        if "icons/" not in md_lines[line_no]:
             sys.exit(f"{deck} #{n}: no shortcode in result.markdown at "
                      f"line {line_no + 1}.")
-        md_lines[line_no] = LIF % icon
+        md_lines[line_no] = LIF % (icon, state)
     entry["result"]["markdown"] = md_nl.join(md_lines)
     entry["hash"] = hashlib.md5(
         new_text.replace("\r\n", "\n").encode("utf-8")

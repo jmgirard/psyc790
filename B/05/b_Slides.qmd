@@ -69,7 +69,7 @@ rsim <- function(r) {
 # Introductions
 
 ::: {.section-art}
-{{< lif "../../icons/link.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/link.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Variable relationships
@@ -304,7 +304,7 @@ Standard correlations do not count these kinds of nonlinear relationships
 # Calculating <br>Correlations
 
 ::: {.section-art}
-{{< lif "../../icons/calculator.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/calculator.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Variance and covariance
@@ -555,7 +555,7 @@ ggplot(tibble(r = seq(-1, 1, 0.001), rsq = r^2), aes(x = r, y = rsq)) +
 # Statistical Inference
 
 ::: {.section-art}
-{{< lif "../../icons/telescope.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/telescope.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Sampling error simulation

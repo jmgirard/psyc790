@@ -13,6 +13,16 @@
 #   choose   more than one candidate in `lordicon`, pipe-separated, because no
 #            single icon in the library is clearly right. Look at them and pick.
 #
+# `state` is the Lordicon animation state to play. A raw file carries several:
+# `in-reveal` starts blank and draws the icon in, which is what a section divider
+# wants, and `default:hover-pinch` starts with the artwork already there. Icons
+# with no states, which is every legacy file here, ignore the attribute and play
+# their single animation, so `in-reveal` is safe to set on all of them.
+#
+# One row differs. `parabola` (square-root) renders a bare radical with NO accent
+# in its default and in-reveal states; `morph-squared` is the state that both
+# brings the accent back and draws the squared symbol the section is about.
+#
 # `lordicon` is the icon's name in the Wired / Outline family and `key` is its
 # code, so it can be found by URL: lordicon.com/icon/<key>/wired/outline
 #
@@ -26,83 +36,83 @@
 # motif across six decks, and the 25 other icons already carrying meaning on a
 # content slide.
 #
-# deck	n	section	icon	source	lordicon	key	note
-A/01/b	1	R and RStudio	code_window	wired	browser-code	wbthjkyu	The RStudio pane layout, which is what the section introduces.
-A/01/b	2	Console	terminal	wired	browser-terminal	ailnzwyn	A prompt waiting for one line, not a whole editor.
-A/01/b	3	Scripts	edit_doc	catalog	-	-	Document with a pencil: a file you write and keep.
-A/02/a	1	Projects	folder	wired	folder	tsrgicte	The self-contained project directory.
-A/02/a	2	Quarto	render_doc	wired	file-text	hmpomorl	Source becoming a finished document.
-A/02/a	3	Markdown	text_format	wired	align-text-left	nqygtxpy	Plain text acquiring structure.
-A/02/b	1	Assignment	assignment	choose	box-arrow-up|file-plus|inbox-download	drlfxosw|avbhqgrw|gjoqsfnx	A value going into a named container. Nothing in the library draws this cleanly; pick by eye. CLASH: inbox-download is already assigned to A/03/a #3.
-A/02/b	2	Naming	name_tag	choose	badge-ribbon|price-tag-sale|hashtag	wjdlpfml|zblwmalr|dplhundz	Attaching a name to a thing. All three are compromises.
-A/02/b	3	Functions	gears	wired	cog-double	xnptalrm	Input in, work happens, output out.
-A/02/b	4	Vectors	stack_list	wired	layers	jectmwqf	Many elements held in order as one object.
-A/03/a	1	Strings	strings	choose	messages-text|align-text-justify|file-text	ejucmaaf|gaoeefkp|hmpomorl	Character data as distinct from object names. quotation.json is taken. CLASH: file-text is already assigned to A/02/a #2.
-A/03/a	2	Factors	factors	wired	bullet-list	jkavsxeh	A fixed, ordered set of levels.
-A/03/a	3	Packages	install	wired	inbox-download	gjoqsfnx	Installing rather than unpacking. box.json is taken.
-A/03/b	1	Data Frames	data_frame	wired	data	psrsekxp	Rectangular data. spreadsheet.json is taken.
-A/03/b	2	Data Exploration	explore	wired	magnifier	wjyqkiew	Looking at data before modelling it.
-B/04/a	1	Research Methods	test_tubes	catalog	-	-	The apparatus of running a study.
-B/04/a	2	Populations and Parameters	people	catalog	-	-	The whole crowd, which is what a population is.
-B/04/a	3	Samples and Statistics	counter	catalog	-	-	A tally counter: counting a subset by hand.
-B/04/a	4	Estimation and Uncertainty	target	catalog	-	-	Aiming at a true value you cannot see.
-B/04/b	1	Types of Estimates	point_vs_range	new	plus-minus-alt	zuoqzhmn	A point estimate against an interval.
-B/04/b	2	The Normal Distribution	normal_curve	choose	wave-chart|radial-histogram|bar-chart-vertical-grow	rxpexbfb|kpeygrgr|lbcxnxti	The library has NO bell curve. bell.json is a notification bell and the pun reads as a mistake at 300px. CLASH: wave-chart is already assigned to C/09/a #1.
-B/04/b	3	Central Limit Theorem	converge	wired	sales-leads-funnel	txiulgfs	Many samples collapsing toward one shape. Check sales-leads-funnel against the bound funnel.json first.
-B/04/b	4	Confidence Intervals	interval	choose	plus-minus|line-chart-markers|arrows-right-left	idohldqs|gyvwavwk|olfvnikl	The interval itself. No error-bar icon exists. CLASH: line-chart-markers is already assigned to C/07/a #1.
-B/04/b	5	Practical Matters	toolbox	wired	toolbox	fvoudkri	The housekeeping at the end of the lecture.
-B/05/a	1	Statistical Hypotheses	scales	catalog	-	-	A balance: H0 against H1, before any evidence.
-B/05/a	2	NHST Logic	flowchart	wired	diagram-flow	ygqtedpk	The chain of reasoning, which is the section.
-B/05/a	3	NHST Nuts and Bolts	wrench	wired	wrench	fwkrbvja	Literal, and the title already invites it.
-B/05/a	4	$p$-values and <br>Pragmatics	threshold	wired	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is.
-B/05/b	1	Introductions	link	wired	link	gsjfryhc	Two variables related, which is all a correlation claims.
-B/05/b	2	Calculating <br>Correlations	calculator	catalog	-	-	The arithmetic section.
-B/05/b	3	Statistical Inference	telescope	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
-B/06/a	1	Introductions	two_people	new	avatars-men	vaqsenjk	Exactly two groups.
-B/06/a	2	NHST Approaches	two_routes	wired	two-way-traffic-sign	pepvasng	Different routes to the same comparison.
-B/06/a	3	Effect Sizes	caliper	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
-B/06/b	1	Introduction	many_groups	wired	avatars-group	rigpimbi	More than two groups at once.
-B/06/b	2	One-way ANOVA in R	anova_in_r	wired	abacus	kfqseesl	The section where it becomes R. browser-code is taken by A/01/b.
-B/06/b	3	Post-hoc Tests	compare_pairs	wired	files-compare	fzitssce	Which pair differs, asked after the omnibus test.
-B/06/c	1	Unequal Variances	uneven	wired	uneven-road-sign	qwasteos	The assumption failing, and the title's own metaphor.
-B/06/c	2	Repeated Measures	repeat_loop	wired	arrows-loop-one	grphetub	The same people measured again.
-B/06/c	3	Translation Activity	translate	wired	globe-translation	aucxxwfa	The unit-closing activity is literally translation.
-C/07/a	1	Introduction	trend_line	wired	line-chart-markers	gyvwavwk	REPLACES the pilot's map.json, which is the roadmap slide's motif across six decks.
-C/07/a	2	Regression Inference	insights	pilot	-	-	Kept from the pilot.
-C/07/a	3	Centering	crosshair	wired	crosshair-alt	mdpzmxaq	REPLACES the pilot's location_pin.json: centering moves an origin, it is not a place.
-C/07/a	4	Regression Effect Sizes	rulers	pilot	-	-	Kept from the pilot.
-C/07/b	1	Introduction	categories	choose	puzzle-piece|grid-squares	tsbosomu|ervhjijl	Predictors that are kinds rather than amounts. CLASH: puzzle-piece is already assigned to D/10/a #2.
-C/07/b	2	Dichotomous <br>Dummy Coding	switch_binary	wired	light-switch	kvcwpecu	One switch, two states.
-C/07/b	3	Polytomous <br>Dummy Coding	radio_buttons	wired	toggle-on-off	suadrppo	Several levels, one reference.
-C/07/c	1	Shared Variance	venn	wired	diagram-venn-double	wisxrkfy	Overlap is the whole idea.
-C/07/c	2	Multiple Regression	many_to_one	wired	sitemap	cuauhrxy	Several predictors into one outcome. sitemap points the wrong way; check it renders as convergence.
-C/07/c	3	Many Predictors	equalizer	catalog	-	-	A bank of sliders: many inputs tuned at once.
-C/08/a	1	Overview	mountains	catalog	-	-	A vista, for the overview of the moderation material.
-C/08/a	2	Continuous-by-Continuous	surface_3d	new	3-d	oajcrtsi	A response surface, which is what two continuous predictors give.
-C/08/a	3	Interaction Patterns	crossing	choose	squares-intersect|intersection-side-roads-sign	adbkylwa|jcmhwgqz	Non-parallel slopes, which is the pattern.
-C/08/a	4	Centering with Interactions	compass	wired	drawing-compass	pnlowkpv	Re-centering with a product term in the model. Not crosshair: C/07/a has that and two would read as one.
-C/08/b	1	Review	rewind	wired	rewind-circle	vclpgzfa	Looking back at the previous lecture. review.json is taken.
-C/08/b	2	Binary-by-Continuous	switch_slider	wired	sliders-vertical	eskivvxw	One categorical and one continuous predictor. Check sliders-vertical against the bound equalizer.
-C/08/b	3	Nominal-by-Continuous	multi_line	choose	line-chart-grow|bar-chart-stacked-vertical-grow	osnqlnce|nzqgfiio	One regression line per level.
-C/08/b	4	Categorical-by-Categorical	matrix_grid	wired	grid-module	tzyectrg	A cell per combination of levels.
-C/08/b	5	Three-Way Interactions	cube	wired	cube-side	zrgyoifm	Three factors, three axes.
-C/09/a	1	Overview	curve	wired	wave-chart	rxpexbfb	Straight lines stop being enough here.
-C/09/a	2	Polynomial Regression	curved_trend	wired	curve-right-sign	maucqrsy	The curved fit itself.
-C/09/a	3	Quadratic Regression	parabola	wired	square-root	wwbjufzq	The library has no parabola. Both candidates are approximations of a single bend.
-C/09/a	4	Adding Predictors	add_terms	choose	file-plus|plus-minus	avbhqgrw|idohldqs	Terms accumulating in the model.
-C/09/a	5	Closing Thoughts	finish	wired	finish-line	yfbsycer	End of the section and of the unit.
-D/10/a	1	Overview	blueprint	wired	blueprint	nmrhyntp	The assumptions listed before any of them is checked.
-D/10/a	2	Correct Form	puzzle_fit	wired	puzzle-piece	tsbosomu	The model's shape matching the data's shape.
-D/10/a	3	No Omitted Confounders	unseen	choose	eye-close|anonymus-mask	tsgbzisa|zlrnrxmr	A cause you did not measure. anonymus-mask is also a candidate for E/14/b #2; they cannot both have it. CLASH: anonymus-mask is already assigned to E/14/b #2.
-D/10/a	4	Perfect Predictors	mirror	wired	makeup-mirror	zogqzryv	A predictor that is the outcome again. Neither candidate is good; this one may be worth a wider search.
-D/10/a	5	No Collinearity	parallel	wired	road-narrows-sign	xyoobaio	Predictors that say the same thing.
-D/10/b	1	Overview	scatter	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
-D/10/b	2	Constant Error Variance	megaphone	wired	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
-D/10/b	3	Normal Residuals	distribution_check	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one.
-D/10/b	4	Independent Residuals	independence	choose	wifi-cross|arrows-right-left	bicbmczi|olfvnikl	Dependence between residuals. No broken-chain icon exists; both candidates are weak.
-D/10/b	5	Outliers	outlier	wired	sheep	pcjhygqv	The black sheep. One point unlike the rest.
-E/14/a	1	Power Analysis	power	new	bolt	vumnblwp	Power in the statistical sense via the obvious visual. muscle.json is taken.
-E/14/b	1	Overview	warning	wired	warning-triangle	lltgvngb	The practices are the warning. caution.json is taken.
-E/14/b	2	Questionable Practices	mask	wired	anonymus-mask	zlrnrxmr	Analysis choices that hide what was actually done.
-E/14/b	3	Garden of Forking Paths	branching	wired	arrows-up-branches	gvmafqor	The metaphor, drawn literally.
-E/15/a	1	Overview	newspaper	catalog	-	-	Results as something published and read.
+# deck	n	section	icon	state	source	lordicon	key	note
+A/01/b	1	R and RStudio	code_window	in-reveal	wired	browser-code	wbthjkyu	The RStudio pane layout, which is what the section introduces.
+A/01/b	2	Console	terminal	in-reveal	wired	browser-terminal	ailnzwyn	A prompt waiting for one line, not a whole editor.
+A/01/b	3	Scripts	edit_doc	in-reveal	catalog	-	-	Document with a pencil: a file you write and keep.
+A/02/a	1	Projects	folder	hover-adding-files	wired	folder	tsrgicte	The self-contained project directory. Its in-reveal and default states draw a closed folder with no accent; hover-adding-files is the one that colours, and files going into a folder says Projects better than a shut one.
+A/02/a	2	Quarto	render_doc	in-reveal	wired	file-text	hmpomorl	Source becoming a finished document.
+A/02/a	3	Markdown	text_format	in-reveal	wired	align-text-left	nqygtxpy	Plain text acquiring structure.
+A/02/b	1	Assignment	assignment	in-reveal	choose	box-arrow-up|file-plus|inbox-download	drlfxosw|avbhqgrw|gjoqsfnx	A value going into a named container. Nothing in the library draws this cleanly; pick by eye. CLASH: inbox-download is already assigned to A/03/a #3.
+A/02/b	2	Naming	name_tag	in-reveal	choose	badge-ribbon|price-tag-sale|hashtag	wjdlpfml|zblwmalr|dplhundz	Attaching a name to a thing. All three are compromises.
+A/02/b	3	Functions	gears	in-reveal	wired	cog-double	xnptalrm	Input in, work happens, output out.
+A/02/b	4	Vectors	stack_list	in-reveal	wired	layers	jectmwqf	Many elements held in order as one object.
+A/03/a	1	Strings	strings	in-reveal	choose	messages-text|align-text-justify|file-text	ejucmaaf|gaoeefkp|hmpomorl	Character data as distinct from object names. quotation.json is taken. CLASH: file-text is already assigned to A/02/a #2.
+A/03/a	2	Factors	factors	in-reveal	wired	bullet-list	jkavsxeh	A fixed, ordered set of levels.
+A/03/a	3	Packages	install	in-reveal	wired	inbox-download	gjoqsfnx	Installing rather than unpacking. box.json is taken.
+A/03/b	1	Data Frames	data_frame	in-reveal	wired	data	psrsekxp	Rectangular data. spreadsheet.json is taken.
+A/03/b	2	Data Exploration	explore	in-reveal	wired	magnifier	wjyqkiew	Looking at data before modelling it.
+B/04/a	1	Research Methods	test_tubes	in-reveal	catalog	-	-	The apparatus of running a study.
+B/04/a	2	Populations and Parameters	people	in-reveal	catalog	-	-	The whole crowd, which is what a population is.
+B/04/a	3	Samples and Statistics	counter	in-reveal	catalog	-	-	A tally counter: counting a subset by hand.
+B/04/a	4	Estimation and Uncertainty	target	in-reveal	catalog	-	-	Aiming at a true value you cannot see.
+B/04/b	1	Types of Estimates	point_vs_range	in-reveal	new	plus-minus-alt	zuoqzhmn	A point estimate against an interval.
+B/04/b	2	The Normal Distribution	normal_curve	in-reveal	choose	wave-chart|radial-histogram|bar-chart-vertical-grow	rxpexbfb|kpeygrgr|lbcxnxti	The library has NO bell curve. bell.json is a notification bell and the pun reads as a mistake at 300px. CLASH: wave-chart is already assigned to C/09/a #1.
+B/04/b	3	Central Limit Theorem	converge	in-reveal	wired	sales-leads-funnel	txiulgfs	Many samples collapsing toward one shape. Check sales-leads-funnel against the bound funnel.json first.
+B/04/b	4	Confidence Intervals	interval	in-reveal	choose	plus-minus|line-chart-markers|arrows-right-left	idohldqs|gyvwavwk|olfvnikl	The interval itself. No error-bar icon exists. CLASH: line-chart-markers is already assigned to C/07/a #1.
+B/04/b	5	Practical Matters	toolbox	in-reveal	wired	toolbox	fvoudkri	The housekeeping at the end of the lecture.
+B/05/a	1	Statistical Hypotheses	scales	in-reveal	catalog	-	-	A balance: H0 against H1, before any evidence.
+B/05/a	2	NHST Logic	flowchart	in-reveal	wired	diagram-flow	ygqtedpk	The chain of reasoning, which is the section.
+B/05/a	3	NHST Nuts and Bolts	wrench	in-reveal	wired	wrench	fwkrbvja	Literal, and the title already invites it.
+B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is.
+B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related, which is all a correlation claims.
+B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
+B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
+B/06/a	1	Introductions	two_people	in-reveal	new	avatars-men	vaqsenjk	Exactly two groups.
+B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	two-way-traffic-sign	pepvasng	Different routes to the same comparison.
+B/06/a	3	Effect Sizes	caliper	in-reveal	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
+B/06/b	1	Introduction	many_groups	in-reveal	wired	avatars-group	rigpimbi	More than two groups at once.
+B/06/b	2	One-way ANOVA in R	anova_in_r	in-reveal	wired	abacus	kfqseesl	The section where it becomes R. browser-code is taken by A/01/b.
+B/06/b	3	Post-hoc Tests	compare_pairs	in-reveal	wired	files-compare	fzitssce	Which pair differs, asked after the omnibus test.
+B/06/c	1	Unequal Variances	uneven	in-reveal	wired	uneven-road-sign	qwasteos	The assumption failing, and the title's own metaphor.
+B/06/c	2	Repeated Measures	repeat_loop	in-reveal	wired	arrows-loop-one	grphetub	The same people measured again.
+B/06/c	3	Translation Activity	translate	in-reveal	wired	globe-translation	aucxxwfa	The unit-closing activity is literally translation.
+C/07/a	1	Introduction	trend_line	in-reveal	wired	line-chart-markers	gyvwavwk	REPLACES the pilot's map.json, which is the roadmap slide's motif across six decks.
+C/07/a	2	Regression Inference	insights	in-reveal	pilot	-	-	Kept from the pilot.
+C/07/a	3	Centering	crosshair	in-reveal	wired	crosshair-alt	mdpzmxaq	REPLACES the pilot's location_pin.json: centering moves an origin, it is not a place.
+C/07/a	4	Regression Effect Sizes	rulers	in-reveal	pilot	-	-	Kept from the pilot.
+C/07/b	1	Introduction	categories	in-reveal	choose	puzzle-piece|grid-squares	tsbosomu|ervhjijl	Predictors that are kinds rather than amounts. CLASH: puzzle-piece is already assigned to D/10/a #2.
+C/07/b	2	Dichotomous <br>Dummy Coding	switch_binary	in-reveal	wired	light-switch	kvcwpecu	One switch, two states.
+C/07/b	3	Polytomous <br>Dummy Coding	radio_buttons	in-reveal	wired	toggle-on-off	suadrppo	Several levels, one reference.
+C/07/c	1	Shared Variance	venn	in-reveal	wired	diagram-venn-double	wisxrkfy	Overlap is the whole idea.
+C/07/c	2	Multiple Regression	many_to_one	in-reveal	wired	sitemap	cuauhrxy	Several predictors into one outcome. sitemap points the wrong way; check it renders as convergence.
+C/07/c	3	Many Predictors	equalizer	in-reveal	catalog	-	-	A bank of sliders: many inputs tuned at once.
+C/08/a	1	Overview	mountains	in-reveal	catalog	-	-	A vista, for the overview of the moderation material.
+C/08/a	2	Continuous-by-Continuous	surface_3d	in-reveal	new	3-d	oajcrtsi	A response surface, which is what two continuous predictors give.
+C/08/a	3	Interaction Patterns	crossing	in-reveal	choose	squares-intersect|intersection-side-roads-sign	adbkylwa|jcmhwgqz	Non-parallel slopes, which is the pattern.
+C/08/a	4	Centering with Interactions	compass	in-reveal	wired	drawing-compass	pnlowkpv	Re-centering with a product term in the model. Not crosshair: C/07/a has that and two would read as one.
+C/08/b	1	Review	rewind	in-reveal	wired	rewind-circle	vclpgzfa	Looking back at the previous lecture. review.json is taken.
+C/08/b	2	Binary-by-Continuous	switch_slider	in-reveal	wired	sliders-vertical	eskivvxw	One categorical and one continuous predictor. Check sliders-vertical against the bound equalizer.
+C/08/b	3	Nominal-by-Continuous	multi_line	in-reveal	choose	line-chart-grow|bar-chart-stacked-vertical-grow	osnqlnce|nzqgfiio	One regression line per level.
+C/08/b	4	Categorical-by-Categorical	matrix_grid	in-reveal	wired	grid-module	tzyectrg	A cell per combination of levels.
+C/08/b	5	Three-Way Interactions	cube	in-reveal	wired	cube-side	zrgyoifm	Three factors, three axes.
+C/09/a	1	Overview	curve	in-reveal	wired	wave-chart	rxpexbfb	Straight lines stop being enough here.
+C/09/a	2	Polynomial Regression	curved_trend	in-reveal	wired	curve-right-sign	maucqrsy	The curved fit itself.
+C/09/a	3	Quadratic Regression	parabola	morph-squared	wired	square-root	wwbjufzq	The library has no parabola. Both candidates are approximations of a single bend.
+C/09/a	4	Adding Predictors	add_terms	in-reveal	choose	file-plus|plus-minus	avbhqgrw|idohldqs	Terms accumulating in the model.
+C/09/a	5	Closing Thoughts	finish	in-reveal	wired	finish-line	yfbsycer	End of the section and of the unit.
+D/10/a	1	Overview	blueprint	in-reveal	wired	blueprint	nmrhyntp	The assumptions listed before any of them is checked.
+D/10/a	2	Correct Form	puzzle_fit	in-reveal	wired	puzzle-piece	tsbosomu	The model's shape matching the data's shape.
+D/10/a	3	No Omitted Confounders	unseen	in-reveal	choose	eye-close|anonymus-mask	tsgbzisa|zlrnrxmr	A cause you did not measure. anonymus-mask is also a candidate for E/14/b #2; they cannot both have it. CLASH: anonymus-mask is already assigned to E/14/b #2.
+D/10/a	4	Perfect Predictors	mirror	in-reveal	wired	makeup-mirror	zogqzryv	A predictor that is the outcome again. Neither candidate is good; this one may be worth a wider search.
+D/10/a	5	No Collinearity	parallel	in-reveal	wired	road-narrows-sign	xyoobaio	Predictors that say the same thing.
+D/10/b	1	Overview	scatter	in-reveal	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
+D/10/b	2	Constant Error Variance	megaphone	in-reveal	wired	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
+D/10/b	3	Normal Residuals	distribution_check	in-reveal	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one.
+D/10/b	4	Independent Residuals	independence	in-reveal	choose	wifi-cross|arrows-right-left	bicbmczi|olfvnikl	Dependence between residuals. No broken-chain icon exists; both candidates are weak.
+D/10/b	5	Outliers	outlier	in-reveal	wired	sheep	pcjhygqv	The black sheep. One point unlike the rest.
+E/14/a	1	Power Analysis	power	in-reveal	new	bolt	vumnblwp	Power in the statistical sense via the obvious visual. muscle.json is taken.
+E/14/b	1	Overview	warning	in-reveal	wired	warning-triangle	lltgvngb	The practices are the warning. caution.json is taken.
+E/14/b	2	Questionable Practices	mask	in-reveal	wired	anonymus-mask	zlrnrxmr	Analysis choices that hide what was actually done.
+E/14/b	3	Garden of Forking Paths	branching	in-reveal	wired	arrows-up-branches	gvmafqor	The metaphor, drawn literally.
+E/15/a	1	Overview	newspaper	in-reveal	catalog	-	-	Results as something published and read.

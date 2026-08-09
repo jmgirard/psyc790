@@ -56,7 +56,7 @@ theme_set(mytheme())
 # Introduction
 
 ::: {.section-art}
-{{< lif "../../icons/trend_line.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/trend_line.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Regression as Fancy Correlation
@@ -343,7 +343,7 @@ fit
 # Regression Inference
 
 ::: {.section-art}
-{{< lif "../../icons/insights.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/insights.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Uncertainty in the Population
@@ -468,7 +468,7 @@ Note that the $t$ values equal Coefficient / SE (e.g., --3.23/0.48 ≈ --6.66).
 # Centering
 
 ::: {.section-art}
-{{< lif "../../icons/crosshair.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/crosshair.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Centering a Predictor
@@ -552,7 +552,7 @@ model_parameters(fit2b)
 # Regression Effect Sizes
 
 ::: {.section-art}
-{{< lif "../../icons/rulers.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/rulers.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Standardized Slopes {.fs80}

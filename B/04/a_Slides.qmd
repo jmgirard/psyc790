@@ -44,7 +44,7 @@ source("../../_common.R")
 # Research Methods
 
 ::: {.section-art}
-{{< lif "../../icons/test_tubes.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/test_tubes.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## The scientific method
@@ -116,7 +116,7 @@ The scientific method classically uses experimental studies, but it can also imp
 # Populations and Parameters
 
 ::: {.section-art}
-{{< lif "../../icons/people.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/people.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## What is a population?
@@ -271,7 +271,7 @@ We denote parameters using Greek letters $(\mu,\sigma)$ or uppercase English let
 # Samples and Statistics
 
 ::: {.section-art}
-{{< lif "../../icons/counter.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/counter.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Sampling
@@ -402,7 +402,7 @@ We denote sample statistics using lowercase English letters $(n, \bar{x},s)$ or 
 # Estimation and Uncertainty
 
 ::: {.section-art}
-{{< lif "../../icons/target.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/target.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Sampling error

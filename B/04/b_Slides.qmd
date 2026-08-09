@@ -305,7 +305,7 @@ But this parametric approach all hinges on the assumption of normality (#4)...
 # Central Limit Theorem
 
 ::: {.section-art}
-{{< lif "../../icons/converge.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/converge.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Non-normally distributed data
@@ -578,7 +578,7 @@ I will teach you easier ways to calculate CIs in R soon.
 # Practical Matters
 
 ::: {.section-art}
-{{< lif "../../icons/toolbox.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/toolbox.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Reporting a CI {.fs80}

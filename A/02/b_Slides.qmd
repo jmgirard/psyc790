@@ -323,7 +323,7 @@ has no way to know you meant the other one.
 # Functions
 
 ::: {.section-art}
-{{< lif "../../icons/gears.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/gears.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Functions {.fs80}
@@ -420,7 +420,7 @@ is what you get when you leave them out.
 # Vectors
 
 ::: {.section-art}
-{{< lif "../../icons/stack_list.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/stack_list.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Vectors {.fs70}

@@ -25,11 +25,52 @@ to look right in a thumbnail:
 |---|---|---|
 | `wired-outline-1378-3-d` | primary=**green**, secondary=navy | Slots are **swapped**, so `colors=secondary` recolours the navy and the green survives. This is the same fault as the 9 legacy CDN files below. |
 | `wired-outline-451-bolt` | primary=green, **no secondary** | `colors=secondary` is inert and the icon renders entirely green. |
-| `parabola.json` (square-root), `puzzle_fit.json` (puzzle-piece) | no usable secondary | Renders flat navy with no accent, like `quotation.json`. Cosmetic, not a fault. |
+| `puzzle_fit.json` (puzzle-piece) | no secondary at all | Renders flat navy in every state, like `quotation.json`. Cosmetic, not a fault. |
 
 The first two are **not wired to any slide.** An icon with a swapped or missing
 secondary slot needs either a per-call `colors=primary:...` override, which breaks
 the uniform shortcode, or a different icon.
+
+## States: one file, several animations
+
+A raw file carries named animation **states** as Lottie markers, and `state=` on the
+shortcode picks one. A typical icon has three:
+
+- `in-reveal` starts **blank** and draws itself in. This is what the section
+  dividers use: the illustration arrives with the slide.
+- `default:hover-*` starts with the artwork already on screen and animates it.
+- `morph-*` on some icons, redrawing the subject as something related.
+
+Legacy files here have no markers at all and ignore `state=` entirely, playing their
+single animation, so setting it site-wide is safe.
+
+**A state can change which parts of the icon exist, not just how they move**, and
+that is the part worth remembering. Two icons here look like colour faults and are
+not:
+
+- `parabola` (square-root) draws a bare radical with no accent in `in-reveal`. Its
+  `morph-squared` state draws (√x)² *and* brings the accent in. Better colour and a
+  better fit for the section.
+- `folder` draws a closed, all-navy folder in `in-reveal`. `hover-adding-files` is
+  the state that colours, and it says "Projects" better besides.
+
+So an icon reading as monochrome is a reason to enumerate its markers before
+replacing it. `tools/section-art-map.tsv` carries a `state` column per row for
+exactly this.
+
+### Printing needs the opposite of `in-reveal`
+
+`?print-pdf` lays every slide out at once and snapshots them, and only the current
+slide's icon is ever played, so `in-reveal` would print **every divider blank**.
+`format-outputs.html` handles this by seeking each icon to the last frame of its
+state instead of playing it. Two traps found the hard way:
+
+- The seek must wait for reveal's `pdf-ready`. Reveal rebuilds the slide DOM for
+  print layout, and seeking before that lands on nodes it then replaces, leaving
+  the icons back at frame 0.
+- `lord-icon`'s `ready` event does not reliably reach a listener on the element.
+  Poll `playerInstance.isReady` instead. An earlier version waited on the event and
+  the whole print branch silently never ran.
 
 ## What went wrong, and why it's worth remembering
 

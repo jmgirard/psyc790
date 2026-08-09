@@ -114,7 +114,7 @@ theme_set(mytheme)
 # NHST Approaches
 
 ::: {.section-art}
-{{< lif "../../icons/two_routes.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/two_routes.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Recap of Steps in NHST
@@ -374,7 +374,7 @@ Note that these results are identical
 # Effect Sizes
 
 ::: {.section-art}
-{{< lif "../../icons/caliper.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/caliper.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Effect sizes

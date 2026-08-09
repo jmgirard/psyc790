@@ -53,7 +53,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 # Projects
 
 ::: {.section-art}
-{{< lif "../../icons/folder.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/folder.json" state=hover-adding-files colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## File Management {.fs70}
@@ -132,7 +132,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 # Quarto
 
 ::: {.section-art}
-{{< lif "../../icons/render_doc.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/render_doc.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Quarto {.fs80}
@@ -198,7 +198,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 # Markdown
 
 ::: {.section-art}
-{{< lif "../../icons/text_format.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/text_format.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Markdown

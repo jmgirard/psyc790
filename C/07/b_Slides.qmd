@@ -111,7 +111,7 @@ theme_set(mytheme())
 # Dichotomous <br>Dummy Coding
 
 ::: {.section-art}
-{{< lif "../../icons/switch_binary.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/switch_binary.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Coding two categories
@@ -351,7 +351,7 @@ plot(
 # Polytomous <br>Dummy Coding
 
 ::: {.section-art}
-{{< lif "../../icons/radio_buttons.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/radio_buttons.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Coding many categories

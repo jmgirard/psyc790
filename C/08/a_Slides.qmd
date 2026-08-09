@@ -56,7 +56,7 @@ theme_set(mytheme())
 # Overview
 
 ::: {.section-art}
-{{< lif "../../icons/mountains.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/mountains.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Motivation
@@ -454,7 +454,7 @@ plot(estimate_relation(fit0, by = c("x1", "x2=c(-1,0,1)"))) +
 # Centering with Interactions
 
 ::: {.section-art}
-{{< lif "../../icons/compass.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/compass.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Centering interactions
