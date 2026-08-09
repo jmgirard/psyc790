@@ -51,7 +51,7 @@ rows = [l.split("\t") for l in MAP.read_text().split("\n")
 
 have = {p.stem for p in (ROOT / "icons").glob("*.json")}
 by_deck = {}
-for deck, n, title, icon, source, _search, _note in rows:
+for deck, n, title, icon, source, _lordicon, _key, _note in rows:
     by_deck.setdefault(deck, []).append((int(n), title, icon, source))
 
 wired = waiting = 0

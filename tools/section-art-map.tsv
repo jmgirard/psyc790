@@ -2,97 +2,107 @@
 #
 # `n` is the 1-based divider index within the deck, counting only section
 # dividers -- the deck title slide is not one. Keying on the index rather than
-# on the heading text keeps this stable when a section gets reworded, and the
-# wiring script checks the recorded title against the file so a drift is an
-# error rather than a silently misplaced icon.
+# on the heading text keeps this stable when a section gets reworded, and
+# tools/wire-section-art.py checks the recorded title against the file, so a
+# drift is an error rather than a silently misplaced icon.
 #
-# source=catalog  the file is already in icons/ and unused elsewhere
-# source=pilot    already wired on the C/07/a pilot, kept as-is
-# source=new      needs exporting from Lordicon. Set secondary to #2a76dd in the
-#                 customizer BEFORE exporting or the icon bakes in Lordicon's
-#                 green -- see ICONS.md. `search` is the term to start from;
-#                 `icon` is the filename to save it as.
+# source
+#   catalog  already in icons/ and unused elsewhere. Wired.
+#   pilot    already wired on the C/07/a pilot, kept as-is.
+#   new      one icon named in `lordicon`; export it and save it as `icon`.json.
+#   choose   more than one candidate in `lordicon`, pipe-separated, because no
+#            single icon in the library is clearly right. Look at them and pick.
 #
-# Reserved and deliberately not reused: map.json (the roadmap slide's recurring
-# motif) and the 25 other icons already carrying meaning on a content slide.
+# `lordicon` is the icon's name in the Wired / Outline family and `key` is its
+# code, so it can be found by URL: lordicon.com/icon/<key>/wired/outline
 #
-# deck	n	section	icon	source	search	note
-A/01/b	1	R and RStudio	code_window	new	code editor window, IDE, workspace	The pane layout is the thing being introduced.
-A/01/b	2	Console	terminal	new	terminal, command prompt, command line	A prompt awaiting a line, not a whole editor.
-A/01/b	3	Scripts	edit_doc	catalog	-	Document with a pencil: a file you write and keep.
-A/02/a	1	Projects	folder	new	folder, project folder, directory	The self-contained directory is the whole point.
-A/02/a	2	Quarto	publish_doc	new	publish document, export, render	Source going out as a finished artifact.
-A/02/a	3	Markdown	text_format	new	text formatting, bold italic, rich text	Plain text acquiring formatting.
-A/02/b	1	Assignment	arrow_into_box	new	arrow into box, insert, store	A value going into a named container.
-A/02/b	2	Naming	name_tag	new	name tag, label, badge	Attaching a name to a thing.
-A/02/b	3	Functions	gears	new	gears, machine, cogs	Input in, work happens, output out.
-A/02/b	4	Vectors	stack_list	new	list, stack, queue	Many elements held in order as one object.
-A/03/a	1	Strings	text_cursor	new	text cursor, typing, abc	Character data as distinct from names.
-A/03/a	2	Factors	sort_bins	new	sort into bins, categories, group	Values dropping into a fixed set of levels.
-A/03/a	3	Packages	parcel	new	parcel, package delivery, shipping box	Something installed and unpacked. box.json is taken.
-A/03/b	1	Data Frames	table_grid	new	table, grid, rows and columns	Rectangular data. spreadsheet.json is taken.
-A/03/b	2	Data Exploration	explore_chart	new	magnifying glass chart, explore data, inspect	Looking at data before modelling it.
-B/04/a	1	Research Methods	test_tubes	catalog	-	The apparatus of doing a study.
-B/04/a	2	Populations and Parameters	people	catalog	-	The whole crowd, which is what a population is.
-B/04/a	3	Samples and Statistics	counter	catalog	-	A tally counter: counting a subset by hand.
-B/04/a	4	Estimation and Uncertainty	target	catalog	-	Aiming at a true value you cannot see.
-B/04/b	1	Types of Estimates	point_vs_range	new	bracket, range, min max	A point estimate against an interval.
-B/04/b	2	The Normal Distribution	bell_curve	new	bell curve, gaussian, normal distribution	NOT bell.json, which is a notification bell: the pun reads as a mistake at 300px.
-B/04/b	3	Central Limit Theorem	converge	new	converge, funnel to center, average	Many samples collapsing toward one shape.
-B/04/b	4	Confidence Intervals	error_bar	new	error bar, confidence interval, range chart	The interval itself.
-B/04/b	5	Practical Matters	toolbox	new	toolbox, tools, practical	The housekeeping at the end of the lecture.
-B/05/a	1	Statistical Hypotheses	scales	catalog	-	A balance: H0 against H1, before any evidence.
-B/05/a	2	NHST Logic	flowchart	new	flowchart, decision tree, process	The chain of reasoning, which is the section.
-B/05/a	3	NHST Nuts and Bolts	wrench	new	wrench, nuts and bolts, spanner	Literal, and the title already invites it.
-B/05/a	4	$p$-values and <br>Pragmatics	threshold	new	threshold, gauge, traffic light	A cutoff being applied, and its awkwardness.
-B/05/b	1	Introductions	link	new	link, chain link, connection	Two variables related, which is all correlation claims.
-B/05/b	2	Calculating <br>Correlations	calculator	catalog	-	The arithmetic section.
-B/05/b	3	Statistical Inference	telescope	new	telescope, far away, extrapolate	Reasoning past the sample to what you cannot observe. Deliberately not magic_ball.json, which frames inference as fortune telling.
-B/06/a	1	Introductions	two_people	new	two people, versus, pair	Exactly two groups.
-B/06/a	2	NHST Approaches	fork_road	new	fork in the road, two routes, choice	Different routes to the same comparison.
-B/06/a	3	Effect Sizes	caliper	catalog	-	Measuring how big, not whether. The best fit in the catalog.
-B/06/b	1	Introduction	cluster	new	cluster, groups, multiple groups	More than two groups at once.
-B/06/b	2	One-way ANOVA in R	run_code	new	run code, play code, brackets	The section where it becomes R.
-B/06/b	3	Post-hoc Tests	pairwise_check	new	compare pairs, checklist, after the fact	Which pair differs, asked after the omnibus test.
-B/06/c	1	Unequal Variances	uneven_scales	new	unbalanced, uneven bars, tilt	The assumption failing, visibly.
-B/06/c	2	Repeated Measures	repeat_loop	new	repeat, loop arrows, cycle	The same people measured again.
-B/06/c	3	Translation Activity	translate	new	translate, language, speech to text	The unit-closing activity, which is literally translation.
-C/07/a	1	Introduction	trend_line	new	trend line, scatter with line, linear	REPLACES the pilot's map.json, which is the roadmap slide's motif site-wide.
-C/07/a	2	Regression Inference	insights	pilot	-	Kept from the pilot.
-C/07/a	3	Centering	crosshair	new	crosshair, center, align center	REPLACES the pilot's location_pin.json: centering is about moving the origin, not about a place.
-C/07/a	4	Regression Effect Sizes	rulers	pilot	-	Kept from the pilot.
-C/07/b	1	Introduction	shapes_sort	new	shapes, categories, sorting	Predictors that are kinds rather than amounts.
-C/07/b	2	Dichotomous <br>Dummy Coding	toggle	new	toggle switch, on off, binary	One switch, two states.
-C/07/b	3	Polytomous <br>Dummy Coding	radio_buttons	new	radio buttons, multiple choice, options	Several levels, one reference.
-C/07/c	1	Shared Variance	venn	new	venn diagram, overlap, intersection	Overlap is the whole idea.
-C/07/c	2	Multiple Regression	merge_arrows	new	merge arrows, converge, combine	Several predictors into one outcome.
-C/07/c	3	Many Predictors	equalizer	catalog	-	A bank of sliders: many inputs tuned at once.
-C/08/a	1	Overview	mountains	catalog	-	A vista. The overview of the moderation material.
-C/08/a	2	Continuous-by-Continuous	surface_3d	new	3d surface, mesh, warp grid	A response surface, which is what two continuous predictors give.
-C/08/a	3	Interaction Patterns	crossing_lines	new	crossing lines, x shape, intersect	Non-parallel slopes, which is the pattern.
-C/08/a	4	Centering with Interactions	center_align	new	center align, align, origin	Re-centering when a product term is in the model.
-C/08/b	1	Review	rewind	new	rewind, recap, history	Looking back at the previous lecture. review.json is taken.
-C/08/b	2	Binary-by-Continuous	switch_slider	new	switch and slider, mixed controls	One of each kind of predictor.
-C/08/b	3	Nominal-by-Continuous	multi_line_chart	new	multi line chart, several lines	One line per level.
-C/08/b	4	Categorical-by-Categorical	matrix_grid	new	matrix, grid of cells, table cells	A cell per combination.
-C/08/b	5	Three-Way Interactions	cube	new	cube, 3d axes, three dimensions	Three factors, three axes.
-C/09/a	1	Overview	curve	new	curve, wave, bend	Straight lines stop being enough here.
-C/09/a	2	Polynomial Regression	curved_trend	new	curved trend line, polynomial	The curved fit itself.
-C/09/a	3	Quadratic Regression	parabola	new	parabola, u curve, arc	One bend, which is what quadratic buys.
-C/09/a	4	Adding Predictors	plus_stack	new	add, plus, stack up	Terms accumulating in the model.
-C/09/a	5	Closing Thoughts	finish_flag	new	finish flag, checkered flag, wrap up	End of the section and of the unit.
-D/10/a	1	Overview	blueprint	new	blueprint, plan, specification	The assumptions listed before they are checked.
-D/10/a	2	Correct Form	puzzle_fit	new	puzzle piece, fit, shape match	The model shape matching the data shape.
-D/10/a	3	No Omitted Confounders	hidden_eye	new	hidden, eye off, unseen	A cause you did not measure.
-D/10/a	4	Perfect Predictors	mirror	new	mirror, duplicate, clone	A predictor that is the outcome again.
-D/10/a	5	No Collinearity	parallel_lines	new	parallel lines, twins, duplicate	Predictors that say the same thing.
-D/10/b	1	Overview	scatter_plot	new	scatter plot, dots chart	Residual plots, which is what the lecture reads.
-D/10/b	2	Constant Error Variance	megaphone	new	megaphone, cone, fan out	The fanning shape heteroscedasticity makes.
-D/10/b	3	Normal Residuals	qq_plot	new	qq plot, histogram, distribution check	Checking a distribution rather than assuming one.
-D/10/b	4	Independent Residuals	broken_chain	new	broken chain, unlink, independent	Dependence between residuals, and its absence.
-D/10/b	5	Outliers	odd_one_out	new	odd one out, different, stands out	One point unlike the rest.
-E/14/a	1	Power Analysis	battery	new	battery, lightning, power	Power in the statistical sense, via the obvious visual. muscle.json is taken.
-E/14/b	1	Overview	alert_triangle	new	warning triangle, alert	The practices are the warning. caution.json is taken.
-E/14/b	2	Questionable Practices	mask	new	mask, disguise, sneaky	Analysis choices that hide what was done.
-E/14/b	3	Garden of Forking Paths	branching_path	new	branching path, tree branches, maze	The metaphor, drawn literally.
-E/15/a	1	Overview	newspaper	catalog	-	Results as something published and read.
+# EXPORTING: set secondary to #2a76dd in the customizer BEFORE exporting, or the
+# icon bakes in Lordicon's green with no way to recolour it at runtime. See
+# ICONS.md, where that was learned the expensive way. Save into icons/ under the
+# `icon` name, add the code to icon-map.json, then run
+# tools/wire-section-art.py.
+#
+# Reserved and deliberately not reused: map.json, the roadmap slide's recurring
+# motif across six decks, and the 25 other icons already carrying meaning on a
+# content slide.
+#
+# deck	n	section	icon	source	lordicon	key	note
+A/01/b	1	R and RStudio	code_window	new	browser-code	wbthjkyu	The RStudio pane layout, which is what the section introduces.
+A/01/b	2	Console	terminal	new	browser-terminal	ailnzwyn	A prompt waiting for one line, not a whole editor.
+A/01/b	3	Scripts	edit_doc	catalog	-	-	Document with a pencil: a file you write and keep.
+A/02/a	1	Projects	folder	new	folder	tsrgicte	The self-contained project directory.
+A/02/a	2	Quarto	render_doc	new	file-text	hmpomorl	Source becoming a finished document.
+A/02/a	3	Markdown	text_format	new	align-text-left	nqygtxpy	Plain text acquiring structure.
+A/02/b	1	Assignment	assignment	choose	box-arrow-up|file-plus|inbox-download	drlfxosw|avbhqgrw|gjoqsfnx	A value going into a named container. Nothing in the library draws this cleanly; pick by eye. CLASH: inbox-download is already assigned to A/03/a #3.
+A/02/b	2	Naming	name_tag	choose	badge-ribbon|price-tag-sale|hashtag	wjdlpfml|zblwmalr|dplhundz	Attaching a name to a thing. All three are compromises.
+A/02/b	3	Functions	gears	new	cog-double	xnptalrm	Input in, work happens, output out.
+A/02/b	4	Vectors	stack_list	new	layers	jectmwqf	Many elements held in order as one object.
+A/03/a	1	Strings	strings	choose	messages-text|align-text-justify|file-text	ejucmaaf|gaoeefkp|hmpomorl	Character data as distinct from object names. quotation.json is taken. CLASH: file-text is already assigned to A/02/a #2.
+A/03/a	2	Factors	factors	new	bullet-list	jkavsxeh	A fixed, ordered set of levels.
+A/03/a	3	Packages	install	new	inbox-download	gjoqsfnx	Installing rather than unpacking. box.json is taken.
+A/03/b	1	Data Frames	data_frame	new	data	psrsekxp	Rectangular data. spreadsheet.json is taken.
+A/03/b	2	Data Exploration	explore	new	magnifier	wjyqkiew	Looking at data before modelling it.
+B/04/a	1	Research Methods	test_tubes	catalog	-	-	The apparatus of running a study.
+B/04/a	2	Populations and Parameters	people	catalog	-	-	The whole crowd, which is what a population is.
+B/04/a	3	Samples and Statistics	counter	catalog	-	-	A tally counter: counting a subset by hand.
+B/04/a	4	Estimation and Uncertainty	target	catalog	-	-	Aiming at a true value you cannot see.
+B/04/b	1	Types of Estimates	point_vs_range	new	plus-minus-alt	zuoqzhmn	A point estimate against an interval.
+B/04/b	2	The Normal Distribution	normal_curve	choose	wave-chart|radial-histogram|bar-chart-vertical-grow	rxpexbfb|kpeygrgr|lbcxnxti	The library has NO bell curve. bell.json is a notification bell and the pun reads as a mistake at 300px. CLASH: wave-chart is already assigned to C/09/a #1.
+B/04/b	3	Central Limit Theorem	converge	choose	sales-leads-funnel|load-balancer|arrows-rotate	txiulgfs|vbmtnozn|freooygd	Many samples collapsing toward one shape. Check sales-leads-funnel against the bound funnel.json first.
+B/04/b	4	Confidence Intervals	interval	choose	plus-minus|line-chart-markers|arrows-right-left	idohldqs|gyvwavwk|olfvnikl	The interval itself. No error-bar icon exists. CLASH: line-chart-markers is already assigned to C/07/a #1.
+B/04/b	5	Practical Matters	toolbox	new	toolbox	fvoudkri	The housekeeping at the end of the lecture.
+B/05/a	1	Statistical Hypotheses	scales	catalog	-	-	A balance: H0 against H1, before any evidence.
+B/05/a	2	NHST Logic	flowchart	new	diagram-flow	ygqtedpk	The chain of reasoning, which is the section.
+B/05/a	3	NHST Nuts and Bolts	wrench	new	wrench	fwkrbvja	Literal, and the title already invites it.
+B/05/a	4	$p$-values and <br>Pragmatics	threshold	new	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is.
+B/05/b	1	Introductions	link	new	link	gsjfryhc	Two variables related, which is all a correlation claims.
+B/05/b	2	Calculating <br>Correlations	calculator	catalog	-	-	The arithmetic section.
+B/05/b	3	Statistical Inference	telescope	new	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
+B/06/a	1	Introductions	two_people	new	avatars-men	vaqsenjk	Exactly two groups.
+B/06/a	2	NHST Approaches	two_routes	choose	two-way-traffic-sign|code-branch	pepvasng|ubpgwkmy	Different routes to the same comparison.
+B/06/a	3	Effect Sizes	caliper	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
+B/06/b	1	Introduction	many_groups	new	avatars-group	rigpimbi	More than two groups at once.
+B/06/b	2	One-way ANOVA in R	anova_in_r	choose	abacus|math-book	kfqseesl|xppmpagg	The section where it becomes R. browser-code is taken by A/01/b.
+B/06/b	3	Post-hoc Tests	compare_pairs	new	files-compare	fzitssce	Which pair differs, asked after the omnibus test.
+B/06/c	1	Unequal Variances	uneven	new	uneven-road-sign	qwasteos	The assumption failing, and the title's own metaphor.
+B/06/c	2	Repeated Measures	repeat_loop	new	arrows-loop-one	grphetub	The same people measured again.
+B/06/c	3	Translation Activity	translate	new	globe-translation	aucxxwfa	The unit-closing activity is literally translation.
+C/07/a	1	Introduction	trend_line	new	line-chart-markers	gyvwavwk	REPLACES the pilot's map.json, which is the roadmap slide's motif across six decks.
+C/07/a	2	Regression Inference	insights	pilot	-	-	Kept from the pilot.
+C/07/a	3	Centering	crosshair	new	crosshair-alt	mdpzmxaq	REPLACES the pilot's location_pin.json: centering moves an origin, it is not a place.
+C/07/a	4	Regression Effect Sizes	rulers	pilot	-	-	Kept from the pilot.
+C/07/b	1	Introduction	categories	choose	puzzle-piece|grid-squares	tsbosomu|ervhjijl	Predictors that are kinds rather than amounts. CLASH: puzzle-piece is already assigned to D/10/a #2.
+C/07/b	2	Dichotomous <br>Dummy Coding	switch_binary	new	light-switch	kvcwpecu	One switch, two states.
+C/07/b	3	Polytomous <br>Dummy Coding	radio_buttons	new	toggle-on-off	suadrppo	Several levels, one reference.
+C/07/c	1	Shared Variance	venn	new	diagram-venn-double	wisxrkfy	Overlap is the whole idea.
+C/07/c	2	Multiple Regression	many_to_one	choose	load-balancer|sitemap	vbmtnozn|cuauhrxy	Several predictors into one outcome. sitemap points the wrong way; check it renders as convergence.
+C/07/c	3	Many Predictors	equalizer	catalog	-	-	A bank of sliders: many inputs tuned at once.
+C/08/a	1	Overview	mountains	catalog	-	-	A vista, for the overview of the moderation material.
+C/08/a	2	Continuous-by-Continuous	surface_3d	new	3-d	oajcrtsi	A response surface, which is what two continuous predictors give.
+C/08/a	3	Interaction Patterns	crossing	choose	squares-intersect|intersection-side-roads-sign	adbkylwa|jcmhwgqz	Non-parallel slopes, which is the pattern.
+C/08/a	4	Centering with Interactions	compass	choose	compass|drawing-compass	syncnfkh|pnlowkpv	Re-centering with a product term in the model. Not crosshair: C/07/a has that and two would read as one.
+C/08/b	1	Review	rewind	new	rewind-circle	vclpgzfa	Looking back at the previous lecture. review.json is taken.
+C/08/b	2	Binary-by-Continuous	switch_slider	choose	sliders-vertical|electric-switchboard	eskivvxw|smbbznjz	One categorical and one continuous predictor. Check sliders-vertical against the bound equalizer.
+C/08/b	3	Nominal-by-Continuous	multi_line	choose	line-chart-grow|bar-chart-stacked-vertical-grow	osnqlnce|nzqgfiio	One regression line per level.
+C/08/b	4	Categorical-by-Categorical	matrix_grid	new	grid-module	tzyectrg	A cell per combination of levels.
+C/08/b	5	Three-Way Interactions	cube	new	cube-side	zrgyoifm	Three factors, three axes.
+C/09/a	1	Overview	curve	new	wave-chart	rxpexbfb	Straight lines stop being enough here.
+C/09/a	2	Polynomial Regression	curved_trend	new	curve-right-sign	maucqrsy	The curved fit itself.
+C/09/a	3	Quadratic Regression	parabola	choose	square-root|arched-window	wwbjufzq|rbpksjpk	The library has no parabola. Both candidates are approximations of a single bend.
+C/09/a	4	Adding Predictors	add_terms	choose	file-plus|plus-minus	avbhqgrw|idohldqs	Terms accumulating in the model.
+C/09/a	5	Closing Thoughts	finish	new	finish-line	yfbsycer	End of the section and of the unit.
+D/10/a	1	Overview	blueprint	new	blueprint	nmrhyntp	The assumptions listed before any of them is checked.
+D/10/a	2	Correct Form	puzzle_fit	new	puzzle-piece	tsbosomu	The model's shape matching the data's shape.
+D/10/a	3	No Omitted Confounders	unseen	choose	eye-close|anonymus-mask	tsgbzisa|zlrnrxmr	A cause you did not measure. anonymus-mask is also a candidate for E/14/b #2; they cannot both have it. CLASH: anonymus-mask is already assigned to E/14/b #2.
+D/10/a	4	Perfect Predictors	mirror	choose	makeup-mirror|copyright	zogqzryv|uajrquok	A predictor that is the outcome again. Neither candidate is good; this one may be worth a wider search.
+D/10/a	5	No Collinearity	parallel	choose	road-narrows-sign|arrows-up-down	xyoobaio|ueutfbqc	Predictors that say the same thing.
+D/10/b	1	Overview	scatter	new	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
+D/10/b	2	Constant Error Variance	megaphone	new	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
+D/10/b	3	Normal Residuals	distribution_check	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one.
+D/10/b	4	Independent Residuals	independence	choose	wifi-cross|arrows-right-left	bicbmczi|olfvnikl	Dependence between residuals. No broken-chain icon exists; both candidates are weak.
+D/10/b	5	Outliers	outlier	new	sheep	pcjhygqv	The black sheep. One point unlike the rest.
+E/14/a	1	Power Analysis	power	new	bolt	vumnblwp	Power in the statistical sense via the obvious visual. muscle.json is taken.
+E/14/b	1	Overview	warning	new	warning-triangle	lltgvngb	The practices are the warning. caution.json is taken.
+E/14/b	2	Questionable Practices	mask	new	anonymus-mask	zlrnrxmr	Analysis choices that hide what was actually done.
+E/14/b	3	Garden of Forking Paths	branching	new	arrows-up-branches	gvmafqor	The metaphor, drawn literally.
+E/15/a	1	Overview	newspaper	catalog	-	-	Results as something published and read.

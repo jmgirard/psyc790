@@ -51,12 +51,24 @@ Rows are keyed by deck and by the divider's 1-based index within that deck,
 The recorded title is carried anyway and checked against the deck, so a drift is
 an error rather than a silently misplaced icon.
 
-`source=catalog` rows are already wired. `source=new` rows are still on the
-`question.json` placeholder and are waiting on an export from Lordicon; `icon`
-is the filename to save it as and `search` is the term to start from. **Set
-secondary to `#2a76dd` in the customizer before exporting** or the icon bakes in
-Lordicon's green with no way to recolour it at runtime -- see `ICONS.md`, which
-is where that was learned the expensive way.
+`source=catalog` rows are already wired. `source=new` names one icon in the
+Wired / Outline family and `source=choose` names two or three, pipe-separated,
+where nothing in the library is clearly right and it needs an eye. `key` is the
+icon's code, so any candidate can be opened directly:
+`lordicon.com/icon/<key>/wired/outline`.
+
+Rows are marked `CLASH` when one of their candidates is the icon a *decided*
+row already claims. Picking it anyway is allowed, but then the other row needs a
+different icon: the point of the map is that no illustration opens two sections.
+
+**Set secondary to `#2a76dd` in the customizer before exporting** or the icon
+bakes in Lordicon's green with no way to recolour it at runtime -- see
+`ICONS.md`, which is where that was learned the expensive way. Save it into
+`icons/` under the row's `icon` name and add its code to `icon-map.json`.
+
+The names and codes were read from `lordicon.com/api/library/icons?family=wired&style=outline`,
+which is the same 3,676-icon list the site's own grid renders from. Searching it
+offline beat searching the UI one concept at a time.
 
 Two rows deliberately supersede the C/07/a pilot's choices: `map.json` is the
 roadmap slide's recurring motif and should not also open a section, and
