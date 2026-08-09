@@ -41,3 +41,7 @@ _freeze/archive/
 *.docx
 *.pptx
 readings/
+
+# Output of tools/measure-slides.mjs: a measurement of the last render, not
+# something to keep. Regenerate it rather than reading a stale copy.
+/tools/report.json
