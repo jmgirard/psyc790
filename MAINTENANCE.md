@@ -166,14 +166,36 @@ only, which is exactly what a student sees in their own console. Chunks that rea
 `#| replace_path: ["../../data/", ""]`, which is *supposed* to make the slide show
 `read_csv("penguins0.csv")` while the render reads the real path.
 
-> ⚠️ **`replace_path` does not currently work.** The hook that implements it lives in
-> `_common.R`, and **nothing sources `_common.R`** — grep the repo and its only mention is
-> itself. Quarto does not pick it up automatically. So all 23 `replace_path` options are
-> silent no-ops and every data slide shows the full `../../data/...` path. This is the same
-> failure mode as the `.f4`/`.f5` font utilities and the `.instructions` class: an option
-> that looks applied, changes nothing, and is invisible unless you compare the rendered
-> output against what you expected. Fixing it means giving each deck that reads data a
-> setup chunk that sources `../../_common.R`, and re-executing those decks.
+**It only works because each deck sources `_common.R` itself.** Quarto does *not* pick that
+file up automatically — for a long time nothing sourced it at all, so all 23 `replace_path`
+options were silent no-ops and every data slide showed the full `../../data/...` path. Same
+failure mode as the `.f4`/`.f5` utilities and the `.instructions` class: an option that
+looks applied, changes nothing, and is invisible unless you compare rendered output against
+what you expected.
+
+Every deck that reads data now opens with:
+
+```r
+```{r setup}
+#| echo: false
+#| message: false
+
+source("../../_common.R")
+```
+```
+
+Two things to keep:
+
+- **Name the chunk `setup`.** knitr labels unnamed chunks `unnamed-chunk-N`, and the
+  committed figure filenames depend on that numbering. Inserting an *unnamed* chunk at the
+  top of a deck renumbers every figure below it and orphans the committed PNGs. A named
+  chunk does not.
+- **Put it after the `.t-title` block**, not before the first `#`. The title slide's `h1`
+  lives inside that div, so "before the first heading" lands inside the title block and
+  breaks the title slide.
+
+`replace_path` only affects *displayed* source, so it does nothing on a chunk that does not
+echo. `D/10/b` carries two such options; they are harmless but inert.
 
 `A/02/a`'s three "Live Coding" slides are now gone too, and no deck has one. They had been
 left alone on the theory that a UI walkthrough has no code to run and no output to show, so

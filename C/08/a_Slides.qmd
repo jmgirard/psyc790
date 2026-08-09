@@ -32,6 +32,12 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 #| echo: false
 #| message: false
 
+# Installs the replace_path source hook, which rewrites the data path shown on
+# the slide without changing the path the render actually reads. Quarto does not
+# pick _common.R up on its own; without this line every `replace_path` option in
+# this deck is a silent no-op.
+source("../../_common.R")
+
 library(tidyverse)
 library(easystats)
 library(patchwork)

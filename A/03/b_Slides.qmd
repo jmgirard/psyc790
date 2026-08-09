@@ -28,6 +28,19 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ![]({{< meta unit-art >}}){.t-art}
 :::
 
+```{r setup}
+#| echo: false
+#| message: false
+
+# Installs the replace_path source hook, which rewrites the data path shown on
+# the slide without changing the path the render actually reads. Quarto does not
+# pick _common.R up on its own; without this line every `replace_path` option in
+# this deck is a silent no-op. The chunk is *named* so it does not shift the
+# unnamed-chunk-N numbering that the committed figure filenames depend on.
+source("../../_common.R")
+```
+
+
 ## Roadmap: More Programming
 
 ::: {.columns .pv4}
