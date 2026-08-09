@@ -193,7 +193,7 @@
     "href": "C/08/b_assignment.html#question-1-binary-by-continuous",
     "title": "Lecture 08b Assignment",
     "section": "Question 1 (Binary-by-Continuous)",
-    "text": "Question 1 (Binary-by-Continuous)\nUsing the screentime dataset, fit a linear model predicting mental_wellbeing from phone_wd, gender, and their interaction.\n\nReport the estimated interaction coefficient and whether it is significant. Which gender shows the steeper relationship between phone_wd and mental_wellbeing?\nUse estimate_slopes() to report the slope of phone_wd separately for girls and boys. Is each slope significantly different from zero, and does that match your answer to part (a)?"
+    "text": "Question 1 (Binary-by-Continuous)\nUsing the screentime dataset, fit a linear model predicting mental_wellbeing from phone_wd, gender, and their interaction.\n\nReport the estimated interaction coefficient and whether it is significant. Which gender shows the steeper relationship between phone_wd and mental_wellbeing? (By steeper, I mean the slope that is further from zero, ignoring its sign.)\nUse estimate_slopes() to report the slope of phone_wd separately for girls and boys. Is each slope significantly different from zero, and does that match your answer to part (a)?"
   },
   {
     "objectID": "C/08/b_assignment.html#question-2-categorical-by-categorical",
@@ -326,7 +326,7 @@
     "href": "B/05/b_assignment.html#question-3-statistical-inference",
     "title": "Lecture 05b Assignment",
     "section": "Question 3 (Statistical Inference)",
-    "text": "Question 3 (Statistical Inference)\nRead in the factbook1M dataset again for this question so that it can be answered on its own.\n\nTest whether the correlation between life_exp and birth_rate is significantly different from zero at \\(\\alpha=.05\\). Report the test statistic, \\(p\\)-value, and confidence interval.\nCalculate the correlations among these four variables: life_exp, birth_rate, infant_mortality, and death_rate. Which pair is most strongly related and which pair is most weakly related? Give a verbal interpretation of the strongest relationship.\n\n\n✅ Done! Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important)."
+    "text": "Question 3 (Statistical Inference)\nRead in the factbook1M dataset again for this question so that it can be answered on its own.\n\nTest whether the correlation between life_exp and birth_rate is significantly different from zero at \\(\\alpha=.05\\). Report the test statistic, \\(p\\)-value, and confidence interval.\nCalculate the correlations among these four variables: life_exp, birth_rate, infant_mortality, and death_rate. Which pair is most strongly related and which pair is most weakly related? (By strength, I mean how far the correlation is from zero, ignoring its sign.) Give a verbal interpretation of the strongest relationship.\n\n\n✅ Done! Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important)."
   },
   {
     "objectID": "B/05/a_assignment.html#instructions",
@@ -340,7 +340,7 @@
     "href": "B/05/a_assignment.html#question-1-nhst-logic",
     "title": "Lecture 05a Assignment",
     "section": "Question 1 (NHST Logic)",
-    "text": "Question 1 (NHST Logic)\n\nIf my test has 70% power and an \\(\\alpha\\) of .01, what are my chances of making a Type I Error and a Type II Error?\nIf I wanted to reduce my chances of making each type of error, what could I change about my study/analysis?"
+    "text": "Question 1 (NHST Logic)\n\nIf my test has 70% power and an \\(\\alpha\\) of .01, what is my Type I Error rate and what is my Type II Error rate? For each rate, state the circumstance under which it applies.\nIf I wanted to reduce my chances of making each type of error, what could I change about my study/analysis?"
   },
   {
     "objectID": "B/05/a_assignment.html#question-2-statistical-hypotheses",
@@ -466,7 +466,7 @@
     "href": "A/02/b_assignment.html#question-1-assignment-and-naming",
     "title": "Lecture 02b Assignment",
     "section": "Question 1 (Assignment and Naming)",
-    "text": "Question 1 (Assignment and Naming)\n\nWhy is it important to give your objects in R good names? When might poorly thought-out names cause problems for a programmer?\nSam is designing a treehouse. The plan is basically a big rectangular box with a wall that is 5.32 ft wide and 4.74 ft long (Sam is very precise). Using R, calculate the area of the treehouse and save that value to an object named area. Then use that object to calculate the volume of the treehouse, assuming the walls are 5.61 ft tall. Print the volume object.\n\n\\[Area = Length \\times Width\\]\n\\[Volume = Area \\times Height\\]\n\nHelp me fix my code! “I want to assign a name to my extraversion score on the Five Factor Model personality test.”\n\n\n5FM_extraversion &lt;- 23\n## Error in parse(text = input): &lt;text&gt;:1:2: unexpected symbol\n## 1: 5FM_extraversion\n##      ^\n\n\nHelp me fix my code! “I want to calculate the average of three objects corresponding to negative emotion self-reports.”\n\n\nanger &lt;- 3\nsadness &lt;- 4\nfear &lt;- 3\nnegative_emotion &lt;- (anger + sadness + faer) / 3\n## Error:\n## ! object 'faer' not found"
+    "text": "Question 1 (Assignment and Naming)\n\nWhy is it important to give your objects in R good names? When might poorly thought-out names cause problems for a programmer?\nSam is designing a treehouse. The plan is basically a big rectangular box with a floor that is 5.32 ft wide and 4.74 ft long (Sam is very precise). Using R, calculate the area of the treehouse and save that value to an object named area. Then use that object to calculate the volume of the treehouse, assuming the walls are 5.61 ft tall. Print the volume object.\n\n\\[Area = Length \\times Width\\]\n\\[Volume = Area \\times Height\\]\n\nHelp me fix my code! “I want to assign a name to my extraversion score on the Five Factor Model personality test.”\n\n\n5FM_extraversion &lt;- 23\n## Error in parse(text = input): &lt;text&gt;:1:2: unexpected symbol\n## 1: 5FM_extraversion\n##      ^\n\n\nHelp me fix my code! “I want to calculate the average of three objects corresponding to negative emotion self-reports.”\n\n\nanger &lt;- 3\nsadness &lt;- 4\nfear &lt;- 3\nnegative_emotion &lt;- (anger + sadness + faer) / 3\n## Error:\n## ! object 'faer' not found"
   },
   {
     "objectID": "A/02/b_assignment.html#question-2-functions",
@@ -480,7 +480,7 @@
     "href": "A/02/b_assignment.html#question-3-vectors",
     "title": "Lecture 02b Assignment",
     "section": "Question 3 (Vectors)",
-    "text": "Question 3 (Vectors)\n\nWhat did I mean when I said that “functions typically either transform each element in a vector or summarize all elements in a vector”? In your answer, provide an example (in text) of when each of these behaviors might be useful.\nBelow is a table of the top 5 countries’ production (i.e., GDP Per Capita at PPP) in 2017. Save the numbers only to a vector and then use R to create a new vector that contains the log-transformed versions of each number. Print that new vector.\n\nHint Your output should look like this:\n\n\n[1] 2.9696449 2.5045459 1.5835045 1.3064391 0.9749369\n\n\n\n\n\n\nCountry\nTrillions\n\n\n\n\nUSA\n19.485\n\n\nChina\n12.238\n\n\nJapan\n4.872\n\n\nGermany\n3.693\n\n\nIndia\n2.651\n\n\n\n\n✅ Done! Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important)."
+    "text": "Question 3 (Vectors)\n\nWhat did I mean when I said that “functions typically either transform each element in a vector or summarize all elements in a vector”? In your answer, provide an example (in text) of when each of these behaviors might be useful.\nBelow is a table of the top 5 countries’ production (i.e., total GDP, in trillions of US dollars) in 2017. Save the numbers only to a vector and then use R to create a new vector that contains the log-transformed versions of each number. Print that new vector.\n\nHint Your output should look like this:\n\n\n[1] 2.9696449 2.5045459 1.5835045 1.3064391 0.9749369\n\n\n\n\n\n\nCountry\nTrillions\n\n\n\n\nUSA\n19.485\n\n\nChina\n12.238\n\n\nJapan\n4.872\n\n\nGermany\n3.693\n\n\nIndia\n2.651\n\n\n\n\n✅ Done! Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important)."
   },
   {
     "objectID": "A/02/a_practice.html",
@@ -669,7 +669,7 @@
     "href": "A/03/b_assignment.html#question-1-data-frames",
     "title": "Lecture 03b Assignment",
     "section": "Question 1 (Data Frames)",
-    "text": "Question 1 (Data Frames)\n\n\n\nplanet\nmoons\nhas_rings\n\n\n\n\nEarth\n1\nFALSE\n\n\nMars\n2\nFALSE\n\n\nJupiter\n95\nTRUE\n\n\nSaturn\n274\nTRUE\n\n\n\n\nCreate three vectors from the columns of the table above and combine them into a tibble named planets. Print the tibble.\nLook at the short type abbreviation printed under each column name. Report what type R gave each of the three columns, and explain in a sentence or two why it is useful that a tibble keeps track of the type of each column."
+    "text": "Question 1 (Data Frames)\n\n\n\nplanet\nmoons\nhas_rings\n\n\n\n\nEarth\n1\nFALSE\n\n\nMars\n2\nFALSE\n\n\nJupiter\n97\nTRUE\n\n\nSaturn\n274\nTRUE\n\n\n\n\nCreate three vectors from the columns of the table above and combine them into a tibble named planets. Print the tibble.\nLook at the short type abbreviation printed under each column name. Report what type R gave each of the three columns, and explain in a sentence or two why it is useful that a tibble keeps track of the type of each column."
   },
   {
     "objectID": "A/03/b_assignment.html#question-2-data-files",
@@ -921,7 +921,7 @@
     "href": "C/07/a_assignment.html#question-1-regression-inference",
     "title": "Lecture 07a Assignment",
     "section": "Question 1 (Regression Inference)",
-    "text": "Question 1 (Regression Inference)\nRead in the fatalism dataset and fit a simple linear regression predicting depression from fatalism.\n\nReport the estimated intercept and slope. For each one, state whether it is significantly different from zero and explain in plain language what the estimate means.\nThe intercept is the predicted value of depression when fatalism equals zero. Look at the range of the fatalism variable and comment on whether that intercept describes anyone who was actually measured."
+    "text": "Question 1 (Regression Inference)\nRead in the fatalism dataset and fit a simple linear regression predicting depression from fatalism.\n\nReport the estimated intercept and slope. For each one, state whether it is significantly different from zero and explain in plain language what the estimate means.\nThe intercept is the predicted value of depression when fatalism equals zero. Look at the range of the fatalism variable and comment on whether zero falls inside that range, and on how well the intercept describes a typical participant."
   },
   {
     "objectID": "C/07/a_assignment.html#question-2-centering",
@@ -991,7 +991,7 @@
     "href": "C/07/c_assignment.html#question-3-many-predictors",
     "title": "Lecture 07c Assignment",
     "section": "Question 3 (Many Predictors)",
-    "text": "Question 3 (Many Predictors)\nRead in prestige.csv and fit a model predicting prestige from education, income, and women.\n\nReport which partial effects are significant. Then explain why a predictor can be significantly correlated with the outcome on its own and yet have a non-significant partial effect once the other predictors are in the model.\nIn your own words, describe why a researcher might want to regress \\(y\\) on several predictors simultaneously rather than running a separate simple regression for each one. When might they want the opposite?\n\n\n✅ Done! Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important)."
+    "text": "Question 3 (Many Predictors)\nRead in prestige.csv and fit a model predicting prestige from education, income, and women.\n\nReport which partial effects are significant. Then, as a general point about multiple regression, explain how a predictor can be significantly correlated with the outcome on its own and yet have a non-significant partial effect once the other predictors are in the model. (This second part is conceptual — you are not being asked to find such a predictor in this particular model.)\nIn your own words, describe why a researcher might want to regress \\(y\\) on several predictors simultaneously rather than running a separate simple regression for each one. When might they want the opposite?\n\n\n✅ Done! Please save and then render your document to an HTML file. Check it over to make sure it is complete (and rendered properly) and then submit it as directed by your instructor. Note that, if any of your code chunks has an error in it, the HTML file will not render properly (this is why removing scratch work is important)."
   },
   {
     "objectID": "C/08/index.html",
@@ -1089,14 +1089,14 @@
     "href": "D/10/a_assignment.html#question-1-model-specification",
     "title": "Lecture 10a Assignment",
     "section": "Question 1 (Model Specification)",
-    "text": "Question 1 (Model Specification)\n\nIn your own words, describe the three LM assumptions about the model formula/specification. What are they assuming, and what will the consequences be if they are violated?\nOf those three assumptions, which do you think is hardest to check in practice, and why?"
+    "text": "Question 1 (Model Specification)\n\nIn your own words, describe the four LM assumptions about the model formula/specification. What are they assuming, and what will the consequences be if they are violated?\nOf those four assumptions, which do you think is hardest to check in practice, and why?"
   },
   {
     "objectID": "D/10/a_assignment.html#question-2-correct-form",
     "href": "D/10/a_assignment.html#question-2-correct-form",
     "title": "Lecture 10a Assignment",
     "section": "Question 2 (Correct Form)",
-    "text": "Question 2 (Correct Form)\nRead in the screentime dataset and fit a multiple regression model predicting mental_wellbeing from watch_wd, play_wd, compute_wd, phone_wd, gender, minority, and deprived_area. To ease the comparison between slopes, standardize them using the “refit” method.\n\nBriefly report which partial effects are significant.\nCheck the functional form assumption using the diagnostic(s) learned in lecture and interpret the results in terms of how reasonable vs. unreasonable the assumption is. (Note that you should explain why you think it is more or less reasonable and not just say “looks good” or “looks bad.”)"
+    "text": "Question 2 (Correct Form)\nRead in the screentime dataset and fit a multiple regression model predicting mental_wellbeing from watch_wd, play_wd, compute_wd, phone_wd, gender, minority, and deprived_area. To ease the comparison between slopes, standardize them using the “refit” method.\n\nBriefly report, for each predictor in the model, whether its partial effect is significant.\nCheck the functional form assumption using the diagnostic(s) learned in lecture and interpret the results in terms of how reasonable vs. unreasonable the assumption is. (Note that you should explain why you think it is more or less reasonable and not just say “looks good” or “looks bad.”)"
   },
   {
     "objectID": "D/10/a_assignment.html#question-3-no-collinearity",
@@ -1243,7 +1243,7 @@
     "href": "E/15/a_assignment.html#question-2-reviewing-the-introduction-and-methods",
     "title": "Lecture 15a Assignment",
     "section": "Question 2 (Reviewing the Introduction and Methods)",
-    "text": "Question 2 (Reviewing the Introduction and Methods)\nFind a published research paper in your own area that used multiple regression, and evaluate it from the perspective of a methodological reviewer rather than as an ordinary reader. Write up a summary of what you found regarding the introduction and methods sections. (Pick a paper you can access in full, including its tables.)"
+    "text": "Question 2 (Reviewing the Introduction and Methods)\nFind a published research paper in your own area that used multiple regression, and evaluate it from the perspective of a methodological reviewer rather than as an ordinary reader. (Pick a paper you can access in full, including its tables.) Give the full citation, then answer the following.\n\nReport what you found in the introduction. Are the research question and hypotheses stated clearly, and stated before the results? Does the literature justify those specific predictions? Is the study framed as confirmatory or exploratory, and is that framing credible?\nReport what you found in the methods. Pay particular attention to whether the sample size is justified (e.g., a power analysis), whether the measures and procedures are described well enough to reproduce, and how the regression was specified — which predictors, why those, and how covariates, missing data, and outliers were handled."
   },
   {
     "objectID": "E/15/a_assignment.html#question-3-reviewing-the-results-and-discussion",

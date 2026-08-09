@@ -402,25 +402,30 @@ F_{obs} \sim F(\textit{df}_1=g-1, \textit{df}_2 = (n-1)(g-1))
 <div class="fs90">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afex)</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov_4</span>(</span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> hrsd <span class="sc">~</span> (time <span class="sc">|</span> patient),</span>
-<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> depression</span>
-<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit)</span>
-<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ANOVA estimation for factorial designs using 'afex'</span></span>
-<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Sum_Squares | Sum_Squares_Error |   df | df (error) | Mean_Square</span></span>
-<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------------</span></span>
-<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## time      |     1166.26 |           1231.07 | 1.86 |      98.64 |       12.48</span></span>
-<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter |     F |      p</span></span>
-<span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------</span></span>
-<span id="cb4-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## time      | 50.21 | &lt; .001</span></span>
-<span id="cb4-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb4-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Anova Table (Type 3 tests)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov_ez</span>(</span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">"patient"</span>,</span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">dv =</span> <span class="st">"hrsd"</span>,</span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> depression,</span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">within =</span> <span class="st">"time"</span></span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit)</span>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a><span class="do">## ANOVA estimation for factorial designs using 'afex'</span></span>
+<span id="cb4-10"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb4-11"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter | Sum_Squares | Sum_Squares_Error |   df | df (error) | Mean_Square</span></span>
+<span id="cb4-12"><a aria-hidden="true" tabindex="-1"></a><span class="do">## -----------------------------------------------------------------------------</span></span>
+<span id="cb4-13"><a aria-hidden="true" tabindex="-1"></a><span class="do">## time      |     1166.26 |           1231.07 | 1.86 |      98.64 |       12.48</span></span>
+<span id="cb4-14"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb4-15"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter |     F |      p</span></span>
+<span id="cb4-16"><a aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------</span></span>
+<span id="cb4-17"><a aria-hidden="true" tabindex="-1"></a><span class="do">## time      | 50.21 | &lt; .001</span></span>
+<span id="cb4-18"><a aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb4-19"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Anova Table (Type 3 tests)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-</section>
+
+<aside><div>
+<p><em>Note.</em> <code>id</code> names the column identifying who each row came from. A factor goes in <code>within</code> when everyone is measured at every level, and in <code>between</code> when each person appears at only one.</p>
+</div></aside></section>
 <section class="slide level2">
 <h2>Estimating means</h2>
 <div class="cell">

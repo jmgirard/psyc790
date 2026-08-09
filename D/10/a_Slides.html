@@ -252,6 +252,7 @@
 <li><strong>Assumptions about the Formula</strong>
 <ul>
 <li>Correct Functional Form</li>
+<li>No Omitted Confounders</li>
 <li>Perfectly Measured Predictors</li>
 <li>No Collinearity/Multicollinearity</li>
 </ul></li>
@@ -377,6 +378,78 @@
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
+<h1>No Omitted Confounders</h1>
+
+</section>
+<section class="slide level2">
+<h2>Assumption</h2>
+<ul>
+<li>Every variable that affects <span class="math inline">\(y\)</span> <strong>and</strong> correlates with an <span class="math inline">\(x\)</span> must be in the model
+<ul>
+<li>Such a variable is called a <strong>confounder</strong></li>
+<li>Its effect does not vanish; it is absorbed by the predictors we did include</li>
+</ul></li>
+<li>We saw this in Chapter 07c: leaving <code>education</code> out made White Collar look <em>more</em> prestigious than Blue Collar, and putting it back reversed the sign</li>
+</ul>
+<div title="Consequences of Violating">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Consequences of Violating</strong></p>
+</div>
+<div class="callout-content">
+<p>Bias in the coefficients, and therefore in the tests and intervals built on them!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 fs90">
+<h2>Diagnostics</h2>
+<ul>
+<li>There is <strong>no diagnostic plot for this one</strong>
+<ul>
+<li>A confounded model can have perfect-looking residuals</li>
+<li>Nothing in the data can reveal a variable that is not in the data</li>
+</ul></li>
+<li>Instead, we argue from <strong>theory and design</strong>
+<ul>
+<li>What else plausibly causes <span class="math inline">\(y\)</span>?</li>
+<li>Is it correlated with any predictor we care about?</li>
+<li>Did we measure it?</li>
+</ul></li>
+</ul>
+<div class="tc">
+<p>This is the assumption you cannot test — only defend.</p>
+</div>
+</section>
+<section class="slide level2 fs90">
+<h2>Solutions</h2>
+<ol type="1">
+<li>Measure and include the confounder
+<ul>
+<li>Decided at <strong>design</strong> time, not analysis time</li>
+</ul></li>
+<li>Remove the confounding by design
+<ul>
+<li>e.g., random assignment to conditions</li>
+<li>e.g., matching or restriction</li>
+</ul></li>
+<li>Be honest about what is left
+<ul>
+<li>Report plausible confounders you could not measure</li>
+<li>Describe effects as <em>adjusted for what you included</em>, not as causal</li>
+</ul></li>
+</ol>
+<div class="footer">
+<p>Do not “control for everything” — adjusting for a mediator removes the very pathway you are studying.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
 <h1>Perfect Predictors</h1>
 
 </section>
@@ -474,10 +547,13 @@
 <p><strong>Consequences of Violating</strong></p>
 </div>
 <div class="callout-content">
-<p>Coefficients are biased and standard errors are upwardly biased (i.e., inflated).</p>
+<p>Coefficients stay <strong>unbiased</strong> but become unstable; standard errors are upwardly biased (i.e., inflated).</p>
 </div>
 </div>
 </div>
+</div>
+<div class="footer">
+<p><em>Unstable</em> means the estimate swings a lot from sample to sample — not that it is systematically too high or too low.</p>
 </div>
 </section>
 <section class="slide level2">
