@@ -47,22 +47,29 @@ are clean. No slide anywhere still clips content inside a `<pre>`.
 The old "remaining 4" list below is superseded — it used pre-restructure week ids and was
 measured in a small window. Unit B and the first half of Unit C hold all but two of these.
 
-### Titles that wrap to two lines
+### Titles that wrap to two lines — none
 
-Five, all in Unit A, all `h2` content-slide titles at 64px against the 1050px canvas. Each
-costs ~77px of vertical space on a slide that has room to spare, so they are a typography
-problem rather than an overflow one.
+Swept all 23 decks: **0 wrapping `h2` titles.** The five that were found (all in Unit A)
+have been reworded:
 
-| deck | title |
-|---|---|
-| `A/02/b` | Pitfall: Cannot Start with a Number or Underscore |
-| `A/02/b` | Some Functions Transform Each Element |
-| `A/02/b` | Other Functions Summarize the Whole Vector |
-| `A/03/b` | Pitfall: Columns Must Be the Same Length |
-| `A/03/b` | Covariation of Two Continuous Variables |
+| deck | was | now |
+|---|---|---|
+| `A/02/b` | Pitfall: Cannot Start with a Number or Underscore | Pitfall: Names Must Start with a Letter |
+| `A/02/b` | Some Functions Transform Each Element | Functions That Transform |
+| `A/02/b` | Other Functions Summarize the Whole Vector | Functions That Summarize |
+| `A/03/b` | Pitfall: Columns Must Be the Same Length | Pitfall: Unequal Column Lengths |
+| `A/03/b` | Covariation of Two Continuous Variables | Two Continuous Variables |
 
-Roughly 40 characters is the limit at 64px. Divider (`#`) and title slides are excluded —
-those are display type and are meant to wrap.
+**About 35 characters is the limit** at 64px against the 1050px canvas — the shortest
+that wrapped was 37, the longest that did not was 31. A wrap costs ~77px, which is
+usually free space rather than overflow, so this is a typography rule and not a layout
+bug. Divider (`#`) and title slides are excluded: those are display type and are meant
+to wrap.
+
+Note the last two rewordings above: `Functions That Transform` / `Functions That
+Summarize` keep the contrast the pair was built on while dropping the
+`Some…`/`Other…` scaffolding, and `Two Continuous Variables` works because the
+surrounding slides already establish that the section is about covariation.
 
 ### Resolved
 

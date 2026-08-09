@@ -56,13 +56,13 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 ::: {.columns .pv4}
 
 ::: {.column width="60%"}
-- Programming is how we talk to and control our amazing computers
+-   Programming is how we talk to and control our amazing computers
 
-- It gives us power and flexibility
+-   It gives us power and flexibility
 
-- Everything we do in this course will be accomplished via programming
+-   Everything we do in this course will be accomplished via programming
 
-- Programming will leave a record of what we did (i.e., code), so we can later reuse, adapt, and share it
+-   Programming will leave a record of what we did (i.e., code), so we can later reuse, adapt, and share it
 :::
 
 ::: {.column .tc .pv4 width="40%"}
@@ -76,24 +76,24 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 #### General Purpose
 
-- [R]{.b .blue} (interactive, welcoming)
-    - *Strengths:* statistics, data wrangling, data visualization
-    - *Weaknesses:* relatively slow, not security-focused
+-   [R]{.b .blue} (interactive, welcoming)
+    -   *Strengths:* statistics, data wrangling, data visualization
+    -   *Weaknesses:* relatively slow, not security-focused
 
 ::: {.fragment}
-- [Python]{.b .blue} (popular, versatile)
-    - *Strengths:* automation, machine learning, data wrangling
-    - *Weaknesses:* relatively slow
+-   [Python]{.b .blue} (popular, versatile)
+    -   *Strengths:* automation, machine learning, data wrangling
+    -   *Weaknesses:* relatively slow
 :::  
   
 ::: {.fragment}
-- [Java]{.b .green} / [C++]{.b .green} / [Scala]{.b .green} / [Julia]{.b .green} (faster but older and harder or newer and smaller)
+-   [Java]{.b .green} / [C++]{.b .green} / [Scala]{.b .green} / [Julia]{.b .green} (faster but older and harder or newer and smaller)
 :::
 
 ::: {.fragment}
 #### Special Purpose
 
-- JavaScript (web), SQL (databases), Swift (mobile), MATLAB (neuroscience), etc.
+-   JavaScript (web), SQL (databases), Swift (mobile), MATLAB (neuroscience), etc.
 :::
 
 
@@ -377,6 +377,7 @@ separators are for humans --- type the digits and **nothing else**.
 ## Creating a New Script {.fs70}
 
 -   A script is just a [plain text file]{.b .blue} saved with a [`.R`]{.b .blue} extension
+    -   Which makes it easy to [share your code]{.b .green} with other people
 -   Any one of these will create one:
     -   [File > New File > R Script]{.b .blue}
     -   Top bar: the [white square with a green plus]{.b .blue} icon

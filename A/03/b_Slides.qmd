@@ -52,14 +52,14 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ::: {.columns .pv4}
 ::: {.column width="60%"}
-- There are many ways to store data
+-   There are many ways to store data
 
 ::: {.fragment .mt1}
-- We will be learning the [tidy data]{.b .blue} format
-    - Data should be *rectangular*
-    - Each [variable]{.green} has its own column
-    - Each [observation]{.green} has its own row
-    - Each [value]{.green} has its own cell
+-   We will be learning the [tidy data]{.b .blue} format
+    -   Data should be *rectangular*
+    -   Each [variable]{.green} has its own column
+    -   Each [observation]{.green} has its own row
+    -   Each [value]{.green} has its own cell
 :::
 
 ::: {.fragment .mt1}
