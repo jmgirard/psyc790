@@ -37,7 +37,7 @@ b) Use the `estimate_relation()` function from the {modelbased} package to plot 
 
 Read in `prestige.csv` and fit **two** models: one regressing `prestige` on `type` alone, and one regressing `prestige` on both `type` and `education`.
 
-a) The `type` coefficients differ between the two models -- one of them even changes sign. Explain why. Which set are zero-order effects and which are partial effects, and how does that change how you would describe them?
+a) The `type` coefficients differ between the two models; one of them even changes sign. Explain why. Which set are zero-order effects and which are partial effects, and how does that change how you would describe them?
 
 b) Report the $R^2$ of both models. How much additional variance in `prestige` is explained by adding `education`, and what does that tell you about the two predictors?
 
