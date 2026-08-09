@@ -12,7 +12,7 @@ title: "Chapter 02: Projects & Programming"
 - Markdown
 :::
 
-### Readings
+### Readings {.res-readings}
 - [Workflow: Projects](https://r4ds.hadley.nz/workflow-scripts#projects) --- *R for Data Science*
 - [Quarto](https://r4ds.hadley.nz/quarto) --- *R for Data Science*
 - [Getting Started with Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) --- *Quarto*
@@ -29,10 +29,10 @@ title: "Chapter 02: Projects & Programming"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Practice
+### Practice {.res-practice}
 - [Lecture 02a Practice](a_practice.qmd)
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 02a Assignment](a_assignment.qmd)
 
 <!-- Lecture b -->
@@ -48,7 +48,7 @@ title: "Chapter 02: Projects & Programming"
 - Vectors
 :::
 
-### Readings
+### Readings {.res-readings}
 - [Workflow: Basics](https://r4ds.hadley.nz/workflow-basics) --- *R for Data Science*
 - [Functions](https://r4ds.hadley.nz/functions) --- *R for Data Science*
 - [Vectors](https://adv-r.hadley.nz/vectors-chap.html) --- *Advanced R*
@@ -64,10 +64,10 @@ title: "Chapter 02: Projects & Programming"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Practice
+### Practice {.res-practice}
 - [Lecture 02b Practice](b_practice.qmd)
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 02b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->

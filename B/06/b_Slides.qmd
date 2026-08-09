@@ -466,7 +466,7 @@ eta_squared(fit)
 :::
 
 ::: {.footer}
-Because equality is transitive, no other combinations are possible (e.g., if $\mu_1=\mu_3$ and $\mu_2=\mu_3$, then $\mu_1=\mu_2$)
+Equality is transitive, so no other combinations are possible: if $\mu_1=\mu_3$ and $\mu_2=\mu_3$, then $\mu_1=\mu_2$
 :::
 
 - Thus, if we reject the null, we don't know exactly why...

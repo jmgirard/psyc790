@@ -13,10 +13,10 @@ title: "Chapter 04: Sampling & Estimation"
 - Estimation and Uncertainty
 :::
 
-### Files
+### Files {.res-files}
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
 
-### Readings
+### Readings {.res-readings}
 - [Estimating Unknown Quantities, §10.1--10.2](https://learningstatisticswithr.com/10-estimation.html) --- *Learning Statistics with R*
 
 ### Slides
@@ -30,7 +30,7 @@ title: "Chapter 04: Sampling & Estimation"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 04a Assignment](a_assignment.qmd)
 
 <!-- Lecture b -->
@@ -47,11 +47,11 @@ title: "Chapter 04: Sampling & Estimation"
 - Practical Matters
 :::
 
-### Files
+### Files {.res-files}
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
 
-### Readings
+### Readings {.res-readings}
 - [Introduction to Probability, §9.1--9.2, 9.5](https://learningstatisticswithr.com/09-probability.html) --- *Learning Statistics with R*
 - [Estimating Unknown Quantities, §10.3--10.6](https://learningstatisticswithr.com/10-estimation.html) --- *Learning Statistics with R*
 
@@ -66,7 +66,7 @@ title: "Chapter 04: Sampling & Estimation"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 04b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->

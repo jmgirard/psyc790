@@ -49,6 +49,10 @@ theme_set(mytheme())
 
 # Introduction
 
+::: {.section-art}
+{{< lif "../../icons/map.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Regression as Fancy Correlation
 
 - A correlation quantifies how well a **straight line** represents the relationship between two continuous variables
@@ -340,6 +344,10 @@ fit
 
 # Regression Inference
 
+::: {.section-art}
+{{< lif "../../icons/insights.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Uncertainty in the Population
 
 - OLS finds the best coefficients *for the sample*
@@ -461,6 +469,10 @@ Note that the $t$ values equal Coefficient / SE (e.g., --3.23/0.48 ≈ --6.66).
 
 # Centering
 
+::: {.section-art}
+{{< lif "../../icons/location_pin.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Centering a Predictor
 
 - The intercept $(b_0)$ is the value of $\hat{y}$ when $x=0$
@@ -540,6 +552,10 @@ model_parameters(fit2b)
 :::
 
 # Regression Effect Sizes
+
+::: {.section-art}
+{{< lif "../../icons/rulers.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Standardized Slopes
 

@@ -69,7 +69,7 @@ follows.
 - Scripts
 :::
 
-### Readings
+### Readings {.res-readings}
 - [Coding Basics](https://r4ds.hadley.nz/workflow-basics#coding-basics) --- *R for Data Science*
 - [Comments](https://r4ds.hadley.nz/workflow-basics#comments) --- *R for Data Science*
 - [Scripts](https://r4ds.hadley.nz/workflow-scripts#scripts) --- *R for Data Science*
@@ -86,7 +86,7 @@ follows.
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Practice
+### Practice {.res-practice}
 - [Lecture 01b Practice](b_practice.qmd)
 
 <!-- Bottom Nav -->

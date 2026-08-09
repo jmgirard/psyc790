@@ -24,6 +24,15 @@ filters:
 
 format:
   revealjs:
+    # KaTeX rather than reveal's bundled MathJax 2.7. MathJax 2's HTML-CSS
+    # output builds a tall radical by stacking glyph pieces from MathJax_Size4 --
+    # a surd, a repeated vertical extender, and a rule -- and the seams between
+    # those pieces are visible at deck scale. The SD formula in B/04/a
+    # ($\sqrt{\frac{1}{N}\sum...}$) is tall enough to trigger it and renders as a
+    # broken column of segments. KaTeX draws the radical as one SVG path, so it
+    # is seamless at any size. Everything these decks use (\frac, \sum with
+    # limits, \bar, \hat, \sqrt) is well within KaTeX's coverage.
+    html-math-method: katex
     css: ../../styles.css
     include-after-body: ../../format-outputs.html
     slide-number: true

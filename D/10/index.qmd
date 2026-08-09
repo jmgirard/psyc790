@@ -12,7 +12,7 @@ title: "Chapter 10: Model Diagnostics"
 - No Collinearity
 :::
 
-### Readings
+### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.5--10.6
 - [Collinearity Isn't a Disease That Needs Curing](https://janhove.github.io/analysis/2019/09/11/collinearity) --- *Jan Vanhove*
 
@@ -27,7 +27,7 @@ title: "Chapter 10: Model Diagnostics"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 10a Assignment](a_assignment.qmd)
 
 <!-- Lecture b -->
@@ -43,11 +43,11 @@ title: "Chapter 10: Model Diagnostics"
 - Outliers
 :::
 
-### Files
+### Files {.res-files}
 - [auto.csv](../../data/auto.csv){download="auto.csv"}
 - [yearspubs.csv](../../data/yearspubs.csv){download="yearspubs.csv"}
 
-### Readings
+### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §4.1, 4.3--4.5, 10.2--10.4
 - Pek, Wong, \& Wong (2018), [How to Address Non-normality: A Taxonomy of Approaches, Reviewed, and Illustrated](https://doi.org/10/gf9r69) --- *Frontiers in Psychology*
 - Leys et al. (2019), [How to Classify, Detect, and Manage Univariate and Multivariate Outliers, With Emphasis on Pre-Registration](https://doi.org/10/ghkz2s) --- *IRSP*
@@ -63,7 +63,7 @@ title: "Chapter 10: Model Diagnostics"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 10b Assignment](b_assignment.qmd)
 
 <!-- Unit D Translation -->

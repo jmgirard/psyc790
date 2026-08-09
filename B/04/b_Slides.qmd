@@ -50,9 +50,6 @@ theme_set(mytheme)
 
 ## Point and Interval Estimates {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/target.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 In statistical inference, we will often want **two** types of estimates...
 
@@ -83,9 +80,6 @@ In statistical inference, we will often want **two** types of estimates...
 
 ## Reasonable values
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/morale.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - Our uncertainty comes from the fact that sampling error causes different samples to yield different estimates
 
@@ -102,9 +96,6 @@ In statistical inference, we will often want **two** types of estimates...
 
 ## Sampling distribution
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/equalizer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - But we don't have access to the sampling distribution!
     + This is because we usually only take one sample...
@@ -124,9 +115,6 @@ In statistical inference, we will often want **two** types of estimates...
 
 ## The normal distribution {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/bell.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ::: {.columns}
 ::: {.column}
@@ -165,9 +153,6 @@ data.frame(mu = 0, sigma = 1) %>%
 
 ## The mu parameter
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/location_pin.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 Changing $\mu$ shifts the distribution left ($-$) or right ($+$)
 
@@ -194,9 +179,6 @@ data.frame(mu = seq(-3, 3, 1)) %>%
 
 ## The sigma parameter
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/mountains.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 Changing $\sigma$ expands ($+$) or contracts ($-$) the distribution
 
@@ -222,9 +204,6 @@ data.frame(sigma = seq(1, 5, 1)) %>%
 
 ## The empirical rule
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/beach.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ```{r}
 #| echo: false
@@ -258,9 +237,6 @@ ggplot(emp_curve, aes(x, y)) +
 
 ## Quantiles in R
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/caliper.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
 
 How many SDs contain a given percentage?
 
@@ -285,9 +261,6 @@ qnorm(0.975)
 
 ## Putting it all together {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/bricks.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 1. Our interval estimate should be the densest part of the sampling distribution
 
@@ -313,9 +286,6 @@ But this parametric approach all hinges on the assumption of normality (#4)...
 
 ## Non-normally distributed data
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
 
 What happens to the sampling distribution of $\bar{x}$ <br>when $x$ itself is not normally distributed?
 
@@ -357,9 +327,6 @@ clt_plot(c(1, 2))
 
 ## Central limit theorem
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
 
 The sampling distribution of $\bar{x}$ will become more normal <br>as $n$ increases (even if $x$ itself is not normally distributed)
 
@@ -377,9 +344,6 @@ clt_plot(c(4, 8))
 
 ## Normal approximations
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/magic_ball.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
 
 - The CLT **applies to means, sums, and statistics built from them**
     + Why? A mean sums many independent observations
@@ -401,9 +365,6 @@ clt_plot(c(4, 8))
 
 ## Calculations
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/calculator.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - To estimate the 95% Confidence Interval of the mean
 
@@ -423,9 +384,6 @@ $$\text{CI}_{95}= \bar{x}\pm\left(1.96\times\frac{\sigma}{\sqrt{n}}\right)$$
 
 ## A complication
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/beer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - To account for this extra uncertainty, we need to...
     + Stop using the Normal distribution and `qnorm()`
@@ -446,9 +404,6 @@ $$\text{CI}_{95}= \bar{x}\pm\left(1.96\times\frac{\sigma}{\sqrt{n}}\right)$$
 
 ## The *df* parameter
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/beer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 As *df* increases, $t(\textit{df},\mu,\sigma)$ becomes increasingly normal
 
@@ -468,9 +423,6 @@ Sometimes you'll also see *df* referred to as $\nu$
 
 ## Comparing multipliers
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/scales.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 When $n$ is small, the $t$ multiplier is higher (more uncertainty)
 
@@ -503,9 +455,6 @@ tibble(
 
 ## A correction to our formula
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/edit_doc.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ::: {.columns}
 ::: {.column}
@@ -548,9 +497,6 @@ $$\text{CI}_{\%}=\bar{x}\pm t \left(\frac{s}{\sqrt{n}}\right)$$
 
 ## An example in R
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/review.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ```{r}
 #| echo: true
@@ -604,9 +550,6 @@ I will teach you easier ways to calculate CIs in R soon.
 
 ## Reporting a CI {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ::: {.columns}
 ::: {.column}
@@ -654,9 +597,6 @@ ggplot(
 
 ## Comparing CIs
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/scales.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - A *higher* confidence level will result in a *wider* interval
    + To claim more confidence, the interval must "pay" with width
@@ -704,9 +644,6 @@ ggplot(
 
 ## Interpreting CIs
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/newspaper.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 It is common to misinterpret what confidence intervals mean
 
@@ -722,9 +659,6 @@ Bayesian interval estimates (credible intervals) actually can be interpreted thi
 
 ## Interpreting CIs
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/newspaper.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 The correct frequentist interpretation is quite a mouthful
 
@@ -746,9 +680,6 @@ The first alternative isn't my favorite as it implies a view of probability as b
 
 ## Another example
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 Let's estimate the mean sleep satisfaction of all grad students
 

@@ -12,10 +12,10 @@ title: "Chapter 08: Moderation"
 - Centering with Interactions
 :::
 
-### Files
+### Files {.res-files}
 - [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
 
-### Readings
+### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §7.1--7.5, 7.7
 - [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/) --- *UCLA OARC*
 - Finsaas \& Goldstein (2021), [Do Simple Slopes Follow-Up Tests Lead Us Astray? Advancements in the Visualization and Reporting of Interactions](https://doi.org/10/ggsng9) --- *Psychological Methods*
@@ -32,7 +32,7 @@ title: "Chapter 08: Moderation"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 08a Assignment](a_assignment.qmd)
 
 <!-- Lecture b -->
@@ -48,10 +48,10 @@ title: "Chapter 08: Moderation"
 - Three-Way Interactions
 :::
 
-### Files
+### Files {.res-files}
 - [exercise.csv](../../data/exercise.csv){download="exercise.csv"}
 
-### Readings
+### Readings {.res-readings}
 - *Applied Multiple Regression/Correlation Analysis*, §7.6, 7.8, 9.1--9.3
 - [Interactions in R](https://stats.idre.ucla.edu/r/seminars/interactions-r/) --- *UCLA OARC*
 
@@ -66,7 +66,7 @@ title: "Chapter 08: Moderation"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 08b Assignment](b_assignment.qmd)
 
 <!-- Bottom Nav -->

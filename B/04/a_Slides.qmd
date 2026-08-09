@@ -32,9 +32,6 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 ## The scientific method
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - Uncertainty can be scary, uncomfortable, and dangerous
 
@@ -52,9 +49,6 @@ See [*The Demon-Haunted World: Science as a Candle in the Dark*](https://en.wiki
 
 ## What is the scientific method?
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/test_tubes.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - Start with a **research question** that is answerable with data
 
@@ -72,9 +66,6 @@ The scientific method classically uses experimental studies, but it can also imp
 
 ## Example
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/coffee.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - **Question:** Does caffeine make you smarter?
 
@@ -90,9 +81,6 @@ The scientific method classically uses experimental studies, but it can also imp
 
 ## What role do statistics play?
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/calculator.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - **Descriptive Statistics** summarize and visualize the distributions and associations between variables
 
@@ -112,9 +100,6 @@ The scientific method classically uses experimental studies, but it can also imp
 
 ## What is a population?
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/people.json" trigger=hover colors=primary:#2a76dd class=tr >}}
-:::
 
 - The **population** is **the set of all possible observations** that we want to draw conclusions and make predictions about
 
@@ -131,9 +116,6 @@ Populations aren't always made up of people; you could have populations of group
 
 ## How large is the population?
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/counter.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - The number of individuals in a population is denoted $N$
     + The number of humans in past and future, $N\rightarrow\infty$
@@ -150,9 +132,6 @@ Populations aren't always made up of people; you could have populations of group
 
 ## What is a parameter?
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/rulers.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - [Parameters]{.b .blue} are things we want to learn about a population
     + The *typical* sleep duration for students
@@ -172,9 +151,6 @@ Populations aren't always made up of people; you could have populations of group
 
 ## Small population example
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ::: {.columns}
 
@@ -226,9 +202,6 @@ ggplot(sleep, aes(x = total)) +
 
 ## Small population example
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ::: {.columns}
 
@@ -278,9 +251,6 @@ We denote parameters using Greek letters $(\mu,\sigma)$ or uppercase English let
 
 ## Sampling
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/example.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - In practice, we are often interested in very large populations
     + $N$ = 209M adults in USA, $N$ = 35T blood cells in body
@@ -299,9 +269,6 @@ Note we use lowercase $n$ to denote the sample size
 
 ## Basics of statistical inference {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/light_bulb.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 :::{.columns}
 
@@ -330,9 +297,6 @@ Note we use lowercase $n$ to denote the sample size
 
 ## Sample example {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ::: {.columns}
 
@@ -367,9 +331,6 @@ In practice, we usually *only* have the sample's data and so using `sample()` is
 
 ## Sample example
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/sleeping.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ::: {.columns}
 
@@ -417,9 +378,6 @@ We denote sample statistics using lowercase English letters $(n, \bar{x},s)$ or 
 
 ## Sampling error
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/caution.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - Uh-oh, our statistics $\neq$ their corresponding parameters!
 
@@ -455,9 +413,6 @@ round(c(sigma, s, s - sigma), 2)
 
 ## Why does sample size matter?
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/funnel.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 - Imagine we had drawn a sample of 2 instead of 6...
 
@@ -476,9 +431,6 @@ round(c(sigma, s, s - sigma), 2)
 
 ## The law of large numbers {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/privacy_policy.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 ```{r}
 #| echo: false
@@ -521,9 +473,6 @@ lln_sample <- function(n, title) {
 
 ## Small population simulation {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 Let's take samples of different sizes from our population and calculate the sample mean
 
@@ -559,9 +508,6 @@ ggplot(res, aes(x = factor(n), y = mean)) +
 
 ## Large population simulation {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/luggage.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 Do much larger populations require much larger samples? Let's find out...
 
@@ -587,9 +533,6 @@ ggplot(res2, aes(x = factor(n), y = mean)) +
 
 ## Insights from the simulations
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/insights.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 1. Repetitions of a study (with different samples) will result in different estimates due to sampling error
 
@@ -607,9 +550,6 @@ ggplot(res2, aes(x = factor(n), y = mean)) +
 
 ## Sampling distributions
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/equalizer.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 :::{.columns}
 :::{.column}
@@ -646,9 +586,6 @@ ggplot(filter(res, n == 12), aes(x = mean)) +
 
 ## Standard errors {.fs70}
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/question.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 :::{.columns}
 :::{.column}
@@ -684,9 +621,6 @@ Because we are often interested in infinite populations, the right side of this 
 
 ## Example
 
-::: {.absolute top=-33 right=0 width=100 height=100}
-{{< lif "../../icons/candle.json" trigger=hover colors=secondary:#2a76dd class=tr >}}
-:::
 
 :::{.columns}
 :::{.column}

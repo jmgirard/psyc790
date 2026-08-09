@@ -12,7 +12,7 @@ title: "Chapter 15: Reporting & Reviewing"
 - Tables and figures that carry the result rather than repeat it
 :::
 
-### Readings
+### Readings {.res-readings}
 - "Multiple Regression" --- *Reviewer's Guide to Quantitative Methods in the Social Sciences*
 
 ### Slides
@@ -26,7 +26,7 @@ title: "Chapter 15: Reporting & Reviewing"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
-### Assignment
+### Assignment {.res-assignment}
 - [Lecture 15a Assignment](a_assignment.qmd)
 
 <!-- Lecture b -->

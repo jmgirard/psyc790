@@ -123,6 +123,43 @@ while the render reads the real path; keep it on any data-reading chunk you add.
 through RStudio's UI, with no code to run and no output to show — the name is accurate
 there and they were left alone on purpose.
 
+### Chapter-page resource lists
+
+A lecture section on a chapter page offers up to four kinds of resource — **Files**,
+**Readings**, **Practice**, **Assignment** — and each is opted into its styling from the
+`.qmd`, as `### Files {.res-files}` and so on. Four rules to keep:
+
+- **Add the class when you add the heading.** An unclassed `### Assignment` silently falls
+  back to a plain grey bullet list and stops matching the other three.
+- **Don't match on heading text or on ids.** Quarto numbers repeated ids down a page
+  (`#files`, `#files-1`, `#files-2`), so an id-based rule would style the first lecture only.
+- **The class lands on the wrapping `<section>`**, not the `h3` — that is Pandoc's
+  section-divs behaviour, and the selectors in `styles.css` depend on it.
+- **Readings entries are not all links.** Paywalled textbook chapters are deliberately plain
+  text (§5), so the styling has to look right with no `<a>` inside the `li`.
+
+Icons come from Bootstrap Icons, which Quarto already loads on every page because the navbar
+uses `icon: list-ul`. No new dependency.
+
+### Slide footers
+
+Two things about `.reveal .footer` that are easy to break:
+
+- **It lives outside reveal's scaled canvas.** Quarto attaches it to `.reveal`, not to
+  `.slides`, so anything sized in px there ignores the deck scale — a flat `0.5em` (20px)
+  stayed 20px while the slide text shrank, and in the embedded chapter-page iframe (scale
+  ≈0.45) the footnote rendered *larger* than the body text it annotates. It is now
+  multiplied by `--deck-scale`, which the observer in `format-outputs.html` publishes from
+  reveal's transform. Do not put a bare px or em size back.
+- **Footers must fit on one line.** The binding case is a narrow window, where the footer
+  box is exactly the 1050px canvas width at 20px — about 118 characters. Three footers were
+  over and were shortened; keep new ones under ~105 to leave room.
+
+Slide math is **KaTeX**, set in `_slide-settings.yml`, not reveal's bundled MathJax 2.
+MathJax 2 assembles a tall radical out of glyph pieces and the seams show at deck scale;
+`B/04/a`'s SD formula was rendering as a broken column of segments. KaTeX draws it as one
+SVG path. Everything these decks use is well inside KaTeX's coverage.
+
 ---
 
 ## 2. Building and publishing
@@ -346,9 +383,26 @@ defaults to Type III).
 **`_brand.yml`.** `_quarto.yml` declares `theme: [cosmo, brand]` but no `_brand.yml` exists,
 here or in the other two repos. It renders fine; worth confirming it is intentional.
 
-**Link beautification.** The chapter hub pages' Files / Readings / Practice / Assignments
-links are plain text links; style them (badges, icons, or cards) so the four kinds read
-apart at a glance.
+**Section illustrations rollout.** The divider pattern (§1) is prototyped on `C/07/a` only.
+Rolling it out means one icon on each of ~102 `#` dividers, 2–6 per deck. Two loose ends:
+
+- **Unit A's 25 `rc` icons** are still on *content* slides, data2-style, and were left there
+  deliberately — those slides have genuine room and Unit A is the part of this course closest
+  to data2. Decide later whether to move them onto dividers so there is one rule site-wide,
+  or keep the content-slide placement where a slide can afford it. `C/08/b`'s 2 are in the
+  same position.
+- **Icon picks** are not limited to the 51 files already in `icons/`; more are available to
+  download. Anything new lands in `icons/` and is referenced the same way.
+
+Chapter 04's 45 corner icons were removed as part of this — see the git history if the
+`class=tr` placement is ever wanted back.
+
+Do not read the 32px regression as evidence against them. Each archive unit stylesheet had
+`lord-icon.tr { width: 100px; height: 100px; position: absolute !important; top: 0; right: 0 }`;
+that rule was lost when the four unit stylesheets were consolidated into one, while the `.rc`
+rule beside it survived. The icons rendered correctly until the rebuild. The replacement rule
+in `styles.css` sizes to the container instead of hard-coding 100px, so `width=`/`height=` on
+the `.absolute` div now means what it says.
 
 **Instructor prep notes.** Supplement the private answer keys with a per-lecture "notes"
 document — a prep sheet for whoever is teaching that lecture. Lives in
