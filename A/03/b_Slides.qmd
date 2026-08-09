@@ -438,36 +438,36 @@ Now, as the tibble moves around, the variables always stay together.
 :::
 
 
-## Tibbles Live Coding
+## Loading the tidyverse
+
+Install it once via [Extras pane > Packages tab > Install]{.b .blue}, then load it
+each session.
 
 ```{r}
 #| echo: true
-#| eval: false
-#| error: true
-#| code-line-numbers: false
-
-# SETUP: Install and load the tidyverse package
-
-# Extras pane > Packages tab > Install
+#| message: false
 
 library(tidyverse)
+```
 
-# ==============================================================================
+## Creating a Tibble from Vectors
 
-# LESSON: Create a tibble from vectors
+```{r}
+#| echo: true
 
 x <- c(10, 20, 30, 40)
-x
 
 y <- x * 2 - 4
 y
 
 my_tibble <- tibble(x, y)
 my_tibble
+```
 
-# ==============================================================================
+## Tibbles Can Mix Types
 
-# USECASE: You can mix different types of vectors in a single tibble
+```{r}
+#| echo: true
 
 first_names <- c("Adam", "Billy", "Caitlyn", "Debra")
 
@@ -475,48 +475,71 @@ age_years <- c(12, 13, 10, NA)
 
 guests <- tibble(first_names, age_years)
 guests
+```
 
-# ==============================================================================
+::: aside
+*Note.* Look at the `<chr>` and `<dbl>` labels --- the tibble tracks each column's type, and prints `NA` where a value is missing.
+:::
 
-# TIP: To save time, you can also create the vectors in the tibble call
+## Building the Vectors Inline
+
+```{r}
+#| echo: true
 
 gradebook <- tibble(
   grade = c(95, 83, 90, 76),
   letter = c("a", "b", "a-", "c")
 )
 gradebook
+```
 
-# ==============================================================================
+## Pitfall: Columns Must Be the Same Length
 
-# PITFALL: Don't try to combine tibbles with different lengths
+```{r}
+#| echo: true
+#| error: true
 
-y <- c(1, 2, 3)
-x <- c("a", "b")
+tibble(y = c(1, 2, 3), x = c("a", "b"))
+```
 
-tibble(y, x) #error
+## Extracting a Column with $
 
-# ==============================================================================
-
-# LESSON: You can "extract" a vector from a tibble using $
+```{r}
+#| echo: true
 
 mytibble <- tibble(x = c(1, 2, 3, 4, 5), y = "test")
 
 mytibble$x
 
 mytibble$y
+```
 
-# ==============================================================================
+::: aside
+*Note.* `y` was a single value, so it was recycled down the whole column. Length one is the one length that is allowed to differ.
+:::
 
-# PITFALL: Don't try to extract a vector that doesn't exist
+## Pitfall: A Column That Does Not Exist
 
-mytibble$z #error
+```{r}
+#| echo: true
+#| warning: true
 
-# ==============================================================================
+mytibble$z
+```
 
-# USECASE: Get information about a tibble
+::: aside
+*Note.* This is [not]{.b} an error. You get `NULL` and a warning, so a typo in a column name can flow silently into the rest of your code.
+:::
 
+## Getting Information About a Tibble
+
+```{r}
+#| echo: true
+
+# Rows and columns
 dim(gradebook)
 
+# Column names
 colnames(gradebook)
 ```
 
@@ -547,50 +570,55 @@ colnames(gradebook)
 :::
 
 
-## Data Files Live Coding
+## Getting a Data File {.fs70}
+
+-   Download [`gradebook.csv`]{.b .blue} from the course website into your project folder
+
+::: {.fragment .mt1}
+-   You can see it in the [Extras pane > Files tab]{.b .green}
+    -   And open it in another program, such as Excel
+:::
+
+## Reading in a Data File
 
 ```{r}
 #| echo: true
-#| eval: false
-#| error: true
-#| code-line-numbers: false
+#| message: false
+#| replace_path: ["../../data/", ""]
 
-# SETUP: Load the tidyverse package (if you haven't yet)
-
-library(tidyverse)
-
-# ==============================================================================
-
-# SETUP: Download gradebook.csv from the course website into your project folder
-
-# NOTE: You can see the file in Extras pane > Files tab.
-# You can open it in another program (e.g., Microsoft Excel).
-
-# ==============================================================================
-
-# USECASE: Read in a file containing data
-
-old_gradebook <- read_csv("gradebook.csv")
+old_gradebook <- read_csv("../../data/gradebook.csv")
 old_gradebook
-
-# NOTE: read_csv() will examine and guess the data type of each variable.
-# You can tell it the data type of each variable, but that is more advanced.
-
-# ==============================================================================
-
-# USECASE: Tell R which codes were used to denote missing values
-
-old_gradebook <- read_csv("gradebook.csv", na = "?")
-old_gradebook
-
-# ==============================================================================
-
-# USE CASE: Reading in other types of data
-
-# The readxl and googlesheets4 packages work with spreadsheets
-# The haven package works with files from SPSS, SAS, and STATA
-# The rio package tries to detect the type and read in anything
 ```
+
+::: aside
+*Note.* `read_csv()` examines each column and guesses its type. You can state the types yourself, but that is more advanced.
+:::
+
+## Pitfall: Missing Values in Disguise
+
+The grade column came in as `<chr>`, not because grades are letters, but because
+one cell holds a `?`. R has no idea that means "missing."
+
+```{r}
+#| echo: true
+#| message: false
+#| replace_path: ["../../data/", ""]
+
+old_gradebook <- read_csv("../../data/gradebook.csv", na = "?")
+old_gradebook
+```
+
+## Other Kinds of Data File {.fs70}
+
+-   [readxl]{.b .blue} and [googlesheets4]{.b .blue} --- spreadsheets
+
+::: {.fragment .mt1}
+-   [haven]{.b .blue} --- files from SPSS, SAS, and STATA
+:::
+
+::: {.fragment .mt1}
+-   [rio]{.b .blue} --- tries to detect the type and read in anything
+:::
 
 
 # Data Exploration
@@ -621,26 +649,32 @@ old_gradebook
 :::
 :::
 
-## Data Verification Live Coding
+## Reading in the Raw Penguins Data
 
 ```{r}
 #| echo: true
-#| eval: false
-#| error: true
-#| code-line-numbers: false
-#| replace_path: ["../../data/", ""]
+#| message: false
 
-# SETUP: We will use the tidyverse and easystats packages
-
-library(tidyverse)
 library(easystats)
+```
 
-# ==============================================================================
-
-# SETUP: We will use the penguins data and configure its factors
+```{r}
+#| echo: true
+#| message: false
+#| replace_path: ["../../data/", ""]
 
 penguins <- read_csv("../../data/penguins0.csv")
 penguins
+```
+
+::: aside
+*Note.* `species`, `island`, and `sex` arrived as numbers. They are categories, and R does not know that yet.
+:::
+
+## Configuring the Factors
+
+```{r}
+#| echo: true
 
 penguins$species <- factor(penguins$species, levels = c(1, 2, 3),
                            labels = c("Adelie", "Chinstrap", "Gentoo"))
@@ -650,31 +684,61 @@ penguins$island <- factor(penguins$island, levels = c(1, 2, 3),
 
 penguins$sex <- factor(penguins$sex, levels = c(1, 2),
                        labels = c("female", "male"))
+```
+
+## The Configured Data
+
+```{r}
+#| echo: true
 
 penguins
-write_csv(penguins, "penguins.csv")
+```
 
-# ==============================================================================
+::: aside
+*Note.* Those three columns now print as `<fct>` with readable values. Save the cleaned version with `write_csv(penguins, "penguins.csv")` so you never redo this.
+:::
 
-# LESSON: Then check the summary statistics for problems
+## Checking the Summary for Problems
 
-# Note the NA counts: 2 penguins were never measured and 11 more were never
-# sexed. Real data has holes, and summary() is where you find them.
+```{r}
+#| echo: true
 
 summary(penguins)
+```
 
-# ==============================================================================
+::: aside
+*Note.* Read the `NA` counts: 2 penguins were never measured and 11 more were never sexed. Real data has holes, and this is where you find them.
+:::
 
-# LESSON: Describe the distribution of continuous variables
+## Describing One Continuous Variable
+
+```{r}
+#| echo: true
 
 describe_distribution(penguins, body_mass)
+```
+
+## Describing All of Them at Once
+
+```{r}
+#| echo: true
+
 describe_distribution(penguins)
+```
 
-# ==============================================================================
+## Tabulating One Factor
 
-# LESSON: Describe the distributions of discrete variables / factors
+```{r}
+#| echo: true
 
 data_tabulate(penguins, species)
+```
+
+## Tabulating Every Factor
+
+```{r}
+#| echo: true
+
 data_tabulate(penguins, is.factor)
 ```
 
@@ -700,60 +764,129 @@ data_tabulate(penguins, is.factor)
 :::
 :::
 
-## Data Visualization Live Coding
+## Loading the Cleaned Data
 
 ```{r}
 #| echo: true
-#| eval: false
-#| error: true
-#| code-line-numbers: false
+#| message: false
 #| replace_path: ["../../data/", ""]
 
-# PREP: We will need the tidyverse package and some example data
-
-library(tidyverse)
-
 penguins <- read_csv("../../data/penguins.csv")
+```
 
-# ==============================================================================
+## Variation of a Factor
 
-# USECASE: Visualize the variation of a discrete variable / factor
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3
+#| warning: true
 
 qplot(x = species, data = penguins, geom = "bar")
+```
+
+::: aside
+*Note.* `qplot()` warns that it is deprecated. It still works and we will keep using it here; the warning appears once per session, not once per plot.
+:::
+
+## Variation of Another Factor
+
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = island, data = penguins, geom = "bar")
+```
 
-# ==============================================================================
+## Variation of a Continuous Variable
 
-# USECASE: Visualize the variation of a continuous variable
+```{r}
+#| echo: true
+#| message: false
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = flipper_len, data = penguins, geom = "histogram")
+```
+
+## The Same Variable as a Boxplot
+
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = flipper_len, data = penguins, geom = "boxplot")
+```
+
+## Body Mass as a Histogram
+
+```{r}
+#| echo: true
+#| message: false
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = body_mass, data = penguins, geom = "histogram")
+```
+
+## Body Mass as a Boxplot
+
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = body_mass, data = penguins, geom = "boxplot")
+```
 
-# ==============================================================================
+## Covariation of Two Continuous Variables
 
-# USECASE: Visualize the covariation of two continuous variables
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = flipper_len, y = body_mass, data = penguins, geom = "point")
+```
 
-# ==============================================================================
+## Covariation of Two Factors
 
-# USECASE: Visualize the covariation of two discrete variables
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = species, y = island, data = penguins, geom = "jitter")
+```
+
+## The Same Pair as Stacked Bars
+
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = species, fill = island, data = penguins, geom = "bar")
+```
 
-# ==============================================================================
+## A Factor and a Continuous Variable
 
-# USECASE: Visualize the covariation of a discrete and a continuous variable
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = body_mass, y = species, data = penguins, geom = "boxplot")
+```
+
+## The Same Pair as Violins
+
+```{r}
+#| echo: true
+#| fig-width: 7
+#| fig-height: 3.4
 
 qplot(x = body_mass, y = species, data = penguins, geom = "violin")
 ```

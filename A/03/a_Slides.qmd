@@ -78,45 +78,73 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 :::
 
-## Strings Live Coding
+## Strings Need Quotation Marks
 
 ```{r}
 #| echo: true
-#| eval: false
 #| error: true
-#| code-line-numbers: false
 
-# USECASE: Strings are the main way to store character data in R
- 
-my_color <- red # error
+# Without quotes, R looks for an object named red
+my_color <- red
+```
 
-my_color <- "red" # correct
+```{r}
+#| echo: true
 
-# ==============================================================================
+# With quotes, it is a string
+my_color <- "red"
+my_color
+```
 
-# USECASE: Strings can also store symbols not allowed in object names
+## Strings Can Hold Any Symbol
 
+```{r}
+#| echo: true
+
+# Characters that are illegal in object names are fine inside a string
 dye <- "red#40"
 dye
 
 dyes <- c("red#40", "blue#02")
 dyes
+```
 
-# ==============================================================================
+## Pitfall: Math Does Not Work on Strings
 
-# PITFALL: Many operations you can do to numbers won't work for strings
+```{r}
+#| echo: true
+#| error: true
 
-dyes + 1 # error
+dyes + 1
+```
 
-mean(dyes) # error
+```{r}
+#| echo: true
+#| warning: true
 
-# ==============================================================================
+mean(dyes)
+```
 
-# USECASE: But other operations work for both or even just for strings
+::: aside
+*Note.* `mean()` does not stop with an error --- it warns and hands back `NA`. A result that looks like an answer is easier to miss than a failure.
+:::
 
+## But Some Functions Work on Both
+
+```{r}
+#| echo: true
+
+# How many elements are in the vector?
 length(dyes)
 
+# How many characters are in each element?
 nchar(dyes)
+```
+
+## And Some Work Only on Strings
+
+```{r}
+#| echo: true
 
 dyes2 <- toupper(dyes)
 dyes2
@@ -146,68 +174,95 @@ dyes2
 :::
 :::
 
-## Factors Live Coding
+## Starting with Numeric Codes
 
 ```{r}
 #| echo: true
-#| eval: false
-#| error: true
-#| code-line-numbers: false
 
-# USECASE: Ask 10 kids to order 1: nuggets, 2: pizza, or 3: salad
-
+# Ask 10 kids to order 1: nuggets, 2: pizza, or 3: salad
 food <- c(2, 2, 1, 2, 1, 2, 1, 1, 2, 2)
 food
+```
 
-# ==============================================================================
+## Turning Codes into a Factor
 
-# LESSON: We can turn this into a factor with the factor() function
+```{r}
+#| echo: true
 
 food2 <- factor(food)
-food
+food2
+```
 
-# ==============================================================================
+::: aside
+*Note.* The `Levels:` line at the bottom is how a factor prints. R found only the values that actually occur.
+:::
 
-# USECASE: We can quickly and easily count each level with table()
+## Counting Levels with table()
+
+```{r}
+#| echo: true
 
 table(food2)
+```
 
-# ==============================================================================
+## Declaring Levels That Did Not Occur
 
-# LESSON: We can let R know that level=3 is also possible by specifying levels
+```{r}
+#| echo: true
 
+# Nobody ordered salad, but 3 was always a possible answer
 food3 <- factor(food, levels = c(1, 2, 3))
 food3
 
 table(food3)
+```
 
-# ==============================================================================
+## Labelling the Levels
 
-# LESSON: We can also give a label to each level so it is more readable
+```{r}
+#| echo: true
 
-food4 <- factor(food, levels = c(1, 2, 3), 
+food4 <- factor(food, levels = c(1, 2, 3),
                 labels = c("nuggets", "pizza", "salad"))
 food4
 
 table(food4)
+```
 
-# ==============================================================================
+## Pitfall: Levels are Not Labels
 
-# PITFALL: Don't confuse levels and labels
+```{r}
+#| echo: true
 
+# levels must match what is IN the data; labels are what you want printed
 food5 <- factor(food, levels = c("nuggets", "pizza", "salad"),
                 labels = c(1, 2, 3))
-food5 # full of <NA> because it can't find these levels
+food5
+```
 
-# ==============================================================================
+::: aside
+*Note.* All `<NA>`: R searched the data for the string `"nuggets"` and found only the number `2`. It does not error --- it quietly returns missing values.
+:::
 
-# USECASE: You can also just store the levels as strings (like self-labels)
+## Levels Can Be Strings to Begin With
+
+```{r}
+#| echo: true
 
 genre <- c("pop", "metal", "pop", "rock", "rap", "rap", "pop", "rock")
-genre
 
-genre2 <- factor(genre) # observed levels will be assigned alphabetically
+genre2 <- factor(genre)
 genre2
+```
+
+::: aside
+*Note.* With no `levels` given, R sorts the observed values alphabetically --- which is rarely the order you want for a plot.
+:::
+
+## Counting the String Levels
+
+```{r}
+#| echo: true
 
 table(genre2)
 ```
@@ -242,56 +297,99 @@ table(genre2)
 :::
 :::
 
-## Packages Live Coding
+## A Function We Do Not Have Yet
+
+The stringr package has a function that fixes capitalization.
+
+```{r}
+#| echo: true
+
+students <- c("mary anne", "BENjamin", "Lee")
+students
+```
+
+## Pitfall: Not Installed Means Not Found
+
+```{r}
+#| echo: true
+#| error: true
+
+str_to_title(students)
+```
+
+::: aside
+*Note.* "could not find function" almost always means a package is missing or not yet loaded --- not that you mistyped.
+:::
+
+## Installing a Package {.fs70}
+
+-   [RStudio > Extras pane > Packages tab > Install]{.b .blue} button
+
+::: {.fragment .mt1}
+-   Or run it yourself:
+:::
 
 ```{r}
 #| echo: true
 #| eval: false
-#| error: true
 #| code-line-numbers: false
 
-# USECASE: The stringr package adds a function to fix capitalization
-
-students <- c("mary anne", "BENjamin", "Lee")
-
-# ==============================================================================
-
-# PITFALL: But we can't use that function without installing the package
-
-str_to_title(students) # error
-
-# ==============================================================================
-
-# LESSON: Installing a package using RStudio
-
-# - RStudio > Extras pane > Packages tab > Install button
-
 install.packages("stringr")
+```
 
-# PITFALL: Use this command in the console, not in your Quarto document!
+::: {.fragment}
+::: {.callout-warning}
+Run this in the [Console]{.b}, never inside a Quarto document --- it would reinstall the package every time you render.
+:::
+:::
 
-# ==============================================================================
+## Installing is Not Loading
 
-# PITFALL: We also need to load the package before we can use it
+Installed puts the package on your [library]{.b .green} shelf. It still is not in
+this R session.
 
-str_to_title(students) # error
+```{r}
+#| echo: true
+#| error: true
 
-# ==============================================================================
+str_to_title(students)
+```
 
-# LESSON: We load the package using library()
+## Loading with library()
+
+```{r}
+#| echo: true
+#| message: false
 
 library("stringr")
-str_to_title(students) # finally works!
 
-# ==============================================================================
+str_to_title(students)
+```
 
-# LESSON: We can also keep our packages updated using RStudio
+::: aside
+*Note.* Install once per computer; load once per session.
+:::
 
-# RStudio > Extras pane > Packages tab > Update button
+## Keeping Packages Updated {.fs70}
 
-# ==============================================================================
+-   [RStudio > Extras pane > Packages tab > Update]{.b .blue} button
 
-# USECASE: We can see if a package contains any vignettes (articles)
+::: {.fragment .mt1}
+-   Worth doing occasionally, but [not]{.b .blue} in the middle of an analysis --- a package update can change results
+:::
+
+## Learning More: Vignettes
+
+Many packages ship long-form articles showing how they are meant to be used.
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
 
 browseVignettes("stringr")
 ```
+
+::: aside
+*Note.* This opens a browser window, so run it in the Console too.
+:::

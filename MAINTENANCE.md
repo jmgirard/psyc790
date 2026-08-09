@@ -91,6 +91,38 @@ Changing this block is a **purely textual** edit: `{{< meta >}}` shortcodes are 
 after knitr, so the frozen chunk output is unaffected. Rather than re-executing 22 decks
 (and inviting package drift), re-key the freeze instead — see §3.
 
+### Code slides show code *and* results
+
+Unit A used to teach from "Live Coding" slides: one `eval: false` chunk holding a 50-line
+lesson script, displayed as an unreadable scrollbox with no output. Those are gone —
+each idea now gets its own slide with a small executed chunk, so the result appears under
+the code. Three rules make this work here, and all three are easy to get wrong:
+
+- **Every chunk needs an explicit `#| echo: true`.** This repo deliberately does not set
+  `echo` globally (§6), so a chunk without it renders *output with no code*, which is worse
+  than the scrollbox. This is also why slides cannot be copied from `data2` verbatim —
+  `data2` relies on the global setting.
+- **Parse errors cannot be executed at all.** `heart rate <- 93`, `1_heart_rate`,
+  `_heart_rate`, `10 x 3`, `10 \ 3`, `9,876,543`, and `x <- 4 9 16 25` are syntax errors,
+  so `#| error: true` does not help — the render fails. These stay `eval: false` with the
+  expected message as a comment. *Runtime* errors (`average(x)`, `dyes + 1`,
+  `str_to_title()` before loading stringr) do execute under `#| error: true` and show their
+  real message, which is the better lesson.
+- **Watch for chunks with side effects.** `install.packages()`, `browseVignettes()`, and
+  `write_csv()` must stay `eval: false` or a render will install packages, open a browser,
+  or write stray files into the chapter folder.
+
+Two things worth not undoing. `qplot()` is deprecated and warns, but it is kept because
+`A/03/b_assignment.qmd` instructs students to use it — replacing it is a teaching-content
+decision (§3). The warning fires once per session, so it appears on the first plot slide
+only, which is exactly what a student sees in their own console. And chunks that read data
+carry `#| replace_path: ["../../data/", ""]` so the slide shows `read_csv("penguins0.csv")`
+while the render reads the real path; keep it on any data-reading chunk you add.
+
+`A/02/a` still has three "Live Coding" slides. Those are `.instructions` blocks walking
+through RStudio's UI, with no code to run and no output to show — the name is accurate
+there and they were left alone on purpose.
+
 ---
 
 ## 2. Building and publishing
