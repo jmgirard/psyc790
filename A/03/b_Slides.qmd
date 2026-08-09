@@ -62,7 +62,7 @@ source("../../_common.R")
 # Data Frames
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/data_frame.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Tidy Data {.fs80}
@@ -672,7 +672,7 @@ text rather than numbers.
 # Data Exploration
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/explore.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Data Verification {.fs80}

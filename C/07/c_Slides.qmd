@@ -56,7 +56,7 @@ theme_set(mytheme())
 # Shared Variance
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/venn.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Multiple regression {.fs80}
@@ -306,7 +306,7 @@ We will return to talk about collinearity more in a future lecture.
 # Multiple Regression
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/many_to_one.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Standardized partial effects {.fs80}

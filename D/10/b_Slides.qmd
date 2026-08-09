@@ -59,7 +59,7 @@ set.seed(2021)
 # Overview
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/scatter.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumptions Overview
@@ -81,7 +81,7 @@ set.seed(2021)
 # Constant Error Variance
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/megaphone.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumption {.fs80}
@@ -549,7 +549,7 @@ check_autocorrelation(fit_violated2)
 # Outliers
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/outlier.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Definition {.fs80}

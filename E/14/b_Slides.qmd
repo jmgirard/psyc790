@@ -49,7 +49,7 @@ theme_set(mytheme())
 # Overview
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/warning.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Research practice continuum
@@ -71,7 +71,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 # Questionable Practices
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/mask.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Selective reporting {.fs80}
@@ -132,7 +132,7 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 # Garden of Forking Paths
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/branching.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Preregistration {.fs80}

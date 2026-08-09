@@ -167,7 +167,7 @@ anything for text. What a function accepts follows from its purpose.
 # Factors
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/factors.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Factors {.fs80}
@@ -282,7 +282,7 @@ rarely the order you want in a table or a plot.
 # Packages
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/install.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Packages {.fs70}

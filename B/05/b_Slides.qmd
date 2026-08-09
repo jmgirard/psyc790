@@ -69,7 +69,7 @@ rsim <- function(r) {
 # Introductions
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/link.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Variable relationships
@@ -555,7 +555,7 @@ ggplot(tibble(r = seq(-1, 1, 0.001), rsq = r^2), aes(x = r, y = rsq)) +
 # Statistical Inference
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/telescope.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Sampling error simulation

@@ -55,7 +55,7 @@ theme_set(mytheme)
 # Unequal Variances
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/uneven.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Welch's one-way test
@@ -117,7 +117,7 @@ model_parameters(fit)
 # Repeated Measures
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/repeat_loop.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## One-way RM ANOVA
@@ -327,7 +327,7 @@ estimate_contrasts(
 # Translation Activity
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/translate.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Example 1 (Social Psych)

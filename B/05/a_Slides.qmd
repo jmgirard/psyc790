@@ -112,7 +112,7 @@ $H_1$ is a "one-sided" and $H_2$ is a "two-sided" hypothesis.
 # NHST Logic
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/flowchart.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## What is NHST?
@@ -227,7 +227,7 @@ NHST helps protect the null hypothesis from researchers who are incentivized to 
 # NHST Nuts and Bolts
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/wrench.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Test statistics
@@ -574,7 +574,7 @@ $|t_{\bar{x}}|>t_{crit}: \text{Reject }H_0$
 # $p$-values and <br>Pragmatics
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/threshold.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## The $p$-value of a test {.fs80}

@@ -114,7 +114,7 @@ theme_set(mytheme)
 # NHST Approaches
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/two_routes.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Recap of Steps in NHST

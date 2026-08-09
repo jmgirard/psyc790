@@ -56,7 +56,7 @@ theme_set(mytheme())
 # Introduction
 
 ::: {.section-art}
-{{< lif "../../icons/map.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/trend_line.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Regression as Fancy Correlation
@@ -468,7 +468,7 @@ Note that the $t$ values equal Coefficient / SE (e.g., --3.23/0.48 ≈ --6.66).
 # Centering
 
 ::: {.section-art}
-{{< lif "../../icons/location_pin.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/crosshair.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Centering a Predictor

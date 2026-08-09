@@ -56,7 +56,7 @@ theme_set(mytheme())
 # Overview
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/curve.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Motivation {.fs80}
@@ -164,7 +164,7 @@ see:::plot.see_check_model(check_model(fit, check = "linearity", panel = FALSE))
 # Polynomial Regression
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/curved_trend.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Power polynomials {.fs80}
@@ -247,7 +247,7 @@ cn <- tibble(x = seq(-10, 10, 1), y = -x^3) |>
 # Quadratic Regression
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/parabola.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Expanding the equation {.fs80}
@@ -537,7 +537,7 @@ plot(estimate_relation(fit4, by = c("flipper_len", "sex"))) + mytheme() + labs(y
 # Closing Thoughts
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/finish.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Consider the range

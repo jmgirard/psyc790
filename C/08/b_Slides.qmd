@@ -56,7 +56,7 @@ theme_set(mytheme())
 # Review
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/rewind.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Review of Last Lecture
@@ -98,7 +98,7 @@ theme_set(mytheme())
 # Binary-by-Continuous
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/switch_slider.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Motivation
@@ -426,7 +426,7 @@ estimate_contrasts(fit4, contrast = "program", by = "duration = [sd]",
 # Categorical-by-Categorical
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/matrix_grid.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Expanding the equation
@@ -525,7 +525,7 @@ plot(estimate_means(fit5, by = c("program", "sex")), join_dots = TRUE) + mytheme
 # Three-Way Interactions
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/cube.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## When two-way isn't enough {.fs80}

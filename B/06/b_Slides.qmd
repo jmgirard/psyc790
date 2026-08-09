@@ -62,7 +62,7 @@ theme_set(mytheme)
 # Introduction
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/many_groups.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Rationale
@@ -344,7 +344,7 @@ data.frame(df2 = c(10, 20, 30, 40, 50)) |>
 # One-way ANOVA in R
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/anova_in_r.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## The aov function
@@ -475,7 +475,7 @@ eta_squared(fit)
 # Post-hoc Tests
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/compare_pairs.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Many ways to reject the null

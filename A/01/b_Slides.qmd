@@ -52,7 +52,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 # R and RStudio
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/code_window.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Programming is a Superpower
@@ -208,7 +208,7 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 # Console
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/terminal.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## R will Grant your Wishes {.fs80}

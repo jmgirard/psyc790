@@ -49,7 +49,7 @@ theme_set(mytheme())
 # Overview
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/blueprint.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Motivation {.fs80}
@@ -88,7 +88,7 @@ theme_set(mytheme())
 # Correct Form
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/puzzle_fit.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumption
@@ -268,7 +268,7 @@ Do not "control for everything": adjusting for a mediator removes the very pathw
 # Perfect Predictors
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/mirror.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumption
@@ -319,7 +319,7 @@ Calculate predictors' **reliability** (the opposite of error)
 # No Collinearity
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/parallel.json" colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumption
