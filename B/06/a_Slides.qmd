@@ -60,6 +60,10 @@ theme_set(mytheme)
 
 # Introductions
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Group Comparisons
 
 - Many research questions are about **comparing groups**
@@ -108,6 +112,10 @@ theme_set(mytheme)
 :::
 
 # NHST Approaches
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Recap of Steps in NHST
 
@@ -364,6 +372,10 @@ model_parameters(fit_o)
 Note that these results are identical
 
 # Effect Sizes
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Effect sizes
 

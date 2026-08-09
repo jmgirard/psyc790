@@ -55,6 +55,10 @@ theme_set(mytheme())
 
 # Shared Variance
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Multiple regression {.fs80}
 
 We often predict outcome variables using [multiple predictors]{.b .blue}
@@ -301,6 +305,10 @@ We will return to talk about collinearity more in a future lecture.
 
 # Multiple Regression
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Standardized partial effects {.fs80}
 
 - The relationships are clearer if we start with *standardized* slopes first
@@ -534,6 +542,10 @@ plot(estimate_relation(fit3, by = c("flipper_len", "bill_len=[sd]"))) + mytheme(
 :::
 
 # Many Predictors
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Extended regression equation
 

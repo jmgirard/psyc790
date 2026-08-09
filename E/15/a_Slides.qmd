@@ -48,6 +48,10 @@ theme_set(mytheme())
 
 # Overview
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Goals for each section {.fs80}
 
 ::: {.footer}

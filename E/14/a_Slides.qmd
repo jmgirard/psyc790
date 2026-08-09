@@ -48,6 +48,10 @@ theme_set(mytheme())
 
 # Power Analysis
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Power analysis {.fs80}
 
 ::: {.columns}

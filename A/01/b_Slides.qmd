@@ -51,6 +51,10 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 # R and RStudio
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Programming is a Superpower
 
 ::: {.columns .pv4}
@@ -202,6 +206,10 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 
 # Console
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## R will Grant your Wishes {.fs80}
 
@@ -370,6 +378,10 @@ separators are for humans: type the digits and **nothing else**.
 :::
 
 # Scripts
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Creating a New Script
 

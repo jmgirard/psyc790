@@ -48,6 +48,10 @@ theme_set(mytheme())
 
 # Overview
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Motivation {.fs80}
 
 - The linear model makes certain assumptions about the data
@@ -82,6 +86,10 @@ theme_set(mytheme())
 
 
 # Correct Form
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Assumption
 
@@ -206,6 +214,10 @@ see:::plot.see_check_model(check_model(fit_violated, check = "linearity", panel 
 
 # No Omitted Confounders
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Assumption {.fs80}
 
 - Any cause of $y$ that correlates with an $x$ must be in the model
@@ -255,6 +267,10 @@ Do not "control for everything": adjusting for a mediator removes the very pathw
 
 # Perfect Predictors
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Assumption
 
 - All predictors $(x)$ must be measured without error
@@ -301,6 +317,10 @@ Calculate predictors' **reliability** (the opposite of error)
 
 
 # No Collinearity
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Assumption
 

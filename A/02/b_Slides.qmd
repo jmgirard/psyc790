@@ -51,6 +51,10 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 # Assignment
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Assignment {.fs80}
 
 ::: {.columns .pv4}
@@ -158,6 +162,10 @@ already exist. That is how a script builds up from one line to the next.
 :::
 
 # Naming
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Naming {.fs80}
 
@@ -314,6 +322,10 @@ has no way to know you meant the other one.
 
 # Functions
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Functions {.fs80}
 
 ::: {.columns .pv4}
@@ -406,6 +418,10 @@ is what you get when you leave them out.
 :::
 
 # Vectors
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Vectors {.fs70}
 

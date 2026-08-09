@@ -48,6 +48,10 @@ theme_set(mytheme())
 
 # Overview
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Research practice continuum
 
 ::: {.callout-important title="Scientific Misconduct"}
@@ -65,6 +69,10 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 [Ordered from least to most likely to produce true, replicable findings]{.fs90}
 
 # Questionable Practices
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Selective reporting {.fs80}
 
@@ -122,6 +130,10 @@ Open Data/Materials, Preregistration, Disclosed Flexibility, Power Analysis
 
 
 # Constraining the Garden of Forking Paths
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Preregistration {.fs80}
 

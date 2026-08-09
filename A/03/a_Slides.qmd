@@ -48,6 +48,10 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 
 # Strings
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Strings {.fs70}
 
 ::: {.columns .pv4}
@@ -162,6 +166,10 @@ anything for text. What a function accepts follows from its purpose.
 
 # Factors
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Factors {.fs80}
 
 ::: {.columns .pv4}
@@ -272,6 +280,10 @@ rarely the order you want in a table or a plot.
 :::
 
 # Packages
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Packages {.fs70}
 

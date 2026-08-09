@@ -61,6 +61,10 @@ theme_set(mytheme)
 
 # Types of Estimates
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Point and Interval Estimates {.fs80}
 
 
@@ -125,6 +129,10 @@ In statistical inference, we will often want **two** types of estimates...
 :::
 
 # The Normal Distribution
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## The normal distribution {.fs80}
 
@@ -296,6 +304,10 @@ But this parametric approach all hinges on the assumption of normality (#4)...
 
 # Central Limit Theorem
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Non-normally distributed data
 
 
@@ -375,6 +387,10 @@ clt_plot(c(4, 8))
 
 
 # Confidence Intervals
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Calculations
 
@@ -560,6 +576,10 @@ I will teach you easier ways to calculate CIs in R soon.
 :::
 
 # Practical Matters
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Reporting a CI {.fs80}
 

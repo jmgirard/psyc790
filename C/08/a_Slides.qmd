@@ -55,6 +55,10 @@ theme_set(mytheme())
 
 # Overview
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Motivation
 
 - Last chapter, we learned about multiple regression
@@ -128,6 +132,10 @@ Note that this is simulated (i.e., fake) data.
 :::
 
 # Continuous-by-Continuous
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Multiple regression recap
 
@@ -373,6 +381,10 @@ estimate_slopes(fit2, trend = "duration", by = "intensity=[sd]")
 
 # Interaction Patterns
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## CxC Patterns
 
 ::: {.columns}
@@ -440,6 +452,10 @@ plot(estimate_relation(fit0, by = c("x1", "x2=c(-1,0,1)"))) +
 :::
 
 # Centering with Interactions
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Centering interactions
 

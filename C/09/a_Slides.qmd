@@ -55,6 +55,10 @@ theme_set(mytheme())
 
 # Overview
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Motivation {.fs80}
 
 - So far, we have always fit [straight lines]{.b} between $y$ and $x$ variables
@@ -159,6 +163,10 @@ see:::plot.see_check_model(check_model(fit, check = "linearity", panel = FALSE))
 
 # Polynomial Regression
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Power polynomials {.fs80}
 
 - LM can handle simple curves through **power polynomial** transformations!
@@ -237,6 +245,10 @@ cn <- tibble(x = seq(-10, 10, 1), y = -x^3) |>
 ```
 
 # Quadratic Regression
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Expanding the equation {.fs80}
 
@@ -449,6 +461,10 @@ ggplot(df2, aes(x = x, y = y2)) +
 
 # Adding Predictors
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Adding another predictor {.fs80}
 
 ```{r}
@@ -519,6 +535,10 @@ plot(estimate_relation(fit4, by = c("flipper_len", "sex"))) + mytheme() + labs(y
 
 
 # Closing Thoughts
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Consider the range
 

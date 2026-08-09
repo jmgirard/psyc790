@@ -58,6 +58,10 @@ set.seed(2021)
 
 # Overview
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Assumptions Overview
 
 - **Assumptions about the Formula**
@@ -75,6 +79,10 @@ set.seed(2021)
 
 
 # Constant Error Variance
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Assumption {.fs80}
 
@@ -222,6 +230,10 @@ see:::plot.see_check_model(check_model(fit_violated, check = "homogeneity", pane
 
 
 # Normal Residuals
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Assumption
 
@@ -382,6 +394,10 @@ Note that addressing other issues may also help here.
 
 # Independent Residuals
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Assumption {.fs80}
 
 - The residuals must be independent of (not related to) one another
@@ -531,6 +547,10 @@ check_autocorrelation(fit_violated2)
 
 
 # Outliers
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Definition {.fs80}
 

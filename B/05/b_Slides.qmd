@@ -68,6 +68,10 @@ rsim <- function(r) {
 
 # Introductions
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Variable relationships
 
 - So far, we have focused on the mean of one variable
@@ -298,6 +302,10 @@ Standard correlations do not count these kinds of nonlinear relationships
 :::
 
 # Calculating <br>Correlations
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Variance and covariance
 
@@ -545,6 +553,10 @@ ggplot(tibble(r = seq(-1, 1, 0.001), rsq = r^2), aes(x = r, y = rsq)) +
 
 
 # Statistical Inference
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Sampling error simulation
 

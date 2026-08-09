@@ -61,6 +61,10 @@ theme_set(mytheme)
 
 # Introduction
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Rationale
 
 - The $t$-test compares two groups' population means
@@ -339,6 +343,10 @@ data.frame(df2 = c(10, 20, 30, 40, 50)) |>
 
 # One-way ANOVA in R
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## The aov function
 
 - The `aov()` function will do this math for us
@@ -465,6 +473,10 @@ eta_squared(fit)
 - So 67% of the variation in body mass was between groups/species
 
 # Post-hoc Tests
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Many ways to reject the null
 

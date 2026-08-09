@@ -55,6 +55,10 @@ theme_set(mytheme())
 
 # Introduction
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Categorical variables
 
 - We learned regression with a single continuous predictor
@@ -105,6 +109,10 @@ theme_set(mytheme())
 :::
 
 # Dichotomous <br>Dummy Coding
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Coding two categories
 
@@ -341,6 +349,10 @@ plot(
 ```
 
 # Polytomous <br>Dummy Coding
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Coding many categories
 

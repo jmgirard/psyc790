@@ -43,6 +43,10 @@ source("../../_common.R")
 
 # Research Methods
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## The scientific method
 
 
@@ -110,6 +114,10 @@ The scientific method classically uses experimental studies, but it can also imp
 :::
 
 # Populations and Parameters
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## What is a population?
 
@@ -262,6 +270,10 @@ We denote parameters using Greek letters $(\mu,\sigma)$ or uppercase English let
 
 # Samples and Statistics
 
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
+
 ## Sampling
 
 
@@ -388,6 +400,10 @@ We denote sample statistics using lowercase English letters $(n, \bar{x},s)$ or 
 
 
 # Estimation and Uncertainty
+
+::: {.section-art}
+{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+:::
 
 ## Sampling error
 
