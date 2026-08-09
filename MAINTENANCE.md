@@ -119,9 +119,21 @@ only, which is exactly what a student sees in their own console. And chunks that
 carry `#| replace_path: ["../../data/", ""]` so the slide shows `read_csv("penguins0.csv")`
 while the render reads the real path; keep it on any data-reading chunk you add.
 
-`A/02/a` still has three "Live Coding" slides. Those are `.instructions` blocks walking
-through RStudio's UI, with no code to run and no output to show — the name is accurate
-there and they were left alone on purpose.
+`A/02/a`'s three "Live Coding" slides are now gone too, and no deck has one. They had been
+left alone on the theory that a UI walkthrough has no code to run and no output to show, so
+the name was accurate. What that missed is that they had the *same* defect as the code ones:
+each was a single 4-space-indented block holding 20-plus steps, so it rendered as a pale
+grey `<pre>` with its own scrollbar and roughly half the steps cut off. `.instructions`,
+the class wrapping them, had **no CSS anywhere** — not here, not in any of the four archive
+unit stylesheets — so it never did anything. The class is now unused; do not reintroduce it.
+
+They were unrolled into nine slides in the `A/01/b` idiom (`## Creating a Project`, bullets,
+`[File > New Project...]{.b .blue}`, `<kbd>` for keystrokes, `.fragment` reveals) — which is
+what `A/01/b` had already done to the same content when it came over from data2. Do not
+"fix" these by copying data2's version: data2 still uses the 50-line `eval: false` scrollbox
+this repo removed (§6).
+
+Splitting freed enough room that none of the nine needs a font stop, so none carries one.
 
 ### Chapter-page resource lists
 

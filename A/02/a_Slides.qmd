@@ -83,35 +83,45 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## Projects Live Coding
+## Creating a Project
 
-::: {.instructions}
-    # Create a new Project
-    - Open the "File" menu in RStudio
-    - Select the "New Project..." option
-    - Select the "New Directory" option
-    - Select the "New Project" option
-    - Name the directory "PSYC 399" or "PSYC 800" (or whatever)
-    - Browse to where to create your Project folder
+-   [File > New Project...]{.b .blue}
+    -   Choose [New Directory]{.b .blue}, then [New Project]{.b .blue}
+    -   Name the directory after the course or the task
+    -   Browse to where the folder should live
 
-    # Create a new File
-    - Explore the Files tab in the Extras pane
-    - Create a New File (e.g., a script) as an example
-    - RStudio will automatically create it in your project folder
-    - Add some text to the example file (e.g., "# Hello World")
-    - Save the file and note that it defaults to your project folder
-    - Close the script with the "x" icon
-    - Reopen the script from the Files tab
+::: {.fragment .mt1}
+-   RStudio makes the folder and puts an [.Rproj file]{.b .green} inside it
+    -   That file *is* the project; opening it opens the project
+:::
 
-    # Close and Open Project
-    - Open the "File" menu in RStudio
-    - Select the "Close Project" option
-    - Notice that your work is now gone
-    - Open the "File" menu in RStudio
-    - Select the "Open Project" option
-    - Browse to your project folder
-    - Open the .Rproj file (e.g., PSYC 399.Rproj)
-    - Notice that your work is now back!
+## Working Inside a Project
+
+-   The [Files]{.b .blue} tab (Extras pane) shows the project folder
+
+::: {.fragment .mt1}
+-   Make a new file --- a script, say --- and RStudio puts it [in the project folder]{.b .green}
+    -   Add a line of text, such as `# Hello World`
+    -   Save it, and note that the dialog already points at the project folder
+:::
+
+::: {.fragment .mt1}
+-   Close the script with the [x]{.b .blue} icon, then reopen it from the [Files]{.b .blue} tab
+:::
+
+## Closing and Reopening a Project
+
+-   [File > Close Project]{.b .blue}
+    -   The Source Editor empties and the Console resets
+    -   It looks like your work is [gone]{.b .red}
+
+::: {.fragment .mt1}
+-   [File > Open Project]{.b .blue}, then pick the [.Rproj]{.b .blue} file in your folder
+:::
+
+::: {.fragment .mt1}
+-   Everything comes [back exactly where you left it]{.b .green}
+    -   Open files, working directory, and history are all restored
 :::
 
 
@@ -142,32 +152,38 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 
 
-## Quarto Live Coding
+## Creating a Quarto Document
 
-::: {.instructions}
-    # Create an Quarto Document
-    - Open the "File" menu in RStudio
-    - Select the "New File" option
-    - Select the "Quarto Document..." option
-    - Keep the defaults (HTML) and hit "Create Empty Document"
-    - Open the "File" menu
-    - Select the "Save" option
-    - Note that it defaults to the project folder
-    - Give it a name like "Lecture 02b" (or whatever)
-    - Note that the file extension is .qmd
-    
-    # Add an R Chunk
-    - Option 1: Click the green box with C and a plus sign icon (top-right)
-    - Option 2: Ctrl+Alt+I (Win) or Cmd+Option+I (Mac)
-    - Option 3: Type out ```{r} then new line and ``` yourself
-    
-    # Adding code to the chunk
-    - Anything you put inside the "fences" (i.e., ```) will be treated as R code
-    - The chunk operates like a mini console
-    - Try doing some calculations in the chunk and hit the green arrow
-    - The answer appears right below the chunk!
-    - If we save and render the document, it appears in the output too
-    - We can also add options to the chunk to control how it behaves
+-   [File > New File > Quarto Document...]{.b .blue}
+    -   Keep the defaults (HTML) and click [Create Empty Document]{.b .blue}
+
+::: {.fragment .mt1}
+-   [File > Save]{.b .blue}
+    -   The dialog defaults to the project folder
+    -   Give it a name and note the [.qmd]{.b .green} extension
+:::
+
+## Adding an R Chunk
+
+-   A [chunk]{.b .blue} is a block of R code sitting inside the document
+-   Any one of these will insert one:
+    -   Click the [green box with a C and a plus sign]{.b .blue} (top-right)
+    -   <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Win) or <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> (Mac)
+    -   Type the [fences]{.b .blue} yourself: three backticks and `{r}`, then a
+        closing line of three backticks
+
+## Running Code in a Chunk
+
+-   A chunk works like a [mini console]{.b .green}
+    -   Do a calculation inside it, then click the [green arrow]{.b .blue}
+    -   The answer appears [right below the chunk]{.b .green}
+
+::: {.fragment .mt1}
+-   Save and [render]{.b .blue} the document and the answer appears in the output too
+:::
+
+::: {.fragment .mt1}
+-   Chunk [options]{.b .blue} control how each chunk behaves --- more on those later
 :::
 
 
@@ -194,31 +210,36 @@ Unit {{< meta unit >}} · Chapter {{< meta chapter >}} · Lecture {{< meta chapt
 :::
 :::
 
-## Markdown Live Coding
+## Formatting Text
 
-::: {.instructions}
-    # Formatting
-    - *italics* and **bold** and ***italics and bold***
-    - superscript^2^ and subscript~2~
-    - ~~strikethrough~~
-    - `verbatim code`
-    
-    # Headings
-    - # Header 1
-    - ## Header 2
-    - ### Header 3
-    
-    # Links
-    - <https://quarto.org>
-    - [Quarto](https://quarto.org)
-    
-    # Images
-    - ![Caption](https://quarto.org/docs/authoring/elephant.png)
-    
-    # Lists
-    - * Unordered list
-    -   + sub-item
-    -   + sub-item
-    - 1. Ordered list
-    - 2. Item 2
+| Type this | Get this |
+|:---|:---|
+| `*italics*` | *italics* |
+| `**bold**` | **bold** |
+| `***italics and bold***` | ***italics and bold*** |
+| `superscript^2^` | superscript^2^ |
+| `subscript~2~` | subscript~2~ |
+| `~~strikethrough~~` | ~~strikethrough~~ |
+| `` `verbatim code` `` | `verbatim code` |
+
+## Headings and Links
+
+-   A heading is one or more [`#`]{.b .blue} at the start of a line
+    -   `# Header 1`, then `## Header 2`, then `### Header 3`
+    -   More hashes means a [smaller, deeper]{.b .green} heading
+
+::: {.fragment .mt1}
+-   Links come in two forms:
+    -   `<https://quarto.org>` shows the [bare URL]{.b .green}
+    -   `[Quarto](https://quarto.org)` shows [text you choose]{.b .green}
+:::
+
+## Images and Lists
+
+-   An image is a link with a [`!`]{.b .blue} in front of it
+    -   `![Caption](elephant.png)`
+
+::: {.fragment .mt1}
+-   Lists are `*` or `-` for [unordered]{.b .blue}, numbers for [ordered]{.b .blue}
+    -   Indent by four spaces to make a [sub-item]{.b .green}
 :::
