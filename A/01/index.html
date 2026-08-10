@@ -272,6 +272,12 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://posit.co/download/rstudio-desktop/"><strong>RStudio Desktop</strong></a>, the environment you will actually work in</li>
 </ol>
 <p>Once both are installed, open RStudio and run the <a href="../../install-packages.R"><code>install-packages.R</code></a> script from this site. It installs every package used anywhere in these materials and skips anything you already have.</p>
+<p>Two collections of packages do most of the work, and both are loaded in almost every analysis you will see:</p>
+<ul>
+<li><a href="https://www.tidyverse.org/"><strong>tidyverse</strong></a> for reading, reshaping, and plotting data, introduced across Unit A.</li>
+<li><a href="https://easystats.github.io/easystats/"><strong>easystats</strong></a> for everything done <em>to</em> a fitted model. <code>model_parameters()</code> reports estimates with their uncertainty, <code>estimate_means()</code> and <code>estimate_relation()</code> turn a model back into predictions you can read and plot, <code>check_model()</code> produces the diagnostic panels used throughout Unit D, and <code>correlation()</code>, <code>r2()</code>, and <code>cohens_d()</code> cover the effect sizes.</li>
+</ul>
+<p>easystats is doing more than saving typing here: its output is built around estimates and intervals rather than around a significance verdict, which is the same emphasis the course takes. It is introduced properly when the first models are fitted, so there is nothing to learn about it yet.</p>
 <p>The first two chapters walk through RStudio, projects, and Quarto in detail, so there is no need to understand any of it yet.</p>
 </section>
 <section id="how-the-course-is-designed" class="level3">

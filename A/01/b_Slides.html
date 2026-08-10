@@ -238,21 +238,26 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>R and RStudio</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/car.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Programming is a Superpower</h2>
-<div class="columns pv4">
-<div class="column" style="width:60%;">
 <ul>
-<li><p>Programming is how we talk to and control our amazing computers</p></li>
-<li><p>It gives us power and flexibility</p></li>
-<li><p>Everything we do in this course will be accomplished via programming</p></li>
-<li><p>Programming will leave a record of what we did (i.e., code), so we can later reuse, adapt, and share it</p></li>
+<li><p>Programming is how we talk to and control computers</p></li>
+<li><p>It gives us <span class="b blue">power</span> and <span class="b green">flexibility</span></p>
+<ul>
+<li>The same instruction runs on ten rows or ten million</li>
+<li>We are not limited to what a menu anticipated</li>
+</ul></li>
+<li><p>Everything in this course is done via programming</p></li>
+<li><p>Programming will leave a <span class="b blue">record</span> of what we did (i.e., code)</p>
+<ul>
+<li>So we can reuse it, adapt it, and share it</li>
+<li>And so someone else can check it</li>
+</ul></li>
 </ul>
-</div><div class="column tc pv4" style="width:40%;">
-<p><lord-icon src="../../icons/muscle.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
-</div></div>
 </section>
 <section class="slide level2 fs80">
 <h2>R and Other Stats Software</h2>
@@ -287,8 +292,6 @@
 </section>
 <section class="slide level2 fs80">
 <h2>The R Ecosystem</h2>
-<div class="columns pv4">
-<div class="column" style="width:60%;">
 <ol type="1">
 <li>Your <span class="b blue">computer</span> is the <span class="b green">engine</span> of a car
 <ul>
@@ -319,9 +322,6 @@
 </ul></li>
 </ol>
 </div>
-</div><div class="column tc pv5 relative" style="width:40%;">
-<p><lord-icon src="../../icons/car.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
-</div></div>
 </section>
 <section class="slide level2 fs80">
 <h2>Installing R</h2>
@@ -395,12 +395,12 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Console</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/terminal.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2 fs80">
 <h2>R will Grant your Wishes</h2>
-<div class="columns pv4">
-<div class="column" style="width:60%;">
 <ul>
 <li><p>R is a <span class="b green">well-meaning</span> but <span class="b green">overly literal</span> genie</p>
 <ul>
@@ -421,14 +421,9 @@
 </ul></li>
 </ul>
 </div>
-</div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/genie.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
-</div></div>
 </section>
 <section class="slide level2 fs70">
 <h2>Communicating with R</h2>
-<div class="columns pv4">
-<div class="column" style="width:60%;">
 <ul>
 <li>The <span class="b blue">Console</span> is like a <span class="b green">chat window</span> with R
 <ul>
@@ -454,9 +449,6 @@
 </ul></li>
 </ul>
 </div>
-</div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/converse.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
-</div></div>
 </section>
 <section class="slide level2">
 <h2>Arithmetic</h2>
@@ -565,7 +557,9 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Scripts</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/file_text.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Creating a New Script</h2>
@@ -975,20 +969,55 @@
     // deck opened directly on a divider by URL hash. Both bubble to document, which
     // matters because this file runs before Reveal.initialize() resolves and there
     // is no Reveal object yet to attach a listener to.
+    //
+    // PRINTING NEEDS THE OPPOSITE. The shortcodes ask for `state=in-reveal`, which
+    // starts the icon blank and draws it in -- right for a divider arriving on
+    // screen, and wrong for `?print-pdf`, which lays every slide out at once and
+    // snapshots them. Only the current slide ever gets played, so every other
+    // divider would print blank. In print mode each icon is therefore seeked to the
+    // last frame of its state instead: the finished drawing, no animation to wait
+    // on, and still the state the map asked for. That last part matters for
+    // `parabola`, whose accent colour only exists in its `morph-squared` state.
     (function () {
+      var PRINTING = /(\?|&)print-pdf/.test(window.location.search);
+    
+      // The player is created asynchronously and its `ready` event does NOT reliably
+      // reach a listener on the element -- an earlier version of this waited on it
+      // and the print path silently never ran. Poll instead, and give up rather than
+      // spin forever if the bundle failed to load.
+      function whenReady(el, fn) {
+        var tries = 0;
+        (function attempt() {
+          if (el.playerInstance && el.playerInstance.isReady) { fn(el.playerInstance); return; }
+          if (++tries > 120) return;                       // ~10s at 12/s, then stop
+          setTimeout(attempt, 80);
+        })();
+      }
+    
       function playIcons(slide) {
         if (!slide) return;
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-          // The player is created asynchronously, so on a fast first navigation it
-          // may not exist yet; wait for its ready event in that case.
-          if (el.playerInstance && el.playerInstance.isReady) {
-            el.playerInstance.playFromBeginning();
-          } else {
-            el.addEventListener("ready", function () {
-              el.playerInstance.playFromBeginning();
-            }, { once: true });
-          }
+          whenReady(el, function (p) { p.playFromBeginning(); });
         });
+      }
+    
+      if (PRINTING) {
+        // Wait for `pdf-ready`. Reveal rebuilds the slide DOM to lay every slide out
+        // on its own page, and seeking before that lands on nodes it then replaces:
+        // the icons come back at frame 0 and print blank, which is the bug this
+        // whole branch exists to prevent. The timeout is a backstop for a future
+        // reveal that stops firing the event.
+        var done = false;
+        var seek = function () {
+          if (done) return;
+          done = true;
+          document.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+            whenReady(el, function (p) { p.goToLastFrame(); });
+          });
+        };
+        document.addEventListener("pdf-ready", seek);
+        setTimeout(seek, 3000);
+        return;
       }
     
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });

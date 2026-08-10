@@ -6,7 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c22d5dff81f50d6ca627b6188dc743b9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c22d5dff81f50d6ca627b6188dc743b9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/lordicon-bundle-1.9.0/bundle.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeffrey Girard">
@@ -239,7 +240,9 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Introduction</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/many_groups.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Rationale</h2>
@@ -425,7 +428,9 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <section>
 <section class="title-slide slide level1 center">
 <h1>One-way ANOVA in R</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/anova_in_r.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>The aov function</h2>
@@ -542,7 +547,9 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
 <section>
 <section class="title-slide slide level1 center">
 <h1>Post-hoc Tests</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/compare_pairs.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Many ways to reject the null</h2>
@@ -1093,20 +1100,55 @@ F_{obs} \sim F(\textit{df}_1 = g - 1, \textit{df}_2 = n - g)
     // deck opened directly on a divider by URL hash. Both bubble to document, which
     // matters because this file runs before Reveal.initialize() resolves and there
     // is no Reveal object yet to attach a listener to.
+    //
+    // PRINTING NEEDS THE OPPOSITE. The shortcodes ask for `state=in-reveal`, which
+    // starts the icon blank and draws it in -- right for a divider arriving on
+    // screen, and wrong for `?print-pdf`, which lays every slide out at once and
+    // snapshots them. Only the current slide ever gets played, so every other
+    // divider would print blank. In print mode each icon is therefore seeked to the
+    // last frame of its state instead: the finished drawing, no animation to wait
+    // on, and still the state the map asked for. That last part matters for
+    // `parabola`, whose accent colour only exists in its `morph-squared` state.
     (function () {
+      var PRINTING = /(\?|&)print-pdf/.test(window.location.search);
+    
+      // The player is created asynchronously and its `ready` event does NOT reliably
+      // reach a listener on the element -- an earlier version of this waited on it
+      // and the print path silently never ran. Poll instead, and give up rather than
+      // spin forever if the bundle failed to load.
+      function whenReady(el, fn) {
+        var tries = 0;
+        (function attempt() {
+          if (el.playerInstance && el.playerInstance.isReady) { fn(el.playerInstance); return; }
+          if (++tries > 120) return;                       // ~10s at 12/s, then stop
+          setTimeout(attempt, 80);
+        })();
+      }
+    
       function playIcons(slide) {
         if (!slide) return;
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-          // The player is created asynchronously, so on a fast first navigation it
-          // may not exist yet; wait for its ready event in that case.
-          if (el.playerInstance && el.playerInstance.isReady) {
-            el.playerInstance.playFromBeginning();
-          } else {
-            el.addEventListener("ready", function () {
-              el.playerInstance.playFromBeginning();
-            }, { once: true });
-          }
+          whenReady(el, function (p) { p.playFromBeginning(); });
         });
+      }
+    
+      if (PRINTING) {
+        // Wait for `pdf-ready`. Reveal rebuilds the slide DOM to lay every slide out
+        // on its own page, and seeking before that lands on nodes it then replaces:
+        // the icons come back at frame 0 and print blank, which is the bug this
+        // whole branch exists to prevent. The timeout is a backstop for a future
+        // reveal that stops firing the event.
+        var done = false;
+        var seek = function () {
+          if (done) return;
+          done = true;
+          document.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+            whenReady(el, function (p) { p.goToLastFrame(); });
+          });
+        };
+        document.addEventListener("pdf-ready", seek);
+        setTimeout(seek, 3000);
+        return;
       }
     
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });

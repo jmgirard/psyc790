@@ -237,7 +237,9 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Strings</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/strings.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2 fs70">
 <h2>Strings</h2>
@@ -269,9 +271,13 @@
 </ul>
 </div>
 </div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/quotation.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 <div class="fragment">
+<div class="syntax">
+<p><span class="lbl">Form</span></p>
+<p><code>name &lt;- "text in quotes"</code></p>
+<p><span class="lbl">Example</span></p>
 <p><code>name &lt;- "John Doe"</code></p>
+</div>
 </div>
 </div></div>
 </section>
@@ -364,7 +370,9 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Factors</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/factors.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2 fs80">
 <h2>Factors</h2>
@@ -374,7 +382,8 @@
 <li><span class="b blue">Factors</span> represent categorical data
 <ul>
 <li>Factors have multiple possible <span class="b blue">levels</span></li>
-<li>Levels are <span class="b green">discrete</span> and mutually-exclusive</li>
+<li>Levels are <span class="b green">discrete</span> categories</li>
+<li>Each case belongs to <span class="b green">exactly one</span></li>
 </ul></li>
 </ul>
 <div class="fragment mt1">
@@ -389,7 +398,14 @@
 </ul>
 </div>
 </div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/theater.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
+<div class="fragment">
+<div class="syntax">
+<p><span class="lbl">Form</span></p>
+<p><code>factor(values)</code></p>
+<p><span class="lbl">Example</span></p>
+<p><code>factor(c(1, 2, 1))</code></p>
+</div>
+</div>
 </div></div>
 </section>
 <section class="slide level2">
@@ -499,7 +515,9 @@ metal   pop   rap  rock
 <section>
 <section class="title-slide slide level1 center">
 <h1>Packages</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/install.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2 fs70">
 <h2>Packages</h2>
@@ -526,9 +544,13 @@ metal   pop   rap  rock
 </ul>
 </div>
 </div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/books.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
 <div class="fragment">
-<p><code>library("pkg_name")</code></p>
+<div class="syntax">
+<p><span class="lbl">Form</span></p>
+<p><code>library("package")</code></p>
+<p><span class="lbl">Example</span></p>
+<p><code>library("tidyverse")</code></p>
+</div>
 </div>
 </div></div>
 </section>
@@ -914,20 +936,55 @@ metal   pop   rap  rock
     // deck opened directly on a divider by URL hash. Both bubble to document, which
     // matters because this file runs before Reveal.initialize() resolves and there
     // is no Reveal object yet to attach a listener to.
+    //
+    // PRINTING NEEDS THE OPPOSITE. The shortcodes ask for `state=in-reveal`, which
+    // starts the icon blank and draws it in -- right for a divider arriving on
+    // screen, and wrong for `?print-pdf`, which lays every slide out at once and
+    // snapshots them. Only the current slide ever gets played, so every other
+    // divider would print blank. In print mode each icon is therefore seeked to the
+    // last frame of its state instead: the finished drawing, no animation to wait
+    // on, and still the state the map asked for. That last part matters for
+    // `parabola`, whose accent colour only exists in its `morph-squared` state.
     (function () {
+      var PRINTING = /(\?|&)print-pdf/.test(window.location.search);
+    
+      // The player is created asynchronously and its `ready` event does NOT reliably
+      // reach a listener on the element -- an earlier version of this waited on it
+      // and the print path silently never ran. Poll instead, and give up rather than
+      // spin forever if the bundle failed to load.
+      function whenReady(el, fn) {
+        var tries = 0;
+        (function attempt() {
+          if (el.playerInstance && el.playerInstance.isReady) { fn(el.playerInstance); return; }
+          if (++tries > 120) return;                       // ~10s at 12/s, then stop
+          setTimeout(attempt, 80);
+        })();
+      }
+    
       function playIcons(slide) {
         if (!slide) return;
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-          // The player is created asynchronously, so on a fast first navigation it
-          // may not exist yet; wait for its ready event in that case.
-          if (el.playerInstance && el.playerInstance.isReady) {
-            el.playerInstance.playFromBeginning();
-          } else {
-            el.addEventListener("ready", function () {
-              el.playerInstance.playFromBeginning();
-            }, { once: true });
-          }
+          whenReady(el, function (p) { p.playFromBeginning(); });
         });
+      }
+    
+      if (PRINTING) {
+        // Wait for `pdf-ready`. Reveal rebuilds the slide DOM to lay every slide out
+        // on its own page, and seeking before that lands on nodes it then replaces:
+        // the icons come back at frame 0 and print blank, which is the bug this
+        // whole branch exists to prevent. The timeout is a backstop for a future
+        // reveal that stops firing the event.
+        var done = false;
+        var seek = function () {
+          if (done) return;
+          done = true;
+          document.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+            whenReady(el, function (p) { p.goToLastFrame(); });
+          });
+        };
+        document.addEventListener("pdf-ready", seek);
+        setTimeout(seek, 3000);
+        return;
       }
     
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });

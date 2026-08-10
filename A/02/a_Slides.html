@@ -174,12 +174,12 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Projects</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/folder.json" colors="secondary:#2a76dd" state="hover-adding-files" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2 fs70">
 <h2>File Management</h2>
-<div class="columns pv4">
-<div class="column" style="width:60%;">
 <ul>
 <li><span class="b blue">Projects</span> are <span class="b green">special folders</span> on your computer
 <ul>
@@ -205,9 +205,6 @@
 </ul></li>
 </ul>
 </div>
-</div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/box.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
-</div></div>
 
 <aside><div>
 <p><em>Note.</em> Save your project in a cloud service folder (e.g., Box, Dropbox, Google Drive, OneDrive) to backup and sync it.</p>
@@ -277,33 +274,39 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Quarto</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/render_doc.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2 fs80">
 <h2>Quarto</h2>
-<div class="columns pv4">
-<div class="column" style="width:60%;">
 <ul>
-<li><a href="https://www.quarto.org">Quarto</a> is a <span class="b green">technical publishing system</span></li>
+<li><a href="https://www.quarto.org">Quarto</a> is a <span class="b green">technical publishing system</span>
+<ul>
+<li>One document holds the prose, the code, and its output</li>
+</ul></li>
 </ul>
 <div class="fragment mt1">
 <ul>
-<li>Create <span class="b blue">dynamic content</span> with R, Python, Julia, and Observable</li>
+<li>Create <span class="b blue">dynamic content</span> with R, Python, Julia, and Observable
+<ul>
+<li>Results are computed at render time, never pasted in</li>
+</ul></li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Articles, reports, slideshows, websites, blogs, and books in <span class="b blue">HTML, PDF, MS Word, and ePub</span> formats</li>
+<li>Articles, reports, slideshows, websites, blogs, and books in <span class="b blue">HTML, PDF, MS Word, and ePub</span> formats
+<ul>
+<li><em>These slides are a Quarto document, and so is this whole site</em></li>
+</ul></li>
 </ul>
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Include <span class="b blue">equations, citations, crossrefs</span>, panels, callouts, advanced layouts, etc.</li>
+<li>Include <span class="b blue">equations, citations, crossrefs</span>, panels, callouts, layouts, etc.</li>
 </ul>
 </div>
-</div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/poetry.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
-</div></div>
 </section>
 <section class="slide level2">
 <h2>Creating a Quarto Document</h2>
@@ -358,12 +361,12 @@
 <section>
 <section class="title-slide slide level1 center">
 <h1>Markdown</h1>
-
+<div class="section-art">
+<p><lord-icon src="../../icons/text_format.json" colors="secondary:#2a76dd" state="in-reveal" class="rc"></lord-icon></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Markdown</h2>
-<div class="columns pv4">
-<div class="column" style="width:60%;">
 <ul>
 <li><a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown</a> is a simple <span class="b green">text-to-HTML</span> conversion language used by Quarto, GitHub, Obsidian, etc.</li>
 </ul>
@@ -374,12 +377,9 @@
 </div>
 <div class="fragment mt1">
 <ul>
-<li>Quarto will treat all text that is <span class="b green">not in a code chunk</span> as markdown</li>
+<li>Quarto treats text that is <span class="b green">not in a code chunk</span> as markdown</li>
 </ul>
 </div>
-</div><div class="column tc pv5" style="width:40%;">
-<p><lord-icon src="../../icons/text_box.json" colors="secondary:#2a76dd" trigger="hover" class="rc"></lord-icon></p>
-</div></div>
 </section>
 <section class="slide level2">
 <h2>Formatting Text</h2>
@@ -750,20 +750,55 @@
     // deck opened directly on a divider by URL hash. Both bubble to document, which
     // matters because this file runs before Reveal.initialize() resolves and there
     // is no Reveal object yet to attach a listener to.
+    //
+    // PRINTING NEEDS THE OPPOSITE. The shortcodes ask for `state=in-reveal`, which
+    // starts the icon blank and draws it in -- right for a divider arriving on
+    // screen, and wrong for `?print-pdf`, which lays every slide out at once and
+    // snapshots them. Only the current slide ever gets played, so every other
+    // divider would print blank. In print mode each icon is therefore seeked to the
+    // last frame of its state instead: the finished drawing, no animation to wait
+    // on, and still the state the map asked for. That last part matters for
+    // `parabola`, whose accent colour only exists in its `morph-squared` state.
     (function () {
+      var PRINTING = /(\?|&)print-pdf/.test(window.location.search);
+    
+      // The player is created asynchronously and its `ready` event does NOT reliably
+      // reach a listener on the element -- an earlier version of this waited on it
+      // and the print path silently never ran. Poll instead, and give up rather than
+      // spin forever if the bundle failed to load.
+      function whenReady(el, fn) {
+        var tries = 0;
+        (function attempt() {
+          if (el.playerInstance && el.playerInstance.isReady) { fn(el.playerInstance); return; }
+          if (++tries > 120) return;                       // ~10s at 12/s, then stop
+          setTimeout(attempt, 80);
+        })();
+      }
+    
       function playIcons(slide) {
         if (!slide) return;
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
-          // The player is created asynchronously, so on a fast first navigation it
-          // may not exist yet; wait for its ready event in that case.
-          if (el.playerInstance && el.playerInstance.isReady) {
-            el.playerInstance.playFromBeginning();
-          } else {
-            el.addEventListener("ready", function () {
-              el.playerInstance.playFromBeginning();
-            }, { once: true });
-          }
+          whenReady(el, function (p) { p.playFromBeginning(); });
         });
+      }
+    
+      if (PRINTING) {
+        // Wait for `pdf-ready`. Reveal rebuilds the slide DOM to lay every slide out
+        // on its own page, and seeking before that lands on nodes it then replaces:
+        // the icons come back at frame 0 and print blank, which is the bug this
+        // whole branch exists to prevent. The timeout is a backstop for a future
+        // reveal that stops firing the event.
+        var done = false;
+        var seek = function () {
+          if (done) return;
+          done = true;
+          document.querySelectorAll(".section-art lord-icon").forEach(function (el) {
+            whenReady(el, function (p) { p.goToLastFrame(); });
+          });
+        };
+        document.addEventListener("pdf-ready", seek);
+        setTimeout(seek, 3000);
+        return;
       }
     
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
