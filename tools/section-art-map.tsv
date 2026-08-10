@@ -47,7 +47,7 @@
 # deck	n	section	icon	state	source	lordicon	key	note
 A/01/b	1	R and RStudio	car	in-reveal	catalog	-	-	The deck's own metaphor: computer as engine, RStudio as dashboard, package as add-on. Replaces browser-code, which said IDE but not this deck's IDE.
 A/01/b	2	Console	terminal	in-reveal	wired	browser-terminal	ailnzwyn	A prompt waiting for one line, not a whole editor.
-A/01/b	3	Scripts	file-text	in-reveal	wired	file-text	hmpomorl	A plain document, which is what a script is. Replaces edit_doc, whose pencil suggested editing prose rather than saving code.
+A/01/b	3	Scripts	file_text	in-reveal	wired	file-text	hmpomorl	A plain document, which is what a script is. Replaces edit_doc, whose pencil suggested editing prose rather than saving code.
 A/02/a	1	Projects	folder	hover-adding-files	wired	folder	tsrgicte	The self-contained project directory. Its in-reveal and default states draw a closed folder with no accent; hover-adding-files is the one that colours, and files going into a folder says Projects better than a shut one.
 A/02/a	2	Quarto	render_doc	in-reveal	wired	parchment-writing	axmewqez	Authoring rather than a finished file. It is the same source icon that opened the Quarto slide before Unit A's icons were retired.
 A/02/a	3	Markdown	text_format	in-reveal	wired	inkwell	vzpsvgmn	Plain writing, which is what markdown is. Replaces align-text-left, which showed formatting controls.
@@ -104,8 +104,8 @@ C/08/b	2	Binary-by-Continuous	two_slopes	in-reveal	wired	arrows-down-up	mmkqqlcu
 C/08/b	3	Nominal-by-Continuous	multi_line	in-reveal	wired	arrows-crossed-up	lkfnwski	Crossing arrows, a different variant from the arrows-crossed-right on C/08/a #3, so the moderation unit shares a family keyed to slopes that are not parallel.
 C/08/b	4	Categorical-by-Categorical	matrix_grid	in-reveal	wired	grid-module	tzyectrg	A cell per combination of levels.
 C/08/b	5	Three-Way Interactions	cube	in-reveal	wired	cube-side	zrgyoifm	Three factors, three axes.
-C/09/a	1	Overview	curve	in-reveal	wired	wave-chart	rxpexbfb	Straight lines stop being enough here. PROPOSED: pen-nib-vector (ewtvnblg). A bezier pen with its control handles: the tool that makes a curve, and the handles read as fitting one. Frees `curve` for #2.
-C/09/a	2	Polynomial Regression	curved_trend	in-reveal	wired	curve-right-sign	maucqrsy	The curved fit itself. PROPOSED: curve, the plotted wave-chart currently on #1, once pen-nib-vector takes the Overview. Retires curve-right-sign, a road sign sitting in a deck of charts.
+C/09/a	1	Overview	pen_nib	in-reveal	wired	pen-nib-vector	ewtvnblg	A bezier pen with its control handles: the tool that makes a curve, and the handles read as fitting one. Frees the plotted curve for #2.
+C/09/a	2	Polynomial Regression	curve	in-reveal	wired	-	-	The plotted curve itself, moved up from the Overview. Retires curve-right-sign, a road sign sitting in a deck of charts.
 C/09/a	3	Quadratic Regression	parabola	morph-squared	wired	square-root	wwbjufzq	The library has no parabola. Both candidates are approximations of a single bend.
 C/09/a	4	Adding Predictors	add_terms	in-reveal	wired	widgets-plus	dvnhetou	Blocks with a plus: another term added to the ones already in the model.
 C/09/a	5	Closing Thoughts	finish	in-reveal	wired	finish-line	yfbsycer	End of the section and of the unit.

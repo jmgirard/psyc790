@@ -74,7 +74,10 @@ for deck, entries in sorted(by_deck.items()):
             continue
         # The shortcode sits on the third line of the block under the heading.
         line_no = idx[n - 1] + 3
-        m = re.search(r'icons/([a-z_0-9]+)\.json', lines[line_no])
+        # Hyphens allowed when READING: a downloaded file dropped in under its
+        # Lordicon name is hyphenated, and refusing to match it means the script
+        # cannot rewrite the very line it exists to fix.
+        m = re.search(r'icons/([a-z_0-9\-]+)\.json', lines[line_no])
         if not m:
             sys.exit(f"{deck} #{n}: no shortcode where one was expected "
                      f"(line {line_no + 1}).")
