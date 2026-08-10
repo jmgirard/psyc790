@@ -98,7 +98,7 @@ theme_set(mytheme())
 # Binary-by-Continuous
 
 ::: {.section-art}
-{{< lif "../../icons/switch_slider.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/two_slopes.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Motivation
@@ -292,7 +292,7 @@ model_parameters(fit2)
 # Nominal-by-Continuous
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/multi_line.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Expanding the equation

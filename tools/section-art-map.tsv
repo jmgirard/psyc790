@@ -69,7 +69,7 @@ B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related,
 B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
 B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
 B/06/a	1	Introductions	two_people	in-reveal	wired	-	-	Two masks, which is a contrasting pair. Freed when Unit A retired its slide icons; it took avatars-woman-man's place when that went to dummy coding, where it is more specific.
-B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	two-way-traffic-sign	pepvasng	Different routes to the same comparison.
+B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	arrows-left-right	cqfwksqt	Two arrows going opposite ways: two routes to the same comparison. Replaces two-way-traffic-sign, which suggested direction more than choice.
 B/06/a	3	Effect Sizes	caliper	in-reveal	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
 B/06/b	1	Introduction	many_groups	in-reveal	wired	avatars-group	rigpimbi	More than two groups at once.
 B/06/b	2	One-way ANOVA in R	anova_in_r	in-reveal	wired	abacus	kfqseesl	The section where it becomes R. browser-code is taken by A/01/b.
@@ -92,8 +92,8 @@ C/08/a	2	Continuous-by-Continuous	surface_3d	in-reveal	wired	coordinate-system-3
 C/08/a	3	Interaction Patterns	crossing	in-reveal	wired	arrows-crossed-right	nuaqitea	Two arrows crossing: non-parallel slopes, drawn literally.
 C/08/a	4	Centering with Interactions	compass	in-reveal	wired	drawing-compass	pnlowkpv	Re-centering with a product term in the model. Not crosshair: C/07/a has that and two would read as one.
 C/08/b	1	Review	rewind	in-reveal	wired	rewind-circle	vclpgzfa	Looking back at the previous lecture. review.json is taken.
-C/08/b	2	Binary-by-Continuous	switch_slider	in-reveal	wired	sliders-vertical	eskivvxw	One categorical and one continuous predictor. Check sliders-vertical against the bound equalizer. PROPOSED: arrows-up-down (ueutfbqc). Exactly two arrows going opposite ways: two groups, two slopes. Replaces sliders-vertical, which shows the continuous half and nothing binary.
-C/08/b	3	Nominal-by-Continuous	multi_line	in-reveal	choose	line-chart-grow|bar-chart-stacked-vertical-grow	osnqlnce|nzqgfiio	One regression line per level. PROPOSED: arrows-crossed-up (lkfnwski). The last row with nothing. It is the crossed motif again, a different variant from the arrows-crossed-right on C/08/a #3, so the moderation unit would share a visual family keyed to slopes that are not parallel. RISK: adjacent variants of one motif can read as a mistake rather than as a system.
+C/08/b	2	Binary-by-Continuous	two_slopes	in-reveal	wired	arrows-down-up	mmkqqlcu	One arrow up and one down: the two groups' slopes running opposite ways. Replaces sliders-vertical, which showed the continuous half and nothing binary.
+C/08/b	3	Nominal-by-Continuous	multi_line	in-reveal	wired	arrows-crossed-up	lkfnwski	Crossing arrows, a different variant from the arrows-crossed-right on C/08/a #3, so the moderation unit shares a family keyed to slopes that are not parallel.
 C/08/b	4	Categorical-by-Categorical	matrix_grid	in-reveal	wired	grid-module	tzyectrg	A cell per combination of levels.
 C/08/b	5	Three-Way Interactions	cube	in-reveal	wired	cube-side	zrgyoifm	Three factors, three axes.
 C/09/a	1	Overview	curve	in-reveal	wired	wave-chart	rxpexbfb	Straight lines stop being enough here.
@@ -105,7 +105,7 @@ D/10/a	1	Overview	blueprint	in-reveal	wired	blueprint	nmrhyntp	The assumptions l
 D/10/a	2	Correct Form	puzzle_fit	in-reveal	wired	puzzle-piece	tsbosomu	The model's shape matching the data's shape.
 D/10/a	3	No Omitted Confounders	unseen	in-reveal	wired	box-lost-and-found	ldohbfuu	A lost-and-found box: the cause that was there and never got measured.
 D/10/a	4	Perfect Predictors	mirror	in-reveal	wired	makeup-mirror	zogqzryv	A predictor that is the outcome again. Neither candidate is good; this one may be worth a wider search.
-D/10/a	5	No Collinearity	parallel	in-reveal	wired	road-narrows-sign	xyoobaio	Predictors that say the same thing. PROPOSED: arrows-right (zlfeyebd). Two arrows running parallel in the same direction is exactly what collinearity is: two predictors saying the same thing. Replaces road-narrows-sign, which reads as traffic before it reads as convergence.
+D/10/a	5	No Collinearity	parallel	in-reveal	wired	arrows-right	zlfeyebd	Two arrows running parallel the same way, which is what collinearity is: predictors saying the same thing. Replaces road-narrows-sign, which read as traffic.
 D/10/b	1	Overview	scatter	in-reveal	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
 D/10/b	2	Constant Error Variance	megaphone	in-reveal	wired	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
 D/10/b	3	Normal Residuals	distribution_check	in-reveal	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one. PROPOSED: water-pipe (vnirazwq), played from `default:hover-pinch` so the leak shows. It sprays from the joint mid-animation and then seals. Residuals are what leaks out of the model, which is a better hook than a histogram, though the leak speaks to residuals in general rather than to their normality.
