@@ -69,7 +69,7 @@ B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related,
 B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
 B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
 B/06/a	1	Introductions	two_people	in-reveal	wired	-	-	Two masks, which is a contrasting pair. Freed when Unit A retired its slide icons; it took avatars-woman-man's place when that went to dummy coding, where it is more specific.
-B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	arrows-left-right	cqfwksqt	Two arrows going opposite ways: two routes to the same comparison. Replaces two-way-traffic-sign, which suggested direction more than choice.
+B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	arrows-left-right	cqfwksqt	Two arrows going opposite ways: two routes to the same comparison. Replaces two-way-traffic-sign, which suggested direction more than choice. PROPOSED: signpost-double (kjeyqivm). A signpost is a CHOICE between routes; two opposite arrows read as exchange or two-way traffic. signpost-right has only one arm. Adopting it frees arrows-left-right, which has no better home elsewhere and can sit in the catalog as a spare.
 B/06/a	3	Effect Sizes	caliper	in-reveal	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
 B/06/b	1	Introduction	many_groups	in-reveal	wired	avatars-group	rigpimbi	More than two groups at once.
 B/06/b	2	One-way ANOVA in R	anova_in_r	in-reveal	wired	abacus	kfqseesl	The section where it becomes R. browser-code is taken by A/01/b.
