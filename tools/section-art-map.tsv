@@ -47,7 +47,7 @@
 # deck	n	section	icon	state	source	lordicon	key	note
 A/01/b	1	R and RStudio	car	in-reveal	catalog	-	-	The deck's own metaphor: computer as engine, RStudio as dashboard, package as add-on. Replaces browser-code, which said IDE but not this deck's IDE.
 A/01/b	2	Console	terminal	in-reveal	wired	browser-terminal	ailnzwyn	A prompt waiting for one line, not a whole editor.
-A/01/b	3	Scripts	edit_doc	in-reveal	catalog	-	-	Document with a pencil: a file you write and keep.
+A/01/b	3	Scripts	file-text	in-reveal	wired	file-text	hmpomorl	A plain document, which is what a script is. Replaces edit_doc, whose pencil suggested editing prose rather than saving code.
 A/02/a	1	Projects	folder	hover-adding-files	wired	folder	tsrgicte	The self-contained project directory. Its in-reveal and default states draw a closed folder with no accent; hover-adding-files is the one that colours, and files going into a folder says Projects better than a shut one.
 A/02/a	2	Quarto	render_doc	in-reveal	wired	parchment-writing	axmewqez	Authoring rather than a finished file. It is the same source icon that opened the Quarto slide before Unit A's icons were retired.
 A/02/a	3	Markdown	text_format	in-reveal	wired	inkwell	vzpsvgmn	Plain writing, which is what markdown is. Replaces align-text-left, which showed formatting controls.
@@ -66,7 +66,7 @@ B/04/a	3	Samples and Statistics	counter	in-reveal	catalog	-	-	A tally counter: c
 B/04/a	4	Estimation and Uncertainty	target	in-reveal	catalog	-	-	Aiming at a true value you cannot see.
 B/04/b	1	Types of Estimates	rulers	in-reveal	wired	-	-	A point estimate against an interval, measured. Freed by C/07/a #4 taking tape-measure.
 B/04/b	2	The Normal Distribution	normal_curve	in-reveal	wired	bitrate	yjeedmbu	The library DOES have a bell curve, filed under `bitrate`. A curve over a histogram, which is the picture this section draws.
-B/04/b	3	Central Limit Theorem	converge	in-reveal	wired	sales-leads-funnel	txiulgfs	Many samples collapsing toward one shape. Check sales-leads-funnel against the bound funnel.json first.
+B/04/b	3	Central Limit Theorem	blender	in-reveal	wired	-	-	A blender: put in any shape of data and something smooth comes out, which is what the CLT promises for means. Replaces sales-leads-funnel, a literal sales funnel with a dollar sign that meant filtering, not convergence.
 B/04/b	4	Confidence Intervals	interval	in-reveal	wired	casino-chip	adaahleq	A stake: how much you would put on the estimate. Replaces elastic-material.
 B/04/b	5	Practical Matters	toolbox	in-reveal	wired	toolbox	fvoudkri	The housekeeping at the end of the lecture.
 B/05/a	1	Statistical Hypotheses	scales	in-reveal	catalog	-	-	A balance: H0 against H1, before any evidence.
@@ -112,7 +112,7 @@ C/09/a	5	Closing Thoughts	finish	in-reveal	wired	finish-line	yfbsycer	End of the
 D/10/a	1	Overview	blueprint	in-reveal	wired	blueprint	nmrhyntp	The assumptions listed before any of them is checked.
 D/10/a	2	Correct Form	puzzle_fit	in-reveal	wired	puzzle-piece	tsbosomu	The model's shape matching the data's shape.
 D/10/a	3	No Omitted Confounders	unseen	in-reveal	wired	box-lost-and-found	ldohbfuu	A lost-and-found box: the cause that was there and never got measured.
-D/10/a	4	Perfect Predictors	mirror	in-reveal	wired	makeup-mirror	zogqzryv	A predictor that is the outcome again. Neither candidate is good; this one may be worth a wider search.
+D/10/a	4	Perfect Predictors	mirror	in-reveal	wired	makeup-mirror	zogqzryv	A predictor measured with error, which the deck calls regression "dilution" or "attenuation". PROPOSED: blur (itgtmsns). Despite its name it RENDERS AS A DROPLET, and a drop is dilution, which is the deck's own word. Nothing in the family draws measurement error directly. Supersedes the earlier makeup-mirror note, which was written on a misreading: this section is about error in measurement, not about a predictor duplicating the outcome.
 D/10/a	5	No Collinearity	parallel	in-reveal	wired	arrows-right	zlfeyebd	Two arrows running parallel the same way, which is what collinearity is: predictors saying the same thing. Replaces road-narrows-sign, which read as traffic.
 D/10/b	1	Overview	scatter	in-reveal	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
 D/10/b	2	Constant Error Variance	megaphone	in-reveal	wired	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
