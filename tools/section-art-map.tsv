@@ -49,35 +49,35 @@ A/01/b	1	R and RStudio	car	in-reveal	catalog	-	-	The deck's own metaphor: comput
 A/01/b	2	Console	terminal	in-reveal	wired	browser-terminal	ailnzwyn	A prompt waiting for one line, not a whole editor.
 A/01/b	3	Scripts	edit_doc	in-reveal	catalog	-	-	Document with a pencil: a file you write and keep.
 A/02/a	1	Projects	folder	hover-adding-files	wired	folder	tsrgicte	The self-contained project directory. Its in-reveal and default states draw a closed folder with no accent; hover-adding-files is the one that colours, and files going into a folder says Projects better than a shut one.
-A/02/a	2	Quarto	render_doc	in-reveal	wired	file-text	hmpomorl	Source becoming a finished document. PROPOSED: parchment-writing (axmewqez).
-A/02/a	3	Markdown	text_format	in-reveal	wired	align-text-left	nqygtxpy	Plain text acquiring structure. PROPOSED: inkwell (vzpsvgmn).
+A/02/a	2	Quarto	render_doc	in-reveal	wired	parchment-writing	axmewqez	Authoring rather than a finished file. It is the same source icon that opened the Quarto slide before Unit A's icons were retired.
+A/02/a	3	Markdown	text_format	in-reveal	wired	inkwell	vzpsvgmn	Plain writing, which is what markdown is. Replaces align-text-left, which showed formatting controls.
 A/02/b	1	Assignment	assignment	in-reveal	wired	phone-book	jopgqciw	A book of name-to-number lookups is what assignment does, and the slide's example stores a phone number under a name.
 A/02/b	2	Naming	business_card	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Naming section as a content slide, so it was already the author's pick for this exact concept.
 A/02/b	3	Functions	gears	in-reveal	wired	cog-double	xnptalrm	Input in, work happens, output out.
-A/02/b	4	Vectors	old_train	in-reveal	catalog	-	-	The slide says "imagine a train pulling multiple cars" and shows a locomotive. Replaces layers, which read as depth rather than as a sequence.
+A/02/b	4	Vectors	old_train	in-reveal	wired	steam-locomotive	homiahxk	The raw export of the locomotive, replacing the legacy CDN copy: same picture, but its colour is controllable and it has an in-reveal state.
 A/03/a	1	Strings	strings	in-reveal	wired	text-box	zzcpieew	Replaces `quotation`, which renders monochrome. A text object with handles, and it recolours.
 A/03/a	2	Factors	factors	in-reveal	wired	bullet-list	jkavsxeh	A fixed, ordered set of levels.
 A/03/a	3	Packages	install	in-reveal	wired	box-plus	okzvfdcb	A package with a plus on it. Replaces inbox-download, which read as a generic download rather than as adding a package.
 A/03/b	1	Data Frames	data_frame	in-reveal	wired	browser-spreadsheet	wfjtyzqa	A literal grid of rows and columns. The earlier pick was the abstract `data` glyph, chosen only because spreadsheet.json was in use on a Unit A content slide; retiring those icons freed the concept.
-A/03/b	2	Data Exploration	explore	in-reveal	wired	magnifier	wjyqkiew	Looking at data before modelling it. PROPOSED: binoculars (dpmsxdtz). A magnifier reads as searching for something you already know is there; exploration is looking around before you know.
-B/04/a	1	Research Methods	test_tubes	in-reveal	catalog	-	-	The apparatus of running a study. PROPOSED: clipboard-questionnaire (snlmykub).
+A/03/b	2	Data Exploration	explore	in-reveal	wired	binoculars	dpmsxdtz	Looking around before you know what you are looking for. Replaces magnifier, which reads as searching for something known.
+B/04/a	1	Research Methods	questionnaire	in-reveal	wired	clipboard-questionnaire	snlmykub	The deck's methods are experiments, observational studies and a survey, never a wet lab. Replaces test_tubes.
 B/04/a	2	Populations and Parameters	people	in-reveal	catalog	-	-	The whole crowd, which is what a population is.
 B/04/a	3	Samples and Statistics	counter	in-reveal	catalog	-	-	A tally counter: counting a subset by hand.
 B/04/a	4	Estimation and Uncertainty	target	in-reveal	catalog	-	-	Aiming at a true value you cannot see.
-B/04/b	1	Types of Estimates	point_vs_range	in-reveal	new	plus-minus-alt	zuoqzhmn	A point estimate against an interval. PROPOSED: rulers, freed once C/07/a #4 takes tape-measure.
+B/04/b	1	Types of Estimates	rulers	in-reveal	wired	-	-	A point estimate against an interval, measured. Freed by C/07/a #4 taking tape-measure.
 B/04/b	2	The Normal Distribution	normal_curve	in-reveal	wired	bitrate	yjeedmbu	The library DOES have a bell curve, filed under `bitrate`. A curve over a histogram, which is the picture this section draws.
 B/04/b	3	Central Limit Theorem	converge	in-reveal	wired	sales-leads-funnel	txiulgfs	Many samples collapsing toward one shape. Check sales-leads-funnel against the bound funnel.json first.
-B/04/b	4	Confidence Intervals	interval	in-reveal	wired	elastic-material	vcismmve	A square stretching outward: a range rather than a point. The family has no error bar, and this is the nearest thing to one. PROPOSED: casino-chip (adaahleq).
+B/04/b	4	Confidence Intervals	interval	in-reveal	wired	casino-chip	adaahleq	A stake: how much you would put on the estimate. Replaces elastic-material.
 B/04/b	5	Practical Matters	toolbox	in-reveal	wired	toolbox	fvoudkri	The housekeeping at the end of the lecture.
 B/05/a	1	Statistical Hypotheses	scales	in-reveal	catalog	-	-	A balance: H0 against H1, before any evidence.
-B/05/a	2	NHST Logic	flowchart	in-reveal	wired	diagram-flow	ygqtedpk	The chain of reasoning, which is the section. PROPOSED: project-diagram (wsvtrygf).
+B/05/a	2	NHST Logic	flowchart	in-reveal	wired	project-diagram	wsvtrygf	The chain of reasoning as a diagram.
 B/05/a	3	NHST Nuts and Bolts	wrench	in-reveal	wired	wrench	fwkrbvja	Literal, and the title already invites it.
-B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is. PROPOSED: thumb-up (scjygvrg) with state=morph-down. Its morph runs up to down, so one icon enacts the verdict instead of depicting it. Supersedes both traffic-lights and chats-feedback: a traffic light has THREE states, which quietly endorses the marginally-significant reading this course argues against. CONFIRMED: use state=morph-down, so the thumb flips up to down.
+B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	chats-feedback	vtmfbfkv	A thumb up and a thumb down, side by side. Replaces traffic-lights, which has THREE states and so quietly endorses the marginally-significant reading. Shows both verdicts at once rather than morphing between them, so it does not depend on the animation being watched.
 B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related, which is all a correlation claims.
 B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
 B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
 B/06/a	1	Introductions	two_people	in-reveal	wired	-	-	Two masks, which is a contrasting pair. Freed when Unit A retired its slide icons; it took avatars-woman-man's place when that went to dummy coding, where it is more specific.
-B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	arrows-left-right	cqfwksqt	Two arrows going opposite ways: two routes to the same comparison. Replaces two-way-traffic-sign, which suggested direction more than choice. PROPOSED: signpost-double (kjeyqivm). A signpost is a CHOICE between routes; two opposite arrows read as exchange or two-way traffic. signpost-right has only one arm. Adopting it frees arrows-left-right, which has no better home elsewhere and can sit in the catalog as a spare.
+B/06/a	2	NHST Approaches	two_routes	in-reveal	wired	signpost-double	kjeyqivm	A signpost is a choice between routes. Replaces arrows-left-right, which read as exchange.
 B/06/a	3	Effect Sizes	caliper	in-reveal	catalog	-	-	Measuring how big, not whether. The best fit in the catalog.
 B/06/b	1	Introduction	many_groups	in-reveal	wired	avatars-group	rigpimbi	More than two groups at once.
 B/06/b	2	One-way ANOVA in R	anova_in_r	in-reveal	wired	abacus	kfqseesl	The section where it becomes R. browser-code is taken by A/01/b.
@@ -88,12 +88,12 @@ B/06/c	3	Translation Activity	translate	in-reveal	wired	globe-translation	aucxxw
 C/07/a	1	Introduction	trend_line	in-reveal	wired	line-chart-markers	gyvwavwk	REPLACES the pilot's map.json, which is the roadmap slide's motif across six decks. SETTLED: keeps line-chart-markers. scatter-plot was proposed here but D/10/b #1 already has it and that lecture is entirely about reading scatter plots, so it keeps the claim. No export needed for this row.
 C/07/a	2	Regression Inference	insights	in-reveal	pilot	-	-	Kept from the pilot.
 C/07/a	3	Centering	crosshair	in-reveal	wired	crosshair-alt	mdpzmxaq	REPLACES the pilot's location_pin.json: centering moves an origin, it is not a place.
-C/07/a	4	Regression Effect Sizes	rulers	in-reveal	pilot	-	-	Kept from the pilot. PROPOSED: tape-measure (wufezfky).
-C/07/b	1	Introduction	categories	in-reveal	choose	puzzle-piece|grid-squares	tsbosomu|ervhjijl	Predictors that are kinds rather than amounts. CLASH: puzzle-piece is already assigned to D/10/a #2. PROPOSED: radio_buttons, freed once C/07/b #3 takes card-suits.
+C/07/a	4	Regression Effect Sizes	tape_measure	in-reveal	wired	tape-measure	wufezfky	A tape measure, for how big the effect is. Frees `rulers` for Types of Estimates.
+C/07/b	1	Introduction	radio_buttons	in-reveal	wired	-	-	Predictors that are kinds rather than amounts. Freed by #3 taking card-suits.
 C/07/b	2	Dichotomous <br>Dummy Coding	switch_binary	in-reveal	wired	avatars-woman-man	lxdzeulj	The deck's own dichotomous example is penguins$sex with levels male and female, so the icon shows the variable being coded rather than a generic on/off.
-C/07/b	3	Polytomous <br>Dummy Coding	radio_buttons	in-reveal	wired	toggle-on-off	suadrppo	Several levels, one reference. PROPOSED: card-suits (tpbwmgss).
+C/07/b	3	Polytomous <br>Dummy Coding	card_suits	in-reveal	wired	card-suits	tpbwmgss	Four suits: several exclusive categories, one of which is the reference. Frees `radio_buttons` for the Introduction.
 C/07/c	1	Shared Variance	venn	in-reveal	wired	diagram-venn-double	wisxrkfy	Overlap is the whole idea.
-C/07/c	2	Multiple Regression	many_to_one	in-reveal	wired	sitemap	cuauhrxy	Several predictors into one outcome. sitemap points the wrong way; check it renders as convergence. PROPOSED: diagram-venn (ohybxsin).
+C/07/c	2	Multiple Regression	many_to_one	in-reveal	wired	diagram-venn	ohybxsin	Overlapping predictors. Replaces sitemap, which branched one into many when the model runs many into one.
 C/07/c	3	Many Predictors	equalizer	in-reveal	catalog	-	-	A bank of sliders: many inputs tuned at once.
 C/08/a	1	Overview	mountains	in-reveal	catalog	-	-	A vista, for the overview of the moderation material.
 C/08/a	2	Continuous-by-Continuous	surface_3d	in-reveal	wired	coordinate-system-3-d	irumlfqj	Replaces `3-d`, whose colour slots are swapped so it renders green. Labelled X/Y/Z axes, which is the response surface itself.
@@ -116,7 +116,7 @@ D/10/a	4	Perfect Predictors	mirror	in-reveal	wired	makeup-mirror	zogqzryv	A pred
 D/10/a	5	No Collinearity	parallel	in-reveal	wired	arrows-right	zlfeyebd	Two arrows running parallel the same way, which is what collinearity is: predictors saying the same thing. Replaces road-narrows-sign, which read as traffic.
 D/10/b	1	Overview	scatter	in-reveal	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
 D/10/b	2	Constant Error Variance	megaphone	in-reveal	wired	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
-D/10/b	3	Normal Residuals	distribution_check	in-reveal	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one. PROPOSED: water-pipe (vnirazwq), played from `default:hover-pinch` so the leak shows. It sprays from the joint mid-animation and then seals. Residuals are what leaks out of the model, which is a better hook than a histogram, though the leak speaks to residuals in general rather than to their normality.
+D/10/b	3	Normal Residuals	distribution_check	default:hover-pinch	wired	water-pipe	vnirazwq	Played from the state that leaks: it sprays from the joint and then seals. Residuals are what leaks out of the model.
 D/10/b	4	Independent Residuals	independence	in-reveal	wired	family	theqdcco	A family is a cluster of related observations, which is exactly what breaks independence. The icon draws the violation rather than the assumption.
 D/10/b	5	Outliers	outlier	in-reveal	wired	sheep	pcjhygqv	The black sheep. One point unlike the rest.
 E/14/a	1	Power Analysis	muscle	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Power Analysis section as a content slide, so it was already the author's pick for this exact concept.

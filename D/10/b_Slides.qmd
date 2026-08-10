@@ -232,7 +232,7 @@ see:::plot.see_check_model(check_model(fit_violated, check = "homogeneity", pane
 # Normal Residuals
 
 ::: {.section-art}
-{{< lif "../../icons/question.json" colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/distribution_check.json" state=default:hover-pinch colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Assumption

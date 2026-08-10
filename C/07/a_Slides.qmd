@@ -552,7 +552,7 @@ model_parameters(fit2b)
 # Regression Effect Sizes
 
 ::: {.section-art}
-{{< lif "../../icons/rulers.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/tape_measure.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## Standardized Slopes {.fs80}

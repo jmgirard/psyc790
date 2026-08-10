@@ -44,7 +44,7 @@ source("../../_common.R")
 # Research Methods
 
 ::: {.section-art}
-{{< lif "../../icons/test_tubes.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
+{{< lif "../../icons/questionnaire.json" state=in-reveal colors=secondary:#2a76dd class=rc >}}
 :::
 
 ## The scientific method
