@@ -114,6 +114,32 @@ exporting. The blue is then baked in as a static value and renders correctly.
 The shortcodes stay uniform — `colors=secondary:#2a76dd` on all 106 call sites — even where
 inert. Same rendered result, and for the 70 raw exports it is doing real work again.
 
+## What is kept, and what was thrown away
+
+`icons/` holds 87 files: the 79 divider illustrations, the roadmap `map`, the two
+content-slide icons still on C/08/b (`funnel`, `caution`), and five deliberate spares.
+
+40 unused files were deleted once every divider was wired. Five of them were exact
+duplicates of an icon already in use, differing only in being the older CDN copy:
+`contacts`/`assignment`, `poetry`/`render_doc`, `spreadsheet`/`data_frame`,
+`text_box`/`strings`. Two more were the colour-broken files this document describes,
+`3-d` with swapped slots and `bolt` with no secondary. The rest were leftovers from
+Unit A's retired slide icons with no plausible use in a statistics course: beaches,
+beer, luggage, a genie.
+
+The five spares are kept against the chapters that are outlined but unwritten:
+
+| file | for |
+|---|---|
+| `polyline` | piecewise and spline regression, C/09 lecture b |
+| `dice` | bootstrap and resampling, D/11 |
+| `review` | reviewing statistical claims, E/15 lecture b |
+| `bracket_angle` | the mathematical mean notation |
+| `question` | the placeholder `tools/wire-section-art.py` puts on a new divider |
+
+Anything deleted is one export away, and its code is still in this repo's history,
+so nothing here is a one-way door.
+
 ## Maintenance note
 
 For the 12 export-customized icons the accent colour is **fixed at export time**. If the
