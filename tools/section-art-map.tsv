@@ -51,7 +51,7 @@ A/03/a	1	Strings	strings	in-reveal	wired	text-box	zzcpieew	Replaces `quotation`,
 A/03/a	2	Factors	factors	in-reveal	wired	bullet-list	jkavsxeh	A fixed, ordered set of levels.
 A/03/a	3	Packages	install	in-reveal	wired	box-plus	okzvfdcb	A package with a plus on it. Replaces inbox-download, which read as a generic download rather than as adding a package.
 A/03/b	1	Data Frames	data_frame	in-reveal	wired	browser-spreadsheet	wfjtyzqa	A literal grid of rows and columns. The earlier pick was the abstract `data` glyph, chosen only because spreadsheet.json was in use on a Unit A content slide; retiring those icons freed the concept.
-A/03/b	2	Data Exploration	explore	in-reveal	wired	magnifier	wjyqkiew	Looking at data before modelling it. PROPOSED: binoculars (dpmsxdtz).
+A/03/b	2	Data Exploration	explore	in-reveal	wired	magnifier	wjyqkiew	Looking at data before modelling it. PROPOSED: binoculars (dpmsxdtz). A magnifier reads as searching for something you already know is there; exploration is looking around before you know.
 B/04/a	1	Research Methods	test_tubes	in-reveal	catalog	-	-	The apparatus of running a study. PROPOSED: clipboard-questionnaire (snlmykub).
 B/04/a	2	Populations and Parameters	people	in-reveal	catalog	-	-	The whole crowd, which is what a population is.
 B/04/a	3	Samples and Statistics	counter	in-reveal	catalog	-	-	A tally counter: counting a subset by hand.
@@ -64,7 +64,7 @@ B/04/b	5	Practical Matters	toolbox	in-reveal	wired	toolbox	fvoudkri	The housekee
 B/05/a	1	Statistical Hypotheses	scales	in-reveal	catalog	-	-	A balance: H0 against H1, before any evidence.
 B/05/a	2	NHST Logic	flowchart	in-reveal	wired	diagram-flow	ygqtedpk	The chain of reasoning, which is the section. PROPOSED: project-diagram (wsvtrygf).
 B/05/a	3	NHST Nuts and Bolts	wrench	in-reveal	wired	wrench	fwkrbvja	Literal, and the title already invites it.
-B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is. PROPOSED: chats-feedback (vtmfbfkv).
+B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is. PROPOSED: thumb-up (scjygvrg) with state=morph-down. Its morph runs up to down, so one icon enacts the verdict instead of depicting it. Supersedes both traffic-lights and chats-feedback: a traffic light has THREE states, which quietly endorses the marginally-significant reading this course argues against.
 B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related, which is all a correlation claims.
 B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
 B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
@@ -108,7 +108,7 @@ D/10/a	4	Perfect Predictors	mirror	in-reveal	wired	makeup-mirror	zogqzryv	A pred
 D/10/a	5	No Collinearity	parallel	in-reveal	wired	road-narrows-sign	xyoobaio	Predictors that say the same thing.
 D/10/b	1	Overview	scatter	in-reveal	wired	scatter-plot	esmahubl	Residual plots, which is what the whole lecture reads.
 D/10/b	2	Constant Error Variance	megaphone	in-reveal	wired	megaphone	jdnoclpe	The fanning shape heteroscedasticity makes.
-D/10/b	3	Normal Residuals	distribution_check	in-reveal	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one. PROPOSED: water-pipe (vnirazwq).
+D/10/b	3	Normal Residuals	distribution_check	in-reveal	choose	bar-chart-vertical-grow|radial-histogram	lbcxnxti|kpeygrgr	Checking a distribution rather than assuming one. PROPOSED: water-pipe (vnirazwq), played from `default:hover-pinch` so the leak shows. It sprays from the joint mid-animation and then seals. Residuals are what leaks out of the model, which is a better hook than a histogram, though the leak speaks to residuals in general rather than to their normality.
 D/10/b	4	Independent Residuals	independence	in-reveal	wired	family	theqdcco	A family is a cluster of related observations, which is exactly what breaks independence. The icon draws the violation rather than the assumption.
 D/10/b	5	Outliers	outlier	in-reveal	wired	sheep	pcjhygqv	The black sheep. One point unlike the rest.
 E/14/a	1	Power Analysis	muscle	in-reveal	catalog	-	-	Freed when Unit A retired its slide icons. This is the icon that opened the Power Analysis section as a content slide, so it was already the author's pick for this exact concept.
