@@ -28,7 +28,7 @@ decided = [r for r in rows if r[4] == "new"]
 def card(name, key):
     return (f'<figure><lord-icon src="https://cdn.lordicon.com/{key}.json" '
             f'colors="secondary:#2a76dd" trigger="loop" delay="1200"></lord-icon>'
-            f'<figcaption><a href="https://lordicon.com/icon/{key}/wired/outline" '
+            f'<figcaption><a href="https://lordicon.com/icons/wired/outline?search={name}" '
             f'target="_blank">{html.escape(name)}</a></figcaption></figure>')
 
 
@@ -63,7 +63,7 @@ doc = f"""<!doctype html><meta charset="utf-8"><title>Divider icon picker</title
 <p class="lede">Previews come from the CDN, which per <code>ICONS.md</code> serves older
 revisions than the PRO web app: fine for deciding, <strong>not</strong> for downloading.
 Export the one you pick from the Lordicon UI with secondary set to <code>#2a76dd</code>.
-Names link to the icon page.</p>
+Names link to a search for that icon.</p>
 <h2>Open choices ({len(choose)})</h2>
 {"".join(block(r, 'clash' if 'CLASH' in r[7] else '') for r in choose)}
 <h2>Already decided ({len(decided)}) &mdash; sanity check these too</h2>

@@ -23,8 +23,16 @@
 # in its default and in-reveal states; `morph-squared` is the state that both
 # brings the accent back and draws the squared symbol the section is about.
 #
-# `lordicon` is the icon's name in the Wired / Outline family and `key` is its
-# code, so it can be found by URL: lordicon.com/icon/<key>/wired/outline
+# `lordicon` is the icon's NAME in the Wired / Outline family. That is what you
+# search for, and the only field you need to find and export one:
+#
+#     lordicon.com/icons/wired/outline?search=<name>
+#
+# `key` is the icon's CDN code. It is provenance only: these decks use the `lif`
+# shortcode, which reads a file out of icons/, so no code is ever fetched at
+# render time. It is recorded because icon-map.json is keyed on it. An earlier
+# version of this header claimed a code could be opened at
+# lordicon.com/icon/<key>/wired/outline; that URL 404s and never worked.
 #
 # EXPORTING: set secondary to #2a76dd in the customizer BEFORE exporting, or the
 # icon bakes in Lordicon's green with no way to recolour it at runtime. See
