@@ -72,7 +72,7 @@ B/04/b	5	Practical Matters	toolbox	in-reveal	wired	toolbox	fvoudkri	The housekee
 B/05/a	1	Statistical Hypotheses	scales	in-reveal	catalog	-	-	A balance: H0 against H1, before any evidence.
 B/05/a	2	NHST Logic	flowchart	in-reveal	wired	diagram-flow	ygqtedpk	The chain of reasoning, which is the section. PROPOSED: project-diagram (wsvtrygf).
 B/05/a	3	NHST Nuts and Bolts	wrench	in-reveal	wired	wrench	fwkrbvja	Literal, and the title already invites it.
-B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is. PROPOSED: thumb-up (scjygvrg) with state=morph-down. Its morph runs up to down, so one icon enacts the verdict instead of depicting it. Supersedes both traffic-lights and chats-feedback: a traffic light has THREE states, which quietly endorses the marginally-significant reading this course argues against.
+B/05/a	4	$p$-values and <br>Pragmatics	threshold	in-reveal	wired	traffic-lights	suanmnye	A cutoff being applied, and how blunt that is. PROPOSED: thumb-up (scjygvrg) with state=morph-down. Its morph runs up to down, so one icon enacts the verdict instead of depicting it. Supersedes both traffic-lights and chats-feedback: a traffic light has THREE states, which quietly endorses the marginally-significant reading this course argues against. CONFIRMED: use state=morph-down, so the thumb flips up to down.
 B/05/b	1	Introductions	link	in-reveal	wired	link	gsjfryhc	Two variables related, which is all a correlation claims.
 B/05/b	2	Calculating <br>Correlations	calculator	in-reveal	catalog	-	-	The arithmetic section.
 B/05/b	3	Statistical Inference	telescope	in-reveal	wired	telescope	uxxyazkn	Reasoning past the sample. Deliberately not magic_ball.json, which frames inference as fortune telling.
@@ -85,7 +85,7 @@ B/06/b	3	Post-hoc Tests	compare_pairs	in-reveal	wired	files-compare	fzitssce	Whi
 B/06/c	1	Unequal Variances	uneven	in-reveal	wired	uneven-road-sign	qwasteos	The assumption failing, and the title's own metaphor.
 B/06/c	2	Repeated Measures	repeat_loop	in-reveal	wired	arrows-loop-one	grphetub	The same people measured again.
 B/06/c	3	Translation Activity	translate	in-reveal	wired	globe-translation	aucxxwfa	The unit-closing activity is literally translation.
-C/07/a	1	Introduction	trend_line	in-reveal	wired	line-chart-markers	gyvwavwk	REPLACES the pilot's map.json, which is the roadmap slide's motif across six decks. PROPOSED: scatter-plot (esmahubl), but D/10/b #1 has it.
+C/07/a	1	Introduction	trend_line	in-reveal	wired	line-chart-markers	gyvwavwk	REPLACES the pilot's map.json, which is the roadmap slide's motif across six decks. SETTLED: keeps line-chart-markers. scatter-plot was proposed here but D/10/b #1 already has it and that lecture is entirely about reading scatter plots, so it keeps the claim. No export needed for this row.
 C/07/a	2	Regression Inference	insights	in-reveal	pilot	-	-	Kept from the pilot.
 C/07/a	3	Centering	crosshair	in-reveal	wired	crosshair-alt	mdpzmxaq	REPLACES the pilot's location_pin.json: centering moves an origin, it is not a place.
 C/07/a	4	Regression Effect Sizes	rulers	in-reveal	pilot	-	-	Kept from the pilot. PROPOSED: tape-measure (wufezfky).
