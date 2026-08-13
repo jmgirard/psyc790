@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Statistical Methods with R",
+    "title": "Statistical Methods with R",
     "section": "",
     "text": "Developed by Jeffrey M. Girard · me at jmgirard dot com\n\nThis site holds the teaching materials for a graduate course in statistical methods for the behavioral and social sciences: slides, in-class practice activities, assignments, readings, and datasets, covering fifteen chapters across five units. Anyone is welcome to teach from these materials or work through them independently. Nothing here is tied to a particular semester, institution, or offering, since schedules, deadlines, and grading belong wherever the course is actually being run.\nThe material is organized into five units of three chapters each, and each chapter is two or three lectures. The lecture is the unit of scheduling: each one is sized to fill a single class session of about 75 to 90 minutes and carries its own slides, readings, and assignment, so a lecture can be skipped or reordered without breaking the ones around it.\n\n\n\n\n\n\nNoteFor instructors\n\n\n\nTeach from these materials freely: assign the chapters, point your students at the slides, and build your own schedule, activities, and grading around them. Linking to a page here needs no permission at all.\nAnswer keys, practice solutions, and grading rubrics are deliberately not published, since students can read this site as easily as you can. If you are teaching a course and want them, email me at jmgirard dot com from your institutional address with a short note about the course.\nThese materials are licensed CC BY-NC-ND 4.0, which means you can link to them and teach from them, with credit. Please do not republish them under your own name, whether edited or verbatim, and do not sell them or fold them into paid training. If you need a change (a fix, a different dataset, a slide that would work better reordered), email me and I will consider making it here, where everyone gets it.\n\n\n\nAbout the Course\nA graduate introduction to statistical methods for the behavioral and social sciences, taught entirely in R, using tidyverse for handling data and easystats for fitting, checking, and reporting models.\nThe course opens with the R ecosystem itself: projects, Quarto, and the data wrangling and exploration needed to get real data ready to analyze. It then builds up statistical inference from sampling and estimation through hypothesis testing, correlation, t-tests, and one-way ANOVA. The largest part of the course develops the general linear model: simple and multiple regression, categorical predictors and dummy coding, interaction effects for testing moderation, and polynomial and spline regression for curvilinear relationships. From there it turns to what to do when a model’s assumptions do not hold: diagnostics, the bootstrap and other robust methods, and missing data. It closes with measurement reliability, power analysis, and how to report and critically review a linear model analysis.\nSome of that material is outlined but not yet written, and is marked coming soon wherever it appears: piecewise and spline regression, bootstrap and robust inference, missing data, reliability and measurement error, and reviewing statistical claims. Each chapter page shows what its lectures will cover.\nThroughout, the emphasis is on estimating and interpreting effects rather than on hypothesis testing alone, and on writing code you could hand to someone else.\nThe material assumes a prior introductory statistics course, but starts from the beginning with R itself and expects no programming experience.\n\n\nLearning Outcomes\nBy the end of the material, students should be able to:\n\nDescribe the parts of the R ecosystem used in the course\nUnderstand and apply R code for basic programming tasks\nAccomplish basic data wrangling and exploration tasks in R\nSummarize the main roles that statistics play in psychology\nDiscuss the logic of estimation and hypothesis testing\nEstimate group comparisons and variable associations\nDesign, conduct, and interpret an effect size analysis\nDiscuss the logic and steps of the general linear model\nRegress continuous outcomes on any predictor variables\nApply interaction effects to test moderation hypotheses\nDesign, conduct, and interpret a linear model analysis\nModel curvilinear relationships with polynomial regression\nFit and interpret piecewise and spline regressions (coming soon)\nDiscuss, diagnose, and address violated model assumptions\nEstimate uncertainty by bootstrapping and resampling (coming soon)\nAddress missing data with multiple imputation or FIML (coming soon)\nEvaluate the reliability of measures and its cost to power (coming soon)\nConduct an a priori power analysis to determine sample size\nReport and review the results of a linear model analysis\n\n\n\nReadings\nThere is no required textbook. The lectures are meant to stand on their own, and each chapter page lists its own readings, linking straight to the source whenever that source is open access.\nThe four books below are for readers who want to go further than a lecture does. Chapter pages point at specific sections of them where they are relevant, but none of the four is required.\nFreely available online\n\nR for Data Science (2nd ed.) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Goes deeper on the tidyverse tools introduced in Unit A.\nLearning Statistics with R by Danielle Navarro. A slower, book-length treatment of the inference material in Unit B.\n\nAvailable for purchase\n\nApplied Multiple Regression/Correlation Analysis for the Behavioral Sciences (3rd ed.) by Jacob Cohen, Patricia Cohen, Stephen G. West, and Leona S. Aiken. Routledge, 2013. The standard reference for the linear model material in Unit C.\nBeyond Significance Testing: Statistics Reform in the Behavioral Sciences (2nd ed.) by Rex B. Kline. American Psychological Association, 2015. Makes the case for the estimation-first emphasis this course takes."
   },
@@ -870,42 +870,42 @@
   {
     "objectID": "B/06/translation.html",
     "href": "B/06/translation.html",
-    "title": "Unit B Translation Activity",
+    "title": "Translation Activity",
     "section": "",
     "text": "These activities are for practice only; there is nothing to turn in.\nEvery question in Unit B told you which test to run. Research never does. This activity works the other direction: you are given a study in the words a researcher would use to describe it, and you have to work out what comparison is actually being asked for.\nFor each study below, answer:"
   },
   {
     "objectID": "B/06/translation.html#example-1-developmental",
     "href": "B/06/translation.html#example-1-developmental",
-    "title": "Unit B Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 1 (Developmental)",
     "text": "Example 1 (Developmental)\n\nA reading intervention is supposed to bring struggling second-graders up to the national benchmark of 90 words read correctly per minute. I run the programme with 40 children and measure their reading fluency at the end of it. I want to know whether this group has reached the benchmark."
   },
   {
     "objectID": "B/06/translation.html#example-2-cognitive",
     "href": "B/06/translation.html#example-2-cognitive",
-    "title": "Unit B Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 2 (Cognitive)",
     "text": "Example 2 (Cognitive)\n\nI think people solve anagrams faster in a quiet room than in a noisy one. I recruit 60 people, and each person solves one set of anagrams in a quiet room and a different set in a noisy room, with the order counterbalanced. I record solution time in seconds for each person in each condition."
   },
   {
     "objectID": "B/06/translation.html#example-3-organizational",
     "href": "B/06/translation.html#example-3-organizational",
-    "title": "Unit B Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 3 (Organizational)",
     "text": "Example 3 (Organizational)\n\nOur company uses three different onboarding programmes across its regional offices, and I want to know whether new hires end up equally satisfied under all three. I have satisfaction scores from 210 new hires, each of whom went through exactly one programme. The three offices are quite different sizes, and I have been told satisfaction scores are much more spread out at one of them."
   },
   {
     "objectID": "B/06/translation.html#example-4-health",
     "href": "B/06/translation.html#example-4-health",
-    "title": "Unit B Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 4 (Health)",
     "text": "Example 4 (Health)\n\nI want to know whether people who sleep more report less daytime fatigue. I ask 95 adults to report their average nightly sleep in hours and to complete a continuous fatigue questionnaire."
   },
   {
     "objectID": "B/06/translation.html#bring-your-own",
     "href": "B/06/translation.html#bring-your-own",
-    "title": "Unit B Translation Activity",
+    "title": "Translation Activity",
     "section": "Bring your own",
     "text": "Bring your own\nDescribe a study from your own area the same way (a short paragraph, no statistical vocabulary) and hand it to someone else to translate. Then compare what they wrote to the analysis you actually had in mind."
   },
@@ -1045,35 +1045,35 @@
   {
     "objectID": "C/09/translation.html",
     "href": "C/09/translation.html",
-    "title": "Unit C Translation Activity",
+    "title": "Translation Activity",
     "section": "",
     "text": "These activities are for practice only; there is nothing to turn in.\nEvery question so far has told you which model to fit. Research never does. This activity works the other direction: you are given a study in the words a researcher would use to describe it, and you have to translate it into a data frame, a formula, and a set of assumptions worth worrying about.\nWork through each one in a small group if you can. There is usually more than one defensible answer; being able to say why you chose yours is the skill being practiced.\nFor each study below, answer:"
   },
   {
     "objectID": "C/09/translation.html#example-1-clinical-health-psychology",
     "href": "C/09/translation.html#example-1-clinical-health-psychology",
-    "title": "Unit C Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 1 (Clinical / Health Psychology)",
     "text": "Example 1 (Clinical / Health Psychology)\n\nI read that doctors sometimes use the amount of beta-amyloid proteins in a patient’s cerebrospinal fluid (CSF) to help detect Alzheimer’s disease. I am interested to know if this amount is also related to patients’ cognitive functioning. To investigate this, I collect CSF from and measure beta-amyloid and working memory in 120 patients with different types of dementia. Assume that both measures are continuous."
   },
   {
     "objectID": "C/09/translation.html#example-2-sports-science",
     "href": "C/09/translation.html#example-2-sports-science",
-    "title": "Unit C Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 2 (Sports Science)",
     "text": "Example 2 (Sports Science)\n\nI want to help the tennis player I coach to improve her service return game. I suspect she struggles with faster serves and serves she tried to return backhand. To test this, I watch 70 of her recent matches and mark down the average speed of all the serves she received in that match, the percentage that she attempted to return backhand (as opposed to forehand), and the percentage that she successfully returned (as opposed to did not return)."
   },
   {
     "objectID": "C/09/translation.html#example-3-social-psychology",
     "href": "C/09/translation.html#example-3-social-psychology",
-    "title": "Unit C Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 3 (Social Psychology)",
     "text": "Example 3 (Social Psychology)\n\nI think that people at a bar will enjoy being approached by and talking with a stranger only if they find that stranger attractive, but my friend thinks that attractiveness has nothing to do with it. To test this, we observe people at a local bar and, after someone is approached by someone else, ask them if they knew that person (yes or no), how attractive they found that person (1 to 10), and how much they liked talking with that person (1 to 10). We end up with ratings from 20 participants being approached by 55 strangers and 30 friends."
   },
   {
     "objectID": "C/09/translation.html#bring-your-own",
     "href": "C/09/translation.html#bring-your-own",
-    "title": "Unit C Translation Activity",
+    "title": "Translation Activity",
     "section": "Bring your own",
     "text": "Bring your own\nDescribe a study from your own area the same way (a short paragraph, no statistical vocabulary) and hand it to someone else to translate. Then compare what they wrote to the analysis you actually had in mind."
   },
@@ -1136,49 +1136,49 @@
   {
     "objectID": "D/10/translation.html",
     "href": "D/10/translation.html",
-    "title": "Unit D Translation Activity",
+    "title": "Translation Activity",
     "section": "",
     "text": "These activities are for practice only; there is nothing to turn in.\nUnits B and C asked you to translate a study into a model. This one asks you to translate a problem into a diagnosis and a response. Each scenario below describes something that went wrong, or might have, in the words a collaborator would use.\nFor each one, answer:"
   },
   {
     "objectID": "D/10/translation.html#example-1",
     "href": "D/10/translation.html#example-1",
-    "title": "Unit D Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 1",
     "text": "Example 1\n\nMy residual plot has a clear funnel shape: predictions are tight at the low end and fan out badly at the high end. My supervisor says the p-values are fine because the sample is large."
   },
   {
     "objectID": "D/10/translation.html#example-2",
     "href": "D/10/translation.html#example-2",
-    "title": "Unit D Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 2",
     "text": "Example 2\n\nI measured self-esteem with a three-item scale that turned out to have an alpha of .55. My predictor barely reached significance and the effect looks much smaller than the published literature suggests."
   },
   {
     "objectID": "D/10/translation.html#example-3",
     "href": "D/10/translation.html#example-3",
-    "title": "Unit D Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 3",
     "text": "Example 3\n\nAbout 18% of my participants skipped the income question. I dropped those rows so the model would run. My reviewer wants to know whether that was defensible, and I am not sure how to answer."
   },
   {
     "objectID": "D/10/translation.html#example-4",
     "href": "D/10/translation.html#example-4",
-    "title": "Unit D Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 4",
     "text": "Example 4\n\nMy outcome is badly skewed and I have 40 participants. A colleague says to log it, another says to run a nonparametric test, and a third says to bootstrap the confidence intervals. They cannot all be right."
   },
   {
     "objectID": "D/10/translation.html#example-5",
     "href": "D/10/translation.html#example-5",
-    "title": "Unit D Translation Activity",
+    "title": "Translation Activity",
     "section": "Example 5",
     "text": "Example 5\n\nTwo observations have Cook’s distance far above everything else. Removing them flips my main effect from significant to not. I would rather not remove them, but I also do not want to report a result that hangs on two people."
   },
   {
     "objectID": "D/10/translation.html#bring-your-own",
     "href": "D/10/translation.html#bring-your-own",
-    "title": "Unit D Translation Activity",
+    "title": "Translation Activity",
     "section": "Bring your own",
     "text": "Bring your own\nBring a diagnostic plot from your own data (ideally one you were not sure how to read) and work through the same three questions with someone else."
   },

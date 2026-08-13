@@ -100,6 +100,54 @@ lord-icon.rc {
 }
 
 /* ---------------------------------------------------------------------------
+   Navbar title on phones
+   ---------------------------------------------------------------------------
+   Every page showed "Statistical Method..." on a phone. Bootstrap clamps
+   `.navbar-brand` with `overflow: hidden; text-overflow: ellipsis`, and the box
+   it clamps to is far narrower than it needs to be: measured at 375px, the
+   brand got 169px inside a 186px container, with a further ~30px sitting empty
+   between it and the search icon, against a title that needs 228px.
+
+   So this reclaims space rather than shrinking type to fit. The container
+   padding comes down, the brand container is allowed to grow into the free
+   space (`flex: 1 1 auto`, plus `min-width: 0` or a flex item refuses to shrink
+   below its content and the ellipsis never engages), and the title drops one
+   step to 0.95rem.
+
+   `!important` on the margins is not decoration: quarto ships the brand
+   container with bootstrap's `.mx-auto`, whose `margin: auto` is itself
+   `!important` and would otherwise re-centre the box at its old width.
+
+   Measured after: fits from 360px up, which covers every current phone (360,
+   375, 390, 393, 412, 430). Below that -- original SE, iPhone 5 -- there is no
+   size that fits without becoming unreadable, and it falls back to the same
+   ellipsis it has today.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .navbar > .navbar-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .navbar-brand-container {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .navbar-brand {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navbar-title {
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
    Chapter page title block
    ---------------------------------------------------------------------------
    The h1 and the first h2 used to differ only in size -- same weight, same
@@ -176,6 +224,49 @@ lord-icon.rc {
    not there. */
 #title-block-header:has(.subtitle) {
   margin-bottom: 2.4rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Page art (practice, assignment and translation pages)
+   ---------------------------------------------------------------------------
+   Thirty pages open the same way: title, a 300px illustration, then the italic
+   sentence explaining what the page is. That put a block of artwork between the
+   title and the text that orients the reader, and pushed the first question
+   below the fold on a laptop.
+
+   The art was also left-aligned to the same margin as the title -- measured, both
+   at 151px -- and still read as adrift, because these drawings sit inside a
+   circular backdrop and a circle has no straight edge to align to.
+
+   So it moves beside the title instead, which is what the deck title slides
+   already do: text left, artwork right (see `.t-title` below). The negative top
+   margin is what lifts it alongside the title block, since the float cannot rise
+   above the title block that precedes it in the document. That number is tied to
+   the height of eyebrow + title + rule; if the title block gains a line, retune
+   it here.
+
+   Below 768px it stops floating and centres instead -- at phone width there is
+   no room for a text column beside it, and a centred circle has no alignment to
+   get wrong.
+
+   The class replaces `{width=300, height=300}` in the markdown. That attribute
+   was malformed: the comma makes pandoc drop `width` and keep `height`, so every
+   one of these images had been rendering at its natural 303px width rather than
+   the 300 it asked for.
+   -------------------------------------------------------------------------- */
+.page-art {
+  float: right;
+  width: 150px;
+  height: auto;
+  margin: -4.75rem 0 1rem 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .page-art {
+    float: none;
+    display: block;
+    margin: 0 auto 1.25rem;
+  }
 }
 
 /* ---------------------------------------------------------------------------

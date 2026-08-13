@@ -1011,31 +1011,31 @@
       document.querySelectorAll('.cell-output-stderr').forEach(function(output) {
         // Strip invisible zero-width spaces Quarto sometimes inserts
         const text = output.textContent.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-    
+
         // Remove completely empty blocks to fix the gaps
         if (text === '') {
           output.remove();
           return;
         }
-    
+
         if (output.textContent.includes('Warning:')) {
           output.classList.replace('cell-output-stderr', 'cell-output-warning');
         } else {
           output.classList.replace('cell-output-stderr', 'cell-output-message');
         }
       });
-    
+
       // 2. Physically merge adjacent blocks into one seamless block
       ['.cell-output-message', '.cell-output-warning'].forEach(function(selector) {
         const elements = document.querySelectorAll(selector);
         elements.forEach(function(current) {
           if (!current.parentNode) return; // Skip if it was already merged and removed
-    
+
           let next = current.nextElementSibling;
           while (next && next.classList.contains(selector.substring(1))) {
             let currentCode = current.querySelector('pre code');
             let nextCode = next.querySelector('pre code');
-    
+
             if (currentCode && nextCode) {
                // Clean up formatting and append to the primary block
                let appendText = nextCode.innerHTML.replace(/^\n+|\n+$/g, '');
@@ -1043,7 +1043,7 @@
                  currentCode.innerHTML += '\n' + appendText;
                }
             }
-    
+
             let toRemove = next;
             next = next.nextElementSibling;
             toRemove.remove();
@@ -1051,7 +1051,7 @@
         });
       });
     });
-    
+
     // 3. Publish reveal's canvas scale as --deck-scale.
     //
     // Reveal scales the .slides canvas to fit the window, but Quarto's footer lives
@@ -1068,7 +1068,7 @@
     (function () {
       const slides = document.querySelector(".reveal .slides");
       if (!slides) return;
-    
+
       function publishScale() {
         const match = /scale\(([\d.]+)\)/.exec(slides.style.transform || "");
         document.documentElement.style.setProperty(
@@ -1076,14 +1076,14 @@
           match ? match[1] : "1"
         );
       }
-    
+
       new MutationObserver(publishScale).observe(slides, {
         attributes: true,
         attributeFilter: ["style"],
       });
       publishScale();
     })();
-    
+
     // 4. Play each section-divider icon once, when its slide is reached.
     //
     // Lordicon's own `trigger="in"` cannot do this inside reveal. It works off an
@@ -1110,7 +1110,7 @@
     // `parabola`, whose accent colour only exists in its `morph-squared` state.
     (function () {
       var PRINTING = /(\?|&)print-pdf/.test(window.location.search);
-    
+
       // The player is created asynchronously and its `ready` event does NOT reliably
       // reach a listener on the element -- an earlier version of this waited on it
       // and the print path silently never ran. Poll instead, and give up rather than
@@ -1123,14 +1123,14 @@
           setTimeout(attempt, 80);
         })();
       }
-    
+
       function playIcons(slide) {
         if (!slide) return;
         slide.querySelectorAll(".section-art lord-icon").forEach(function (el) {
           whenReady(el, function (p) { p.playFromBeginning(); });
         });
       }
-    
+
       if (PRINTING) {
         // Wait for `pdf-ready`. Reveal rebuilds the slide DOM to lay every slide out
         // on its own page, and seeking before that lands on nodes it then replaces:
@@ -1149,7 +1149,7 @@
         setTimeout(seek, 3000);
         return;
       }
-    
+
       document.addEventListener("ready", function (e) { playIcons(e.currentSlide); });
       document.addEventListener("slidechanged", function (e) { playIcons(e.currentSlide); });
     })();

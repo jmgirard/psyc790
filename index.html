@@ -212,7 +212,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistical Methods with R</h1>
+<h1 class="title">Statistical Methods with&nbsp;R</h1>
+<p class="subtitle lead">A free graduate course</p>
 </div>
 
 
@@ -233,6 +234,51 @@ ul.task-list li input[type="checkbox"] {
 /* Center the main page title */
 .title {
   text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+   Title block
+   ---------------------------------------------------------------------------
+   The navbar and this title said the same six words about 50px apart, in
+   nearly the same treatment, so the front page opened by repeating itself.
+   The eyebrow is the fix: it carries something the navbar cannot, and the blue
+   headline separates the two by colour rather than by size.
+
+   It is authored as the page `subtitle`, which is what styles.css keys the
+   chapter-page eyebrow off -- so this page picks up that treatment for free,
+   and these rules only adjust what a centred front page needs differently. The
+   selectors deliberately match the ones in styles.css: this block is emitted
+   after the stylesheet link, so equal specificity resolves in its favour.
+   -------------------------------------------------------------------------- */
+#title-block-header:has(.subtitle) .subtitle {
+  text-align: center;
+}
+
+/* Chapter titles run 2.6rem, and this one must not. It sits directly above a
+   400px illustration, and at chapter size it overhangs the artwork and turns
+   the whole block top-heavy. Held at its original size, so the illustration
+   stays the widest thing here and the eyebrow does the differentiating.
+
+   `balance` splits it as "Statistical / Methods with R" once it has to wrap,
+   instead of the default "Statistical Methods with / R". It is a progressive
+   enhancement -- an older browser ignores it -- which is why the title itself
+   carries a non-breaking space between "with" and "R". That is the part that
+   actually guarantees the R is never stranded on a line of its own. */
+#title-block-header:has(.subtitle) h1.title {
+  font-size: 1.6rem;
+  text-wrap: balance;
+}
+
+/* No accent rule here. On a chapter page it closes the header off from the
+   first lecture section; on this page the next thing is the illustration, so
+   it would land between the two as a second horizontal line competing with the
+   artwork's own baseline. */
+#title-block-header:has(.subtitle)::after {
+  content: none;
+}
+
+#title-block-header:has(.subtitle) {
+  margin-bottom: 1.5rem;
 }
 
 /* Center all images on the page */
