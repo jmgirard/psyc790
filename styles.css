@@ -241,13 +241,27 @@ lord-icon.rc {
    So it moves beside the title instead, which is what the deck title slides
    already do: text left, artwork right (see `.t-title` below). The negative top
    margin is what lifts it alongside the title block, since the float cannot rise
-   above the title block that precedes it in the document. That number is tied to
-   the height of eyebrow + title + rule; if the title block gains a line, retune
-   it here.
+   above the title block that precedes it in the document.
+
+   That margin is not a guess. The art's natural position is directly after the
+   title block, so pulling it back by the block's own height plus its bottom
+   margin (measured: 112px + 40.8px) lands the top of the art level with the top
+   of the eyebrow. At -4.75rem it sat 72px lower than that and hung 110px past
+   the block, overlapping the first two paragraphs. If the title block gains a
+   line the art drops with it rather than aligning -- acceptable, and much better
+   than the alternative of pinning it absolutely, which stops text wrapping.
 
    Below 768px it stops floating and centres instead -- at phone width there is
    no room for a text column beside it, and a centred circle has no alignment to
    get wrong.
+
+   One constraint to respect when adding a page: because the float lives in a
+   later element than the h1, it cannot shorten the title's line box, so a long
+   enough title runs underneath the art rather than wrapping around it. At the
+   768px breakpoint -- the tightest case, since the float is off below it -- there
+   are 523px before the art begins. The longest title in use, "Lecture 05b
+   Assignment", measures 466px at 2.6rem, leaving 57px. Keep new titles to about
+   22 characters, or they will collide there.
 
    The class replaces `{width=300, height=300}` in the markdown. That attribute
    was malformed: the comma makes pandoc drop `width` and keep `height`, so every
@@ -258,7 +272,7 @@ lord-icon.rc {
   float: right;
   width: 150px;
   height: auto;
-  margin: -4.75rem 0 1rem 2rem;
+  margin: -8.8rem 0 1rem 2rem;
 }
 
 @media (max-width: 767.98px) {
