@@ -19,11 +19,22 @@ blue `#2780E3`, which is what the filename suffix records.
 | `statistics_2780E3.svg` | site front page | `statistics_z6y6` |
 | `exams_2780E3.svg` | assignment pages | `exams` |
 | `studying_2780E3.svg` | practice pages | `studying_n5uj` |
+| `conversation_2780E3.svg` | translation activity pages | `conversation_15p8` |
 | `unit-a_2780E3.svg` | Unit A title slides | `source-code_m0vh` |
 | `unit-b_2780E3.svg` | Unit B title slides | `percentages_wi9e` |
 | `unit-c_2780E3.svg` | Unit C title slides | `growth-curve_kzjb` |
 | `unit-d_2780E3.svg` | Unit D title slides | `inspection_tyum` |
 | `unit-e_2780E3.svg` | Unit E title slides | `publish-article_u3z6` |
+
+The translation pages used to share `exams` with the assignments, which made the two
+page types indistinguishable once the artwork moved up beside the title. `conversation`
+was picked for the concept — the activity gives you a study in the words a researcher
+would use — and it is a single scene at the same visual weight as the other two.
+
+Check the palette, not just the look, when adding one. The wrong-generation files
+carry `#090814`, `#d6d6e3` and `#ed9da0`; this set uses `#2f2e41` and `#3f3d56` for the
+darks and `#a0616a`/`#ffb6b6` for skin. Seven of eleven candidates downloaded for this
+choice failed that test while looking plausible in a thumbnail.
 
 The five unit drawings were chosen as a set rather than one at a time: each is a single
 standing figure beside a light panel or chart, at a similar visual weight, so the title
