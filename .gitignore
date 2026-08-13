@@ -8,6 +8,11 @@
 /_site/
 .positai
 
+# macOS Finder metadata. Not anchored to the root: Finder writes one into any
+# directory it has been asked to display, so a bare `.DS_Store` catches the
+# copies under img/, data/ and icons/ as well as the one at the top.
+.DS_Store
+
 # ---------------------------------------------------------------------------
 # Answer keys must NEVER be committed. See MAINTENANCE.md section 4. Keys live
 # in the private companion repo; these rules are a backstop for the case where

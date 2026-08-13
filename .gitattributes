@@ -15,15 +15,12 @@
 # ---------------------------------------------------------------------------
 # Binary
 # ---------------------------------------------------------------------------
-# Git decides text-vs-binary by sniffing for a NUL byte in the first 8k, and two
-# kinds of file here defeat that test and would be corrupted by the rule above.
-#
-# .ai is the sharper one: Illustrator writes PDF (`file` reports "PDF document,
+# Git decides text-vs-binary by sniffing for a NUL byte in the first 8k, and .ai
+# defeats that test: Illustrator writes PDF (`file` reports "PDF document,
 # version 1.6"), the header is plain ASCII, and the compressed streams that do
 # contain NULs sit past the sniff window. All six carry CRLF today, so a
 # normalizing checkout would rewrite bytes inside those streams.
 *.ai binary
-.DS_Store binary
 
 # Declared rather than left to detection, so the intent survives a file whose
 # first 8k happens to look like text.
