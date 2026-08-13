@@ -243,13 +243,25 @@ lord-icon.rc {
    margin is what lifts it alongside the title block, since the float cannot rise
    above the title block that precedes it in the document.
 
-   That margin is not a guess. The art's natural position is directly after the
-   title block, so pulling it back by the block's own height plus its bottom
-   margin (measured: 112px + 40.8px) lands the top of the art level with the top
-   of the eyebrow. At -4.75rem it sat 72px lower than that and hung 110px past
-   the block, overlapping the first two paragraphs. If the title block gains a
-   line the art drops with it rather than aligning -- acceptable, and much better
-   than the alternative of pinning it absolutely, which stops text wrapping.
+   That margin is measured, and measured against the right thing. The art's
+   natural position is directly after the title block, so it has to be pulled
+   back by roughly the block's height plus its bottom margin. Two corrections got
+   it there:
+
+   -4.75rem left the art 72px too low, hanging 110px past the block and crossing
+   the first two paragraphs. Pulling to -8.8rem aligned the top of the art with
+   the top of the `.subtitle` BOX -- which still looked too high, because a line
+   box is taller than the glyphs inside it: the eyebrow's visible ink starts 16px
+   below its own box. Aligning boxes is not aligning what the eye sees.
+
+   -7.86rem puts the top of the art level with the top of the eyebrow's INK.
+   Verified at 800px and 1400px: the offset holds at both, even though the title
+   block is 112px tall at one and 98px at the other, so this is not tuned to a
+   single width.
+
+   If the title block gains a line the art drops with it rather than aligning --
+   acceptable, and much better than pinning it absolutely, which would stop text
+   wrapping around it.
 
    Below 768px it stops floating and centres instead -- at phone width there is
    no room for a text column beside it, and a centred circle has no alignment to
@@ -272,7 +284,7 @@ lord-icon.rc {
   float: right;
   width: 150px;
   height: auto;
-  margin: -8.8rem 0 1rem 2rem;
+  margin: -7.86rem 0 1rem 2rem;
 }
 
 @media (max-width: 767.98px) {
