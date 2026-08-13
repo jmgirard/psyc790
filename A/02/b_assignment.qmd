@@ -1,12 +1,13 @@
 ---
 title: "Lecture 02b Assignment"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
 format:
   html:
     css: ../../styles.css
     toc: false
 ---
 
-![](../../img/exams_2780E3.svg){width=300, height=300}
+![](../../img/exams_2780E3.svg){.page-art}
 
 ## Instructions
 
