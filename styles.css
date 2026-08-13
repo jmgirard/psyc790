@@ -100,6 +100,85 @@ lord-icon.rc {
 }
 
 /* ---------------------------------------------------------------------------
+   Chapter page title block
+   ---------------------------------------------------------------------------
+   The h1 and the first h2 used to differ only in size -- same weight, same
+   near-black, about 25% apart -- and sat with almost no air between them, so a
+   chapter page opened with two headings that read as siblings.
+
+   The fix is the one the deck title slides already use (see `.t-title` below):
+   hierarchy by KIND, not by scale. A letterspaced uppercase eyebrow carries the
+   unit and chapter number, the chapter name is the headline in the site blue,
+   and a short accent rule closes the block off from the first lecture section.
+   The eyebrow device is the same one `.topics::before` uses, so a chapter page
+   now has one label vocabulary rather than two.
+
+   The eyebrow is authored as the page's `subtitle`, which pandoc emits AFTER
+   the h1; `order: -1` on a flex `.quarto-title` lifts it above. That is why
+   every rule here is scoped to `:has(.subtitle)` -- assignment, practice, and
+   translation pages carry no subtitle, and their title blocks are untouched.
+
+   Chapter YAML is three lines, and two of them are byte-identical in all
+   fifteen chapters:
+
+     title: "Getting Started"
+     subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+     pagetitle: "Chapter {{< meta chapter >}}: Getting Started"
+
+   The unit letter and chapter number are NOT written out here. They come from
+   `X/_metadata.yml` and `X/NN/_metadata.yml`, the same two files the decks read
+   for their title slides, so moving a chapter between units stays a directory
+   move with no file edits. Shortcodes do expand in both of these fields.
+
+   `pagetitle` is not optional. Without it the browser tab, the search index,
+   and any external link preview lose the chapter number, because those follow
+   `title` and `title` is now just the name.
+   -------------------------------------------------------------------------- */
+#title-block-header:has(.subtitle) .quarto-title {
+  display: flex;
+  flex-direction: column;
+}
+
+#title-block-header:has(.subtitle) .subtitle {
+  order: -1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 0.45rem;
+}
+
+#title-block-header:has(.subtitle) h1.title {
+  font-size: 2.6rem;
+  line-height: 1.08;
+  font-weight: 700;
+  color: #2780e3;
+  margin: 0;
+}
+
+/* Sits after the whole header rather than under the h1 so it spans the block,
+   not the length of the title text. */
+#title-block-header:has(.subtitle)::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  border-radius: 2px;
+  background: #2780e3;
+  margin-top: 1rem;
+}
+
+/* This is the whole separation between the title block and the first lecture
+   heading, and it has to be, because bootstrap.min.css zeroes that heading's
+   own top margin: `main.content > section:first-of-type > h2:nth-child(1)`
+   outranks anything reasonable we could write for the h2. Widen the gap here,
+   not there. */
+#title-block-header:has(.subtitle) {
+  margin-bottom: 2.4rem;
+}
+
+/* ---------------------------------------------------------------------------
    Topics card (chapter pages)
    ---------------------------------------------------------------------------
    Opens each lecture section: what the lecture covers, before the readings and
