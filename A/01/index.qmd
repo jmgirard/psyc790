@@ -1,5 +1,7 @@
 ---
-title: "Chapter 01: Getting Started"
+title: "Getting Started"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+pagetitle: "Chapter {{< meta chapter >}}: Getting Started"
 ---
 
 <!-- Lecture a -->

@@ -1,5 +1,7 @@
 ---
-title: "Chapter 15: Reporting & Reviewing"
+title: "Reporting & Reviewing"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+pagetitle: "Chapter {{< meta chapter >}}: Reporting & Reviewing"
 ---
 
 <!-- Lecture a -->

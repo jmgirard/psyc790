@@ -1,5 +1,7 @@
 ---
-title: "Chapter 09: Nonlinearity"
+title: "Nonlinearity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+pagetitle: "Chapter {{< meta chapter >}}: Nonlinearity"
 ---
 
 <!-- Lecture a -->

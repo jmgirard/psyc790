@@ -1,5 +1,7 @@
 ---
-title: "Chapter 05: Hypothesis Testing"
+title: "Hypothesis Testing"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+pagetitle: "Chapter {{< meta chapter >}}: Hypothesis Testing"
 ---
 
 <!-- Lecture a -->
