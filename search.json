@@ -539,13 +539,6 @@
     "text": "Question 3 (Scripts)\nCreate a new R script file and copy your answers to Question 2 into it. Add some comments to explain which line of code corresponds to 2a and 2b. It is a good idea to get into the practice of keeping your code organized and commented. Organized code will also make grading easier, and a happy grader is associated with a happy student. 😉\n\n\n\nClick here for the answer key\n\n\n\n#### File &gt; New File &gt; R Script (or equivalent shortcuts)\n\n# Question 2a\n(20 + .2) / 4.1\n\n# Question 2b\n6 * (2 + 1300)\n\n#### File &gt; Save (or equivalent shortcuts)"
   },
   {
-    "objectID": "A/01/b_practice.html#fun-stuff-the-literal-genie",
-    "href": "A/01/b_practice.html#fun-stuff-the-literal-genie",
-    "title": "Lecture 01b Practice",
-    "section": "Fun Stuff: The Literal Genie",
-    "text": "Fun Stuff: The Literal Genie\nWhat it feels like to talk to R sometimes…"
-  },
-  {
     "objectID": "A/01/index.html",
     "href": "A/01/index.html",
     "title": "Getting Started",
