@@ -254,10 +254,23 @@ lord-icon.rc {
    box is taller than the glyphs inside it: the eyebrow's visible ink starts 16px
    below its own box. Aligning boxes is not aligning what the eye sees.
 
-   -7.86rem puts the top of the art level with the top of the eyebrow's INK.
-   Verified at 800px and 1400px: the offset holds at both, even though the title
-   block is 112px tall at one and 98px at the other, so this is not tuned to a
-   single width.
+   -7.86rem put the top of the art level with the top of the eyebrow's INK, which
+   is the right reference but the wrong target: it left the art top-heavy against
+   the opening block as a whole.
+
+   -6.86rem centres it instead, vertically, between the top of the eyebrow and
+   the last line of the italic intro -- measured to 0px off on a practice page.
+
+   That centring is exact for practice pages and approximate elsewhere, and it
+   cannot be otherwise: the span being centred against is made of text, so it
+   depends on both the page and the window. Measured from the eyebrow ink down to
+   the bottom of the intro, at 1100px: practice 182px, translation 157px,
+   assignment 292px (its intro sits below an "Instructions" heading). Centring
+   each exactly would need three different values, and the assignment one would
+   drop its art ~96px, detaching it from the title and parking it beside the body
+   text. One value, tuned to the practice pages, keeps all three attached to the
+   title where they belong. A narrower window wraps the intro to another line and
+   shifts the ideal centre down again; there is no CSS that tracks that.
 
    If the title block gains a line the art drops with it rather than aligning --
    acceptable, and much better than pinning it absolutely, which would stop text
@@ -284,7 +297,7 @@ lord-icon.rc {
   float: right;
   width: 150px;
   height: auto;
-  margin: -7.86rem 0 1rem 2rem;
+  margin: -6.86rem 0 1rem 2rem;
 }
 
 @media (max-width: 767.98px) {

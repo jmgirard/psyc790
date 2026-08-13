@@ -74,9 +74,3 @@ Create a new R script file and copy your answers to Question 2 into it. Add some
 #### File > Save (or equivalent shortcuts)
 ```
 </blockquote></details></p>
-
-## Fun Stuff: The Literal Genie
-
-What it feels like to talk to R sometimes...
-
-{{< video https://www.youtube.com/embed/58l7ZqoU0a0 >}}
