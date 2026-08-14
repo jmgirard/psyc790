@@ -32,7 +32,18 @@ format:
     # broken column of segments. KaTeX draws the radical as one SVG path, so it
     # is seamless at any size. Everything these decks use (\frac, \sum with
     # limits, \bar, \hat, \sqrt) is well within KaTeX's coverage.
-    html-math-method: katex
+    # Pinned, not `@latest`. Quarto's default katex URL floats, so a KaTeX
+    # release changes every deck at once with nothing in git to explain it --
+    # the drift `_freeze` prevents everywhere else. 0.18.4 is what `@latest`
+    # resolved to when this was pinned, so rendering is unchanged. KaTeX is
+    # actively releasing (0.16 -> 0.18), so this is not theoretical. Bump it
+    # deliberately, and re-render the decks when you do.
+    html-math-method:
+      method: katex
+      # Trailing slash is required: Quarto concatenates this with
+      # `katex.min.js` verbatim, so omitting it yields `.../distkatex.min.js`
+      # and no math renders at all.
+      url: "https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/"
     css: ../../styles.css
     include-after-body: ../../format-outputs.html
     slide-number: true
