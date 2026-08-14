@@ -62,14 +62,14 @@ retirement. A quadratic gives you a turn whether you asked for one or not.*
 
 {{< dstart summary="If you were not in class" >}}
 
-The vertex falls near 157 mm; the observed flipper lengths run from 172 to 231.
+The vertex falls near 158 mm; the observed flipper lengths run from 172 to 231.
 So the fitted parabola turns around outside the data, and within the data the
 curve is monotonic -- the quadratic term is *bending* the line, not producing a
 peak. The reviewer's strongest point is that no penguin in this dataset is
-anywhere near the vertex, so "body mass peaks at 157 mm" is a claim about the
+anywhere near the vertex, so "body mass peaks at 158 mm" is a claim about the
 algebra of a parabola rather than about penguins. The author's best answer is
 that they never claimed a peak: the term is buying a small, real improvement in
-fit ($R^2$ goes from .762 to .778) in the region where data exist.
+fit ($R^2$ goes from .759 to .775) in the region where data exist.
 
 Both are right, which is why this is a judgment call and not a test. The useful
 habit is the one the argument forces: **compute the extremum, then check it

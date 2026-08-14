@@ -639,7 +639,7 @@ more time* line instead.
 The rule that decides whether an activity is worth class time at all. **If a student
 could do it alone at home and get the same thing out of it, it is a worksheet, not an
 activity** — and it should be an assignment question or a slide instead. Every page
-here is built on one of five mechanics that make the other people load-bearing:
+here is built on one of six mechanics that make the other people load-bearing:
 
 | Mechanic | How it works | Pages | n |
 |---|---|---|---|
