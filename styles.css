@@ -1,5 +1,18 @@
 /* custom styles */
 
+/* Anchor links land under the navbar without this.
+   The navbar is `position: fixed` and 61px tall, so it is outside normal flow
+   and an anchor jump scrolls the target to y=0 -- directly underneath it. On a
+   chapter page, clicking a heading's own anchor link or following a deep link
+   like `B/04/#activity` therefore lands on a heading nobody can see.
+   `scroll-padding-top` tells the browser to stop short by this much instead;
+   5rem clears the 61px bar with ~25px of breathing room, and being on `html`
+   it covers every anchor on the site (headings, TOC entries, deep links) with
+   one rule rather than a scroll-margin per target. */
+html {
+  scroll-padding-top: 5rem;
+}
+
 .hero {
   width: 67%;
   max-height: 300px;
