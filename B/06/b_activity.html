@@ -309,20 +309,23 @@ window.Quarto = {
 </section>
 <section id="your-replication-5-minutes" class="level2">
 <h2 class="anchored" data-anchor-id="your-replication-5-minutes">2. Your replication (5 minutes)</h2>
-<p>Set the seed to your birthday as <code>MMDD</code>, so every person in the room has a different one.</p>
+<p><code>nullgroups.csv</code> (on the chapter page) holds 100 scores drawn from <strong>one</strong> population, split into five groups of 20 – so there are no real differences in it anywhere. Shuffling deals those same 100 scores out to the five groups again at random, which changes nothing about the truth and gives each of us our own replication to run.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1031</span>)   <span class="co"># &lt;- your own number here</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="dv">20</span>)),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)   <span class="co"># one population, no real differences</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(score <span class="sc">~</span> group, <span class="at">data =</span> d))                                <span class="co"># omnibus</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(d<span class="sc">$</span>score, d<span class="sc">$</span>group, <span class="at">p.adjust.method =</span> <span class="st">"none"</span>)          <span class="co"># unadjusted</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(d<span class="sc">$</span>score, d<span class="sc">$</span>group, <span class="at">p.adjust.method =</span> <span class="st">"holm"</span>)          <span class="co"># adjusted</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"nullgroups.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>condition <span class="ot">&lt;-</span> <span class="fu">factor</span>(d<span class="sc">$</span>condition)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>score <span class="ot">&lt;-</span> <span class="fu">sample</span>(d<span class="sc">$</span>score, <span class="at">size =</span> <span class="dv">100</span>)   <span class="co"># your shuffle; everyone's differs</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> condition, <span class="at">data =</span> d)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)   <span class="co"># omnibus</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(<span class="at">model =</span> fit, <span class="at">contrast =</span> <span class="st">"condition"</span>, <span class="at">method =</span> <span class="st">"pairwise"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">p_adjust =</span> <span class="st">"none"</span>)   <span class="co"># unadjusted</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(<span class="at">model =</span> fit, <span class="at">contrast =</span> <span class="st">"condition"</span>, <span class="at">method =</span> <span class="st">"pairwise"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">p_adjust =</span> <span class="st">"holm"</span>)   <span class="co"># adjusted</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Three numbers for the board: was your <span class="math inline">\(F\)</span> significant (y/n), how many of your ten unadjusted tests were significant, and how many survived Holm.</p>
 </section>
@@ -338,7 +341,7 @@ window.Quarto = {
 </ul>
 <p><em>If you have more time: you have 5 groups but only ever cared about two specific comparisons, written down before collecting data. How many tests should you correct for, and why is the answer not always ten?</em></p>
 <p></p><p></p><details><summary>If you were not in class</summary><blockquote class="blockquote"><p></p>
-<p>Ten tests at <span class="math inline">\(\alpha = .05\)</span> give you an expected 0.5 false positives per replication and roughly a 40% chance of at least one – a bit lower here, near a quarter to a third, because the pairwise tests share groups and are not independent. The omnibus test comes out significant almost exactly 5% of the time, because it is one test with one <span class="math inline">\(\alpha\)</span>. After Holm, the pairwise results return to about 5% as well. That is what the adjustment is for, and the board shows all three at once.</p>
+<p>Ten tests at <span class="math inline">\(\alpha = .05\)</span> give you an expected 0.5 false positives per replication and roughly a 40% chance of at least one – a bit lower here, near a quarter to a third, because the pairwise tests share groups and are not independent. The omnibus test comes out significant almost exactly 5% of the time, because it is one test with one <span class="math inline">\(\alpha\)</span>. After Holm, the pairwise results drop back to 5% or a little under – the adjustment is deliberately conservative. That is what it is for, and the board shows all three at once.</p>
 <p>The last question is the one worth the time. The student with the most striking result has an ordinary-looking table, a small <span class="math inline">\(p\)</span>-value, and nothing whatsoever in their output to indicate that it came from a population with no differences in it. No reviewer could tell. The only thing that distinguishes their table from a real finding is information about how many comparisons were run – which is exactly the information that goes missing in the literature, and exactly what preregistration exists to preserve.</p>
 <p>Correcting for two preregistered comparisons rather than ten is legitimate, and it is legitimate <em>because you wrote them down first</em>.</p>
 <p></p></blockquote></details><p></p><p></p>
@@ -420,7 +423,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

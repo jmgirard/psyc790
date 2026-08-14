@@ -307,11 +307,10 @@ window.Quarto = {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>yp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"yearspubs.csv"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_cites <span class="sc">~</span> n_pubs <span class="sc">+</span> yrs_since, <span class="at">data =</span> yp)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">check_outliers</span>(fit)                                    <span class="co"># the default verdict</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">cooks.distance</span>(fit), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]      <span class="co"># the five largest</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">check_outliers</span>(fit))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">check_outliers</span>(fit)         <span class="co"># the default verdict</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">check_outliers</span>(fit))   <span class="co"># every case's influence, seen at once</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The default threshold reports <strong>no outliers</strong>. The largest Cook’s distance is about five times the second and over a hundred times the median.</p>
+<p>The default threshold reports <strong>no outliers</strong>. But look at the plot: one case sits far beyond every other – about five times the influence of the runner-up.</p>
 <p><strong>Do not run anything else yet.</strong></p>
 </section>
 <section id="write-your-rule-5-minutes" class="level2">
@@ -326,11 +325,15 @@ window.Quarto = {
 </section>
 <section id="the-reveal-6-minutes" class="level2">
 <h2 class="anchored" data-anchor-id="the-reveal-6-minutes">3. The reveal (6 minutes)</h2>
+<p>Ask the same function for the other rule from the lecture. Cook’s distance asks how much a case <em>moves the model</em>; Mahalanobis distance asks how unusual its predictor values are. Same data, same function, both at their own defaults.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>worst <span class="ot">&lt;-</span> <span class="fu">which.max</span>(<span class="fu">cooks.distance</span>(fit))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>yp[worst, ]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_parameters</span>(fit, <span class="fu">lm</span>(n_cites <span class="sc">~</span> n_pubs <span class="sc">+</span> yrs_since, <span class="at">data =</span> yp[<span class="sc">-</span>worst, ]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">check_outliers</span>(fit, <span class="at">method =</span> <span class="st">"mahalanobis"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>outliers      <span class="co"># this rule does flag something</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>yp[<span class="dv">24</span>, ]      <span class="co"># who is it?</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>yp_drop <span class="ot">&lt;-</span> yp[<span class="sc">!</span><span class="fu">as.numeric</span>(outliers), ]   <span class="co"># remove it, exactly as in the slides</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>fit_drop <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_cites <span class="sc">~</span> n_pubs <span class="sc">+</span> yrs_since, <span class="at">data =</span> yp_drop)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_parameters</span>(fit, fit_drop)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Apply your own rule. What does your group report?</li>
@@ -342,7 +345,7 @@ window.Quarto = {
 <p></p><p></p><details><summary>If you were not in class</summary><blockquote class="blockquote"><p></p>
 <p>The influential case is a researcher with 69 publications and 13 years since their PhD – a real, plausible person and the most influential observation in the dataset. Removing that single row moves <code>n_pubs</code> from <span class="math inline">\(+0.20\)</span> to <span class="math inline">\(-0.04\)</span> and <code>yrs_since</code> from <span class="math inline">\(p = .10\)</span> to <span class="math inline">\(p = .04\)</span>. <strong>One row decides which predictor the paper is about</strong>, and reasonable rules written by different groups will disagree about whether to keep it.</p>
 <p>That disagreement is the point, and it is not a failure of the room. It is what “researcher degrees of freedom” means, made visible: several defensible analysts with the same data and different, honestly-held rules produce different papers. The protection is not finding the one true threshold; it is fixing your rule before the reveal and reporting the analysis both ways.</p>
-<p>Note also that <code>check_outliers()</code> reported nothing at its default Cook’s threshold of 0.8. A default is a convention someone else chose, not a finding.</p>
+<p>Note also what the two rules did. Cook’s distance at its default threshold of 0.8 reported nothing; Mahalanobis distance at <em>its</em> default flagged this case immediately. Neither is wrong – they measure different things, influence versus unusualness in the predictors – but a room that had run only the first one would have concluded there was nothing here to decide. A default is a convention someone else chose, not a finding.</p>
 <p></p></blockquote></details><p></p><p></p>
 
 
@@ -422,7 +425,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

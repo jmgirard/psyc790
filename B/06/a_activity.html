@@ -296,7 +296,7 @@ window.Quarto = {
 
 <p><img src="../../img/conversation_2780E3.svg" class="page-art img-fluid"></p>
 <p><em>An in-class activity. Nothing to turn in and no answer key – this one needs other people, which is why it happens in class rather than at home.</em></p>
-<p><strong>The idea.</strong> Pairing is not free – it buys precision with degrees of freedom, and whether the trade pays depends on a number nobody can eyeball. The room can map the whole trade in ten minutes; one person cannot.</p>
+<p><strong>The idea.</strong> Pairing is not free – it buys precision with degrees of freedom, and how much it buys depends on how correlated the two measurements are. Each pair of students checks one correlation; the room maps the whole trade.</p>
 <p><strong>Format.</strong> About 15 minutes · pairs · one laptop per pair.</p>
 <section id="commit-on-your-own-2-minutes" class="level2">
 <h2 class="anchored" data-anchor-id="commit-on-your-own-2-minutes">1. Commit, on your own (2 minutes)</h2>
@@ -304,40 +304,37 @@ window.Quarto = {
 </section>
 <section id="run-your-value-6-minutes" class="level2">
 <h2 class="anchored" data-anchor-id="run-your-value-6-minutes">2. Run your value (6 minutes)</h2>
+<p>The <code>pairedpower.csv</code> file (on the chapter page) holds ten pre/post datasets, one per assigned <span class="math inline">\(r\)</span>, in matching columns: <span class="math inline">\(r = 0.40\)</span> lives in <code>pre_40</code> and <code>post_40</code>, <span class="math inline">\(r = 0.70\)</span> in <code>pre_70</code> and <code>post_70</code>, and so on. Every dataset has the same twenty people, the same group means (50 and 53), and the same SDs (10); <strong>only the correlation differs</strong>. The lines below use <span class="math inline">\(r = 0.40\)</span> – swap in your own columns.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(faux)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>my_r <span class="ot">&lt;-</span> <span class="fl">0.5</span>        <span class="co"># &lt;- your assigned value</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>, \(i) {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">rnorm_multi</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">vars =</span> <span class="dv">2</span>, <span class="at">mu =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">53</span>), <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">r =</span> my_r,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">varnames =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>))</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">paired =</span> <span class="fu">t.test</span>(d<span class="sc">$</span>post, d<span class="sc">$</span>pre, <span class="at">paired =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>p.value <span class="sc">&lt;</span> .<span class="dv">05</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">independent =</span> <span class="fu">t.test</span>(d<span class="sc">$</span>post, d<span class="sc">$</span>pre, <span class="at">paired =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>p.value <span class="sc">&lt;</span> .<span class="dv">05</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(results)   <span class="co"># power of each test at your r</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"pairedpower.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(d<span class="sc">$</span>pre_40, d<span class="sc">$</span>post_40)     <span class="co"># check: this is your assigned r</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>post_40 <span class="sc">-</span> d<span class="sc">$</span>pre_40)     <span class="co"># how spread out are the difference scores?</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(<span class="fu">t.test</span>(<span class="fu">Pair</span>(post_40, pre_40) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> d))     <span class="co"># paired</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(<span class="fu">t.test</span>(d<span class="sc">$</span>post_40, d<span class="sc">$</span>pre_40, <span class="at">var.equal =</span> <span class="cn">TRUE</span>))   <span class="co"># independent</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Bring two numbers to the board: your <span class="math inline">\(r\)</span>, and the two power values.</p>
+<p>Bring four numbers to the board: your <span class="math inline">\(r\)</span>, the SD of your difference scores, and the two <span class="math inline">\(p\)</span>-values.</p>
 </section>
 <section id="assemble-the-curve-5-minutes" class="level2">
 <h2 class="anchored" data-anchor-id="assemble-the-curve-5-minutes">3. Assemble the curve (5 minutes)</h2>
-<p>Plot the room’s results on the board: <span class="math inline">\(r\)</span> on the horizontal axis, the two power values as two curves.</p>
+<p>The board gets one row per pair, sorted by <span class="math inline">\(r\)</span>.</p>
 <ul>
-<li>Where do the curves cross? Nobody’s single run shows you that.</li>
-<li>On the left of the crossing, the paired test is <em>worse</em>. What is it paying for and getting nothing back?</li>
-<li>Real repeated-measures data almost always sits on the right-hand side. So why bother knowing where the crossing is?</li>
-<li>Last one, and it is not a statistics question: suppose your own study lands on the left. You know the design is paired. At what point did which test to run stop being a choice you get to make?</li>
+<li>Read down the independent column first. Every pair got the <em>same</em> result. Why must that be, given how the datasets were built?</li>
+<li>Now the SD-of-differences column. What happens to it as <span class="math inline">\(r\)</span> climbs – and what does that do to the paired test?</li>
+<li>Where does the paired test cross <span class="math inline">\(p &lt; .05\)</span>? The means never moved.</li>
+<li>At <span class="math inline">\(r = 0\)</span>, the paired test is <em>worse</em> than the independent one. What is it paying, and what is it getting back?</li>
+<li>Last one, and it is not a statistics question: suppose your own study lands at low <span class="math inline">\(r\)</span>. You know the design is paired. At what point did which test to run stop being a choice you get to make?</li>
 </ul>
-<p><em>If you have more time: run one pair of tests on <code>socialproblems.csv</code> both ways and find where the extra precision in the paired test comes from.</em></p>
+<p><em>If you have more time: run both tests on <code>socialproblems.csv</code> from the lecture, and find where the paired test’s extra precision is coming from.</em></p>
 <p></p><p></p><details><summary>If you were not in class</summary><blockquote class="blockquote"><p></p>
-<p>The curves cross near <span class="math inline">\(r = 0\)</span>. When the two measurements are uncorrelated, the paired test spends half its degrees of freedom – <span class="math inline">\(n - 1\)</span> instead of <span class="math inline">\(2n - 2\)</span> – and gets nothing in return, so it is strictly the worse test. As <span class="math inline">\(r\)</span> climbs, the standard deviation of the <em>difference scores</em> shrinks faster than the lost <span class="math inline">\(df\)</span> costs, and the paired test pulls away. By <span class="math inline">\(r = 0.8\)</span> it is not close.</p>
-<p>That is the mechanism: each person acts as their own control, and everything that makes people differ from one another drops out of the comparison.</p>
-<p>The value of knowing where the crossing is has nothing to do with choosing a test. <strong>Which test is valid is settled by the design, before you see any numbers.</strong> Picking the one with the smaller <span class="math inline">\(p\)</span>-value is <span class="math inline">\(p\)</span>-hacking even when your reasoning felt principled – which is exactly the argument for making the decision at the design stage and writing it down, and the same mechanism that Chapter 14 returns to.</p>
+<p>The independent column reads <span class="math inline">\(t = 0.95\)</span>, <span class="math inline">\(p = .349\)</span> for every single pair, because that test only sees the two means and SDs – which are identical in all ten datasets by construction. The paired test sees something the independent test cannot: the <em>difference scores</em>, whose SD falls from 14.1 at <span class="math inline">\(r = 0\)</span> to 4.5 at <span class="math inline">\(r = 0.9\)</span>. That collapse is the whole mechanism – each person acts as their own control, and everything that makes people differ from one another drops out of the comparison. The paired <span class="math inline">\(p\)</span>-value slides from .355 down through .195 at <span class="math inline">\(r = 0.5\)</span>, crosses significance at <span class="math inline">\(r = 0.8\)</span> (<span class="math inline">\(p = .047\)</span>), and reaches .007 at <span class="math inline">\(r = 0.9\)</span> – with the same means the whole way.</p>
+<p>At <span class="math inline">\(r = 0\)</span> the paired test is strictly the worse test: it spends half its degrees of freedom – <span class="math inline">\(n - 1\)</span> instead of <span class="math inline">\(2n - 2\)</span> – and the difference scores are no less noisy than the raw scores, so it gets nothing back. That is why its <span class="math inline">\(p = .355\)</span> loses to the independent test’s <span class="math inline">\(p = .349\)</span> on identical data.</p>
+<p>The value of knowing all this has nothing to do with choosing a test. <strong>Which test is valid is settled by the design, before you see any numbers.</strong> Picking the one with the smaller <span class="math inline">\(p\)</span>-value is <span class="math inline">\(p\)</span>-hacking even when your reasoning felt principled – which is exactly the argument for making the decision at the design stage and writing it down, and the same mechanism that Chapter 14 returns to.</p>
 <p></p></blockquote></details><p></p><p></p>
 
 
@@ -417,7 +414,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

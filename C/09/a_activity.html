@@ -304,20 +304,19 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"penguins.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(body_mass, flipper_len)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"penguins.csv"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass <span class="sc">~</span> flipper_len <span class="sc">+</span> <span class="fu">I</span>(flipper_len<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> penguins)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">parameters</span>(fit)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass <span class="sc">~</span> flipper_len, <span class="at">data =</span> penguins)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass <span class="sc">~</span> flipper_len <span class="sc">+</span> <span class="fu">I</span>(flipper_len<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> penguins)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">coef</span>(fit)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>b[[<span class="st">"flipper_len"</span>]] <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> b[[<span class="st">"I(flipper_len^2)"</span>]])   <span class="co"># the vertex</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(penguins<span class="sc">$</span>flipper_len)                            <span class="co"># the data</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(<span class="fu">lm</span>(body_mass <span class="sc">~</span> flipper_len, <span class="at">data =</span> penguins))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit, <span class="at">by =</span> <span class="st">"flipper_len"</span>), <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">model_parameters</span>(fit2, <span class="at">digits =</span> <span class="dv">4</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit1)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">r2</span>(fit2)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">estimate_relation</span>(fit2, <span class="at">by =</span> <span class="st">"flipper_len"</span>), <span class="at">show_data =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Then two things <strong>on paper</strong>, from the output. A parabola <span class="math inline">\(b_0 + b_1 x + b_2 x^2\)</span> turns around at <span class="math inline">\(x = -b_1 / (2 b_2)\)</span>: take the two <code>flipper_len</code> coefficients from the table and compute where this one turns. And from the plot, read off the smallest and largest flipper lengths that actually occur. Is the turning point inside the data?</p>
 </section>
 <section id="take-a-side-5-minutes" class="level2">
 <h2 class="anchored" data-anchor-id="take-a-side-5-minutes">2. Take a side (5 minutes)</h2>
@@ -333,7 +332,7 @@ window.Quarto = {
 <p><em>If you have more time: which of these theories predicts a turning point and which only predicts a bend? (a) anxiety and performance follow an inverted U; (b) study hours help with diminishing returns; (c) income rises with age until retirement. A quadratic gives you a turn whether you asked for one or not.</em></p>
 <p></p><p></p><details><summary>If you were not in class</summary><blockquote class="blockquote"><p></p>
 <p>The vertex falls near 158 mm; the observed flipper lengths run from 172 to 231. So the fitted parabola turns around outside the data, and within the data the curve is monotonic – the quadratic term is <em>bending</em> the line, not producing a peak. The reviewer’s strongest point is that no penguin in this dataset is anywhere near the vertex, so “body mass peaks at 158 mm” is a claim about the algebra of a parabola rather than about penguins. The author’s best answer is that they never claimed a peak: the term is buying a small, real improvement in fit (<span class="math inline">\(R^2\)</span> goes from .759 to .775) in the region where data exist.</p>
-<p>Both are right, which is why this is a judgment call and not a test. The useful habit is the one the argument forces: <strong>compute the extremum, then check it against <code>range()</code> before writing a sentence about it.</strong></p>
+<p>Both are right, which is why this is a judgment call and not a test. The useful habit is the one the argument forces: <strong>compute the extremum, then check it against the observed range before writing a sentence about it.</strong></p>
 <p>On the extension: (a) and (c) genuinely predict turning points, so a quadratic is a reasonable shape. (b) predicts diminishing returns – a bend with no peak – and a quadratic will impose a peak anyway, then predict that studying more eventually makes you worse. A log transformation of the predictor gives the bend without the turn.</p>
 <p></p></blockquote></details><p></p><p></p>
 
@@ -414,7 +413,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

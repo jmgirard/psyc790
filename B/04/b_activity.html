@@ -296,58 +296,45 @@ window.Quarto = {
 
 <p><img src="../../img/conversation_2780E3.svg" class="page-art img-fluid"></p>
 <p><em>An in-class activity. Nothing to turn in and no answer key – this one needs other people, which is why it happens in class rather than at home.</em></p>
-<p><strong>The idea.</strong> The 95% in a 95% confidence interval is a property of the <em>procedure</em>, not of the one interval in front of you. One person cannot see that; a roomful of people running the same procedure can.</p>
-<p><strong>Format.</strong> About 15 minutes · pairs · one laptop per pair.</p>
+<p><strong>The idea.</strong> The 95% in a 95% confidence interval is a property of the <em>procedure</em>, not of the one interval in front of you. One person cannot see that. A roomful of people, each building one interval, can – the board is the sampling distribution.</p>
+<p><strong>Format.</strong> About 15 minutes · individually · one laptop each (sharing works too).</p>
 <section id="commit-on-your-own-2-minutes" class="level2">
 <h2 class="anchored" data-anchor-id="commit-on-your-own-2-minutes">1. Commit, on your own (2 minutes)</h2>
-<p>We will each draw 100 samples of <span class="math inline">\(n = 25\)</span> from a population whose mean is <em>known</em> to be 100 and build a 95% interval from each. Write down numbers, not ranges:</p>
+<p><code>iqpop.csv</code> (on the chapter page) holds IQ scores for a whole population of 10,000 people. Because we have everybody, we know the population mean exactly: it is <strong>100</strong>. Everyone will draw one sample of <span class="math inline">\(n = 25\)</span> from it and build one 95% interval, using exactly the formula from today’s slides. Before running anything, write down:</p>
 <ol type="a">
-<li>How many of your 100 intervals will contain 100?</li>
-<li>How much will your neighbour’s answer differ from yours?</li>
+<li>Will <strong>your</strong> interval contain 100?</li>
+<li>Out of all the intervals this room is about to make, how many will miss?</li>
 </ol>
 </section>
-<section id="run-your-own-7-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="run-your-own-7-minutes">2. Run your own (7 minutes)</h2>
-<p>Set the seed to your own number, so that no two pairs in the room get the same result.</p>
+<section id="build-your-interval-5-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="build-your-interval-5-minutes">2. Build your interval (5 minutes)</h2>
+<p>Sampling is random, so – as in the last lecture – we each get a different sample without having to coordinate. Everything below is <code>sample()</code> from last lecture, then today’s formula one piece at a time.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)   <span class="co"># &lt;- your own number here</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">25</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">rep =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample =</span> <span class="fu">map</span>(rep, \(i) <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)),</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">xbar =</span> <span class="fu">map_dbl</span>(sample, mean),</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="fu">map_dbl</span>(sample, \(x) <span class="fu">sd</span>(x) <span class="sc">/</span> <span class="fu">sqrt</span>(n)),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> xbar <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> se,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> xbar <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> se,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">covers =</span> lower <span class="sc">&lt;=</span> <span class="dv">100</span> <span class="sc">&amp;</span> <span class="dv">100</span> <span class="sc">&lt;=</span> upper</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(sims<span class="sc">$</span>covers)                     <span class="co"># your coverage count</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sims<span class="sc">$</span>upper <span class="sc">-</span> sims<span class="sc">$</span>lower)        <span class="co"># your average width</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sims, <span class="fu">aes</span>(<span class="at">y =</span> rep, <span class="at">x =</span> xbar, <span class="at">xmin =</span> lower, <span class="at">xmax =</span> upper, <span class="at">color =</span> covers)) <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>(<span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"iqpop.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(pop<span class="sc">$</span>iq, <span class="at">size =</span> <span class="dv">25</span>)   <span class="co"># your sample, n = 25</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">24</span>) <span class="sc">*</span> <span class="fu">sd</span>(x) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">25</span>)   <span class="co"># lower bound</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">24</span>) <span class="sc">*</span> <span class="fu">sd</span>(x) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">25</span>)   <span class="co"># upper bound</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Re-run with <code>n &lt;- 100</code> and record both numbers again. Bring four numbers to the board: coverage and width, at each sample size.</p>
+<p>Now do it again with <span class="math inline">\(n = 100\)</span>, changing the three numbers that depend on sample size. Bring four things to the board: at each sample size, did your interval contain 100 (yes or no), and how wide was it?</p>
 </section>
-<section id="assemble-the-class-6-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="assemble-the-class-6-minutes">3. Assemble the class (6 minutes)</h2>
-<p>Every pair’s four numbers go up. Then, together:</p>
+<section id="read-the-board-6-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="read-the-board-6-minutes">3. Read the board (6 minutes)</h2>
+<p>Two columns per person: <span class="math inline">\(n = 25\)</span> and <span class="math inline">\(n = 100\)</span>, each marked <strong>hit</strong> or <strong>miss</strong>, each with a width.</p>
 <ul>
-<li>What is the range of coverage counts in the room? Nobody’s individual run tells you that, and it is the actual behaviour of the method.</li>
-<li>Which column changed when <span class="math inline">\(n\)</span> went to 100, and which did not?</li>
-<li>Point at the pair with the <em>lowest</em> coverage. Did they do anything wrong?</li>
-<li>In real research you get one interval and no vertical line. Looking at the board, could any single pair have known which kind they had?</li>
+<li>Count the misses across the whole board – both columns, since coverage does not care about <span class="math inline">\(n\)</span>. How many <em>should</em> there be?</li>
+<li>Point at someone who missed. Did they do anything wrong?</li>
+<li>Which changed between the columns: the miss rate, or the widths?</li>
+<li>In real research you get one interval, and nobody tells you the true mean. Looking at the board, could anyone here have known theirs was a miss?</li>
 </ul>
-<p><em>If you have more time: swap the population for <code>rexp(n, rate = 1/100)</code> at <span class="math inline">\(n = 25\)</span> and re-pool. Coverage drops for the whole room. Which part broke?</em></p>
+<p><em>If you have more time: re-run yours a few times with new seeds while the board fills in. Watch which numbers in your two formula lines change from run to run, and which never do.</em></p>
 <p></p><p></p><details><summary>If you were not in class</summary><blockquote class="blockquote"><p></p>
-<p>The room’s coverage counts scatter around 95 – typically from about 89 to 99 – and the pair at the bottom did nothing wrong. Going to <span class="math inline">\(n = 100\)</span> leaves the coverage column alone and halves the width column. <strong>Coverage is what the method promises; width is what your sample size buys.</strong></p>
-<p>The board is the argument. From inside one run there is no signal at all about whether you are one of the 95 or one of the 5, which is exactly why “there is a 95% chance the true value is in <em>this</em> interval” does not follow from the procedure’s guarantee – and why reading it off a single plot in a textbook never quite convinces anyone.</p>
-<p>On the extension: nothing is wrong with the standard error or the <span class="math inline">\(t\)</span> multiplier. What fails is the assumption that the sampling distribution of the mean is <em>already</em> near normal at <span class="math inline">\(n = 25\)</span> when the population is badly skewed.</p>
+<p>About 5% of the board should miss – one or two intervals per thirty – and the people who missed did nothing wrong. A room this size seeing <em>zero</em> misses is also common and also consistent: 95% is a long-run rate, and a run of thirty often comes up clean. Moving to <span class="math inline">\(n = 100\)</span> leaves the miss rate alone and cuts the widths roughly in half. <strong>Coverage is what the method promises; width is what your sample size buys.</strong></p>
+<p>The board is the argument. From inside one interval there is no signal at all about whether yours is a hit or a miss, which is exactly why “there is a 95% chance the true value is in <em>this</em> interval” does not follow from the procedure’s guarantee – and why reading it off a single plot in a textbook never quite convinces anyone.</p>
+<p>Notice, too, what you typed: two lines of arithmetic you already knew. The interval on the board came from the formula on the slides, not from anything hidden.</p>
 <p></p></blockquote></details><p></p><p></p>
 
 
@@ -427,7 +414,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
