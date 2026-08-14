@@ -50,7 +50,6 @@ library(distributional)
 library(patchwork)
 library(faux)
 library(ggdist)
-library(lsr)
 mytheme <- theme_gray(base_size = 26) + theme(panel.grid.minor = element_blank())
 # Make mytheme the default rather than relying on every plot remembering
 # `+ mytheme`. Plots built by other packages -- plot(r_mat), check_model(),

@@ -16,6 +16,7 @@ pagetitle: "Chapter {{< meta chapter >}}: Group Comparisons"
 ### Files {.res-files}
 - [socialproblems.csv](../../data/socialproblems.csv){download="socialproblems.csv"}
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
+- [pairedpower.csv](../../data/pairedpower.csv){download="pairedpower.csv"}
 
 ### Readings {.res-readings}
 - [Comparing Two Means, §13.3--13.8](https://learningstatisticswithr.com/13-ttest.html), *Learning Statistics with R*
@@ -86,6 +87,7 @@ pagetitle: "Chapter {{< meta chapter >}}: Group Comparisons"
 ### Files {.res-files}
 - [depression.csv](../../data/depression.csv){download="depression.csv"}
 - [penguins.csv](../../data/penguins.csv){download="penguins.csv"}
+- [nullgroups.csv](../../data/nullgroups.csv){download="nullgroups.csv"}
 
 ### Readings {.res-readings}
 - [Comparing Several Means, §14.6--14.11](https://learningstatisticswithr.com/14-anova.html), *Learning Statistics with R*

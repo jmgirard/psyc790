@@ -39,7 +39,6 @@ cran_packages <- c(
   "distributional",
   "faux",
   "irr",
-  "lsr",
   "psych",
   "WebPower",
 

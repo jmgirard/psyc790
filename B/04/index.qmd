@@ -55,6 +55,7 @@ pagetitle: "Chapter {{< meta chapter >}}: Sampling & Estimation"
 ### Files {.res-files}
 - [sleep.csv](../../data/sleep.csv){download="sleep.csv"}
 - [teaching_ratings.csv](../../data/teaching_ratings.csv){download="teaching_ratings.csv"}
+- [iqpop.csv](../../data/iqpop.csv){download="iqpop.csv"}
 
 ### Readings {.res-readings}
 - [Introduction to Probability, §9.1--9.2, 9.5](https://learningstatisticswithr.com/09-probability.html), *Learning Statistics with R*

@@ -29,18 +29,19 @@ output. Do not show each other your tables yet.
 library(tidyverse)
 library(easystats)
 
-pg <- read_csv("penguins.csv") |> drop_na(body_mass, species)
+pg <- read_csv("penguins.csv")
 
 # person 1
-fit <- lm(body_mass ~ species, data = pg)
+pg$species <- factor(pg$species, levels = c("Adelie", "Chinstrap", "Gentoo"))
 
 # person 2
-fit <- lm(body_mass ~ fct_relevel(species, "Chinstrap"), data = pg)
+pg$species <- factor(pg$species, levels = c("Chinstrap", "Adelie", "Gentoo"))
 
 # person 3
-fit <- lm(body_mass ~ fct_relevel(species, "Gentoo"), data = pg)
+pg$species <- factor(pg$species, levels = c("Gentoo", "Adelie", "Chinstrap"))
 
-parameters(fit)
+fit <- lm(body_mass ~ species, data = pg)
+model_parameters(fit)
 r2(fit)
 ```
 

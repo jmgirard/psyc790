@@ -38,7 +38,7 @@ Make your best guesses just by looking at the commands and then check your guess
 
 ## Question 2
 
-a) Use the `cos()` function to calculate the cosine of 3 and assign it to a variable called `y`. Print the value of `y` to the console. 
+a) Use the `sqrt()` function to calculate the square root of 3 and assign it to a variable called `y`. Print the value of `y` to the console.
 b) Use a function to round `y` to the nearest whole number.
 c) Use a function to round `y` to two decimal places.
 
@@ -48,7 +48,7 @@ c) Use a function to round `y` to two decimal places.
 #| collapse: true
 
 # Part (a)
-y <- cos(3)
+y <- sqrt(3)
 y
 
 # Part (b)

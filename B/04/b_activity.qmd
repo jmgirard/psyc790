@@ -13,82 +13,80 @@ format:
 other people, which is why it happens in class rather than at home.*
 
 **The idea.** The 95% in a 95% confidence interval is a property of the
-*procedure*, not of the one interval in front of you. One person cannot see that;
-a roomful of people running the same procedure can.
+*procedure*, not of the one interval in front of you. One person cannot see that.
+A roomful of people, each building one interval, can -- the board is the
+sampling distribution.
 
-**Format.** About 15 minutes · pairs · one laptop per pair.
+**Format.** About 15 minutes · individually · one laptop each (sharing works
+too).
 
 ## 1. Commit, on your own (2 minutes)
 
-We will each draw 100 samples of $n = 25$ from a population whose mean is *known*
-to be 100 and build a 95% interval from each. Write down numbers, not ranges:
+`iqpop.csv` (on the chapter page) holds IQ scores for a whole population of
+10,000 people. Because we have everybody, we know the population mean exactly:
+it is **100**. Everyone will draw one sample of $n = 25$ from it and build one
+95% interval, using exactly the formula from today's slides. Before running
+anything, write down:
 
-a) How many of your 100 intervals will contain 100?
-b) How much will your neighbour's answer differ from yours?
+a) Will **your** interval contain 100?
+b) Out of all the intervals this room is about to make, how many will miss?
 
-## 2. Run your own (7 minutes)
+## 2. Build your interval (5 minutes)
 
-Set the seed to your own number, so that no two pairs in the room get the same
-result.
+Sampling is random, so -- as in the last lecture -- we each get a different
+sample without having to coordinate. Everything below is `sample()` from last
+lecture, then today's formula one piece at a time.
 
 ```{r}
 #| eval: false
 
 library(tidyverse)
 
-set.seed(2026)   # <- your own number here
-n <- 25
+pop <- read_csv("iqpop.csv")
 
-sims <- tibble(rep = 1:100) |>
-  mutate(
-    sample = map(rep, \(i) rnorm(n, mean = 100, sd = 15)),
-    xbar = map_dbl(sample, mean),
-    se = map_dbl(sample, \(x) sd(x) / sqrt(n)),
-    lower = xbar - qt(0.975, df = n - 1) * se,
-    upper = xbar + qt(0.975, df = n - 1) * se,
-    covers = lower <= 100 & 100 <= upper
-  )
+x <- sample(pop$iq, size = 25)   # your sample, n = 25
 
-sum(sims$covers)                     # your coverage count
-mean(sims$upper - sims$lower)        # your average width
-
-ggplot(sims, aes(y = rep, x = xbar, xmin = lower, xmax = upper, color = covers)) +
-  geom_pointrange(linewidth = 0.3) +
-  geom_vline(xintercept = 100)
+mean(x) - qt(0.975, df = 24) * sd(x) / sqrt(25)   # lower bound
+mean(x) + qt(0.975, df = 24) * sd(x) / sqrt(25)   # upper bound
 ```
 
-Re-run with `n <- 100` and record both numbers again. Bring four numbers to the
-board: coverage and width, at each sample size.
+Now do it again with $n = 100$, changing the three numbers that depend on
+sample size. Bring four things to the board: at each sample size, did your
+interval contain 100 (yes or no), and how wide was it?
 
-## 3. Assemble the class (6 minutes)
+## 3. Read the board (6 minutes)
 
-Every pair's four numbers go up. Then, together:
+Two columns per person: $n = 25$ and $n = 100$, each marked **hit** or
+**miss**, each with a width.
 
-- What is the range of coverage counts in the room? Nobody's individual run tells
-  you that, and it is the actual behaviour of the method.
-- Which column changed when $n$ went to 100, and which did not?
-- Point at the pair with the *lowest* coverage. Did they do anything wrong?
-- In real research you get one interval and no vertical line. Looking at the
-  board, could any single pair have known which kind they had?
+- Count the misses across the whole board -- both columns, since coverage does
+  not care about $n$. How many *should* there be?
+- Point at someone who missed. Did they do anything wrong?
+- Which changed between the columns: the miss rate, or the widths?
+- In real research you get one interval, and nobody tells you the true mean.
+  Looking at the board, could anyone here have known theirs was a miss?
 
-*If you have more time: swap the population for `rexp(n, rate = 1/100)` at
-$n = 25$ and re-pool. Coverage drops for the whole room. Which part broke?*
+*If you have more time: re-run yours a few times with new seeds while the board
+fills in. Watch which numbers in your two formula lines change from run to run,
+and which never do.*
 
 {{< dstart summary="If you were not in class" >}}
 
-The room's coverage counts scatter around 95 -- typically from about 89 to 99 --
-and the pair at the bottom did nothing wrong. Going to $n = 100$ leaves the
-coverage column alone and halves the width column. **Coverage is what the method
-promises; width is what your sample size buys.**
+About 5% of the board should miss -- one or two intervals per thirty -- and the
+people who missed did nothing wrong. A room this size seeing *zero* misses is
+also common and also consistent: 95% is a long-run rate, and a run of thirty
+often comes up clean. Moving to $n = 100$ leaves the miss rate alone and cuts
+the widths roughly in half. **Coverage is what the method promises; width is
+what your sample size buys.**
 
-The board is the argument. From inside one run there is no signal at all about
-whether you are one of the 95 or one of the 5, which is exactly why "there is a
-95% chance the true value is in *this* interval" does not follow from the
-procedure's guarantee -- and why reading it off a single plot in a textbook never
-quite convinces anyone.
+The board is the argument. From inside one interval there is no signal at all
+about whether yours is a hit or a miss, which is exactly why "there is a 95%
+chance the true value is in *this* interval" does not follow from the
+procedure's guarantee -- and why reading it off a single plot in a textbook
+never quite convinces anyone.
 
-On the extension: nothing is wrong with the standard error or the $t$ multiplier.
-What fails is the assumption that the sampling distribution of the mean is
-*already* near normal at $n = 25$ when the population is badly skewed.
+Notice, too, what you typed: two lines of arithmetic you already knew. The
+interval on the board came from the formula on the slides, not from anything
+hidden.
 
 {{< dstop >}}

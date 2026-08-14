@@ -48,7 +48,6 @@ source("../../_common.R")
 library(tidyverse)
 library(distributional)
 library(ggdist)
-library(lsr)
 mytheme <- theme_gray(base_size = 30) + theme(panel.grid.minor = element_blank())
 # Make mytheme the default rather than relying on every plot remembering
 # `+ mytheme`. Plots built by other packages -- plot(), check_model(),

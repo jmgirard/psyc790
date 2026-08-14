@@ -25,20 +25,24 @@ find out how strong your case is, is to be assigned the other side of it.
 library(tidyverse)
 library(easystats)
 
-penguins <- read_csv("penguins.csv") |> drop_na(body_mass, flipper_len)
+penguins <- read_csv("penguins.csv")
 
-fit <- lm(body_mass ~ flipper_len + I(flipper_len^2), data = penguins)
-parameters(fit)
+fit1 <- lm(body_mass ~ flipper_len, data = penguins)
+fit2 <- lm(body_mass ~ flipper_len + I(flipper_len^2), data = penguins)
 
-b <- coef(fit)
--b[["flipper_len"]] / (2 * b[["I(flipper_len^2)"]])   # the vertex
-range(penguins$flipper_len)                            # the data
+model_parameters(fit2, digits = 4)
 
-r2(fit)
-r2(lm(body_mass ~ flipper_len, data = penguins))
+r2(fit1)
+r2(fit2)
 
-plot(estimate_relation(fit, by = "flipper_len"), show_data = TRUE)
+plot(estimate_relation(fit2, by = "flipper_len"), show_data = TRUE)
 ```
+
+Then two things **on paper**, from the output. A parabola
+$b_0 + b_1 x + b_2 x^2$ turns around at $x = -b_1 / (2 b_2)$: take the two
+`flipper_len` coefficients from the table and compute where this one turns.
+And from the plot, read off the smallest and largest flipper lengths that
+actually occur. Is the turning point inside the data?
 
 ## 2. Take a side (5 minutes)
 
@@ -73,7 +77,7 @@ fit ($R^2$ goes from .759 to .775) in the region where data exist.
 
 Both are right, which is why this is a judgment call and not a test. The useful
 habit is the one the argument forces: **compute the extremum, then check it
-against `range()` before writing a sentence about it.**
+against the observed range before writing a sentence about it.**
 
 On the extension: (a) and (c) genuinely predict turning points, so a quadratic is
 a reasonable shape. (b) predicts diminishing returns -- a bend with no peak -- and

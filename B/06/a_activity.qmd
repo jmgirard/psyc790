@@ -13,8 +13,8 @@ format:
 other people, which is why it happens in class rather than at home.*
 
 **The idea.** Pairing is not free -- it buys precision with degrees of freedom,
-and whether the trade pays depends on a number nobody can eyeball. The room can
-map the whole trade in ten minutes; one person cannot.
+and how much it buys depends on how correlated the two measurements are. Each
+pair of students checks one correlation; the room maps the whole trade.
 
 **Format.** About 15 minutes · pairs · one laptop per pair.
 
@@ -27,62 +27,73 @@ independent? And how confident are you?
 
 ## 2. Run your value (6 minutes)
 
+The `pairedpower.csv` file (on the chapter page) holds ten pre/post datasets,
+one per assigned $r$, in matching columns: $r = 0.40$ lives in `pre_40` and
+`post_40`, $r = 0.70$ in `pre_70` and `post_70`, and so on. Every dataset has
+the same twenty people, the same group means (50 and 53), and the same SDs
+(10); **only the correlation differs**. The lines below use $r = 0.40$ --
+swap in your own columns.
+
 ```{r}
 #| eval: false
 
 library(tidyverse)
-library(faux)
+library(easystats)
 
-set.seed(2026)
-my_r <- 0.5        # <- your assigned value
+d <- read_csv("pairedpower.csv")
 
-results <- map_dfr(1:200, \(i) {
-  d <- rnorm_multi(n = 20, vars = 2, mu = c(50, 53), sd = 10, r = my_r,
-                   varnames = c("pre", "post"))
-  tibble(
-    paired = t.test(d$post, d$pre, paired = TRUE)$p.value < .05,
-    independent = t.test(d$post, d$pre, paired = FALSE)$p.value < .05
-  )
-})
+cor(d$pre_40, d$post_40)     # check: this is your assigned r
 
-colMeans(results)   # power of each test at your r
+sd(d$post_40 - d$pre_40)     # how spread out are the difference scores?
+
+model_parameters(t.test(Pair(post_40, pre_40) ~ 1, data = d))     # paired
+model_parameters(t.test(d$post_40, d$pre_40, var.equal = TRUE))   # independent
 ```
 
-Bring two numbers to the board: your $r$, and the two power values.
+Bring four numbers to the board: your $r$, the SD of your difference scores,
+and the two $p$-values.
 
 ## 3. Assemble the curve (5 minutes)
 
-Plot the room's results on the board: $r$ on the horizontal axis, the two power
-values as two curves.
+The board gets one row per pair, sorted by $r$.
 
-- Where do the curves cross? Nobody's single run shows you that.
-- On the left of the crossing, the paired test is *worse*. What is it paying for
-  and getting nothing back?
-- Real repeated-measures data almost always sits on the right-hand side. So why
-  bother knowing where the crossing is?
-- Last one, and it is not a statistics question: suppose your own study lands on
-  the left. You know the design is paired. At what point did which test to run
-  stop being a choice you get to make?
+- Read down the independent column first. Every pair got the *same* result.
+  Why must that be, given how the datasets were built?
+- Now the SD-of-differences column. What happens to it as $r$ climbs -- and
+  what does that do to the paired test?
+- Where does the paired test cross $p < .05$? The means never moved.
+- At $r = 0$, the paired test is *worse* than the independent one. What is it
+  paying, and what is it getting back?
+- Last one, and it is not a statistics question: suppose your own study lands
+  at low $r$. You know the design is paired. At what point did which test to
+  run stop being a choice you get to make?
 
-*If you have more time: run one pair of tests on `socialproblems.csv` both ways
-and find where the extra precision in the paired test comes from.*
+*If you have more time: run both tests on `socialproblems.csv` from the
+lecture, and find where the paired test's extra precision is coming from.*
 
 {{< dstart summary="If you were not in class" >}}
 
-The curves cross near $r = 0$. When the two measurements are uncorrelated, the
-paired test spends half its degrees of freedom -- $n - 1$ instead of $2n - 2$ --
-and gets nothing in return, so it is strictly the worse test. As $r$ climbs, the
-standard deviation of the *difference scores* shrinks faster than the lost $df$
-costs, and the paired test pulls away. By $r = 0.8$ it is not close.
+The independent column reads $t = 0.95$, $p = .349$ for every single pair,
+because that test only sees the two means and SDs -- which are identical in
+all ten datasets by construction. The paired test sees something the
+independent test cannot: the *difference scores*, whose SD falls from 14.1 at
+$r = 0$ to 4.5 at $r = 0.9$. That collapse is the whole mechanism -- each
+person acts as their own control, and everything that makes people differ from
+one another drops out of the comparison. The paired $p$-value slides from .355
+down through .195 at $r = 0.5$, crosses significance at $r = 0.8$
+($p = .047$), and reaches .007 at $r = 0.9$ -- with the same means the whole
+way.
 
-That is the mechanism: each person acts as their own control, and everything that
-makes people differ from one another drops out of the comparison.
+At $r = 0$ the paired test is strictly the worse test: it spends half its
+degrees of freedom -- $n - 1$ instead of $2n - 2$ -- and the difference scores
+are no less noisy than the raw scores, so it gets nothing back. That is why
+its $p = .355$ loses to the independent test's $p = .349$ on identical data.
 
-The value of knowing where the crossing is has nothing to do with choosing a
-test. **Which test is valid is settled by the design, before you see any
-numbers.** Picking the one with the smaller $p$-value is $p$-hacking even when
-your reasoning felt principled -- which is exactly the argument for making the
-decision at the design stage and writing it down, and the same mechanism that
-Chapter 14 returns to.
+The value of knowing all this has nothing to do with choosing a test. **Which
+test is valid is settled by the design, before you see any numbers.** Picking
+the one with the smaller $p$-value is $p$-hacking even when your reasoning
+felt principled -- which is exactly the argument for making the decision at
+the design stage and writing it down, and the same mechanism that Chapter 14
+returns to.
 
 {{< dstop >}}

@@ -30,24 +30,30 @@ c) How many will get a significant omnibus $F$?
 
 ## 2. Your replication (5 minutes)
 
-Set the seed to your birthday as `MMDD`, so every person in the room has a
-different one.
+`nullgroups.csv` (on the chapter page) holds 100 scores drawn from **one**
+population, split into five groups of 20 -- so there are no real differences
+in it anywhere. Shuffling deals those same 100 scores out to the five groups
+again at random, which changes nothing about the truth and gives each of us
+our own replication to run.
 
 ```{r}
 #| eval: false
 
 library(tidyverse)
+library(easystats)
 
-set.seed(1031)   # <- your own number here
+d <- read_csv("nullgroups.csv")
+d$condition <- factor(d$condition)
 
-d <- tibble(
-  group = factor(rep(1:5, each = 20)),
-  score = rnorm(100, mean = 50, sd = 10)   # one population, no real differences
-)
+d$score <- sample(d$score, size = 100)   # your shuffle; everyone's differs
 
-summary(aov(score ~ group, data = d))                                # omnibus
-pairwise.t.test(d$score, d$group, p.adjust.method = "none")          # unadjusted
-pairwise.t.test(d$score, d$group, p.adjust.method = "holm")          # adjusted
+fit <- aov(score ~ condition, data = d)
+summary(fit)   # omnibus
+
+estimate_contrasts(model = fit, contrast = "condition", method = "pairwise",
+                   p_adjust = "none")   # unadjusted
+estimate_contrasts(model = fit, contrast = "condition", method = "pairwise",
+                   p_adjust = "holm")   # adjusted
 ```
 
 Three numbers for the board: was your $F$ significant (y/n), how many of your ten
@@ -76,8 +82,8 @@ replication and roughly a 40% chance of at least one -- a bit lower here, near a
 quarter to a third, because the pairwise tests share groups and are not
 independent. The omnibus test comes out significant almost exactly 5% of the
 time, because it is one test with one $\alpha$. After Holm, the pairwise
-results return to about 5% as well. That is what the adjustment is for, and the
-board shows all three at once.
+results drop back to 5% or a little under -- the adjustment is deliberately
+conservative. That is what it is for, and the board shows all three at once.
 
 The last question is the one worth the time. The student with the most striking
 result has an ordinary-looking table, a small $p$-value, and nothing whatsoever

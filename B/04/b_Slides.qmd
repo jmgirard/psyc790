@@ -639,13 +639,15 @@ ggplot(
 ```{r}
 #| echo: true
 #| collapse: true
-library(lsr)
 
-ciMean(x, conf = 0.99)
+# Only the multiplier changes
+qt(0.995, df = n - 1)   # 99%
+qt(0.975, df = n - 1)   # 95%
+qt(0.950, df = n - 1)   # 90%
 
-ciMean(x, conf = 0.95)
-
-ciMean(x, conf = 0.90)
+# The 99% interval, then
+xbar - (qt(0.995, df = n - 1) * se)
+xbar + (qt(0.995, df = n - 1) * se)
 ```
 
 :::
@@ -714,10 +716,11 @@ The first alternative isn't my favorite as it implies a view of probability as b
 ## Another example
 
 
-Let's estimate the mean sleep satisfaction of all grad students
+Let's estimate the mean sleep satisfaction of all grad students, using a sample of 16
 
-We have a sample of 16 grad students that we can use
-
+::: {.columns}
+::: {.column}
+Calculate the pieces
 ```{r}
 #| echo: true
 #| collapse: true
@@ -725,11 +728,24 @@ We have a sample of 16 grad students that we can use
 #| replace_path: ["../../data/", ""]
 
 sleep <- read_csv("../../data/sleep.csv")
-
-mean(sleep$satisfaction)
-
-ciMean(sleep$satisfaction, conf = 0.95)
+x <- sleep$satisfaction
+n <- length(x)
+se <- sd(x) / sqrt(n)
+t <- qt(0.975, df = n - 1)
 ```
+:::
+::: {.column}
+Estimate mean and interval
+```{r}
+#| echo: true
+#| collapse: true
+
+mean(x)
+mean(x) - (t * se)
+mean(x) + (t * se)
+```
+:::
+:::
 
 *"We estimate that the mean sleep satisfaction among all grad students is 68.75, 95% CI: [57.78, 79.72]. Thus, our best guess for this value is 68.75 but, given sampling error, any number from 57.78 to 79.72 would also be a highly reasonable guess."*
 

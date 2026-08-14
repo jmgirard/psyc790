@@ -596,7 +596,7 @@ The split that works, and the one these pages now follow:
 | Lecture | Assignment does | Activity does |
 |---|---|---|
 | B/04a | estimate a mean and SE from given data | separate target from sampled population |
-| B/04b | interpret one CI; refute the "95% chance" reading | simulate 100 CIs; watch coverage vs width |
+| B/04b | interpret one CI; refute the "95% chance" reading | each types one CI from the lecture's formula; the board is the sampling distribution |
 | B/05b | judge scatterplots; compute and test $r$ | same $r$, four situations; what to *do* next |
 | B/06a | run the correct test; say why pairing matters | run the wrong test too; find where pairing stops paying |
 | C/07a | write correct interpretations | diagnose wrong ones that survive review |
@@ -664,6 +664,129 @@ it pushes a $p$-value (D/10b outliers, B/06a paired vs independent, C/08b droppi
 interaction). That is a rehearsal of the preregistration logic in Chapter 14, and
 those pages cross-reference it on purpose.
 
+### Every visible function is either taught or explained
+
+This is a course-wide rule, not an activity-only one. It has two halves, and the second
+is the one that keeps the course small:
+
+1. **Anything a student can see must be explained.** Visible means a deck chunk with
+   `#| echo: true`, any chunk on a practice/activity/assignment page, or a backticked
+   `fn()` in prose. Code inside an `#| echo: false` figure chunk is exempt — students
+   never read it, so `rnorm()` and friends may appear there freely.
+2. **Prefer not to introduce the function at all.** Explaining is the fallback, not the
+   goal. Every new function is a tax on a course whose subject is statistics, not R.
+   The ideal is that Unit A introduces the basic vocabulary once and later lectures
+   *remind* rather than introduce.
+
+So when a page needs something unseen, the order of preference is: rewrite it in
+vocabulary already taught → introduce it properly where it belongs (Unit A for anything
+basic) → explain it in place, briefly, because it genuinely earns its keep.
+
+The activity drafts failed this badly and were rewritten on 2026-08-13. No purrr, no
+`\(x)` lambdas, no list-columns, no ad-hoc indexing tricks, and no "machinery block you
+don't need to read": a page that shows students code they cannot parse tells them the
+course expects fluency it never taught, which is intimidating in exactly the way these
+pages are meant not to be. When a demonstration genuinely needs machinery students
+cannot read, the machinery leaves the page entirely; the two structural cases:
+
+- **B/04b** needs many intervals, and simulation loops are unteachable in week 5, so
+  the *room* supplies the repetitions: each student computes one interval by typing the
+  lecture's own CI formula, and the board of everyone's hits and misses is the sampling
+  distribution. No page shows any iteration. The sample comes from `data/iqpop.csv`, a
+  finite population of 10,000 IQ scores built to a mean of exactly 100 and SD of
+  exactly 15, drawn with the `sample()` B/04a already teaches — so the page introduces
+  **no** new function, and `set.seed()` is unnecessary because random sampling already
+  gives everyone a different draw (B/04a says exactly that). Verified coverage: 94.7%
+  at $n = 25$, 95.3% at $n = 100$, mean widths 12.2 and 5.9.
+- **B/06a** needs power curves nobody can code, so the simulation became a committed
+  dataset: `data/pairedpower.csv` holds ten pre/post column pairs (`pre_00`/`post_00`
+  through `pre_90`/`post_90`), generated with
+  `faux::rnorm_multi(n = 20, mu = c(50, 53), sd = 10, r = r, empirical = TRUE)` and
+  rounded to 2 dp. `empirical = TRUE` makes each pair's sample correlation *exactly*
+  its target and every mean and SD identical across pairs, so the independent test
+  gives the same result in every column ($t = 0.95$, $p = .349$) while the paired test
+  marches from $p = .355$ to $p = .007$ — and the debrief quotes those numbers as
+  exact. Regenerating the file with different settings silently breaks that debrief.
+  Students touch only `read_csv`, `$`, `cor`, `sd`, and `t.test`.
+
+B/06b needs the same treatment for the same reason: **`data/nullgroups.csv`** holds 100
+scores from a single population split into five groups of 20, and each student reshuffles
+them with `sample(d$score, size = 100)` — the two-argument form B/04a teaches — so
+everyone runs a different replication of a dataset with no real differences in it, and
+the page introduces no new function either. Verified permutation rates: omnibus
+significant 4.9% of the time, 0.54 significant unadjusted pairwise tests per run, 30.2%
+chance of at least one, 3.6% surviving Holm.
+
+One trap inside the rule: `estimate_contrasts()` refuses a predictor named `group`
+(the marginaleffects package reserves the name), which is why B/06b's factor is called
+`condition`.
+
+### The audit, and what it found
+
+`quarto render` cannot catch a vocabulary violation, so this was checked by script on
+2026-08-13: walk the lectures in course order, accumulate every function made *visible*
+(per the definition above), and flag any page using one that has not appeared yet. The
+course has **80 distinct visible functions** in total. Results worth keeping:
+
+- **Every assignment is clean**, and nothing is ever made visible in an assignment
+  before its own deck shows it.
+- **No echoed deck chunk anywhere** uses a lambda, purrr, an apply-family function,
+  `[[`, `%>%`, or a loop.
+- **The decks say `model_parameters()`, never bare `parameters()`** — 49 uses to zero.
+  The alias works but is a function the student has never seen; use the long name.
+- Every visible-but-untaught function has now been removed rather than explained. Two
+  survivors are deliberate: **A/03a's `praise()`**, where the assignment's task *is*
+  installing an unknown package and finding out what it does, and **A/03a practice's
+  `tolower()`**, which appears beside the `toupper()` its own deck teaches.
+- D/10b originally reached for `threshold = list(cook = 0.5)` to flag the influential
+  case. It now asks for `method = "mahalanobis"` instead — a rule the D/10b deck already
+  teaches, whose *default* flags exactly that one case. This is strictly better than the
+  arbitrary threshold it replaced: Cook's default reports nothing and Mahalanobis's
+  default reports case 24, so the activity's real subject (a default is a convention,
+  not a finding) is now demonstrated by two defaults disagreeing rather than asserted.
+- A/02b practice asked students to compute `cos(3)`. A cosine has no place in a
+  statistics course; it is `sqrt(3)` now, which drills the identical
+  function-then-`round()` skill using a function A/02b actually teaches.
+
+The script also lists **singletons** — functions visible exactly once in the entire
+course, the natural agenda for the "is this worth introducing?" question. Most are
+legitimately single-purpose (the `check_*` family, the `wp.*` family). Three were worth
+acting on:
+
+- **`ciMean()` is gone, and with it the whole `lsr` dependency.** It was lsr's only used
+  function anywhere in the course, and B/04b already teaches the CI by hand two slides
+  earlier (with a footer promising an easier way — which is `t.test()` in B/05a, the
+  next lecture). Both uses now apply that same hand formula. The "Comparing CIs" slide
+  is better for it: printing `qt()` at .995/.975/.950 shows *why* a higher confidence
+  level widens the interval, which `ciMean()` hid. The other five decks loaded
+  `library(lsr)` in `echo: false` setup chunks without ever calling it; those lines are
+  removed and their freeze entries were **re-keyed** rather than re-executed (§3), since
+  dropping an invisible, unused `library()` call cannot change rendered output. `lsr` is
+  out of `install-packages.R`.
+- **`filter()` is not available vocabulary.** It is named only inside A/03b's
+  tidyverse-conflicts message and used only in `echo: false` figure code, so it has
+  never been taught as an operation despite appearing in Unit A. Do not reach for it.
+- **`poly()`** is only a *mention* in a C/09a bullet ("also see `poly()` for orthogonal
+  polynomials"), not taught usage; the course teaches `I(x^2)` and its activity and
+  assignment both use it. That is the right call for this course — `I(x^2)` keeps the
+  coefficients interpretable in the raw units students just learned to read, and the
+  vertex formula the C/09a activity computes by hand only works on raw coefficients.
+  Orthogonal polynomials solve a collinearity problem the course handles by centring.
+  Keep the pointer, keep it a pointer.
+
+### Adding lines to a deck can break the zero-overflow invariant
+
+`SLIDE-OVERFLOW.md` records 0 overflowing slides across all decks, and that is easy to
+undo by accident: replacing `ciMean()` with the hand formula pushed B/04b's "Another
+example" 94px past the 700px canvas. Trimming prose and blank lines only recovered 12px
+of it; what fixed it was splitting the chunk across `::: {.columns}`, which is the
+pattern the deck's own "Calculations" slide already uses for exactly this content. It
+now clears by 7px. Measure after any deck edit that adds lines — serve `_site` with the
+`statistical-methods-site` launch config, then in the browser walk every leaf `section`
+with `Reveal.slide()` and compare each one's content bottom (divided by
+`Reveal.getScale()`) against `Reveal.getConfig().height`. A DOM probe without a real
+render will miss it, as that file warns.
+
 ### Coverage and what is missing
 
 Seventeen pages, one per lecture that currently has a deck. The chapters that are still
@@ -676,5 +799,8 @@ keeping. Write each one with its deck.
 Every code chunk is `#| eval: false` — these are things to run in class, not output to
 render — so **a clean render proves nothing about whether the code works.** The numbers
 quoted in the debrief blocks were computed against the committed datasets. If a dataset in
-`data/` changes, the affected debriefs go stale silently. The ones carrying specific numbers
-are B/04b, B/06a, C/07a, C/07c, C/08a, C/09a, D/10a, D/10b, and E/14a.
+`data/` changes, the affected debriefs go stale silently. The dataset-dependent ones are
+B/06a (`pairedpower.csv`), C/07a (`parenthood.csv`), C/07c and C/09a (`penguins.csv`),
+and D/10b (`yearspubs.csv`). D/10a's output table is fabricated but internally
+consistent, and E/14a's numbers come from WebPower, not from data; B/04b's are pure
+theory. All were verified by execution on 2026-08-13.

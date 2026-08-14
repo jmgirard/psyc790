@@ -30,13 +30,13 @@ library(easystats)
 yp <- read_csv("yearspubs.csv")
 fit <- lm(n_cites ~ n_pubs + yrs_since, data = yp)
 
-check_outliers(fit)                                    # the default verdict
-sort(cooks.distance(fit), decreasing = TRUE)[1:5]      # the five largest
-plot(check_outliers(fit))
+check_outliers(fit)         # the default verdict
+plot(check_outliers(fit))   # every case's influence, seen at once
 ```
 
-The default threshold reports **no outliers**. The largest Cook's distance is
-about five times the second and over a hundred times the median.
+The default threshold reports **no outliers**. But look at the plot: one case
+sits far beyond every other -- about five times the influence of the
+runner-up.
 
 **Do not run anything else yet.**
 
@@ -54,13 +54,20 @@ Hand the sheet to the front. No changes after this point.
 
 ## 3. The reveal (6 minutes)
 
+Ask the same function for the other rule from the lecture. Cook's distance asks
+how much a case *moves the model*; Mahalanobis distance asks how unusual its
+predictor values are. Same data, same function, both at their own defaults.
+
 ```{r}
 #| eval: false
 
-worst <- which.max(cooks.distance(fit))
-yp[worst, ]
+outliers <- check_outliers(fit, method = "mahalanobis")
+outliers      # this rule does flag something
+yp[24, ]      # who is it?
 
-compare_parameters(fit, lm(n_cites ~ n_pubs + yrs_since, data = yp[-worst, ]))
+yp_drop <- yp[!as.numeric(outliers), ]   # remove it, exactly as in the slides
+fit_drop <- lm(n_cites ~ n_pubs + yrs_since, data = yp_drop)
+compare_parameters(fit, fit_drop)
 ```
 
 - Apply your own rule. What does your group report?
@@ -89,7 +96,11 @@ with the same data and different, honestly-held rules produce different papers.
 The protection is not finding the one true threshold; it is fixing your rule
 before the reveal and reporting the analysis both ways.
 
-Note also that `check_outliers()` reported nothing at its default Cook's
-threshold of 0.8. A default is a convention someone else chose, not a finding.
+Note also what the two rules did. Cook's distance at its default threshold of
+0.8 reported nothing; Mahalanobis distance at *its* default flagged this case
+immediately. Neither is wrong -- they measure different things, influence
+versus unusualness in the predictors -- but a room that had run only the first
+one would have concluded there was nothing here to decide. A default is a
+convention someone else chose, not a finding.
 
 {{< dstop >}}

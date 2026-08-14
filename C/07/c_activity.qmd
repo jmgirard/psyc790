@@ -33,19 +33,20 @@ when `species` enters the model. Circle one: **same** / **smaller** / **bigger**
 library(tidyverse)
 library(easystats)
 
-pg <- read_csv("penguins.csv") |> drop_na(body_mass, bill_dep, species)
+pg <- read_csv("penguins.csv")
 
-parameters(lm(body_mass ~ bill_dep, data = pg))
-parameters(lm(body_mass ~ bill_dep + species, data = pg))
+fit1 <- lm(body_mass ~ bill_dep, data = pg)
+fit2 <- lm(body_mass ~ bill_dep + species, data = pg)
 
-ggplot(pg, aes(bill_dep, body_mass)) +
-  geom_point(aes(color = species)) +
-  geom_smooth(method = "lm", se = FALSE, color = "black") +
-  geom_smooth(aes(color = species), method = "lm", se = FALSE)
+model_parameters(fit1)
+model_parameters(fit2)
+
+plot(estimate_relation(fit1, by = "bill_dep"), show_data = TRUE)
+plot(estimate_relation(fit2, by = c("bill_dep", "species")), show_data = TRUE)
 ```
 
-The black line and the coloured lines have opposite slopes. Which is "the"
-relationship?
+The first plot's line and the second plot's lines have opposite slopes. Which
+is "the" relationship?
 
 ## 3. Build one and trade it (6 minutes)
 
