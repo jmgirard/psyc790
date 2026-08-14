@@ -215,6 +215,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity">Activity</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
   </ul></li>
   <li><a href="#b-reviewing-claims" id="toc-b-reviewing-claims" class="nav-link" data-scroll-target="#b-reviewing-claims">[15b] Reviewing Claims</a></li>
@@ -267,6 +268,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="fs80">
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
+</section>
+<section id="activity" class="level3 res-activity">
+<h3 class="res-activity anchored" data-anchor-id="activity">Activity</h3>
+<ul>
+<li><a href="../../E/15/a_activity.html">Lecture 15a Activity</a></li>
+</ul>
 </section>
 <section id="assignment" class="level3 res-assignment">
 <h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
@@ -384,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

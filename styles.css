@@ -372,9 +372,10 @@ lord-icon.rc {
    ---------------------------------------------------------------------------
    Every lecture section on a chapter page offers up to four kinds of resource,
    each as a plain bullet list under an h3: Files (datasets to download),
-   Readings (off-site chapters and papers), Practice (an ungraded activity), and
-   Assignment (the graded one). As plain bullets they were four identical grey
-   lists and a reader had to consult the heading to tell which was which.
+   Readings (off-site chapters and papers), Activity (the in-class one), Practice
+   (an ungraded drill with an answer key), and Assignment (the graded one). As
+   plain bullets they were identical grey lists and a reader had to consult the
+   heading to tell which was which.
 
    Each list is opted in from the .qmd with a heading attribute --
    `### Files {.res-files}` -- rather than being matched on heading text or on
@@ -388,6 +389,7 @@ lord-icon.rc {
    -------------------------------------------------------------------------- */
 section.res-files > ul,
 section.res-readings > ul,
+section.res-activity > ul,
 section.res-practice > ul,
 section.res-assignment > ul {
   list-style: none;
@@ -397,6 +399,7 @@ section.res-assignment > ul {
 
 section.res-files > ul > li,
 section.res-readings > ul > li,
+section.res-activity > ul > li,
 section.res-practice > ul > li,
 section.res-assignment > ul > li {
   position: relative;
@@ -407,6 +410,7 @@ section.res-assignment > ul > li {
 
 section.res-files > ul > li::before,
 section.res-readings > ul > li::before,
+section.res-activity > ul > li::before,
 section.res-practice > ul > li::before,
 section.res-assignment > ul > li::before {
   font-family: "bootstrap-icons";
@@ -440,7 +444,15 @@ section.res-readings > ul > li::before {
   color: #6f42c1;
 }
 
-/* Practice: ungraded, has an answer key. Unit A only. */
+/* Activity: the in-class one. Ungraded and usually without an answer key --
+   these are discussion and exploration rather than drill, which is why they get
+   a group icon rather than the pencil. Units B-E. */
+section.res-activity > ul > li::before {
+  content: "\f4cf";
+  color: #158a8a;
+}
+
+/* Practice: ungraded drill, has an answer key. Unit A only. */
 section.res-practice > ul > li::before {
   content: "\f4ca";
   color: #d9822b;

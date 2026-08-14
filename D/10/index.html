@@ -215,6 +215,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity">Activity</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
   </ul></li>
   <li><a href="#b-residuals-outliers" id="toc-b-residuals-outliers" class="nav-link" data-scroll-target="#b-residuals-outliers">[10b] Residuals &amp; Outliers</a>
@@ -222,6 +223,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a></li>
   <li><a href="#readings-1" id="toc-readings-1" class="nav-link" data-scroll-target="#readings-1">Readings</a></li>
   <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1">Slides</a></li>
+  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1">Activity</a></li>
   <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1">Assignment</a></li>
   </ul></li>
   <li><a href="#unit-d-translation-activity" id="toc-unit-d-translation-activity" class="nav-link" data-scroll-target="#unit-d-translation-activity">Unit D Translation Activity</a></li>
@@ -276,6 +278,12 @@ ul.task-list li input[type="checkbox"] {
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
 </section>
+<section id="activity" class="level3 res-activity">
+<h3 class="res-activity anchored" data-anchor-id="activity">Activity</h3>
+<ul>
+<li><a href="../../D/10/a_activity.html">Lecture 10a Activity</a></li>
+</ul>
+</section>
 <section id="assignment" class="level3 res-assignment">
 <h3 class="res-assignment anchored" data-anchor-id="assignment">Assignment</h3>
 <ul>
@@ -317,6 +325,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="fs80">
 <p>*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.</p>
 </div>
+</section>
+<section id="activity-1" class="level3 res-activity">
+<h3 class="res-activity anchored" data-anchor-id="activity-1">Activity</h3>
+<ul>
+<li><a href="../../D/10/b_activity.html">Lecture 10b Activity</a></li>
+</ul>
 </section>
 <section id="assignment-1" class="level3 res-assignment">
 <h3 class="res-assignment anchored" data-anchor-id="assignment-1">Assignment</h3>
@@ -415,7 +429,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stats\.jmgirard\.com");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
