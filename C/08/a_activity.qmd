@@ -1,0 +1,80 @@
+---
+title: "Lecture 08a Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** Most moderation hypotheses are stated in words that sound precise
+and are compatible with three different plots. You find that out when someone
+else draws your sentence.
+
+**Format.** About 12 minutes · pairs · no laptop needed.
+
+## 1. Write one (3 minutes)
+
+On the top half of a sheet, write a moderation hypothesis from **your own area**,
+in this form and nothing more:
+
+> The effect of ___ on ___ is stronger when ___ is higher.
+
+On the bottom half, hidden or folded over, draw the plot you expect: outcome on
+$y$, predictor on $x$, three lines for low, average, and high moderator.
+
+## 2. Draw each other's (5 minutes)
+
+Swap sheets, sentence side up. Draw the plot **their** sentence describes to you.
+Then unfold and compare.
+
+- Do the two drawings match? Most pairs find they do not.
+- If they differ, is the sentence wrong or the drawing? Fix whichever is wrong.
+- Now the harder one: draw the plot that would **refute** their hypothesis while
+  still showing a significant interaction. Compare with what they had in mind.
+
+## 3. Say it backwards (4 minutes)
+
+The model has exactly one interaction coefficient and does not know which
+variable you nominated as the moderator.
+
+- Restate your partner's hypothesis with the roles swapped -- the effect of the
+  moderator depends on the predictor -- and read it aloud.
+- Does the swapped version still make theoretical sense? For whose hypothesis
+  does it, and for whose does it not?
+- If the swap is nonsense but the model cannot tell, where does the asymmetry
+  live: in the statistics, the design, or the theory?
+
+*If you have more time: which of these is moderation? (a) therapy works better
+for more severe patients; (b) therapy works because it improves sleep;
+(c) therapy worked in the clinical sample but not the community sample;
+(d) scores were more variable in the treatment group.*
+
+{{< dstart summary="If you were not in class" >}}
+
+The mismatch in part 2 is the finding. "Stronger when the moderator is higher" is
+compatible with lines that fan out from a common origin, lines that start apart
+and diverge, and lines that cross -- and most people have exactly one of those in
+mind while writing a sentence that licenses all three. A hypothesis you cannot
+draw uniquely is a hypothesis you cannot test, and you will not notice on your
+own, because you can see your own picture.
+
+On the swap: the interaction coefficient is symmetric and both readings are
+always available. The asymmetry lives entirely in the theory and the design --
+which variable was manipulated, which came first, which one your field treats as
+the intervention. Nothing in the output encodes it, so "X moderates Y" is a claim
+*you* are making. The swapped reading is often the more useful one when the
+moderator is the thing you can change.
+
+On the extension: only (a) is moderation. (b) is mediation, a chain rather than a
+condition. (c) is treating "significant here, not there" as a difference in
+effect, which it is not -- the two effects may not differ at all, and the only
+way to know is to test the interaction. (d) is a difference in variance, which no
+interaction term will find.
+
+{{< dstop >}}

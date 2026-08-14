@@ -1,0 +1,86 @@
+---
+title: "Lecture 14b Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** Almost nothing on the questionable-practices list is wrong in
+itself. What makes an act a problem is when it was decided and whether it was
+disclosed -- and the only way to feel that is to try to separate two people who
+wrote identical methods sections.
+
+**Format.** About 12 minutes · threes · no laptop needed.
+
+## 1. Your pair (2 minutes)
+
+Each group takes **one** pair. Both researchers did the same thing.
+
+> **Pair 1.** (i) Rania excludes 6 participants for failing an attention check she
+> defined before collecting data. (ii) Sam excludes 6 for failing an attention
+> check, after noticing it moves his effect below .05.
+
+> **Pair 2.** (i) Jae collects 50, finds nothing, and collects 30 more because
+> the grant year is ending. (ii) Mira collects 50, sees $p = .07$, and collects
+> 30 more.
+
+> **Pair 3.** (i) Dev log-transforms a skewed outcome, as his lab always does
+> with reaction times. (ii) Wren tries raw, log, and rank, and reports the log.
+
+> **Pair 4.** (i) Tomás reports an unexpected age effect as exploratory.
+> (ii) Priya introduces the same unexpected age effect in her introduction as the
+> study's hypothesis.
+
+## 2. Try to separate them (6 minutes)
+
+- Write the sentence in the methods section that would differ between (i) and
+  (ii). If none would, say so -- that is an allowed answer.
+- Is the *statistical* damage the same in both halves? Is the *ethical* judgment?
+- What single published fact would let a reader tell them apart?
+- One of your two is something most researchers have done. Which, and at what
+  exact moment did it become questionable?
+
+## 3. Report out (4 minutes)
+
+Each group gives its pair in thirty seconds: **separable or not**, and by what.
+
+- How many pairs did the room find separable from the published record alone?
+- Given that answer, what follows for how you read other people's papers -- and
+  for how you work yourself?
+
+*If you have more time: who benefits from each practice, past the researcher --
+the lab, the journal, the field? And why does the file drawer survive when
+nobody is ever accused of it?*
+
+{{< dstart summary="If you were not in class" >}}
+
+Almost no group can separate their pair. The methods sections are identical or
+near enough: same exclusions, same final $n$, same transformation, same reported
+effect. What differs is when the decision was made and what it was made in
+response to -- information that exists only in the researcher's head, which is
+the entire argument for writing it down in advance.
+
+The statistical damage is *not* symmetric. Rania's rule is independent of the
+results, so her stated error rate holds. Sam's is conditional on the data, so his
+real false-positive rate exceeds .05 by an amount neither he nor his reader can
+compute. Same six participants, same table, different evidence.
+
+Pair 2 splits rooms and should. Jae and Mira end up with identical datasets.
+Mira's stopping rule is a function of the $p$-value, which inflates her effect
+and her error rate; Jae's is a function of the grant calendar, which is unrelated
+to the result. This is why "we collected more data" is not itself an accusation,
+and also why "we had leftover money" is not a defence anyone can verify.
+
+Two consequences worth sitting with. You usually cannot detect this in someone
+else's paper, which is why the field moved toward preregistration rather than
+toward better reviewing. And less comfortably: you cannot reliably detect it in
+yourself, because the reasoning feels principled at the time.
+
+{{< dstop >}}

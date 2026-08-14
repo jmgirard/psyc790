@@ -150,8 +150,8 @@ Developed by [Jeffrey M. Girard](https://jmgirard.com)
 :::
 
 This site holds the teaching materials for a graduate course in statistical
-methods for the behavioral and social sciences: slides, in-class practice
-activities, assignments, readings, and datasets, covering fifteen chapters
+methods for the behavioral and social sciences: slides, in-class activities,
+assignments, readings, and datasets, covering fifteen chapters
 across five units. Anyone is welcome to teach from these materials or work
 through them independently. Nothing here is tied to a particular semester,
 institution, or offering, since schedules, deadlines, and grading belong
@@ -160,8 +160,8 @@ wherever the course is actually being run.
 The material is organized into five units of three chapters each, and each
 chapter is two or three lectures. The lecture is the unit of scheduling: each
 one is sized to fill a single class session of about 75 to 90 minutes and
-carries its own slides, readings, and assignment, so a lecture can be skipped
-or reordered without breaking the ones around it.
+carries its own slides, readings, in-class activity, and assignment, so a
+lecture can be skipped or reordered without breaking the ones around it.
 
 ::: {.callout-note .instructors}
 ## For instructors

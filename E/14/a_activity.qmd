@@ -1,0 +1,92 @@
+---
+title: "Lecture 14a Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** A power analysis is an argument about the smallest effect worth
+detecting. The calculation takes thirty seconds; the argument needs people who
+disagree about what "worth" means.
+
+**Format.** About 15 minutes · fours, with assigned roles · one laptop per group.
+
+## 1. Run it backwards (4 minutes)
+
+Power analysis is taught forwards -- pick an effect, get an $n$. Real projects
+arrive with $n$ already fixed by money, time, or how many people exist. Solve for
+the effect you could detect:
+
+```{r}
+#| eval: false
+
+library(WebPower)
+
+wp.t(n1 = 25, n2 = 25, power = 0.80, alpha = 0.05, type = "two.sample")
+wp.anova(n = 120, k = 4, power = 0.80, alpha = 0.05)
+wp.regression(n = 100, p1 = 5, p2 = 4, power = 0.80, alpha = 0.05)
+```
+
+Pick the one closest to a study you could actually run, and translate the
+detectable effect into your own units -- points on your scale, not $d$.
+
+## 2. The table (7 minutes)
+
+Take one group member's real research question. Assign the four roles:
+
+- **The researcher**, who wants the study to be feasible.
+- **The participant or practitioner**, who has to live with the result.
+- **The funder**, who wants the money to buy something.
+- **The reviewer**, who will ask why this $n$.
+
+Each role proposes a **smallest effect worth detecting** -- an actual number in
+real units -- and defends it for one minute. Then negotiate a single number the
+whole table will sign, and compute the $n$ it requires.
+
+## 3. Whole class (4 minutes)
+
+- Which table's number was hardest to agree on, and which two roles were furthest
+  apart?
+- Whose required $n$ is impossible? What is the honest response -- change the
+  design, change the question, run it as a pilot and say so, or find
+  collaborators?
+- Somebody explain why a *post hoc* power analysis computed from the observed
+  effect tells you nothing the $p$-value did not.
+
+*If you have more time: rank these sources of an expected effect size from most
+to least defensible -- a published study, your own $n = 20$ pilot, a
+meta-analysis, the smallest effect a practitioner would act on, Cohen's $d = 0.5$
+-- and say which two run systematically too large.*
+
+{{< dstart summary="If you were not in class" >}}
+
+The numbers from part 1 are sobering on purpose. Twenty-five per group detects
+about $d = 0.81$; four groups of thirty detect about $f = 0.30$; one added
+predictor at $n = 100$ needs about $f^2 = 0.08$. A study powered only for effects
+far larger than anything in its literature will produce either a
+non-significant result that means nothing or a significant one that is badly
+inflated.
+
+The roles exist because the smallest effect of interest is the only input that
+comes from the world rather than the literature, and nobody is entitled to set it
+alone. Clinicians, participants and funders routinely want different numbers, and
+making that disagreement explicit is more useful than resolving it quietly --
+which is what happens when one person does a power analysis at their desk.
+
+On post hoc power: computed from the observed effect, it is a deterministic
+function of the $p$-value. A non-significant result always yields low observed
+power, so "we were underpowered" is a restatement of "we were not significant,"
+not an explanation of it.
+
+On the extension: the published study and your own small pilot are the two that
+run too large, for the same reason -- both are filtered by having looked
+promising, and the smaller the study the worse the inflation.
+
+{{< dstop >}}

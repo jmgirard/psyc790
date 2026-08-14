@@ -33,6 +33,9 @@ pagetitle: "Chapter {{< meta chapter >}}: Regression"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Activity {.res-activity}
+- [Lecture 07a Activity](a_activity.qmd)
+
 ### Assignment {.res-assignment}
 - [Lecture 07a Assignment](a_assignment.qmd)
 
@@ -61,6 +64,9 @@ pagetitle: "Chapter {{< meta chapter >}}: Regression"
 ::: {.fs80}
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
+
+### Activity {.res-activity}
+- [Lecture 07b Activity](b_activity.qmd)
 
 ### Assignment {.res-assignment}
 - [Lecture 07b Assignment](b_assignment.qmd)
@@ -95,6 +101,9 @@ pagetitle: "Chapter {{< meta chapter >}}: Regression"
 ::: {.fs80}
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
+
+### Activity {.res-activity}
+- [Lecture 07c Activity](c_activity.qmd)
 
 ### Assignment {.res-assignment}
 - [Lecture 07c Assignment](c_assignment.qmd)

@@ -1,0 +1,79 @@
+---
+title: "Lecture 07a Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** You will not catch your own bad interpretation, because you know
+what you meant. Somebody who has only your sentence will.
+
+**Format.** About 12 minutes · groups of four · no laptop needed.
+
+## 1. Plant one (3 minutes)
+
+A researcher regresses `grumpiness` on `hours of sleep` across 100 days of diary
+data from one person. The slope is $-8.9$, $p < .001$, and $R^2 = .82$.
+
+On an index card, write **two** sentences interpreting this output. One should be
+correct. The other should contain exactly one error -- and it should be the kind
+of error that gets past a reviewer, not an obvious one. Do not label which is
+which.
+
+Pass your card two seats to the left.
+
+## 2. Prosecute (6 minutes)
+
+For the card you receive:
+
+- Which sentence is the planted one? Name the error in three words or fewer.
+- Rewrite it so that it is true, changing as little as possible.
+- Score it: would this have survived peer review? Mark the card **caught** or
+  **would have printed**.
+
+Pass again. Do a second card. Then return both to their authors.
+
+## 3. Whole class (3 minutes)
+
+- Read out two errors marked **would have printed**. Those go on the board.
+- Show of hands: whose planted error was caught? Whose was not?
+
+*If you have more time: as a group, list every alternative explanation for this
+correlation you can think of in two minutes, then say what would have to change
+about the **design** -- not the analysis -- for a causal sentence to be
+defensible.*
+
+{{< dstart summary="If you were not in class" >}}
+
+The errors that reliably get planted and reliably get caught: "sleep *causes*
+grumpiness to decrease," and "the model explains 82% of grumpiness" (it explains
+82% of the *variance*).
+
+The ones that print are more interesting, and it is worth knowing what they are
+before you write your own paper:
+
+- **"The slope of $-8.9$ is large, so this is a big effect."** Unstandardized
+  slopes are not effect sizes. Rescale sleep to minutes and the same relationship
+  gives $-0.15$.
+- **"$p < .001$, so sleep is an important predictor."** Significance is evidence
+  against a slope of zero, not a statement about size or value.
+- **"These results should generalize to people with similar sleep patterns."**
+  This is $n = 100$ *days* from $n = 1$ *person*. The sample size for any claim
+  about people is one, however many rows the data frame has.
+- **"$R^2 = .82$, so we can predict a given day to within about 18% error."**
+  $R^2$ is a proportion of variance, not a percentage error on individual
+  predictions.
+
+The reason this runs on cards rather than on a printed list is that a list of
+wrong sentences is a puzzle with a known answer, and you read it looking for the
+trick. A classmate's sentence is just a sentence, which is the condition you will
+actually be reading in.
+
+{{< dstop >}}

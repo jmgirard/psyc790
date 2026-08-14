@@ -1,0 +1,88 @@
+---
+title: "Lecture 10a Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** "Is this assumption violated?" is the wrong first question. The
+right one is "violated for *what purpose*?" -- and the fastest way to see that is
+for four groups to reach four different verdicts on the same output.
+
+**Format.** About 10 minutes · fours · no laptop needed.
+
+## 1. The output (2 minutes)
+
+Two predictors, correlated at $.95$, $n = 200$:
+
+```
+Parameter   | Coefficient |   SE |        95% CI | t(197) |     p
+-----------------------------------------------------------------
+(Intercept) |        0.15 | 0.07 | [ 0.00, 0.29] |   1.97 | 0.051
+x1          |        0.43 | 0.25 | [-0.05, 0.92] |   1.76 | 0.079
+x2          |        0.31 | 0.25 | [-0.18, 0.79] |   1.25 | 0.214
+
+R2 = 0.32,  F(2, 197) = 46.4, p < .001
+VIF: x1 = 10.5, x2 = 10.5
+```
+
+Neither predictor is significant. The model is overwhelmingly significant.
+Write down, on your own, whether you would call this model usable.
+
+## 2. Your assigned purpose (5 minutes)
+
+Each group is assigned **one** of these four purposes. Decide whether the
+collinearity is fatal, survivable, or irrelevant *for yours*, and prepare a
+one-sentence verdict.
+
+> **1.** Predicting $y$ for a new case whose $x_1$ and $x_2$ look like these.
+
+> **2.** Predicting $y$ for a new case with high $x_1$ and low $x_2$.
+
+> **3.** Testing whether $x_1$ and $x_2$ together account for variance in $y$.
+
+> **4.** Arguing that $x_1$ matters over and above $x_2$.
+
+## 3. Compare verdicts (3 minutes)
+
+Each group reads its verdict. Then, as a room:
+
+- The four verdicts are not the same. Which purposes does the VIF actually speak
+  to, and which is it silent about?
+- Someone proposes dropping $x_2$. Which of the four purposes does that help, and
+  which does it destroy?
+- Someone proposes centring both predictors. What will that do?
+
+*If you have more time: name three plausible confounders that were never measured
+in a study you care about, give the direction each would bias the effect, and
+sort them into "fixable by measuring" and "fixable only by redesigning."*
+
+{{< dstart summary="If you were not in class" >}}
+
+Collinearity is not a violation of anything. The model is unbiased and its
+predictions are fine. What it does is inflate the standard errors of the
+individual coefficients, because the data contain very little information about
+what $x_1$ does *while $x_2$ is held constant* -- you barely observed that
+combination.
+
+So the four verdicts differ, and all four are right. Purpose 1 is unaffected.
+Purpose 2 is extrapolation into a region with no data, which is a real problem
+but not the one the VIF is measuring. Purpose 3 is untouched -- the omnibus $F$
+and $R^2$ are fine, which is why the model can be overwhelmingly significant
+while neither coefficient is. Purpose 4 is exactly what collinearity destroys,
+and it is the only one of the four the VIF addresses.
+
+Dropping $x_2$ rescues purpose 4 at the cost of changing the question: the
+remaining coefficient is now a zero-order effect and means something different.
+**Centring does nothing at all here** -- it helps only with the artificial
+correlation between a predictor and its own interaction or polynomial term, which
+is a different problem with the same symptom.
+
+{{< dstop >}}

@@ -1,0 +1,95 @@
+---
+title: "Lecture 10b Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** Once you have seen which way deleting a case pushes your
+$p$-value, you can no longer make an unbiased decision about deleting it. The
+room writing rules *before* the reveal is the only way to demonstrate that
+honestly.
+
+**Format.** About 15 minutes · threes · one laptop per group.
+
+## 1. Look, then stop (4 minutes)
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+library(easystats)
+
+yp <- read_csv("yearspubs.csv")
+fit <- lm(n_cites ~ n_pubs + yrs_since, data = yp)
+
+check_outliers(fit)                                    # the default verdict
+sort(cooks.distance(fit), decreasing = TRUE)[1:5]      # the five largest
+plot(check_outliers(fit))
+```
+
+The default threshold reports **no outliers**. The largest Cook's distance is
+about five times the second and over a hundred times the median.
+
+**Do not run anything else yet.**
+
+## 2. Write your rule (5 minutes)
+
+On a sheet the group signs, write a rule you would be willing to preregister:
+
+- What counts as an outlier here? Name the statistic and the threshold, and say
+  whether you accept a rule that flags nothing in this dataset.
+- Under what circumstances would you remove a flagged case? Under what
+  circumstances keep it?
+- What will you report either way?
+
+Hand the sheet to the front. No changes after this point.
+
+## 3. The reveal (6 minutes)
+
+```{r}
+#| eval: false
+
+worst <- which.max(cooks.distance(fit))
+yp[worst, ]
+
+compare_parameters(fit, lm(n_cites ~ n_pubs + yrs_since, data = yp[-worst, ]))
+```
+
+- Apply your own rule. What does your group report?
+- Read out two or three rules from the front. **Does the room's answer depend on
+  whose rule you use?** That is the finding.
+- Now the honest question, and answer it to each other: having seen the reveal,
+  would you have written the same rule five minutes ago?
+- The package default said there was nothing to see. What does that tell you
+  about using a default as your decision rule?
+
+*If you have more time: run `check_model()` on four models breaking four
+different assumptions and name each from its plot before running any test.*
+
+{{< dstart summary="If you were not in class" >}}
+
+The influential case is a researcher with 69 publications and 13 years since
+their PhD -- a real, plausible person and the most influential observation in the
+dataset. Removing that single row moves `n_pubs` from $+0.20$ to $-0.04$ and
+`yrs_since` from $p = .10$ to $p = .04$. **One row decides which predictor the
+paper is about**, and reasonable rules written by different groups will disagree
+about whether to keep it.
+
+That disagreement is the point, and it is not a failure of the room. It is what
+"researcher degrees of freedom" means, made visible: several defensible analysts
+with the same data and different, honestly-held rules produce different papers.
+The protection is not finding the one true threshold; it is fixing your rule
+before the reveal and reporting the analysis both ways.
+
+Note also that `check_outliers()` reported nothing at its default Cook's
+threshold of 0.8. A default is a convention someone else chose, not a finding.
+
+{{< dstop >}}

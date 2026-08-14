@@ -1,0 +1,84 @@
+---
+title: "Lecture 09a Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** Whether a curve is real is a judgment call, and the fastest way to
+find out how strong your case is, is to be assigned the other side of it.
+
+**Format.** About 12 minutes · pairs · one laptop per pair.
+
+## 1. Get the evidence (4 minutes)
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+library(easystats)
+
+penguins <- read_csv("penguins.csv") |> drop_na(body_mass, flipper_len)
+
+fit <- lm(body_mass ~ flipper_len + I(flipper_len^2), data = penguins)
+parameters(fit)
+
+b <- coef(fit)
+-b[["flipper_len"]] / (2 * b[["I(flipper_len^2)"]])   # the vertex
+range(penguins$flipper_len)                            # the data
+
+r2(fit)
+r2(lm(body_mass ~ flipper_len, data = penguins))
+
+plot(estimate_relation(fit, by = "flipper_len"), show_data = TRUE)
+```
+
+## 2. Take a side (5 minutes)
+
+One of you is **the author**: the curvature is real and belongs in the paper. The
+other is **the reviewer**: the quadratic term should come out. You do not get to
+pick, and you both have exactly this output.
+
+Build your case in three minutes, then argue it for two. Each side must use the
+vertex, the range, and the $R^2$ at least once.
+
+## 3. Whole class (3 minutes)
+
+- Reviewers: what was your strongest point? Authors: what was your best answer?
+- The room votes. Then: what *additional* evidence would have settled it, and
+  could it have come from this dataset at all?
+
+*If you have more time: which of these theories predicts a turning point and
+which only predicts a bend? (a) anxiety and performance follow an inverted U;
+(b) study hours help with diminishing returns; (c) income rises with age until
+retirement. A quadratic gives you a turn whether you asked for one or not.*
+
+{{< dstart summary="If you were not in class" >}}
+
+The vertex falls near 157 mm; the observed flipper lengths run from 172 to 231.
+So the fitted parabola turns around outside the data, and within the data the
+curve is monotonic -- the quadratic term is *bending* the line, not producing a
+peak. The reviewer's strongest point is that no penguin in this dataset is
+anywhere near the vertex, so "body mass peaks at 157 mm" is a claim about the
+algebra of a parabola rather than about penguins. The author's best answer is
+that they never claimed a peak: the term is buying a small, real improvement in
+fit ($R^2$ goes from .762 to .778) in the region where data exist.
+
+Both are right, which is why this is a judgment call and not a test. The useful
+habit is the one the argument forces: **compute the extremum, then check it
+against `range()` before writing a sentence about it.**
+
+On the extension: (a) and (c) genuinely predict turning points, so a quadratic is
+a reasonable shape. (b) predicts diminishing returns -- a bend with no peak -- and
+a quadratic will impose a peak anyway, then predict that studying more eventually
+makes you worse. A log transformation of the predictor gives the bend without the
+turn.
+
+{{< dstop >}}

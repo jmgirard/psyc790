@@ -1,0 +1,71 @@
+---
+title: "Lecture 05b Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** The same correlation can be a good result, a useless one, or a
+disaster. Being assigned to defend one you did not choose is the fastest way to
+find out what you were smuggling in.
+
+**Format.** About 10 minutes · pairs, then whole class · no laptop needed.
+
+## 1. Your assignment (2 minutes)
+
+Each pair is assigned **one** of these four studies. All four report $r = .30$,
+$p < .05$.
+
+> **A.** A 15-year study of 40,000 people: childhood adversity and adult
+> depression.
+
+> **B.** An undergraduate project, $n = 45$: hours of sleep and exam score.
+
+> **C.** A new 4-item screening tool against a full clinical diagnosis.
+
+> **D.** Two administrations of the same questionnaire, one week apart.
+
+Your job is to argue that **yours is the most useful result in the room.** You do
+not get to pick.
+
+## 2. Build your case (5 minutes)
+
+- What does the .30 buy the researcher in your study, concretely?
+- What is the strongest attack another pair will make on you, and what is your
+  answer?
+- Find the pair with the weakest study and prepare one sentence against them.
+
+## 3. The floor (3 minutes)
+
+One sentence each, in order A, B, C, D. Then one round of rebuttals. Then the
+room votes on a ranking.
+
+*If you have more time: take a correlation you believe from your own area. Your
+partner proposes three third variables that could produce it with no direct
+relationship, and you say which could be ruled out by measuring something and
+which only by designing the study differently.*
+
+{{< dstart summary="If you were not in class" >}}
+
+A and D are the informative ones; B and C are the problems. An $r$ of .30 is a
+respectable effect for a life-course risk factor, and with $n = 40{,}000$ it is
+precisely estimated. It is a poor screening tool -- you would misclassify
+constantly. And it is a *disastrous* test-retest reliability: the questionnaire
+is mostly measuring noise, and every effect you estimate with it will be
+attenuated, which is Chapter 13's subject. Study B's interval runs roughly from
+.01 to .55, so the honest summary is "somewhere between nothing and a lot."
+
+Whoever drew D usually discovers mid-argument that they are defending the worst
+result in the room, and that is the useful moment. The four studies share a
+number and share nothing else; every reaction the room has comes from context the
+number does not carry. That is the argument for never reporting a correlation
+without an interval and without saying what it is a correlation *for*.
+
+{{< dstop >}}

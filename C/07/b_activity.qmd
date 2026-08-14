@@ -1,0 +1,89 @@
+---
+title: "Lecture 07b Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** Choosing a reference group changes every coefficient in the table
+and changes nothing about the model. The only way to feel that is for three
+people to hold three different tables and discover they describe one thing.
+
+**Format.** About 12 minutes · threes · one laptop per group.
+
+## 1. Split the work (4 minutes)
+
+Each person in the group fits a **different** model and looks only at their own
+output. Do not show each other your tables yet.
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+library(easystats)
+
+pg <- read_csv("penguins.csv") |> drop_na(body_mass, species)
+
+# person 1
+fit <- lm(body_mass ~ species, data = pg)
+
+# person 2
+fit <- lm(body_mass ~ fct_relevel(species, "Chinstrap"), data = pg)
+
+# person 3
+fit <- lm(body_mass ~ fct_relevel(species, "Gentoo"), data = pg)
+
+parameters(fit)
+r2(fit)
+```
+
+## 2. Compare (5 minutes)
+
+From **your own table alone**, by hand, compute the predicted mean body mass for
+all three species. Write your three numbers down. Now compare across the group.
+
+- Did all three of you get the same three predicted means? Same $R^2$?
+- One person's table shows a significant coefficient that another's does not. Is
+  one of you wrong? What is each $p$-value actually testing?
+- Count the pairwise comparisons among three species. Count the rows in any one
+  of your tables. Where did the missing one go?
+
+## 3. Whole class (3 minutes)
+
+- A reviewer writes: "your species effect is significant in Model 1 but not in
+  Model 2, so the finding is unstable." What has the reviewer misunderstood?
+- A paper reports a five-level predictor and shows only its coefficient table.
+  How much of the model is the reader seeing?
+
+*If you have more time: filter to two species and compare
+`lm(body_mass ~ species)` to `t.test(body_mass ~ species, var.equal = TRUE)`.
+Find the $t$ from one in the other.*
+
+{{< dstart summary="If you were not in class" >}}
+
+All three are the same model. The predicted means, fitted values, residuals,
+$R^2$, and omnibus $F$ are identical to the last decimal. What changes is which
+comparisons the table happens to display: with Adelie as reference you get
+Chinstrap $-$ Adelie and Gentoo $-$ Adelie, and Chinstrap $-$ Gentoo is simply
+not shown. It has not become non-significant; it was never there.
+
+That is the answer to the reviewer, and it is why a coefficient table for a
+categorical predictor with more than two levels is an incomplete summary. Three
+levels have three pairwise comparisons and the table shows two; five levels have
+ten and the table shows four. If you want the rest, ask for them with
+`estimate_contrasts()` -- refitting under different reference groups and
+reporting whichever result you like best is the reference-group version of
+$p$-hacking.
+
+The reason each person computes the means alone before comparing is that reading
+"the model is the same" is easy to nod along with; deriving the same three
+numbers from three tables that share no coefficients is not.
+
+{{< dstop >}}

@@ -32,6 +32,9 @@ pagetitle: "Chapter {{< meta chapter >}}: Sampling & Estimation"
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
 
+### Activity {.res-activity}
+- [Lecture 04a Activity](a_activity.qmd)
+
 ### Assignment {.res-assignment}
 - [Lecture 04a Assignment](a_assignment.qmd)
 
@@ -67,6 +70,9 @@ pagetitle: "Chapter {{< meta chapter >}}: Sampling & Estimation"
 ::: {.fs80}
 \*Note that you can click the three-line (hamburger) icon on the bottom-left of the slides to access a navigation menu. You can click inside the slides region and press the left and right arrow keys on your keyboard to advance and reverse the slides and animations.
 :::
+
+### Activity {.res-activity}
+- [Lecture 04b Activity](b_activity.qmd)
 
 ### Assignment {.res-assignment}
 - [Lecture 04b Assignment](b_assignment.qmd)

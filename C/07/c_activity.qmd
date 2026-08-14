@@ -1,0 +1,84 @@
+---
+title: "Lecture 07c Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** A coefficient that shrinks when you add a predictor can mean two
+opposite things, and the output looks identical either way. Only somebody
+reading your causal story from the outside can tell you which one you have.
+
+**Format.** About 12 minutes · pairs · one laptop per pair.
+
+## 1. Predict, on your own (2 minutes)
+
+Deeper bills go with *lighter* penguins: the correlation between `bill_dep` and
+`body_mass` is about $-.47$. Predict what happens to the `bill_dep` coefficient
+when `species` enters the model. Circle one: **same** / **smaller** / **bigger**
+/ **flips sign**.
+
+## 2. Watch it, in pairs (4 minutes)
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+library(easystats)
+
+pg <- read_csv("penguins.csv") |> drop_na(body_mass, bill_dep, species)
+
+parameters(lm(body_mass ~ bill_dep, data = pg))
+parameters(lm(body_mass ~ bill_dep + species, data = pg))
+
+ggplot(pg, aes(bill_dep, body_mass)) +
+  geom_point(aes(color = species)) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  geom_smooth(aes(color = species), method = "lm", se = FALSE)
+```
+
+The black line and the coloured lines have opposite slopes. Which is "the"
+relationship?
+
+## 3. Build one and trade it (6 minutes)
+
+On a card, invent a case from **your own field**: name three real variables, say
+how they relate causally, and design it so that adding $x_2$ makes the effect of
+$x_1$ shrink to nothing.
+
+Trade cards with another pair. Their job is to decide, from your story alone:
+
+- Is $x_2$ a **confounder**? Then the adjusted estimate is the honest one.
+- Or a **mediator**? Then controlling for it has erased the effect you wanted.
+- What in your story settled it -- and could any regression output have settled
+  it instead?
+
+*If you have more time: add `flipper_len` instead of `species` and say what that
+model is asking that the other one is not.*
+
+{{< dstart summary="If you were not in class" >}}
+
+The `bill_dep` coefficient goes from about $-192$ to about $+257$: a complete
+sign reversal, and both numbers are correct. Gentoo penguins are heavier *and*
+shallower-billed than the other species, so pooling manufactures a negative
+relationship out of a between-species difference. Within any one species, deeper
+bills go with heavier birds. Neither line is "the" relationship -- the pooled
+slope answers "if I know only bill depth, what do I expect?" and the partial
+slope answers "among penguins of the same species, what does bill depth add?"
+
+The trade is the part that cannot be done alone. A confounder and a mediator
+produce **the same arithmetic** -- coefficient shrinks when $x_2$ enters -- and
+demand opposite conclusions. If $x_2$ causes both $x_1$ and $y$, adjust. If $x_1$
+causes $x_2$ causes $y$, adjusting deletes the effect you were measuring and the
+*unadjusted* estimate is closer to the truth. No output distinguishes them. Only
+the story does, which is why somebody else has to read it: when you wrote the
+card you already knew which one you meant.
+
+{{< dstop >}}

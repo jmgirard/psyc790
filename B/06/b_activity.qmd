@@ -1,0 +1,93 @@
+---
+title: "Lecture 06b Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** "Why not just run all the $t$-tests?" has a specific answer, and it
+is far more convincing when thirty people generate it than when a slide asserts
+it. Everyone runs one replication; the class is the sample.
+
+**Format.** About 15 minutes · individually, then whole class · one laptop each.
+
+## 1. Commit, on your own (2 minutes)
+
+Five groups of 20 people each. Every person in every group is drawn from **the
+same population** -- there are no real differences anywhere.
+
+a) You run all ten pairwise $t$-tests. How many come out significant?
+b) Out of thirty students doing this, how many will get at least one significant
+   result?
+c) How many will get a significant omnibus $F$?
+
+## 2. Your replication (5 minutes)
+
+Set the seed to your birthday as `MMDD`, so every person in the room has a
+different one.
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+
+set.seed(1031)   # <- your own number here
+
+d <- tibble(
+  group = factor(rep(1:5, each = 20)),
+  score = rnorm(100, mean = 50, sd = 10)   # one population, no real differences
+)
+
+summary(aov(score ~ group, data = d))                                # omnibus
+pairwise.t.test(d$score, d$group, p.adjust.method = "none")          # unadjusted
+pairwise.t.test(d$score, d$group, p.adjust.method = "holm")          # adjusted
+```
+
+Three numbers for the board: was your $F$ significant (y/n), how many of your ten
+unadjusted tests were significant, and how many survived Holm.
+
+## 3. Pool the class (6 minutes)
+
+Total the three columns, then:
+
+- What fraction of the room got a significant omnibus test? What should it be?
+- What fraction got **at least one** significant unadjusted pairwise test?
+- What fraction after Holm?
+- Every significant result on that board is a false positive. Looking at any one
+  of them in isolation, how would its author have known?
+- One student in the room has the most significant result. If they published it,
+  what would be wrong with the paper -- and would any reviewer be able to tell?
+
+*If you have more time: you have 5 groups but only ever cared about two specific
+comparisons, written down before collecting data. How many tests should you
+correct for, and why is the answer not always ten?*
+
+{{< dstart summary="If you were not in class" >}}
+
+Ten tests at $\alpha = .05$ give you an expected 0.5 false positives per
+replication and roughly a 40% chance of at least one -- a bit lower here, near a
+quarter to a third, because the pairwise tests share groups and are not
+independent. The omnibus test comes out significant almost exactly 5% of the
+time, because it is one test with one $\alpha$. After Holm, the pairwise
+results return to about 5% as well. That is what the adjustment is for, and the
+board shows all three at once.
+
+The last question is the one worth the time. The student with the most striking
+result has an ordinary-looking table, a small $p$-value, and nothing whatsoever
+in their output to indicate that it came from a population with no differences in
+it. No reviewer could tell. The only thing that distinguishes their table from a
+real finding is information about how many comparisons were run -- which is
+exactly the information that goes missing in the literature, and exactly what
+preregistration exists to preserve.
+
+Correcting for two preregistered comparisons rather than ten is legitimate, and
+it is legitimate *because you wrote them down first*.
+
+{{< dstop >}}

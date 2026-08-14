@@ -29,7 +29,8 @@ A/01/ ... E/15/        one folder per chapter, grouped by unit letter
   _metadata.yml        `chapter` number
   index.qmd            chapter hub: per lecture -- Topics / Files / Readings / Slides iframe
   a_Slides.qmd         revealjs; metadata-files: ../../_slide-settings.yml
-  a_practice.qmd       in-class practice, answers in {{< dstart >}} blocks (public)
+  a_practice.qmd       in-class practice drill, answers in {{< dstart >}} blocks (Unit A)
+  a_activity.qmd       in-class activity (Units B-E); see §9
   a_assignment.qmd     three questions, each naming its own dataset and model
   translation.qmd      unit-closing activity (B/06, C/09, D/10 only)
 archive/               pre-modernization Fall 2025 source; excluded from the render
@@ -387,7 +388,8 @@ repo where they are as protected as the source.
 Two different things get called an answer key, and only one is sensitive:
 
 - **Practice answers** — the `{{< dstart summary="Answer key" >}}` blocks inside
-  `*_practice.qmd`. These are public on purpose.
+  `*_practice.qmd`, and the `summary="If you were not in class"` blocks inside
+  `*_activity.qmd`. These are public on purpose (§9).
 - **Graded keys** — assignment answers. These must not be published.
   [`index.qmd`](index.qmd) tells instructors to email for them.
 
@@ -549,3 +551,130 @@ navbar points at a Canvas course and a dated syllabus PDF, and `psyc894`'s point
 So this site now links outward to pages that link to particular offerings, which the
 "links run one way" rule (§1) otherwise avoids. Accepted deliberately, on the expectation
 that `data2` will be rebuilt in this site's semester-agnostic style.
+
+---
+
+## 9. In-class activities (Units B–E)
+
+Every lecture in Units B through E has an `*_activity.qmd` beside its deck, linked from the
+chapter page under `### Activity {.res-activity}`, between the slides and the assignment.
+The one exception is **B/06c**, whose deck already ends with the Unit B translation activity;
+that section links to `translation.qmd` instead of to a page of its own.
+
+### Practice and activity are different genres
+
+Unit A's `*_practice.qmd` and Units B–E's `*_activity.qmd` are deliberately not the same
+thing, and the distinction is worth keeping:
+
+- **Practice** — *apply the skill*. Solo drill, one right answer, full answer key published
+  in `{{< dstart summary="Answer key" >}}`. Right for Unit A, where the skill (typing correct
+  R) is the content.
+- **Activity** — *explore the idea*. Small groups, usually more than one defensible answer,
+  no answer key. Where the discussion does converge on something, the page closes with a
+  `{{< dstart summary="If you were not in class" >}}` block that states the point the debrief
+  should reach. That block is a debrief note, not a key: it is written so that opening it
+  early spoils the argument rather than supplying an answer to copy.
+
+That is why the activity icon is `bi-people-fill` and the practice icon is `bi-pencil-square`.
+
+### Activity and assignment must not do the same work
+
+This is the rule that is easiest to break and hardest to notice, because an
+activity and an assignment for the same lecture are drawn from the same slides and
+will always share *concepts*. Sharing concepts is the point. What they must not
+share is the **task** — the thing the student is asked to produce.
+
+The first draft of these pages failed this badly. C/08a asked students to explain why
+the lower-order coefficient is not "the effect of duration," to classify the interaction
+pattern, and to compare centred and uncentred coefficients: all three are questions on
+`c/08/a_assignment.qmd`. B/05b asked students to judge scatterplots by eye, which is
+assignment Q1b verbatim. E/15a asked students to review a results section against the
+eight questions, which is the whole of the assignment.
+
+The split that works, and the one these pages now follow:
+
+| Lecture | Assignment does | Activity does |
+|---|---|---|
+| B/04a | estimate a mean and SE from given data | separate target from sampled population |
+| B/04b | interpret one CI; refute the "95% chance" reading | simulate 100 CIs; watch coverage vs width |
+| B/05b | judge scatterplots; compute and test $r$ | same $r$, four situations; what to *do* next |
+| B/06a | run the correct test; say why pairing matters | run the wrong test too; find where pairing stops paying |
+| C/07a | write correct interpretations | diagnose wrong ones that survive review |
+| C/07b | choose and justify a reference group | show three reference groups are one model |
+| C/07c | explain a sign change in given output | invent cases; separate confounder from mediator |
+| C/08a | fit, interpret, plot, centre | state a hypothesis and what would refute it |
+| C/08b | interpret simple slopes in real output | translate patterns to signs and back |
+| D/10a | detect collinearity with VIF | decide which *questions* collinearity ruins |
+| D/10b | check assumptions on a real model | triage known violations; pre-commit an outlier rule |
+| E/14a | forward power: effect in, $n$ out | reverse power: $n$ in, effect out; is it worth running |
+| E/14b | name the QRPs in a vignette | separate pairs whose write-ups are identical |
+| E/15a | review someone else's results section | write one from raw output |
+
+When a lecture's assignment changes, re-read its activity. The overlap creeps back
+from the assignment side as often as from the activity side.
+
+### The shape every page follows
+
+Ten to fifteen minutes, three steps, one core task. The scaffolding is identical
+across all seventeen pages so that no class time goes to explaining the format; only
+the task varies.
+
+```
+The idea.    one sentence, naming the concept and not the procedure
+Format.      duration · group size · laptop or not
+1.           commit / produce something, ~2-4 min   (alone, in pen)
+2.           the exchange, ~5-7 min                 (the part that needs other people)
+3.           whole class, ~2-4 min                  (debrief prompts, verbatim)
+If you have more time.                              (one italic sentence; the cut material)
+If you were not in class                            (collapsed debrief note)
+```
+
+An earlier draft ran 25 minutes with four or five parts. That is a third of a lecture
+for something meant to be a break in one, and everything past the core task was
+padding. If a page grows a fourth numbered step, the step belongs in the *If you have
+more time* line instead.
+
+### The test: does it need the room?
+
+The rule that decides whether an activity is worth class time at all. **If a student
+could do it alone at home and get the same thing out of it, it is a worksheet, not an
+activity** — and it should be an assignment question or a slide instead. Every page
+here is built on one of five mechanics that make the other people load-bearing:
+
+| Mechanic | How it works | Pages | n |
+|---|---|---|---|
+| **Pooling** | everyone runs one instance; the class distribution is the finding | B/04b, B/06a, B/06b | 3 |
+| **Peer-generated material** | you make it, somebody else works it | B/04a, C/07a, C/07c, C/08a, C/08b, E/15a | 6 |
+| **Assigned position** | you argue a side you did not choose | B/05b, C/09a, D/10a, E/14a | 4 |
+| **Forced consensus** | one answer per group, everyone must defend it | B/05a, E/14b | 2 |
+| **Public pre-commitment** | rules go to the front before the reveal; the spread is the point | D/10b | 1 |
+| **Jigsaw** | each member holds different information; the answer needs all of it | C/07b | 1 |
+
+Two rules inside the shape do real work and should survive edits:
+
+- **Individual commitment before the exchange.** Every page opens by asking each
+  student to write, draw, or predict something alone. Without it the confident member
+  of each group answers first and nobody else forms a position to revise.
+- **The prediction comes before the computation.** Where an activity runs code,
+  students commit to the output first. The learning is in the mismatch, and it
+  disappears if they read the result before committing.
+
+Several activities also ask students to fix a decision rule *before* seeing which way
+it pushes a $p$-value (D/10b outliers, B/06a paired vs independent, C/08b dropping an
+interaction). That is a rehearsal of the preregistration logic in Chapter 14, and
+those pages cross-reference it on purpose.
+
+### Coverage and what is missing
+
+Seventeen pages, one per lecture that currently has a deck. The chapters that are still
+outline-only — C/09b, D/11, D/12, E/13, E/15b — have no activity yet, because an activity
+written against a lecture title rather than against real lecture content is not worth
+keeping. Write each one with its deck.
+
+### Verifying the code
+
+Every code chunk is `#| eval: false` — these are things to run in class, not output to
+render — so **a clean render proves nothing about whether the code works.** The numbers
+quoted in the debrief blocks were computed against the committed datasets. If a dataset in
+`data/` changes, the affected debriefs go stale silently. The ones carrying specific numbers
+are B/04b, B/06a, C/07a, C/07c, C/08a, C/09a, D/10a, D/10b, and E/14a.

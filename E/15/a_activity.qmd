@@ -1,0 +1,92 @@
+---
+title: "Lecture 15a Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** Writing a results section and judging one are different skills.
+This does the first, and then hands it to somebody whose only information is what
+you actually wrote down.
+
+**Format.** About 15 minutes · threes · no laptop needed.
+
+## 1. Write it (7 minutes)
+
+Here is everything you have. A study of 94 university instructors asked whether
+student evaluation scores relate to a rated attractiveness composite,
+controlling for age and sex.
+
+```
+Parameter   | Coefficient |       SE |        95% CI | t(90) |      p
+---------------------------------------------------------------------
+(Intercept) |        3.76 |     0.23 | [ 3.29, 4.22] | 16.03 | < .001
+beauty      |        0.13 |     0.06 | [ 0.01, 0.25] |  2.24 | 0.028
+age         |    5.16e-05 | 4.86e-03 | [-0.01, 0.01] |  0.01 | 0.992
+sex [male]  |        0.23 |     0.10 | [ 0.04, 0.42] |  2.46 | 0.016
+
+R2 = 0.101,  adj. R2 = 0.071,  F(3, 90) = 3.36, p = .022
+Standardized: beauty 0.24 [0.03, 0.45], sex [male] 0.51 [0.10, 0.92]
+```
+
+`eval` runs from 1 to 5. `beauty` is standardized. `sex` has female as the
+reference.
+
+Write the results paragraph -- actual sentences, five to eight of them. One
+person keeps a second list: **every question you had to guess the answer to.**
+
+## 2. Break somebody else's (5 minutes)
+
+Swap with another group. Do not check theirs against a rubric. Try to break it:
+
+- One sentence that claims more than the output supports.
+- One number a reader would want that is not there.
+- One place a reader could not tell whether a coefficient is standardized.
+- The vaguest sentence -- rewrite it to be specific.
+
+Hand it back with those four marked.
+
+## 3. Whole class (3 minutes)
+
+- Read out one entry from your "had to guess" list. These are what the real
+  authors had to know and what most often goes missing.
+- Two groups made opposite decisions about the `age` coefficient. Both defend.
+
+*If you have more time: is $R^2 = .10$ a sentence in your results or in your
+discussion? What is the difference?*
+
+{{< dstart summary="If you were not in class" >}}
+
+The "had to guess" list is the payoff. It usually includes whether assumptions
+were checked, whether the sample size was planned, whether these three predictors
+were the only ones tried, who rated attractiveness, and what the design was --
+none of it recoverable from a coefficient table. That is why a results section
+cannot stand alone, and why the reviewing questions from the lecture are mostly
+questions about what the table does *not* show.
+
+Three things nearly every first draft gets wrong, and which the swap reliably
+catches:
+
+- **Standardization.** Unstandardized `beauty` is 0.13, standardized is 0.24. A
+  sentence saying "0.13" without "points on the 1--5 scale per standard deviation
+  of the composite" is unreadable; one saying "$\beta = .24$" without flagging it
+  as standardized is worse.
+- **Causal verbs.** These are observational data. "Attractiveness improves
+  evaluations" is not licensed; "was associated with higher evaluations" is.
+- **The non-significant covariate.** $p = .99$ does not mean age is unrelated. It
+  means this model with these 94 instructors cannot distinguish its coefficient
+  from zero -- and the interval, $[-0.01, 0.01]$, is the useful half of that
+  sentence. Report the estimate and the interval.
+
+On $R^2$: the number belongs in the results, and what it means -- that 90% of the
+variation is something other than these three variables -- belongs in the
+discussion.
+
+{{< dstop >}}

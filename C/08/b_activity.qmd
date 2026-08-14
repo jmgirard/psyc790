@@ -1,0 +1,72 @@
+---
+title: "Lecture 08b Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** An interaction is a difference between differences. You can read
+that off a plot or off a coefficient table, and being forced to go from one to
+the other -- through another person -- is what makes the two representations
+lock together.
+
+**Format.** About 10 minutes · pairs · no laptop needed.
+
+## 1. Draw one (2 minutes)
+
+The model is `expenditure ~ duration * sex`, with `female` as the reference.
+
+Draw a plot: expenditure on $y$, duration on $x$, one line for each sex. Choose
+any pattern you like, but commit to something specific. Do not show your partner.
+
+## 2. Trade blind (5 minutes)
+
+Describe your plot to your partner **in words only** -- no pointing, no drawing
+in the air. Their job is to write down the sign of all three coefficients:
+`duration`, `sexmale`, and `duration:sexmale`, each **positive**, **negative**,
+or **about zero**.
+
+Then show them the plot and check. Swap roles.
+
+Do it twice more, and make the second pattern one where **`duration` is about
+zero but the plot clearly shows duration mattering.**
+
+## 3. Whole class (3 minutes)
+
+- Which pattern was hardest to transmit in words? That is usually the one whose
+  published description would also be ambiguous.
+- With three programs instead of two sexes there are two interaction
+  coefficients. What comparison does each represent, and which one is missing
+  from the table?
+
+*If you have more time: your interaction has $p = .21$. Do you drop it? Argue
+both sides, then say what would have settled it before you saw the number.*
+
+{{< dstart summary="If you were not in class" >}}
+
+The pattern asked for in part 2 -- `duration` near zero while duration clearly
+matters -- is one flat line for females and a rising line for males. The
+`duration` coefficient is the slope **for the reference group only**, so a zero
+there means "duration does not matter for females," not "duration does not
+matter." That single misreading is behind a large share of misinterpreted
+interaction tables, and it is much easier to catch when you have just failed to
+describe the plot to somebody.
+
+Two parallel lines with a constant gap is the other one worth fixing in memory:
+that is `duration` positive, `sexmale` positive, interaction **zero**. A constant
+difference is exactly what *no* interaction looks like.
+
+With three programs, each interaction coefficient compares one program's duration
+slope to the *reference* program's; the comparison between the two non-reference
+programs is not in the table. So "the effect differed for joggers but not
+swimmers" is the wrong sentence -- neither coefficient is about a single group.
+For an overall test, use the omnibus $F$ for the interaction term.
+
+{{< dstop >}}

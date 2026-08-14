@@ -1,0 +1,73 @@
+---
+title: "Lecture 05a Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** A $p$-value is computed *assuming the null is true*, and nearly
+every famous misreading moves that assumption. You will not notice which one you
+hold until somebody disagrees with you out loud.
+
+**Format.** About 10 minutes · threes · no laptop needed.
+
+## 1. Commit, on your own (2 minutes)
+
+A study reports $t(58) = 2.31$, $p = .024$. Mark each **true** or **false**, in
+pen, before anyone speaks.
+
+a) There is a 2.4% probability that the null hypothesis is true.
+b) If the null were true, results at least this extreme would occur about 2.4% of
+   the time.
+c) The probability of replicating this result is 97.6%.
+d) The effect is small, because .024 is small.
+e) With twice the data and the same effect size, the $p$-value would be smaller.
+f) A result at $p = .049$ is meaningfully different from one at $p = .051$.
+
+## 2. Reach consensus, in threes (6 minutes)
+
+Your group must return **one** answer sheet, and every member has to be able to
+defend it.
+
+- Compare marks. Argue every disagreement to a shared *reason*, not just a shared
+  answer.
+- For every statement the group calls false, write the smallest edit that would
+  make it true.
+- Circle any answer you personally changed. Those are tonight's reading.
+
+## 3. Whole class (2 minutes)
+
+- Which statement produced the longest argument? One voice from each side.
+- Somebody state what $p = .024$ means, out loud, no notation. Somebody else find
+  the flaw. Repeat until nobody can.
+
+*If you have more time: map NHST onto the courtroom analogy -- what is a Type II
+error, what is power -- then name one thing the analogy makes you expect that is
+not actually there.*
+
+{{< dstart summary="If you were not in class" >}}
+
+Only **b** and **e** are true.
+
+**a** reverses the conditional: a $p$-value is $P(\text{data} \mid H_0)$, not
+$P(H_0 \mid \text{data})$, and moving between them needs a prior that NHST never
+asks you for. **c** has no basis; the replication probability of a $p = .024$
+result is nearer 50% than 97.6% and depends on the true effect size, which is
+precisely what you do not know. **d** confuses significance with magnitude, which
+is why every test in this course is paired with an effect size. **f** is the one
+groups defend longest: nothing happens at .05, and treating .049 and .051 as
+different kinds of result is a decision rule wearing the costume of a
+measurement.
+
+The consensus requirement is doing real work here. Answering alone, most people
+hold **a** and **b** simultaneously without noticing they conflict; having to
+say both aloud to two other people is what surfaces it.
+
+{{< dstop >}}

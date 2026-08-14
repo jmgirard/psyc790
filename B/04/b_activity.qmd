@@ -1,0 +1,94 @@
+---
+title: "Lecture 04b Activity"
+subtitle: "Unit {{< meta unit >}} · Chapter {{< meta chapter >}}"
+format:
+  html:
+    css: ../../styles.css
+    toc: false
+---
+
+![](../../img/conversation_2780E3.svg){.page-art}
+
+*An in-class activity. Nothing to turn in and no answer key -- this one needs
+other people, which is why it happens in class rather than at home.*
+
+**The idea.** The 95% in a 95% confidence interval is a property of the
+*procedure*, not of the one interval in front of you. One person cannot see that;
+a roomful of people running the same procedure can.
+
+**Format.** About 15 minutes · pairs · one laptop per pair.
+
+## 1. Commit, on your own (2 minutes)
+
+We will each draw 100 samples of $n = 25$ from a population whose mean is *known*
+to be 100 and build a 95% interval from each. Write down numbers, not ranges:
+
+a) How many of your 100 intervals will contain 100?
+b) How much will your neighbour's answer differ from yours?
+
+## 2. Run your own (7 minutes)
+
+Set the seed to your own number, so that no two pairs in the room get the same
+result.
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+
+set.seed(2026)   # <- your own number here
+n <- 25
+
+sims <- tibble(rep = 1:100) |>
+  mutate(
+    sample = map(rep, \(i) rnorm(n, mean = 100, sd = 15)),
+    xbar = map_dbl(sample, mean),
+    se = map_dbl(sample, \(x) sd(x) / sqrt(n)),
+    lower = xbar - qt(0.975, df = n - 1) * se,
+    upper = xbar + qt(0.975, df = n - 1) * se,
+    covers = lower <= 100 & 100 <= upper
+  )
+
+sum(sims$covers)                     # your coverage count
+mean(sims$upper - sims$lower)        # your average width
+
+ggplot(sims, aes(y = rep, x = xbar, xmin = lower, xmax = upper, color = covers)) +
+  geom_pointrange(linewidth = 0.3) +
+  geom_vline(xintercept = 100)
+```
+
+Re-run with `n <- 100` and record both numbers again. Bring four numbers to the
+board: coverage and width, at each sample size.
+
+## 3. Assemble the class (6 minutes)
+
+Every pair's four numbers go up. Then, together:
+
+- What is the range of coverage counts in the room? Nobody's individual run tells
+  you that, and it is the actual behaviour of the method.
+- Which column changed when $n$ went to 100, and which did not?
+- Point at the pair with the *lowest* coverage. Did they do anything wrong?
+- In real research you get one interval and no vertical line. Looking at the
+  board, could any single pair have known which kind they had?
+
+*If you have more time: swap the population for `rexp(n, rate = 1/100)` at
+$n = 25$ and re-pool. Coverage drops for the whole room. Which part broke?*
+
+{{< dstart summary="If you were not in class" >}}
+
+The room's coverage counts scatter around 95 -- typically from about 89 to 99 --
+and the pair at the bottom did nothing wrong. Going to $n = 100$ leaves the
+coverage column alone and halves the width column. **Coverage is what the method
+promises; width is what your sample size buys.**
+
+The board is the argument. From inside one run there is no signal at all about
+whether you are one of the 95 or one of the 5, which is exactly why "there is a
+95% chance the true value is in *this* interval" does not follow from the
+procedure's guarantee -- and why reading it off a single plot in a textbook never
+quite convinces anyone.
+
+On the extension: nothing is wrong with the standard error or the $t$ multiplier.
+What fails is the assumption that the sampling distribution of the mean is
+*already* near normal at $n = 25$ when the population is badly skewed.
+
+{{< dstop >}}
